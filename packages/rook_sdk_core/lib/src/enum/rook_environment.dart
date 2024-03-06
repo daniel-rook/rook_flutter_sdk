@@ -1,0 +1,4 @@
+enum RookEnvironment {
+  sandbox,
+  production;
+}

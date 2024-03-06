@@ -1,0 +1,98 @@
+group 'com.rookmotion.rook_sdk_health_connect'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        kotlinVersion = "1.8.10"
+        gradleVersion = "8.1.2"
+        rookSdkVersion = "0.7.1"
+        protoVersion = "3.25.3"
+        timber_version = "5.0.1"
+
+//        protoPluginVersion = "0.9.4"
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradleVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+//        classpath "com.google.protobuf:protobuf-gradle-plugin:$protoPluginVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+//apply plugin: 'com.google.protobuf'
+
+android {
+    namespace "com.rookmotion.rook_sdk_health_connect"
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 34
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+//        main.proto.srcDirs += '../proto'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+    dependencies {
+        implementation "com.jakewharton.timber:timber:$timber_version"
+        implementation "com.google.protobuf:protobuf-java:$protoVersion"
+        implementation "com.rookmotion.android:rook-sdk:$rookSdkVersion"
+
+        testImplementation 'org.jetbrains.kotlin:kotlin-test'
+        testImplementation 'org.mockito:mockito-core:5.1.1'
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+
+            testLogging {
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen { false }
+                showStandardStreams = true
+            }
+        }
+    }
+
+//    protobuf {
+//        protoc {
+//            artifact = "com.google.protobuf:protoc:$protoVersion"
+//        }
+//
+//        generateProtoTasks {
+//            all().each { task ->
+//                task.builtins {
+//                    java {
+//                        option "lite"
+//                    }
+//                }
+//            }
+//        }
+//    }
+}

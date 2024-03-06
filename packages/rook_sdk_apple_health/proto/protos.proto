@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+enum RookEnvironmentProto {
+  SANDBOX = 0;
+  PRODUCTION = 1;
+}
+
+message RookConfigurationProto {
+  string clientUUID = 1;
+  string secretKey = 2;
+  RookEnvironmentProto environment = 3;
+}
+
+message  MissingConfigurationExceptionProto {
+  string message = 1;
+}
+
+message GenericExceptionProto {
+  string message = 1;
+}
+
+message ResultBooleanProto {
+  oneof result {
+    bool success = 1;
+    MissingConfigurationExceptionProto missingConfigurationExceptionProto = 2;
+    GenericExceptionProto genericExceptionProto = 3;
+  }
+}
+
+message ResultInt64Proto {
+  oneof result {
+    int64 value = 1;
+    GenericExceptionProto genericExceptionProto = 11;
+  }
+}

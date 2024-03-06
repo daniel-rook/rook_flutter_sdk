@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+option java_package = "com.rookmotion.rook_sdk_health_connect.data.proto";
+option java_outer_classname = "ProtobufModels";
+option java_multiple_files = true;
+
+enum RookEnvironmentProto {
+  SANDBOX = 0;
+  PRODUCTION = 1;
+}
+
+enum AvailabilityStatusProto {
+  INSTALLED = 0;
+  NOT_INSTALLED = 1;
+  NOT_SUPPORTED = 2;
+}
+
+enum HealthPermissionProto {
+  SLEEP = 0;
+  PHYSICAL = 1;
+  BODY = 2;
+  ALL = 3;
+}
+
+enum SyncStatusProto {
+  SYNCED = 0;
+  RECORDS_NOT_FOUND = 1;
+}
+
+enum HealthDataTypeProto {
+  SLEEP_SUMMARY = 0 ;
+  PHYSICAL_SUMMARY = 1 ;
+  BODY_SUMMARY = 2 ;
+  PHYSICAL_EVENT = 3 ;
+  BLOOD_GLUCOSE_BODY_EVENT = 4 ;
+  BLOOD_PRESSURE_BODY_EVENT = 5 ;
+  BODY_METRICS_EVENT = 6 ;
+  HEART_RATE_BODY_EVENT = 7 ;
+  HEART_RATE_PHYSICAL_EVENT = 8 ;
+  HYDRATION_BODY_EVENT = 9 ;
+  NUTRITION_BODY_EVENT = 10 ;
+  OXYGENATION_BODY_EVENT = 11 ;
+  OXYGENATION_PHYSICAL_EVENT = 12 ;
+  TEMPERATURE_BODY_EVENT = 13 ;
+}
+
+message RookConfigurationProto {
+  string clientUUID = 1;
+  string secretKey = 2;
+  RookEnvironmentProto environment = 3;
+}
+
+message DeviceNotSupportedExceptionProto {
+  string message = 1;
+}
+
+message HealthConnectNotInstalledExceptionProto {
+  string message = 1;
+}
+
+message HttpRequestExceptionProto {
+  string message = 1;
+  uint32 code = 2;
+}
+
+message MissingConfigurationExceptionProto {
+  string message = 1;
+}
+
+message MissingPermissionsExceptionProto {
+  string message = 1;
+}
+
+message RequestQuotaExceededExceptionProto {
+  string message = 1;
+}
+
+message SDKNotInitializedExceptionProto {
+  string message = 1;
+}
+
+message TimeoutExceptionProto {
+  string message = 1;
+}
+
+message UserNotInitializedExceptionProto {
+  string message = 1;
+}
+
+message GenericExceptionProto {
+  string message = 1;
+}
+
+message MissingAndroidPermissionsExceptionProto {
+  string message = 1;
+}
+
+message ResultBooleanProto {
+
+  oneof result {
+    bool success = 1;
+    DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;
+    HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;
+    HttpRequestExceptionProto httpRequestExceptionProto = 4;
+    MissingConfigurationExceptionProto missingConfigurationExceptionProto = 5;
+    MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;
+    RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;
+    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
+    TimeoutExceptionProto timeoutExceptionProto = 9;
+    UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
+    GenericExceptionProto genericExceptionProto = 11;
+    MissingAndroidPermissionsExceptionProto missingAndroidPermissionsExceptionProto = 12;
+  }
+}
+
+message ResultInt64Proto {
+  reserved 2; // DeviceNotSupportedExceptionProto
+  reserved 3; // HealthConnectNotInstalledExceptionProto
+  reserved 4; // HttpRequestExceptionProto
+  reserved 5; // MissingConfigurationExceptionProto
+  reserved 6; // MissingPermissionsExceptionProto
+  reserved 7; // RequestQuotaExceededExceptionProto
+  reserved 9; // TimeoutExceptionProto
+  reserved 10; // UserNotInitializedExceptionProto
+  reserved 12; // MissingAndroidPermissionsExceptionProto
+
+  oneof result {
+    int64 value = 1;
+    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
+    GenericExceptionProto genericExceptionProto = 11;
+  }
+}
+
+message ResultSyncStatusProto {
+  reserved 5; // MissingConfigurationExceptionProto
+  reserved 12; // MissingAndroidPermissionsExceptionProto
+
+  oneof result {
+    SyncStatusProto syncStatusProto = 1;
+    DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;
+    HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;
+    HttpRequestExceptionProto httpRequestExceptionProto = 4;
+    MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;
+    RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;
+    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
+    TimeoutExceptionProto timeoutExceptionProto = 9;
+    UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
+    GenericExceptionProto genericExceptionProto = 11;
+  }
+}

@@ -1,0 +1,4 @@
+chmod +x publishSdkAppleHealth.sh &&
+chmod +x publishSdkCore.sh &&
+chmod +x publishSdkHealthConnect.sh &&
+chmod +x verification.sh

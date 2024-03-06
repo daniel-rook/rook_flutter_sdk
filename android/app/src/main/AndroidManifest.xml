@@ -1,0 +1,76 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Rook Mono">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:windowSoftInputMode="adjustResize">
+
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- For supported versions through Android 13, create an activity to show the rationale
+                 of Health Connect permissions once users click the privacy policy link. -->
+            <intent-filter>
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE"/>
+            </intent-filter>
+        </activity>
+
+        <!-- For versions starting Android 14, create an activity alias to show the rationale
+             of Health Connect permissions once users click the privacy policy link. -->
+        <activity-alias
+            android:name="ViewPermissionUsageActivity"
+            android:exported="true"
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE"
+            android:targetActivity=".MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE"/>
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS"/>
+            </intent-filter>
+        </activity-alias>
+
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+
+        <meta-data
+            android:name="io.tryrook.rook.realtime.STEPS_SERVICE_NOTIFICATION_ICON"
+            android:resource="@drawable/ic_launcher_foreground" />
+
+        <meta-data
+            android:name="io.tryrook.rook.realtime.STEPS_SERVICE_NOTIFICATION_TITLE"
+            android:resource="@string/steps_service_title" />
+
+        <meta-data
+            android:name="io.tryrook.rook.realtime.STEPS_SERVICE_NOTIFICATION_CONTENT"
+            android:resource="@string/steps_service_content" />
+
+        <meta-data
+            android:name="io.tryrook.service.notification.SYNC_ICON"
+            android:resource="@drawable/ic_launcher_foreground" />
+
+        <meta-data
+            android:name="io.tryrook.service.notification.SYNC_TITLE"
+            android:resource="@string/sync_title" />
+
+        <meta-data
+            android:name="io.tryrook.service.notification.SYNC_CONTENT"
+            android:resource="@string/sync_content" />
+    </application>
+</manifest>

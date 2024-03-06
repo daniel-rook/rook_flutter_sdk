@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rookmotion.rook_sdk_health_connect">
+
+    <application>
+        <activity
+            android:name=".HealthConnectPermissionsActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@style/HealthConnectTheme" />
+    </application>
+</manifest>

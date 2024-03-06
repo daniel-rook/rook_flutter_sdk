@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="steps_service_title">Rook steps tracking service</string>
+    <string name="steps_service_content">Rook is tracking your steps…</string>
+    <string name="sync_title">Rook sync service</string>
+    <string name="sync_content">Rook is syncing your health data…</string>
+</resources>
