@@ -1,4 +1,3 @@
-chmod +x publishSdkAppleHealth.sh &&
-chmod +x publishSdkCore.sh &&
-chmod +x publishSdkHealthConnect.sh &&
-chmod +x verification.sh
+chmod +x rook_sdk_apple_health_verification.sh &&
+chmod +x rook_sdk_core_verification.sh &&
+chmod +x rook_sdk_health_connect_verification.sh
