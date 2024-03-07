@@ -7,8 +7,25 @@ on:
 
 jobs:
   publish:
+    name: 'Publish to pub.dev'
+    environment: ${{ inputs.environment }}
     permissions:
       id-token: write
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with:
-      working-directory: packages/rook_sdk_health_connect
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@fedb1266e91cf51be2fdb382869461a434b920a3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: packages/rook_sdk_health_connect
+
+      - name: Publish to pub.dev
+        run: dart pub publish -f
+        working-directory: packages/rook_sdk_health_connect
