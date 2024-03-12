@@ -70,7 +70,7 @@ jobs:
       - name: Upload pana report
         uses: actions/upload-artifact@v3.1.1
         with:
-          name: pana-report.txt
+          name: rook_sdk_core-pana-report.txt
           path: reports/pana.txt
 
 #  rook_sdk_core_test:
@@ -98,7 +98,7 @@ jobs:
 #      - name: Upload test report
 #        uses: actions/upload-artifact@v3.1.1
 #        with:
-#          name: test-report.txt
+#          name: rook_sdk_core-test-report.txt
 #          path: packages/rook_sdk_core/reports/test.txt
 
   rook_sdk_apple_health_format:
@@ -166,7 +166,7 @@ jobs:
       - name: Upload pana report
         uses: actions/upload-artifact@v3.1.1
         with:
-          name: pana-report.txt
+          name: rook_sdk_apple_health-pana-report.txt
           path: reports/pana.txt
 
   rook_sdk_apple_health_test:
@@ -194,7 +194,7 @@ jobs:
       - name: Upload test report
         uses: actions/upload-artifact@v3.1.1
         with:
-          name: test-report.txt
+          name: rook_sdk_apple_health-test-report.txt
           path: packages/rook_sdk_apple_health/reports/test.txt
 
   rook_sdk_health_connect_format:
@@ -262,7 +262,7 @@ jobs:
       - name: Upload pana report
         uses: actions/upload-artifact@v3.1.1
         with:
-          name: pana-report.txt
+          name: rook_sdk_health_connect-pana-report.txt
           path: reports/pana.txt
 
   rook_sdk_health_connect_test:
@@ -290,5 +290,5 @@ jobs:
       - name: Upload test report
         uses: actions/upload-artifact@v3.1.1
         with:
-          name: test-report.txt
+          name: rook_sdk_health_connect-test-report.txt
           path: packages/rook_sdk_health_connect/reports/test.txt
