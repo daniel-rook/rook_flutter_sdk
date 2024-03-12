@@ -14,14 +14,7 @@ migrate_working_dir/
 *.iml
 *.ipr
 *.iws
-.idea/libraries
-.idea/runConfigurations
-.idea/sonarlint
-.idea/.gitignore
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
+/.idea/
 /android/.idea/
 
 # The .vscode folder contains launch configuration and tasks you configure in
