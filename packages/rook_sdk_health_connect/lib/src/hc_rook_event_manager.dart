@@ -81,6 +81,7 @@ class HCRookEventManager {
   ///
   /// **WARNING**: Be cautions of calling this function an excessive amount of times,
   /// Health Connect has a daily usage limit and your app could be blocked for some hours or a full day.
+  @Deprecated("Same functionality is available with other sync functions of RookEventManager")
   Future<void> syncYesterdayEvents() {
     return RookSdkHealthConnectPlatform.instance.syncYesterdayEvents();
   }

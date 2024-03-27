@@ -201,6 +201,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Same functionality is available with other sync functions of RookEventManager")
   Future<void> syncYesterdaySummaries() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncYesterdaySummaries',
@@ -364,6 +365,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Same functionality is available with other sync functions of RookEventManager")
   Future<void> syncYesterdayEvents() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncYesterdayEvents',
