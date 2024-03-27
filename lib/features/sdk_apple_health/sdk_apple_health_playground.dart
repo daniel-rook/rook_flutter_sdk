@@ -22,6 +22,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   final rookSummaryManager = AHRookSummaryManager();
   final rookEventManager = AHRookEventManager();
+  final rookContinuousUpload = AHRookContinuousUpload();
   final rookBackgroundSync = AHRookBackgroundSync();
 
   final ConsoleOutput syncOutput = ConsoleOutput();
@@ -32,7 +33,8 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   @override
   void initState() {
-    enableBackGroundForSummaries();
+    enableContinuousUpload();
+    enableBackGround();
 
     super.initState();
   }
@@ -357,9 +359,21 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     logger.info('Synced yesterday health data...');
   }
 
-  void enableBackGroundForSummaries() async {
+  void enableContinuousUpload() async {
     try {
-      rookBackgroundSync.enableBackGroundForSummaries(
+      rookContinuousUpload.enableContinuousUpload(
+        Secrets.clientUUID,
+        Secrets.secretKey,
+        rookEnvironment,
+      );
+    } catch (exception) {
+      logger.severe('enableContinuousUpload error: $exception');
+    }
+  }
+
+  void enableBackGround() async {
+    try {
+      rookBackgroundSync.enableBackGround(
         Secrets.clientUUID,
         Secrets.secretKey,
         rookEnvironment,

@@ -1,6 +1,6 @@
 name: rook_sdk_apple_health
 description: This package enables apps to extract and upload data from Apple Health.
-version: 0.3.0
+version: 0.4.0
 homepage: 'https://docs.tryrook.io/'
 platforms:
   ios:

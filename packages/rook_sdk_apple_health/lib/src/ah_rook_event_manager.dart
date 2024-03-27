@@ -64,6 +64,7 @@ class AHRookEventManager {
 
   /// Extract, enqueue and upload all event types of yesterday,
   /// if the upload is fails the events will be keep in the queue for a retry with [syncPendingEvents].
+  @Deprecated("Same functionality is available with other sync functions of AHRookEventManager")
   Future<void> syncYesterdayEvents() {
     return RookSdkAppleHealthPlatform.instance.syncYesterdayEvents();
   }

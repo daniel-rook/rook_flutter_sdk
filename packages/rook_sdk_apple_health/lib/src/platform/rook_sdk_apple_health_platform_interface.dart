@@ -47,6 +47,7 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> syncPendingSummaries();
 
+  @Deprecated("Same functionality is available with other sync functions of AHRookSummaryManager")
   Future<void> syncYesterdaySummaries();
 
   Future<void> syncPhysicalEvents(DateTime date);
@@ -69,6 +70,7 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> syncPendingEvents();
 
+  @Deprecated("Same functionality is available with other sync functions of AHRookEventManager")
   Future<void> syncYesterdayEvents();
 
   Future<bool> isStepsTrackerActive();
@@ -87,15 +89,13 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<int> getTodayCalories();
 
-  Future<bool> isYesterdaySyncEnabled();
+  Future<bool> isContinuousUploadEnabled();
 
-  Future<void> enableYesterdaySync(RookConfiguration rookConfiguration);
+  Future<void> enableContinuousUpload(RookConfiguration rookConfiguration);
 
-  Future<void> disableYesterdaySync();
+  Future<void> disableContinuousUpload();
 
-  Future<void> enableBackGroundForSummaries(
-    RookConfiguration rookConfiguration,
-  );
+  Future<void> enableBackGround(RookConfiguration rookConfiguration);
 
-  Future<void> disableBackGroundForSummaries();
+  Future<void> disableBackGround();
 }

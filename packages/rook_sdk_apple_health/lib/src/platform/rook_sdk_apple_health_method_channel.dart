@@ -158,6 +158,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Same functionality is available with other sync functions of AHRookSummaryManager")
   Future<void> syncYesterdaySummaries() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncYesterdaySummaries',
@@ -294,6 +295,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Same functionality is available with other sync functions of AHRookEventManager")
   Future<void> syncYesterdayEvents() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncYesterdayEvents',
@@ -396,11 +398,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<bool> isYesterdaySyncEnabled() async {
+  Future<bool> isContinuousUploadEnabled() async {
     await Future.delayed(const Duration(milliseconds: 1500));
 
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'isYesterdaySyncEnabled',
+      'isContinuousUploadEnabled',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -409,11 +411,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> enableYesterdaySync(RookConfiguration rookConfiguration) async {
+  Future<void> enableContinuousUpload(RookConfiguration rookConfiguration) async {
     final rookConfigurationProto = rookConfiguration.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'enableYesterdaySync',
+      'enableContinuousUpload',
       [
         rookConfigurationProto.writeToBuffer(),
       ],
@@ -425,9 +427,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> disableYesterdaySync() async {
+  Future<void> disableContinuousUpload() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'disableYesterdaySync',
+      'disableContinuousUpload',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -436,13 +438,13 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> enableBackGroundForSummaries(
+  Future<void> enableBackGround(
     RookConfiguration rookConfiguration,
   ) async {
     final rookConfigurationProto = rookConfiguration.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'enableBackGroundForSummaries',
+      'enableBackGround',
       [
         rookConfigurationProto.writeToBuffer(),
       ],
@@ -454,9 +456,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> disableBackGroundForSummaries() async {
+  Future<void> disableBackGround() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'disableBackGroundForSummaries',
+      'disableBackGround',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
