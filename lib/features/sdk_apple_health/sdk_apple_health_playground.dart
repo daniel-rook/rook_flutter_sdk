@@ -373,7 +373,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   void enableBackGround() async {
     try {
-      rookBackgroundSync.enableBackGround(
+      rookBackgroundSync.enableBackground(
         Secrets.clientUUID,
         Secrets.secretKey,
         rookEnvironment,
