@@ -403,12 +403,12 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
-        case "isYesterdaySyncEnabled":
-            let enabled = RookConnectConfigurationManager.shared.isYesterdaySyncEnable()
+        case "isContinuousUploadEnabled":
+            let enabled = RookConnectConfigurationManager.shared.isSyncEnable()
             
             resultBoolSuccess(flutterResult: result, enabled)
             break
-        case "enableYesterdaySync":
+        case "enableContinuousUpload":
             let bytes = call.getDataArgAt(0)
             
             runWithValue(
@@ -425,7 +425,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     RookConnectConfigurationManager.shared.initRook { it in
                         switch it {
                         case Result.success(let bool):
-                            RookConnectConfigurationManager.shared.enableYesterdaySync()
+                            RookConnectConfigurationManager.shared.enableSync()
                             
                             resultBoolSuccess(flutterResult: result, true)
                         case Result.failure(let error):
@@ -435,12 +435,12 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             )
             break
-        case "disableYesterdaySync":
-            RookConnectConfigurationManager.shared.disableYesterdaySync()
+        case "disableContinuousUpload":
+            RookConnectConfigurationManager.shared.disableSync()
             
             resultBoolSuccess(flutterResult: result, true)
             break
-        case "enableBackGroundForSummaries":
+        case "enableBackGround":
             let bytes = call.getDataArgAt(0)
             
             runWithValue(
@@ -458,6 +458,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                         switch it {
                         case Result.success(let bool):
                             RookBackGroundSync.shared.enableBackGroundForSummaries()
+                            RookBackGroundSync.shared.enableBackGroundForEvents()
                             
                             resultBoolSuccess(flutterResult: result, true)
                         case Result.failure(let error):
@@ -467,8 +468,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             )
             break
-        case "disableBackGroundForSummaries":
+        case "disableBackGround":
             RookBackGroundSync.shared.disableBackGroundForSummaries()
+            RookBackGroundSync.shared.disableBackGroundForEvents()
             
             resultBoolSuccess(flutterResult: result, true)
             break

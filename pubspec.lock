@@ -182,7 +182,7 @@ packages:
       path: "packages/rook_sdk_apple_health"
       relative: true
     source: path
-    version: "0.3.0"
+    version: "0.4.0"
   rook_sdk_core:
     dependency: "direct main"
     description:
@@ -196,7 +196,7 @@ packages:
       path: "packages/rook_sdk_health_connect"
       relative: true
     source: path
-    version: "0.4.1"
+    version: "0.5.0"
   sky_engine:
     dependency: transitive
     description: flutter

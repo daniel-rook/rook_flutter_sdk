@@ -3,7 +3,7 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 class AHRookBackgroundSync {
   /// Enables the background upload of the summaries.
-  Future<void> enableBackGroundForSummaries(
+  Future<void> enableBackground(
     String clientUUID,
     String secretKey,
     RookEnvironment environment,
@@ -14,13 +14,13 @@ class AHRookBackgroundSync {
       environment,
     );
 
-    return RookSdkAppleHealthPlatform.instance.enableBackGroundForSummaries(
+    return RookSdkAppleHealthPlatform.instance.enableBackGround(
       rookConfiguration,
     );
   }
 
   /// Disables the background upload of the summaries.
-  Future<void> disableBackGroundForSummaries() {
-    return RookSdkAppleHealthPlatform.instance.disableBackGroundForSummaries();
+  Future<void> disableBackground() {
+    return RookSdkAppleHealthPlatform.instance.disableBackGround();
   }
 }
