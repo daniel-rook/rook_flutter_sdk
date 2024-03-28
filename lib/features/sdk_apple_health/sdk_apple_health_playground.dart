@@ -34,7 +34,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
   @override
   void initState() {
     enableContinuousUpload();
-    enableBackGround();
+    enableBackground();
 
     super.initState();
   }
@@ -371,7 +371,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     }
   }
 
-  void enableBackGround() async {
+  void enableBackground() async {
     try {
       rookBackgroundSync.enableBackground(
         Secrets.clientUUID,
