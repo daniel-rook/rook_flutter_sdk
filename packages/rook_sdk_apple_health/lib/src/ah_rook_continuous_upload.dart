@@ -2,7 +2,6 @@ import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platfor
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 class AHRookContinuousUpload {
-
   /// Checks if the continuous upload of summaries and events is enabled.
   Future<bool> isContinuousUploadEnabled() {
     return RookSdkAppleHealthPlatform.instance.isContinuousUploadEnabled();

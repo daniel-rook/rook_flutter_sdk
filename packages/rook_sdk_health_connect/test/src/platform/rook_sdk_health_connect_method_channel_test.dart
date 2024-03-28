@@ -128,27 +128,9 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncYesterdaySummaries THEN complete',
-      () async {
-        final future = platform.syncYesterdaySummaries();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
       'GIVEN a Result.success WHEN syncPendingEvents THEN complete',
       () async {
         final future = platform.syncPendingEvents();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncYesterdayEvents THEN complete',
-      () async {
-        final future = platform.syncYesterdayEvents();
 
         await expectLater(future, completes);
       },
@@ -337,27 +319,9 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN syncYesterdaySummaries THEN throw exception',
-      () async {
-        final future = platform.syncYesterdaySummaries();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
       'GIVEN a Result.exception WHEN syncPendingEvents THEN throw exception',
       () async {
         final future = platform.syncPendingEvents();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncYesterdayEvents THEN throw exception',
-      () async {
-        final future = platform.syncYesterdayEvents();
 
         await expectLater(future, throwsA(isException));
       },

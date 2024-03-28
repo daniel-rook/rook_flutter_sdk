@@ -47,7 +47,8 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> syncPendingSummaries();
 
-  @Deprecated("Same functionality is available with other sync functions of AHRookSummaryManager")
+  @Deprecated(
+      "Same functionality is available with other sync functions of AHRookSummaryManager")
   Future<void> syncYesterdaySummaries();
 
   Future<void> syncPhysicalEvents(DateTime date);
@@ -70,7 +71,8 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> syncPendingEvents();
 
-  @Deprecated("Same functionality is available with other sync functions of AHRookEventManager")
+  @Deprecated(
+      "Same functionality is available with other sync functions of AHRookEventManager")
   Future<void> syncYesterdayEvents();
 
   Future<bool> isStepsTrackerActive();

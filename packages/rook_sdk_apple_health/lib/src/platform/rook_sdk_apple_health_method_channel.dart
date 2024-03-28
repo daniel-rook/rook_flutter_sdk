@@ -158,7 +158,8 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  @Deprecated("Same functionality is available with other sync functions of AHRookSummaryManager")
+  @Deprecated(
+      "Same functionality is available with other sync functions of AHRookSummaryManager")
   Future<void> syncYesterdaySummaries() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncYesterdaySummaries',
@@ -295,7 +296,8 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  @Deprecated("Same functionality is available with other sync functions of AHRookEventManager")
+  @Deprecated(
+      "Same functionality is available with other sync functions of AHRookEventManager")
   Future<void> syncYesterdayEvents() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncYesterdayEvents',
@@ -411,7 +413,8 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> enableContinuousUpload(RookConfiguration rookConfiguration) async {
+  Future<void> enableContinuousUpload(
+      RookConfiguration rookConfiguration) async {
     final rookConfigurationProto = rookConfiguration.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(

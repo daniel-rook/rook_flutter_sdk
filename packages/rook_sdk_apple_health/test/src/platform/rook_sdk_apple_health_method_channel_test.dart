@@ -145,15 +145,6 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncYesterdaySummaries THEN complete',
-      () async {
-        final future = platform.syncYesterdaySummaries();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
       'GIVEN a Result.success WHEN syncPhysicalEvents THEN complete',
       () async {
         final future = platform.syncPhysicalEvents(DateTime.now());
@@ -244,15 +235,6 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncYesterdayEvents THEN complete',
-      () async {
-        final future = platform.syncYesterdayEvents();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
       'GIVEN a Result.success WHEN isStepsTrackerActive THEN complete with expected value',
       () async {
         final future = platform.isStepsTrackerActive();
@@ -334,8 +316,7 @@ void main() {
       await expectLater(future, completes);
     });
 
-    test(
-        'GIVEN a Result.success WHEN enableBackGround THEN complete',
+    test('GIVEN a Result.success WHEN enableBackGround THEN complete',
         () async {
       final rookConfiguration = RookConfiguration(
         'rookUrl',
@@ -348,8 +329,7 @@ void main() {
       await expectLater(future, completes);
     });
 
-    test(
-        'GIVEN a Result.success WHEN disableBackGround THEN complete',
+    test('GIVEN a Result.success WHEN disableBackGround THEN complete',
         () async {
       final future = platform.disableBackGround();
 
@@ -474,15 +454,6 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN syncYesterdaySummaries THEN throw exception',
-      () async {
-        final future = platform.syncYesterdaySummaries();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
       'GIVEN a Result.exception WHEN syncPhysicalEvents THEN throw exception',
       () async {
         final future = platform.syncPhysicalEvents(DateTime.now());
@@ -573,15 +544,6 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN syncYesterdayEvents THEN throw exception',
-      () async {
-        final future = platform.syncYesterdayEvents();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
       'GIVEN a Result.exception WHEN isStepsTrackerActive THEN throw exception',
       () async {
         final future = platform.isStepsTrackerActive();
@@ -665,8 +627,7 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
 
-    test(
-        'GIVEN a Result.exception WHEN enableBackGround THEN throw exception',
+    test('GIVEN a Result.exception WHEN enableBackGround THEN throw exception',
         () async {
       final rookConfiguration = RookConfiguration(
         'rookUrl',
@@ -679,8 +640,7 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
 
-    test(
-        'GIVEN a Result.exception WHEN disableBackGround THEN throw exception',
+    test('GIVEN a Result.exception WHEN disableBackGround THEN throw exception',
         () async {
       final future = platform.disableBackGround();
 
