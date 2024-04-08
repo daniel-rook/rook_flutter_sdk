@@ -441,13 +441,13 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> enableBackGround(
+  Future<void> enableBackground(
     RookConfiguration rookConfiguration,
   ) async {
     final rookConfigurationProto = rookConfiguration.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'enableBackGround',
+      'enableBackground',
       [
         rookConfigurationProto.writeToBuffer(),
       ],
@@ -459,9 +459,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> disableBackGround() async {
+  Future<void> disableBackground() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'disableBackGround',
+      'disableBackground',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);

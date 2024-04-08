@@ -424,7 +424,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     
                     RookConnectConfigurationManager.shared.initRook { it in
                         switch it {
-                        case Result.success(let bool):
+                        case Result.success(_):
                             RookConnectConfigurationManager.shared.enableSync()
                             
                             resultBoolSuccess(flutterResult: result, true)
@@ -440,7 +440,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             
             resultBoolSuccess(flutterResult: result, true)
             break
-        case "enableBackGround":
+        case "enableBackground":
             let bytes = call.getDataArgAt(0)
             
             runWithValue(
@@ -456,7 +456,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     
                     RookConnectConfigurationManager.shared.initRook { it in
                         switch it {
-                        case Result.success(let bool):
+                        case Result.success(_):
                             RookBackGroundSync.shared.enableBackGroundForSummaries()
                             RookBackGroundSync.shared.enableBackGroundForEvents()
                             
@@ -468,7 +468,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             )
             break
-        case "disableBackGround":
+        case "disableBackground":
             RookBackGroundSync.shared.disableBackGroundForSummaries()
             RookBackGroundSync.shared.disableBackGroundForEvents()
             
