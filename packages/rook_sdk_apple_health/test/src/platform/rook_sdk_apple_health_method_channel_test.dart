@@ -324,14 +324,14 @@ void main() {
         RookEnvironment.sandbox,
       );
 
-      final future = platform.enableBackGround(rookConfiguration);
+      final future = platform.enableBackground(rookConfiguration);
 
       await expectLater(future, completes);
     });
 
     test('GIVEN a Result.success WHEN disableBackGround THEN complete',
         () async {
-      final future = platform.disableBackGround();
+      final future = platform.disableBackground();
 
       await expectLater(future, completes);
     });
@@ -635,14 +635,14 @@ void main() {
         RookEnvironment.sandbox,
       );
 
-      final future = platform.enableBackGround(rookConfiguration);
+      final future = platform.enableBackground(rookConfiguration);
 
       await expectLater(future, throwsA(isException));
     });
 
     test('GIVEN a Result.exception WHEN disableBackGround THEN throw exception',
         () async {
-      final future = platform.disableBackGround();
+      final future = platform.disableBackground();
 
       await expectLater(future, throwsA(isException));
     });

@@ -14,13 +14,13 @@ class AHRookBackgroundSync {
       environment,
     );
 
-    return RookSdkAppleHealthPlatform.instance.enableBackGround(
+    return RookSdkAppleHealthPlatform.instance.enableBackground(
       rookConfiguration,
     );
   }
 
   /// Disables the background upload of the summaries.
   Future<void> disableBackground() {
-    return RookSdkAppleHealthPlatform.instance.disableBackGround();
+    return RookSdkAppleHealthPlatform.instance.disableBackground();
   }
 }
