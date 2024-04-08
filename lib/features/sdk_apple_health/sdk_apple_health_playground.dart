@@ -361,11 +361,13 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   void enableContinuousUpload() async {
     try {
-      rookContinuousUpload.enableContinuousUpload(
+      await rookContinuousUpload.enableContinuousUpload(
         Secrets.clientUUID,
         Secrets.secretKey,
         rookEnvironment,
       );
+
+      logger.info('Continuous upload enabled successfully');
     } catch (exception) {
       logger.severe('enableContinuousUpload error: $exception');
     }
@@ -373,11 +375,13 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   void enableBackground() async {
     try {
-      rookBackgroundSync.enableBackground(
+      await rookBackgroundSync.enableBackground(
         Secrets.clientUUID,
         Secrets.secretKey,
         rookEnvironment,
       );
+
+      logger.info('Background enabled successfully');
     } catch (exception) {
       logger.severe('enableBackGroundForSummaries error: $exception');
     }
