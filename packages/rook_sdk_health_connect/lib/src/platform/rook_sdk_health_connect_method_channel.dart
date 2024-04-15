@@ -378,9 +378,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<bool> isStepsTrackerAvailable() async {
+  Future<bool> isStepsAvailable() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'isStepsTrackerAvailable',
+      'isStepsAvailable',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -389,9 +389,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<bool> isStepsTrackerActive() async {
+  Future<bool> isStepsActive() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'isStepsTrackerActive',
+      'isStepsActive',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -400,9 +400,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<bool> hasStepsTrackerPermissions() async {
+  Future<bool> hasStepsPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'hasStepsTrackerPermissions',
+      'hasStepsPermissions',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -411,9 +411,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> requestStepsTrackerPermissions() async {
+  Future<void> requestStepsPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'requestStepsTrackerPermissions',
+      'requestStepsPermissions',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -422,9 +422,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> startStepsTracker() async {
+  Future<void> startSteps() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'startStepsTracker',
+      'startSteps',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -433,9 +433,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> stopStepsTracker() async {
+  Future<void> stopSteps() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'stopStepsTracker',
+      'stopSteps',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);

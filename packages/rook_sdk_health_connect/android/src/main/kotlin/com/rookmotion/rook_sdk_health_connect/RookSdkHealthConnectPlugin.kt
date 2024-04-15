@@ -6,12 +6,14 @@ import com.rookmotion.rook.sdk.RookConfigurationManager
 import com.rookmotion.rook.sdk.RookEventManager
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
 import com.rookmotion.rook.sdk.RookHelpers
-import com.rookmotion.rook.sdk.RookStepsTracker
+import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSummaryManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncPermissions
-import com.rookmotion.rook.sdk.domain.environment.RookAndroidClass
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
+import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
+import com.rookmotion.rook_sdk_health_connect.data.proto.HealthPermissionProto
+import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
@@ -27,9 +29,6 @@ import com.rookmotion.rook_sdk_health_connect.extension.throwableError
 import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
 import com.rookmotion.rook_sdk_health_connect.mapper.toDomain
 import com.rookmotion.rook_sdk_health_connect.mapper.toProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.HealthPermissionProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -56,6 +55,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var rookHealthPermissionsManager: RookHealthPermissionsManager
     private lateinit var rookSummaryManager: RookSummaryManager
     private lateinit var rookEventManager: RookEventManager
+    private lateinit var rookStepsManager: RookStepsManager
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         context = flutterPluginBinding.applicationContext
@@ -64,6 +64,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         rookHealthPermissionsManager = RookHealthPermissionsManager(rookConfigurationManager)
         rookSummaryManager = RookSummaryManager(rookConfigurationManager)
         rookEventManager = RookEventManager(rookConfigurationManager)
+        rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
 
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "rook_sdk_health_connect")
         scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -447,9 +448,9 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 result.resultBooleanSuccess(true)
             }
 
-            "isStepsTrackerAvailable" -> {
+            "isStepsAvailable" -> {
                 try {
-                    val isAvailable = RookStepsTracker.isAvailable(context!!)
+                    val isAvailable = rookStepsManager.isAvailable()
 
                     result.resultBooleanSuccess(isAvailable)
                 } catch (exception: NullPointerException) {
@@ -457,15 +458,15 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 }
             }
 
-            "isStepsTrackerActive" -> scope.launch {
-                val isActive = RookStepsTracker.isActive()
+            "isStepsActive" -> scope.launch {
+                val isActive = rookStepsManager.isActive()
 
                 result.resultBooleanSuccess(isActive)
             }
 
-            "hasStepsTrackerPermissions" -> {
+            "hasStepsPermissions" -> {
                 try {
-                    val hasPermissions = RookStepsTracker.hasPermissions(context!!)
+                    val hasPermissions = rookStepsManager.hasPermissions()
 
                     result.resultBooleanSuccess(hasPermissions)
                 } catch (exception: NullPointerException) {
@@ -473,9 +474,9 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 }
             }
 
-            "requestStepsTrackerPermissions" -> {
+            "requestStepsPermissions" -> {
                 try {
-                    RookStepsTracker.requestPermissions(context!!)
+                    rookStepsManager.requestPermissions()
 
                     result.resultBooleanSuccess(true)
                 } catch (exception: NullPointerException) {
@@ -483,9 +484,9 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 }
             }
 
-            "startStepsTracker" -> {
+            "startSteps" -> {
                 try {
-                    RookStepsTracker.start(context!!).fold(
+                    rookStepsManager.start().fold(
                         {
                             result.resultBooleanSuccess(true)
                         },
@@ -498,9 +499,9 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 }
             }
 
-            "stopStepsTracker" -> {
+            "stopSteps" -> {
                 try {
-                    RookStepsTracker.stop(context!!).fold(
+                    rookStepsManager.stop().fold(
                         {
                             result.resultBooleanSuccess(true)
                         },
@@ -514,7 +515,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             }
 
             "getTodaySteps" -> scope.launch {
-                RookStepsTracker.getTodaySteps().fold(
+                rookStepsManager.getTodaySteps().fold(
                     {
                         result.resultInt64Success(it)
                     },

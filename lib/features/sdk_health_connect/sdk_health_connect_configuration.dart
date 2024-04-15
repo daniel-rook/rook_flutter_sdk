@@ -4,7 +4,7 @@ import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_steps_tracker_playground.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/sdk_health_connect_playground.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/yesterday_sync_permissions.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
@@ -83,10 +83,10 @@ class _SdkHealthConnectConfigurationState
           FilledButton(
             onPressed: enableNavigation
                 ? () => Navigator.of(context).pushNamed(
-                      androidStepsTrackerPlaygroundRoute,
+                      androidBackgroundStepsRoute,
                     )
                 : null,
-            child: const Text('Steps Tracker'),
+            child: const Text('Background Steps'),
           ),
           FilledButton(
             onPressed: enableNavigation

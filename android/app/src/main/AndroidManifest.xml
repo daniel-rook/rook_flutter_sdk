@@ -50,15 +50,15 @@
             android:value="2" />
 
         <meta-data
-            android:name="io.tryrook.rook.realtime.STEPS_SERVICE_NOTIFICATION_ICON"
+            android:name="io.tryrook.service.notification.STEPS_ICON"
             android:resource="@drawable/ic_launcher_foreground" />
 
         <meta-data
-            android:name="io.tryrook.rook.realtime.STEPS_SERVICE_NOTIFICATION_TITLE"
+            android:name="io.tryrook.service.notification.STEPS_TITLE"
             android:resource="@string/steps_service_title" />
 
         <meta-data
-            android:name="io.tryrook.rook.realtime.STEPS_SERVICE_NOTIFICATION_CONTENT"
+            android:name="io.tryrook.service.notification.STEPS_CONTENT"
             android:resource="@string/steps_service_content" />
 
         <meta-data
