@@ -20,8 +20,7 @@ class AndroidStepsManager {
 
   /// Request all required permissions, the permissions requested may vary depending on the Android version.
   static Future<void> requestPermissions() {
-    return RookSdkHealthConnectPlatform.instance
-        .requestStepsPermissions();
+    return RookSdkHealthConnectPlatform.instance.requestStepsPermissions();
   }
 
   /// Starts the StepsTracker service, if the service is already active this function won't do anything.
