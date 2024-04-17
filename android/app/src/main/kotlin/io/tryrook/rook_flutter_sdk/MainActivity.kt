@@ -21,7 +21,7 @@ class MainActivity : FlutterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         // Must be before super.onCreate(savedInstanceState)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            rookYesterdaySync.enable(this)
+//            rookYesterdaySync.enable(this)
         }
 
         super.onCreate(savedInstanceState)

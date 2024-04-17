@@ -1,5 +1,6 @@
 package com.rookmotion.rook_sdk_health_connect.extension
 
+import com.rookmotion.rook.sdk.domain.enums.SyncStatus
 import com.rookmotion.rook.sdk.domain.exception.DeviceNotSupportedException
 import com.rookmotion.rook.sdk.domain.exception.HealthConnectNotInstalledException
 import com.rookmotion.rook.sdk.domain.exception.HttpRequestException
@@ -10,7 +11,6 @@ import com.rookmotion.rook.sdk.domain.exception.RequestQuotaExceededException
 import com.rookmotion.rook.sdk.domain.exception.SDKNotInitializedException
 import com.rookmotion.rook.sdk.domain.exception.TimeoutException
 import com.rookmotion.rook.sdk.domain.exception.UserNotInitializedException
-import com.rookmotion.rook.sdk.domain.model.SyncStatus
 import com.rookmotion.rook_sdk_health_connect.mapper.toProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.ResultBooleanProto

@@ -1,6 +1,6 @@
 library rook_sdk_health_connect;
 
-export 'src/android_steps_tracker.dart';
+export 'src/android_steps_manager.dart';
 export 'src/domain/enums/hc_availability_status.dart';
 export 'src/domain/enums/hc_health_data_type.dart';
 export 'src/domain/enums/hc_health_permission.dart';

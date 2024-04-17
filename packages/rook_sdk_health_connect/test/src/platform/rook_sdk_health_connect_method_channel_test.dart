@@ -137,54 +137,54 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN isStepsTrackerAvailable THEN complete with expected value',
+      'GIVEN a Result.success WHEN isStepsAvailable THEN complete with expected value',
       () async {
-        final future = platform.isStepsTrackerAvailable();
+        final future = platform.isStepsAvailable();
 
         await expectLater(future, completion(true));
       },
     );
 
     test(
-      'GIVEN a Result.success WHEN isStepsTrackerActive THEN complete with expected value',
+      'GIVEN a Result.success WHEN isStepsActive THEN complete with expected value',
       () async {
-        final future = platform.isStepsTrackerActive();
+        final future = platform.isStepsActive();
 
         await expectLater(future, completion(true));
       },
     );
 
     test(
-      'GIVEN a Result.success WHEN hasStepsTrackerPermissions THEN complete with expected value',
+      'GIVEN a Result.success WHEN hasStepsPermissions THEN complete with expected value',
       () async {
-        final future = platform.hasStepsTrackerPermissions();
+        final future = platform.hasStepsPermissions();
 
         await expectLater(future, completion(true));
       },
     );
 
     test(
-      'GIVEN a Result.success WHEN requestStepsTrackerPermissions THEN complete',
+      'GIVEN a Result.success WHEN requestStepsPermissions THEN complete',
       () async {
-        final future = platform.requestStepsTrackerPermissions();
+        final future = platform.requestStepsPermissions();
 
         await expectLater(future, completes);
       },
     );
 
     test(
-      'GIVEN a Result.success WHEN startStepsTracker THEN complete',
+      'GIVEN a Result.success WHEN startSteps THEN complete',
       () async {
-        final future = platform.startStepsTracker();
+        final future = platform.startSteps();
 
         await expectLater(future, completes);
       },
     );
 
     test(
-      'GIVEN a Result.success WHEN stopStepsTracker THEN complete',
+      'GIVEN a Result.success WHEN stopSteps THEN complete',
       () async {
-        final future = platform.stopStepsTracker();
+        final future = platform.stopSteps();
 
         await expectLater(future, completes);
       },
@@ -328,54 +328,54 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN isStepsTrackerAvailable THEN throw exception',
+      'GIVEN a Result.exception WHEN isStepsAvailable THEN throw exception',
       () async {
-        final future = platform.isStepsTrackerAvailable();
+        final future = platform.isStepsAvailable();
 
         await expectLater(future, throwsA(isException));
       },
     );
 
     test(
-      'GIVEN a Result.exception WHEN isStepsTrackerActive THEN throw exception',
+      'GIVEN a Result.exception WHEN isStepsActive THEN throw exception',
       () async {
-        final future = platform.isStepsTrackerActive();
+        final future = platform.isStepsActive();
 
         await expectLater(future, throwsA(isException));
       },
     );
 
     test(
-      'GIVEN a Result.exception WHEN hasStepsTrackerPermissions THEN throw exception',
+      'GIVEN a Result.exception WHEN hasStepsPermissions THEN throw exception',
       () async {
-        final future = platform.hasStepsTrackerPermissions();
+        final future = platform.hasStepsPermissions();
 
         await expectLater(future, throwsA(isException));
       },
     );
 
     test(
-      'GIVEN a Result.exception WHEN requestStepsTrackerPermissions THEN throw exception',
+      'GIVEN a Result.exception WHEN requestStepsPermissions THEN throw exception',
       () async {
-        final future = platform.requestStepsTrackerPermissions();
+        final future = platform.requestStepsPermissions();
 
         await expectLater(future, throwsA(isException));
       },
     );
 
     test(
-      'GIVEN a Result.exception WHEN startStepsTracker THEN throw exception',
+      'GIVEN a Result.exception WHEN startSteps THEN throw exception',
       () async {
-        final future = platform.startStepsTracker();
+        final future = platform.startSteps();
 
         await expectLater(future, throwsA(isException));
       },
     );
 
     test(
-      'GIVEN a Result.exception WHEN stopStepsTracker THEN throw exception',
+      'GIVEN a Result.exception WHEN stopSteps THEN throw exception',
       () async {
-        final future = platform.stopStepsTracker();
+        final future = platform.stopSteps();
 
         await expectLater(future, throwsA(isException));
       },

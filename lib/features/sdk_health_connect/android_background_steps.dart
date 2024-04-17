@@ -7,20 +7,17 @@ import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
-const String androidStepsTrackerPlaygroundRoute =
-    '/android/steps-tracker-playground';
+const String androidBackgroundStepsRoute = '/android/zandroid-background-steps';
 
-class AndroidStepsTrackerPlayground extends StatefulWidget {
-  const AndroidStepsTrackerPlayground({super.key});
+class AndroidBackgroundSteps extends StatefulWidget {
+  const AndroidBackgroundSteps({super.key});
 
   @override
-  State<AndroidStepsTrackerPlayground> createState() =>
-      _AndroidStepsTrackerPlaygroundState();
+  State<AndroidBackgroundSteps> createState() => _AndroidBackgroundStepsState();
 }
 
-class _AndroidStepsTrackerPlaygroundState
-    extends State<AndroidStepsTrackerPlayground> {
-  final Logger logger = Logger('AndroidStepsTrackerPlayground');
+class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
+  final Logger logger = Logger('AndroidBackgroundSteps');
 
   Timer? timer;
 
@@ -34,7 +31,7 @@ class _AndroidStepsTrackerPlaygroundState
   @override
   void initState() {
     timer = Timer.periodic(const Duration(seconds: 3), (timer) {
-      AndroidStepsTracker.getTodaySteps().then((todaySteps) {
+      AndroidStepsManager.getTodaySteps().then((todaySteps) {
         setState(() => steps = todaySteps);
       }).catchError((exception) {
         final error = switch (exception) {
@@ -59,17 +56,19 @@ class _AndroidStepsTrackerPlaygroundState
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
-      name: 'Android Steps Tracker',
+      name: 'Android Steps Manager',
       alignment: Alignment.topCenter,
       child: FocusDetector(
-        onFocusGained: checkStepsTrackerStatus,
+        onFocusGained: checkStepsServiceStatus,
         child: Column(
           children: [
             CheckboxListTile(
               value: isActive,
               onChanged: (value) {},
               title: Text(
-                isActive ? "Tracker is running" : "Tracker is stopped",
+                isActive
+                    ? "Background Steps is running"
+                    : "Background Steps is stopped",
               ),
             ),
             CheckboxListTile(
@@ -86,7 +85,7 @@ class _AndroidStepsTrackerPlaygroundState
               FilledButton(
                 onPressed: hasPermissions
                     ? null
-                    : AndroidStepsTracker.requestPermissions,
+                    : AndroidStepsManager.requestPermissions,
                 child: const Text('Request permissions'),
               ),
             if (isAvailable)
@@ -94,9 +93,11 @@ class _AndroidStepsTrackerPlaygroundState
                 onPressed: isLoading
                     ? null
                     : isActive
-                        ? stopStepsTracker
-                        : startStepsTracker,
-                child: Text(isActive ? 'Stop tracker' : 'Start tracker'),
+                        ? stopStepsService
+                        : startStepsService,
+                child: Text(
+                  isActive ? 'Stop Background Steps' : 'Start Background Steps',
+                ),
               ),
             const SizedBox(height: 20),
             Text('Total steps of today: $steps'),
@@ -106,10 +107,10 @@ class _AndroidStepsTrackerPlaygroundState
     );
   }
 
-  void checkStepsTrackerStatus() async {
-    final isAvailable = await AndroidStepsTracker.isAvailable();
-    final isActive = await AndroidStepsTracker.isActive();
-    final hasPermissions = await AndroidStepsTracker.hasPermissions();
+  void checkStepsServiceStatus() async {
+    final isAvailable = await AndroidStepsManager.isAvailable();
+    final isActive = await AndroidStepsManager.isActive();
+    final hasPermissions = await AndroidStepsManager.hasPermissions();
 
     setState(() {
       isLoading = false;
@@ -120,13 +121,13 @@ class _AndroidStepsTrackerPlaygroundState
     });
   }
 
-  void startStepsTracker() async {
+  void startStepsService() async {
     setState(() => isLoading = true);
 
     try {
-      await AndroidStepsTracker.start();
+      await AndroidStepsManager.start();
 
-      checkStepsTrackerStatus();
+      checkStepsServiceStatus();
     } catch (exception) {
       final error = switch (exception) {
         (SDKNotInitializedException it) =>
@@ -136,19 +137,19 @@ class _AndroidStepsTrackerPlaygroundState
         _ => exception.toString(),
       };
 
-      logger.info('Error starting steps tracker: $error');
+      logger.info('Error starting steps service: $error');
 
       setState(() => isLoading = false);
     }
   }
 
-  void stopStepsTracker() async {
+  void stopStepsService() async {
     setState(() => isLoading = true);
 
     try {
-      await AndroidStepsTracker.stop();
+      await AndroidStepsManager.stop();
 
-      checkStepsTrackerStatus();
+      checkStepsServiceStatus();
     } catch (exception) {
       final error = switch (exception) {
         (SDKNotInitializedException it) =>
@@ -156,7 +157,7 @@ class _AndroidStepsTrackerPlaygroundState
         _ => exception.toString(),
       };
 
-      logger.info('Error stopping steps tracker: $error');
+      logger.info('Error stopping steps service: $error');
 
       setState(() => isLoading = false);
     }

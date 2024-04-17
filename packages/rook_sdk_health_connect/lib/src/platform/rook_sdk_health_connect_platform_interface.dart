@@ -87,17 +87,17 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
       "Same functionality is available with other sync functions of HCRookEventManager")
   Future<void> syncYesterdayEvents();
 
-  Future<bool> isStepsTrackerAvailable();
+  Future<bool> isStepsAvailable();
 
-  Future<bool> isStepsTrackerActive();
+  Future<bool> isStepsActive();
 
-  Future<bool> hasStepsTrackerPermissions();
+  Future<bool> hasStepsPermissions();
 
-  Future<void> requestStepsTrackerPermissions();
+  Future<void> requestStepsPermissions();
 
-  Future<void> startStepsTracker();
+  Future<void> startSteps();
 
-  Future<void> stopStepsTracker();
+  Future<void> stopSteps();
 
   Future<int> getTodaySteps();
 
