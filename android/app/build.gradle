@@ -67,5 +67,4 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-    implementation 'com.rookmotion.android:rook-sdk:1.1.0'
 }
