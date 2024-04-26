@@ -4,30 +4,27 @@ import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-const String yesterdaySyncPermissionsRoute =
-    '/android/yesterday-sync-permissions';
+const String yesterdaySyncRoute = '/android/yesterday-sync';
 
-class YesterdaySyncPermissions extends StatefulWidget {
-  const YesterdaySyncPermissions({super.key});
+class YesterdaySync extends StatefulWidget {
+  const YesterdaySync({super.key});
 
   @override
-  State<YesterdaySyncPermissions> createState() =>
-      _YesterdaySyncPermissionsState();
+  State<YesterdaySync> createState() => _YesterdaySyncState();
 }
 
-class _YesterdaySyncPermissionsState extends State<YesterdaySyncPermissions> {
-  final Logger logger = Logger('YesterdaySyncPermissions');
+class _YesterdaySyncState extends State<YesterdaySync> {
+  final Logger logger = Logger('YesterdaySync');
 
   final rookHealthPermissionsManager = HCRookHealthPermissionsManager();
 
+  SharedPreferences? sharedPreferences;
+
   bool androidPermissionsChecked = false;
   bool healthConnectPermissionsChecked = false;
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  bool userAcceptedYesterdaySync = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,10 @@ class _YesterdaySyncPermissionsState extends State<YesterdaySyncPermissions> {
       name: 'Yesterday Sync Permissions',
       alignment: Alignment.topCenter,
       child: FocusDetector(
-        onFocusGained: checkPermissions,
+        onFocusGained: () {
+          checkPermissions();
+          checkYesterdaySyncAcceptation();
+        },
         child: Column(
           children: [
             CheckboxListTile(
@@ -68,6 +68,23 @@ class _YesterdaySyncPermissionsState extends State<YesterdaySyncPermissions> {
             FilledButton(
               onPressed: openHealthConnect,
               child: const Text("Open Health Connect"),
+            ),
+            const SizedBox(height: 20),
+            CheckboxListTile(
+              title: const Text("Yesterday Sync"),
+              value: userAcceptedYesterdaySync,
+              onChanged: (value) {},
+            ),
+            const SizedBox(height: 10),
+            FilledButton(
+              onPressed: userAcceptedYesterdaySync
+                  ? disableYesterdaySync
+                  : enableYesterdaySync,
+              child: Text(
+                userAcceptedYesterdaySync
+                    ? "Disable Yesterday Sync"
+                    : "Enable Yesterday Sync",
+              ),
             ),
           ],
         ),
@@ -113,5 +130,28 @@ class _YesterdaySyncPermissionsState extends State<YesterdaySyncPermissions> {
       logger.info('Error opening Health Connect:');
       logger.info(error);
     });
+  }
+
+  void checkYesterdaySyncAcceptation() async {
+    try {
+      sharedPreferences = await SharedPreferences.getInstance();
+
+      final acceptedYesterdaySync =
+          sharedPreferences?.getBool("ACCEPTED_YESTERDAY_SYNC") ?? false;
+
+      setState(() => userAcceptedYesterdaySync = acceptedYesterdaySync);
+    } catch (error) {
+      logger.severe("Error getting SharedPreferences: $error");
+    }
+  }
+
+  void enableYesterdaySync() {
+    sharedPreferences?.setBool("ACCEPTED_YESTERDAY_SYNC", true);
+    checkYesterdaySyncAcceptation();
+  }
+
+  void disableYesterdaySync() {
+    sharedPreferences?.setBool("ACCEPTED_YESTERDAY_SYNC", false);
+    checkYesterdaySyncAcceptation();
   }
 }

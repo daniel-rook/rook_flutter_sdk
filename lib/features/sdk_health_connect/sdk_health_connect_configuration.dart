@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
@@ -6,10 +7,11 @@ import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/sdk_health_connect_playground.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/yesterday_sync_permissions.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/yesterday_sync.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const String sdkHealthConnectConfigurationRoute =
     '/sdk-health-connect/configuration';
@@ -40,65 +42,91 @@ class _SdkHealthConnectConfigurationState
   Widget build(BuildContext context) {
     return ScrollableScaffold(
       name: 'SDK Health Connect Configuration',
-      child: Column(
-        children: [
-          const SectionTitle('1. Configure SDK'),
-          Text(configurationOutput.current),
-          FilledButton(
-            onPressed: setConfiguration,
-            child: const Text('Set configuration'),
-          ),
-          const SectionTitle('2. Initialize SDK'),
-          Text(initializeOutput.current),
-          FilledButton(
-            onPressed: initialize,
-            child: const Text('Initialize'),
-          ),
-          const SectionTitle('3. Update user ID'),
-          TextFormField(
-            key: _formKey,
-            decoration: const InputDecoration(
-                border: OutlineInputBorder(), hintText: 'User ID'),
-            validator: validate,
-            onSaved: updateUserID,
-          ),
-          Text(updateUserOutput.current),
-          FilledButton(
-            onPressed: () {
-              if (_formKey.currentState?.validate() == true) {
-                _formKey.currentState?.save();
-              }
-            },
-            child: const Text('Update user'),
-          ),
-          const SizedBox(height: 20),
-          FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      sdkHealthConnectPlaygroundRoute,
-                    )
-                : null,
-            child: const Text('Health Connect'),
-          ),
-          FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      androidBackgroundStepsRoute,
-                    )
-                : null,
-            child: const Text('Background Steps'),
-          ),
-          FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      yesterdaySyncPermissionsRoute,
-                    )
-                : null,
-            child: const Text('Yesterday Sync Permissions'),
-          ),
-        ],
+      child: FocusDetector(
+        onFocusGained: attemptToEnableYesterdaySync,
+        child: Column(
+          children: [
+            const SectionTitle('1. Configure SDK'),
+            Text(configurationOutput.current),
+            FilledButton(
+              onPressed: setConfiguration,
+              child: const Text('Set configuration'),
+            ),
+            const SectionTitle('2. Initialize SDK'),
+            Text(initializeOutput.current),
+            FilledButton(
+              onPressed: initialize,
+              child: const Text('Initialize'),
+            ),
+            const SectionTitle('3. Update user ID'),
+            TextFormField(
+              key: _formKey,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'User ID'),
+              validator: validate,
+              onSaved: updateUserID,
+            ),
+            Text(updateUserOutput.current),
+            FilledButton(
+              onPressed: () {
+                if (_formKey.currentState?.validate() == true) {
+                  _formKey.currentState?.save();
+                }
+              },
+              child: const Text('Update user'),
+            ),
+            const SizedBox(height: 20),
+            FilledButton(
+              onPressed: enableNavigation
+                  ? () => Navigator.of(context).pushNamed(
+                        sdkHealthConnectPlaygroundRoute,
+                      )
+                  : null,
+              child: const Text('Health Connect'),
+            ),
+            FilledButton(
+              onPressed: enableNavigation
+                  ? () => Navigator.of(context).pushNamed(
+                        androidBackgroundStepsRoute,
+                      )
+                  : null,
+              child: const Text('Background Steps'),
+            ),
+            FilledButton(
+              onPressed: enableNavigation
+                  ? () => Navigator.of(context).pushNamed(
+                        yesterdaySyncRoute,
+                      )
+                  : null,
+              child: const Text('Yesterday Sync'),
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  void attemptToEnableYesterdaySync() {
+    logger.info('Attempting to enable yesterday sync...');
+
+    SharedPreferences.getInstance().then((prefs) {
+      final userAcceptedYesterdaySync =
+          prefs.getBool("ACCEPTED_YESTERDAY_SYNC") ?? false;
+
+      if (userAcceptedYesterdaySync) {
+        logger.info('User accepted yesterday sync');
+
+        HCRookYesterdaySyncManager.scheduleYesterdaySync(
+          enableNativeLogs: isDebug,
+          clientUUID: Secrets.clientUUID,
+          secretKey: Secrets.secretKey,
+          environment: rookEnvironment,
+          doOnEnd: HCSyncInstruction.nothing,
+        );
+      } else {
+        logger.info('User did not accept yesterday sync');
+      }
+    });
   }
 
   String? validate(String? value) {

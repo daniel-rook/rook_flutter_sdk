@@ -8,12 +8,15 @@ import com.rookmotion.rook.sdk.RookHealthPermissionsManager
 import com.rookmotion.rook.sdk.RookHelpers
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSummaryManager
+import com.rookmotion.rook.sdk.RookYesterdaySyncManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncPermissions
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
 import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.HealthPermissionProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
+import com.rookmotion.rook_sdk_health_connect.data.proto.SyncInstructionProto
+import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
@@ -56,6 +59,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var rookSummaryManager: RookSummaryManager
     private lateinit var rookEventManager: RookEventManager
     private lateinit var rookStepsManager: RookStepsManager
+    private lateinit var rookYesterdaySyncManager: RookYesterdaySyncManager
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         context = flutterPluginBinding.applicationContext
@@ -65,6 +69,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         rookSummaryManager = RookSummaryManager(rookConfigurationManager)
         rookEventManager = RookEventManager(rookConfigurationManager)
         rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
+        rookYesterdaySyncManager = RookYesterdaySyncManager(flutterPluginBinding.applicationContext)
 
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "rook_sdk_health_connect")
         scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -80,10 +85,11 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             }
 
             "setConfiguration" -> {
-                val bytes = call.getByteArrayArgAt(0)
-                val proto = RookConfigurationProto.parseFrom(bytes)
+                val rookConfiguration = call.getByteArrayArgAt(0).let {
+                    RookConfigurationProto.parseFrom(it).toDomain()
+                }
 
-                rookConfigurationManager.setConfiguration(proto.toDomain())
+                rookConfigurationManager.setConfiguration(rookConfiguration)
 
                 result.resultBooleanSuccess(true)
             }
@@ -565,6 +571,32 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
                     result.resultBooleanSuccess(true)
                 } catch (exception: NullPointerException) {
+                    result.resultBooleanError(exception)
+                }
+            }
+
+            "scheduleYesterdaySync" -> scope.launch {
+                try {
+                    val enableNativeLogs = call.getBooleanArgAt(0)
+
+                    val rookConfiguration = call.getByteArrayArgAt(1).let {
+                        RookConfigurationProto.parseFrom(it).toDomain()
+                    }
+
+                    val syncInstruction = call.getIntArgAt(2).let {
+                        SyncInstructionProto.forNumber(it).toDomain()
+                    }
+
+                    rookYesterdaySyncManager.scheduleYesterdaySync(
+                        enableNativeLogs,
+                        rookConfiguration.clientUUID,
+                        rookConfiguration.secretKey,
+                        rookConfiguration.environment,
+                        syncInstruction
+                    )
+
+                    result.resultBooleanSuccess(true)
+                } catch (exception: Exception) {
                     result.resultBooleanError(exception)
                 }
             }

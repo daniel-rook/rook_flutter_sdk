@@ -72,6 +72,21 @@ const SyncStatusProto$json = {
 final $typed_data.Uint8List syncStatusProtoDescriptor = $convert.base64Decode(
     'Cg9TeW5jU3RhdHVzUHJvdG8SCgoGU1lOQ0VEEAASFQoRUkVDT1JEU19OT1RfRk9VTkQQAQ==');
 
+@$core.Deprecated('Use syncInstructionProtoDescriptor instead')
+const SyncInstructionProto$json = {
+  '1': 'SyncInstructionProto',
+  '2': [
+    {'1': 'NOTHING', '2': 0},
+    {'1': 'SYNC_OLDEST', '2': 1},
+    {'1': 'SYNC_LATEST', '2': 2},
+  ],
+};
+
+/// Descriptor for `SyncInstructionProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List syncInstructionProtoDescriptor = $convert.base64Decode(
+    'ChRTeW5jSW5zdHJ1Y3Rpb25Qcm90bxILCgdOT1RISU5HEAASDwoLU1lOQ19PTERFU1QQARIPCg'
+    'tTWU5DX0xBVEVTVBAC');
+
 @$core.Deprecated('Use healthDataTypeProtoDescriptor instead')
 const HealthDataTypeProto$json = {
   '1': 'HealthDataTypeProto',

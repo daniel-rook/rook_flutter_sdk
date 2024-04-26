@@ -3,6 +3,7 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_permission.dart';
+import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
@@ -108,4 +109,10 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<bool> hasYesterdaySyncHealthConnectPermissions();
 
   Future<void> requestYesterdaySyncHealthConnectPermissions();
+
+  Future<void> scheduleYesterdaySync(
+    bool enableNativeLogs,
+    RookConfiguration rookConfiguration,
+    HCSyncInstruction syncInstruction,
+  );
 }

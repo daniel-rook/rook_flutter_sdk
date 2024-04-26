@@ -2,6 +2,10 @@ package com.rookmotion.rook_sdk_health_connect.extension
 
 import io.flutter.plugin.common.MethodCall
 
+fun MethodCall.getBooleanArgAt(index: Int): Boolean {
+    return ((arguments as ArrayList<*>)[index] as Boolean)
+}
+
 fun MethodCall.getByteArrayArgAt(index: Int): ByteArray {
     return ((arguments as ArrayList<*>)[index] as ByteArray)
 }
