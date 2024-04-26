@@ -6,7 +6,7 @@ import 'package:rook_flutter_sdk/features/sdk_apple_health/sdk_apple_health_play
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/sdk_health_connect_configuration.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/sdk_health_connect_playground.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/yesterday_sync_permissions.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/yesterday_sync.dart';
 
 class AppRouter {
   Route<Object?>? onGenerateRoute(RouteSettings settings) {
@@ -23,9 +23,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const AndroidBackgroundSteps(),
         );
-      case yesterdaySyncPermissionsRoute:
+      case yesterdaySyncRoute:
         return MaterialPageRoute(
-          builder: (context) => const YesterdaySyncPermissions(),
+          builder: (context) => const YesterdaySync(),
         );
       case sdkAppleHealthConfigurationRoute:
         return MaterialPageRoute(

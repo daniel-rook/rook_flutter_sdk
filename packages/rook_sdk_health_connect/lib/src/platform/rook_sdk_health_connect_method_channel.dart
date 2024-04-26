@@ -8,10 +8,12 @@ import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mapp
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_permission_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/sync_instruction_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_permission.dart';
+import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
@@ -496,5 +498,24 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final result = ResultBooleanProto.fromBuffer(bytes);
 
     result.unwrap();
+  }
+
+  @override
+  Future<void> scheduleYesterdaySync(
+    bool enableNativeLogs,
+    RookConfiguration rookConfiguration,
+    HCSyncInstruction syncInstruction,
+  ) async {
+    final rookConfigurationProto = rookConfiguration.toProto();
+    final syncInstructionProto = syncInstruction.toProto();
+
+    await methodChannel.invokeMethod(
+      'scheduleYesterdaySync',
+      [
+        enableNativeLogs,
+        rookConfigurationProto.writeToBuffer(),
+        syncInstructionProto.value,
+      ],
+    );
   }
 }

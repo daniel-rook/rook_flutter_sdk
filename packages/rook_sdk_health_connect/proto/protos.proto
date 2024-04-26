@@ -27,6 +27,12 @@ enum SyncStatusProto {
   RECORDS_NOT_FOUND = 1;
 }
 
+enum SyncInstructionProto {
+  NOTHING = 0;
+  SYNC_OLDEST = 1;
+  SYNC_LATEST = 2;
+}
+
 enum HealthDataTypeProto {
   SLEEP_SUMMARY = 0 ;
   PHYSICAL_SUMMARY = 1 ;
