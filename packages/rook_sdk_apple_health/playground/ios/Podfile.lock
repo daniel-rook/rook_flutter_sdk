@@ -4,15 +4,15 @@ PODS:
     - Flutter
   - rook_sdk_apple_health (0.0.1):
     - Flutter
-    - RookSDK (= 1.3.6)
+    - RookSDK (= 1.4.2)
     - SwiftProtobuf (= 1.21.0)
-  - RookAppleHealth (1.5.3)
-  - RookConnectTransmission (1.2.8)
-  - RookSDK (1.3.6):
-    - RookAppleHealth (= 1.5.3)
-    - RookConnectTransmission (= 1.2.8)
-    - RookUsersSDK (= 1.0.6)
-  - RookUsersSDK (1.0.6)
+  - RookAppleHealth (1.6.1)
+  - RookConnectTransmission (1.3.0)
+  - RookSDK (1.4.2):
+    - RookAppleHealth (= 1.6.1)
+    - RookConnectTransmission (= 1.3.0)
+    - RookUsersSDK (= 1.1.0)
+  - RookUsersSDK (1.1.0)
   - SwiftProtobuf (1.21.0)
 
 DEPENDENCIES:
@@ -39,11 +39,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   integration_test: 13825b8a9334a850581300559b8839134b124670
-  rook_sdk_apple_health: da4a3538f28c753a563739d9bbc2339697ec3bd7
-  RookAppleHealth: 828810c4833aeb553569c8d865b42ceb35069120
-  RookConnectTransmission: 534a45a34f6d5bfe5d674f5c0e307d534fb8040d
-  RookSDK: 72a959d1900c5b72dd7724c649a670e6fe944414
-  RookUsersSDK: 153915e39c992b7bd7291925290dce341ddefd4e
+  rook_sdk_apple_health: a39839ef9da3c75f6dff4ea5574682dac5abd850
+  RookAppleHealth: 420682f89499b2226896130e7c93d959a2d71395
+  RookConnectTransmission: d10a27d707b13f9d4780d161054c1f77081a04b1
+  RookSDK: a5cfa9cf361b6fbd1fb6e225a21024c12adb7fc8
+  RookUsersSDK: 79eebc95ef4779692d247d30d89c9ec2b59a36c6
   SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
 
 PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
