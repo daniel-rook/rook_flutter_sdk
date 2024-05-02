@@ -100,4 +100,6 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
   Future<void> enableBackground(RookConfiguration rookConfiguration);
 
   Future<void> disableBackground();
+
+  Future<void> presentDataSourceView();
 }

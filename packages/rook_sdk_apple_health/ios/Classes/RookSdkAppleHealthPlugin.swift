@@ -6,9 +6,10 @@ import RookConnectTransmission
 
 public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
     private let rookConnectPermissionsManager = RookConnectPermissionsManager()
-    private let rookSummaryManager = RookSummaryManger()
+    private let rookSummaryManager = RookSummaryManager()
     private let rookEventsManager = RookEventsManager()
     private let rookVariableExtractionManager = RookVariableExtractionManager()
+    private let dataSourcesManager = DataSourcesManager()
     
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "rook_sdk_apple_health", binaryMessenger: registrar.messenger())
@@ -473,6 +474,18 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             RookBackGroundSync.shared.disableBackGroundForEvents()
             
             resultBoolSuccess(flutterResult: result, true)
+            break
+        case "presentDataSourceView":
+            DispatchQueue.main.async {
+                self.dataSourcesManager.presentDataSourceView() { it in
+                    switch it {
+                    case Result.success(let success):
+                        resultBoolSuccess(flutterResult: result, success)
+                    case Result.failure(let error):
+                        resultBoolError(flutterResult: result, error)
+                    }
+                }
+            }
             break
         default:
             result(FlutterMethodNotImplemented)

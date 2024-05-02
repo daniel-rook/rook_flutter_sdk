@@ -468,4 +468,15 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
     result.unwrap();
   }
+
+  @override
+  Future<void> presentDataSourceView() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'presentDataSourceView',
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
 }
