@@ -6,7 +6,7 @@ import RookConnectTransmission
 
 public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
     private let rookConnectPermissionsManager = RookConnectPermissionsManager()
-    private let rookSummaryManager = RookSummaryManger()
+    private let rookSummaryManager = RookSummaryManager()
     private let rookEventsManager = RookEventsManager()
     private let rookVariableExtractionManager = RookVariableExtractionManager()
     
@@ -47,7 +47,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 switch it {
                 case Result.success(let userID):
                     result(userID)
-                case Result.failure(let error):
+                case Result.failure(_):
                     result(nil)
                 }
             }
