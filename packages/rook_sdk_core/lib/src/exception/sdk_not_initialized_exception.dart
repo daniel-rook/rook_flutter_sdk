@@ -1,3 +1,4 @@
+/// Exception thrown when the SDK is not initialized.
 class SDKNotInitializedException implements Exception {
   final String message;
 
