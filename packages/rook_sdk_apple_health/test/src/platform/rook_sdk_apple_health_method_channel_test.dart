@@ -335,6 +335,13 @@ void main() {
 
       await expectLater(future, completes);
     });
+
+    test('GIVEN a Result.success WHEN presentDataSourceView THEN complete',
+        () async {
+      final future = platform.presentDataSourceView();
+
+      await expectLater(future, completes);
+    });
   });
 
   group('MethodChannelRookSdkAppleHealth | ResultBooleanProto exception unwrap',
@@ -646,6 +653,14 @@ void main() {
 
       await expectLater(future, throwsA(isException));
     });
+
+    test(
+        'GIVEN a Result.exception WHEN presentDataSourceView THEN throw exception',
+        () async {
+      final future = platform.presentDataSourceView();
+
+      await expectLater(future, throwsA(isException));
+    });
   });
 
   group('MethodChannelRookSdkAppleHealth | ResultInt64Proto value unwrap', () {
@@ -748,6 +763,68 @@ void main() {
     test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
         () async {
       final future = platform.getUserID();
+
+      await expectLater(future, throwsA(isException));
+    });
+  });
+
+  group(
+      'MethodChannelRookSdkAppleHealth | ResultDataSourceProto dataSourceProtoListWrapper unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final proto = ResultDataSourceProto();
+        proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper(
+          dataSources: [
+            DataSourceProto(
+              name: 'name',
+              description: 'description',
+              image: 'image',
+              connected: true,
+              authorizationUrl: 'authorizationUrl',
+              authorizationUrlIsNull: false,
+            ),
+          ],
+        );
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+        'GIVEN a Result.dataSourceProtoListWrapper WHEN getAvailableDataSources THEN complete with expected value',
+        () async {
+      final future = platform.getAvailableDataSources();
+      final expected = [
+        DataSource(
+          'name',
+          'description',
+          'image',
+          true,
+          'authorizationUrl',
+        )
+      ];
+
+      await expectLater(future, completion(expected));
+    });
+  });
+
+  group('MethodChannelRookSdkAppleHealth | ResultDataSourceProto exception unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final proto = ResultDataSourceProto();
+        proto.genericExceptionProto =
+            GenericExceptionProto(message: 'Generic error');
+
+        return proto.writeToBuffer();
+      });
+    });
+
+    test('GIVEN a Result.exception WHEN getAvailableDataSources THEN throw exception',
+        () async {
+      final future = platform.getAvailableDataSources();
 
       await expectLater(future, throwsA(isException));
     });
