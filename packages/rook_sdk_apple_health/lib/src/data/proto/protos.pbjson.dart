@@ -50,10 +50,8 @@ const DataSourceProto$json = {
     {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
     {'1': 'image', '3': 3, '4': 1, '5': 9, '10': 'image'},
     {'1': 'connected', '3': 4, '4': 1, '5': 8, '10': 'connected'},
-    {'1': 'authorizationUrl', '3': 5, '4': 1, '5': 9, '9': 0, '10': 'authorizationUrl', '17': true},
-  ],
-  '8': [
-    {'1': '_authorizationUrl'},
+    {'1': 'authorizationUrl', '3': 5, '4': 1, '5': 9, '10': 'authorizationUrl'},
+    {'1': 'authorizationUrlIsNull', '3': 6, '4': 1, '5': 8, '10': 'authorizationUrlIsNull'},
   ],
 };
 
@@ -61,8 +59,9 @@ const DataSourceProto$json = {
 final $typed_data.Uint8List dataSourceProtoDescriptor = $convert.base64Decode(
     'Cg9EYXRhU291cmNlUHJvdG8SEgoEbmFtZRgBIAEoCVIEbmFtZRIgCgtkZXNjcmlwdGlvbhgCIA'
     'EoCVILZGVzY3JpcHRpb24SFAoFaW1hZ2UYAyABKAlSBWltYWdlEhwKCWNvbm5lY3RlZBgEIAEo'
-    'CFIJY29ubmVjdGVkEi8KEGF1dGhvcml6YXRpb25VcmwYBSABKAlIAFIQYXV0aG9yaXphdGlvbl'
-    'VybIgBAUITChFfYXV0aG9yaXphdGlvblVybA==');
+    'CFIJY29ubmVjdGVkEioKEGF1dGhvcml6YXRpb25VcmwYBSABKAlSEGF1dGhvcml6YXRpb25Vcm'
+    'wSNgoWYXV0aG9yaXphdGlvblVybElzTnVsbBgGIAEoCFIWYXV0aG9yaXphdGlvblVybElzTnVs'
+    'bA==');
 
 @$core.Deprecated('Use dataSourceProtoListWrapperDescriptor instead')
 const DataSourceProtoListWrapper$json = {

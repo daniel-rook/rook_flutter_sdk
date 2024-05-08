@@ -16,7 +16,8 @@ message DataSourceProto {
   string description = 2;
   string image = 3;
   bool connected = 4;
-  optional string authorizationUrl = 5;
+  string authorizationUrl = 5;
+  bool authorizationUrlIsNull = 6;
 }
 
 message DataSourceProtoListWrapper {

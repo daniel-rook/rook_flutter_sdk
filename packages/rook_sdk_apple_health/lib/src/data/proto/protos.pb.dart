@@ -103,6 +103,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
     $core.String? image,
     $core.bool? connected,
     $core.String? authorizationUrl,
+    $core.bool? authorizationUrlIsNull,
   }) {
     final $result = create();
     if (name != null) {
@@ -120,6 +121,9 @@ class DataSourceProto extends $pb.GeneratedMessage {
     if (authorizationUrl != null) {
       $result.authorizationUrl = authorizationUrl;
     }
+    if (authorizationUrlIsNull != null) {
+      $result.authorizationUrlIsNull = authorizationUrlIsNull;
+    }
     return $result;
   }
   DataSourceProto._() : super();
@@ -132,6 +136,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'image')
     ..aOB(4, _omitFieldNames ? '' : 'connected')
     ..aOS(5, _omitFieldNames ? '' : 'authorizationUrl', protoName: 'authorizationUrl')
+    ..aOB(6, _omitFieldNames ? '' : 'authorizationUrlIsNull', protoName: 'authorizationUrlIsNull')
     ..hasRequiredFields = false
   ;
 
@@ -200,6 +205,15 @@ class DataSourceProto extends $pb.GeneratedMessage {
   $core.bool hasAuthorizationUrl() => $_has(4);
   @$pb.TagNumber(5)
   void clearAuthorizationUrl() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.bool get authorizationUrlIsNull => $_getBF(5);
+  @$pb.TagNumber(6)
+  set authorizationUrlIsNull($core.bool v) { $_setBool(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasAuthorizationUrlIsNull() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAuthorizationUrlIsNull() => clearField(6);
 }
 
 class DataSourceProtoListWrapper extends $pb.GeneratedMessage {
