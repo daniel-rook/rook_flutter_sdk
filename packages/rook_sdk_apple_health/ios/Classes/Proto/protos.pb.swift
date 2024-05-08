@@ -89,20 +89,13 @@ struct DataSourceProto {
 
   var connected: Bool = false
 
-  var authorizationURL: String {
-    get {return _authorizationURL ?? String()}
-    set {_authorizationURL = newValue}
-  }
-  /// Returns true if `authorizationURL` has been explicitly set.
-  var hasAuthorizationURL: Bool {return self._authorizationURL != nil}
-  /// Clears the value of `authorizationURL`. Subsequent reads from it will return its default value.
-  mutating func clearAuthorizationURL() {self._authorizationURL = nil}
+  var authorizationURL: String = String()
+
+  var authorizationURLIsNull: Bool = false
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  fileprivate var _authorizationURL: String? = nil
 }
 
 struct DataSourceProtoListWrapper {
@@ -386,6 +379,7 @@ extension DataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     3: .same(proto: "image"),
     4: .same(proto: "connected"),
     5: .same(proto: "authorizationUrl"),
+    6: .same(proto: "authorizationUrlIsNull"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -398,17 +392,14 @@ extension DataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.image) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.connected) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self._authorizationURL) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.authorizationURL) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.authorizationURLIsNull) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -421,9 +412,12 @@ extension DataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     if self.connected != false {
       try visitor.visitSingularBoolField(value: self.connected, fieldNumber: 4)
     }
-    try { if let v = self._authorizationURL {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 5)
-    } }()
+    if !self.authorizationURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.authorizationURL, fieldNumber: 5)
+    }
+    if self.authorizationURLIsNull != false {
+      try visitor.visitSingularBoolField(value: self.authorizationURLIsNull, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -432,7 +426,8 @@ extension DataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     if lhs.description_p != rhs.description_p {return false}
     if lhs.image != rhs.image {return false}
     if lhs.connected != rhs.connected {return false}
-    if lhs._authorizationURL != rhs._authorizationURL {return false}
+    if lhs.authorizationURL != rhs.authorizationURL {return false}
+    if lhs.authorizationURLIsNull != rhs.authorizationURLIsNull {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

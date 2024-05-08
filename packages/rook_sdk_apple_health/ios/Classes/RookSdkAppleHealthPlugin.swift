@@ -475,6 +475,16 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             
             resultBoolSuccess(flutterResult: result, true)
             break
+        case "getAvailableDataSources":
+            dataSourcesManager.getAvailableDataSources() { it in
+                switch it {
+                case Result.success(let dataSources):
+                    resultDataSourceSuccess(flutterResult: result, dataSources)
+                case Result.failure(let error):
+                    resultDataSourceError(flutterResult: result, error)
+                }
+            }
+            break
         case "presentDataSourceView":
             DispatchQueue.main.async {
                 self.dataSourcesManager.presentDataSourceView() { it in
