@@ -8,30 +8,33 @@ void main() {
     test('GIVEN the happy path WHEN unwrap THEN return the expected result',
         () {
       final proto = ResultDataSourceProto.create();
-      proto.dataSourceProtoListWrapper =
-          DataSourceProtoListWrapper(dataSources: [
-        DataSourceProto(
-          name: 'name',
-          description: 'description',
-          image: 'image',
-          connected: true,
-          authorizationUrl: 'authorizationUrl',
-          authorizationUrlIsNull: false,
-        )
-      ]);
+      proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper(
+        dataSources: [
+          DataSourceProto(
+            name: 'name',
+            description: 'description',
+            image: 'image',
+            connected: true,
+            authorizationUrl: 'authorizationUrl',
+            authorizationUrlIsNull: false,
+          )
+        ],
+      );
 
-      final result = proto.unwrap();
-      final expected = [
-        DataSource(
-          'name',
-          'description',
-          'image',
-          true,
-          'authorizationUrl',
-        )
-      ];
+      final result = proto.unwrap().first;
+      final expected = DataSource(
+        'name',
+        'description',
+        'image',
+        true,
+        'authorizationUrl',
+      );
 
-      expect(result, expected);
+      expect(result.name, expected.name);
+      expect(result.description, expected.description);
+      expect(result.image, expected.image);
+      expect(result.connected, expected.connected);
+      expect(result.authorizationUrl, expected.authorizationUrl);
     });
   });
 

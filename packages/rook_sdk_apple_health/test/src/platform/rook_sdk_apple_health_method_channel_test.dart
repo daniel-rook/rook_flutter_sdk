@@ -794,22 +794,25 @@ void main() {
     test(
         'GIVEN a Result.dataSourceProtoListWrapper WHEN getAvailableDataSources THEN complete with expected value',
         () async {
-      final future = platform.getAvailableDataSources();
-      final expected = [
-        DataSource(
-          'name',
-          'description',
-          'image',
-          true,
-          'authorizationUrl',
-        )
-      ];
+      final result = (await platform.getAvailableDataSources()).first;
+      final expected = DataSource(
+        'name',
+        'description',
+        'image',
+        true,
+        'authorizationUrl',
+      );
 
-      await expectLater(future, completion(expected));
+      expect(result.name, expected.name);
+      expect(result.description, expected.description);
+      expect(result.image, expected.image);
+      expect(result.connected, expected.connected);
+      expect(result.authorizationUrl, expected.authorizationUrl);
     });
   });
 
-  group('MethodChannelRookSdkAppleHealth | ResultDataSourceProto exception unwrap',
+  group(
+      'MethodChannelRookSdkAppleHealth | ResultDataSourceProto exception unwrap',
       () {
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -822,7 +825,8 @@ void main() {
       });
     });
 
-    test('GIVEN a Result.exception WHEN getAvailableDataSources THEN throw exception',
+    test(
+        'GIVEN a Result.exception WHEN getAvailableDataSources THEN throw exception',
         () async {
       final future = platform.getAvailableDataSources();
 
