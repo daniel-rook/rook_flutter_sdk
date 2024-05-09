@@ -279,6 +279,7 @@ class _SdkHealthConnectConfigurationState
   void loadDataSources() {
     showModalBottomSheet<void>(
       context: context,
+      enableDrag: false,
       builder: (BuildContext context) {
         return FutureBuilder(
           future: HCRookDataSources.getAvailableDataSources(),

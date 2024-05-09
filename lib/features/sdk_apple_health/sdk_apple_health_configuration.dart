@@ -256,6 +256,7 @@ class _SdkAppleHealthConfigurationState
   void loadDataSources() {
     showModalBottomSheet<void>(
       context: context,
+      enableDrag: false,
       builder: (BuildContext context) {
         return FutureBuilder(
           future: AHRookDataSources.getAvailableDataSources(),
