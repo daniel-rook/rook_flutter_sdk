@@ -3,6 +3,7 @@ import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
+import 'package:rook_flutter_sdk/common/widget/data_sources_bottom_sheet.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
@@ -99,6 +100,18 @@ class _SdkHealthConnectConfigurationState
                       )
                   : null,
               child: const Text('Yesterday Sync'),
+            ),
+            FilledButton(
+              onPressed: enableNavigation ? loadDataSources : null,
+              child: const Text('Connections page (data sources list)'),
+            ),
+            FilledButton(
+              onPressed: enableNavigation
+                  ? () {
+                      HCRookDataSources.presentDataSourceView();
+                    }
+                  : null,
+              child: const Text('Connections page (pre-built)'),
             ),
           ],
         ),
@@ -261,5 +274,35 @@ class _SdkHealthConnectConfigurationState
       logger.info('Error updating user timezone:');
       logger.info(error);
     });
+  }
+
+  void loadDataSources() {
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return FutureBuilder(
+          future: HCRookDataSources.getAvailableDataSources(),
+          builder: (
+            BuildContext ctx,
+            AsyncSnapshot<List<DataSource>> snapshot,
+          ) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('Error: ${snapshot.error}'),
+              );
+            } else {
+              return dataSourcesBottomSheet(
+                ctx,
+                snapshot.data!,
+              );
+            }
+          },
+        );
+      },
+    );
   }
 }
