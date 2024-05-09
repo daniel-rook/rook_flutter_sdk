@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_data_source_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
@@ -509,7 +510,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final rookConfigurationProto = rookConfiguration.toProto();
     final syncInstructionProto = syncInstruction.toProto();
 
-    await methodChannel.invokeMethod(
+    final Uint8List bytes = await methodChannel.invokeMethod(
       'scheduleYesterdaySync',
       [
         enableNativeLogs,
@@ -517,5 +518,31 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         syncInstructionProto.value,
       ],
     );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Future<List<DataSource>> getAvailableDataSources() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getAvailableDataSources',
+    );
+
+    final result = ResultDataSourceProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<void> presentDataSourceView() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'presentDataSourceView',
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
   }
 }

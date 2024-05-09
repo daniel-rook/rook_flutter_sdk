@@ -11,11 +11,14 @@ import com.rookmotion.rook.sdk.domain.exception.RequestQuotaExceededException
 import com.rookmotion.rook.sdk.domain.exception.SDKNotInitializedException
 import com.rookmotion.rook.sdk.domain.exception.TimeoutException
 import com.rookmotion.rook.sdk.domain.exception.UserNotInitializedException
-import com.rookmotion.rook_sdk_health_connect.mapper.toProto
+import com.rookmotion.rook.sdk.domain.model.DataSource
+import com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper
 import com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.ResultBooleanProto
+import com.rookmotion.rook_sdk_health_connect.data.proto.ResultDataSourceProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.ResultInt64Proto
 import com.rookmotion.rook_sdk_health_connect.data.proto.ResultSyncStatusProto
+import com.rookmotion.rook_sdk_health_connect.mapper.toProto
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.intSuccess(int: Int) {
@@ -243,6 +246,51 @@ fun MethodChannel.Result.resultSyncStatusError(throwable: Throwable) {
                 .setMessage(throwable.localizedMessage)
 
             val result = ResultSyncStatusProto.newBuilder()
+                .setGenericExceptionProto(proto)
+                .build()
+
+            result.toByteArray()
+        }
+    }
+
+    success(bytes)
+}
+
+fun MethodChannel.Result.resultDataSourcesSuccess(dataSources: List<DataSource>) {
+    val dataSourceProtoListWrapper = DataSourceProtoListWrapper.newBuilder()
+        .addAllDataSources(dataSources.map { it.toProto() })
+        .build()
+
+    val result = ResultDataSourceProto.newBuilder()
+        .setDataSourceProtoListWrapper(dataSourceProtoListWrapper)
+        .build()
+
+    success(result.toByteArray())
+}
+
+fun MethodChannel.Result.resultDataSourcesError(throwable: Throwable) {
+    val bytes = when (throwable) {
+        is SDKNotInitializedException -> {
+            val result = ResultDataSourceProto.newBuilder()
+                .setSdkNotInitializedExceptionProto(throwable.toProto())
+                .build()
+
+            result.toByteArray()
+        }
+
+        is UserNotInitializedException -> {
+            val result = ResultDataSourceProto.newBuilder()
+                .setUserNotInitializedExceptionProto(throwable.toProto())
+                .build()
+
+            result.toByteArray()
+        }
+
+        else -> {
+            val proto = GenericExceptionProto.newBuilder()
+                .setMessage(throwable.localizedMessage)
+
+            val result = ResultDataSourceProto.newBuilder()
                 .setGenericExceptionProto(proto)
                 .build()
 
