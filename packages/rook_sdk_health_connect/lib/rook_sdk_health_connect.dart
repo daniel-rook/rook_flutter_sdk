@@ -11,6 +11,7 @@ export 'src/domain/exception/health_connect_not_installed_exception.dart';
 export 'src/domain/exception/missing_android_permissions_exception.dart';
 export 'src/domain/exception/request_quota_exceeded_exception.dart';
 export 'src/hc_rook_configuration_manager.dart';
+export 'src/hc_rook_data_sources.dart';
 export 'src/hc_rook_event_manager.dart';
 export 'src/hc_rook_health_permissions_manager.dart';
 export 'src/hc_rook_helpers.dart';

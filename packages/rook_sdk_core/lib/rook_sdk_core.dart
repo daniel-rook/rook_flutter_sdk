@@ -8,4 +8,5 @@ export 'src/exception/not_authorized_exception.dart';
 export 'src/exception/sdk_not_initialized_exception.dart';
 export 'src/exception/timeout_exception.dart';
 export 'src/exception/user_not_initialized_exception.dart';
+export 'src/model/data_source.dart';
 export 'src/model/rook_configuration.dart';

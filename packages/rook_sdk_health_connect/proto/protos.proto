@@ -56,6 +56,19 @@ message RookConfigurationProto {
   RookEnvironmentProto environment = 3;
 }
 
+message DataSourceProto {
+  string name = 1;
+  string description = 2;
+  string image = 3;
+  bool connected = 4;
+  string authorizationUrl = 5;
+  bool authorizationUrlIsNull = 6;
+}
+
+message DataSourceProtoListWrapper {
+  repeated DataSourceProto dataSources = 1;
+}
+
 message DeviceNotSupportedExceptionProto {
   string message = 1;
 }
@@ -150,6 +163,24 @@ message ResultSyncStatusProto {
     RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;
     SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
     TimeoutExceptionProto timeoutExceptionProto = 9;
+    UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
+    GenericExceptionProto genericExceptionProto = 11;
+  }
+}
+
+message ResultDataSourceProto {
+  reserved 2; // DeviceNotSupportedExceptionProto
+  reserved 3; // HealthConnectNotInstalledExceptionProto
+  reserved 4; // HttpRequestExceptionProto
+  reserved 5; // MissingConfigurationExceptionProto
+  reserved 6; // MissingPermissionsExceptionProto
+  reserved 7; // RequestQuotaExceededExceptionProto
+  reserved 9; // TimeoutExceptionProto
+  reserved 12; // MissingAndroidPermissionsExceptionProto
+
+  oneof result {
+    DataSourceProtoListWrapper dataSourceProtoListWrapper = 1;
+    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
     UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
     GenericExceptionProto genericExceptionProto = 11;
   }

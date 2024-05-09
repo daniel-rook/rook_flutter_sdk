@@ -1,3 +1,7 @@
+## 0.1.2
+
+* Added DataSource class
+
 ## 0.1.0
 
 * Changed all instances of clientPassword to secretKey

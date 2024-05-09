@@ -21,6 +21,16 @@ public final class ProtobufModels {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_RookConfigurationProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DataSourceProto_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DataSourceProto_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DataSourceProtoListWrapper_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DataSourceProtoListWrapper_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_DeviceNotSupportedExceptionProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -90,6 +100,11 @@ public final class ProtobufModels {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ResultSyncStatusProto_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResultDataSourceProto_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ResultDataSourceProto_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -102,88 +117,103 @@ public final class ProtobufModels {
       "\n\014protos.proto\"k\n\026RookConfigurationProto" +
       "\022\022\n\nclientUUID\030\001 \001(\t\022\021\n\tsecretKey\030\002 \001(\t\022" +
       "*\n\013environment\030\003 \001(\0162\025.RookEnvironmentPr" +
-      "oto\"3\n DeviceNotSupportedExceptionProto\022" +
-      "\017\n\007message\030\001 \001(\t\":\n\'HealthConnectNotInst" +
-      "alledExceptionProto\022\017\n\007message\030\001 \001(\t\":\n\031" +
-      "HttpRequestExceptionProto\022\017\n\007message\030\001 \001" +
-      "(\t\022\014\n\004code\030\002 \001(\r\"5\n\"MissingConfiguration" +
-      "ExceptionProto\022\017\n\007message\030\001 \001(\t\"3\n Missi" +
-      "ngPermissionsExceptionProto\022\017\n\007message\030\001" +
-      " \001(\t\"5\n\"RequestQuotaExceededExceptionPro" +
-      "to\022\017\n\007message\030\001 \001(\t\"2\n\037SDKNotInitialized" +
-      "ExceptionProto\022\017\n\007message\030\001 \001(\t\"(\n\025Timeo" +
-      "utExceptionProto\022\017\n\007message\030\001 \001(\t\"3\n Use" +
-      "rNotInitializedExceptionProto\022\017\n\007message" +
-      "\030\001 \001(\t\"(\n\025GenericExceptionProto\022\017\n\007messa" +
-      "ge\030\001 \001(\t\":\n\'MissingAndroidPermissionsExc" +
-      "eptionProto\022\017\n\007message\030\001 \001(\t\"\376\006\n\022ResultB" +
-      "ooleanProto\022\021\n\007success\030\001 \001(\010H\000\022M\n device" +
-      "NotSupportedExceptionProto\030\002 \001(\0132!.Devic" +
-      "eNotSupportedExceptionProtoH\000\022[\n\'healthC" +
-      "onnectNotInstalledExceptionProto\030\003 \001(\0132(" +
-      ".HealthConnectNotInstalledExceptionProto" +
-      "H\000\022?\n\031httpRequestExceptionProto\030\004 \001(\0132\032." +
-      "HttpRequestExceptionProtoH\000\022Q\n\"missingCo" +
-      "nfigurationExceptionProto\030\005 \001(\0132#.Missin" +
-      "gConfigurationExceptionProtoH\000\022M\n missin" +
-      "gPermissionsExceptionProto\030\006 \001(\0132!.Missi" +
-      "ngPermissionsExceptionProtoH\000\022Q\n\"request" +
-      "QuotaExceededExceptionProto\030\007 \001(\0132#.Requ" +
-      "estQuotaExceededExceptionProtoH\000\022K\n\037sdkN" +
+      "oto\"\220\001\n\017DataSourceProto\022\014\n\004name\030\001 \001(\t\022\023\n" +
+      "\013description\030\002 \001(\t\022\r\n\005image\030\003 \001(\t\022\021\n\tcon" +
+      "nected\030\004 \001(\010\022\030\n\020authorizationUrl\030\005 \001(\t\022\036" +
+      "\n\026authorizationUrlIsNull\030\006 \001(\010\"C\n\032DataSo" +
+      "urceProtoListWrapper\022%\n\013dataSources\030\001 \003(" +
+      "\0132\020.DataSourceProto\"3\n DeviceNotSupporte" +
+      "dExceptionProto\022\017\n\007message\030\001 \001(\t\":\n\'Heal" +
+      "thConnectNotInstalledExceptionProto\022\017\n\007m" +
+      "essage\030\001 \001(\t\":\n\031HttpRequestExceptionProt" +
+      "o\022\017\n\007message\030\001 \001(\t\022\014\n\004code\030\002 \001(\r\"5\n\"Miss" +
+      "ingConfigurationExceptionProto\022\017\n\007messag" +
+      "e\030\001 \001(\t\"3\n MissingPermissionsExceptionPr" +
+      "oto\022\017\n\007message\030\001 \001(\t\"5\n\"RequestQuotaExce" +
+      "ededExceptionProto\022\017\n\007message\030\001 \001(\t\"2\n\037S" +
+      "DKNotInitializedExceptionProto\022\017\n\007messag" +
+      "e\030\001 \001(\t\"(\n\025TimeoutExceptionProto\022\017\n\007mess" +
+      "age\030\001 \001(\t\"3\n UserNotInitializedException" +
+      "Proto\022\017\n\007message\030\001 \001(\t\"(\n\025GenericExcepti" +
+      "onProto\022\017\n\007message\030\001 \001(\t\":\n\'MissingAndro" +
+      "idPermissionsExceptionProto\022\017\n\007message\030\001" +
+      " \001(\t\"\376\006\n\022ResultBooleanProto\022\021\n\007success\030\001" +
+      " \001(\010H\000\022M\n deviceNotSupportedExceptionPro" +
+      "to\030\002 \001(\0132!.DeviceNotSupportedExceptionPr" +
+      "otoH\000\022[\n\'healthConnectNotInstalledExcept" +
+      "ionProto\030\003 \001(\0132(.HealthConnectNotInstall" +
+      "edExceptionProtoH\000\022?\n\031httpRequestExcepti" +
+      "onProto\030\004 \001(\0132\032.HttpRequestExceptionProt" +
+      "oH\000\022Q\n\"missingConfigurationExceptionProt" +
+      "o\030\005 \001(\0132#.MissingConfigurationExceptionP" +
+      "rotoH\000\022M\n missingPermissionsExceptionPro" +
+      "to\030\006 \001(\0132!.MissingPermissionsExceptionPr" +
+      "otoH\000\022Q\n\"requestQuotaExceededExceptionPr" +
+      "oto\030\007 \001(\0132#.RequestQuotaExceededExceptio" +
+      "nProtoH\000\022K\n\037sdkNotInitializedExceptionPr" +
+      "oto\030\010 \001(\0132 .SDKNotInitializedExceptionPr" +
+      "otoH\000\0227\n\025timeoutExceptionProto\030\t \001(\0132\026.T" +
+      "imeoutExceptionProtoH\000\022M\n userNotInitial" +
+      "izedExceptionProto\030\n \001(\0132!.UserNotInitia" +
+      "lizedExceptionProtoH\000\0227\n\025genericExceptio" +
+      "nProto\030\013 \001(\0132\026.GenericExceptionProtoH\000\022[" +
+      "\n\'missingAndroidPermissionsExceptionProt" +
+      "o\030\014 \001(\0132(.MissingAndroidPermissionsExcep" +
+      "tionProtoH\000B\010\n\006result\"\351\001\n\020ResultInt64Pro" +
+      "to\022\017\n\005value\030\001 \001(\003H\000\022K\n\037sdkNotInitialized" +
+      "ExceptionProto\030\010 \001(\0132 .SDKNotInitialized" +
+      "ExceptionProtoH\000\0227\n\025genericExceptionProt" +
+      "o\030\013 \001(\0132\026.GenericExceptionProtoH\000B\010\n\006res" +
+      "ultJ\004\010\002\020\003J\004\010\003\020\004J\004\010\004\020\005J\004\010\005\020\006J\004\010\006\020\007J\004\010\007\020\010J" +
+      "\004\010\t\020\nJ\004\010\n\020\013J\004\010\014\020\r\"\367\005\n\025ResultSyncStatusPr" +
+      "oto\022+\n\017syncStatusProto\030\001 \001(\0162\020.SyncStatu" +
+      "sProtoH\000\022M\n deviceNotSupportedExceptionP" +
+      "roto\030\002 \001(\0132!.DeviceNotSupportedException" +
+      "ProtoH\000\022[\n\'healthConnectNotInstalledExce" +
+      "ptionProto\030\003 \001(\0132(.HealthConnectNotInsta" +
+      "lledExceptionProtoH\000\022?\n\031httpRequestExcep" +
+      "tionProto\030\004 \001(\0132\032.HttpRequestExceptionPr" +
+      "otoH\000\022M\n missingPermissionsExceptionProt" +
+      "o\030\006 \001(\0132!.MissingPermissionsExceptionPro" +
+      "toH\000\022Q\n\"requestQuotaExceededExceptionPro" +
+      "to\030\007 \001(\0132#.RequestQuotaExceededException" +
+      "ProtoH\000\022K\n\037sdkNotInitializedExceptionPro" +
+      "to\030\010 \001(\0132 .SDKNotInitializedExceptionPro" +
+      "toH\000\0227\n\025timeoutExceptionProto\030\t \001(\0132\026.Ti" +
+      "meoutExceptionProtoH\000\022M\n userNotInitiali" +
+      "zedExceptionProto\030\n \001(\0132!.UserNotInitial" +
+      "izedExceptionProtoH\000\0227\n\025genericException" +
+      "Proto\030\013 \001(\0132\026.GenericExceptionProtoH\000B\010\n" +
+      "\006resultJ\004\010\005\020\006J\004\010\014\020\r\"\351\002\n\025ResultDataSource" +
+      "Proto\022A\n\032dataSourceProtoListWrapper\030\001 \001(" +
+      "\0132\033.DataSourceProtoListWrapperH\000\022K\n\037sdkN" +
       "otInitializedExceptionProto\030\010 \001(\0132 .SDKN" +
-      "otInitializedExceptionProtoH\000\0227\n\025timeout" +
-      "ExceptionProto\030\t \001(\0132\026.TimeoutExceptionP" +
-      "rotoH\000\022M\n userNotInitializedExceptionPro" +
-      "to\030\n \001(\0132!.UserNotInitializedExceptionPr" +
-      "otoH\000\0227\n\025genericExceptionProto\030\013 \001(\0132\026.G" +
-      "enericExceptionProtoH\000\022[\n\'missingAndroid" +
-      "PermissionsExceptionProto\030\014 \001(\0132(.Missin" +
-      "gAndroidPermissionsExceptionProtoH\000B\010\n\006r" +
-      "esult\"\351\001\n\020ResultInt64Proto\022\017\n\005value\030\001 \001(" +
-      "\003H\000\022K\n\037sdkNotInitializedExceptionProto\030\010" +
-      " \001(\0132 .SDKNotInitializedExceptionProtoH\000" +
-      "\0227\n\025genericExceptionProto\030\013 \001(\0132\026.Generi" +
-      "cExceptionProtoH\000B\010\n\006resultJ\004\010\002\020\003J\004\010\003\020\004J" +
-      "\004\010\004\020\005J\004\010\005\020\006J\004\010\006\020\007J\004\010\007\020\010J\004\010\t\020\nJ\004\010\n\020\013J\004\010\014\020" +
-      "\r\"\367\005\n\025ResultSyncStatusProto\022+\n\017syncStatu" +
-      "sProto\030\001 \001(\0162\020.SyncStatusProtoH\000\022M\n devi" +
-      "ceNotSupportedExceptionProto\030\002 \001(\0132!.Dev" +
-      "iceNotSupportedExceptionProtoH\000\022[\n\'healt" +
-      "hConnectNotInstalledExceptionProto\030\003 \001(\013" +
-      "2(.HealthConnectNotInstalledExceptionPro" +
-      "toH\000\022?\n\031httpRequestExceptionProto\030\004 \001(\0132" +
-      "\032.HttpRequestExceptionProtoH\000\022M\n missing" +
-      "PermissionsExceptionProto\030\006 \001(\0132!.Missin" +
-      "gPermissionsExceptionProtoH\000\022Q\n\"requestQ" +
-      "uotaExceededExceptionProto\030\007 \001(\0132#.Reque" +
-      "stQuotaExceededExceptionProtoH\000\022K\n\037sdkNo" +
-      "tInitializedExceptionProto\030\010 \001(\0132 .SDKNo" +
-      "tInitializedExceptionProtoH\000\0227\n\025timeoutE" +
-      "xceptionProto\030\t \001(\0132\026.TimeoutExceptionPr" +
-      "otoH\000\022M\n userNotInitializedExceptionProt" +
-      "o\030\n \001(\0132!.UserNotInitializedExceptionPro" +
-      "toH\000\0227\n\025genericExceptionProto\030\013 \001(\0132\026.Ge" +
-      "nericExceptionProtoH\000B\010\n\006resultJ\004\010\005\020\006J\004\010" +
-      "\014\020\r*3\n\024RookEnvironmentProto\022\013\n\007SANDBOX\020\000" +
-      "\022\016\n\nPRODUCTION\020\001*N\n\027AvailabilityStatusPr" +
-      "oto\022\r\n\tINSTALLED\020\000\022\021\n\rNOT_INSTALLED\020\001\022\021\n" +
-      "\rNOT_SUPPORTED\020\002*C\n\025HealthPermissionProt" +
-      "o\022\t\n\005SLEEP\020\000\022\014\n\010PHYSICAL\020\001\022\010\n\004BODY\020\002\022\007\n\003" +
-      "ALL\020\003*4\n\017SyncStatusProto\022\n\n\006SYNCED\020\000\022\025\n\021" +
-      "RECORDS_NOT_FOUND\020\001*E\n\024SyncInstructionPr" +
-      "oto\022\013\n\007NOTHING\020\000\022\017\n\013SYNC_OLDEST\020\001\022\017\n\013SYN" +
-      "C_LATEST\020\002*\377\002\n\023HealthDataTypeProto\022\021\n\rSL" +
-      "EEP_SUMMARY\020\000\022\024\n\020PHYSICAL_SUMMARY\020\001\022\020\n\014B" +
-      "ODY_SUMMARY\020\002\022\022\n\016PHYSICAL_EVENT\020\003\022\034\n\030BLO" +
-      "OD_GLUCOSE_BODY_EVENT\020\004\022\035\n\031BLOOD_PRESSUR" +
-      "E_BODY_EVENT\020\005\022\026\n\022BODY_METRICS_EVENT\020\006\022\031" +
-      "\n\025HEART_RATE_BODY_EVENT\020\007\022\035\n\031HEART_RATE_" +
-      "PHYSICAL_EVENT\020\010\022\030\n\024HYDRATION_BODY_EVENT" +
-      "\020\t\022\030\n\024NUTRITION_BODY_EVENT\020\n\022\032\n\026OXYGENAT" +
-      "ION_BODY_EVENT\020\013\022\036\n\032OXYGENATION_PHYSICAL" +
-      "_EVENT\020\014\022\032\n\026TEMPERATURE_BODY_EVENT\020\rBE\n1" +
-      "com.rookmotion.rook_sdk_health_connect.d" +
-      "ata.protoB\016ProtobufModelsP\001b\006proto3"
+      "otInitializedExceptionProtoH\000\022M\n userNot" +
+      "InitializedExceptionProto\030\n \001(\0132!.UserNo" +
+      "tInitializedExceptionProtoH\000\0227\n\025genericE" +
+      "xceptionProto\030\013 \001(\0132\026.GenericExceptionPr" +
+      "otoH\000B\010\n\006resultJ\004\010\002\020\003J\004\010\003\020\004J\004\010\004\020\005J\004\010\005\020\006J" +
+      "\004\010\006\020\007J\004\010\007\020\010J\004\010\t\020\nJ\004\010\014\020\r*3\n\024RookEnvironme" +
+      "ntProto\022\013\n\007SANDBOX\020\000\022\016\n\nPRODUCTION\020\001*N\n\027" +
+      "AvailabilityStatusProto\022\r\n\tINSTALLED\020\000\022\021" +
+      "\n\rNOT_INSTALLED\020\001\022\021\n\rNOT_SUPPORTED\020\002*C\n\025" +
+      "HealthPermissionProto\022\t\n\005SLEEP\020\000\022\014\n\010PHYS" +
+      "ICAL\020\001\022\010\n\004BODY\020\002\022\007\n\003ALL\020\003*4\n\017SyncStatusP" +
+      "roto\022\n\n\006SYNCED\020\000\022\025\n\021RECORDS_NOT_FOUND\020\001*" +
+      "E\n\024SyncInstructionProto\022\013\n\007NOTHING\020\000\022\017\n\013" +
+      "SYNC_OLDEST\020\001\022\017\n\013SYNC_LATEST\020\002*\377\002\n\023Healt" +
+      "hDataTypeProto\022\021\n\rSLEEP_SUMMARY\020\000\022\024\n\020PHY" +
+      "SICAL_SUMMARY\020\001\022\020\n\014BODY_SUMMARY\020\002\022\022\n\016PHY" +
+      "SICAL_EVENT\020\003\022\034\n\030BLOOD_GLUCOSE_BODY_EVEN" +
+      "T\020\004\022\035\n\031BLOOD_PRESSURE_BODY_EVENT\020\005\022\026\n\022BO" +
+      "DY_METRICS_EVENT\020\006\022\031\n\025HEART_RATE_BODY_EV" +
+      "ENT\020\007\022\035\n\031HEART_RATE_PHYSICAL_EVENT\020\010\022\030\n\024" +
+      "HYDRATION_BODY_EVENT\020\t\022\030\n\024NUTRITION_BODY" +
+      "_EVENT\020\n\022\032\n\026OXYGENATION_BODY_EVENT\020\013\022\036\n\032" +
+      "OXYGENATION_PHYSICAL_EVENT\020\014\022\032\n\026TEMPERAT" +
+      "URE_BODY_EVENT\020\rBE\n1com.rookmotion.rook_" +
+      "sdk_health_connect.data.protoB\016ProtobufM" +
+      "odelsP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -195,90 +225,108 @@ public final class ProtobufModels {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RookConfigurationProto_descriptor,
         new java.lang.String[] { "ClientUUID", "SecretKey", "Environment", });
-    internal_static_DeviceNotSupportedExceptionProto_descriptor =
+    internal_static_DataSourceProto_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_DataSourceProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DataSourceProto_descriptor,
+        new java.lang.String[] { "Name", "Description", "Image", "Connected", "AuthorizationUrl", "AuthorizationUrlIsNull", });
+    internal_static_DataSourceProtoListWrapper_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_DataSourceProtoListWrapper_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DataSourceProtoListWrapper_descriptor,
+        new java.lang.String[] { "DataSources", });
+    internal_static_DeviceNotSupportedExceptionProto_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_DeviceNotSupportedExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeviceNotSupportedExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_HealthConnectNotInstalledExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_HealthConnectNotInstalledExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HealthConnectNotInstalledExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_HttpRequestExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_HttpRequestExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HttpRequestExceptionProto_descriptor,
         new java.lang.String[] { "Message", "Code", });
     internal_static_MissingConfigurationExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_MissingConfigurationExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MissingConfigurationExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_MissingPermissionsExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_MissingPermissionsExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MissingPermissionsExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_RequestQuotaExceededExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_RequestQuotaExceededExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RequestQuotaExceededExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_SDKNotInitializedExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_SDKNotInitializedExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SDKNotInitializedExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_TimeoutExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_TimeoutExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TimeoutExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_UserNotInitializedExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_UserNotInitializedExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserNotInitializedExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_GenericExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_GenericExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GenericExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_MissingAndroidPermissionsExceptionProto_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_MissingAndroidPermissionsExceptionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MissingAndroidPermissionsExceptionProto_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_ResultBooleanProto_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_ResultBooleanProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ResultBooleanProto_descriptor,
         new java.lang.String[] { "Success", "DeviceNotSupportedExceptionProto", "HealthConnectNotInstalledExceptionProto", "HttpRequestExceptionProto", "MissingConfigurationExceptionProto", "MissingPermissionsExceptionProto", "RequestQuotaExceededExceptionProto", "SdkNotInitializedExceptionProto", "TimeoutExceptionProto", "UserNotInitializedExceptionProto", "GenericExceptionProto", "MissingAndroidPermissionsExceptionProto", "Result", });
     internal_static_ResultInt64Proto_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_ResultInt64Proto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ResultInt64Proto_descriptor,
         new java.lang.String[] { "Value", "SdkNotInitializedExceptionProto", "GenericExceptionProto", "Result", });
     internal_static_ResultSyncStatusProto_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_ResultSyncStatusProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ResultSyncStatusProto_descriptor,
         new java.lang.String[] { "SyncStatusProto", "DeviceNotSupportedExceptionProto", "HealthConnectNotInstalledExceptionProto", "HttpRequestExceptionProto", "MissingPermissionsExceptionProto", "RequestQuotaExceededExceptionProto", "SdkNotInitializedExceptionProto", "TimeoutExceptionProto", "UserNotInitializedExceptionProto", "GenericExceptionProto", "Result", });
+    internal_static_ResultDataSourceProto_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_ResultDataSourceProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ResultDataSourceProto_descriptor,
+        new java.lang.String[] { "DataSourceProtoListWrapper", "SdkNotInitializedExceptionProto", "UserNotInitializedExceptionProto", "GenericExceptionProto", "Result", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

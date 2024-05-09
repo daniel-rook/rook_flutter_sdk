@@ -1,3 +1,4 @@
+/// Exception thrown when the user is not initialized.
 class UserNotInitializedException implements Exception {
   final String message;
 

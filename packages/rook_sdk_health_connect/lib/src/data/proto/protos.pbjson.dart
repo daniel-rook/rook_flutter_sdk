@@ -141,6 +141,54 @@ final $typed_data.Uint8List rookConfigurationProtoDescriptor = $convert.base64De
     'QSHAoJc2VjcmV0S2V5GAIgASgJUglzZWNyZXRLZXkSNwoLZW52aXJvbm1lbnQYAyABKA4yFS5S'
     'b29rRW52aXJvbm1lbnRQcm90b1ILZW52aXJvbm1lbnQ=');
 
+@$core.Deprecated('Use dataSourceProtoDescriptor instead')
+const DataSourceProto$json = {
+  '1': 'DataSourceProto',
+  '2': [
+    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
+    {'1': 'image', '3': 3, '4': 1, '5': 9, '10': 'image'},
+    {'1': 'connected', '3': 4, '4': 1, '5': 8, '10': 'connected'},
+    {'1': 'authorizationUrl', '3': 5, '4': 1, '5': 9, '10': 'authorizationUrl'},
+    {
+      '1': 'authorizationUrlIsNull',
+      '3': 6,
+      '4': 1,
+      '5': 8,
+      '10': 'authorizationUrlIsNull'
+    },
+  ],
+};
+
+/// Descriptor for `DataSourceProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List dataSourceProtoDescriptor = $convert.base64Decode(
+    'Cg9EYXRhU291cmNlUHJvdG8SEgoEbmFtZRgBIAEoCVIEbmFtZRIgCgtkZXNjcmlwdGlvbhgCIA'
+    'EoCVILZGVzY3JpcHRpb24SFAoFaW1hZ2UYAyABKAlSBWltYWdlEhwKCWNvbm5lY3RlZBgEIAEo'
+    'CFIJY29ubmVjdGVkEioKEGF1dGhvcml6YXRpb25VcmwYBSABKAlSEGF1dGhvcml6YXRpb25Vcm'
+    'wSNgoWYXV0aG9yaXphdGlvblVybElzTnVsbBgGIAEoCFIWYXV0aG9yaXphdGlvblVybElzTnVs'
+    'bA==');
+
+@$core.Deprecated('Use dataSourceProtoListWrapperDescriptor instead')
+const DataSourceProtoListWrapper$json = {
+  '1': 'DataSourceProtoListWrapper',
+  '2': [
+    {
+      '1': 'dataSources',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.DataSourceProto',
+      '10': 'dataSources'
+    },
+  ],
+};
+
+/// Descriptor for `DataSourceProtoListWrapper`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List dataSourceProtoListWrapperDescriptor =
+    $convert.base64Decode(
+        'ChpEYXRhU291cmNlUHJvdG9MaXN0V3JhcHBlchIyCgtkYXRhU291cmNlcxgBIAMoCzIQLkRhdG'
+        'FTb3VyY2VQcm90b1ILZGF0YVNvdXJjZXM=');
+
 @$core.Deprecated('Use deviceNotSupportedExceptionProtoDescriptor instead')
 const DeviceNotSupportedExceptionProto$json = {
   '1': 'DeviceNotSupportedExceptionProto',
@@ -607,3 +655,71 @@ final $typed_data.Uint8List resultSyncStatusProtoDescriptor = $convert.base64Dec
     'plZEV4Y2VwdGlvblByb3RvEk4KFWdlbmVyaWNFeGNlcHRpb25Qcm90bxgLIAEoCzIWLkdlbmVy'
     'aWNFeGNlcHRpb25Qcm90b0gAUhVnZW5lcmljRXhjZXB0aW9uUHJvdG9CCAoGcmVzdWx0SgQIBR'
     'AGSgQIDBAN');
+
+@$core.Deprecated('Use resultDataSourceProtoDescriptor instead')
+const ResultDataSourceProto$json = {
+  '1': 'ResultDataSourceProto',
+  '2': [
+    {
+      '1': 'dataSourceProtoListWrapper',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DataSourceProtoListWrapper',
+      '9': 0,
+      '10': 'dataSourceProtoListWrapper'
+    },
+    {
+      '1': 'sdkNotInitializedExceptionProto',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKNotInitializedExceptionProto',
+      '9': 0,
+      '10': 'sdkNotInitializedExceptionProto'
+    },
+    {
+      '1': 'userNotInitializedExceptionProto',
+      '3': 10,
+      '4': 1,
+      '5': 11,
+      '6': '.UserNotInitializedExceptionProto',
+      '9': 0,
+      '10': 'userNotInitializedExceptionProto'
+    },
+    {
+      '1': 'genericExceptionProto',
+      '3': 11,
+      '4': 1,
+      '5': 11,
+      '6': '.GenericExceptionProto',
+      '9': 0,
+      '10': 'genericExceptionProto'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+  '9': [
+    {'1': 2, '2': 3},
+    {'1': 3, '2': 4},
+    {'1': 4, '2': 5},
+    {'1': 5, '2': 6},
+    {'1': 6, '2': 7},
+    {'1': 7, '2': 8},
+    {'1': 9, '2': 10},
+    {'1': 12, '2': 13},
+  ],
+};
+
+/// Descriptor for `ResultDataSourceProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resultDataSourceProtoDescriptor = $convert.base64Decode(
+    'ChVSZXN1bHREYXRhU291cmNlUHJvdG8SXQoaZGF0YVNvdXJjZVByb3RvTGlzdFdyYXBwZXIYAS'
+    'ABKAsyGy5EYXRhU291cmNlUHJvdG9MaXN0V3JhcHBlckgAUhpkYXRhU291cmNlUHJvdG9MaXN0'
+    'V3JhcHBlchJsCh9zZGtOb3RJbml0aWFsaXplZEV4Y2VwdGlvblByb3RvGAggASgLMiAuU0RLTm'
+    '90SW5pdGlhbGl6ZWRFeGNlcHRpb25Qcm90b0gAUh9zZGtOb3RJbml0aWFsaXplZEV4Y2VwdGlv'
+    'blByb3RvEm8KIHVzZXJOb3RJbml0aWFsaXplZEV4Y2VwdGlvblByb3RvGAogASgLMiEuVXNlck'
+    '5vdEluaXRpYWxpemVkRXhjZXB0aW9uUHJvdG9IAFIgdXNlck5vdEluaXRpYWxpemVkRXhjZXB0'
+    'aW9uUHJvdG8STgoVZ2VuZXJpY0V4Y2VwdGlvblByb3RvGAsgASgLMhYuR2VuZXJpY0V4Y2VwdG'
+    'lvblByb3RvSABSFWdlbmVyaWNFeGNlcHRpb25Qcm90b0IICgZyZXN1bHRKBAgCEANKBAgDEARK'
+    'BAgEEAVKBAgFEAZKBAgGEAdKBAgHEAhKBAgJEApKBAgMEA0=');

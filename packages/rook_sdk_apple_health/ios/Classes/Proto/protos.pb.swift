@@ -76,6 +76,40 @@ struct RookConfigurationProto {
   init() {}
 }
 
+struct DataSourceProto {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var name: String = String()
+
+  var description_p: String = String()
+
+  var image: String = String()
+
+  var connected: Bool = false
+
+  var authorizationURL: String = String()
+
+  var authorizationURLIsNull: Bool = false
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct DataSourceProtoListWrapper {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dataSources: [DataSourceProto] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 struct MissingConfigurationExceptionProto {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -217,15 +251,71 @@ struct ResultInt64Proto {
   init() {}
 }
 
+struct ResultDataSourceProto {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: ResultDataSourceProto.OneOf_Result? = nil
+
+  var dataSourceProtoListWrapper: DataSourceProtoListWrapper {
+    get {
+      if case .dataSourceProtoListWrapper(let v)? = result {return v}
+      return DataSourceProtoListWrapper()
+    }
+    set {result = .dataSourceProtoListWrapper(newValue)}
+  }
+
+  var genericExceptionProto: GenericExceptionProto {
+    get {
+      if case .genericExceptionProto(let v)? = result {return v}
+      return GenericExceptionProto()
+    }
+    set {result = .genericExceptionProto(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable {
+    case dataSourceProtoListWrapper(DataSourceProtoListWrapper)
+    case genericExceptionProto(GenericExceptionProto)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ResultDataSourceProto.OneOf_Result, rhs: ResultDataSourceProto.OneOf_Result) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch (lhs, rhs) {
+      case (.dataSourceProtoListWrapper, .dataSourceProtoListWrapper): return {
+        guard case .dataSourceProtoListWrapper(let l) = lhs, case .dataSourceProtoListWrapper(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.genericExceptionProto, .genericExceptionProto): return {
+        guard case .genericExceptionProto(let l) = lhs, case .genericExceptionProto(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      default: return false
+      }
+    }
+  #endif
+  }
+
+  init() {}
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension RookEnvironmentProto: @unchecked Sendable {}
 extension RookConfigurationProto: @unchecked Sendable {}
+extension DataSourceProto: @unchecked Sendable {}
+extension DataSourceProtoListWrapper: @unchecked Sendable {}
 extension MissingConfigurationExceptionProto: @unchecked Sendable {}
 extension GenericExceptionProto: @unchecked Sendable {}
 extension ResultBooleanProto: @unchecked Sendable {}
 extension ResultBooleanProto.OneOf_Result: @unchecked Sendable {}
 extension ResultInt64Proto: @unchecked Sendable {}
 extension ResultInt64Proto.OneOf_Result: @unchecked Sendable {}
+extension ResultDataSourceProto: @unchecked Sendable {}
+extension ResultDataSourceProto.OneOf_Result: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -276,6 +366,100 @@ extension RookConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.clientUuid != rhs.clientUuid {return false}
     if lhs.secretKey != rhs.secretKey {return false}
     if lhs.environment != rhs.environment {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension DataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "DataSourceProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "description"),
+    3: .same(proto: "image"),
+    4: .same(proto: "connected"),
+    5: .same(proto: "authorizationUrl"),
+    6: .same(proto: "authorizationUrlIsNull"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.image) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.connected) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.authorizationURL) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.authorizationURLIsNull) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    if !self.image.isEmpty {
+      try visitor.visitSingularStringField(value: self.image, fieldNumber: 3)
+    }
+    if self.connected != false {
+      try visitor.visitSingularBoolField(value: self.connected, fieldNumber: 4)
+    }
+    if !self.authorizationURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.authorizationURL, fieldNumber: 5)
+    }
+    if self.authorizationURLIsNull != false {
+      try visitor.visitSingularBoolField(value: self.authorizationURLIsNull, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: DataSourceProto, rhs: DataSourceProto) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.image != rhs.image {return false}
+    if lhs.connected != rhs.connected {return false}
+    if lhs.authorizationURL != rhs.authorizationURL {return false}
+    if lhs.authorizationURLIsNull != rhs.authorizationURLIsNull {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension DataSourceProtoListWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "DataSourceProtoListWrapper"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dataSources"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.dataSources) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dataSources.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.dataSources, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: DataSourceProtoListWrapper, rhs: DataSourceProtoListWrapper) -> Bool {
+    if lhs.dataSources != rhs.dataSources {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -349,8 +533,8 @@ extension ResultBooleanProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   static let protoMessageName: String = "ResultBooleanProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "success"),
-    2: .same(proto: "missingConfigurationExceptionProto"),
-    3: .same(proto: "genericExceptionProto"),
+    5: .same(proto: "missingConfigurationExceptionProto"),
+    11: .same(proto: "genericExceptionProto"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -367,7 +551,7 @@ extension ResultBooleanProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
           self.result = .success(v)
         }
       }()
-      case 2: try {
+      case 5: try {
         var v: MissingConfigurationExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
@@ -380,7 +564,7 @@ extension ResultBooleanProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
           self.result = .missingConfigurationExceptionProto(v)
         }
       }()
-      case 3: try {
+      case 11: try {
         var v: GenericExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
@@ -410,11 +594,11 @@ extension ResultBooleanProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }()
     case .missingConfigurationExceptionProto?: try {
       guard case .missingConfigurationExceptionProto(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
     }()
     case .genericExceptionProto?: try {
       guard case .genericExceptionProto(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
     }()
     case nil: break
     }
@@ -487,6 +671,76 @@ extension ResultInt64Proto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 
   static func ==(lhs: ResultInt64Proto, rhs: ResultInt64Proto) -> Bool {
+    if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ResultDataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ResultDataSourceProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dataSourceProtoListWrapper"),
+    11: .same(proto: "genericExceptionProto"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: DataSourceProtoListWrapper?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .dataSourceProtoListWrapper(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .dataSourceProtoListWrapper(v)
+        }
+      }()
+      case 11: try {
+        var v: GenericExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .genericExceptionProto(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .genericExceptionProto(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .dataSourceProtoListWrapper?: try {
+      guard case .dataSourceProtoListWrapper(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .genericExceptionProto?: try {
+      guard case .genericExceptionProto(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ResultDataSourceProto, rhs: ResultDataSourceProto) -> Bool {
     if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
