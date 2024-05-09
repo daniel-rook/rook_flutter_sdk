@@ -3,6 +3,7 @@ package com.rookmotion.rook_sdk_health_connect
 import android.app.Activity
 import android.content.Context
 import com.rookmotion.rook.sdk.RookConfigurationManager
+import com.rookmotion.rook.sdk.RookDataSources
 import com.rookmotion.rook.sdk.RookEventManager
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
 import com.rookmotion.rook.sdk.RookHelpers
@@ -24,6 +25,8 @@ import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.intSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesError
 import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Error
 import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Success
 import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusError
@@ -44,6 +47,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import org.jetbrains.annotations.Contract
 import java.time.Instant
 
 /** RookSdkHealthConnectPlugin */
@@ -60,6 +64,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var rookEventManager: RookEventManager
     private lateinit var rookStepsManager: RookStepsManager
     private lateinit var rookYesterdaySyncManager: RookYesterdaySyncManager
+    private lateinit var rookDataSources: RookDataSources
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         context = flutterPluginBinding.applicationContext
@@ -70,6 +75,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         rookEventManager = RookEventManager(rookConfigurationManager)
         rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
         rookYesterdaySyncManager = RookYesterdaySyncManager(flutterPluginBinding.applicationContext)
+        rookDataSources = RookDataSources(flutterPluginBinding.applicationContext)
 
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "rook_sdk_health_connect")
         scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -599,6 +605,28 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 } catch (exception: Exception) {
                     result.resultBooleanError(exception)
                 }
+            }
+
+            "getAvailableDataSources" -> scope.launch {
+                rookDataSources.getAvailableDataSources().fold(
+                    {
+                        result.resultDataSourcesSuccess(it)
+                    },
+                    {
+                        result.resultDataSourcesError(it)
+                    }
+                )
+            }
+
+            "presentDataSourceView" -> scope.launch {
+                rookDataSources.presentDataSourceView().fold(
+                    {
+                        result.resultBooleanSuccess(true)
+                    },
+                    {
+                        result.resultBooleanError(it)
+                    }
+                )
             }
 
             else -> result.notImplemented()

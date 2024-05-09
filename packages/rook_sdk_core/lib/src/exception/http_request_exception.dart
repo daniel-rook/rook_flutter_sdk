@@ -1,3 +1,4 @@
+/// Exception thrown when a http request fails.
 class HttpRequestException implements Exception {
   final String message;
   final int code;

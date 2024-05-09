@@ -225,6 +225,28 @@ void main() {
         await expectLater(future, completes);
       },
     );
+
+    test('GIVEN a Result.success WHEN scheduleYesterdaySync THEN complete',
+        () async {
+      final future = platform.scheduleYesterdaySync(
+        true,
+        RookConfiguration(
+          'rookUrl',
+          'clientUUID',
+          RookEnvironment.sandbox,
+        ),
+        HCSyncInstruction.syncLatest,
+      );
+
+      await expectLater(future, completes);
+    });
+
+    test('GIVEN a Result.success WHEN presentDataSourceView THEN complete',
+        () async {
+      final future = platform.presentDataSourceView();
+
+      await expectLater(future, completes);
+    });
   });
 
   group(
@@ -416,6 +438,30 @@ void main() {
         await expectLater(future, throwsA(isException));
       },
     );
+
+    test(
+        'GIVEN a Result.exception WHEN scheduleYesterdaySync THEN throw exception',
+        () async {
+      final future = platform.scheduleYesterdaySync(
+        true,
+        RookConfiguration(
+          'rookUrl',
+          'clientUUID',
+          RookEnvironment.sandbox,
+        ),
+        HCSyncInstruction.syncLatest,
+      );
+
+      await expectLater(future, throwsA(isException));
+    });
+
+    test(
+        'GIVEN a Result.exception WHEN presentDataSourceView THEN throw exception',
+        () async {
+      final future = platform.presentDataSourceView();
+
+      await expectLater(future, throwsA(isException));
+    });
   });
 
   group('MethodChannelRookSdkHealthConnect | ResultInt64Proto value unwrap',
@@ -472,7 +518,7 @@ void main() {
     });
 
     test(
-      'GIVEN a Result.success WHEN syncSleepSummary THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncSleepSummary THEN complete with expected value',
       () async {
         final future = platform.syncSleepSummary(DateTime.now());
 
@@ -481,7 +527,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncPhysicalSummary THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncPhysicalSummary THEN complete with expected value',
       () async {
         final future = platform.syncPhysicalSummary(DateTime.now());
 
@@ -490,7 +536,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncBodySummary THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncBodySummary THEN complete with expected value',
       () async {
         final future = platform.syncBodySummary(DateTime.now());
 
@@ -499,7 +545,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncPhysicalEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncPhysicalEvents THEN complete with expected value',
       () async {
         final future = platform.syncPhysicalEvents(DateTime.now());
 
@@ -508,7 +554,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncBloodGlucoseEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncBloodGlucoseEvents THEN complete with expected value',
       () async {
         final future = platform.syncBloodGlucoseEvents(DateTime.now());
 
@@ -517,7 +563,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncBloodPressureEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncBloodPressureEvents THEN complete with expected value',
       () async {
         final future = platform.syncBloodPressureEvents(DateTime.now());
 
@@ -526,7 +572,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncBodyMetricsEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncBodyMetricsEvents THEN complete with expected value',
       () async {
         final future = platform.syncBodyMetricsEvents(DateTime.now());
 
@@ -535,7 +581,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncBodyHeartRateEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncBodyHeartRateEvents THEN complete with expected value',
       () async {
         final future = platform.syncBodyHeartRateEvents(DateTime.now());
 
@@ -544,7 +590,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncPhysicalHeartRateEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncPhysicalHeartRateEvents THEN complete with expected value',
       () async {
         final future = platform.syncPhysicalHeartRateEvents(DateTime.now());
 
@@ -553,7 +599,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncHydrationEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncHydrationEvents THEN complete with expected value',
       () async {
         final future = platform.syncHydrationEvents(DateTime.now());
 
@@ -562,7 +608,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncNutritionEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncNutritionEvents THEN complete with expected value',
       () async {
         final future = platform.syncNutritionEvents(DateTime.now());
 
@@ -571,7 +617,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncBodyOxygenationEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncBodyOxygenationEvents THEN complete with expected value',
       () async {
         final future = platform.syncBodyOxygenationEvents(DateTime.now());
 
@@ -580,7 +626,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncPhysicalOxygenationEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncPhysicalOxygenationEvents THEN complete with expected value',
       () async {
         final future = platform.syncPhysicalOxygenationEvents(DateTime.now());
 
@@ -589,7 +635,7 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN syncTemperatureEvents THEN complete with expected value',
+      'GIVEN a Result.syncStatusProto WHEN syncTemperatureEvents THEN complete with expected value',
       () async {
         final future = platform.syncTemperatureEvents(DateTime.now());
 
@@ -784,6 +830,72 @@ void main() {
     test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
         () async {
       final future = platform.getUserID();
+
+      await expectLater(future, throwsA(isException));
+    });
+  });
+
+  group(
+      'MethodChannelRookSdkHealthConnect | ResultDataSourceProto dataSourceProtoListWrapper unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final proto = ResultDataSourceProto();
+        proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper(
+          dataSources: [
+            DataSourceProto(
+              name: 'name',
+              description: 'description',
+              image: 'image',
+              connected: true,
+              authorizationUrl: 'authorizationUrl',
+              authorizationUrlIsNull: false,
+            ),
+          ],
+        );
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+        'GIVEN a Result.dataSourceProtoListWrapper WHEN getAvailableDataSources THEN complete with expected value',
+        () async {
+      final result = (await platform.getAvailableDataSources()).first;
+      final expected = DataSource(
+        'name',
+        'description',
+        'image',
+        true,
+        'authorizationUrl',
+      );
+
+      expect(result.name, expected.name);
+      expect(result.description, expected.description);
+      expect(result.image, expected.image);
+      expect(result.connected, expected.connected);
+      expect(result.authorizationUrl, expected.authorizationUrl);
+    });
+  });
+
+  group(
+      'MethodChannelRookSdkHealthConnect | ResultDataSourceProto exception unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final proto = ResultDataSourceProto();
+        proto.genericExceptionProto =
+            GenericExceptionProto(message: 'Generic error');
+
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+        'GIVEN a Result.exception WHEN getAvailableDataSources THEN throw exception',
+        () async {
+      final future = platform.getAvailableDataSources();
 
       await expectLater(future, throwsA(isException));
     });

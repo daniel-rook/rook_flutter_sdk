@@ -9,6 +9,34 @@ import Foundation
 import Flutter
 import RookSDK
 
+func resultDataSourceSuccess(flutterResult: FlutterResult, _ dataSources: [RookDataSource]) {
+    let result = ResultDataSourceProto.with { proto in
+        proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper.with{ wrapper in
+            wrapper.dataSources = dataSources.map { it in it.toProto() }
+        }
+    }
+    
+    runWithValue(
+        flutterResult: flutterResult,
+        builder: { try result.serializedData() },
+        block: { it in flutterResult(it) }
+    )
+}
+
+func resultDataSourceError(flutterResult: FlutterResult, _ error: Error) {
+    var result = ResultDataSourceProto()
+    
+    result.genericExceptionProto = GenericExceptionProto.with { it in
+        it.message = "\(error)"
+    }
+    
+    runWithValue(
+        flutterResult: flutterResult,
+        builder: { try result.serializedData() },
+        block: { it in flutterResult(it) }
+    )
+}
+
 func resultInt64Success(flutterResult: FlutterResult, _ int: Int) {
     let result = ResultInt64Proto.with { it in
         it.value = Int64(int)
@@ -57,7 +85,7 @@ func resultBoolError(flutterResult: FlutterResult, _ error: Error) {
             }
         } else {
             result.genericExceptionProto = GenericExceptionProto.with { it in
-              it.message = "\(rookConnectError)"
+                it.message = "\(rookConnectError)"
             }
         }
     } else {

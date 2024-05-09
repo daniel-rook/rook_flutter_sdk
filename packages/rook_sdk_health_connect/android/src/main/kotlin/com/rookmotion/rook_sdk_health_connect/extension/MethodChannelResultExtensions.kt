@@ -11,11 +11,14 @@ import com.rookmotion.rook.sdk.domain.exception.RequestQuotaExceededException
 import com.rookmotion.rook.sdk.domain.exception.SDKNotInitializedException
 import com.rookmotion.rook.sdk.domain.exception.TimeoutException
 import com.rookmotion.rook.sdk.domain.exception.UserNotInitializedException
-import com.rookmotion.rook_sdk_health_connect.mapper.toProto
+import com.rookmotion.rook.sdk.domain.model.DataSource
+import com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper
 import com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.ResultBooleanProto
+import com.rookmotion.rook_sdk_health_connect.data.proto.ResultDataSourceProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.ResultInt64Proto
 import com.rookmotion.rook_sdk_health_connect.data.proto.ResultSyncStatusProto
+import com.rookmotion.rook_sdk_health_connect.mapper.toProto
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.intSuccess(int: Int) {
@@ -27,228 +30,193 @@ fun MethodChannel.Result.throwableError(throwable: Throwable) {
 }
 
 fun MethodChannel.Result.resultBooleanSuccess(boolean: Boolean) {
-    val result = ResultBooleanProto.newBuilder()
+    val bytes = ResultBooleanProto.newBuilder()
         .setSuccess(boolean)
         .build()
+        .toByteArray()
 
-    success(result.toByteArray())
+    success(bytes)
 }
 
 fun MethodChannel.Result.resultBooleanError(throwable: Throwable) {
-    val bytes = when (throwable) {
-        is DeviceNotSupportedException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setDeviceNotSupportedExceptionProto(throwable.toProto())
-                .build()
+    val resultBooleanProtoBuilder = ResultBooleanProto.newBuilder()
 
-            result.toByteArray()
+    when (throwable) {
+        is DeviceNotSupportedException -> {
+            resultBooleanProtoBuilder.setDeviceNotSupportedExceptionProto(throwable.toProto())
         }
 
         is HealthConnectNotInstalledException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setHealthConnectNotInstalledExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setHealthConnectNotInstalledExceptionProto(throwable.toProto())
         }
 
         is HttpRequestException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setHttpRequestExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setHttpRequestExceptionProto(throwable.toProto())
         }
 
         is MissingConfigurationException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setMissingConfigurationExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setMissingConfigurationExceptionProto(throwable.toProto())
         }
 
         is MissingPermissionsException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setMissingPermissionsExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setMissingPermissionsExceptionProto(throwable.toProto())
         }
 
         is RequestQuotaExceededException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setRequestQuotaExceededExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setRequestQuotaExceededExceptionProto(throwable.toProto())
         }
 
         is SDKNotInitializedException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setSdkNotInitializedExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setSdkNotInitializedExceptionProto(throwable.toProto())
         }
 
         is TimeoutException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setTimeoutExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setTimeoutExceptionProto(throwable.toProto())
         }
 
         is UserNotInitializedException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setUserNotInitializedExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setUserNotInitializedExceptionProto(throwable.toProto())
         }
 
         is MissingAndroidPermissionsException -> {
-            val result = ResultBooleanProto.newBuilder()
-                .setMissingAndroidPermissionsExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setMissingAndroidPermissionsExceptionProto(throwable.toProto())
         }
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
                 .setMessage(throwable.localizedMessage)
 
-            val result = ResultBooleanProto.newBuilder()
-                .setGenericExceptionProto(proto)
-                .build()
-
-            result.toByteArray()
+            resultBooleanProtoBuilder.setGenericExceptionProto(proto)
         }
     }
+
+    val bytes = resultBooleanProtoBuilder.build().toByteArray()
 
     success(bytes)
 }
 
 fun MethodChannel.Result.resultInt64Success(long: Long) {
-    val result = ResultInt64Proto.newBuilder()
+    val bytes = ResultInt64Proto.newBuilder()
         .setValue(long)
         .build()
+        .toByteArray()
 
-    success(result.toByteArray())
+    success(bytes)
 }
 
 fun MethodChannel.Result.resultInt64Error(throwable: Throwable) {
-    val bytes = when (throwable) {
-        is SDKNotInitializedException -> {
-            val result = ResultInt64Proto.newBuilder()
-                .setSdkNotInitializedExceptionProto(throwable.toProto())
-                .build()
+    val resultInt64ProtoBuilder = ResultInt64Proto.newBuilder()
 
-            result.toByteArray()
+    when (throwable) {
+        is SDKNotInitializedException -> {
+            resultInt64ProtoBuilder.setSdkNotInitializedExceptionProto(throwable.toProto())
         }
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
                 .setMessage(throwable.localizedMessage)
 
-            val result = ResultInt64Proto.newBuilder()
-                .setGenericExceptionProto(proto)
-                .build()
-
-            result.toByteArray()
+            resultInt64ProtoBuilder.setGenericExceptionProto(proto)
         }
     }
+
+    val bytes = resultInt64ProtoBuilder.build().toByteArray()
 
     success(bytes)
 }
 
 fun MethodChannel.Result.resultSyncStatusSuccess(syncStatus: SyncStatus) {
-    val result = ResultSyncStatusProto.newBuilder()
+    val bytes = ResultSyncStatusProto.newBuilder()
         .setSyncStatusProto(syncStatus.toProto())
         .build()
+        .toByteArray()
 
-    success(result.toByteArray())
+    success(bytes)
 }
 
 fun MethodChannel.Result.resultSyncStatusError(throwable: Throwable) {
-    val bytes = when (throwable) {
-        is DeviceNotSupportedException -> {
-            val result = ResultSyncStatusProto.newBuilder()
-                .setDeviceNotSupportedExceptionProto(throwable.toProto())
-                .build()
+    val resultSyncStatusProtoBuilder = ResultSyncStatusProto.newBuilder()
 
-            result.toByteArray()
+    when (throwable) {
+        is DeviceNotSupportedException -> {
+            resultSyncStatusProtoBuilder.setDeviceNotSupportedExceptionProto(throwable.toProto())
         }
 
         is HealthConnectNotInstalledException -> {
-            val result = ResultSyncStatusProto.newBuilder()
-                .setHealthConnectNotInstalledExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultSyncStatusProtoBuilder.setHealthConnectNotInstalledExceptionProto(throwable.toProto())
         }
 
         is HttpRequestException -> {
-            val result = ResultSyncStatusProto.newBuilder()
-                .setHttpRequestExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultSyncStatusProtoBuilder.setHttpRequestExceptionProto(throwable.toProto())
         }
 
         is MissingPermissionsException -> {
-            val result = ResultSyncStatusProto.newBuilder()
-                .setMissingPermissionsExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultSyncStatusProtoBuilder.setMissingPermissionsExceptionProto(throwable.toProto())
         }
 
         is RequestQuotaExceededException -> {
-            val result = ResultSyncStatusProto.newBuilder()
-                .setRequestQuotaExceededExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultSyncStatusProtoBuilder.setRequestQuotaExceededExceptionProto(throwable.toProto())
         }
 
         is SDKNotInitializedException -> {
-            val result = ResultSyncStatusProto.newBuilder()
-                .setSdkNotInitializedExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultSyncStatusProtoBuilder.setSdkNotInitializedExceptionProto(throwable.toProto())
         }
 
         is TimeoutException -> {
-            val result = ResultSyncStatusProto.newBuilder()
-                .setTimeoutExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultSyncStatusProtoBuilder.setTimeoutExceptionProto(throwable.toProto())
         }
 
         is UserNotInitializedException -> {
-            val result = ResultSyncStatusProto.newBuilder()
-                .setUserNotInitializedExceptionProto(throwable.toProto())
-                .build()
-
-            result.toByteArray()
+            resultSyncStatusProtoBuilder.setUserNotInitializedExceptionProto(throwable.toProto())
         }
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
                 .setMessage(throwable.localizedMessage)
 
-            val result = ResultSyncStatusProto.newBuilder()
-                .setGenericExceptionProto(proto)
-                .build()
-
-            result.toByteArray()
+            resultSyncStatusProtoBuilder.setGenericExceptionProto(proto)
         }
     }
+
+    val bytes = resultSyncStatusProtoBuilder.build().toByteArray()
+
+    success(bytes)
+}
+
+fun MethodChannel.Result.resultDataSourcesSuccess(dataSources: List<DataSource>) {
+    val dataSourceProtoListWrapper = DataSourceProtoListWrapper.newBuilder()
+        .addAllDataSources(dataSources.map { it.toProto() })
+        .build()
+
+    val bytes = ResultDataSourceProto.newBuilder()
+        .setDataSourceProtoListWrapper(dataSourceProtoListWrapper)
+        .build()
+        .toByteArray()
+
+    success(bytes)
+}
+
+fun MethodChannel.Result.resultDataSourcesError(throwable: Throwable) {
+    val resultDataSourceProtoBuilder = ResultDataSourceProto.newBuilder()
+
+    when (throwable) {
+        is SDKNotInitializedException -> {
+            resultDataSourceProtoBuilder.setSdkNotInitializedExceptionProto(throwable.toProto())
+        }
+
+        is UserNotInitializedException -> {
+            resultDataSourceProtoBuilder.setUserNotInitializedExceptionProto(throwable.toProto())
+        }
+
+        else -> {
+            val proto = GenericExceptionProto.newBuilder()
+                .setMessage(throwable.localizedMessage)
+
+            resultDataSourceProtoBuilder.setGenericExceptionProto(proto)
+        }
+    }
+
+    val bytes = resultDataSourceProtoBuilder.build().toByteArray()
 
     success(bytes)
 }

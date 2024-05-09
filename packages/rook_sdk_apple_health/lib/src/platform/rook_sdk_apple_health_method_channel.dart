@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
+import 'package:rook_sdk_apple_health/src/data/extension/result_data_source_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
@@ -10,6 +11,11 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('rook_sdk_apple_health');
+
+  @override
+  Future<void> enableNativeLogs() async {
+    await methodChannel.invokeMethod('enableNativeLogs');
+  }
 
   @override
   Future<void> setConfiguration(RookConfiguration rookConfiguration) async {
@@ -462,6 +468,28 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<void> disableBackground() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'disableBackground',
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Future<List<DataSource>> getAvailableDataSources() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getAvailableDataSources',
+    );
+
+    final result = ResultDataSourceProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<void> presentDataSourceView() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'presentDataSourceView',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);

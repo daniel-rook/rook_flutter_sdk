@@ -11,7 +11,20 @@ message RookConfigurationProto {
   RookEnvironmentProto environment = 3;
 }
 
-message  MissingConfigurationExceptionProto {
+message DataSourceProto {
+  string name = 1;
+  string description = 2;
+  string image = 3;
+  bool connected = 4;
+  string authorizationUrl = 5;
+  bool authorizationUrlIsNull = 6;
+}
+
+message DataSourceProtoListWrapper {
+  repeated DataSourceProto dataSources = 1;
+}
+
+message MissingConfigurationExceptionProto {
   string message = 1;
 }
 
@@ -20,16 +33,55 @@ message GenericExceptionProto {
 }
 
 message ResultBooleanProto {
+  reserved 2; // DeviceNotSupportedExceptionProto
+  reserved 3; // HealthConnectNotInstalledExceptionProto
+  reserved 4; // HttpRequestExceptionProto
+  reserved 6; // MissingPermissionsExceptionProto
+  reserved 7; // RequestQuotaExceededExceptionProto
+  reserved 8; // SDKNotInitializedExceptionProto
+  reserved 9; // TimeoutExceptionProto
+  reserved 10; // UserNotInitializedExceptionProto
+  reserved 12; // MissingAndroidPermissionsExceptionProto
+
   oneof result {
     bool success = 1;
-    MissingConfigurationExceptionProto missingConfigurationExceptionProto = 2;
-    GenericExceptionProto genericExceptionProto = 3;
+    MissingConfigurationExceptionProto missingConfigurationExceptionProto = 5;
+    GenericExceptionProto genericExceptionProto = 11;
   }
 }
 
 message ResultInt64Proto {
+  reserved 2; // DeviceNotSupportedExceptionProto
+  reserved 3; // HealthConnectNotInstalledExceptionProto
+  reserved 4; // HttpRequestExceptionProto
+  reserved 5; // MissingConfigurationExceptionProto
+  reserved 6; // MissingPermissionsExceptionProto
+  reserved 7; // RequestQuotaExceededExceptionProto
+  reserved 8; // SDKNotInitializedExceptionProto
+  reserved 9; // TimeoutExceptionProto
+  reserved 10; // UserNotInitializedExceptionProto
+  reserved 12; // MissingAndroidPermissionsExceptionProto
+
   oneof result {
     int64 value = 1;
+    GenericExceptionProto genericExceptionProto = 11;
+  }
+}
+
+message ResultDataSourceProto {
+  reserved 2; // DeviceNotSupportedExceptionProto
+  reserved 3; // HealthConnectNotInstalledExceptionProto
+  reserved 4; // HttpRequestExceptionProto
+  reserved 5; // MissingConfigurationExceptionProto
+  reserved 6; // MissingPermissionsExceptionProto
+  reserved 7; // RequestQuotaExceededExceptionProto
+  reserved 8; // SDKNotInitializedExceptionProto
+  reserved 9; // TimeoutExceptionProto
+  reserved 10; // UserNotInitializedExceptionProto
+  reserved 12; // MissingAndroidPermissionsExceptionProto
+
+  oneof result {
+    DataSourceProtoListWrapper dataSourceProtoListWrapper = 1;
     GenericExceptionProto genericExceptionProto = 11;
   }
 }

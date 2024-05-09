@@ -1,3 +1,4 @@
+/// Exception thrown when the user has not granted the required permissions for the Health SDK to work.
 class MissingPermissionsException implements Exception {
   final String message;
 

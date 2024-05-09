@@ -115,4 +115,8 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
     RookConfiguration rookConfiguration,
     HCSyncInstruction syncInstruction,
   );
+
+  Future<List<DataSource>> getAvailableDataSources();
+
+  Future<void> presentDataSourceView();
 }
