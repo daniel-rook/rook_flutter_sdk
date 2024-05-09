@@ -27,6 +27,13 @@ void main() {
       });
     });
 
+    test('GIVEN a Result.success WHEN enableNativeLogs THEN complete',
+        () async {
+      final future = platform.enableNativeLogs();
+
+      await expectLater(future, completes);
+    });
+
     test('GIVEN a Result.success WHEN setConfiguration THEN complete',
         () async {
       final rookConfiguration = RookConfiguration(

@@ -13,6 +13,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   final methodChannel = const MethodChannel('rook_sdk_apple_health');
 
   @override
+  Future<void> enableNativeLogs() async {
+    await methodChannel.invokeMethod('enableNativeLogs');
+  }
+
+  @override
   Future<void> setConfiguration(RookConfiguration rookConfiguration) async {
     final rookConfigurationProto = rookConfiguration.toProto();
 

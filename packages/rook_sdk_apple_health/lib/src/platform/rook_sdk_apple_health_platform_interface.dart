@@ -17,6 +17,8 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
     _instance = instance;
   }
 
+  Future<void> enableNativeLogs();
+
   Future<void> setConfiguration(RookConfiguration rookConfiguration);
 
   Future<String?> getUserID();

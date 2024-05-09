@@ -142,6 +142,10 @@ class _SdkAppleHealthConfigurationState
     configurationOutput.append('Using configuration:');
     configurationOutput.append('$rookConfiguration');
 
+    if (isDebug) {
+      rookConfigurationManager.enableNativeLogs();
+    }
+
     rookConfigurationManager.setConfiguration(rookConfiguration);
 
     setState(

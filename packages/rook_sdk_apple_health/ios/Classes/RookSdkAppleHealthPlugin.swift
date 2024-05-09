@@ -25,6 +25,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
+        case "enableNativeLogs":
+            RookConnectConfigurationManager.shared.setConsoleLogAvailable(true)
+            break
         case "setConfiguration":
             let bytes = call.getDataArgAt(0)
             
