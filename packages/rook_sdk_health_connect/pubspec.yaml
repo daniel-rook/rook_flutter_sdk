@@ -1,6 +1,6 @@
 name: rook_sdk_health_connect
 description: This package enables apps to extract and upload data from Health Connect.
-version: 1.1.0
+version: 1.1.1
 homepage: 'https://docs.tryrook.io/'
 platforms:
   android:
