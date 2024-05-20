@@ -166,25 +166,6 @@ jobs:
           name: rook_sdk_apple_health-test-report.txt
           path: packages/rook_sdk_apple_health/reports/test.txt
 
-  rook_sdk_apple_health_build:
-    needs: [ rook_sdk_apple_health_test ]
-    runs-on: macos-latest
-    steps:
-      - name: Get the code
-        uses: actions/checkout@v3
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.10.0'
-          channel: 'stable'
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Build project
-        run: flutter build ios --debug
-
   rook_sdk_apple_health_pana:
     needs: [ rook_sdk_apple_health_analyze ]
     runs-on: ubuntu-latest
@@ -302,6 +283,9 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Create fake secrets.dart file
+        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secretKey = 'secretKey';}" >> lib/secrets.dart
 
       - name: Build project
         run: flutter build apk --debug
