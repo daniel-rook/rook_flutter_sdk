@@ -138,6 +138,53 @@ jobs:
       - name: Run analyzer
         run: dart analyze packages/rook_sdk_apple_health --fatal-infos
 
+  rook_sdk_apple_health_test:
+    needs: [ rook_sdk_apple_health_analyze]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.0'
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Create reports directory
+        run: mkdir reports
+
+      - name: Run tests
+        run: cd packages/rook_sdk_apple_health && flutter test --file-reporter github:reports/test.txt
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: rook_sdk_apple_health-test-report.txt
+          path: packages/rook_sdk_apple_health/reports/test.txt
+
+  rook_sdk_apple_health_build:
+    needs: [ rook_sdk_apple_health_test ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.0'
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build project
+        run: flutter build ios --debug
+
   rook_sdk_apple_health_pana:
     needs: [ rook_sdk_apple_health_analyze ]
     runs-on: ubuntu-latest
@@ -168,34 +215,6 @@ jobs:
         with:
           name: rook_sdk_apple_health-pana-report.txt
           path: reports/pana.txt
-
-  rook_sdk_apple_health_test:
-    needs: [ rook_sdk_apple_health_pana]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get the code
-        uses: actions/checkout@v3
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.10.0'
-          channel: 'stable'
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Create reports directory
-        run: mkdir reports
-
-      - name: Run tests
-        run: cd packages/rook_sdk_apple_health && flutter test --file-reporter github:reports/test.txt
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v3.1.1
-        with:
-          name: rook_sdk_apple_health-test-report.txt
-          path: packages/rook_sdk_apple_health/reports/test.txt
 
   rook_sdk_health_connect_format:
     runs-on: ubuntu-latest
@@ -234,6 +253,53 @@ jobs:
       - name: Run analyzer
         run: dart analyze packages/rook_sdk_health_connect --fatal-infos
 
+  rook_sdk_health_connect_test:
+    needs: [ rook_sdk_health_connect_analyze]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.0'
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Create reports directory
+        run: mkdir reports
+
+      - name: Run tests
+        run: cd packages/rook_sdk_health_connect && flutter test --file-reporter github:reports/test.txt
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: rook_sdk_health_connect-test-report.txt
+          path: packages/rook_sdk_health_connect/reports/test.txt
+
+  rook_sdk_health_connect_build:
+    needs: [ rook_sdk_health_connect_test ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.0'
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build project
+        run: flutter build apk --debug
+
   rook_sdk_health_connect_pana:
     needs: [ rook_sdk_health_connect_analyze ]
     runs-on: ubuntu-latest
@@ -264,31 +330,3 @@ jobs:
         with:
           name: rook_sdk_health_connect-pana-report.txt
           path: reports/pana.txt
-
-  rook_sdk_health_connect_test:
-    needs: [ rook_sdk_health_connect_pana]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get the code
-        uses: actions/checkout@v3
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.10.0'
-          channel: 'stable'
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Create reports directory
-        run: mkdir reports
-
-      - name: Run tests
-        run: cd packages/rook_sdk_health_connect && flutter test --file-reporter github:reports/test.txt
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v3.1.1
-        with:
-          name: rook_sdk_health_connect-test-report.txt
-          path: packages/rook_sdk_health_connect/reports/test.txt
