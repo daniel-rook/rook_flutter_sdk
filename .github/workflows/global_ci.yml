@@ -168,7 +168,7 @@ jobs:
 
   rook_sdk_apple_health_build:
     needs: [ rook_sdk_apple_health_test ]
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Get the code
         uses: actions/checkout@v3
@@ -283,10 +283,16 @@ jobs:
 
   rook_sdk_health_connect_build:
     needs: [ rook_sdk_health_connect_test ]
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Get the code
         uses: actions/checkout@v3
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
