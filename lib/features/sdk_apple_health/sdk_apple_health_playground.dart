@@ -350,15 +350,6 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     });
   }
 
-  void syncYesterdayHealthData() async {
-    logger.info('Syncing yesterday health data...');
-
-    await rookSummaryManager.syncYesterdaySummaries();
-    await rookEventManager.syncYesterdayEvents();
-
-    logger.info('Synced yesterday health data...');
-  }
-
   void enableContinuousUpload() async {
     try {
       await rookContinuousUpload.enableContinuousUpload(
