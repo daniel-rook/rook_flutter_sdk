@@ -420,12 +420,15 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> enableContinuousUpload(
-      RookConfiguration rookConfiguration) async {
+    bool enableNativeLogs,
+    RookConfiguration rookConfiguration,
+  ) async {
     final rookConfigurationProto = rookConfiguration.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableContinuousUpload',
       [
+        enableNativeLogs,
         rookConfigurationProto.writeToBuffer(),
       ],
     );
@@ -448,6 +451,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> enableBackground(
+    bool enableNativeLogs,
     RookConfiguration rookConfiguration,
   ) async {
     final rookConfigurationProto = rookConfiguration.toProto();
@@ -455,6 +459,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableBackground',
       [
+        enableNativeLogs,
         rookConfigurationProto.writeToBuffer(),
       ],
     );
