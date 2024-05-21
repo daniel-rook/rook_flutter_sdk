@@ -413,12 +413,14 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             resultBoolSuccess(flutterResult: result, enabled)
             break
         case "enableContinuousUpload":
-            let bytes = call.getDataArgAt(0)
+            let enableNativeLogs = call.getBoolArgAt(0)
+            let bytes = call.getDataArgAt(1)
             
             runWithValue(
                 flutterResult: result,
                 builder: { try RookConfigurationProto(serializedData: bytes.data) },
                 block: { it in
+                    RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
                         secretKey: it.secretKey
@@ -445,12 +447,14 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             resultBoolSuccess(flutterResult: result, true)
             break
         case "enableBackground":
-            let bytes = call.getDataArgAt(0)
+            let enableNativeLogs = call.getBoolArgAt(0)
+            let bytes = call.getDataArgAt(1)
             
             runWithValue(
                 flutterResult: result,
                 builder: { try RookConfigurationProto(serializedData: bytes.data) },
                 block: { it in
+                    RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
                         secretKey: it.secretKey

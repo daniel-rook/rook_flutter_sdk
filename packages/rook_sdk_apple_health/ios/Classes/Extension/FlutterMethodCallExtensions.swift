@@ -10,6 +10,13 @@ import Flutter
 
 extension FlutterMethodCall {
     
+    func getBoolArgAt(_ index: Int) -> Bool {
+        let args = self.arguments as? [Any]
+        let value = args?[index] as? Bool
+        
+        return value!
+    }
+    
     func getDataArgAt(_ index: Int) -> FlutterStandardTypedData {
         let args = self.arguments as? [Any]
         let value = args?[index] as? FlutterStandardTypedData

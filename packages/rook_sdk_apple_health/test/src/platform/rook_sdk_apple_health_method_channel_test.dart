@@ -311,7 +311,7 @@ void main() {
         RookEnvironment.sandbox,
       );
 
-      final future = platform.enableContinuousUpload(rookConfiguration);
+      final future = platform.enableContinuousUpload(true, rookConfiguration);
 
       await expectLater(future, completes);
     });
@@ -331,7 +331,7 @@ void main() {
         RookEnvironment.sandbox,
       );
 
-      final future = platform.enableBackground(rookConfiguration);
+      final future = platform.enableBackground(true, rookConfiguration);
 
       await expectLater(future, completes);
     });
@@ -628,7 +628,7 @@ void main() {
         RookEnvironment.sandbox,
       );
 
-      final future = platform.enableContinuousUpload(rookConfiguration);
+      final future = platform.enableContinuousUpload(true, rookConfiguration);
 
       await expectLater(future, throwsA(isException));
     });
@@ -649,7 +649,7 @@ void main() {
         RookEnvironment.sandbox,
       );
 
-      final future = platform.enableBackground(rookConfiguration);
+      final future = platform.enableBackground(true, rookConfiguration);
 
       await expectLater(future, throwsA(isException));
     });

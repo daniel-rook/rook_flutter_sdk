@@ -164,18 +164,6 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  @Deprecated(
-      "Same functionality is available with other sync functions of AHRookSummaryManager")
-  Future<void> syncYesterdaySummaries() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'syncYesterdaySummaries',
-    );
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
   Future<void> syncPhysicalEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalEvents',
@@ -302,18 +290,6 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  @Deprecated(
-      "Same functionality is available with other sync functions of AHRookEventManager")
-  Future<void> syncYesterdayEvents() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'syncYesterdayEvents',
-    );
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
   Future<bool> isStepsTrackerActive() async {
     await Future.delayed(const Duration(milliseconds: 1500));
 
@@ -420,12 +396,15 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> enableContinuousUpload(
-      RookConfiguration rookConfiguration) async {
+    bool enableNativeLogs,
+    RookConfiguration rookConfiguration,
+  ) async {
     final rookConfigurationProto = rookConfiguration.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableContinuousUpload',
       [
+        enableNativeLogs,
         rookConfigurationProto.writeToBuffer(),
       ],
     );
@@ -448,6 +427,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> enableBackground(
+    bool enableNativeLogs,
     RookConfiguration rookConfiguration,
   ) async {
     final rookConfigurationProto = rookConfiguration.toProto();
@@ -455,6 +435,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableBackground',
       [
+        enableNativeLogs,
         rookConfigurationProto.writeToBuffer(),
       ],
     );

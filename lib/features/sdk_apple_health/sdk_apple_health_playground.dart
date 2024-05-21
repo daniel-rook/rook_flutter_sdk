@@ -350,21 +350,13 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     });
   }
 
-  void syncYesterdayHealthData() async {
-    logger.info('Syncing yesterday health data...');
-
-    await rookSummaryManager.syncYesterdaySummaries();
-    await rookEventManager.syncYesterdayEvents();
-
-    logger.info('Synced yesterday health data...');
-  }
-
   void enableContinuousUpload() async {
     try {
       await rookContinuousUpload.enableContinuousUpload(
-        Secrets.clientUUID,
-        Secrets.secretKey,
-        rookEnvironment,
+        enableNativeLogs: isDebug,
+        clientUUID: Secrets.clientUUID,
+        secretKey: Secrets.secretKey,
+        environment: rookEnvironment,
       );
 
       logger.info('Continuous upload enabled successfully');
@@ -376,9 +368,10 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
   void enableBackground() async {
     try {
       await rookBackgroundSync.enableBackground(
-        Secrets.clientUUID,
-        Secrets.secretKey,
-        rookEnvironment,
+        enableNativeLogs: isDebug,
+        clientUUID: Secrets.clientUUID,
+        secretKey: Secrets.secretKey,
+        environment: rookEnvironment,
       );
 
       logger.info('Background enabled successfully');

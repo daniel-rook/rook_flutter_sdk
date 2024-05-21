@@ -243,7 +243,7 @@ class _SdkAppleHealthConfigurationState
   void requestPermissions() {
     logger.info('Requesting all permissions...');
 
-    rookHealthPermissionsManager.requestAllPermissions().then((_) {
+    rookHealthPermissionsManager.requestPermissions().then((_) {
       logger.info('All permissions request sent');
 
       setState(() => enableNavigation = true);

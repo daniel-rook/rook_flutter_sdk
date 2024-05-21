@@ -23,12 +23,4 @@ class AHRookSummaryManager {
   Future<void> syncPendingSummaries() {
     return RookSdkAppleHealthPlatform.instance.syncPendingSummaries();
   }
-
-  /// Extract, enqueue and upload all summary types of yesterday,
-  /// if the upload is fails the summaries will be keep in the queue for a retry with [syncPendingSummaries].
-  @Deprecated(
-      "Same functionality is available with other sync functions of AHRookSummaryManager")
-  Future<void> syncYesterdaySummaries() {
-    return RookSdkAppleHealthPlatform.instance.syncYesterdaySummaries();
-  }
 }
