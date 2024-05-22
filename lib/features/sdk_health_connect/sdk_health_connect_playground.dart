@@ -129,7 +129,7 @@ class _SdkHealthConnectPlaygroundState
         .append('Checking all permissions (Sleep, Physical and Body)...'));
 
     rookHealthPermissionsManager
-        .checkPermissions(HCHealthPermission.all)
+        .checkPermissions()
         .then((hasPermissions) {
       final string = hasPermissions
           ? 'All permissions are granted! You can skip the next 2 steps'
@@ -159,7 +159,7 @@ class _SdkHealthConnectPlaygroundState
     logger.info('Requesting all permissions...');
 
     rookHealthPermissionsManager
-        .requestPermissions(HCHealthPermission.all)
+        .requestPermissions()
         .then((_) {
       logger.info('All permissions request sent');
     }).catchError((exception) {
@@ -814,10 +814,5 @@ class _SdkHealthConnectPlaygroundState
       syncPendingEventsOutput.append('Error syncing pending events:');
       setState(() => syncPendingEventsOutput.append(error));
     });
-  }
-
-  void syncYesterdayHealthData() async {
-    await rookSummaryManager.syncYesterdaySummaries();
-    await rookEventManager.syncYesterdayEvents();
   }
 }

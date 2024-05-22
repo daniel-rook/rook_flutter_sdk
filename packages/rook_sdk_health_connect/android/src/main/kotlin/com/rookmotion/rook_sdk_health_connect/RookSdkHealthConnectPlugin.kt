@@ -185,11 +185,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             }
 
             "checkPermissions" -> scope.launch {
-                val healthPermission = call.getIntArgAt(0).let {
-                    HealthPermissionProto.forNumber(it).toDomain()
-                }
-
-                rookHealthPermissionsManager.checkPermissions(healthPermission).fold(
+                rookHealthPermissionsManager.checkPermissions().fold(
                     {
                         result.resultBooleanSuccess(it)
                     },
@@ -200,12 +196,8 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             }
 
             "requestPermissions" -> {
-                val healthPermission = call.getIntArgAt(0).let {
-                    HealthPermissionProto.forNumber(it).toDomain()
-                }
-
                 try {
-                    HealthConnectPermissionsActivity.launch(context!!, healthPermission)
+                    HealthConnectPermissionsActivity.launch(context!!)
 
                     result.resultBooleanSuccess(true)
                 } catch (exception: NullPointerException) {

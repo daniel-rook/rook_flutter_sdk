@@ -43,22 +43,6 @@ final $typed_data.Uint8List availabilityStatusProtoDescriptor =
         'ChdBdmFpbGFiaWxpdHlTdGF0dXNQcm90bxINCglJTlNUQUxMRUQQABIRCg1OT1RfSU5TVEFMTE'
         'VEEAESEQoNTk9UX1NVUFBPUlRFRBAC');
 
-@$core.Deprecated('Use healthPermissionProtoDescriptor instead')
-const HealthPermissionProto$json = {
-  '1': 'HealthPermissionProto',
-  '2': [
-    {'1': 'SLEEP', '2': 0},
-    {'1': 'PHYSICAL', '2': 1},
-    {'1': 'BODY', '2': 2},
-    {'1': 'ALL', '2': 3},
-  ],
-};
-
-/// Descriptor for `HealthPermissionProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List healthPermissionProtoDescriptor = $convert.base64Decode(
-    'ChVIZWFsdGhQZXJtaXNzaW9uUHJvdG8SCQoFU0xFRVAQABIMCghQSFlTSUNBTBABEggKBEJPRF'
-    'kQAhIHCgNBTEwQAw==');
-
 @$core.Deprecated('Use syncStatusProtoDescriptor instead')
 const SyncStatusProto$json = {
   '1': 'SyncStatusProto',

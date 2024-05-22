@@ -7,13 +7,11 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensio
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/health_permission_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/sync_instruction_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_permission.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
@@ -110,12 +108,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<bool> checkPermissions(HCHealthPermission hcHealthPermission) async {
-    final proto = hcHealthPermission.toProto();
-
+  Future<bool> checkPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'checkPermissions',
-      [proto.value],
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -124,12 +119,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> requestPermissions(HCHealthPermission hcHealthPermission) async {
-    final proto = hcHealthPermission.toProto();
-
+  Future<void> requestPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'requestPermissions',
-      [proto.value],
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -197,18 +189,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   Future<void> syncPendingSummaries() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPendingSummaries',
-    );
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  @Deprecated(
-      "Same functionality is available with other sync functions of HCRookSummaryManager")
-  Future<void> syncYesterdaySummaries() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'syncYesterdaySummaries',
     );
     final result = ResultBooleanProto.fromBuffer(bytes);
 
@@ -362,18 +342,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   Future<void> syncPendingEvents() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPendingEvents',
-    );
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  @Deprecated(
-      "Same functionality is available with other sync functions of HCRookEventManager")
-  Future<void> syncYesterdayEvents() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'syncYesterdayEvents',
     );
     final result = ResultBooleanProto.fromBuffer(bytes);
 

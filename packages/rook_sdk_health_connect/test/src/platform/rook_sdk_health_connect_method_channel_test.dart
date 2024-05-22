@@ -93,7 +93,7 @@ void main() {
     test(
       'GIVEN a Result.success WHEN checkPermissions THEN complete with expected value',
       () async {
-        final future = platform.checkPermissions(HCHealthPermission.sleep);
+        final future = platform.checkPermissions();
 
         await expectLater(future, completion(true));
       },
@@ -102,7 +102,7 @@ void main() {
     test(
       'GIVEN a Result.success WHEN requestPermissions THEN complete',
       () async {
-        final future = platform.requestPermissions(HCHealthPermission.sleep);
+        final future = platform.requestPermissions();
 
         await expectLater(future, completes);
       },
@@ -306,7 +306,7 @@ void main() {
     test(
       'GIVEN a Result.exception WHEN checkPermissions THEN throw exception',
       () async {
-        final future = platform.checkPermissions(HCHealthPermission.body);
+        final future = platform.checkPermissions();
 
         await expectLater(future, throwsA(isException));
       },
@@ -315,7 +315,7 @@ void main() {
     test(
       'GIVEN a Result.exception WHEN requestPermissions THEN throw exception',
       () async {
-        final future = platform.requestPermissions(HCHealthPermission.body);
+        final future = platform.requestPermissions();
 
         await expectLater(future, throwsA(isException));
       },

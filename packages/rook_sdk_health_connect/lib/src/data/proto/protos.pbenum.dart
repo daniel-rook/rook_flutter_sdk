@@ -53,31 +53,6 @@ class AvailabilityStatusProto extends $pb.ProtobufEnum {
   const AvailabilityStatusProto._($core.int v, $core.String n) : super(v, n);
 }
 
-class HealthPermissionProto extends $pb.ProtobufEnum {
-  static const HealthPermissionProto SLEEP =
-      HealthPermissionProto._(0, _omitEnumNames ? '' : 'SLEEP');
-  static const HealthPermissionProto PHYSICAL =
-      HealthPermissionProto._(1, _omitEnumNames ? '' : 'PHYSICAL');
-  static const HealthPermissionProto BODY =
-      HealthPermissionProto._(2, _omitEnumNames ? '' : 'BODY');
-  static const HealthPermissionProto ALL =
-      HealthPermissionProto._(3, _omitEnumNames ? '' : 'ALL');
-
-  static const $core.List<HealthPermissionProto> values =
-      <HealthPermissionProto>[
-    SLEEP,
-    PHYSICAL,
-    BODY,
-    ALL,
-  ];
-
-  static final $core.Map<$core.int, HealthPermissionProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static HealthPermissionProto? valueOf($core.int value) => _byValue[value];
-
-  const HealthPermissionProto._($core.int v, $core.String n) : super(v, n);
-}
-
 class SyncStatusProto extends $pb.ProtobufEnum {
   static const SyncStatusProto SYNCED =
       SyncStatusProto._(0, _omitEnumNames ? '' : 'SYNCED');

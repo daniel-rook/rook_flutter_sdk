@@ -2,7 +2,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_permission.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
@@ -42,9 +41,9 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<void> openHealthConnectSettings();
 
-  Future<bool> checkPermissions(HCHealthPermission hcHealthPermission);
+  Future<bool> checkPermissions();
 
-  Future<void> requestPermissions(HCHealthPermission hcHealthPermission);
+  Future<void> requestPermissions();
 
   Future<bool> shouldSyncFor(HCHealthDataType hcHealthDataType, DateTime date);
 
@@ -55,10 +54,6 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<SyncStatus> syncBodySummary(DateTime date);
 
   Future<void> syncPendingSummaries();
-
-  @Deprecated(
-      "Same functionality is available with other sync functions of HCRookSummaryManager")
-  Future<void> syncYesterdaySummaries();
 
   Future<SyncStatus> syncPhysicalEvents(DateTime date);
 
@@ -83,10 +78,6 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<SyncStatus> syncTemperatureEvents(DateTime date);
 
   Future<void> syncPendingEvents();
-
-  @Deprecated(
-      "Same functionality is available with other sync functions of HCRookEventManager")
-  Future<void> syncYesterdayEvents();
 
   Future<bool> isStepsAvailable();
 

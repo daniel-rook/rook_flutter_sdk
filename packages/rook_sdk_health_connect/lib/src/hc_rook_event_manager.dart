@@ -75,15 +75,4 @@ class HCRookEventManager {
   Future<void> syncPendingEvents() {
     return RookSdkHealthConnectPlatform.instance.syncPendingEvents();
   }
-
-  /// Extract, enqueue and upload all event types of yesterday,
-  /// if the upload is fails the events will be keep in the queue for a retry with [syncPendingEvents].
-  ///
-  /// **WARNING**: Be cautions of calling this function an excessive amount of times,
-  /// Health Connect has a daily usage limit and your app could be blocked for some hours or a full day.
-  @Deprecated(
-      "Same functionality is available with other sync functions of HCRookEventManager")
-  Future<void> syncYesterdayEvents() {
-    return RookSdkHealthConnectPlatform.instance.syncYesterdayEvents();
-  }
 }
