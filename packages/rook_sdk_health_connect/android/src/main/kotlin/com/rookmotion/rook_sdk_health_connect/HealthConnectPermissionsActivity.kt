@@ -13,16 +13,12 @@ class HealthConnectPermissionsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_health_connect_permissions)
 
-        val permission = intent.getStringExtra(EXTRA_PERMISSION)!!.let {
-            HealthPermission.valueOf(it)
-        }
-
         RookHealthPermissionsManager.registerPermissionsRequestLauncher(
             componentActivity = this,
             onFinished = { finish() }
         )
 
-        RookHealthPermissionsManager.launchPermissionsRequest(permission)
+        RookHealthPermissionsManager.launchPermissionsRequest()
     }
 
     override fun onDestroy() {
@@ -31,12 +27,9 @@ class HealthConnectPermissionsActivity : ComponentActivity() {
     }
 
     companion object {
-        private const val EXTRA_PERMISSION = "HC_PERMISSION"
-
-        fun launch(context: Context, permission: HealthPermission) {
+        fun launch(context: Context) {
             val intent = Intent(context, HealthConnectPermissionsActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                putExtra(EXTRA_PERMISSION, permission.name)
             }
 
             context.startActivity(intent)

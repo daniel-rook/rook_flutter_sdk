@@ -15,13 +15,6 @@ enum AvailabilityStatusProto {
   NOT_SUPPORTED = 2;
 }
 
-enum HealthPermissionProto {
-  SLEEP = 0;
-  PHYSICAL = 1;
-  BODY = 2;
-  ALL = 3;
-}
-
 enum SyncStatusProto {
   SYNCED = 0;
   RECORDS_NOT_FOUND = 1;

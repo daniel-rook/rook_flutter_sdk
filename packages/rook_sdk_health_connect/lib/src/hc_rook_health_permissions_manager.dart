@@ -1,5 +1,4 @@
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_permission.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class HCRookHealthPermissionsManager {
@@ -13,15 +12,13 @@ class HCRookHealthPermissionsManager {
     return RookSdkHealthConnectPlatform.instance.openHealthConnectSettings();
   }
 
-  /// Checks if the provided [hcHealthPermission] is granted.
-  Future<bool> checkPermissions(HCHealthPermission hcHealthPermission) {
-    return RookSdkHealthConnectPlatform.instance
-        .checkPermissions(hcHealthPermission);
+  /// Checks if Health Connect permissions are granted.
+  Future<bool> checkPermissions() {
+    return RookSdkHealthConnectPlatform.instance.checkPermissions();
   }
 
-  /// Launch a request to ask the user to grant the provided [hcHealthPermission].
-  Future<void> requestPermissions(HCHealthPermission hcHealthPermission) {
-    return RookSdkHealthConnectPlatform.instance
-        .requestPermissions(hcHealthPermission);
+  /// Launch a request to ask the user to grant Health Connect permissions.
+  Future<void> requestPermissions() {
+    return RookSdkHealthConnectPlatform.instance.requestPermissions();
   }
 }
