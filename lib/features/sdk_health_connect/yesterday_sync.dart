@@ -18,8 +18,6 @@ class YesterdaySync extends StatefulWidget {
 class _YesterdaySyncState extends State<YesterdaySync> {
   final Logger logger = Logger('YesterdaySync');
 
-  final rookHealthPermissionsManager = HCRookHealthPermissionsManager();
-
   SharedPreferences? sharedPreferences;
 
   bool androidPermissionsChecked = false;
@@ -112,7 +110,7 @@ class _YesterdaySyncState extends State<YesterdaySync> {
   void openHealthConnect() {
     logger.info('Opening Health Connect...');
 
-    rookHealthPermissionsManager.openHealthConnectSettings().then((_) {
+    HCRookHealthPermissionsManager.openHealthConnectSettings().then((_) {
       logger.info('Health Connect was opened');
     }).catchError((exception) {
       final error = switch (exception) {

@@ -1,6 +1,8 @@
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class HCRookYesterdaySyncPermissions {
+  HCRookYesterdaySyncPermissions._();
+
   /// Checks if the required Android permissions for RookYesterdaySync have been granted.
   ///
   /// ```text

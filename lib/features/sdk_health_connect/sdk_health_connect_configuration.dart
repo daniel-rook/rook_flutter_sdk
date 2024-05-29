@@ -29,8 +29,6 @@ class _SdkHealthConnectConfigurationState
     extends State<SdkHealthConnectConfiguration> {
   final Logger logger = Logger('SdkHealthConnectConfiguration');
 
-  final rookConfigurationManager = HCRookConfigurationManager();
-
   final ConsoleOutput configurationOutput = ConsoleOutput();
   final ConsoleOutput initializeOutput = ConsoleOutput();
   final ConsoleOutput updateUserOutput = ConsoleOutput();
@@ -162,10 +160,10 @@ class _SdkHealthConnectConfigurationState
     configurationOutput.append('$rookConfiguration');
 
     if (isDebug) {
-      rookConfigurationManager.enableNativeLogs();
+      HCRookConfigurationManager.enableNativeLogs();
     }
 
-    rookConfigurationManager.setConfiguration(rookConfiguration);
+    HCRookConfigurationManager.setConfiguration(rookConfiguration);
 
     setState(
         () => configurationOutput.append('Configuration set successfully'));
@@ -176,7 +174,7 @@ class _SdkHealthConnectConfigurationState
 
     setState(() => initializeOutput.append('Initializing...'));
 
-    rookConfigurationManager.initRook().then((_) {
+    HCRookConfigurationManager.initRook().then((_) {
       setState(() => initializeOutput.append('SDK initialized successfully'));
       checkUserIDRegistered();
     }).catchError((exception) {
@@ -196,7 +194,7 @@ class _SdkHealthConnectConfigurationState
   void checkUserIDRegistered() {
     updateUserOutput.clear();
 
-    rookConfigurationManager.getUserID().then((userID) {
+    HCRookConfigurationManager.getUserID().then((userID) {
       if (userID != null) {
         setState(() {
           updateUserOutput
@@ -217,7 +215,7 @@ class _SdkHealthConnectConfigurationState
 
     setState(() => updateUserOutput.append('Updating userID...'));
 
-    rookConfigurationManager.updateUserID(userID!).then((_) {
+    HCRookConfigurationManager.updateUserID(userID!).then((_) {
       setState(() {
         updateUserOutput.append('userID updated successfully');
         enableNavigation = true;
@@ -238,7 +236,7 @@ class _SdkHealthConnectConfigurationState
   void deleteUser() {
     logger.info('Deleting user from rook...');
 
-    rookConfigurationManager.deleteUserFromRook().then((_) {
+    HCRookConfigurationManager.deleteUserFromRook().then((_) {
       logger.info('User deleted from rook');
     }).catchError((exception) {
       final error = switch (exception) {
@@ -257,7 +255,7 @@ class _SdkHealthConnectConfigurationState
   void updateTimeZoneInformation() {
     logger.info('Updating user timezone...');
 
-    rookConfigurationManager.syncUserTimeZone().then((_) {
+    HCRookConfigurationManager.syncUserTimeZone().then((_) {
       logger.info('User timezone updated successfully');
     }).catchError((exception) {
       final error = switch (exception) {
