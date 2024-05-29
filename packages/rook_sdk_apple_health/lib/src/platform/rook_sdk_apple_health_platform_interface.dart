@@ -33,13 +33,7 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> syncUserTimeZone();
 
-  Future<void> requestAllPermissions();
-
-  Future<void> requestSleepPermissions();
-
-  Future<void> requestPhysicalPermissions();
-
-  Future<void> requestBodyPermissions();
+  Future<void> requestPermissions();
 
   Future<void> syncSleepSummary(DateTime date);
 

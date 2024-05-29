@@ -5,6 +5,6 @@ class AHRookHealthPermissionsManager {
 
   /// Launch a request to ask the user to grant Apple Health permissions.
   static Future<void> requestPermissions() {
-    return RookSdkAppleHealthPlatform.instance.requestAllPermissions();
+    return RookSdkAppleHealthPlatform.instance.requestPermissions();
   }
 }

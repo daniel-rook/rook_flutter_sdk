@@ -80,36 +80,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> requestAllPermissions() async {
+  Future<void> requestPermissions() async {
     final Uint8List bytes =
-        await methodChannel.invokeMethod('requestAllPermissions');
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  Future<void> requestSleepPermissions() async {
-    final Uint8List bytes =
-        await methodChannel.invokeMethod('requestSleepPermissions');
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  Future<void> requestBodyPermissions() async {
-    final Uint8List bytes =
-        await methodChannel.invokeMethod('requestBodyPermissions');
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  Future<void> requestPhysicalPermissions() async {
-    final Uint8List bytes =
-        await methodChannel.invokeMethod('requestPhysicalPermissions');
+        await methodChannel.invokeMethod('requestPermissions');
     final result = ResultBooleanProto.fromBuffer(bytes);
 
     result.unwrap();

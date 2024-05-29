@@ -80,36 +80,9 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN requestAllPermissions THEN complete',
+      'GIVEN a Result.success WHEN requestPermissions THEN complete',
       () async {
-        final future = platform.requestAllPermissions();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN requestSleepPermissions THEN complete',
-      () async {
-        final future = platform.requestSleepPermissions();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN requestPhysicalPermissions THEN complete',
-      () async {
-        final future = platform.requestPhysicalPermissions();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN requestBodyPermissions THEN complete',
-      () async {
-        final future = platform.requestBodyPermissions();
+        final future = platform.requestPermissions();
 
         await expectLater(future, completes);
       },
@@ -396,36 +369,9 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN requestAllPermissions THEN throw exception',
+      'GIVEN a Result.exception WHEN requestPermissions THEN throw exception',
       () async {
-        final future = platform.requestAllPermissions();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN requestSleepPermissions THEN throw exception',
-      () async {
-        final future = platform.requestSleepPermissions();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN requestBodyPermissions THEN throw exception',
-      () async {
-        final future = platform.requestBodyPermissions();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN requestPhysicalPermissions THEN throw exception',
-      () async {
-        final future = platform.requestPhysicalPermissions();
+        final future = platform.requestPermissions();
 
         await expectLater(future, throwsA(isException));
       },
