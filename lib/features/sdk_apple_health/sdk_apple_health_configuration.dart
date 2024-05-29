@@ -27,9 +27,6 @@ class _SdkAppleHealthConfigurationState
     extends State<SdkAppleHealthConfiguration> {
   final Logger logger = Logger('SdkAppleHealthConfiguration');
 
-  final rookConfigurationManager = AHRookConfigurationManager();
-  final rookHealthPermissionsManager = AHRookHealthPermissionsManager();
-
   final ConsoleOutput configurationOutput = ConsoleOutput();
   final ConsoleOutput initializeOutput = ConsoleOutput();
   final ConsoleOutput updateUserOutput = ConsoleOutput();
@@ -143,10 +140,10 @@ class _SdkAppleHealthConfigurationState
     configurationOutput.append('$rookConfiguration');
 
     if (isDebug) {
-      rookConfigurationManager.enableNativeLogs();
+      AHRookConfigurationManager.enableNativeLogs();
     }
 
-    rookConfigurationManager.setConfiguration(rookConfiguration);
+    AHRookConfigurationManager.setConfiguration(rookConfiguration);
 
     setState(
             () => configurationOutput.append('Configuration set successfully'));
@@ -157,7 +154,7 @@ class _SdkAppleHealthConfigurationState
 
     setState(() => initializeOutput.append('Initializing...'));
 
-    rookConfigurationManager.initRook().then((_) {
+    AHRookConfigurationManager.initRook().then((_) {
       setState(() => initializeOutput.append('SDK initialized successfully'));
       checkUserIDRegistered();
     }).catchError((exception) {
@@ -175,7 +172,7 @@ class _SdkAppleHealthConfigurationState
   void checkUserIDRegistered() {
     updateUserOutput.clear();
 
-    rookConfigurationManager.getUserID().then((userID) {
+    AHRookConfigurationManager.getUserID().then((userID) {
       if (userID != null) {
         setState(() {
           updateUserOutput
@@ -196,7 +193,7 @@ class _SdkAppleHealthConfigurationState
 
     setState(() => updateUserOutput.append('Updating userID...'));
 
-    rookConfigurationManager.updateUserID(userID!).then((_) {
+    AHRookConfigurationManager.updateUserID(userID!).then((_) {
       setState(() {
         updateUserOutput.append('userID updated successfully');
       });
@@ -213,7 +210,7 @@ class _SdkAppleHealthConfigurationState
   void deleteUser() {
     logger.info('Deleting user from rook...');
 
-    rookConfigurationManager.deleteUserFromRook().then((_) {
+    AHRookConfigurationManager.deleteUserFromRook().then((_) {
       logger.info('User deleted from rook');
     }).catchError((exception) {
       final error = switch (exception) {
@@ -228,7 +225,7 @@ class _SdkAppleHealthConfigurationState
   void updateTimeZoneInformation() {
     logger.info('Updating user timezone...');
 
-    rookConfigurationManager.syncUserTimeZone().then((_) {
+    AHRookConfigurationManager.syncUserTimeZone().then((_) {
       logger.info('User timezone updated successfully');
     }).catchError((exception) {
       final error = switch (exception) {
@@ -243,7 +240,7 @@ class _SdkAppleHealthConfigurationState
   void requestPermissions() {
     logger.info('Requesting all permissions...');
 
-    rookHealthPermissionsManager.requestPermissions().then((_) {
+    AHRookHealthPermissionsManager.requestPermissions().then((_) {
       logger.info('All permissions request sent');
 
       setState(() => enableNavigation = true);

@@ -20,11 +20,6 @@ class SdkAppleHealthPlayground extends StatefulWidget {
 class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
   final Logger logger = Logger('SdkAppleHealthPlayground');
 
-  final rookSummaryManager = AHRookSummaryManager();
-  final rookEventManager = AHRookEventManager();
-  final rookContinuousUpload = AHRookContinuousUpload();
-  final rookBackgroundSync = AHRookBackgroundSync();
-
   final ConsoleOutput syncOutput = ConsoleOutput();
   final ConsoleOutput syncPendingSummariesOutput = ConsoleOutput();
   final ConsoleOutput syncPendingEventsOutput = ConsoleOutput();
@@ -127,7 +122,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncSleepSummary(DateTime yesterday) async {
     try {
-      await rookSummaryManager.syncSleepSummary(yesterday);
+      await AHRookSummaryManager.syncSleepSummary(yesterday);
 
       setState(() => syncOutput.append('Sleep summary synced successfully'));
     } catch (exception) {
@@ -142,7 +137,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncPhysicalSummary(DateTime yesterday) async {
     try {
-      await rookSummaryManager.syncPhysicalSummary(yesterday);
+      await AHRookSummaryManager.syncPhysicalSummary(yesterday);
 
       setState(() => syncOutput.append('Physical summary synced successfully'));
     } catch (exception) {
@@ -157,7 +152,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncBodySummary(DateTime yesterday) async {
     try {
-      await rookSummaryManager.syncBodySummary(yesterday);
+      await AHRookSummaryManager.syncBodySummary(yesterday);
 
       setState(() => syncOutput.append('Body summary synced successfully'));
     } catch (exception) {
@@ -172,7 +167,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncPhysicalEvents(DateTime today) async {
     try {
-      await rookEventManager.syncPhysicalEvents(today);
+      await AHRookEventManager.syncPhysicalEvents(today);
 
       setState(() => syncOutput.append('Physical events synced successfully'));
     } catch (exception) {
@@ -187,7 +182,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncBloodGlucoseEvents(DateTime today) async {
     try {
-      await rookEventManager.syncBloodGlucoseEvents(today);
+      await AHRookEventManager.syncBloodGlucoseEvents(today);
 
       setState(
           () => syncOutput.append('BloodGlucose events synced successfully'));
@@ -203,7 +198,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncBloodPressureEvents(DateTime today) async {
     try {
-      await rookEventManager.syncBloodPressureEvents(today);
+      await AHRookEventManager.syncBloodPressureEvents(today);
 
       setState(
           () => syncOutput.append('BloodPressure events synced successfully'));
@@ -219,7 +214,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncBodyMetricsEvents(DateTime today) async {
     try {
-      await rookEventManager.syncBodyMetricsEvents(today);
+      await AHRookEventManager.syncBodyMetricsEvents(today);
 
       setState(
           () => syncOutput.append('BodyMetrics events synced successfully'));
@@ -235,7 +230,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncBodyHeartRateEvents(DateTime today) async {
     try {
-      await rookEventManager.syncBodyHeartRateEvents(today);
+      await AHRookEventManager.syncBodyHeartRateEvents(today);
 
       setState(
           () => syncOutput.append('BodyHeartRate events synced successfully'));
@@ -251,7 +246,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncPhysicalHeartRateEvents(DateTime today) async {
     try {
-      await rookEventManager.syncPhysicalHeartRateEvents(today);
+      await AHRookEventManager.syncPhysicalHeartRateEvents(today);
 
       setState(() =>
           syncOutput.append('PhysicalHeartRate events synced successfully'));
@@ -267,7 +262,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncBodyOxygenationEvents(DateTime today) async {
     try {
-      await rookEventManager.syncBodyOxygenationEvents(today);
+      await AHRookEventManager.syncBodyOxygenationEvents(today);
 
       setState(() =>
           syncOutput.append('BodyOxygenation events synced successfully'));
@@ -283,7 +278,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncPhysicalOxygenationEvents(DateTime today) async {
     try {
-      await rookEventManager.syncPhysicalOxygenationEvents(today);
+      await AHRookEventManager.syncPhysicalOxygenationEvents(today);
 
       setState(() =>
           syncOutput.append('PhysicalOxygenation events synced successfully'));
@@ -299,7 +294,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   Future<void> syncTemperatureEvents(DateTime today) async {
     try {
-      await rookEventManager.syncTemperatureEvents(today);
+      await AHRookEventManager.syncTemperatureEvents(today);
 
       setState(
           () => syncOutput.append('Temperature events synced successfully'));
@@ -319,7 +314,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     setState(() =>
         syncPendingSummariesOutput.append('Syncing pending summaries...'));
 
-    rookSummaryManager.syncPendingSummaries().then((_) {
+    AHRookSummaryManager.syncPendingSummaries().then((_) {
       setState(() => syncPendingSummariesOutput
           .append('Pending summaries synced successfully'));
     }).catchError((exception) {
@@ -337,7 +332,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
     setState(() => syncPendingEventsOutput.append('Syncing pending events...'));
 
-    rookEventManager.syncPendingEvents().then((_) {
+    AHRookEventManager.syncPendingEvents().then((_) {
       setState(() =>
           syncPendingEventsOutput.append('Pending events synced successfully'));
     }).catchError((exception) {
@@ -352,7 +347,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   void enableContinuousUpload() async {
     try {
-      await rookContinuousUpload.enableContinuousUpload(
+      await AHRookContinuousUpload.enableContinuousUpload(
         enableNativeLogs: isDebug,
         clientUUID: Secrets.clientUUID,
         secretKey: Secrets.secretKey,
@@ -367,7 +362,7 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
 
   void enableBackground() async {
     try {
-      await rookBackgroundSync.enableBackground(
+      await AHRookBackgroundSync.enableBackground(
         enableNativeLogs: isDebug,
         clientUUID: Secrets.clientUUID,
         secretKey: Secrets.secretKey,
