@@ -263,6 +263,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @deprecated
   Future<bool> isStepsTrackerActive() async {
     await Future.delayed(const Duration(milliseconds: 1500));
 
@@ -276,6 +277,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @deprecated
   Future<void> startStepsTracker() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'startStepsTracker',
@@ -287,6 +289,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @deprecated
   Future<void> stopStepsTracker() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'stopStepsTracker',
@@ -298,6 +301,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @deprecated
   Future<int> getTodaySteps() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getTodaySteps',
@@ -309,6 +313,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @deprecated
   Future<bool> isCaloriesTrackerActive() async {
     await Future.delayed(const Duration(milliseconds: 1500));
 
@@ -322,6 +327,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @deprecated
   Future<void> startCaloriesTracker() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'startCaloriesTracker',
@@ -333,6 +339,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @deprecated
   Future<void> stopCaloriesTracker() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'stopCaloriesTracker',
@@ -344,6 +351,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @deprecated
   Future<int> getTodayCalories() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getTodayCalories',
