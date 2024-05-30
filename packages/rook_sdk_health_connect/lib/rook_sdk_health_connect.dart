@@ -3,7 +3,6 @@ library rook_sdk_health_connect;
 export 'src/android_steps_manager.dart';
 export 'src/domain/enums/hc_availability_status.dart';
 export 'src/domain/enums/hc_health_data_type.dart';
-export 'src/domain/enums/hc_health_permission.dart';
 export 'src/domain/enums/hc_sync_instruction.dart';
 export 'src/domain/enums/hc_sync_status.dart';
 export 'src/domain/exception/device_not_supported_exception.dart';

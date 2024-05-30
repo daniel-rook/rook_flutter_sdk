@@ -277,11 +277,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 )
             }
 
-            "syncYesterdaySummaries" -> scope.launch {
-                rookSummaryManager.syncYesterdaySummaries()
-                result.resultBooleanSuccess(true)
-            }
-
             "syncPhysicalEvents" -> scope.launch {
                 val millis = call.getLongArgAt(0)
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
@@ -445,11 +440,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                         result.resultBooleanError(it)
                     }
                 )
-            }
-
-            "syncYesterdayEvents" -> scope.launch {
-                rookEventManager.syncYesterdayEvents()
-                result.resultBooleanSuccess(true)
             }
 
             "isStepsAvailable" -> {

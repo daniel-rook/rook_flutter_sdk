@@ -2,6 +2,8 @@ import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platfor
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 class AHRookBackgroundSync {
+  AHRookBackgroundSync._();
+
   /// Enables the background upload of summaries and events,
   /// before use this method is necessary to add a user id and request permissions.
   ///
@@ -9,7 +11,7 @@ class AHRookBackgroundSync {
   /// * [clientUUID] Client unique identifier provided by ROOK.
   /// * [secretKey] Client secretKey provided by ROOK.
   /// * [environment] Behaviour configuration.
-  Future<void> enableBackground({
+  static Future<void> enableBackground({
     required bool enableNativeLogs,
     required String clientUUID,
     required String secretKey,
@@ -28,7 +30,7 @@ class AHRookBackgroundSync {
   }
 
   /// Disables the background upload of summaries and events.
-  Future<void> disableBackground() {
+  static Future<void> disableBackground() {
     return RookSdkAppleHealthPlatform.instance.disableBackground();
   }
 }

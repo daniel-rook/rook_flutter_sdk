@@ -108,38 +108,8 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
-        case "requestAllPermissions":
+        case "requestPermissions":
             rookConnectPermissionsManager.requestAllPermissions() { it in
-                switch it {
-                case Result.success(let bool):
-                    resultBoolSuccess(flutterResult: result, bool)
-                case Result.failure(let error):
-                    resultBoolError(flutterResult: result, error)
-                }
-            }
-            break
-        case "requestSleepPermissions":
-            rookConnectPermissionsManager.requestSleepPermissions() { it in
-                switch it {
-                case Result.success(let bool):
-                    resultBoolSuccess(flutterResult: result, bool)
-                case Result.failure(let error):
-                    resultBoolError(flutterResult: result, error)
-                }
-            }
-            break
-        case "requestBodyPermissions":
-            rookConnectPermissionsManager.requestBodyPermissions() { it in
-                switch it {
-                case Result.success(let bool):
-                    resultBoolSuccess(flutterResult: result, bool)
-                case Result.failure(let error):
-                    resultBoolError(flutterResult: result, error)
-                }
-            }
-            break
-        case "requestPhysicalPermissions":
-            rookConnectPermissionsManager.requestPhysicalPermissions() { it in
                 switch it {
                 case Result.success(let bool):
                     resultBoolSuccess(flutterResult: result, bool)
@@ -195,11 +165,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 case Result.failure(let error):
                     resultBoolError(flutterResult: result, error)
                 }
-            }
-            break
-        case "syncYesterdaySummaries":
-            rookSummaryManager.syncYesterdaySummaries() {
-                resultBoolSuccess(flutterResult: result, true)
             }
             break
         case "syncPhysicalEvents":
@@ -328,11 +293,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 case Result.failure(let error):
                     resultBoolError(flutterResult: result, error)
                 }
-            }
-            break
-        case "syncYesterdayEvents":
-            rookEventsManager.syncYesterdayEvents() {
-                resultBoolSuccess(flutterResult: result, true)
             }
             break
         case "isStepsTrackerActive":

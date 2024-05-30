@@ -2,8 +2,10 @@ import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platfor
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 class AHRookContinuousUpload {
+  AHRookContinuousUpload._();
+
   /// Checks if the continuous upload of summaries and events is enabled.
-  Future<bool> isContinuousUploadEnabled() {
+  static Future<bool> isContinuousUploadEnabled() {
     return RookSdkAppleHealthPlatform.instance.isContinuousUploadEnabled();
   }
 
@@ -15,7 +17,7 @@ class AHRookContinuousUpload {
   /// * [clientUUID] Client unique identifier provided by ROOK.
   /// * [secretKey] Client secretKey provided by ROOK.
   /// * [environment] Behaviour configuration.
-  Future<void> enableContinuousUpload({
+  static Future<void> enableContinuousUpload({
     required bool enableNativeLogs,
     required String clientUUID,
     required String secretKey,
@@ -34,7 +36,7 @@ class AHRookContinuousUpload {
   }
 
   /// Disables the continuous upload of summaries and events.
-  Future<void> disableContinuousUpload() {
+  static Future<void> disableContinuousUpload() {
     return RookSdkAppleHealthPlatform.instance.disableContinuousUpload();
   }
 }
