@@ -94,7 +94,7 @@ fun MethodChannel.Result.resultBooleanError(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.localizedMessage)
+                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
 
             resultBooleanProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -128,7 +128,7 @@ fun MethodChannel.Result.resultInt64Error(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.localizedMessage)
+                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
 
             resultInt64ProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -190,7 +190,7 @@ fun MethodChannel.Result.resultSyncStatusError(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.localizedMessage)
+                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
 
             resultSyncStatusProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -273,7 +273,7 @@ fun MethodChannel.Result.resultSyncStatusWithIntError(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.localizedMessage)
+                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
 
             resultSyncStatusWithIntProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -315,7 +315,7 @@ fun MethodChannel.Result.resultDataSourcesError(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.localizedMessage)
+                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
 
             resultDataSourceProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -327,3 +327,4 @@ fun MethodChannel.Result.resultDataSourcesError(throwable: Throwable) {
 }
 
 private const val GENERIC_ERROR_CODE = "-1"
+private const val GENERIC_ERROR_MESSAGE = "Unknown error"
