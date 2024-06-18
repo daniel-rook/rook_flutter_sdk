@@ -11,6 +11,10 @@ extension ResultBooleanExtensions on ResultDataSourceProto {
         return dataSourceProtoListWrapper.dataSources
             .map((it) => it.toDomain())
             .toList();
+      case ResultDataSourceProto_Result.sdkNotAuthorizedExceptionProto:
+        throw SDKNotAuthorizedException(
+          sdkNotAuthorizedExceptionProto.message,
+        );
       case ResultDataSourceProto_Result.genericExceptionProto:
         throw Exception(
           genericExceptionProto.message,

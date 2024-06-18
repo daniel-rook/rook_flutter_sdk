@@ -14,7 +14,6 @@ import com.rookmotion.rook.sdk.RookYesterdaySyncPermissions
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
 import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.HealthPermissionProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.SyncInstructionProto
 import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
@@ -25,13 +24,13 @@ import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.intSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesError
+import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Error
 import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Success
 import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusError
 import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.throwableError
+import com.rookmotion.rook_sdk_health_connect.extension.throwable
 import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
 import com.rookmotion.rook_sdk_health_connect.mapper.toDomain
 import com.rookmotion.rook_sdk_health_connect.mapper.toProto
@@ -47,7 +46,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import org.jetbrains.annotations.Contract
 import java.time.Instant
 
 /** RookSdkHealthConnectPlugin */
@@ -169,7 +167,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
                     result.intSuccess(proto.number)
                 } catch (exception: NullPointerException) {
-                    result.throwableError(exception)
+                    result.throwable(exception)
                 }
             }
 
@@ -452,8 +450,8 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 }
             }
 
-            "isStepsActive" -> scope.launch {
-                val isActive = rookStepsManager.isActive()
+            "isBackgroundAndroidStepsActive" -> scope.launch {
+                val isActive = rookStepsManager.isBackgroundAndroidStepsActive()
 
                 result.resultBooleanSuccess(isActive)
             }
@@ -478,9 +476,9 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 }
             }
 
-            "startSteps" -> {
+            "enableBackgroundAndroidSteps" -> {
                 try {
-                    rookStepsManager.start().fold(
+                    rookStepsManager.enableBackgroundAndroidSteps().fold(
                         {
                             result.resultBooleanSuccess(true)
                         },
@@ -493,9 +491,9 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 }
             }
 
-            "stopSteps" -> {
+            "disableBackgroundAndroidSteps" -> {
                 try {
-                    rookStepsManager.stop().fold(
+                    rookStepsManager.disableBackgroundAndroidSteps().fold(
                         {
                             result.resultBooleanSuccess(true)
                         },
@@ -508,8 +506,8 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                 }
             }
 
-            "getTodaySteps" -> scope.launch {
-                rookStepsManager.getTodaySteps().fold(
+            "syncTodayAndroidStepsCount" -> scope.launch {
+                rookStepsManager.syncTodayAndroidStepsCount().fold(
                     {
                         result.resultInt64Success(it)
                     },

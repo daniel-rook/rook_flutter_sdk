@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
@@ -19,8 +17,6 @@ class AndroidBackgroundSteps extends StatefulWidget {
 class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
   final Logger logger = Logger('AndroidBackgroundSteps');
 
-  Timer? timer;
-
   bool isLoading = false;
   bool isAvailable = false;
   bool isActive = false;
@@ -30,27 +26,21 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
 
   @override
   void initState() {
-    timer = Timer.periodic(const Duration(seconds: 3), (timer) {
-      AndroidStepsManager.getTodaySteps().then((todaySteps) {
-        setState(() => steps = todaySteps);
-      }).catchError((exception) {
-        final error = switch (exception) {
-          (SDKNotInitializedException it) =>
-            'SDKNotInitializedException: ${it.message}',
-          _ => exception.toString(),
-        };
+    AndroidStepsManager.syncTodayAndroidStepsCount().then((todaySteps) {
+      setState(() => steps = todaySteps);
+    }).catchError((exception) {
+      final error = switch (exception) {
+        (SDKNotInitializedException it) =>
+          'SDKNotInitializedException: ${it.message}',
+        (SDKNotAuthorizedException it) =>
+        'SDKNotAuthorizedException: ${it.message}',
+        _ => exception.toString(),
+      };
 
-        logger.info('Error obtaining steps: $error');
-      });
+      logger.info('Error obtaining steps: $error');
     });
 
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    timer?.cancel();
-    super.dispose();
   }
 
   @override
@@ -109,7 +99,7 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
 
   void checkStepsServiceStatus() async {
     final isAvailable = await AndroidStepsManager.isAvailable();
-    final isActive = await AndroidStepsManager.isActive();
+    final isActive = await AndroidStepsManager.isBackgroundAndroidStepsActive();
     final hasPermissions = await AndroidStepsManager.hasPermissions();
 
     setState(() {
@@ -125,7 +115,7 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
     setState(() => isLoading = true);
 
     try {
-      await AndroidStepsManager.start();
+      await AndroidStepsManager.enableBackgroundAndroidSteps();
 
       checkStepsServiceStatus();
     } catch (exception) {
@@ -147,7 +137,7 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
     setState(() => isLoading = true);
 
     try {
-      await AndroidStepsManager.stop();
+      await AndroidStepsManager.disableBackgroundAndroidSteps();
 
       checkStepsServiceStatus();
     } catch (exception) {

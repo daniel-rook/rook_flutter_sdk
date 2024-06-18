@@ -8,6 +8,7 @@ import com.rookmotion.rook.sdk.domain.exception.MissingAndroidPermissionsExcepti
 import com.rookmotion.rook.sdk.domain.exception.MissingConfigurationException
 import com.rookmotion.rook.sdk.domain.exception.MissingPermissionsException
 import com.rookmotion.rook.sdk.domain.exception.RequestQuotaExceededException
+import com.rookmotion.rook.sdk.domain.exception.SDKNotAuthorizedException
 import com.rookmotion.rook.sdk.domain.exception.SDKNotInitializedException
 import com.rookmotion.rook.sdk.domain.exception.TimeoutException
 import com.rookmotion.rook.sdk.domain.exception.UserNotInitializedException
@@ -25,7 +26,7 @@ fun MethodChannel.Result.intSuccess(int: Int) {
     success(int)
 }
 
-fun MethodChannel.Result.throwableError(throwable: Throwable) {
+fun MethodChannel.Result.throwable(throwable: Throwable) {
     error(GENERIC_ERROR_CODE, throwable.message, null)
 }
 
@@ -82,6 +83,10 @@ fun MethodChannel.Result.resultBooleanError(throwable: Throwable) {
             resultBooleanProtoBuilder.setMissingAndroidPermissionsExceptionProto(throwable.toProto())
         }
 
+        is SDKNotAuthorizedException -> {
+            resultBooleanProtoBuilder.setSdkNotAuthorizedExceptionProto(throwable.toProto())
+        }
+
         else -> {
             val proto = GenericExceptionProto.newBuilder()
                 .setMessage(throwable.localizedMessage)
@@ -110,6 +115,10 @@ fun MethodChannel.Result.resultInt64Error(throwable: Throwable) {
     when (throwable) {
         is SDKNotInitializedException -> {
             resultInt64ProtoBuilder.setSdkNotInitializedExceptionProto(throwable.toProto())
+        }
+
+        is SDKNotAuthorizedException -> {
+            resultInt64ProtoBuilder.setSdkNotAuthorizedExceptionProto(throwable.toProto())
         }
 
         else -> {
@@ -170,6 +179,10 @@ fun MethodChannel.Result.resultSyncStatusError(throwable: Throwable) {
             resultSyncStatusProtoBuilder.setUserNotInitializedExceptionProto(throwable.toProto())
         }
 
+        is SDKNotAuthorizedException -> {
+            resultSyncStatusProtoBuilder.setSdkNotAuthorizedExceptionProto(throwable.toProto())
+        }
+
         else -> {
             val proto = GenericExceptionProto.newBuilder()
                 .setMessage(throwable.localizedMessage)
@@ -206,6 +219,10 @@ fun MethodChannel.Result.resultDataSourcesError(throwable: Throwable) {
 
         is UserNotInitializedException -> {
             resultDataSourceProtoBuilder.setUserNotInitializedExceptionProto(throwable.toProto())
+        }
+
+        is SDKNotAuthorizedException -> {
+            resultDataSourceProtoBuilder.setSdkNotAuthorizedExceptionProto(throwable.toProto())
         }
 
         else -> {

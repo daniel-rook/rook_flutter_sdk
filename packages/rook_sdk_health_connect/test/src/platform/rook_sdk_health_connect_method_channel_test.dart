@@ -146,9 +146,9 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN isStepsActive THEN complete with expected value',
+      'GIVEN a Result.success WHEN isBackgroundAndroidStepsActive THEN complete with expected value',
       () async {
-        final future = platform.isStepsActive();
+        final future = platform.isBackgroundAndroidStepsActive();
 
         await expectLater(future, completion(true));
       },
@@ -173,18 +173,18 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN startSteps THEN complete',
+      'GIVEN a Result.success WHEN enableBackgroundAndroidSteps THEN complete',
       () async {
-        final future = platform.startSteps();
+        final future = platform.enableBackgroundAndroidSteps();
 
         await expectLater(future, completes);
       },
     );
 
     test(
-      'GIVEN a Result.success WHEN stopSteps THEN complete',
+      'GIVEN a Result.success WHEN disableBackgroundAndroidSteps THEN complete',
       () async {
-        final future = platform.stopSteps();
+        final future = platform.disableBackgroundAndroidSteps();
 
         await expectLater(future, completes);
       },
@@ -359,9 +359,9 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN isStepsActive THEN throw exception',
+      'GIVEN a Result.exception WHEN isBackgroundAndroidStepsActive THEN throw exception',
       () async {
-        final future = platform.isStepsActive();
+        final future = platform.isBackgroundAndroidStepsActive();
 
         await expectLater(future, throwsA(isException));
       },
@@ -386,18 +386,18 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN startSteps THEN throw exception',
+      'GIVEN a Result.exception WHEN enableBackgroundAndroidSteps THEN throw exception',
       () async {
-        final future = platform.startSteps();
+        final future = platform.enableBackgroundAndroidSteps();
 
         await expectLater(future, throwsA(isException));
       },
     );
 
     test(
-      'GIVEN a Result.exception WHEN stopSteps THEN throw exception',
+      'GIVEN a Result.exception WHEN disableBackgroundAndroidSteps THEN throw exception',
       () async {
-        final future = platform.stopSteps();
+        final future = platform.disableBackgroundAndroidSteps();
 
         await expectLater(future, throwsA(isException));
       },
@@ -476,9 +476,9 @@ void main() {
     });
 
     test(
-        'GIVEN a Result.value WHEN getTodaySteps THEN complete with expected value',
+        'GIVEN a Result.value WHEN syncTodayAndroidStepsCount THEN complete with expected value',
         () async {
-      final future = platform.getTodaySteps();
+      final future = platform.syncTodayAndroidStepsCount();
 
       await expectLater(future, completion(1000));
     });
@@ -497,9 +497,9 @@ void main() {
       });
     });
 
-    test('GIVEN a Result.exception WHEN getTodaySteps THEN throw exception',
+    test('GIVEN a Result.exception WHEN syncTodayAndroidStepsCount THEN throw exception',
         () async {
-      final future = platform.getTodaySteps();
+      final future = platform.syncTodayAndroidStepsCount();
 
       await expectLater(future, throwsA(isException));
     });

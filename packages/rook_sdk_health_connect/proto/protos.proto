@@ -107,6 +107,10 @@ message MissingAndroidPermissionsExceptionProto {
   string message = 1;
 }
 
+message SDKNotAuthorizedExceptionProto {
+  string message = 1;
+}
+
 message ResultBooleanProto {
 
   oneof result {
@@ -122,6 +126,7 @@ message ResultBooleanProto {
     UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
     GenericExceptionProto genericExceptionProto = 11;
     MissingAndroidPermissionsExceptionProto missingAndroidPermissionsExceptionProto = 12;
+    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
   }
 }
 
@@ -140,6 +145,7 @@ message ResultInt64Proto {
     int64 value = 1;
     SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
     GenericExceptionProto genericExceptionProto = 11;
+    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
   }
 }
 
@@ -158,6 +164,7 @@ message ResultSyncStatusProto {
     TimeoutExceptionProto timeoutExceptionProto = 9;
     UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
     GenericExceptionProto genericExceptionProto = 11;
+    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
   }
 }
 
@@ -176,5 +183,6 @@ message ResultDataSourceProto {
     SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
     UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
     GenericExceptionProto genericExceptionProto = 11;
+    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
   }
 }

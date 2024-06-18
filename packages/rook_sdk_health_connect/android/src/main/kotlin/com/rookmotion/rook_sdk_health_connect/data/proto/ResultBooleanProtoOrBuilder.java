@@ -184,5 +184,20 @@ public interface ResultBooleanProtoOrBuilder extends
    */
   com.rookmotion.rook_sdk_health_connect.data.proto.MissingAndroidPermissionsExceptionProtoOrBuilder getMissingAndroidPermissionsExceptionProtoOrBuilder();
 
+  /**
+   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+   * @return Whether the sdkNotAuthorizedExceptionProto field is set.
+   */
+  boolean hasSdkNotAuthorizedExceptionProto();
+  /**
+   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+   * @return The sdkNotAuthorizedExceptionProto.
+   */
+  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto getSdkNotAuthorizedExceptionProto();
+  /**
+   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+   */
+  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder getSdkNotAuthorizedExceptionProtoOrBuilder();
+
   com.rookmotion.rook_sdk_health_connect.data.proto.ResultBooleanProto.ResultCase getResultCase();
 }

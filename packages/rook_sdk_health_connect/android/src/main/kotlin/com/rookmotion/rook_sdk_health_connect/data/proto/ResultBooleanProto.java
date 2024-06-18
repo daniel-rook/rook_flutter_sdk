@@ -57,6 +57,7 @@ private static final long serialVersionUID = 0L;
     USERNOTINITIALIZEDEXCEPTIONPROTO(10),
     GENERICEXCEPTIONPROTO(11),
     MISSINGANDROIDPERMISSIONSEXCEPTIONPROTO(12),
+    SDKNOTAUTHORIZEDEXCEPTIONPROTO(13),
     RESULT_NOT_SET(0);
     private final int value;
     private ResultCase(int value) {
@@ -86,6 +87,7 @@ private static final long serialVersionUID = 0L;
         case 10: return USERNOTINITIALIZEDEXCEPTIONPROTO;
         case 11: return GENERICEXCEPTIONPROTO;
         case 12: return MISSINGANDROIDPERMISSIONSEXCEPTIONPROTO;
+        case 13: return SDKNOTAUTHORIZEDEXCEPTIONPROTO;
         case 0: return RESULT_NOT_SET;
         default: return null;
       }
@@ -463,6 +465,37 @@ private static final long serialVersionUID = 0L;
     return com.rookmotion.rook_sdk_health_connect.data.proto.MissingAndroidPermissionsExceptionProto.getDefaultInstance();
   }
 
+  public static final int SDKNOTAUTHORIZEDEXCEPTIONPROTO_FIELD_NUMBER = 13;
+  /**
+   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+   * @return Whether the sdkNotAuthorizedExceptionProto field is set.
+   */
+  @java.lang.Override
+  public boolean hasSdkNotAuthorizedExceptionProto() {
+    return resultCase_ == 13;
+  }
+  /**
+   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+   * @return The sdkNotAuthorizedExceptionProto.
+   */
+  @java.lang.Override
+  public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto getSdkNotAuthorizedExceptionProto() {
+    if (resultCase_ == 13) {
+       return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_;
+    }
+    return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
+  }
+  /**
+   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+   */
+  @java.lang.Override
+  public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder getSdkNotAuthorizedExceptionProtoOrBuilder() {
+    if (resultCase_ == 13) {
+       return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_;
+    }
+    return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -513,6 +546,9 @@ private static final long serialVersionUID = 0L;
     }
     if (resultCase_ == 12) {
       output.writeMessage(12, (com.rookmotion.rook_sdk_health_connect.data.proto.MissingAndroidPermissionsExceptionProto) result_);
+    }
+    if (resultCase_ == 13) {
+      output.writeMessage(13, (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -571,6 +607,10 @@ private static final long serialVersionUID = 0L;
     if (resultCase_ == 12) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, (com.rookmotion.rook_sdk_health_connect.data.proto.MissingAndroidPermissionsExceptionProto) result_);
+    }
+    if (resultCase_ == 13) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -637,6 +677,10 @@ private static final long serialVersionUID = 0L;
         if (!getMissingAndroidPermissionsExceptionProto()
             .equals(other.getMissingAndroidPermissionsExceptionProto())) return false;
         break;
+      case 13:
+        if (!getSdkNotAuthorizedExceptionProto()
+            .equals(other.getSdkNotAuthorizedExceptionProto())) return false;
+        break;
       case 0:
       default:
     }
@@ -700,6 +744,10 @@ private static final long serialVersionUID = 0L;
       case 12:
         hash = (37 * hash) + MISSINGANDROIDPERMISSIONSEXCEPTIONPROTO_FIELD_NUMBER;
         hash = (53 * hash) + getMissingAndroidPermissionsExceptionProto().hashCode();
+        break;
+      case 13:
+        hash = (37 * hash) + SDKNOTAUTHORIZEDEXCEPTIONPROTO_FIELD_NUMBER;
+        hash = (53 * hash) + getSdkNotAuthorizedExceptionProto().hashCode();
         break;
       case 0:
       default:
@@ -868,6 +916,9 @@ private static final long serialVersionUID = 0L;
       if (missingAndroidPermissionsExceptionProtoBuilder_ != null) {
         missingAndroidPermissionsExceptionProtoBuilder_.clear();
       }
+      if (sdkNotAuthorizedExceptionProtoBuilder_ != null) {
+        sdkNotAuthorizedExceptionProtoBuilder_.clear();
+      }
       resultCase_ = 0;
       result_ = null;
       return this;
@@ -952,6 +1003,10 @@ private static final long serialVersionUID = 0L;
       if (resultCase_ == 12 &&
           missingAndroidPermissionsExceptionProtoBuilder_ != null) {
         result.result_ = missingAndroidPermissionsExceptionProtoBuilder_.build();
+      }
+      if (resultCase_ == 13 &&
+          sdkNotAuthorizedExceptionProtoBuilder_ != null) {
+        result.result_ = sdkNotAuthorizedExceptionProtoBuilder_.build();
       }
     }
 
@@ -1046,6 +1101,10 @@ private static final long serialVersionUID = 0L;
         }
         case MISSINGANDROIDPERMISSIONSEXCEPTIONPROTO: {
           mergeMissingAndroidPermissionsExceptionProto(other.getMissingAndroidPermissionsExceptionProto());
+          break;
+        }
+        case SDKNOTAUTHORIZEDEXCEPTIONPROTO: {
+          mergeSdkNotAuthorizedExceptionProto(other.getSdkNotAuthorizedExceptionProto());
           break;
         }
         case RESULT_NOT_SET: {
@@ -1160,6 +1219,13 @@ private static final long serialVersionUID = 0L;
               resultCase_ = 12;
               break;
             } // case 98
+            case 106: {
+              input.readMessage(
+                  getSdkNotAuthorizedExceptionProtoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              resultCase_ = 13;
+              break;
+            } // case 106
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2794,6 +2860,148 @@ private static final long serialVersionUID = 0L;
       resultCase_ = 12;
       onChanged();
       return missingAndroidPermissionsExceptionProtoBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder> sdkNotAuthorizedExceptionProtoBuilder_;
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     * @return Whether the sdkNotAuthorizedExceptionProto field is set.
+     */
+    @java.lang.Override
+    public boolean hasSdkNotAuthorizedExceptionProto() {
+      return resultCase_ == 13;
+    }
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     * @return The sdkNotAuthorizedExceptionProto.
+     */
+    @java.lang.Override
+    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto getSdkNotAuthorizedExceptionProto() {
+      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
+        if (resultCase_ == 13) {
+          return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_;
+        }
+        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
+      } else {
+        if (resultCase_ == 13) {
+          return sdkNotAuthorizedExceptionProtoBuilder_.getMessage();
+        }
+        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     */
+    public Builder setSdkNotAuthorizedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto value) {
+      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        result_ = value;
+        onChanged();
+      } else {
+        sdkNotAuthorizedExceptionProtoBuilder_.setMessage(value);
+      }
+      resultCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     */
+    public Builder setSdkNotAuthorizedExceptionProto(
+        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder builderForValue) {
+      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
+        result_ = builderForValue.build();
+        onChanged();
+      } else {
+        sdkNotAuthorizedExceptionProtoBuilder_.setMessage(builderForValue.build());
+      }
+      resultCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     */
+    public Builder mergeSdkNotAuthorizedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto value) {
+      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
+        if (resultCase_ == 13 &&
+            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance()) {
+          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          result_ = value;
+        }
+        onChanged();
+      } else {
+        if (resultCase_ == 13) {
+          sdkNotAuthorizedExceptionProtoBuilder_.mergeFrom(value);
+        } else {
+          sdkNotAuthorizedExceptionProtoBuilder_.setMessage(value);
+        }
+      }
+      resultCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     */
+    public Builder clearSdkNotAuthorizedExceptionProto() {
+      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
+        if (resultCase_ == 13) {
+          resultCase_ = 0;
+          result_ = null;
+          onChanged();
+        }
+      } else {
+        if (resultCase_ == 13) {
+          resultCase_ = 0;
+          result_ = null;
+        }
+        sdkNotAuthorizedExceptionProtoBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     */
+    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder getSdkNotAuthorizedExceptionProtoBuilder() {
+      return getSdkNotAuthorizedExceptionProtoFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     */
+    @java.lang.Override
+    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder getSdkNotAuthorizedExceptionProtoOrBuilder() {
+      if ((resultCase_ == 13) && (sdkNotAuthorizedExceptionProtoBuilder_ != null)) {
+        return sdkNotAuthorizedExceptionProtoBuilder_.getMessageOrBuilder();
+      } else {
+        if (resultCase_ == 13) {
+          return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_;
+        }
+        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder> 
+        getSdkNotAuthorizedExceptionProtoFieldBuilder() {
+      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
+        if (!(resultCase_ == 13)) {
+          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
+        }
+        sdkNotAuthorizedExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder>(
+                (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_,
+                getParentForChildren(),
+                isClean());
+        result_ = null;
+      }
+      resultCase_ = 13;
+      onChanged();
+      return sdkNotAuthorizedExceptionProtoBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

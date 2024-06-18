@@ -182,6 +182,26 @@ void main() {
     );
 
     test(
+      'GIVEN a SDKNotAuthorizedExceptionProto WHEN unwrap THEN throw SDKNotAuthorizedException',
+          () {
+        final proto = ResultSyncStatusProto.create();
+        proto.sdkNotAuthorizedExceptionProto =
+            SDKNotAuthorizedExceptionProto(message: error);
+
+        expect(
+          proto.unwrap,
+          throwsA(
+            predicate(
+                  (exception) =>
+              exception is SDKNotAuthorizedException &&
+                  exception.message == error,
+            ),
+          ),
+        );
+      },
+    );
+
+    test(
       'GIVEN a GenericExceptionProto WHEN unwrap THEN throw Exception',
       () {
         final proto = ResultSyncStatusProto.create();

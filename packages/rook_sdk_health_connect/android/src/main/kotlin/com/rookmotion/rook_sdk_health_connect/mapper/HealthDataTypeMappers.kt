@@ -1,7 +1,7 @@
 package com.rookmotion.rook_sdk_health_connect.mapper
 
 import com.rookmotion.rook.sdk.domain.enums.HealthDataType
-import com.rookmotion.rook_sdk_health_connect.exception.HCUnknownDataTypeException
+import com.rookmotion.rook_sdk_health_connect.exception.UnknownDataTypeException
 import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
 
 fun HealthDataTypeProto.toDomain(): HealthDataType {
@@ -20,6 +20,6 @@ fun HealthDataTypeProto.toDomain(): HealthDataType {
         HealthDataTypeProto.OXYGENATION_BODY_EVENT -> HealthDataType.OXYGENATION_BODY_EVENT
         HealthDataTypeProto.OXYGENATION_PHYSICAL_EVENT -> HealthDataType.OXYGENATION_PHYSICAL_EVENT
         HealthDataTypeProto.TEMPERATURE_BODY_EVENT -> HealthDataType.TEMPERATURE_BODY_EVENT
-        else -> throw HCUnknownDataTypeException()
+        else -> throw UnknownDataTypeException()
     }
 }

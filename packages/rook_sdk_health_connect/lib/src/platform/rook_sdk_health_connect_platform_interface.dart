@@ -81,17 +81,17 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<bool> isStepsAvailable();
 
-  Future<bool> isStepsActive();
+  Future<bool> isBackgroundAndroidStepsActive();
 
   Future<bool> hasStepsPermissions();
 
   Future<void> requestStepsPermissions();
 
-  Future<void> startSteps();
+  Future<void> enableBackgroundAndroidSteps();
 
-  Future<void> stopSteps();
+  Future<void> disableBackgroundAndroidSteps();
 
-  Future<int> getTodaySteps();
+  Future<int> syncTodayAndroidStepsCount();
 
   Future<bool> hasYesterdaySyncAndroidPermissions();
 

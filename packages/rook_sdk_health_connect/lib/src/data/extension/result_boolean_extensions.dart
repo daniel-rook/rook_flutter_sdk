@@ -49,13 +49,17 @@ extension ResultBooleanExtensions on ResultBooleanProto {
         throw UserNotInitializedException(
           userNotInitializedExceptionProto.message,
         );
-      case ResultBooleanProto_Result.genericExceptionProto:
-        throw Exception(
-          genericExceptionProto.message,
-        );
       case ResultBooleanProto_Result.missingAndroidPermissionsExceptionProto:
         throw MissingAndroidPermissionsException(
           missingAndroidPermissionsExceptionProto.message,
+        );
+      case ResultBooleanProto_Result.sdkNotAuthorizedExceptionProto:
+        throw SDKNotAuthorizedException(
+          sdkNotAuthorizedExceptionProto.message,
+        );
+      case ResultBooleanProto_Result.genericExceptionProto:
+        throw Exception(
+          genericExceptionProto.message,
         );
       default:
         throw Exception("Unknown error");

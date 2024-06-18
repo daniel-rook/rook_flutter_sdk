@@ -360,9 +360,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<bool> isStepsActive() async {
+  Future<bool> isBackgroundAndroidStepsActive() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'isStepsActive',
+      'isBackgroundAndroidStepsActive',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -393,9 +393,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> startSteps() async {
+  Future<void> enableBackgroundAndroidSteps() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'startSteps',
+      'enableBackgroundAndroidSteps',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -404,9 +404,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> stopSteps() async {
+  Future<void> disableBackgroundAndroidSteps() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'stopSteps',
+      'disableBackgroundAndroidSteps',
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
@@ -415,9 +415,9 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<int> getTodaySteps() async {
+  Future<int> syncTodayAndroidStepsCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'getTodaySteps',
+      'syncTodayAndroidStepsCount',
     );
 
     final result = ResultInt64Proto.fromBuffer(bytes);

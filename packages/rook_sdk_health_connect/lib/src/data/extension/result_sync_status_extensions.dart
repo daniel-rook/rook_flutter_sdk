@@ -46,6 +46,10 @@ extension ResultSyncStatusExtensions on ResultSyncStatusProto {
         throw UserNotInitializedException(
           userNotInitializedExceptionProto.message,
         );
+      case ResultSyncStatusProto_Result.sdkNotAuthorizedExceptionProto:
+        throw SDKNotAuthorizedException(
+          sdkNotAuthorizedExceptionProto.message,
+        );
       case ResultSyncStatusProto_Result.genericExceptionProto:
         throw Exception(
           genericExceptionProto.message,
