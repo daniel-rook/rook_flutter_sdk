@@ -34,8 +34,12 @@ class AndroidStepsManager {
     return RookSdkHealthConnectPlatform.instance.disableBackgroundAndroidSteps();
   }
 
-  /// Returns the last stored step count of the current day.
-  /// This value is updated every time the phone detects a step taken and will be reset to zero every day.
+  /// Retrieve and upload current day steps count of Android system, if the upload fails the events
+  /// will be keep in the queue for a retry with [RookEventManager.syncPendingEvents].
+  ///
+  /// Returns the number of steps taken today.
+  ///
+  /// **Warning: This function makes a network call, do call it too frequently.**
   static Future<int> syncTodayAndroidStepsCount() {
     return RookSdkHealthConnectPlatform.instance.syncTodayAndroidStepsCount();
   }
