@@ -250,6 +250,10 @@ class _SdkHealthConnectPlaygroundState
     setState(() =>
         syncOutput.append('Syncing Temperature events of today: $today...'));
     await syncTemperatureEvents(today);
+
+    setState(() =>
+        syncOutput.append('Syncing Steps events of today: $today...'));
+    await syncStepsEvents();
   }
 
   Future<void> syncSleepSummary(DateTime yesterday) async {
@@ -733,6 +737,47 @@ class _SdkHealthConnectPlaygroundState
 
       setState(
           () => syncOutput.append('Temperature events: ${syncStatus.name}'));
+    } catch (exception) {
+      final error = switch (exception) {
+        (SDKNotInitializedException it) =>
+          'SDKNotInitializedException: ${it.message}',
+        (UserNotInitializedException it) =>
+          'UserNotInitializedException: ${it.message}',
+        (HealthConnectNotInstalledException it) =>
+          'HealthConnectNotInstalledException: ${it.message}',
+        (DeviceNotSupportedException it) =>
+          'DeviceNotSupportedException: ${it.message}',
+        (MissingPermissionsException it) =>
+          'MissingPermissionsException: ${it.message}',
+        (ConnectTimeoutException it) =>
+          'ConnectTimeoutException: ${it.message}',
+        (HttpRequestException it) =>
+          'HttpRequestException: code: ${it.code} message: ${it.message}',
+        _ => exception.toString(),
+      };
+
+      syncOutput.append('Error syncing Temperature events:');
+      setState(() => syncOutput.append(error));
+    }
+  }
+
+  Future<void> syncStepsEvents() async {
+    try {
+      final syncStatusWithData =
+          await HCRookEventManager.syncTodayHealthConnectStepsCount();
+
+      switch (syncStatusWithData) {
+        case Synced(data: final steps):
+          setState(
+                () => syncOutput.append('$steps steps synced successfully'),
+          );
+          break;
+        case RecordsNotFound():
+          setState(
+                () => syncOutput.append('Steps events not found'),
+          );
+          break;
+      }
     } catch (exception) {
       final error = switch (exception) {
         (SDKNotInitializedException it) =>

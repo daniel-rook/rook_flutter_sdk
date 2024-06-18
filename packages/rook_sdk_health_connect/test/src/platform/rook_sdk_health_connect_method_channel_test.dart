@@ -497,7 +497,8 @@ void main() {
       });
     });
 
-    test('GIVEN a Result.exception WHEN syncTodayAndroidStepsCount THEN throw exception',
+    test(
+        'GIVEN a Result.exception WHEN syncTodayAndroidStepsCount THEN throw exception',
         () async {
       final future = platform.syncTodayAndroidStepsCount();
 
@@ -779,6 +780,61 @@ void main() {
       'GIVEN a Result.exception WHEN syncTemperatureEvents THEN throw exception',
       () async {
         final future = platform.syncTemperatureEvents(DateTime.now());
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+  });
+
+  group(
+      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithIntProto value unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final proto = ResultSyncStatusWithIntProto();
+        proto.syncStatusWithIntProto = SyncStatusWithIntProto.create()
+          ..syncStatus = SyncStatusProto.SYNCED
+          ..steps = 1;
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+      'GIVEN a Result.syncStatusWithIntProto WHEN syncTodayHealthConnectStepsCount THEN complete with expected value',
+      () async {
+        final future = platform.syncTodayHealthConnectStepsCount();
+
+        await expectLater(
+          future,
+          completion(
+            predicate<SyncStatusWithData<int?>>(
+              (value) => (value as Synced<int?>).data == 1,
+            ),
+          ),
+        );
+      },
+    );
+  });
+
+  group(
+      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithIntProto exception unwrap',
+  () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final proto = ResultSyncStatusWithIntProto();
+        proto.genericExceptionProto =
+            GenericExceptionProto(message: 'Generic error');
+
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+      'GIVEN a Result.exception WHEN syncTodayHealthConnectStepsCount throw exception',
+          () async {
+        final future = platform.syncTodayHealthConnectStepsCount();
 
         await expectLater(future, throwsA(isException));
       },

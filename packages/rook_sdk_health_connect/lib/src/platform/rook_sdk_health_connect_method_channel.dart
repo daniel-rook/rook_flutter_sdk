@@ -5,6 +5,7 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extens
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_source_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
@@ -14,6 +15,7 @@ import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
+import 'package:rook_sdk_health_connect/src/domain/enums/sync_status_with_data.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
@@ -334,6 +336,16 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       ],
     );
     final result = ResultSyncStatusProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<SyncStatusWithData<int?>> syncTodayHealthConnectStepsCount() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncTodayHealthConnectStepsCount',
+    );
+    final result = ResultSyncStatusWithIntProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

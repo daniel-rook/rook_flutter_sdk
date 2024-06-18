@@ -260,6 +260,70 @@ class DataSourceProtoListWrapper extends $pb.GeneratedMessage {
   $core.List<DataSourceProto> get dataSources => $_getList(0);
 }
 
+class SyncStatusWithIntProto extends $pb.GeneratedMessage {
+  factory SyncStatusWithIntProto({
+    SyncStatusProto? syncStatus,
+    $core.int? steps,
+  }) {
+    final $result = create();
+    if (syncStatus != null) {
+      $result.syncStatus = syncStatus;
+    }
+    if (steps != null) {
+      $result.steps = steps;
+    }
+    return $result;
+  }
+  SyncStatusWithIntProto._() : super();
+  factory SyncStatusWithIntProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SyncStatusWithIntProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SyncStatusWithIntProto', createEmptyInstance: create)
+    ..e<SyncStatusProto>(1, _omitFieldNames ? '' : 'syncStatus', $pb.PbFieldType.OE, protoName: 'syncStatus', defaultOrMaker: SyncStatusProto.SYNCED, valueOf: SyncStatusProto.valueOf, enumValues: SyncStatusProto.values)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'steps', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SyncStatusWithIntProto clone() => SyncStatusWithIntProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SyncStatusWithIntProto copyWith(void Function(SyncStatusWithIntProto) updates) => super.copyWith((message) => updates(message as SyncStatusWithIntProto)) as SyncStatusWithIntProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SyncStatusWithIntProto create() => SyncStatusWithIntProto._();
+  SyncStatusWithIntProto createEmptyInstance() => create();
+  static $pb.PbList<SyncStatusWithIntProto> createRepeated() => $pb.PbList<SyncStatusWithIntProto>();
+  @$core.pragma('dart2js:noInline')
+  static SyncStatusWithIntProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SyncStatusWithIntProto>(create);
+  static SyncStatusWithIntProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  SyncStatusProto get syncStatus => $_getN(0);
+  @$pb.TagNumber(1)
+  set syncStatus(SyncStatusProto v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasSyncStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSyncStatus() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get steps => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set steps($core.int v) { $_setUnsignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSteps() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSteps() => clearField(2);
+}
+
 class DeviceNotSupportedExceptionProto extends $pb.GeneratedMessage {
   factory DeviceNotSupportedExceptionProto({
     $core.String? message,
@@ -1401,6 +1465,251 @@ class ResultSyncStatusProto extends $pb.GeneratedMessage {
   $core.bool hasSyncStatusProto() => $_has(0);
   @$pb.TagNumber(1)
   void clearSyncStatusProto() => clearField(1);
+
+  @$pb.TagNumber(2)
+  DeviceNotSupportedExceptionProto get deviceNotSupportedExceptionProto => $_getN(1);
+  @$pb.TagNumber(2)
+  set deviceNotSupportedExceptionProto(DeviceNotSupportedExceptionProto v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDeviceNotSupportedExceptionProto() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDeviceNotSupportedExceptionProto() => clearField(2);
+  @$pb.TagNumber(2)
+  DeviceNotSupportedExceptionProto ensureDeviceNotSupportedExceptionProto() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  HealthConnectNotInstalledExceptionProto get healthConnectNotInstalledExceptionProto => $_getN(2);
+  @$pb.TagNumber(3)
+  set healthConnectNotInstalledExceptionProto(HealthConnectNotInstalledExceptionProto v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasHealthConnectNotInstalledExceptionProto() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearHealthConnectNotInstalledExceptionProto() => clearField(3);
+  @$pb.TagNumber(3)
+  HealthConnectNotInstalledExceptionProto ensureHealthConnectNotInstalledExceptionProto() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  HttpRequestExceptionProto get httpRequestExceptionProto => $_getN(3);
+  @$pb.TagNumber(4)
+  set httpRequestExceptionProto(HttpRequestExceptionProto v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasHttpRequestExceptionProto() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearHttpRequestExceptionProto() => clearField(4);
+  @$pb.TagNumber(4)
+  HttpRequestExceptionProto ensureHttpRequestExceptionProto() => $_ensure(3);
+
+  @$pb.TagNumber(6)
+  MissingPermissionsExceptionProto get missingPermissionsExceptionProto => $_getN(4);
+  @$pb.TagNumber(6)
+  set missingPermissionsExceptionProto(MissingPermissionsExceptionProto v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasMissingPermissionsExceptionProto() => $_has(4);
+  @$pb.TagNumber(6)
+  void clearMissingPermissionsExceptionProto() => clearField(6);
+  @$pb.TagNumber(6)
+  MissingPermissionsExceptionProto ensureMissingPermissionsExceptionProto() => $_ensure(4);
+
+  @$pb.TagNumber(7)
+  RequestQuotaExceededExceptionProto get requestQuotaExceededExceptionProto => $_getN(5);
+  @$pb.TagNumber(7)
+  set requestQuotaExceededExceptionProto(RequestQuotaExceededExceptionProto v) { setField(7, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasRequestQuotaExceededExceptionProto() => $_has(5);
+  @$pb.TagNumber(7)
+  void clearRequestQuotaExceededExceptionProto() => clearField(7);
+  @$pb.TagNumber(7)
+  RequestQuotaExceededExceptionProto ensureRequestQuotaExceededExceptionProto() => $_ensure(5);
+
+  @$pb.TagNumber(8)
+  SDKNotInitializedExceptionProto get sdkNotInitializedExceptionProto => $_getN(6);
+  @$pb.TagNumber(8)
+  set sdkNotInitializedExceptionProto(SDKNotInitializedExceptionProto v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasSdkNotInitializedExceptionProto() => $_has(6);
+  @$pb.TagNumber(8)
+  void clearSdkNotInitializedExceptionProto() => clearField(8);
+  @$pb.TagNumber(8)
+  SDKNotInitializedExceptionProto ensureSdkNotInitializedExceptionProto() => $_ensure(6);
+
+  @$pb.TagNumber(9)
+  TimeoutExceptionProto get timeoutExceptionProto => $_getN(7);
+  @$pb.TagNumber(9)
+  set timeoutExceptionProto(TimeoutExceptionProto v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasTimeoutExceptionProto() => $_has(7);
+  @$pb.TagNumber(9)
+  void clearTimeoutExceptionProto() => clearField(9);
+  @$pb.TagNumber(9)
+  TimeoutExceptionProto ensureTimeoutExceptionProto() => $_ensure(7);
+
+  @$pb.TagNumber(10)
+  UserNotInitializedExceptionProto get userNotInitializedExceptionProto => $_getN(8);
+  @$pb.TagNumber(10)
+  set userNotInitializedExceptionProto(UserNotInitializedExceptionProto v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasUserNotInitializedExceptionProto() => $_has(8);
+  @$pb.TagNumber(10)
+  void clearUserNotInitializedExceptionProto() => clearField(10);
+  @$pb.TagNumber(10)
+  UserNotInitializedExceptionProto ensureUserNotInitializedExceptionProto() => $_ensure(8);
+
+  @$pb.TagNumber(11)
+  GenericExceptionProto get genericExceptionProto => $_getN(9);
+  @$pb.TagNumber(11)
+  set genericExceptionProto(GenericExceptionProto v) { setField(11, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasGenericExceptionProto() => $_has(9);
+  @$pb.TagNumber(11)
+  void clearGenericExceptionProto() => clearField(11);
+  @$pb.TagNumber(11)
+  GenericExceptionProto ensureGenericExceptionProto() => $_ensure(9);
+
+  @$pb.TagNumber(13)
+  SDKNotAuthorizedExceptionProto get sdkNotAuthorizedExceptionProto => $_getN(10);
+  @$pb.TagNumber(13)
+  set sdkNotAuthorizedExceptionProto(SDKNotAuthorizedExceptionProto v) { setField(13, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasSdkNotAuthorizedExceptionProto() => $_has(10);
+  @$pb.TagNumber(13)
+  void clearSdkNotAuthorizedExceptionProto() => clearField(13);
+  @$pb.TagNumber(13)
+  SDKNotAuthorizedExceptionProto ensureSdkNotAuthorizedExceptionProto() => $_ensure(10);
+}
+
+enum ResultSyncStatusWithIntProto_Result {
+  syncStatusWithIntProto, 
+  deviceNotSupportedExceptionProto, 
+  healthConnectNotInstalledExceptionProto, 
+  httpRequestExceptionProto, 
+  missingPermissionsExceptionProto, 
+  requestQuotaExceededExceptionProto, 
+  sdkNotInitializedExceptionProto, 
+  timeoutExceptionProto, 
+  userNotInitializedExceptionProto, 
+  genericExceptionProto, 
+  sdkNotAuthorizedExceptionProto, 
+  notSet
+}
+
+class ResultSyncStatusWithIntProto extends $pb.GeneratedMessage {
+  factory ResultSyncStatusWithIntProto({
+    SyncStatusWithIntProto? syncStatusWithIntProto,
+    DeviceNotSupportedExceptionProto? deviceNotSupportedExceptionProto,
+    HealthConnectNotInstalledExceptionProto? healthConnectNotInstalledExceptionProto,
+    HttpRequestExceptionProto? httpRequestExceptionProto,
+    MissingPermissionsExceptionProto? missingPermissionsExceptionProto,
+    RequestQuotaExceededExceptionProto? requestQuotaExceededExceptionProto,
+    SDKNotInitializedExceptionProto? sdkNotInitializedExceptionProto,
+    TimeoutExceptionProto? timeoutExceptionProto,
+    UserNotInitializedExceptionProto? userNotInitializedExceptionProto,
+    GenericExceptionProto? genericExceptionProto,
+    SDKNotAuthorizedExceptionProto? sdkNotAuthorizedExceptionProto,
+  }) {
+    final $result = create();
+    if (syncStatusWithIntProto != null) {
+      $result.syncStatusWithIntProto = syncStatusWithIntProto;
+    }
+    if (deviceNotSupportedExceptionProto != null) {
+      $result.deviceNotSupportedExceptionProto = deviceNotSupportedExceptionProto;
+    }
+    if (healthConnectNotInstalledExceptionProto != null) {
+      $result.healthConnectNotInstalledExceptionProto = healthConnectNotInstalledExceptionProto;
+    }
+    if (httpRequestExceptionProto != null) {
+      $result.httpRequestExceptionProto = httpRequestExceptionProto;
+    }
+    if (missingPermissionsExceptionProto != null) {
+      $result.missingPermissionsExceptionProto = missingPermissionsExceptionProto;
+    }
+    if (requestQuotaExceededExceptionProto != null) {
+      $result.requestQuotaExceededExceptionProto = requestQuotaExceededExceptionProto;
+    }
+    if (sdkNotInitializedExceptionProto != null) {
+      $result.sdkNotInitializedExceptionProto = sdkNotInitializedExceptionProto;
+    }
+    if (timeoutExceptionProto != null) {
+      $result.timeoutExceptionProto = timeoutExceptionProto;
+    }
+    if (userNotInitializedExceptionProto != null) {
+      $result.userNotInitializedExceptionProto = userNotInitializedExceptionProto;
+    }
+    if (genericExceptionProto != null) {
+      $result.genericExceptionProto = genericExceptionProto;
+    }
+    if (sdkNotAuthorizedExceptionProto != null) {
+      $result.sdkNotAuthorizedExceptionProto = sdkNotAuthorizedExceptionProto;
+    }
+    return $result;
+  }
+  ResultSyncStatusWithIntProto._() : super();
+  factory ResultSyncStatusWithIntProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResultSyncStatusWithIntProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, ResultSyncStatusWithIntProto_Result> _ResultSyncStatusWithIntProto_ResultByTag = {
+    1 : ResultSyncStatusWithIntProto_Result.syncStatusWithIntProto,
+    2 : ResultSyncStatusWithIntProto_Result.deviceNotSupportedExceptionProto,
+    3 : ResultSyncStatusWithIntProto_Result.healthConnectNotInstalledExceptionProto,
+    4 : ResultSyncStatusWithIntProto_Result.httpRequestExceptionProto,
+    6 : ResultSyncStatusWithIntProto_Result.missingPermissionsExceptionProto,
+    7 : ResultSyncStatusWithIntProto_Result.requestQuotaExceededExceptionProto,
+    8 : ResultSyncStatusWithIntProto_Result.sdkNotInitializedExceptionProto,
+    9 : ResultSyncStatusWithIntProto_Result.timeoutExceptionProto,
+    10 : ResultSyncStatusWithIntProto_Result.userNotInitializedExceptionProto,
+    11 : ResultSyncStatusWithIntProto_Result.genericExceptionProto,
+    13 : ResultSyncStatusWithIntProto_Result.sdkNotAuthorizedExceptionProto,
+    0 : ResultSyncStatusWithIntProto_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResultSyncStatusWithIntProto', createEmptyInstance: create)
+    ..oo(0, [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 13])
+    ..aOM<SyncStatusWithIntProto>(1, _omitFieldNames ? '' : 'syncStatusWithIntProto', protoName: 'syncStatusWithIntProto', subBuilder: SyncStatusWithIntProto.create)
+    ..aOM<DeviceNotSupportedExceptionProto>(2, _omitFieldNames ? '' : 'deviceNotSupportedExceptionProto', protoName: 'deviceNotSupportedExceptionProto', subBuilder: DeviceNotSupportedExceptionProto.create)
+    ..aOM<HealthConnectNotInstalledExceptionProto>(3, _omitFieldNames ? '' : 'healthConnectNotInstalledExceptionProto', protoName: 'healthConnectNotInstalledExceptionProto', subBuilder: HealthConnectNotInstalledExceptionProto.create)
+    ..aOM<HttpRequestExceptionProto>(4, _omitFieldNames ? '' : 'httpRequestExceptionProto', protoName: 'httpRequestExceptionProto', subBuilder: HttpRequestExceptionProto.create)
+    ..aOM<MissingPermissionsExceptionProto>(6, _omitFieldNames ? '' : 'missingPermissionsExceptionProto', protoName: 'missingPermissionsExceptionProto', subBuilder: MissingPermissionsExceptionProto.create)
+    ..aOM<RequestQuotaExceededExceptionProto>(7, _omitFieldNames ? '' : 'requestQuotaExceededExceptionProto', protoName: 'requestQuotaExceededExceptionProto', subBuilder: RequestQuotaExceededExceptionProto.create)
+    ..aOM<SDKNotInitializedExceptionProto>(8, _omitFieldNames ? '' : 'sdkNotInitializedExceptionProto', protoName: 'sdkNotInitializedExceptionProto', subBuilder: SDKNotInitializedExceptionProto.create)
+    ..aOM<TimeoutExceptionProto>(9, _omitFieldNames ? '' : 'timeoutExceptionProto', protoName: 'timeoutExceptionProto', subBuilder: TimeoutExceptionProto.create)
+    ..aOM<UserNotInitializedExceptionProto>(10, _omitFieldNames ? '' : 'userNotInitializedExceptionProto', protoName: 'userNotInitializedExceptionProto', subBuilder: UserNotInitializedExceptionProto.create)
+    ..aOM<GenericExceptionProto>(11, _omitFieldNames ? '' : 'genericExceptionProto', protoName: 'genericExceptionProto', subBuilder: GenericExceptionProto.create)
+    ..aOM<SDKNotAuthorizedExceptionProto>(13, _omitFieldNames ? '' : 'sdkNotAuthorizedExceptionProto', protoName: 'sdkNotAuthorizedExceptionProto', subBuilder: SDKNotAuthorizedExceptionProto.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResultSyncStatusWithIntProto clone() => ResultSyncStatusWithIntProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResultSyncStatusWithIntProto copyWith(void Function(ResultSyncStatusWithIntProto) updates) => super.copyWith((message) => updates(message as ResultSyncStatusWithIntProto)) as ResultSyncStatusWithIntProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResultSyncStatusWithIntProto create() => ResultSyncStatusWithIntProto._();
+  ResultSyncStatusWithIntProto createEmptyInstance() => create();
+  static $pb.PbList<ResultSyncStatusWithIntProto> createRepeated() => $pb.PbList<ResultSyncStatusWithIntProto>();
+  @$core.pragma('dart2js:noInline')
+  static ResultSyncStatusWithIntProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResultSyncStatusWithIntProto>(create);
+  static ResultSyncStatusWithIntProto? _defaultInstance;
+
+  ResultSyncStatusWithIntProto_Result whichResult() => _ResultSyncStatusWithIntProto_ResultByTag[$_whichOneof(0)]!;
+  void clearResult() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  SyncStatusWithIntProto get syncStatusWithIntProto => $_getN(0);
+  @$pb.TagNumber(1)
+  set syncStatusWithIntProto(SyncStatusWithIntProto v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasSyncStatusWithIntProto() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSyncStatusWithIntProto() => clearField(1);
+  @$pb.TagNumber(1)
+  SyncStatusWithIntProto ensureSyncStatusWithIntProto() => $_ensure(0);
 
   @$pb.TagNumber(2)
   DeviceNotSupportedExceptionProto get deviceNotSupportedExceptionProto => $_getN(1);

@@ -62,6 +62,11 @@ message DataSourceProtoListWrapper {
   repeated DataSourceProto dataSources = 1;
 }
 
+message SyncStatusWithIntProto {
+  SyncStatusProto syncStatus = 1;
+  uint32 steps = 2;
+}
+
 message DeviceNotSupportedExceptionProto {
   string message = 1;
 }
@@ -155,6 +160,25 @@ message ResultSyncStatusProto {
 
   oneof result {
     SyncStatusProto syncStatusProto = 1;
+    DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;
+    HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;
+    HttpRequestExceptionProto httpRequestExceptionProto = 4;
+    MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;
+    RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;
+    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
+    TimeoutExceptionProto timeoutExceptionProto = 9;
+    UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
+    GenericExceptionProto genericExceptionProto = 11;
+    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
+  }
+}
+
+message ResultSyncStatusWithIntProto {
+  reserved 5; // MissingConfigurationExceptionProto
+  reserved 12; // MissingAndroidPermissionsExceptionProto
+
+  oneof result {
+    SyncStatusWithIntProto syncStatusWithIntProto = 1;
     DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;
     HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;
     HttpRequestExceptionProto httpRequestExceptionProto = 4;

@@ -30,6 +30,8 @@ import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Error
 import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Success
 import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusError
 import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusWithIntError
+import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusWithIntSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.throwable
 import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
 import com.rookmotion.rook_sdk_health_connect.mapper.toDomain
@@ -425,6 +427,17 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
                     },
                     {
                         result.resultSyncStatusError(it)
+                    }
+                )
+            }
+
+            "syncTodayHealthConnectStepsCount" -> scope.launch {
+                rookEventManager.syncTodayHealthConnectStepsCount().fold(
+                    {
+                        result.resultSyncStatusWithIntSuccess(it)
+                    },
+                    {
+                        result.resultSyncStatusWithIntError(it)
                     }
                 )
             }
