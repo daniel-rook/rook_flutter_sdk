@@ -181,7 +181,7 @@ class _SdkHealthConnectConfigurationState
       final error = switch (exception) {
         (MissingConfigurationException it) =>
           'MissingConfigurationException: ${it.message}',
-        (NotAuthorizedException it) => 'NotAuthorizedException: ${it.message}',
+        (SDKNotAuthorizedException it) => 'SDKNotAuthorizedException: ${it.message}',
         (ConnectTimeoutException it) => 'TimeoutException: ${it.message}',
         _ => exception.toString(),
       };

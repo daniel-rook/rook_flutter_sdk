@@ -1,3 +1,7 @@
+## 0.2.0
+
+* Renamed NotAuthorizedException to SDKNotAuthorizedException
+
 ## 0.1.2
 
 * Added DataSource class
