@@ -78,7 +78,7 @@ class HCRookEventManager {
   ///
   /// Returns a [SyncStatusWithData] with the current day steps count (if available).
   ///
-  /// **Warning: This function makes a network call and has an effect on the Health Connect rate limit, do call it too frequently.**
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   static Future<SyncStatusWithData<int?>> syncTodayHealthConnectStepsCount() {
     return RookSdkHealthConnectPlatform.instance
         .syncTodayHealthConnectStepsCount();

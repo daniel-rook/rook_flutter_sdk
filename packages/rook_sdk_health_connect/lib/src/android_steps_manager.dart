@@ -39,7 +39,7 @@ class AndroidStepsManager {
   ///
   /// Returns the number of steps taken today.
   ///
-  /// **Warning: This function makes a network call, do call it too frequently.**
+  /// **Warning: This function is resource intensive, don't call it too frequently.**
   static Future<int> syncTodayAndroidStepsCount() {
     return RookSdkHealthConnectPlatform.instance.syncTodayAndroidStepsCount();
   }
