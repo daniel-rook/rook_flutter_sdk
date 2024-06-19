@@ -797,7 +797,7 @@ class _SdkHealthConnectPlaygroundState
         _ => exception.toString(),
       };
 
-      syncOutput.append('Error syncing Temperature events:');
+      syncOutput.append('Error syncing Steps events:');
       setState(() => syncOutput.append(error));
     }
   }
