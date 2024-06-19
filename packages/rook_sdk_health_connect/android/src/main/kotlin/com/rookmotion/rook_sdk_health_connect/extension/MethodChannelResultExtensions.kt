@@ -32,7 +32,7 @@ fun MethodChannel.Result.intSuccess(int: Int) {
 }
 
 fun MethodChannel.Result.throwable(throwable: Throwable) {
-    error(GENERIC_ERROR_CODE, throwable.message, null)
+    error(GENERIC_ERROR_CODE, throwable.getErrorMessage(), null)
 }
 
 fun MethodChannel.Result.resultBooleanSuccess(boolean: Boolean) {
@@ -94,7 +94,7 @@ fun MethodChannel.Result.resultBooleanError(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
+                .setMessage(throwable.getErrorMessage())
 
             resultBooleanProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -128,7 +128,7 @@ fun MethodChannel.Result.resultInt64Error(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
+                .setMessage(throwable.getErrorMessage())
 
             resultInt64ProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -190,7 +190,7 @@ fun MethodChannel.Result.resultSyncStatusError(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
+                .setMessage(throwable.getErrorMessage())
 
             resultSyncStatusProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -273,7 +273,7 @@ fun MethodChannel.Result.resultSyncStatusWithIntError(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
+                .setMessage(throwable.getErrorMessage())
 
             resultSyncStatusWithIntProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -315,7 +315,7 @@ fun MethodChannel.Result.resultDataSourcesError(throwable: Throwable) {
 
         else -> {
             val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.message ?: GENERIC_ERROR_MESSAGE)
+                .setMessage(throwable.getErrorMessage())
 
             resultDataSourceProtoBuilder.setGenericExceptionProto(proto)
         }
@@ -327,4 +327,3 @@ fun MethodChannel.Result.resultDataSourcesError(throwable: Throwable) {
 }
 
 private const val GENERIC_ERROR_CODE = "-1"
-private const val GENERIC_ERROR_MESSAGE = "Unknown error"

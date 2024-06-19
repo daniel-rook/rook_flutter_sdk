@@ -17,6 +17,19 @@ void main() {
         .setMockMethodCallHandler(channel, null);
   });
 
+  resultBooleanTests(platform, channel);
+  resultInt64Tests(platform, channel);
+  resultSyncStatusTests(platform, channel);
+  resultSyncStatusWithIntTest(platform, channel);
+  resultDataSourceTests(platform, channel);
+  stringTests(platform, channel);
+  availabilityStatusTests(platform, channel);
+}
+
+void resultBooleanTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkHealthConnect | ResultBooleanProto success unwrap',
       () {
     setUp(() {
@@ -463,7 +476,12 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void resultInt64Tests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkHealthConnect | ResultInt64Proto value unwrap',
       () {
     setUp(() {
@@ -505,7 +523,12 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void resultSyncStatusTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group(
       'MethodChannelRookSdkHealthConnect | ResultSyncStatusProto value unwrap',
       () {
@@ -785,7 +808,12 @@ void main() {
       },
     );
   });
+}
 
+void resultSyncStatusWithIntTest(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group(
       'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithIntProto value unwrap',
       () {
@@ -819,7 +847,7 @@ void main() {
 
   group(
       'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithIntProto exception unwrap',
-  () {
+      () {
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
@@ -833,64 +861,19 @@ void main() {
 
     test(
       'GIVEN a Result.exception WHEN syncTodayHealthConnectStepsCount throw exception',
-          () async {
+      () async {
         final future = platform.syncTodayHealthConnectStepsCount();
 
         await expectLater(future, throwsA(isException));
       },
     );
   });
+}
 
-  group('MethodChannelRookSdkHealthConnect | String Success', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        return 'RookUser';
-      });
-    });
-
-    test(
-        'GIVEN the happy path WHEN getUserID THEN complete with expected value',
-        () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, completion('RookUser'));
-    });
-  });
-
-  group('MethodChannelRookSdkHealthConnect | String null', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        return null;
-      });
-    });
-
-    test('GIVEN null WHEN getUserID THEN complete with expected value',
-        () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, completion(null));
-    });
-  });
-
-  group('MethodChannelRookSdkHealthConnect | String Failure', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        throw Exception('Error');
-        // return 'RookUser';
-      });
-    });
-
-    test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
-        () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, throwsA(isException));
-    });
-  });
-
+void resultDataSourceTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group(
       'MethodChannelRookSdkHealthConnect | ResultDataSourceProto dataSourceProtoListWrapper unwrap',
       () {
@@ -956,7 +939,67 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void stringTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
+  group('MethodChannelRookSdkHealthConnect | String Success', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        return 'RookUser';
+      });
+    });
+
+    test(
+        'GIVEN the happy path WHEN getUserID THEN complete with expected value',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, completion('RookUser'));
+    });
+  });
+
+  group('MethodChannelRookSdkHealthConnect | String null', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        return null;
+      });
+    });
+
+    test('GIVEN null WHEN getUserID THEN complete with expected value',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, completion(null));
+    });
+  });
+
+  group('MethodChannelRookSdkHealthConnect | String Failure', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        throw Exception('Error');
+        // return 'RookUser';
+      });
+    });
+
+    test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, throwsA(isException));
+    });
+  });
+}
+
+void availabilityStatusTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkHealthConnect checkAvailability', () {
     group('Valid AvailabilityStatusProto value', () {
       setUp(() {

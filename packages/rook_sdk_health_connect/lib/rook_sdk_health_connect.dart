@@ -4,8 +4,6 @@ export 'src/android_steps_manager.dart';
 export 'src/domain/enums/hc_availability_status.dart';
 export 'src/domain/enums/hc_health_data_type.dart';
 export 'src/domain/enums/hc_sync_instruction.dart';
-export 'src/domain/enums/sync_status.dart';
-export 'src/domain/enums/sync_status_with_data.dart';
 export 'src/domain/exception/device_not_supported_exception.dart';
 export 'src/domain/exception/health_connect_not_installed_exception.dart';
 export 'src/domain/exception/missing_android_permissions_exception.dart';

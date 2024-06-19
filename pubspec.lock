@@ -237,7 +237,7 @@ packages:
       path: "packages/rook_sdk_core"
       relative: true
     source: path
-    version: "0.2.0"
+    version: "0.2.1"
   rook_sdk_health_connect:
     dependency: "direct main"
     description:
