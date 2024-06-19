@@ -1,3 +1,7 @@
+## 0.2.1
+
+* Added SyncStatus and SyncStatusWithData
+
 ## 0.2.0
 
 * Renamed NotAuthorizedException to SDKNotAuthorizedException
