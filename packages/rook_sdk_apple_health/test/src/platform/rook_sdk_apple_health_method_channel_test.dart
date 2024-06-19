@@ -16,6 +16,16 @@ void main() {
         .setMockMethodCallHandler(channel, null);
   });
 
+  resultBooleanTests(platform, channel);
+  resultInt64Tests(platform, channel);
+  resultDataSourceTests(platform, channel);
+  stringTests(platform, channel);
+}
+
+void resultBooleanTests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkAppleHealth | ResultBooleanProto success unwrap',
       () {
     setUp(() {
@@ -615,7 +625,12 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void resultInt64Tests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkAppleHealth | ResultInt64Proto value unwrap', () {
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -670,57 +685,12 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
-  group('MethodChannelRookSdkAppleHealth | String Success', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        return 'RookUser';
-      });
-    });
-
-    test(
-        'GIVEN the happy path WHEN getUserID THEN complete with expected value',
-        () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, completion('RookUser'));
-    });
-  });
-
-  group('MethodChannelRookSdkAppleHealth | String null', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        return null;
-      });
-    });
-
-    test('GIVEN null WHEN getUserID THEN complete with expected value',
-        () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, completion(null));
-    });
-  });
-
-  group('MethodChannelRookSdkAppleHealth | String Failure', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        throw Exception('Error');
-        // return 'RookUser';
-      });
-    });
-
-    test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
-        () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, throwsA(isException));
-    });
-  });
-
+void resultDataSourceTests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
   group(
       'MethodChannelRookSdkAppleHealth | ResultDataSourceProto dataSourceProtoListWrapper unwrap',
       () {
@@ -782,6 +752,61 @@ void main() {
         'GIVEN a Result.exception WHEN getAvailableDataSources THEN throw exception',
         () async {
       final future = platform.getAvailableDataSources();
+
+      await expectLater(future, throwsA(isException));
+    });
+  });
+}
+
+void stringTests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
+  group('MethodChannelRookSdkAppleHealth | String Success', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        return 'RookUser';
+      });
+    });
+
+    test(
+        'GIVEN the happy path WHEN getUserID THEN complete with expected value',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, completion('RookUser'));
+    });
+  });
+
+  group('MethodChannelRookSdkAppleHealth | String null', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        return null;
+      });
+    });
+
+    test('GIVEN null WHEN getUserID THEN complete with expected value',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, completion(null));
+    });
+  });
+
+  group('MethodChannelRookSdkAppleHealth | String Failure', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        throw Exception('Error');
+        // return 'RookUser';
+      });
+    });
+
+    test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
+        () async {
+      final future = platform.getUserID();
 
       await expectLater(future, throwsA(isException));
     });
