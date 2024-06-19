@@ -14,7 +14,7 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
+import 'package:rook_sdk_health_connect/src/domain/enums/sync_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/sync_status_with_data.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 

@@ -1,7 +1,7 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/sync_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
+import 'package:rook_sdk_health_connect/src/domain/enums/sync_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/device_not_supported_exception.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/health_connect_not_installed_exception.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/request_quota_exceeded_exception.dart';
