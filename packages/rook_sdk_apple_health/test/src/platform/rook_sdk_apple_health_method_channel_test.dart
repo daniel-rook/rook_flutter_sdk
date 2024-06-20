@@ -225,60 +225,6 @@ void resultBooleanTests(
     );
 
     test(
-      'GIVEN a Result.success WHEN isStepsTrackerActive THEN complete with expected value',
-      () async {
-        final future = platform.isStepsTrackerActive();
-
-        await expectLater(future, completion(true));
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN startStepsTracker THEN complete',
-      () async {
-        final future = platform.startStepsTracker();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN stopStepsTracker THEN complete',
-      () async {
-        final future = platform.stopStepsTracker();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN isCaloriesTrackerActive THEN complete with expected value',
-      () async {
-        final future = platform.isCaloriesTrackerActive();
-
-        await expectLater(future, completion(true));
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN startCaloriesTracker THEN complete',
-      () async {
-        final future = platform.startCaloriesTracker();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN stopCaloriesTracker THEN complete',
-      () async {
-        final future = platform.stopCaloriesTracker();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
         'GIVEN a Result.success WHEN isContinuousUploadEnabled THEN complete with expected value',
         () async {
       final future = platform.isContinuousUploadEnabled();
@@ -514,60 +460,6 @@ void resultBooleanTests(
     );
 
     test(
-      'GIVEN a Result.exception WHEN isStepsTrackerActive THEN throw exception',
-      () async {
-        final future = platform.isStepsTrackerActive();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN startStepsTracker THEN throw exception',
-      () async {
-        final future = platform.startStepsTracker();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN stopStepsTracker THEN throw exception',
-      () async {
-        final future = platform.stopStepsTracker();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN isCaloriesTrackerActive THEN throw exception',
-      () async {
-        final future = platform.isCaloriesTrackerActive();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN startCaloriesTracker THEN throw exception',
-      () async {
-        final future = platform.startCaloriesTracker();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN stopCaloriesTracker THEN throw exception',
-      () async {
-        final future = platform.stopCaloriesTracker();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
         'GIVEN a Result.exception WHEN isContinuousUploadEnabled THEN throw exception',
         () async {
       final future = platform.isContinuousUploadEnabled();
@@ -642,17 +534,9 @@ void resultInt64Tests(
     });
 
     test(
-        'GIVEN a Result.value WHEN getTodaySteps THEN complete with expected value',
+        'GIVEN a Result.value WHEN syncTodayAppleHealthStepsCount THEN complete with expected value',
         () async {
-      final future = platform.getTodaySteps();
-
-      await expectLater(future, completion(1000));
-    });
-
-    test(
-        'GIVEN a Result.value WHEN getTodayCalories THEN complete with expected value',
-        () async {
-      final future = platform.getTodayCalories();
+      final future = platform.syncTodayAppleHealthStepsCount();
 
       await expectLater(future, completion(1000));
     });
@@ -671,16 +555,9 @@ void resultInt64Tests(
       });
     });
 
-    test('GIVEN a Result.exception WHEN getTodaySteps THEN throw exception',
+    test('GIVEN a Result.exception WHEN syncTodayAppleHealthStepsCount THEN throw exception',
         () async {
-      final future = platform.getTodaySteps();
-
-      await expectLater(future, throwsA(isException));
-    });
-
-    test('GIVEN a Result.exception WHEN getTodayCalories THEN throw exception',
-        () async {
-      final future = platform.getTodayCalories();
+      final future = platform.syncTodayAppleHealthStepsCount();
 
       await expectLater(future, throwsA(isException));
     });

@@ -9,11 +9,9 @@ import Foundation
 import Flutter
 import RookSDK
 
-func resultDataSourceSuccess(flutterResult: FlutterResult, _ dataSources: [RookDataSource]) {
-    let result = ResultDataSourceProto.with { proto in
-        proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper.with{ wrapper in
-            wrapper.dataSources = dataSources.map { it in it.toProto() }
-        }
+func resultBoolSuccess(flutterResult: FlutterResult, _ bool: Bool) {
+    let result = ResultBooleanProto.with { it in
+        it.success = bool
     }
     
     runWithValue(
@@ -23,11 +21,23 @@ func resultDataSourceSuccess(flutterResult: FlutterResult, _ dataSources: [RookD
     )
 }
 
-func resultDataSourceError(flutterResult: FlutterResult, _ error: Error) {
-    var result = ResultDataSourceProto()
+func resultBoolError(flutterResult: FlutterResult, _ error: Error) {
+    var result = ResultBooleanProto()
     
-    result.genericExceptionProto = GenericExceptionProto.with { it in
-        it.message = "\(error)"
+    if let rookConnectError = error as? RookConnectErrors {
+        if rookConnectError == .missingConfiguration {
+            result.missingConfigurationExceptionProto = MissingConfigurationExceptionProto.with { it in
+                it.message = "No configuration found. Did you forget to call setConfiguration() ?"
+            }
+        } else {
+            result.genericExceptionProto = GenericExceptionProto.with { it in
+                it.message = "\(rookConnectError)"
+            }
+        }
+    } else {
+        result.genericExceptionProto = GenericExceptionProto.with { it in
+            it.message = "\(error)"
+        }
     }
     
     runWithValue(
@@ -63,9 +73,11 @@ func resultInt64Error(flutterResult: FlutterResult, _ error: Error) {
     )
 }
 
-func resultBoolSuccess(flutterResult: FlutterResult, _ bool: Bool) {
-    let result = ResultBooleanProto.with { it in
-        it.success = bool
+func resultDataSourceSuccess(flutterResult: FlutterResult, _ dataSources: [RookDataSource]) {
+    let result = ResultDataSourceProto.with { proto in
+        proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper.with{ wrapper in
+            wrapper.dataSources = dataSources.map { it in it.toProto() }
+        }
     }
     
     runWithValue(
@@ -75,23 +87,11 @@ func resultBoolSuccess(flutterResult: FlutterResult, _ bool: Bool) {
     )
 }
 
-func resultBoolError(flutterResult: FlutterResult, _ error: Error) {
-    var result = ResultBooleanProto()
+func resultDataSourceError(flutterResult: FlutterResult, _ error: Error) {
+    var result = ResultDataSourceProto()
     
-    if let rookConnectError = error as? RookConnectErrors {
-        if rookConnectError == .missingConfiguration {
-            result.missingConfigurationExceptionProto = MissingConfigurationExceptionProto.with { it in
-                it.message = "No configuration found. Did you forget to call setConfiguration() ?"
-            }
-        } else {
-            result.genericExceptionProto = GenericExceptionProto.with { it in
-                it.message = "\(rookConnectError)"
-            }
-        }
-    } else {
-        result.genericExceptionProto = GenericExceptionProto.with { it in
-            it.message = "\(error)"
-        }
+    result.genericExceptionProto = GenericExceptionProto.with { it in
+        it.message = "\(error)"
     }
     
     runWithValue(

@@ -2,15 +2,9 @@ PODS:
   - Flutter (1.0.0)
   - rook_sdk_apple_health (0.0.1):
     - Flutter
-    - RookSDK (= 1.4.6)
+    - RookSDK (= 1.5.1)
     - SwiftProtobuf (= 1.21.0)
-  - RookAppleHealth (1.6.2)
-  - RookConnectTransmission (1.3.3)
-  - RookSDK (1.4.6):
-    - RookAppleHealth (= 1.6.2)
-    - RookConnectTransmission (= 1.3.3)
-    - RookUsersSDK (= 1.1.1)
-  - RookUsersSDK (1.1.1)
+  - RookSDK (1.5.1)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -21,15 +15,12 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - rook_sdk_apple_health (from `.symlinks/plugins/rook_sdk_apple_health/ios`)
+  - RookSDK (from `https://github.com/RookeriesDevelopment/rook-ios-sdk-rook-sdk-pod.git`, branch `feature/new_release_1.5.1`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
   trunk:
-    - RookAppleHealth
-    - RookConnectTransmission
-    - RookSDK
-    - RookUsersSDK
     - SwiftProtobuf
 
 EXTERNAL SOURCES:
@@ -37,22 +28,27 @@ EXTERNAL SOURCES:
     :path: Flutter
   rook_sdk_apple_health:
     :path: ".symlinks/plugins/rook_sdk_apple_health/ios"
+  RookSDK:
+    :branch: feature/new_release_1.5.1
+    :git: https://github.com/RookeriesDevelopment/rook-ios-sdk-rook-sdk-pod.git
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
+CHECKOUT OPTIONS:
+  RookSDK:
+    :commit: 05fd963ef6f6d785ef12065cbb19ff4c93154068
+    :git: https://github.com/RookeriesDevelopment/rook-ios-sdk-rook-sdk-pod.git
+
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  rook_sdk_apple_health: 7f012de1f295e38d52be56d7e87f83d7f32e36e4
-  RookAppleHealth: f71cea45244a94daec8a1faeddfe2887d3c1e991
-  RookConnectTransmission: 2ab9eb19592a978db87316db9a57d47a704e5257
-  RookSDK: 9f56624fdc0f305756fe63c9558c80956b2583d6
-  RookUsersSDK: d16cba60f3527b9424be0c7713dc013d433fef6e
+  rook_sdk_apple_health: 100ff618f65e124645e8b93c11f9e6e0852c2549
+  RookSDK: 50bda872fbb48d9074de197892fd5f8442fca42c
   shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
   SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
 
-PODFILE CHECKSUM: a57f30d18f102dd3ce366b1d62a55ecbef2158e5
+PODFILE CHECKSUM: 3bffcaa9f17a2e06902ac67be409a7331b433da9
 
 COCOAPODS: 1.14.3
