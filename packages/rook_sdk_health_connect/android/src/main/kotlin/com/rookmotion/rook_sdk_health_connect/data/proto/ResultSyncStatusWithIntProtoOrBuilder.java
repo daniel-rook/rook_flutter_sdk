@@ -4,20 +4,24 @@
 // Protobuf Java Version: 3.25.3
 package com.rookmotion.rook_sdk_health_connect.data.proto;
 
-public interface ResultBooleanProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ResultBooleanProto)
+public interface ResultSyncStatusWithIntProtoOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:ResultSyncStatusWithIntProto)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool success = 1;</code>
-   * @return Whether the success field is set.
+   * <code>.SyncStatusWithIntProto syncStatusWithIntProto = 1;</code>
+   * @return Whether the syncStatusWithIntProto field is set.
    */
-  boolean hasSuccess();
+  boolean hasSyncStatusWithIntProto();
   /**
-   * <code>bool success = 1;</code>
-   * @return The success.
+   * <code>.SyncStatusWithIntProto syncStatusWithIntProto = 1;</code>
+   * @return The syncStatusWithIntProto.
    */
-  boolean getSuccess();
+  com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusWithIntProto getSyncStatusWithIntProto();
+  /**
+   * <code>.SyncStatusWithIntProto syncStatusWithIntProto = 1;</code>
+   */
+  com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusWithIntProtoOrBuilder getSyncStatusWithIntProtoOrBuilder();
 
   /**
    * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
@@ -63,21 +67,6 @@ public interface ResultBooleanProtoOrBuilder extends
    * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
    */
   com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProtoOrBuilder getHttpRequestExceptionProtoOrBuilder();
-
-  /**
-   * <code>.MissingConfigurationExceptionProto missingConfigurationExceptionProto = 5;</code>
-   * @return Whether the missingConfigurationExceptionProto field is set.
-   */
-  boolean hasMissingConfigurationExceptionProto();
-  /**
-   * <code>.MissingConfigurationExceptionProto missingConfigurationExceptionProto = 5;</code>
-   * @return The missingConfigurationExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.MissingConfigurationExceptionProto getMissingConfigurationExceptionProto();
-  /**
-   * <code>.MissingConfigurationExceptionProto missingConfigurationExceptionProto = 5;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.MissingConfigurationExceptionProtoOrBuilder getMissingConfigurationExceptionProtoOrBuilder();
 
   /**
    * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
@@ -170,21 +159,6 @@ public interface ResultBooleanProtoOrBuilder extends
   com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProtoOrBuilder getGenericExceptionProtoOrBuilder();
 
   /**
-   * <code>.MissingAndroidPermissionsExceptionProto missingAndroidPermissionsExceptionProto = 12;</code>
-   * @return Whether the missingAndroidPermissionsExceptionProto field is set.
-   */
-  boolean hasMissingAndroidPermissionsExceptionProto();
-  /**
-   * <code>.MissingAndroidPermissionsExceptionProto missingAndroidPermissionsExceptionProto = 12;</code>
-   * @return The missingAndroidPermissionsExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.MissingAndroidPermissionsExceptionProto getMissingAndroidPermissionsExceptionProto();
-  /**
-   * <code>.MissingAndroidPermissionsExceptionProto missingAndroidPermissionsExceptionProto = 12;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.MissingAndroidPermissionsExceptionProtoOrBuilder getMissingAndroidPermissionsExceptionProtoOrBuilder();
-
-  /**
    * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
    * @return Whether the sdkNotAuthorizedExceptionProto field is set.
    */
@@ -199,5 +173,5 @@ public interface ResultBooleanProtoOrBuilder extends
    */
   com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder getSdkNotAuthorizedExceptionProtoOrBuilder();
 
-  com.rookmotion.rook_sdk_health_connect.data.proto.ResultBooleanProto.ResultCase getResultCase();
+  com.rookmotion.rook_sdk_health_connect.data.proto.ResultSyncStatusWithIntProto.ResultCase getResultCase();
 }

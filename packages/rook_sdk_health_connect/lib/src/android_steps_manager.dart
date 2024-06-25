@@ -9,8 +9,9 @@ class AndroidStepsManager {
   }
 
   /// Checks if the tracker is running in background.
-  static Future<bool> isActive() {
-    return RookSdkHealthConnectPlatform.instance.isStepsActive();
+  static Future<bool> isBackgroundAndroidStepsActive() {
+    return RookSdkHealthConnectPlatform.instance
+        .isBackgroundAndroidStepsActive();
   }
 
   /// Check if all required permissions are granted.
@@ -24,18 +25,23 @@ class AndroidStepsManager {
   }
 
   /// Starts the StepsTracker service, if the service is already active this function won't do anything.
-  static Future<void> start() {
-    return RookSdkHealthConnectPlatform.instance.startSteps();
+  static Future<void> enableBackgroundAndroidSteps() {
+    return RookSdkHealthConnectPlatform.instance.enableBackgroundAndroidSteps();
   }
 
   /// Stops the StepsTracker service, if the service is not active this function won't do anything.
-  static Future<void> stop() {
-    return RookSdkHealthConnectPlatform.instance.stopSteps();
+  static Future<void> disableBackgroundAndroidSteps() {
+    return RookSdkHealthConnectPlatform.instance
+        .disableBackgroundAndroidSteps();
   }
 
-  /// Returns the last stored step count of the current day.
-  /// This value is updated every time the phone detects a step taken and will be reset to zero every day.
-  static Future<int> getTodaySteps() {
-    return RookSdkHealthConnectPlatform.instance.getTodaySteps();
+  /// Retrieve and upload current day steps count of Android system, if the upload fails the events
+  /// will be keep in the queue for a retry with [RookEventManager.syncPendingEvents].
+  ///
+  /// Returns the number of steps taken today.
+  ///
+  /// **Warning: This function is resource intensive, don't call it too frequently.**
+  static Future<int> syncTodayAndroidStepsCount() {
+    return RookSdkHealthConnectPlatform.instance.syncTodayAndroidStepsCount();
   }
 }

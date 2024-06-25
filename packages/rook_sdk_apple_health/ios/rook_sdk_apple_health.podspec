@@ -5,17 +5,17 @@
 Pod::Spec.new do |s|
   s.name             = 'rook_sdk_apple_health'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.summary          = 'Extract and upload data from Apple Health'
   s.description      = <<-DESC
 A new Flutter plugin project.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://www.tryrook.io/'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'ROOK' => 'contact@tryrook.io' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'RookSDK', '1.4.6'
+  s.dependency 'RookSDK', '1.5.1'
   s.dependency 'SwiftProtobuf', '1.21.0'
   s.platform = :ios, '13.0'
 

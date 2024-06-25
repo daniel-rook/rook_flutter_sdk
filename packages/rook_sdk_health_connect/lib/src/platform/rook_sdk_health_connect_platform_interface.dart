@@ -3,7 +3,6 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
 abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
@@ -77,21 +76,23 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<SyncStatus> syncTemperatureEvents(DateTime date);
 
+  Future<SyncStatusWithData<int?>> syncTodayHealthConnectStepsCount();
+
   Future<void> syncPendingEvents();
 
   Future<bool> isStepsAvailable();
 
-  Future<bool> isStepsActive();
+  Future<bool> isBackgroundAndroidStepsActive();
 
   Future<bool> hasStepsPermissions();
 
   Future<void> requestStepsPermissions();
 
-  Future<void> startSteps();
+  Future<void> enableBackgroundAndroidSteps();
 
-  Future<void> stopSteps();
+  Future<void> disableBackgroundAndroidSteps();
 
-  Future<int> getTodaySteps();
+  Future<int> syncTodayAndroidStepsCount();
 
   Future<bool> hasYesterdaySyncAndroidPermissions();
 

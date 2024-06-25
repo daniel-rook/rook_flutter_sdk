@@ -1,4 +1,4 @@
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class HCRookSummaryManager {

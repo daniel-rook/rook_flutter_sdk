@@ -12,6 +12,10 @@ extension ResultInt64Extensions on ResultInt64Proto {
         throw SDKNotInitializedException(
           sdkNotInitializedExceptionProto.message,
         );
+      case ResultInt64Proto_Result.sdkNotAuthorizedExceptionProto:
+        throw SDKNotAuthorizedException(
+          sdkNotAuthorizedExceptionProto.message,
+        );
       case ResultInt64Proto_Result.genericExceptionProto:
         throw Exception(
           genericExceptionProto.message,

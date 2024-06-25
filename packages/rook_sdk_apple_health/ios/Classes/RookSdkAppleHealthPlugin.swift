@@ -1,14 +1,11 @@
 import Flutter
 import UIKit
 import RookSDK
-import RookAppleHealth
-import RookConnectTransmission
 
 public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
     private let rookConnectPermissionsManager = RookConnectPermissionsManager()
     private let rookSummaryManager = RookSummaryManager()
     private let rookEventsManager = RookEventsManager()
-    private let rookVariableExtractionManager = RookVariableExtractionManager()
     private let dataSourcesManager = DataSourcesManager()
     
     public static func register(with registrar: FlutterPluginRegistrar) {
@@ -19,7 +16,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
         AnalyticsExtractionConfigurator.shared.setPlatform(.flutter)
         AnalyticsTransmissionConfigurator.shared.setPlatform(.flutter)
         
-        RookBackGroundExtraction.shared.setBackGroundListeners()
         RookBackGroundSync.shared.setBackListeners()
     }
     
@@ -285,6 +281,16 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
+        case "syncTodayAppleHealthStepsCount":
+            rookEventsManager.getTodayStepCount() { it in
+                switch it {
+                case Result.success(let steps):
+                    resultInt64Success(flutterResult: result, steps)
+                case Result.failure(let error):
+                    resultInt64Error(flutterResult: result, error)
+                }
+            }
+            break
         case "syncPendingEvents":
             rookEventsManager.syncPendingEvents() { it in
                 switch it {
@@ -292,78 +298,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     resultBoolSuccess(flutterResult: result, bool)
                 case Result.failure(let error):
                     resultBoolError(flutterResult: result, error)
-                }
-            }
-            break
-        case "isStepsTrackerActive":
-            RookBackGroundExtraction.shared.isStepsBackgroundEnable(completion: { it in
-                resultBoolSuccess(flutterResult: result, it)
-            })
-            break
-        case "startStepsTracker":
-            RookBackGroundExtraction.shared.enableBackGroundForSteps()
-            
-            resultBoolSuccess(flutterResult: result, true)
-            break
-        case "stopStepsTracker":
-            RookBackGroundExtraction.shared.disableBackGroundForSteps() { it in
-                switch it {
-                case Result.success(let success):
-                    resultBoolSuccess(flutterResult: result, success)
-                case Result.failure(let error):
-                    resultBoolError(flutterResult: result, error)
-                }
-            }
-            break
-        case "getTodaySteps":
-            rookVariableExtractionManager.getTodaySteps() { it in
-                switch it {
-                case Result.success(let steps):
-                    resultInt64Success(flutterResult: result, steps)
-                case Result.failure(let error):
-                    let errorString = "\(error)"
-                    
-                    if errorString == "sumQuantityNull" {
-                        resultInt64Success(flutterResult: result, 0)
-                    } else {
-                        resultInt64Error(flutterResult: result, error)
-                    }
-                }
-            }
-            break
-        case "isCaloriesTrackerActive":
-            RookBackGroundExtraction.shared.isCaloriesBackgroundEnable(completion: { it in
-                resultBoolSuccess(flutterResult: result, it)
-            })
-            break
-        case "startCaloriesTracker":
-            RookBackGroundExtraction.shared.enableBackGroundForCalories()
-            
-            resultBoolSuccess(flutterResult: result, true)
-            break
-        case "stopCaloriesTracker":
-            RookBackGroundExtraction.shared.disableBackGroundForCalories() { it in
-                switch it {
-                case Result.success(let success):
-                    resultBoolSuccess(flutterResult: result, success)
-                case Result.failure(let error):
-                    resultBoolError(flutterResult: result, error)
-                }
-            }
-            break
-        case "getTodayCalories":
-            rookVariableExtractionManager.getTodayActiveCaloriesBurned() { it in
-                switch it {
-                case Result.success(let calories):
-                    resultInt64Success(flutterResult: result, calories)
-                case Result.failure(let error):
-                    let errorString = "\(error)"
-                    
-                    if errorString == "sumQuantityNull" {
-                        resultInt64Success(flutterResult: result, 0)
-                    } else {
-                        resultInt64Error(flutterResult: result, error)
-                    }
                 }
             }
             break

@@ -1,5 +1,5 @@
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pbenum.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
 
 extension SyncStatusMappers on SyncStatusProto {
   SyncStatus toDomain() {

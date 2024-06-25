@@ -17,6 +17,19 @@ void main() {
         .setMockMethodCallHandler(channel, null);
   });
 
+  resultBooleanTests(platform, channel);
+  resultInt64Tests(platform, channel);
+  resultSyncStatusTests(platform, channel);
+  resultSyncStatusWithIntTest(platform, channel);
+  resultDataSourceTests(platform, channel);
+  stringTests(platform, channel);
+  availabilityStatusTests(platform, channel);
+}
+
+void resultBooleanTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkHealthConnect | ResultBooleanProto success unwrap',
       () {
     setUp(() {
@@ -146,9 +159,9 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN isStepsActive THEN complete with expected value',
+      'GIVEN a Result.success WHEN isBackgroundAndroidStepsActive THEN complete with expected value',
       () async {
-        final future = platform.isStepsActive();
+        final future = platform.isBackgroundAndroidStepsActive();
 
         await expectLater(future, completion(true));
       },
@@ -173,18 +186,18 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.success WHEN startSteps THEN complete',
+      'GIVEN a Result.success WHEN enableBackgroundAndroidSteps THEN complete',
       () async {
-        final future = platform.startSteps();
+        final future = platform.enableBackgroundAndroidSteps();
 
         await expectLater(future, completes);
       },
     );
 
     test(
-      'GIVEN a Result.success WHEN stopSteps THEN complete',
+      'GIVEN a Result.success WHEN disableBackgroundAndroidSteps THEN complete',
       () async {
-        final future = platform.stopSteps();
+        final future = platform.disableBackgroundAndroidSteps();
 
         await expectLater(future, completes);
       },
@@ -359,9 +372,9 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN isStepsActive THEN throw exception',
+      'GIVEN a Result.exception WHEN isBackgroundAndroidStepsActive THEN throw exception',
       () async {
-        final future = platform.isStepsActive();
+        final future = platform.isBackgroundAndroidStepsActive();
 
         await expectLater(future, throwsA(isException));
       },
@@ -386,18 +399,18 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN startSteps THEN throw exception',
+      'GIVEN a Result.exception WHEN enableBackgroundAndroidSteps THEN throw exception',
       () async {
-        final future = platform.startSteps();
+        final future = platform.enableBackgroundAndroidSteps();
 
         await expectLater(future, throwsA(isException));
       },
     );
 
     test(
-      'GIVEN a Result.exception WHEN stopSteps THEN throw exception',
+      'GIVEN a Result.exception WHEN disableBackgroundAndroidSteps THEN throw exception',
       () async {
-        final future = platform.stopSteps();
+        final future = platform.disableBackgroundAndroidSteps();
 
         await expectLater(future, throwsA(isException));
       },
@@ -463,7 +476,12 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void resultInt64Tests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkHealthConnect | ResultInt64Proto value unwrap',
       () {
     setUp(() {
@@ -476,9 +494,9 @@ void main() {
     });
 
     test(
-        'GIVEN a Result.value WHEN getTodaySteps THEN complete with expected value',
+        'GIVEN a Result.value WHEN syncTodayAndroidStepsCount THEN complete with expected value',
         () async {
-      final future = platform.getTodaySteps();
+      final future = platform.syncTodayAndroidStepsCount();
 
       await expectLater(future, completion(1000));
     });
@@ -497,14 +515,20 @@ void main() {
       });
     });
 
-    test('GIVEN a Result.exception WHEN getTodaySteps THEN throw exception',
+    test(
+        'GIVEN a Result.exception WHEN syncTodayAndroidStepsCount THEN throw exception',
         () async {
-      final future = platform.getTodaySteps();
+      final future = platform.syncTodayAndroidStepsCount();
 
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void resultSyncStatusTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group(
       'MethodChannelRookSdkHealthConnect | ResultSyncStatusProto value unwrap',
       () {
@@ -784,57 +808,72 @@ void main() {
       },
     );
   });
+}
 
-  group('MethodChannelRookSdkHealthConnect | String Success', () {
+void resultSyncStatusWithIntTest(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
+  group(
+      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithIntProto value unwrap',
+      () {
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        return 'RookUser';
+        final proto = ResultSyncStatusWithIntProto();
+        proto.syncStatusWithIntProto = SyncStatusWithIntProto.create()
+          ..syncStatus = SyncStatusProto.SYNCED
+          ..steps = 1;
+        return proto.writeToBuffer();
       });
     });
 
     test(
-        'GIVEN the happy path WHEN getUserID THEN complete with expected value',
-        () async {
-      final future = platform.getUserID();
+      'GIVEN a Result.syncStatusWithIntProto WHEN syncTodayHealthConnectStepsCount THEN complete with expected value',
+      () async {
+        final future = platform.syncTodayHealthConnectStepsCount();
 
-      await expectLater(future, completion('RookUser'));
-    });
+        await expectLater(
+          future,
+          completion(
+            predicate<SyncStatusWithData<int?>>(
+              (value) => (value as Synced<int?>).data == 1,
+            ),
+          ),
+        );
+      },
+    );
   });
 
-  group('MethodChannelRookSdkHealthConnect | String null', () {
+  group(
+      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithIntProto exception unwrap',
+      () {
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        return null;
+        final proto = ResultSyncStatusWithIntProto();
+        proto.genericExceptionProto =
+            GenericExceptionProto(message: 'Generic error');
+
+        return proto.writeToBuffer();
       });
     });
 
-    test('GIVEN null WHEN getUserID THEN complete with expected value',
-        () async {
-      final future = platform.getUserID();
+    test(
+      'GIVEN a Result.exception WHEN syncTodayHealthConnectStepsCount throw exception',
+      () async {
+        final future = platform.syncTodayHealthConnectStepsCount();
 
-      await expectLater(future, completion(null));
-    });
+        await expectLater(future, throwsA(isException));
+      },
+    );
   });
+}
 
-  group('MethodChannelRookSdkHealthConnect | String Failure', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        throw Exception('Error');
-        // return 'RookUser';
-      });
-    });
-
-    test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
-        () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, throwsA(isException));
-    });
-  });
-
+void resultDataSourceTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group(
       'MethodChannelRookSdkHealthConnect | ResultDataSourceProto dataSourceProtoListWrapper unwrap',
       () {
@@ -900,7 +939,67 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void stringTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
+  group('MethodChannelRookSdkHealthConnect | String Success', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        return 'RookUser';
+      });
+    });
+
+    test(
+        'GIVEN the happy path WHEN getUserID THEN complete with expected value',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, completion('RookUser'));
+    });
+  });
+
+  group('MethodChannelRookSdkHealthConnect | String null', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        return null;
+      });
+    });
+
+    test('GIVEN null WHEN getUserID THEN complete with expected value',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, completion(null));
+    });
+  });
+
+  group('MethodChannelRookSdkHealthConnect | String Failure', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        throw Exception('Error');
+        // return 'RookUser';
+      });
+    });
+
+    test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, throwsA(isException));
+    });
+  });
+}
+
+void availabilityStatusTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkHealthConnect checkAvailability', () {
     group('Valid AvailabilityStatusProto value', () {
       setUp(() {

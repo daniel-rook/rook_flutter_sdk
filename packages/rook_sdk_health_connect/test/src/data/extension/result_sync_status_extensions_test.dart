@@ -3,7 +3,6 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/device_not_supported_exception.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/health_connect_not_installed_exception.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/request_quota_exceeded_exception.dart';
@@ -174,6 +173,26 @@ void main() {
             predicate(
               (exception) =>
                   exception is UserNotInitializedException &&
+                  exception.message == error,
+            ),
+          ),
+        );
+      },
+    );
+
+    test(
+      'GIVEN a SDKNotAuthorizedExceptionProto WHEN unwrap THEN throw SDKNotAuthorizedException',
+      () {
+        final proto = ResultSyncStatusProto.create();
+        proto.sdkNotAuthorizedExceptionProto =
+            SDKNotAuthorizedExceptionProto(message: error);
+
+        expect(
+          proto.unwrap,
+          throwsA(
+            predicate(
+              (exception) =>
+                  exception is SDKNotAuthorizedException &&
                   exception.message == error,
             ),
           ),

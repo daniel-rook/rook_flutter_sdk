@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
-import com.rookmotion.rook.sdk.domain.enums.HealthPermission
 
 class HealthConnectPermissionsActivity : ComponentActivity() {
 

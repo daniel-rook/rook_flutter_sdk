@@ -1,55 +1,57 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/sync_status_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/sync_status_with_data_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/device_not_supported_exception.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/health_connect_not_installed_exception.dart';
 import 'package:rook_sdk_health_connect/src/domain/exception/request_quota_exceeded_exception.dart';
 
-extension ResultSyncStatusExtensions on ResultSyncStatusProto {
-  SyncStatus unwrap() {
+extension ResultSyncStatusWithIntExtensions on ResultSyncStatusWithIntProto {
+  SyncStatusWithData<int?> unwrap() {
     final resultType = whichResult();
 
     switch (resultType) {
-      case ResultSyncStatusProto_Result.syncStatusProto:
-        return syncStatusProto.toDomain();
-      case ResultSyncStatusProto_Result.deviceNotSupportedExceptionProto:
+      case ResultSyncStatusWithIntProto_Result.syncStatusWithIntProto:
+        return syncStatusWithIntProto.toDomain();
+      case ResultSyncStatusWithIntProto_Result.deviceNotSupportedExceptionProto:
         throw DeviceNotSupportedException(
           deviceNotSupportedExceptionProto.message,
         );
-      case ResultSyncStatusProto_Result.healthConnectNotInstalledExceptionProto:
+      case ResultSyncStatusWithIntProto_Result
+            .healthConnectNotInstalledExceptionProto:
         throw HealthConnectNotInstalledException(
           healthConnectNotInstalledExceptionProto.message,
         );
-      case ResultSyncStatusProto_Result.httpRequestExceptionProto:
+      case ResultSyncStatusWithIntProto_Result.httpRequestExceptionProto:
         throw HttpRequestException(
           httpRequestExceptionProto.message,
           httpRequestExceptionProto.code,
         );
-      case ResultSyncStatusProto_Result.missingPermissionsExceptionProto:
+      case ResultSyncStatusWithIntProto_Result.missingPermissionsExceptionProto:
         throw MissingPermissionsException(
           missingPermissionsExceptionProto.message,
         );
-      case ResultSyncStatusProto_Result.requestQuotaExceededExceptionProto:
+      case ResultSyncStatusWithIntProto_Result
+            .requestQuotaExceededExceptionProto:
         throw RequestQuotaExceededException(
           requestQuotaExceededExceptionProto.message,
         );
-      case ResultSyncStatusProto_Result.sdkNotInitializedExceptionProto:
+      case ResultSyncStatusWithIntProto_Result.sdkNotInitializedExceptionProto:
         throw SDKNotInitializedException(
           sdkNotInitializedExceptionProto.message,
         );
-      case ResultSyncStatusProto_Result.timeoutExceptionProto:
+      case ResultSyncStatusWithIntProto_Result.timeoutExceptionProto:
         throw ConnectTimeoutException(
           timeoutExceptionProto.message,
         );
-      case ResultSyncStatusProto_Result.userNotInitializedExceptionProto:
+      case ResultSyncStatusWithIntProto_Result.userNotInitializedExceptionProto:
         throw UserNotInitializedException(
           userNotInitializedExceptionProto.message,
         );
-      case ResultSyncStatusProto_Result.sdkNotAuthorizedExceptionProto:
+      case ResultSyncStatusWithIntProto_Result.sdkNotAuthorizedExceptionProto:
         throw SDKNotAuthorizedException(
           sdkNotAuthorizedExceptionProto.message,
         );
-      case ResultSyncStatusProto_Result.genericExceptionProto:
+      case ResultSyncStatusWithIntProto_Result.genericExceptionProto:
         throw Exception(
           genericExceptionProto.message,
         );

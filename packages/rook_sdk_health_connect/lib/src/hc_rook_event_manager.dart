@@ -1,4 +1,4 @@
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_status.dart';
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class HCRookEventManager {
@@ -71,6 +71,17 @@ class HCRookEventManager {
   /// if the upload is fails the events will be keep in the queue for a retry with [syncPendingEvents].
   static Future<SyncStatus> syncTemperatureEvents(DateTime date) {
     return RookSdkHealthConnectPlatform.instance.syncTemperatureEvents(date);
+  }
+
+  /// Retrieve and upload current day steps count of Health Connect, if the upload fails the events
+  /// will be keep in the queue for a retry with [syncPendingEvents].
+  ///
+  /// Returns a [SyncStatusWithData] with the current day steps count (if available).
+  ///
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  static Future<SyncStatusWithData<int?>> syncTodayHealthConnectStepsCount() {
+    return RookSdkHealthConnectPlatform.instance
+        .syncTodayHealthConnectStepsCount();
   }
 
   /// Attempts to upload any queued events, if the upload is successful the events will be removed from the queue.

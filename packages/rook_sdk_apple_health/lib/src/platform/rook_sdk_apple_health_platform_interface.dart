@@ -61,23 +61,9 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> syncTemperatureEvents(DateTime date);
 
+  Future<int?> syncTodayAppleHealthStepsCount();
+
   Future<void> syncPendingEvents();
-
-  Future<bool> isStepsTrackerActive();
-
-  Future<void> startStepsTracker();
-
-  Future<void> stopStepsTracker();
-
-  Future<int> getTodaySteps();
-
-  Future<bool> isCaloriesTrackerActive();
-
-  Future<void> startCaloriesTracker();
-
-  Future<void> stopCaloriesTracker();
-
-  Future<int> getTodayCalories();
 
   Future<bool> isContinuousUploadEnabled();
 

@@ -173,6 +173,28 @@ final $typed_data.Uint8List dataSourceProtoListWrapperDescriptor =
         'ChpEYXRhU291cmNlUHJvdG9MaXN0V3JhcHBlchIyCgtkYXRhU291cmNlcxgBIAMoCzIQLkRhdG'
         'FTb3VyY2VQcm90b1ILZGF0YVNvdXJjZXM=');
 
+@$core.Deprecated('Use syncStatusWithIntProtoDescriptor instead')
+const SyncStatusWithIntProto$json = {
+  '1': 'SyncStatusWithIntProto',
+  '2': [
+    {
+      '1': 'syncStatus',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.SyncStatusProto',
+      '10': 'syncStatus'
+    },
+    {'1': 'steps', '3': 2, '4': 1, '5': 13, '10': 'steps'},
+  ],
+};
+
+/// Descriptor for `SyncStatusWithIntProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List syncStatusWithIntProtoDescriptor =
+    $convert.base64Decode(
+        'ChZTeW5jU3RhdHVzV2l0aEludFByb3RvEjAKCnN5bmNTdGF0dXMYASABKA4yEC5TeW5jU3RhdH'
+        'VzUHJvdG9SCnN5bmNTdGF0dXMSFAoFc3RlcHMYAiABKA1SBXN0ZXBz');
+
 @$core.Deprecated('Use deviceNotSupportedExceptionProtoDescriptor instead')
 const DeviceNotSupportedExceptionProto$json = {
   '1': 'DeviceNotSupportedExceptionProto',
@@ -328,6 +350,20 @@ final $typed_data.Uint8List missingAndroidPermissionsExceptionProtoDescriptor =
         'CidNaXNzaW5nQW5kcm9pZFBlcm1pc3Npb25zRXhjZXB0aW9uUHJvdG8SGAoHbWVzc2FnZRgBIA'
         'EoCVIHbWVzc2FnZQ==');
 
+@$core.Deprecated('Use sDKNotAuthorizedExceptionProtoDescriptor instead')
+const SDKNotAuthorizedExceptionProto$json = {
+  '1': 'SDKNotAuthorizedExceptionProto',
+  '2': [
+    {'1': 'message', '3': 1, '4': 1, '5': 9, '10': 'message'},
+  ],
+};
+
+/// Descriptor for `SDKNotAuthorizedExceptionProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List sDKNotAuthorizedExceptionProtoDescriptor =
+    $convert.base64Decode(
+        'Ch5TREtOb3RBdXRob3JpemVkRXhjZXB0aW9uUHJvdG8SGAoHbWVzc2FnZRgBIAEoCVIHbWVzc2'
+        'FnZQ==');
+
 @$core.Deprecated('Use resultBooleanProtoDescriptor instead')
 const ResultBooleanProto$json = {
   '1': 'ResultBooleanProto',
@@ -432,6 +468,15 @@ const ResultBooleanProto$json = {
       '9': 0,
       '10': 'missingAndroidPermissionsExceptionProto'
     },
+    {
+      '1': 'sdkNotAuthorizedExceptionProto',
+      '3': 13,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKNotAuthorizedExceptionProto',
+      '9': 0,
+      '10': 'sdkNotAuthorizedExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -462,7 +507,9 @@ final $typed_data.Uint8List resultBooleanProtoDescriptor = $convert.base64Decode
     'hjZXB0aW9uUHJvdG8YCyABKAsyFi5HZW5lcmljRXhjZXB0aW9uUHJvdG9IAFIVZ2VuZXJpY0V4'
     'Y2VwdGlvblByb3RvEoQBCidtaXNzaW5nQW5kcm9pZFBlcm1pc3Npb25zRXhjZXB0aW9uUHJvdG'
     '8YDCABKAsyKC5NaXNzaW5nQW5kcm9pZFBlcm1pc3Npb25zRXhjZXB0aW9uUHJvdG9IAFInbWlz'
-    'c2luZ0FuZHJvaWRQZXJtaXNzaW9uc0V4Y2VwdGlvblByb3RvQggKBnJlc3VsdA==');
+    'c2luZ0FuZHJvaWRQZXJtaXNzaW9uc0V4Y2VwdGlvblByb3RvEmkKHnNka05vdEF1dGhvcml6ZW'
+    'RFeGNlcHRpb25Qcm90bxgNIAEoCzIfLlNES05vdEF1dGhvcml6ZWRFeGNlcHRpb25Qcm90b0gA'
+    'Uh5zZGtOb3RBdXRob3JpemVkRXhjZXB0aW9uUHJvdG9CCAoGcmVzdWx0');
 
 @$core.Deprecated('Use resultInt64ProtoDescriptor instead')
 const ResultInt64Proto$json = {
@@ -487,6 +534,15 @@ const ResultInt64Proto$json = {
       '9': 0,
       '10': 'genericExceptionProto'
     },
+    {
+      '1': 'sdkNotAuthorizedExceptionProto',
+      '3': 13,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKNotAuthorizedExceptionProto',
+      '9': 0,
+      '10': 'sdkNotAuthorizedExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -510,8 +566,10 @@ final $typed_data.Uint8List resultInt64ProtoDescriptor = $convert.base64Decode(
     'RpYWxpemVkRXhjZXB0aW9uUHJvdG8YCCABKAsyIC5TREtOb3RJbml0aWFsaXplZEV4Y2VwdGlv'
     'blByb3RvSABSH3Nka05vdEluaXRpYWxpemVkRXhjZXB0aW9uUHJvdG8STgoVZ2VuZXJpY0V4Y2'
     'VwdGlvblByb3RvGAsgASgLMhYuR2VuZXJpY0V4Y2VwdGlvblByb3RvSABSFWdlbmVyaWNFeGNl'
-    'cHRpb25Qcm90b0IICgZyZXN1bHRKBAgCEANKBAgDEARKBAgEEAVKBAgFEAZKBAgGEAdKBAgHEA'
-    'hKBAgJEApKBAgKEAtKBAgMEA0=');
+    'cHRpb25Qcm90bxJpCh5zZGtOb3RBdXRob3JpemVkRXhjZXB0aW9uUHJvdG8YDSABKAsyHy5TRE'
+    'tOb3RBdXRob3JpemVkRXhjZXB0aW9uUHJvdG9IAFIec2RrTm90QXV0aG9yaXplZEV4Y2VwdGlv'
+    'blByb3RvQggKBnJlc3VsdEoECAIQA0oECAMQBEoECAQQBUoECAUQBkoECAYQB0oECAcQCEoECA'
+    'kQCkoECAoQC0oECAwQDQ==');
 
 @$core.Deprecated('Use resultSyncStatusProtoDescriptor instead')
 const ResultSyncStatusProto$json = {
@@ -607,6 +665,15 @@ const ResultSyncStatusProto$json = {
       '9': 0,
       '10': 'genericExceptionProto'
     },
+    {
+      '1': 'sdkNotAuthorizedExceptionProto',
+      '3': 13,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKNotAuthorizedExceptionProto',
+      '9': 0,
+      '10': 'sdkNotAuthorizedExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -637,8 +704,148 @@ final $typed_data.Uint8List resultSyncStatusProtoDescriptor = $convert.base64Dec
     'RFeGNlcHRpb25Qcm90bxJvCiB1c2VyTm90SW5pdGlhbGl6ZWRFeGNlcHRpb25Qcm90bxgKIAEo'
     'CzIhLlVzZXJOb3RJbml0aWFsaXplZEV4Y2VwdGlvblByb3RvSABSIHVzZXJOb3RJbml0aWFsaX'
     'plZEV4Y2VwdGlvblByb3RvEk4KFWdlbmVyaWNFeGNlcHRpb25Qcm90bxgLIAEoCzIWLkdlbmVy'
-    'aWNFeGNlcHRpb25Qcm90b0gAUhVnZW5lcmljRXhjZXB0aW9uUHJvdG9CCAoGcmVzdWx0SgQIBR'
-    'AGSgQIDBAN');
+    'aWNFeGNlcHRpb25Qcm90b0gAUhVnZW5lcmljRXhjZXB0aW9uUHJvdG8SaQoec2RrTm90QXV0aG'
+    '9yaXplZEV4Y2VwdGlvblByb3RvGA0gASgLMh8uU0RLTm90QXV0aG9yaXplZEV4Y2VwdGlvblBy'
+    'b3RvSABSHnNka05vdEF1dGhvcml6ZWRFeGNlcHRpb25Qcm90b0IICgZyZXN1bHRKBAgFEAZKBA'
+    'gMEA0=');
+
+@$core.Deprecated('Use resultSyncStatusWithIntProtoDescriptor instead')
+const ResultSyncStatusWithIntProto$json = {
+  '1': 'ResultSyncStatusWithIntProto',
+  '2': [
+    {
+      '1': 'syncStatusWithIntProto',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.SyncStatusWithIntProto',
+      '9': 0,
+      '10': 'syncStatusWithIntProto'
+    },
+    {
+      '1': 'deviceNotSupportedExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.DeviceNotSupportedExceptionProto',
+      '9': 0,
+      '10': 'deviceNotSupportedExceptionProto'
+    },
+    {
+      '1': 'healthConnectNotInstalledExceptionProto',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.HealthConnectNotInstalledExceptionProto',
+      '9': 0,
+      '10': 'healthConnectNotInstalledExceptionProto'
+    },
+    {
+      '1': 'httpRequestExceptionProto',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.HttpRequestExceptionProto',
+      '9': 0,
+      '10': 'httpRequestExceptionProto'
+    },
+    {
+      '1': 'missingPermissionsExceptionProto',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.MissingPermissionsExceptionProto',
+      '9': 0,
+      '10': 'missingPermissionsExceptionProto'
+    },
+    {
+      '1': 'requestQuotaExceededExceptionProto',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.RequestQuotaExceededExceptionProto',
+      '9': 0,
+      '10': 'requestQuotaExceededExceptionProto'
+    },
+    {
+      '1': 'sdkNotInitializedExceptionProto',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKNotInitializedExceptionProto',
+      '9': 0,
+      '10': 'sdkNotInitializedExceptionProto'
+    },
+    {
+      '1': 'timeoutExceptionProto',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.TimeoutExceptionProto',
+      '9': 0,
+      '10': 'timeoutExceptionProto'
+    },
+    {
+      '1': 'userNotInitializedExceptionProto',
+      '3': 10,
+      '4': 1,
+      '5': 11,
+      '6': '.UserNotInitializedExceptionProto',
+      '9': 0,
+      '10': 'userNotInitializedExceptionProto'
+    },
+    {
+      '1': 'genericExceptionProto',
+      '3': 11,
+      '4': 1,
+      '5': 11,
+      '6': '.GenericExceptionProto',
+      '9': 0,
+      '10': 'genericExceptionProto'
+    },
+    {
+      '1': 'sdkNotAuthorizedExceptionProto',
+      '3': 13,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKNotAuthorizedExceptionProto',
+      '9': 0,
+      '10': 'sdkNotAuthorizedExceptionProto'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+  '9': [
+    {'1': 5, '2': 6},
+    {'1': 12, '2': 13},
+  ],
+};
+
+/// Descriptor for `ResultSyncStatusWithIntProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resultSyncStatusWithIntProtoDescriptor = $convert.base64Decode(
+    'ChxSZXN1bHRTeW5jU3RhdHVzV2l0aEludFByb3RvElEKFnN5bmNTdGF0dXNXaXRoSW50UHJvdG'
+    '8YASABKAsyFy5TeW5jU3RhdHVzV2l0aEludFByb3RvSABSFnN5bmNTdGF0dXNXaXRoSW50UHJv'
+    'dG8SbwogZGV2aWNlTm90U3VwcG9ydGVkRXhjZXB0aW9uUHJvdG8YAiABKAsyIS5EZXZpY2VOb3'
+    'RTdXBwb3J0ZWRFeGNlcHRpb25Qcm90b0gAUiBkZXZpY2VOb3RTdXBwb3J0ZWRFeGNlcHRpb25Q'
+    'cm90bxKEAQonaGVhbHRoQ29ubmVjdE5vdEluc3RhbGxlZEV4Y2VwdGlvblByb3RvGAMgASgLMi'
+    'guSGVhbHRoQ29ubmVjdE5vdEluc3RhbGxlZEV4Y2VwdGlvblByb3RvSABSJ2hlYWx0aENvbm5l'
+    'Y3ROb3RJbnN0YWxsZWRFeGNlcHRpb25Qcm90bxJaChlodHRwUmVxdWVzdEV4Y2VwdGlvblByb3'
+    'RvGAQgASgLMhouSHR0cFJlcXVlc3RFeGNlcHRpb25Qcm90b0gAUhlodHRwUmVxdWVzdEV4Y2Vw'
+    'dGlvblByb3RvEm8KIG1pc3NpbmdQZXJtaXNzaW9uc0V4Y2VwdGlvblByb3RvGAYgASgLMiEuTW'
+    'lzc2luZ1Blcm1pc3Npb25zRXhjZXB0aW9uUHJvdG9IAFIgbWlzc2luZ1Blcm1pc3Npb25zRXhj'
+    'ZXB0aW9uUHJvdG8SdQoicmVxdWVzdFF1b3RhRXhjZWVkZWRFeGNlcHRpb25Qcm90bxgHIAEoCz'
+    'IjLlJlcXVlc3RRdW90YUV4Y2VlZGVkRXhjZXB0aW9uUHJvdG9IAFIicmVxdWVzdFF1b3RhRXhj'
+    'ZWVkZWRFeGNlcHRpb25Qcm90bxJsCh9zZGtOb3RJbml0aWFsaXplZEV4Y2VwdGlvblByb3RvGA'
+    'ggASgLMiAuU0RLTm90SW5pdGlhbGl6ZWRFeGNlcHRpb25Qcm90b0gAUh9zZGtOb3RJbml0aWFs'
+    'aXplZEV4Y2VwdGlvblByb3RvEk4KFXRpbWVvdXRFeGNlcHRpb25Qcm90bxgJIAEoCzIWLlRpbW'
+    'VvdXRFeGNlcHRpb25Qcm90b0gAUhV0aW1lb3V0RXhjZXB0aW9uUHJvdG8SbwogdXNlck5vdElu'
+    'aXRpYWxpemVkRXhjZXB0aW9uUHJvdG8YCiABKAsyIS5Vc2VyTm90SW5pdGlhbGl6ZWRFeGNlcH'
+    'Rpb25Qcm90b0gAUiB1c2VyTm90SW5pdGlhbGl6ZWRFeGNlcHRpb25Qcm90bxJOChVnZW5lcmlj'
+    'RXhjZXB0aW9uUHJvdG8YCyABKAsyFi5HZW5lcmljRXhjZXB0aW9uUHJvdG9IAFIVZ2VuZXJpY0'
+    'V4Y2VwdGlvblByb3RvEmkKHnNka05vdEF1dGhvcml6ZWRFeGNlcHRpb25Qcm90bxgNIAEoCzIf'
+    'LlNES05vdEF1dGhvcml6ZWRFeGNlcHRpb25Qcm90b0gAUh5zZGtOb3RBdXRob3JpemVkRXhjZX'
+    'B0aW9uUHJvdG9CCAoGcmVzdWx0SgQIBRAGSgQIDBAN');
 
 @$core.Deprecated('Use resultDataSourceProtoDescriptor instead')
 const ResultDataSourceProto$json = {
@@ -680,6 +887,15 @@ const ResultDataSourceProto$json = {
       '9': 0,
       '10': 'genericExceptionProto'
     },
+    {
+      '1': 'sdkNotAuthorizedExceptionProto',
+      '3': 13,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKNotAuthorizedExceptionProto',
+      '9': 0,
+      '10': 'sdkNotAuthorizedExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -705,5 +921,7 @@ final $typed_data.Uint8List resultDataSourceProtoDescriptor = $convert.base64Dec
     'blByb3RvEm8KIHVzZXJOb3RJbml0aWFsaXplZEV4Y2VwdGlvblByb3RvGAogASgLMiEuVXNlck'
     '5vdEluaXRpYWxpemVkRXhjZXB0aW9uUHJvdG9IAFIgdXNlck5vdEluaXRpYWxpemVkRXhjZXB0'
     'aW9uUHJvdG8STgoVZ2VuZXJpY0V4Y2VwdGlvblByb3RvGAsgASgLMhYuR2VuZXJpY0V4Y2VwdG'
-    'lvblByb3RvSABSFWdlbmVyaWNFeGNlcHRpb25Qcm90b0IICgZyZXN1bHRKBAgCEANKBAgDEARK'
-    'BAgEEAVKBAgFEAZKBAgGEAdKBAgHEAhKBAgJEApKBAgMEA0=');
+    'lvblByb3RvSABSFWdlbmVyaWNFeGNlcHRpb25Qcm90bxJpCh5zZGtOb3RBdXRob3JpemVkRXhj'
+    'ZXB0aW9uUHJvdG8YDSABKAsyHy5TREtOb3RBdXRob3JpemVkRXhjZXB0aW9uUHJvdG9IAFIec2'
+    'RrTm90QXV0aG9yaXplZEV4Y2VwdGlvblByb3RvQggKBnJlc3VsdEoECAIQA0oECAMQBEoECAQQ'
+    'BUoECAUQBkoECAYQB0oECAcQCEoECAkQCkoECAwQDQ==');

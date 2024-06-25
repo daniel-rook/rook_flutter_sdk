@@ -254,104 +254,23 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  Future<int?> syncTodayAppleHealthStepsCount() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncTodayAppleHealthStepsCount',
+    );
+
+    final result = ResultInt64Proto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
   Future<void> syncPendingEvents() async {
     final Uint8List bytes =
         await methodChannel.invokeMethod('syncPendingEvents');
     final result = ResultBooleanProto.fromBuffer(bytes);
 
     result.unwrap();
-  }
-
-  @override
-  Future<bool> isStepsTrackerActive() async {
-    await Future.delayed(const Duration(milliseconds: 1500));
-
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'isStepsTrackerActive',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  Future<void> startStepsTracker() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'startStepsTracker',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  Future<void> stopStepsTracker() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'stopStepsTracker',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  Future<int> getTodaySteps() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getTodaySteps',
-    );
-
-    final result = ResultInt64Proto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  Future<bool> isCaloriesTrackerActive() async {
-    await Future.delayed(const Duration(milliseconds: 1500));
-
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'isCaloriesTrackerActive',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  Future<void> startCaloriesTracker() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'startCaloriesTracker',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  Future<void> stopCaloriesTracker() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'stopCaloriesTracker',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  Future<int> getTodayCalories() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getTodayCalories',
-    );
-
-    final result = ResultInt64Proto.fromBuffer(bytes);
-
-    return result.unwrap();
   }
 
   @override

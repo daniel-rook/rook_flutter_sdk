@@ -5,8 +5,6 @@ import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/widget/data_sources_bottom_sheet.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_calories_tracker_playground.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_steps_tracker_playground.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/sdk_apple_health_playground.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
@@ -83,22 +81,6 @@ class _SdkAppleHealthConfigurationState
                     )
                 : null,
             child: const Text('Apple Health'),
-          ),
-          FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      iosStepsTrackerPlaygroundRoute,
-                    )
-                : null,
-            child: const Text('Steps Tracker'),
-          ),
-          FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      iosCaloriesTrackerPlaygroundRoute,
-                    )
-                : null,
-            child: const Text('Calories Tracker'),
           ),
           FilledButton(
             onPressed: enableNavigation ? loadDataSources : null,

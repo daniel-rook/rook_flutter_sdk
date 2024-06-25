@@ -59,6 +59,15 @@ class AHRookEventManager {
     return RookSdkAppleHealthPlatform.instance.syncTemperatureEvents(date);
   }
 
+  /// Retrieve and upload current day steps count of Apple Health.
+  ///
+  /// Returns the number of steps taken today.
+  ///
+  /// **Warning: This function is resource intensive, don't call it too frequently.**
+  static Future<int?> syncTodayAppleHealthStepsCount() {
+    return RookSdkAppleHealthPlatform.instance.syncTodayAppleHealthStepsCount();
+  }
+
   /// Attempts to upload any queued events, if the upload is successful the events will be removed from the queue.
   static Future<void> syncPendingEvents() {
     return RookSdkAppleHealthPlatform.instance.syncPendingEvents();

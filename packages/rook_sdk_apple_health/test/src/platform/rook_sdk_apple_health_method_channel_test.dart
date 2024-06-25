@@ -16,6 +16,16 @@ void main() {
         .setMockMethodCallHandler(channel, null);
   });
 
+  resultBooleanTests(platform, channel);
+  resultInt64Tests(platform, channel);
+  resultDataSourceTests(platform, channel);
+  stringTests(platform, channel);
+}
+
+void resultBooleanTests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkAppleHealth | ResultBooleanProto success unwrap',
       () {
     setUp(() {
@@ -209,60 +219,6 @@ void main() {
       'GIVEN a Result.success WHEN syncPendingEvents THEN complete',
       () async {
         final future = platform.syncPendingEvents();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN isStepsTrackerActive THEN complete with expected value',
-      () async {
-        final future = platform.isStepsTrackerActive();
-
-        await expectLater(future, completion(true));
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN startStepsTracker THEN complete',
-      () async {
-        final future = platform.startStepsTracker();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN stopStepsTracker THEN complete',
-      () async {
-        final future = platform.stopStepsTracker();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN isCaloriesTrackerActive THEN complete with expected value',
-      () async {
-        final future = platform.isCaloriesTrackerActive();
-
-        await expectLater(future, completion(true));
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN startCaloriesTracker THEN complete',
-      () async {
-        final future = platform.startCaloriesTracker();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN stopCaloriesTracker THEN complete',
-      () async {
-        final future = platform.stopCaloriesTracker();
 
         await expectLater(future, completes);
       },
@@ -504,60 +460,6 @@ void main() {
     );
 
     test(
-      'GIVEN a Result.exception WHEN isStepsTrackerActive THEN throw exception',
-      () async {
-        final future = platform.isStepsTrackerActive();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN startStepsTracker THEN throw exception',
-      () async {
-        final future = platform.startStepsTracker();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN stopStepsTracker THEN throw exception',
-      () async {
-        final future = platform.stopStepsTracker();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN isCaloriesTrackerActive THEN throw exception',
-      () async {
-        final future = platform.isCaloriesTrackerActive();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN startCaloriesTracker THEN throw exception',
-      () async {
-        final future = platform.startCaloriesTracker();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN stopCaloriesTracker THEN throw exception',
-      () async {
-        final future = platform.stopCaloriesTracker();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
         'GIVEN a Result.exception WHEN isContinuousUploadEnabled THEN throw exception',
         () async {
       final future = platform.isContinuousUploadEnabled();
@@ -615,7 +517,12 @@ void main() {
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void resultInt64Tests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
   group('MethodChannelRookSdkAppleHealth | ResultInt64Proto value unwrap', () {
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -627,17 +534,9 @@ void main() {
     });
 
     test(
-        'GIVEN a Result.value WHEN getTodaySteps THEN complete with expected value',
+        'GIVEN a Result.value WHEN syncTodayAppleHealthStepsCount THEN complete with expected value',
         () async {
-      final future = platform.getTodaySteps();
-
-      await expectLater(future, completion(1000));
-    });
-
-    test(
-        'GIVEN a Result.value WHEN getTodayCalories THEN complete with expected value',
-        () async {
-      final future = platform.getTodayCalories();
+      final future = platform.syncTodayAppleHealthStepsCount();
 
       await expectLater(future, completion(1000));
     });
@@ -656,71 +555,20 @@ void main() {
       });
     });
 
-    test('GIVEN a Result.exception WHEN getTodaySteps THEN throw exception',
-        () async {
-      final future = platform.getTodaySteps();
-
-      await expectLater(future, throwsA(isException));
-    });
-
-    test('GIVEN a Result.exception WHEN getTodayCalories THEN throw exception',
-        () async {
-      final future = platform.getTodayCalories();
-
-      await expectLater(future, throwsA(isException));
-    });
-  });
-
-  group('MethodChannelRookSdkAppleHealth | String Success', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        return 'RookUser';
-      });
-    });
-
     test(
-        'GIVEN the happy path WHEN getUserID THEN complete with expected value',
+        'GIVEN a Result.exception WHEN syncTodayAppleHealthStepsCount THEN throw exception',
         () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, completion('RookUser'));
-    });
-  });
-
-  group('MethodChannelRookSdkAppleHealth | String null', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        return null;
-      });
-    });
-
-    test('GIVEN null WHEN getUserID THEN complete with expected value',
-        () async {
-      final future = platform.getUserID();
-
-      await expectLater(future, completion(null));
-    });
-  });
-
-  group('MethodChannelRookSdkAppleHealth | String Failure', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        throw Exception('Error');
-        // return 'RookUser';
-      });
-    });
-
-    test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
-        () async {
-      final future = platform.getUserID();
+      final future = platform.syncTodayAppleHealthStepsCount();
 
       await expectLater(future, throwsA(isException));
     });
   });
+}
 
+void resultDataSourceTests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
   group(
       'MethodChannelRookSdkAppleHealth | ResultDataSourceProto dataSourceProtoListWrapper unwrap',
       () {
@@ -782,6 +630,61 @@ void main() {
         'GIVEN a Result.exception WHEN getAvailableDataSources THEN throw exception',
         () async {
       final future = platform.getAvailableDataSources();
+
+      await expectLater(future, throwsA(isException));
+    });
+  });
+}
+
+void stringTests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
+  group('MethodChannelRookSdkAppleHealth | String Success', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        return 'RookUser';
+      });
+    });
+
+    test(
+        'GIVEN the happy path WHEN getUserID THEN complete with expected value',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, completion('RookUser'));
+    });
+  });
+
+  group('MethodChannelRookSdkAppleHealth | String null', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        return null;
+      });
+    });
+
+    test('GIVEN null WHEN getUserID THEN complete with expected value',
+        () async {
+      final future = platform.getUserID();
+
+      await expectLater(future, completion(null));
+    });
+  });
+
+  group('MethodChannelRookSdkAppleHealth | String Failure', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        throw Exception('Error');
+        // return 'RookUser';
+      });
+    });
+
+    test('GIVEN the unhappy path WHEN getUserID THEN throw exception',
+        () async {
+      final future = platform.getUserID();
 
       await expectLater(future, throwsA(isException));
     });
