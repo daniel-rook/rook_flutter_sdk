@@ -31,8 +31,6 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  pod 'RookSDK', :git => 'https://github.com/RookeriesDevelopment/rook-ios-sdk-rook-sdk-pod.git', :branch => 'feature/new_release_1.5.1'
-
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   target 'RunnerTests' do
     inherit! :search_paths
