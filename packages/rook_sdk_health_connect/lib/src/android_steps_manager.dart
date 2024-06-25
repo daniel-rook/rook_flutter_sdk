@@ -31,7 +31,8 @@ class AndroidStepsManager {
 
   /// Stops the StepsTracker service, if the service is not active this function won't do anything.
   static Future<void> disableBackgroundAndroidSteps() {
-    return RookSdkHealthConnectPlatform.instance.disableBackgroundAndroidSteps();
+    return RookSdkHealthConnectPlatform.instance
+        .disableBackgroundAndroidSteps();
   }
 
   /// Retrieve and upload current day steps count of Android system, if the upload fails the events

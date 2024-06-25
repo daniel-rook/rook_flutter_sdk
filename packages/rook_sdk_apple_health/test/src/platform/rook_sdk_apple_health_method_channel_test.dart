@@ -555,7 +555,8 @@ void resultInt64Tests(
       });
     });
 
-    test('GIVEN a Result.exception WHEN syncTodayAppleHealthStepsCount THEN throw exception',
+    test(
+        'GIVEN a Result.exception WHEN syncTodayAppleHealthStepsCount THEN throw exception',
         () async {
       final future = platform.syncTodayAppleHealthStepsCount();
 

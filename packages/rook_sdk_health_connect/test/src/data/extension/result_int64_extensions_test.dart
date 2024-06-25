@@ -40,7 +40,7 @@ void main() {
 
     test(
       'GIVEN a SDKNotAuthorizedExceptionProto WHEN unwrap THEN throw SDKNotAuthorizedException',
-          () {
+      () {
         final proto = ResultInt64Proto.create();
         proto.sdkNotAuthorizedExceptionProto =
             SDKNotAuthorizedExceptionProto(message: error);
@@ -49,8 +49,8 @@ void main() {
           proto.unwrap,
           throwsA(
             predicate(
-                  (exception) =>
-              exception is SDKNotAuthorizedException &&
+              (exception) =>
+                  exception is SDKNotAuthorizedException &&
                   exception.message == error,
             ),
           ),
