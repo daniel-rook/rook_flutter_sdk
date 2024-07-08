@@ -72,7 +72,77 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     setState(() => syncOutput.append('Syncing health data...'));
 
     setState(
-        () => syncOutput.append('Syncing Steps events of today: $today...'));
+      () => syncOutput
+          .append('Syncing Sleep summary of yesterday: $yesterday...'),
+    );
+    await syncSleepSummary(yesterday);
+
+    setState(
+      () => syncOutput
+          .append('Syncing Physical summary of yesterday: $yesterday...'),
+    );
+    await syncPhysicalSummary(yesterday);
+
+    setState(
+      () =>
+          syncOutput.append('Syncing Body summary of yesterday: $yesterday...'),
+    );
+    await syncBodySummary(yesterday);
+
+    setState(
+      () => syncOutput.append('Syncing Physical events of today: $today...'),
+    );
+    await syncPhysicalEvents(today);
+
+    setState(
+      () =>
+          syncOutput.append('Syncing BloodGlucose events of today: $today...'),
+    );
+    await syncBloodGlucoseEvents(today);
+
+    setState(
+      () =>
+          syncOutput.append('Syncing BloodPressure events of today: $today...'),
+    );
+    await syncBloodPressureEvents(today);
+
+    setState(
+      () => syncOutput.append('Syncing BodyMetrics events of today: $today...'),
+    );
+    await syncBodyMetricsEvents(today);
+
+    setState(
+      () =>
+          syncOutput.append('Syncing BodyHeartRate events of today: $today...'),
+    );
+    await syncBodyHeartRateEvents(today);
+
+    setState(
+      () => syncOutput
+          .append('Syncing PhysicalHeartRate events of today: $today...'),
+    );
+    await syncPhysicalHeartRateEvents(today);
+
+    setState(
+      () => syncOutput
+          .append('Syncing BodyOxygenation events of today: $today...'),
+    );
+    await syncBodyOxygenationEvents(today);
+
+    setState(
+      () => syncOutput
+          .append('Syncing PhysicalOxygenation events of today: $today...'),
+    );
+    await syncPhysicalOxygenationEvents(today);
+
+    setState(
+      () => syncOutput.append('Syncing Temperature events of today: $today...'),
+    );
+    await syncTemperatureEvents(today);
+
+    setState(
+      () => syncOutput.append('Syncing Steps events of today: $today...'),
+    );
     await syncStepsEvents();
   }
 

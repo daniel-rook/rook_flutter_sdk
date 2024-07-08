@@ -108,9 +108,10 @@ class _SdkAppleHealthConfigurationState
 
   void setConfiguration() {
     final rookConfiguration = RookConfiguration(
-      Secrets.clientUUID,
-      Secrets.secretKey,
-      rookEnvironment,
+      clientUUID: Secrets.clientUUID,
+      secretKey: Secrets.secretKey,
+      environment: rookEnvironment,
+      enableBackgroundSync: true,
     );
 
     configurationOutput.clear();

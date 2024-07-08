@@ -33,7 +33,8 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 block: { it in
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
-                        secretKey: it.secretKey
+                        secretKey: it.secretKey,
+                        enableBackgroundSync: it.enableBackgroundSync
                     )
                     
                     RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())

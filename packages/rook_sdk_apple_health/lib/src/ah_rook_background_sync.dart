@@ -17,15 +17,11 @@ class AHRookBackgroundSync {
     required String secretKey,
     required RookEnvironment environment,
   }) {
-    final rookConfiguration = RookConfiguration(
+    return RookSdkAppleHealthPlatform.instance.enableBackground(
+      enableNativeLogs,
       clientUUID,
       secretKey,
       environment,
-    );
-
-    return RookSdkAppleHealthPlatform.instance.enableBackground(
-      enableNativeLogs,
-      rookConfiguration,
     );
   }
 

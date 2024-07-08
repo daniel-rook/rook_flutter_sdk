@@ -5,8 +5,10 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 extension RookConfigurationMappers on RookConfiguration {
   RookConfigurationProto toProto() {
     return RookConfigurationProto(
-        clientUUID: clientUUID,
-        secretKey: secretKey,
-        environment: environment.toProto());
+      clientUUID: clientUUID,
+      secretKey: secretKey,
+      environment: environment.toProto(),
+      enableBackgroundSync: enableBackgroundSync,
+    );
   }
 }

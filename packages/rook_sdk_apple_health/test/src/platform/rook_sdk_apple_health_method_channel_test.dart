@@ -47,9 +47,10 @@ void resultBooleanTests(
     test('GIVEN a Result.success WHEN setConfiguration THEN complete',
         () async {
       final rookConfiguration = RookConfiguration(
-        'rookUrl',
-        'clientUUID',
-        RookEnvironment.sandbox,
+        clientUUID: 'rookUrl',
+        secretKey: 'clientUUID',
+        environment: RookEnvironment.sandbox,
+        enableBackgroundSync: true,
       );
       final future = platform.setConfiguration(rookConfiguration);
 
@@ -234,13 +235,12 @@ void resultBooleanTests(
 
     test('GIVEN a Result.success WHEN enableContinuousUpload THEN complete',
         () async {
-      final rookConfiguration = RookConfiguration(
+      final future = platform.enableContinuousUpload(
+        true,
         'rookUrl',
         'clientUUID',
         RookEnvironment.sandbox,
       );
-
-      final future = platform.enableContinuousUpload(true, rookConfiguration);
 
       await expectLater(future, completes);
     });
@@ -254,13 +254,12 @@ void resultBooleanTests(
 
     test('GIVEN a Result.success WHEN enableBackGround THEN complete',
         () async {
-      final rookConfiguration = RookConfiguration(
+      final future = platform.enableBackground(
+        true,
         'rookUrl',
         'clientUUID',
         RookEnvironment.sandbox,
       );
-
-      final future = platform.enableBackground(true, rookConfiguration);
 
       await expectLater(future, completes);
     });
@@ -470,13 +469,12 @@ void resultBooleanTests(
     test(
         'GIVEN a Result.exception WHEN enableContinuousUpload THEN throw exception',
         () async {
-      final rookConfiguration = RookConfiguration(
+      final future = platform.enableContinuousUpload(
+        true,
         'rookUrl',
         'clientUUID',
         RookEnvironment.sandbox,
       );
-
-      final future = platform.enableContinuousUpload(true, rookConfiguration);
 
       await expectLater(future, throwsA(isException));
     });
@@ -491,13 +489,12 @@ void resultBooleanTests(
 
     test('GIVEN a Result.exception WHEN enableBackGround THEN throw exception',
         () async {
-      final rookConfiguration = RookConfiguration(
+      final future = platform.enableBackground(
+        true,
         'rookUrl',
         'clientUUID',
         RookEnvironment.sandbox,
       );
-
-      final future = platform.enableBackground(true, rookConfiguration);
 
       await expectLater(future, throwsA(isException));
     });

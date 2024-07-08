@@ -71,6 +71,8 @@ struct RookConfigurationProto {
 
   var environment: RookEnvironmentProto = .sandbox
 
+  var enableBackgroundSync: Bool = false
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -333,6 +335,7 @@ extension RookConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     1: .same(proto: "clientUUID"),
     2: .same(proto: "secretKey"),
     3: .same(proto: "environment"),
+    4: .same(proto: "enableBackgroundSync"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -344,6 +347,7 @@ extension RookConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       case 1: try { try decoder.decodeSingularStringField(value: &self.clientUuid) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.secretKey) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.environment) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.enableBackgroundSync) }()
       default: break
       }
     }
@@ -359,6 +363,9 @@ extension RookConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if self.environment != .sandbox {
       try visitor.visitSingularEnumField(value: self.environment, fieldNumber: 3)
     }
+    if self.enableBackgroundSync != false {
+      try visitor.visitSingularBoolField(value: self.enableBackgroundSync, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -366,6 +373,7 @@ extension RookConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.clientUuid != rhs.clientUuid {return false}
     if lhs.secretKey != rhs.secretKey {return false}
     if lhs.environment != rhs.environment {return false}
+    if lhs.enableBackgroundSync != rhs.enableBackgroundSync {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
