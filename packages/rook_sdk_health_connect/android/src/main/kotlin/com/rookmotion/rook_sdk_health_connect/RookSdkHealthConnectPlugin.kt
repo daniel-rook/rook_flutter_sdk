@@ -11,6 +11,8 @@ import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSummaryManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncPermissions
+import com.rookmotion.rook.sdk.domain.enums.SyncInstruction
+import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
 import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
@@ -58,6 +60,10 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private var context: Context? = null
     private var activity: Activity? = null
 
+    private var enableNativeLogs: Boolean = false
+    private var enableBackgroundSync: Boolean = false
+    private var rookConfiguration: RookConfiguration? = null
+
     private lateinit var rookConfigurationManager: RookConfigurationManager
     private lateinit var rookHealthPermissionsManager: RookHealthPermissionsManager
     private lateinit var rookSummaryManager: RookSummaryManager
@@ -85,17 +91,21 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
             "enableNativeLogs" -> {
+                enableNativeLogs = true
                 rookConfigurationManager.enableLocalLogs()
 
                 result.resultBooleanSuccess(true)
             }
 
             "setConfiguration" -> {
-                val rookConfiguration = call.getByteArrayArgAt(0).let {
-                    RookConfigurationProto.parseFrom(it).toDomain()
+                val rookConfigurationProto = call.getByteArrayArgAt(0).let {
+                    RookConfigurationProto.parseFrom(it)
                 }
 
-                rookConfigurationManager.setConfiguration(rookConfiguration)
+                enableBackgroundSync = rookConfigurationProto.enableBackgroundSync
+                rookConfiguration = rookConfigurationProto.toDomain()
+
+                rookConfigurationManager.setConfiguration(rookConfigurationProto.toDomain())
 
                 result.resultBooleanSuccess(true)
             }
@@ -111,6 +121,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
                 rookConfigurationManager.initRook().fold(
                     {
+                        attemptToEnableBackgroundSync()
                         result.resultBooleanSuccess(true)
                     },
                     {
@@ -624,6 +635,22 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
             else -> result.notImplemented()
         }
+    }
+
+    private suspend fun attemptToEnableBackgroundSync() {
+        if (!enableBackgroundSync) {
+            return
+        }
+
+        val configuration = rookConfiguration ?: return
+
+        rookYesterdaySyncManager.scheduleYesterdaySync(
+            enableLogs = enableNativeLogs,
+            clientUUID = configuration.clientUUID,
+            secretKey = configuration.secretKey,
+            environment = configuration.environment,
+            doOnEnd = SyncInstruction.SYNC_OLDEST,
+        )
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {

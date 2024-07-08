@@ -138,6 +138,17 @@ private static final long serialVersionUID = 0L;
     return result == null ? com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.UNRECOGNIZED : result;
   }
 
+  public static final int ENABLEBACKGROUNDSYNC_FIELD_NUMBER = 4;
+  private boolean enableBackgroundSync_ = false;
+  /**
+   * <code>bool enableBackgroundSync = 4;</code>
+   * @return The enableBackgroundSync.
+   */
+  @java.lang.Override
+  public boolean getEnableBackgroundSync() {
+    return enableBackgroundSync_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -161,6 +172,9 @@ private static final long serialVersionUID = 0L;
     if (environment_ != com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.SANDBOX.getNumber()) {
       output.writeEnum(3, environment_);
     }
+    if (enableBackgroundSync_ != false) {
+      output.writeBool(4, enableBackgroundSync_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -179,6 +193,10 @@ private static final long serialVersionUID = 0L;
     if (environment_ != com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.SANDBOX.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, environment_);
+    }
+    if (enableBackgroundSync_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, enableBackgroundSync_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -200,6 +218,8 @@ private static final long serialVersionUID = 0L;
     if (!getSecretKey()
         .equals(other.getSecretKey())) return false;
     if (environment_ != other.environment_) return false;
+    if (getEnableBackgroundSync()
+        != other.getEnableBackgroundSync()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -217,6 +237,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSecretKey().hashCode();
     hash = (37 * hash) + ENVIRONMENT_FIELD_NUMBER;
     hash = (53 * hash) + environment_;
+    hash = (37 * hash) + ENABLEBACKGROUNDSYNC_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnableBackgroundSync());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -351,6 +374,7 @@ private static final long serialVersionUID = 0L;
       clientUUID_ = "";
       secretKey_ = "";
       environment_ = 0;
+      enableBackgroundSync_ = false;
       return this;
     }
 
@@ -392,6 +416,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.environment_ = environment_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.enableBackgroundSync_ = enableBackgroundSync_;
       }
     }
 
@@ -452,6 +479,9 @@ private static final long serialVersionUID = 0L;
       if (other.environment_ != 0) {
         setEnvironmentValue(other.getEnvironmentValue());
       }
+      if (other.getEnableBackgroundSync() != false) {
+        setEnableBackgroundSync(other.getEnableBackgroundSync());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -493,6 +523,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 24
+            case 32: {
+              enableBackgroundSync_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -703,6 +738,38 @@ private static final long serialVersionUID = 0L;
     public Builder clearEnvironment() {
       bitField0_ = (bitField0_ & ~0x00000004);
       environment_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean enableBackgroundSync_ ;
+    /**
+     * <code>bool enableBackgroundSync = 4;</code>
+     * @return The enableBackgroundSync.
+     */
+    @java.lang.Override
+    public boolean getEnableBackgroundSync() {
+      return enableBackgroundSync_;
+    }
+    /**
+     * <code>bool enableBackgroundSync = 4;</code>
+     * @param value The enableBackgroundSync to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnableBackgroundSync(boolean value) {
+
+      enableBackgroundSync_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool enableBackgroundSync = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnableBackgroundSync() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      enableBackgroundSync_ = false;
       onChanged();
       return this;
     }

@@ -23,6 +23,7 @@ class RookConfigurationProto extends $pb.GeneratedMessage {
     $core.String? clientUUID,
     $core.String? secretKey,
     RookEnvironmentProto? environment,
+    $core.bool? enableBackgroundSync,
   }) {
     final $result = create();
     if (clientUUID != null) {
@@ -33,6 +34,9 @@ class RookConfigurationProto extends $pb.GeneratedMessage {
     }
     if (environment != null) {
       $result.environment = environment;
+    }
+    if (enableBackgroundSync != null) {
+      $result.enableBackgroundSync = enableBackgroundSync;
     }
     return $result;
   }
@@ -54,6 +58,8 @@ class RookConfigurationProto extends $pb.GeneratedMessage {
         defaultOrMaker: RookEnvironmentProto.SANDBOX,
         valueOf: RookEnvironmentProto.valueOf,
         enumValues: RookEnvironmentProto.values)
+    ..aOB(4, _omitFieldNames ? '' : 'enableBackgroundSync',
+        protoName: 'enableBackgroundSync')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -116,6 +122,18 @@ class RookConfigurationProto extends $pb.GeneratedMessage {
   $core.bool hasEnvironment() => $_has(2);
   @$pb.TagNumber(3)
   void clearEnvironment() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get enableBackgroundSync => $_getBF(3);
+  @$pb.TagNumber(4)
+  set enableBackgroundSync($core.bool v) {
+    $_setBool(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasEnableBackgroundSync() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearEnableBackgroundSync() => clearField(4);
 }
 
 class DataSourceProto extends $pb.GeneratedMessage {

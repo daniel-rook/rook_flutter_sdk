@@ -5,8 +5,10 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 extension RookConfigurationMappers on RookConfiguration {
   RookConfigurationProto toProto() {
     return RookConfigurationProto(
-        clientUUID: clientUUID,
-        secretKey: secretKey,
-        environment: environment.toProto());
+      clientUUID: clientUUID,
+      secretKey: secretKey,
+      environment: environment.toProto(),
+      enableBackgroundSync: enableBackgroundSync,
+    );
   }
 }

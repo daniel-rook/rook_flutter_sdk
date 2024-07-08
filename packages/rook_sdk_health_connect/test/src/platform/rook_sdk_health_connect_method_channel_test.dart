@@ -51,9 +51,10 @@ void resultBooleanTests(
     test('GIVEN a Result.success WHEN setConfiguration THEN complete',
         () async {
       final rookConfiguration = RookConfiguration(
-        'rookUrl',
-        'clientUUID',
-        RookEnvironment.sandbox,
+        clientUUID: 'rookUrl',
+        secretKey: 'clientUUID',
+        environment: RookEnvironment.sandbox,
+        enableBackgroundSync: true,
       );
       final future = platform.setConfiguration(rookConfiguration);
 
@@ -243,11 +244,9 @@ void resultBooleanTests(
         () async {
       final future = platform.scheduleYesterdaySync(
         true,
-        RookConfiguration(
-          'rookUrl',
-          'clientUUID',
-          RookEnvironment.sandbox,
-        ),
+        'rookUrl',
+        'clientUUID',
+        RookEnvironment.sandbox,
         HCSyncInstruction.syncLatest,
       );
 
@@ -457,11 +456,9 @@ void resultBooleanTests(
         () async {
       final future = platform.scheduleYesterdaySync(
         true,
-        RookConfiguration(
-          'rookUrl',
-          'clientUUID',
-          RookEnvironment.sandbox,
-        ),
+        'rookUrl',
+        'clientUUID',
+        RookEnvironment.sandbox,
         HCSyncInstruction.syncLatest,
       );
 

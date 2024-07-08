@@ -116,6 +116,13 @@ const RookConfigurationProto$json = {
       '6': '.RookEnvironmentProto',
       '10': 'environment'
     },
+    {
+      '1': 'enableBackgroundSync',
+      '3': 4,
+      '4': 1,
+      '5': 8,
+      '10': 'enableBackgroundSync'
+    },
   ],
 };
 
@@ -123,7 +130,8 @@ const RookConfigurationProto$json = {
 final $typed_data.Uint8List rookConfigurationProtoDescriptor = $convert.base64Decode(
     'ChZSb29rQ29uZmlndXJhdGlvblByb3RvEh4KCmNsaWVudFVVSUQYASABKAlSCmNsaWVudFVVSU'
     'QSHAoJc2VjcmV0S2V5GAIgASgJUglzZWNyZXRLZXkSNwoLZW52aXJvbm1lbnQYAyABKA4yFS5S'
-    'b29rRW52aXJvbm1lbnRQcm90b1ILZW52aXJvbm1lbnQ=');
+    'b29rRW52aXJvbm1lbnRQcm90b1ILZW52aXJvbm1lbnQSMgoUZW5hYmxlQmFja2dyb3VuZFN5bm'
+    'MYBCABKAhSFGVuYWJsZUJhY2tncm91bmRTeW5j');
 
 @$core.Deprecated('Use dataSourceProtoDescriptor instead')
 const DataSourceProto$json = {

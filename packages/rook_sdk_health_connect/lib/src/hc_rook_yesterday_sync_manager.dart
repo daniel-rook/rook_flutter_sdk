@@ -43,15 +43,11 @@ class HCRookYesterdaySyncManager {
     required RookEnvironment environment,
     HCSyncInstruction doOnEnd = HCSyncInstruction.nothing,
   }) {
-    final rookConfiguration = RookConfiguration(
+    return RookSdkHealthConnectPlatform.instance.scheduleYesterdaySync(
+      enableNativeLogs,
       clientUUID,
       secretKey,
       environment,
-    );
-
-    return RookSdkHealthConnectPlatform.instance.scheduleYesterdaySync(
-      enableNativeLogs,
-      rookConfiguration,
       doOnEnd,
     );
   }
