@@ -289,10 +289,10 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> enableContinuousUpload(
-      bool enableNativeLogs,
-      String clientUUID,
-      String secretKey,
-      RookEnvironment environment,
+    bool enableNativeLogs,
+    String clientUUID,
+    String secretKey,
+    RookEnvironment environment,
   ) async {
     final rookConfigurationProto = RookConfigurationProto(
       clientUUID: clientUUID,
@@ -327,10 +327,10 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> enableBackground(
-      bool enableNativeLogs,
-      String clientUUID,
-      String secretKey,
-      RookEnvironment environment,
+    bool enableNativeLogs,
+    String clientUUID,
+    String secretKey,
+    RookEnvironment environment,
   ) async {
     final rookConfigurationProto = RookConfigurationProto(
       clientUUID: clientUUID,

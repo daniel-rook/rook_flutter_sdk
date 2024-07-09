@@ -19,7 +19,8 @@ void main() {
         expect(result.clientUUID, rookConfiguration.clientUUID);
         expect(result.secretKey, rookConfiguration.secretKey);
         expect(result.environment.name, "PRODUCTION");
-        expect(result.enableBackgroundSync, rookConfiguration.enableBackgroundSync);
+        expect(result.enableBackgroundSync,
+            rookConfiguration.enableBackgroundSync);
       },
     );
   });
