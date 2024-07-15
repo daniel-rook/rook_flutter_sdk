@@ -364,9 +364,10 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<List<DataSource>> getAvailableDataSources() async {
+  Future<List<DataSource>> getAvailableDataSources(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAvailableDataSources',
+      redirectUrl,
     );
 
     final result = ResultDataSourceProto.fromBuffer(bytes);
@@ -375,9 +376,10 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> presentDataSourceView() async {
+  Future<void> presentDataSourceView(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'presentDataSourceView',
+      redirectUrl,
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);

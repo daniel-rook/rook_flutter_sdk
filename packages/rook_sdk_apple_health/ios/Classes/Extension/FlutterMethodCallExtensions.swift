@@ -31,6 +31,13 @@ extension FlutterMethodCall {
         return value!
     }
     
+    func getNullableStringArgAt(_ index: Int) -> String? {
+        let args = self.arguments as? [Any]
+        let value = args?[index] as? String
+        
+        return value
+    }
+    
     func getInt64ArgAt(_ index: Int) -> Int64 {
         let args = self.arguments as? [Any]
         let value = args?[index] as? Int64

@@ -377,7 +377,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             resultBoolSuccess(flutterResult: result, true)
             break
         case "getAvailableDataSources":
-            dataSourcesManager.getAvailableDataSources(redirectURL: nil) { it in
+            let redirectUrl = call.getNullableStringArgAt(0)
+            
+            dataSourcesManager.getAvailableDataSources(redirectURL: redirectUrl) { it in
                 switch it {
                 case Result.success(let dataSources):
                     resultDataSourceSuccess(flutterResult: result, dataSources)
@@ -388,7 +390,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             break
         case "presentDataSourceView":
             DispatchQueue.main.async {
-                self.dataSourcesManager.presentDataSourceView(redirectURL: nil) { it in
+                let redirectUrl = call.getNullableStringArgAt(0)
+                
+                self.dataSourcesManager.presentDataSourceView(redirectURL: redirectUrl) { it in
                     switch it {
                     case Result.success(let success):
                         resultBoolSuccess(flutterResult: result, success)

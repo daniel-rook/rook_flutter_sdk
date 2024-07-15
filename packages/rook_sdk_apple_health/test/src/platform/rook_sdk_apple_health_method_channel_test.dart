@@ -273,7 +273,7 @@ void resultBooleanTests(
 
     test('GIVEN a Result.success WHEN presentDataSourceView THEN complete',
         () async {
-      final future = platform.presentDataSourceView();
+      final future = platform.presentDataSourceView("http://tryrook.io");
 
       await expectLater(future, completes);
     });
@@ -509,7 +509,7 @@ void resultBooleanTests(
     test(
         'GIVEN a Result.exception WHEN presentDataSourceView THEN throw exception',
         () async {
-      final future = platform.presentDataSourceView();
+      final future = platform.presentDataSourceView("http://tryrook.io");
 
       await expectLater(future, throwsA(isException));
     });
@@ -592,7 +592,8 @@ void resultDataSourceTests(
     test(
         'GIVEN a Result.dataSourceProtoListWrapper WHEN getAvailableDataSources THEN complete with expected value',
         () async {
-      final result = (await platform.getAvailableDataSources()).first;
+      final result =
+          (await platform.getAvailableDataSources("http://tryrook.io")).first;
       final expected = DataSource(
         'name',
         'description',
@@ -626,7 +627,7 @@ void resultDataSourceTests(
     test(
         'GIVEN a Result.exception WHEN getAvailableDataSources THEN throw exception',
         () async {
-      final future = platform.getAvailableDataSources();
+      final future = platform.getAvailableDataSources("http://tryrook.io");
 
       await expectLater(future, throwsA(isException));
     });
