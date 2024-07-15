@@ -242,7 +242,7 @@ class _SdkAppleHealthConfigurationState
       builder: (BuildContext context) {
         return FutureBuilder(
           future: AHRookDataSources.getAvailableDataSources(
-            redirectUrl: "https://www.google.com",
+            redirectUrl: null,
           ),
           builder: (
             BuildContext ctx,
