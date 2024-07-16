@@ -110,7 +110,7 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
     HCSyncInstruction doOnEnd,
   );
 
-  Future<List<DataSource>> getAvailableDataSources();
+  Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
 
-  Future<void> presentDataSourceView();
+  Future<void> presentDataSourceView(String? redirectUrl,);
 }

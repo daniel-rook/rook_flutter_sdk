@@ -106,7 +106,9 @@ class _SdkHealthConnectConfigurationState
             FilledButton(
               onPressed: enableNavigation
                   ? () {
-                      HCRookDataSources.presentDataSourceView();
+                      HCRookDataSources.presentDataSourceView(
+                        redirectUrl: "https://tryrook.io",
+                      );
                     }
                   : null,
               child: const Text('Connections page (pre-built)'),
@@ -290,7 +292,9 @@ class _SdkHealthConnectConfigurationState
       enableDrag: false,
       builder: (BuildContext context) {
         return FutureBuilder(
-          future: HCRookDataSources.getAvailableDataSources(),
+          future: HCRookDataSources.getAvailableDataSources(
+            redirectUrl: null,
+          ),
           builder: (
             BuildContext ctx,
             AsyncSnapshot<List<DataSource>> snapshot,
