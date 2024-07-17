@@ -1,6 +1,7 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookConfigurationManager
+import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
 import com.rookmotion.rook.sdk.domain.enums.SyncInstruction
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
@@ -21,6 +22,7 @@ class ConfigurationHandler(
     private val coroutineScope: CoroutineScope,
     private val rookConfigurationManager: RookConfigurationManager,
     private val rookYesterdaySyncManager: RookYesterdaySyncManager,
+    private val rookStepsManager: RookStepsManager,
 ) {
 
     private var enableNativeLogs: Boolean = false
@@ -82,7 +84,7 @@ class ConfigurationHandler(
                 )
             }
 
-            "clearUserID" -> {
+            "clearUserID" -> coroutineScope.launch {
                 rookConfigurationManager.clearUserID()
 
                 methodResult.resultBooleanSuccess(true)
@@ -128,5 +130,7 @@ class ConfigurationHandler(
             environment = configuration.environment,
             doOnEnd = SyncInstruction.SYNC_OLDEST,
         )
+
+        rookStepsManager.enableBackgroundAndroidSteps()
     }
 }

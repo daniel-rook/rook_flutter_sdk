@@ -4,6 +4,7 @@ import android.app.Activity
 import com.rookmotion.rook.sdk.RookConfigurationManager
 import com.rookmotion.rook.sdk.RookEventManager
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
+import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSummaryManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
 import com.rookmotion.rook_sdk_health_connect.handler.ConfigurationHandler
@@ -49,12 +50,14 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         val rookHealthPermissionsManager = RookHealthPermissionsManager(rookConfigurationManager)
         val rookSummaryManager = RookSummaryManager(rookConfigurationManager)
         val rookEventManager = RookEventManager(rookConfigurationManager)
+        val rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
         val yesterdaySyncManager = RookYesterdaySyncManager(flutterPluginBinding.applicationContext)
 
         configurationHandler = ConfigurationHandler(
             coroutineScope = coroutineScope,
             rookConfigurationManager = rookConfigurationManager,
             rookYesterdaySyncManager = yesterdaySyncManager,
+            rookStepsManager = rookStepsManager,
         )
         permissionsHandler = PermissionsHandler(
             context = flutterPluginBinding.applicationContext,
@@ -64,7 +67,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         summaryHandler = SummaryHandler(coroutineScope, rookSummaryManager)
         eventHandler = EventHandler(coroutineScope, rookEventManager)
         helperHandler = HelperHandler(coroutineScope)
-        stepsHandler = StepsHandler(flutterPluginBinding.applicationContext, coroutineScope)
+        stepsHandler = StepsHandler(flutterPluginBinding.applicationContext, coroutineScope, rookStepsManager)
         yesterdaySyncHandler = YesterdaySyncHandler(
             context = flutterPluginBinding.applicationContext,
             coroutineScope = coroutineScope,

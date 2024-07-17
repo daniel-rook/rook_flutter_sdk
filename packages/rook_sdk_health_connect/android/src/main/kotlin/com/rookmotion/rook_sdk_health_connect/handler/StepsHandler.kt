@@ -5,15 +5,17 @@ import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Success
 import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Error
+import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Success
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-class StepsHandler(context: Context, private val coroutineScope: CoroutineScope) {
-
-    private val rookStepsManager = RookStepsManager(context)
+class StepsHandler(
+    context: Context,
+    private val coroutineScope: CoroutineScope,
+    private val rookStepsManager: RookStepsManager,
+) {
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
