@@ -5,12 +5,24 @@ class HCRookDataSources {
   HCRookDataSources._();
 
   /// Returns the available data sources for the current user.
-  static Future<List<DataSource>> getAvailableDataSources() {
-    return RookSdkHealthConnectPlatform.instance.getAvailableDataSources();
+  ///
+  /// * [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
+  static Future<List<DataSource>> getAvailableDataSources({
+    String? redirectUrl,
+  }) {
+    return RookSdkHealthConnectPlatform.instance.getAvailableDataSources(
+      redirectUrl,
+    );
   }
 
   /// Displays a pre-built screen that allows the users to connect to a data source.
-  static Future<void> presentDataSourceView() {
-    return RookSdkHealthConnectPlatform.instance.presentDataSourceView();
+  ///
+  /// * [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
+  static Future<void> presentDataSourceView({
+    String? redirectUrl,
+  }) {
+    return RookSdkHealthConnectPlatform.instance.presentDataSourceView(
+      redirectUrl,
+    );
   }
 }

@@ -104,11 +104,15 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<void> scheduleYesterdaySync(
     bool enableNativeLogs,
-    RookConfiguration rookConfiguration,
-    HCSyncInstruction syncInstruction,
+    String clientUUID,
+    String secretKey,
+    RookEnvironment environment,
+    HCSyncInstruction doOnEnd,
   );
 
-  Future<List<DataSource>> getAvailableDataSources();
+  Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
 
-  Future<void> presentDataSourceView();
+  Future<void> presentDataSourceView(
+    String? redirectUrl,
+  );
 }

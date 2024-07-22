@@ -230,21 +230,21 @@ packages:
       path: "packages/rook_sdk_apple_health"
       relative: true
     source: path
-    version: "1.1.1"
+    version: "1.2.0"
   rook_sdk_core:
     dependency: "direct main"
     description:
       path: "packages/rook_sdk_core"
       relative: true
     source: path
-    version: "0.2.1"
+    version: "0.3.0"
   rook_sdk_health_connect:
     dependency: "direct main"
     description:
       path: "packages/rook_sdk_health_connect"
       relative: true
     source: path
-    version: "2.1.1"
+    version: "2.2.0"
   shared_preferences:
     dependency: "direct main"
     description:

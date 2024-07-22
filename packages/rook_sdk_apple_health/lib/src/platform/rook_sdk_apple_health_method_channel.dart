@@ -4,6 +4,7 @@ import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensio
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_source_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/rook_environment_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
@@ -289,9 +290,16 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   @override
   Future<void> enableContinuousUpload(
     bool enableNativeLogs,
-    RookConfiguration rookConfiguration,
+    String clientUUID,
+    String secretKey,
+    RookEnvironment environment,
   ) async {
-    final rookConfigurationProto = rookConfiguration.toProto();
+    final rookConfigurationProto = RookConfigurationProto(
+      clientUUID: clientUUID,
+      secretKey: secretKey,
+      environment: environment.toProto(),
+      enableBackgroundSync: false,
+    );
 
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableContinuousUpload',
@@ -320,9 +328,16 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   @override
   Future<void> enableBackground(
     bool enableNativeLogs,
-    RookConfiguration rookConfiguration,
+    String clientUUID,
+    String secretKey,
+    RookEnvironment environment,
   ) async {
-    final rookConfigurationProto = rookConfiguration.toProto();
+    final rookConfigurationProto = RookConfigurationProto(
+      clientUUID: clientUUID,
+      secretKey: secretKey,
+      environment: environment.toProto(),
+      enableBackgroundSync: false,
+    );
 
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableBackground',
@@ -349,9 +364,12 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<List<DataSource>> getAvailableDataSources() async {
+  Future<List<DataSource>> getAvailableDataSources(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAvailableDataSources',
+      [
+        redirectUrl,
+      ],
     );
 
     final result = ResultDataSourceProto.fromBuffer(bytes);
@@ -360,9 +378,12 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> presentDataSourceView() async {
+  Future<void> presentDataSourceView(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'presentDataSourceView',
+      [
+        redirectUrl,
+      ],
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);

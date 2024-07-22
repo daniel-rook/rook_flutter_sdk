@@ -47,6 +47,7 @@ message RookConfigurationProto {
   string clientUUID = 1;
   string secretKey = 2;
   RookEnvironmentProto environment = 3;
+  bool enableBackgroundSync = 4;
 }
 
 message DataSourceProto {

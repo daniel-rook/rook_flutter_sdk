@@ -14,6 +14,10 @@ fun MethodCall.getStringArgAt(index: Int): String {
     return ((arguments as ArrayList<*>)[index] as String)
 }
 
+fun MethodCall.getStringNullableArgAt(index: Int): String? {
+    return ((arguments as ArrayList<*>)[index] as String?)
+}
+
 fun MethodCall.getIntArgAt(index: Int): Int {
     return ((arguments as ArrayList<*>)[index] as Int)
 }

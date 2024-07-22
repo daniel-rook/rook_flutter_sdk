@@ -89,7 +89,9 @@ class _SdkAppleHealthConfigurationState
           FilledButton(
             onPressed: enableNavigation
                 ? () {
-                    AHRookDataSources.presentDataSourceView();
+                    AHRookDataSources.presentDataSourceView(
+                      redirectUrl: "https://tryrook.io",
+                    );
                   }
                 : null,
             child: const Text('Connections page (pre-built)'),
@@ -108,9 +110,10 @@ class _SdkAppleHealthConfigurationState
 
   void setConfiguration() {
     final rookConfiguration = RookConfiguration(
-      Secrets.clientUUID,
-      Secrets.secretKey,
-      rookEnvironment,
+      clientUUID: Secrets.clientUUID,
+      secretKey: Secrets.secretKey,
+      environment: rookEnvironment,
+      enableBackgroundSync: true,
     );
 
     configurationOutput.clear();
@@ -238,7 +241,9 @@ class _SdkAppleHealthConfigurationState
       enableDrag: false,
       builder: (BuildContext context) {
         return FutureBuilder(
-          future: AHRookDataSources.getAvailableDataSources(),
+          future: AHRookDataSources.getAvailableDataSources(
+            redirectUrl: null,
+          ),
           builder: (
             BuildContext ctx,
             AsyncSnapshot<List<DataSource>> snapshot,

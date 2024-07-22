@@ -42,4 +42,10 @@ public interface RookConfigurationProtoOrBuilder extends
    * @return The environment.
    */
   com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto getEnvironment();
+
+  /**
+   * <code>bool enableBackgroundSync = 4;</code>
+   * @return The enableBackgroundSync.
+   */
+  boolean getEnableBackgroundSync();
 }

@@ -23,15 +23,11 @@ class AHRookContinuousUpload {
     required String secretKey,
     required RookEnvironment environment,
   }) {
-    final rookConfiguration = RookConfiguration(
+    return RookSdkAppleHealthPlatform.instance.enableContinuousUpload(
+      enableNativeLogs,
       clientUUID,
       secretKey,
       environment,
-    );
-
-    return RookSdkAppleHealthPlatform.instance.enableContinuousUpload(
-      enableNativeLogs,
-      rookConfiguration,
     );
   }
 

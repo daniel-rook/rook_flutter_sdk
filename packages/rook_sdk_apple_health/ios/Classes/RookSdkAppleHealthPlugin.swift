@@ -31,12 +31,12 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 flutterResult: result,
                 builder: { try RookConfigurationProto(serializedData: bytes.data) },
                 block: { it in
+                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
-                        secretKey: it.secretKey
+                        secretKey: it.secretKey,
+                        enableBackgroundSync: it.enableBackgroundSync
                     )
-                    
-                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
                     
                     resultBoolSuccess(flutterResult: result, true)
                 }
@@ -315,12 +315,12 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 builder: { try RookConfigurationProto(serializedData: bytes.data) },
                 block: { it in
                     RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
+                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
-                        secretKey: it.secretKey
+                        secretKey: it.secretKey,
+                        enableBackgroundSync: true
                     )
-                    
-                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
                     
                     RookConnectConfigurationManager.shared.initRook { it in
                         switch it {
@@ -349,12 +349,12 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 builder: { try RookConfigurationProto(serializedData: bytes.data) },
                 block: { it in
                     RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
+                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
-                        secretKey: it.secretKey
+                        secretKey: it.secretKey,
+                        enableBackgroundSync: true
                     )
-                    
-                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
                     
                     RookConnectConfigurationManager.shared.initRook { it in
                         switch it {
@@ -377,7 +377,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             resultBoolSuccess(flutterResult: result, true)
             break
         case "getAvailableDataSources":
-            dataSourcesManager.getAvailableDataSources() { it in
+            let redirectUrl = call.getNullableStringArgAt(0)
+            
+            dataSourcesManager.getAvailableDataSources(redirectURL: redirectUrl) { it in
                 switch it {
                 case Result.success(let dataSources):
                     resultDataSourceSuccess(flutterResult: result, dataSources)
@@ -388,7 +390,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             break
         case "presentDataSourceView":
             DispatchQueue.main.async {
-                self.dataSourcesManager.presentDataSourceView() { it in
+                let redirectUrl = call.getNullableStringArgAt(0)
+                
+                self.dataSourcesManager.presentDataSourceView(redirectURL: redirectUrl) { it in
                     switch it {
                     case Result.success(let success):
                         resultBoolSuccess(flutterResult: result, success)

@@ -106,7 +106,9 @@ class _SdkHealthConnectConfigurationState
             FilledButton(
               onPressed: enableNavigation
                   ? () {
-                      HCRookDataSources.presentDataSourceView();
+                      HCRookDataSources.presentDataSourceView(
+                        redirectUrl: "https://tryrook.io",
+                      );
                     }
                   : null,
               child: const Text('Connections page (pre-built)'),
@@ -118,26 +120,29 @@ class _SdkHealthConnectConfigurationState
   }
 
   void attemptToEnableYesterdaySync() {
-    logger.info('Attempting to enable yesterday sync...');
+    // Already using the enableBackgroundSync parameter on RookConfiguration,
+    // the following is not necessary
 
-    SharedPreferences.getInstance().then((prefs) {
-      final userAcceptedYesterdaySync =
-          prefs.getBool("ACCEPTED_YESTERDAY_SYNC") ?? false;
-
-      if (userAcceptedYesterdaySync) {
-        logger.info('User accepted yesterday sync');
-
-        HCRookYesterdaySyncManager.scheduleYesterdaySync(
-          enableNativeLogs: isDebug,
-          clientUUID: Secrets.clientUUID,
-          secretKey: Secrets.secretKey,
-          environment: rookEnvironment,
-          doOnEnd: HCSyncInstruction.nothing,
-        );
-      } else {
-        logger.info('User did not accept yesterday sync');
-      }
-    });
+    // logger.info('Attempting to enable yesterday sync...');
+    //
+    // SharedPreferences.getInstance().then((prefs) {
+    //   final userAcceptedYesterdaySync =
+    //       prefs.getBool("ACCEPTED_YESTERDAY_SYNC") ?? false;
+    //
+    //   if (userAcceptedYesterdaySync) {
+    //     logger.info('User accepted yesterday sync');
+    //
+    //     HCRookYesterdaySyncManager.scheduleYesterdaySync(
+    //       enableNativeLogs: isDebug,
+    //       clientUUID: Secrets.clientUUID,
+    //       secretKey: Secrets.secretKey,
+    //       environment: rookEnvironment,
+    //       doOnEnd: HCSyncInstruction.nothing,
+    //     );
+    //   } else {
+    //     logger.info('User did not accept yesterday sync');
+    //   }
+    // });
   }
 
   String? validate(String? value) {
@@ -147,11 +152,17 @@ class _SdkHealthConnectConfigurationState
     return null;
   }
 
-  void setConfiguration() {
+  void setConfiguration() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    final enableBackgroundSync = sharedPreferences.getBool(
+      "ACCEPTED_YESTERDAY_SYNC",
+    );
+
     final rookConfiguration = RookConfiguration(
-      Secrets.clientUUID,
-      Secrets.secretKey,
-      rookEnvironment,
+      clientUUID: Secrets.clientUUID,
+      secretKey: Secrets.secretKey,
+      environment: rookEnvironment,
+      enableBackgroundSync: enableBackgroundSync ?? false,
     );
 
     configurationOutput.clear();
@@ -181,7 +192,8 @@ class _SdkHealthConnectConfigurationState
       final error = switch (exception) {
         (MissingConfigurationException it) =>
           'MissingConfigurationException: ${it.message}',
-        (SDKNotAuthorizedException it) => 'SDKNotAuthorizedException: ${it.message}',
+        (SDKNotAuthorizedException it) =>
+          'SDKNotAuthorizedException: ${it.message}',
         (ConnectTimeoutException it) => 'TimeoutException: ${it.message}',
         _ => exception.toString(),
       };
@@ -280,7 +292,9 @@ class _SdkHealthConnectConfigurationState
       enableDrag: false,
       builder: (BuildContext context) {
         return FutureBuilder(
-          future: HCRookDataSources.getAvailableDataSources(),
+          future: HCRookDataSources.getAvailableDataSources(
+            redirectUrl: null,
+          ),
           builder: (
             BuildContext ctx,
             AsyncSnapshot<List<DataSource>> snapshot,

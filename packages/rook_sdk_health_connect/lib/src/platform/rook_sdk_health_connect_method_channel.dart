@@ -9,6 +9,7 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_wi
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/rook_environment_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/sync_instruction_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
@@ -482,11 +483,18 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   @override
   Future<void> scheduleYesterdaySync(
     bool enableNativeLogs,
-    RookConfiguration rookConfiguration,
-    HCSyncInstruction syncInstruction,
+    String clientUUID,
+    String secretKey,
+    RookEnvironment environment,
+    HCSyncInstruction doOnEnd,
   ) async {
-    final rookConfigurationProto = rookConfiguration.toProto();
-    final syncInstructionProto = syncInstruction.toProto();
+    final rookConfigurationProto = RookConfigurationProto(
+      clientUUID: clientUUID,
+      secretKey: secretKey,
+      environment: environment.toProto(),
+      enableBackgroundSync: false,
+    );
+    final syncInstructionProto = doOnEnd.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(
       'scheduleYesterdaySync',
@@ -503,9 +511,12 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<List<DataSource>> getAvailableDataSources() async {
+  Future<List<DataSource>> getAvailableDataSources(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAvailableDataSources',
+      [
+        redirectUrl,
+      ],
     );
 
     final result = ResultDataSourceProto.fromBuffer(bytes);
@@ -514,9 +525,12 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> presentDataSourceView() async {
+  Future<void> presentDataSourceView(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'presentDataSourceView',
+      [
+        redirectUrl,
+      ],
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);

@@ -1,41 +1,20 @@
 package com.rookmotion.rook_sdk_health_connect
 
 import android.app.Activity
-import android.content.Context
 import com.rookmotion.rook.sdk.RookConfigurationManager
-import com.rookmotion.rook.sdk.RookDataSources
 import com.rookmotion.rook.sdk.RookEventManager
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
-import com.rookmotion.rook.sdk.RookHelpers
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSummaryManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
-import com.rookmotion.rook.sdk.RookYesterdaySyncPermissions
-import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
-import com.rookmotion.rook.sdk.internal.analytics.RookFramework
-import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.SyncInstructionProto
-import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.intSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesError
-import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Error
-import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Success
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusError
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusWithIntError
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusWithIntSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.throwable
-import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
-import com.rookmotion.rook_sdk_health_connect.mapper.toDomain
-import com.rookmotion.rook_sdk_health_connect.mapper.toProto
+import com.rookmotion.rook_sdk_health_connect.handler.ConfigurationHandler
+import com.rookmotion.rook_sdk_health_connect.handler.DataSourcesHandler
+import com.rookmotion.rook_sdk_health_connect.handler.EventHandler
+import com.rookmotion.rook_sdk_health_connect.handler.HelperHandler
+import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandler
+import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
+import com.rookmotion.rook_sdk_health_connect.handler.SummaryHandler
+import com.rookmotion.rook_sdk_health_connect.handler.YesterdaySyncHandler
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -47,588 +26,120 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
-import java.time.Instant
 
 /** RookSdkHealthConnectPlugin */
 class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
-    private lateinit var channel: MethodChannel
-    private lateinit var scope: CoroutineScope
+    private lateinit var methodChannel: MethodChannel
+    private lateinit var coroutineScope: CoroutineScope
 
-    private var context: Context? = null
+    private lateinit var configurationHandler: ConfigurationHandler
+    private lateinit var permissionsHandler: PermissionsHandler
+    private lateinit var summaryHandler: SummaryHandler
+    private lateinit var eventHandler: EventHandler
+    private lateinit var helperHandler: HelperHandler
+    private lateinit var stepsHandler: StepsHandler
+    private lateinit var yesterdaySyncHandler: YesterdaySyncHandler
+    private lateinit var dataSourcesHandler: DataSourcesHandler
+
     private var activity: Activity? = null
 
-    private lateinit var rookConfigurationManager: RookConfigurationManager
-    private lateinit var rookHealthPermissionsManager: RookHealthPermissionsManager
-    private lateinit var rookSummaryManager: RookSummaryManager
-    private lateinit var rookEventManager: RookEventManager
-    private lateinit var rookStepsManager: RookStepsManager
-    private lateinit var rookYesterdaySyncManager: RookYesterdaySyncManager
-    private lateinit var rookDataSources: RookDataSources
-
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        context = flutterPluginBinding.applicationContext
+        coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
-        rookConfigurationManager = RookConfigurationManager(flutterPluginBinding.applicationContext)
-        rookHealthPermissionsManager = RookHealthPermissionsManager(rookConfigurationManager)
-        rookSummaryManager = RookSummaryManager(rookConfigurationManager)
-        rookEventManager = RookEventManager(rookConfigurationManager)
-        rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
-        rookYesterdaySyncManager = RookYesterdaySyncManager(flutterPluginBinding.applicationContext)
-        rookDataSources = RookDataSources(flutterPluginBinding.applicationContext)
+        val rookConfigurationManager = RookConfigurationManager(flutterPluginBinding.applicationContext)
+        val rookHealthPermissionsManager = RookHealthPermissionsManager(rookConfigurationManager)
+        val rookSummaryManager = RookSummaryManager(rookConfigurationManager)
+        val rookEventManager = RookEventManager(rookConfigurationManager)
+        val rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
+        val yesterdaySyncManager = RookYesterdaySyncManager(flutterPluginBinding.applicationContext)
 
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "rook_sdk_health_connect")
-        scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-        channel.setMethodCallHandler(this)
+        configurationHandler = ConfigurationHandler(
+            coroutineScope = coroutineScope,
+            rookConfigurationManager = rookConfigurationManager,
+            rookYesterdaySyncManager = yesterdaySyncManager,
+            rookStepsManager = rookStepsManager,
+        )
+        permissionsHandler = PermissionsHandler(
+            context = flutterPluginBinding.applicationContext,
+            coroutineScope = coroutineScope,
+            rookHealthPermissionsManager = rookHealthPermissionsManager,
+        )
+        summaryHandler = SummaryHandler(coroutineScope, rookSummaryManager)
+        eventHandler = EventHandler(coroutineScope, rookEventManager)
+        helperHandler = HelperHandler(coroutineScope)
+        stepsHandler = StepsHandler(flutterPluginBinding.applicationContext, coroutineScope, rookStepsManager)
+        yesterdaySyncHandler = YesterdaySyncHandler(
+            context = flutterPluginBinding.applicationContext,
+            coroutineScope = coroutineScope,
+            rookYesterdaySyncManager = yesterdaySyncManager,
+        )
+        dataSourcesHandler = DataSourcesHandler(flutterPluginBinding.applicationContext, coroutineScope)
+
+        methodChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "rook_sdk_health_connect")
+        methodChannel.setMethodCallHandler(this)
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
-            "enableNativeLogs" -> {
-                rookConfigurationManager.enableLocalLogs()
-
-                result.resultBooleanSuccess(true)
-            }
-
-            "setConfiguration" -> {
-                val rookConfiguration = call.getByteArrayArgAt(0).let {
-                    RookConfigurationProto.parseFrom(it).toDomain()
-                }
-
-                rookConfigurationManager.setConfiguration(rookConfiguration)
-
-                result.resultBooleanSuccess(true)
-            }
-
-            "getUserID" -> {
-                val userID = rookConfigurationManager.getUserID()
-
-                result.success(userID)
-            }
-
-            "initRook" -> scope.launch {
-                RookAnalytics.setFramework(RookFramework.FLUTTER)
-
-                rookConfigurationManager.initRook().fold(
-                    {
-                        result.resultBooleanSuccess(true)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "updateUserID" -> scope.launch {
-                val userID = call.getStringArgAt(0)
-
-                rookConfigurationManager.updateUserID(userID).fold(
-                    {
-                        result.resultBooleanSuccess(true)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "clearUserID" -> {
-                rookConfigurationManager.clearUserID()
-
-                result.resultBooleanSuccess(true)
-            }
-
-            "deleteUserFromRook" -> scope.launch {
-                rookConfigurationManager.deleteUserFromRook().fold(
-                    {
-                        result.resultBooleanSuccess(true)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "syncUserTimeZone" -> scope.launch {
-                rookConfigurationManager.syncUserTimeZone().fold(
-                    {
-                        result.resultBooleanSuccess(true)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "checkAvailability" -> {
-                try {
-                    val hcAvailabilityStatus = RookHealthPermissionsManager.checkAvailability(
-                        context!!,
-                    )
-                    val proto = hcAvailabilityStatus.toProto()
-
-                    result.intSuccess(proto.number)
-                } catch (exception: NullPointerException) {
-                    result.throwable(exception)
-                }
-            }
-
-            "openHealthConnectSettings" -> scope.launch {
-                rookHealthPermissionsManager.openHealthConnectSettings().fold(
-                    {
-                        result.resultBooleanSuccess(true)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "checkPermissions" -> scope.launch {
-                rookHealthPermissionsManager.checkPermissions().fold(
-                    {
-                        result.resultBooleanSuccess(it)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "requestPermissions" -> {
-                try {
-                    HealthConnectPermissionsActivity.launch(context!!)
-
-                    result.resultBooleanSuccess(true)
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "shouldSyncFor" -> scope.launch {
-                val healthDataType = call.getIntArgAt(0).let {
-                    HealthDataTypeProto.forNumber(it).toDomain()
-                }
-
-                val localDate = call.getLongArgAt(1).let {
-                    Instant.ofEpochMilli(it).toLocalDate()
-                }
-
-                RookHelpers.shouldSyncFor(healthDataType, localDate).fold(
-                    {
-                        result.resultBooleanSuccess(it)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "syncSleepSummary" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookSummaryManager.syncSleepSummary(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncBodySummary" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookSummaryManager.syncBodySummary(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncPhysicalSummary" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookSummaryManager.syncPhysicalSummary(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncPendingSummaries" -> scope.launch {
-                rookSummaryManager.syncPendingSummaries().fold(
-                    {
-                        result.resultBooleanSuccess(true)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "syncPhysicalEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncPhysicalEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncBloodGlucoseEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncBloodGlucoseEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncBloodPressureEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncBloodPressureEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncBodyMetricsEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncBodyMetricsEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncBodyHeartRateEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncBodyHeartRateEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncPhysicalHeartRateEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncPhysicalHeartRateEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncHydrationEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncHydrationEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncNutritionEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncNutritionEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncBodyOxygenationEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncBodyOxygenationEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncPhysicalOxygenationEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncPhysicalOxygenationEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncTemperatureEvents" -> scope.launch {
-                val millis = call.getLongArgAt(0)
-                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
-
-                rookEventManager.syncTemperatureEvents(localDate).fold(
-                    {
-                        result.resultSyncStatusSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusError(it)
-                    }
-                )
-            }
-
-            "syncTodayHealthConnectStepsCount" -> scope.launch {
-                rookEventManager.syncTodayHealthConnectStepsCount().fold(
-                    {
-                        result.resultSyncStatusWithIntSuccess(it)
-                    },
-                    {
-                        result.resultSyncStatusWithIntError(it)
-                    }
-                )
-            }
-
-            "syncPendingEvents" -> scope.launch {
-                rookEventManager.syncPendingEvents().fold(
-                    {
-                        result.resultBooleanSuccess(true)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
-
-            "isStepsAvailable" -> {
-                try {
-                    val isAvailable = rookStepsManager.isAvailable()
-
-                    result.resultBooleanSuccess(isAvailable)
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "isBackgroundAndroidStepsActive" -> scope.launch {
-                val isActive = rookStepsManager.isBackgroundAndroidStepsActive()
-
-                result.resultBooleanSuccess(isActive)
-            }
-
-            "hasStepsPermissions" -> {
-                try {
-                    val hasPermissions = rookStepsManager.hasPermissions()
-
-                    result.resultBooleanSuccess(hasPermissions)
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "requestStepsPermissions" -> {
-                try {
-                    rookStepsManager.requestPermissions()
-
-                    result.resultBooleanSuccess(true)
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "enableBackgroundAndroidSteps" -> {
-                try {
-                    rookStepsManager.enableBackgroundAndroidSteps().fold(
-                        {
-                            result.resultBooleanSuccess(true)
-                        },
-                        {
-                            result.resultBooleanError(it)
-                        }
-                    )
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "disableBackgroundAndroidSteps" -> {
-                try {
-                    rookStepsManager.disableBackgroundAndroidSteps().fold(
-                        {
-                            result.resultBooleanSuccess(true)
-                        },
-                        {
-                            result.resultBooleanError(it)
-                        }
-                    )
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "syncTodayAndroidStepsCount" -> scope.launch {
-                rookStepsManager.syncTodayAndroidStepsCount().fold(
-                    {
-                        result.resultInt64Success(it)
-                    },
-                    {
-                        result.resultInt64Error(it)
-                    }
-                )
-            }
-
-            "hasYesterdaySyncAndroidPermissions" -> {
-                try {
-                    val hasPermissions = RookYesterdaySyncPermissions.hasAndroidPermissions(
-                        context!!
-                    )
-
-                    result.resultBooleanSuccess(hasPermissions)
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "requestYesterdaySyncAndroidPermissions" -> {
-                try {
-                    RookYesterdaySyncPermissions.requestAndroidPermissions(context!!)
-
-                    result.resultBooleanSuccess(true)
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "hasYesterdaySyncHealthConnectPermissions" -> scope.launch {
-                try {
-                    val hasPermissions = RookYesterdaySyncPermissions.hasHealthConnectPermissions(
-                        context!!
-                    )
-
-                    result.resultBooleanSuccess(hasPermissions)
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "requestYesterdaySyncHealthConnectPermissions" -> {
-                try {
-                    RookYesterdaySyncPermissions.requestHealthConnectPermissions(context!!)
-
-                    result.resultBooleanSuccess(true)
-                } catch (exception: NullPointerException) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "scheduleYesterdaySync" -> scope.launch {
-                try {
-                    val enableNativeLogs = call.getBooleanArgAt(0)
-
-                    val rookConfiguration = call.getByteArrayArgAt(1).let {
-                        RookConfigurationProto.parseFrom(it).toDomain()
-                    }
-
-                    val syncInstruction = call.getIntArgAt(2).let {
-                        SyncInstructionProto.forNumber(it).toDomain()
-                    }
-
-                    rookYesterdaySyncManager.scheduleYesterdaySync(
-                        enableNativeLogs,
-                        rookConfiguration.clientUUID,
-                        rookConfiguration.secretKey,
-                        rookConfiguration.environment,
-                        syncInstruction
-                    )
-
-                    result.resultBooleanSuccess(true)
-                } catch (exception: Exception) {
-                    result.resultBooleanError(exception)
-                }
-            }
-
-            "getAvailableDataSources" -> scope.launch {
-                rookDataSources.getAvailableDataSources().fold(
-                    {
-                        result.resultDataSourcesSuccess(it)
-                    },
-                    {
-                        result.resultDataSourcesError(it)
-                    }
-                )
-            }
-
-            "presentDataSourceView" -> scope.launch {
-                rookDataSources.presentDataSourceView().fold(
-                    {
-                        result.resultBooleanSuccess(true)
-                    },
-                    {
-                        result.resultBooleanError(it)
-                    }
-                )
-            }
+            "enableNativeLogs" -> configurationHandler.onMethodCall(call, result)
+            "setConfiguration" -> configurationHandler.onMethodCall(call, result)
+            "getUserID" -> configurationHandler.onMethodCall(call, result)
+            "initRook" -> configurationHandler.onMethodCall(call, result)
+            "updateUserID" -> configurationHandler.onMethodCall(call, result)
+            "clearUserID" -> configurationHandler.onMethodCall(call, result)
+            "deleteUserFromRook" -> configurationHandler.onMethodCall(call, result)
+            "syncUserTimeZone" -> configurationHandler.onMethodCall(call, result)
+
+            "checkAvailability" -> permissionsHandler.onMethodCall(call, result)
+            "openHealthConnectSettings" -> permissionsHandler.onMethodCall(call, result)
+            "checkPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "requestPermissions" -> permissionsHandler.onMethodCall(call, result)
+
+            "shouldSyncFor" -> helperHandler.onMethodCall(call, result)
+
+            "syncSleepSummary" -> summaryHandler.onMethodCall(call, result)
+            "syncBodySummary" -> summaryHandler.onMethodCall(call, result)
+            "syncPhysicalSummary" -> summaryHandler.onMethodCall(call, result)
+            "syncPendingSummaries" -> summaryHandler.onMethodCall(call, result)
+
+            "syncPhysicalEvents" -> eventHandler.onMethodCall(call, result)
+            "syncBloodGlucoseEvents" -> eventHandler.onMethodCall(call, result)
+            "syncBloodPressureEvents" -> eventHandler.onMethodCall(call, result)
+            "syncBodyMetricsEvents" -> eventHandler.onMethodCall(call, result)
+            "syncBodyHeartRateEvents" -> eventHandler.onMethodCall(call, result)
+            "syncPhysicalHeartRateEvents" -> eventHandler.onMethodCall(call, result)
+            "syncHydrationEvents" -> eventHandler.onMethodCall(call, result)
+            "syncNutritionEvents" -> eventHandler.onMethodCall(call, result)
+            "syncBodyOxygenationEvents" -> eventHandler.onMethodCall(call, result)
+            "syncPhysicalOxygenationEvents" -> eventHandler.onMethodCall(call, result)
+            "syncTemperatureEvents" -> eventHandler.onMethodCall(call, result)
+            "syncTodayHealthConnectStepsCount" -> eventHandler.onMethodCall(call, result)
+            "syncPendingEvents" -> eventHandler.onMethodCall(call, result)
+
+            "isStepsAvailable" -> stepsHandler.onMethodCall(call, result)
+            "isBackgroundAndroidStepsActive" -> stepsHandler.onMethodCall(call, result)
+            "hasStepsPermissions" -> stepsHandler.onMethodCall(call, result)
+            "requestStepsPermissions" -> stepsHandler.onMethodCall(call, result)
+            "enableBackgroundAndroidSteps" -> stepsHandler.onMethodCall(call, result)
+            "disableBackgroundAndroidSteps" -> stepsHandler.onMethodCall(call, result)
+            "syncTodayAndroidStepsCount" -> stepsHandler.onMethodCall(call, result)
+
+            "hasYesterdaySyncAndroidPermissions" -> yesterdaySyncHandler.onMethodCall(call, result)
+            "requestYesterdaySyncAndroidPermissions" -> yesterdaySyncHandler.onMethodCall(call, result)
+            "hasYesterdaySyncHealthConnectPermissions" -> yesterdaySyncHandler.onMethodCall(call, result)
+            "requestYesterdaySyncHealthConnectPermissions" -> yesterdaySyncHandler.onMethodCall(call, result)
+            "scheduleYesterdaySync" -> yesterdaySyncHandler.onMethodCall(call, result)
+
+            "getAvailableDataSources" -> dataSourcesHandler.onMethodCall(call, result)
+            "presentDataSourceView" -> dataSourcesHandler.onMethodCall(call, result)
 
             else -> result.notImplemented()
         }
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        channel.setMethodCallHandler(null)
-        scope.cancel()
+        methodChannel.setMethodCallHandler(null)
+        coroutineScope.cancel()
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
