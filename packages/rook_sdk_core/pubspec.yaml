@@ -1,6 +1,6 @@
 name: rook_sdk_core
 description: Core functionality for rook_sdk_health_connect and rook_sdk_apple_health packages.
-version: 0.3.0
+version: 0.3.1
 homepage: 'https://docs.tryrook.io/'
 platforms:
   android:

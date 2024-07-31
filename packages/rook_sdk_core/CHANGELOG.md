@@ -1,3 +1,7 @@
+## 0.3.1
+
+* Added RequestPermissionsStatus
+
 ## 0.3.0
 
 * Added `enableBackgroundSync` to RookConfiguration.
