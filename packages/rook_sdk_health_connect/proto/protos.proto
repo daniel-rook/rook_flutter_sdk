@@ -27,20 +27,25 @@ enum SyncInstructionProto {
 }
 
 enum HealthDataTypeProto {
-  SLEEP_SUMMARY = 0 ;
-  PHYSICAL_SUMMARY = 1 ;
-  BODY_SUMMARY = 2 ;
-  PHYSICAL_EVENT = 3 ;
-  BLOOD_GLUCOSE_BODY_EVENT = 4 ;
-  BLOOD_PRESSURE_BODY_EVENT = 5 ;
-  BODY_METRICS_EVENT = 6 ;
-  HEART_RATE_BODY_EVENT = 7 ;
-  HEART_RATE_PHYSICAL_EVENT = 8 ;
-  HYDRATION_BODY_EVENT = 9 ;
-  NUTRITION_BODY_EVENT = 10 ;
-  OXYGENATION_BODY_EVENT = 11 ;
-  OXYGENATION_PHYSICAL_EVENT = 12 ;
-  TEMPERATURE_BODY_EVENT = 13 ;
+  SLEEP_SUMMARY = 0;
+  PHYSICAL_SUMMARY = 1;
+  BODY_SUMMARY = 2;
+  PHYSICAL_EVENT = 3;
+  BLOOD_GLUCOSE_BODY_EVENT = 4;
+  BLOOD_PRESSURE_BODY_EVENT = 5;
+  BODY_METRICS_EVENT = 6;
+  HEART_RATE_BODY_EVENT = 7;
+  HEART_RATE_PHYSICAL_EVENT = 8;
+  HYDRATION_BODY_EVENT = 9;
+  NUTRITION_BODY_EVENT = 10;
+  OXYGENATION_BODY_EVENT = 11;
+  OXYGENATION_PHYSICAL_EVENT = 12;
+  TEMPERATURE_BODY_EVENT = 13;
+}
+
+enum RequestPermissionsStatusProto {
+  REQUEST_SENT = 0;
+  ALREADY_GRANTED = 1;
 }
 
 message RookConfigurationProto {
@@ -115,6 +120,12 @@ message MissingAndroidPermissionsExceptionProto {
 
 message SDKNotAuthorizedExceptionProto {
   string message = 1;
+}
+
+message PluginExceptionProto {
+  sint32 id = 1;
+  sint32 code = 2;
+  string message = 3;
 }
 
 message ResultBooleanProto {
@@ -209,5 +220,12 @@ message ResultDataSourceProto {
     UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
     GenericExceptionProto genericExceptionProto = 11;
     SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
+  }
+}
+
+message ResultRequestPermissionsStatusProto {
+  oneof result {
+    RequestPermissionsStatusProto requestPermissionsStatusProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }

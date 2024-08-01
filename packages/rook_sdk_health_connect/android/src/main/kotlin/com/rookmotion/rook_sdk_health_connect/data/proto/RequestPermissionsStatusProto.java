@@ -5,45 +5,29 @@
 package com.rookmotion.rook_sdk_health_connect.data.proto;
 
 /**
- * Protobuf enum {@code HealthPermissionProto}
+ * Protobuf enum {@code RequestPermissionsStatusProto}
  */
-public enum HealthPermissionProto
+public enum RequestPermissionsStatusProto
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>SLEEP = 0;</code>
+   * <code>REQUEST_SENT = 0;</code>
    */
-  SLEEP(0),
+  REQUEST_SENT(0),
   /**
-   * <code>PHYSICAL = 1;</code>
+   * <code>ALREADY_GRANTED = 1;</code>
    */
-  PHYSICAL(1),
-  /**
-   * <code>BODY = 2;</code>
-   */
-  BODY(2),
-  /**
-   * <code>ALL = 3;</code>
-   */
-  ALL(3),
+  ALREADY_GRANTED(1),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>SLEEP = 0;</code>
+   * <code>REQUEST_SENT = 0;</code>
    */
-  public static final int SLEEP_VALUE = 0;
+  public static final int REQUEST_SENT_VALUE = 0;
   /**
-   * <code>PHYSICAL = 1;</code>
+   * <code>ALREADY_GRANTED = 1;</code>
    */
-  public static final int PHYSICAL_VALUE = 1;
-  /**
-   * <code>BODY = 2;</code>
-   */
-  public static final int BODY_VALUE = 2;
-  /**
-   * <code>ALL = 3;</code>
-   */
-  public static final int ALL_VALUE = 3;
+  public static final int ALREADY_GRANTED_VALUE = 1;
 
 
   public final int getNumber() {
@@ -60,7 +44,7 @@ public enum HealthPermissionProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static HealthPermissionProto valueOf(int value) {
+  public static RequestPermissionsStatusProto valueOf(int value) {
     return forNumber(value);
   }
 
@@ -68,25 +52,23 @@ public enum HealthPermissionProto
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static HealthPermissionProto forNumber(int value) {
+  public static RequestPermissionsStatusProto forNumber(int value) {
     switch (value) {
-      case 0: return SLEEP;
-      case 1: return PHYSICAL;
-      case 2: return BODY;
-      case 3: return ALL;
+      case 0: return REQUEST_SENT;
+      case 1: return ALREADY_GRANTED;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<HealthPermissionProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<RequestPermissionsStatusProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      HealthPermissionProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<HealthPermissionProto>() {
-          public HealthPermissionProto findValueByNumber(int number) {
-            return HealthPermissionProto.forNumber(number);
+      RequestPermissionsStatusProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RequestPermissionsStatusProto>() {
+          public RequestPermissionsStatusProto findValueByNumber(int number) {
+            return RequestPermissionsStatusProto.forNumber(number);
           }
         };
 
@@ -104,12 +86,12 @@ public enum HealthPermissionProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.getDescriptor().getEnumTypes().get(2);
+    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.getDescriptor().getEnumTypes().get(5);
   }
 
-  private static final HealthPermissionProto[] VALUES = values();
+  private static final RequestPermissionsStatusProto[] VALUES = values();
 
-  public static HealthPermissionProto valueOf(
+  public static RequestPermissionsStatusProto valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -123,10 +105,10 @@ public enum HealthPermissionProto
 
   private final int value;
 
-  private HealthPermissionProto(int value) {
+  private RequestPermissionsStatusProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:HealthPermissionProto)
+  // @@protoc_insertion_point(enum_scope:RequestPermissionsStatusProto)
 }
 

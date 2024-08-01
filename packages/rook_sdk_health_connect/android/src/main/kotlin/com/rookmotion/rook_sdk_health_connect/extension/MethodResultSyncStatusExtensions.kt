@@ -4,7 +4,7 @@ import com.rookmotion.rook.sdk.domain.enums.SyncStatus
 import com.rookmotion.rook.sdk.domain.exception.DeviceNotSupportedException
 import com.rookmotion.rook.sdk.domain.exception.HealthConnectNotInstalledException
 import com.rookmotion.rook.sdk.domain.exception.HttpRequestException
-import com.rookmotion.rook.sdk.domain.exception.MissingPermissionsException
+import com.rookmotion.rook.sdk.domain.exception.MissingHealthConnectPermissionsException
 import com.rookmotion.rook.sdk.domain.exception.RequestQuotaExceededException
 import com.rookmotion.rook.sdk.domain.exception.SDKNotAuthorizedException
 import com.rookmotion.rook.sdk.domain.exception.SDKNotInitializedException
@@ -40,7 +40,7 @@ fun MethodChannel.Result.resultSyncStatusError(throwable: Throwable) {
             resultSyncStatusProtoBuilder.setHttpRequestExceptionProto(throwable.toProto())
         }
 
-        is MissingPermissionsException -> {
+        is MissingHealthConnectPermissionsException -> {
             resultSyncStatusProtoBuilder.setMissingPermissionsExceptionProto(throwable.toProto())
         }
 

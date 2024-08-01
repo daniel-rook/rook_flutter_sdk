@@ -1,6 +1,5 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
-import android.content.Context
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
@@ -12,7 +11,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class StepsHandler(
-    context: Context,
     private val coroutineScope: CoroutineScope,
     private val rookStepsManager: RookStepsManager,
 ) {

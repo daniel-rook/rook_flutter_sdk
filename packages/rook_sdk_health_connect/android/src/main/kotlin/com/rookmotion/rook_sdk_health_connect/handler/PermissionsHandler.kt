@@ -1,12 +1,14 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
-import android.content.Context
-import com.rookmotion.rook.sdk.RookHealthPermissionsManager
-import com.rookmotion.rook_sdk_health_connect.HealthConnectPermissionsActivity
+import android.app.Activity
+import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
+import com.rookmotion.rook_sdk_health_connect.extension.boolean
+import com.rookmotion.rook_sdk_health_connect.extension.int
+import com.rookmotion.rook_sdk_health_connect.extension.requestPermissionsStatusError
+import com.rookmotion.rook_sdk_health_connect.extension.requestPermissionsStatusSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
 import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.intSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.throwable
 import com.rookmotion.rook_sdk_health_connect.mapper.toProto
 import io.flutter.plugin.common.MethodCall
@@ -14,26 +16,31 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class PermissionsHandler(
-    private val context: Context,
     private val coroutineScope: CoroutineScope,
-    private val rookHealthPermissionsManager: RookHealthPermissionsManager,
+    private val rookPermissionsManager: RookPermissionsManager,
 ) {
+
+    private var activity: Activity? = null
+
+    fun setActivity(activity: Activity?) {
+        this.activity = activity
+    }
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
-            "checkAvailability" -> {
+            "checkHealthConnectAvailability" -> {
                 try {
-                    val hcAvailabilityStatus = RookHealthPermissionsManager.checkAvailability(context)
+                    val hcAvailabilityStatus = rookPermissionsManager.checkHealthConnectAvailability()
                     val proto = hcAvailabilityStatus.toProto()
 
-                    methodResult.intSuccess(proto.number)
+                    methodResult.int(proto.number)
                 } catch (exception: NullPointerException) {
                     methodResult.throwable(exception)
                 }
             }
 
             "openHealthConnectSettings" -> coroutineScope.launch {
-                rookHealthPermissionsManager.openHealthConnectSettings().fold(
+                rookPermissionsManager.openHealthConnectSettings().fold(
                     {
                         methodResult.resultBooleanSuccess(true)
                     },
@@ -43,8 +50,8 @@ class PermissionsHandler(
                 )
             }
 
-            "checkPermissions" -> coroutineScope.launch {
-                rookHealthPermissionsManager.checkPermissions().fold(
+            "checkHealthConnectPermissions" -> coroutineScope.launch {
+                rookPermissionsManager.checkHealthConnectPermissions().fold(
                     {
                         methodResult.resultBooleanSuccess(it)
                     },
@@ -54,14 +61,40 @@ class PermissionsHandler(
                 )
             }
 
-            "requestPermissions" -> {
-                try {
-                    HealthConnectPermissionsActivity.launch(context)
+            "requestHealthConnectPermissions" -> coroutineScope.launch {
+                rookPermissionsManager.requestHealthConnectPermissions().fold(
+                    {
+                        methodResult.requestPermissionsStatusSuccess(it)
+                    },
+                    {
+                        methodResult.requestPermissionsStatusError(it)
+                    }
+                )
+            }
 
-                    methodResult.resultBooleanSuccess(true)
-                } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+            "checkAndroidPermissions" -> {
+                val hasAndroidPermissions = rookPermissionsManager.checkAndroidPermissions()
+
+                methodResult.boolean(hasAndroidPermissions)
+            }
+
+            "shouldRequestAndroidPermissions" -> {
+                try {
+                    val shouldRequestAndroidPermissions = RookPermissionsManager.shouldRequestAndroidPermissions(
+                        activity!!,
+                    )
+
+                    methodResult.boolean(shouldRequestAndroidPermissions)
+                } catch (exception: Exception) {
+                    methodResult.throwable(exception)
                 }
+            }
+
+            "requestAndroidPermissions" -> {
+                val requestPermissionsStatus = rookPermissionsManager.requestAndroidPermissions()
+                val code = requestPermissionsStatus.toProto().number
+
+                methodResult.int(code)
             }
 
             else -> Unit

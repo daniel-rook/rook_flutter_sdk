@@ -5,7 +5,7 @@ import com.rookmotion.rook.sdk.domain.exception.HealthConnectNotInstalledExcepti
 import com.rookmotion.rook.sdk.domain.exception.HttpRequestException
 import com.rookmotion.rook.sdk.domain.exception.MissingAndroidPermissionsException
 import com.rookmotion.rook.sdk.domain.exception.MissingConfigurationException
-import com.rookmotion.rook.sdk.domain.exception.MissingPermissionsException
+import com.rookmotion.rook.sdk.domain.exception.MissingHealthConnectPermissionsException
 import com.rookmotion.rook.sdk.domain.exception.RequestQuotaExceededException
 import com.rookmotion.rook.sdk.domain.exception.SDKNotAuthorizedException
 import com.rookmotion.rook.sdk.domain.exception.SDKNotInitializedException
@@ -45,7 +45,7 @@ fun MethodChannel.Result.resultBooleanError(throwable: Throwable) {
             resultBooleanProtoBuilder.setMissingConfigurationExceptionProto(throwable.toProto())
         }
 
-        is MissingPermissionsException -> {
+        is MissingHealthConnectPermissionsException -> {
             resultBooleanProtoBuilder.setMissingPermissionsExceptionProto(throwable.toProto())
         }
 

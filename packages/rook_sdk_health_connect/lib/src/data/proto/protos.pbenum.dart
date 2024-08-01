@@ -14,119 +14,86 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class RookEnvironmentProto extends $pb.ProtobufEnum {
-  static const RookEnvironmentProto SANDBOX =
-      RookEnvironmentProto._(0, _omitEnumNames ? '' : 'SANDBOX');
-  static const RookEnvironmentProto PRODUCTION =
-      RookEnvironmentProto._(1, _omitEnumNames ? '' : 'PRODUCTION');
+  static const RookEnvironmentProto SANDBOX = RookEnvironmentProto._(0, _omitEnumNames ? '' : 'SANDBOX');
+  static const RookEnvironmentProto PRODUCTION = RookEnvironmentProto._(1, _omitEnumNames ? '' : 'PRODUCTION');
 
-  static const $core.List<RookEnvironmentProto> values = <RookEnvironmentProto>[
+  static const $core.List<RookEnvironmentProto> values = <RookEnvironmentProto> [
     SANDBOX,
     PRODUCTION,
   ];
 
-  static final $core.Map<$core.int, RookEnvironmentProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, RookEnvironmentProto> _byValue = $pb.ProtobufEnum.initByValue(values);
   static RookEnvironmentProto? valueOf($core.int value) => _byValue[value];
 
   const RookEnvironmentProto._($core.int v, $core.String n) : super(v, n);
 }
 
 class AvailabilityStatusProto extends $pb.ProtobufEnum {
-  static const AvailabilityStatusProto INSTALLED =
-      AvailabilityStatusProto._(0, _omitEnumNames ? '' : 'INSTALLED');
-  static const AvailabilityStatusProto NOT_INSTALLED =
-      AvailabilityStatusProto._(1, _omitEnumNames ? '' : 'NOT_INSTALLED');
-  static const AvailabilityStatusProto NOT_SUPPORTED =
-      AvailabilityStatusProto._(2, _omitEnumNames ? '' : 'NOT_SUPPORTED');
+  static const AvailabilityStatusProto INSTALLED = AvailabilityStatusProto._(0, _omitEnumNames ? '' : 'INSTALLED');
+  static const AvailabilityStatusProto NOT_INSTALLED = AvailabilityStatusProto._(1, _omitEnumNames ? '' : 'NOT_INSTALLED');
+  static const AvailabilityStatusProto NOT_SUPPORTED = AvailabilityStatusProto._(2, _omitEnumNames ? '' : 'NOT_SUPPORTED');
 
-  static const $core.List<AvailabilityStatusProto> values =
-      <AvailabilityStatusProto>[
+  static const $core.List<AvailabilityStatusProto> values = <AvailabilityStatusProto> [
     INSTALLED,
     NOT_INSTALLED,
     NOT_SUPPORTED,
   ];
 
-  static final $core.Map<$core.int, AvailabilityStatusProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, AvailabilityStatusProto> _byValue = $pb.ProtobufEnum.initByValue(values);
   static AvailabilityStatusProto? valueOf($core.int value) => _byValue[value];
 
   const AvailabilityStatusProto._($core.int v, $core.String n) : super(v, n);
 }
 
 class SyncStatusProto extends $pb.ProtobufEnum {
-  static const SyncStatusProto SYNCED =
-      SyncStatusProto._(0, _omitEnumNames ? '' : 'SYNCED');
-  static const SyncStatusProto RECORDS_NOT_FOUND =
-      SyncStatusProto._(1, _omitEnumNames ? '' : 'RECORDS_NOT_FOUND');
+  static const SyncStatusProto SYNCED = SyncStatusProto._(0, _omitEnumNames ? '' : 'SYNCED');
+  static const SyncStatusProto RECORDS_NOT_FOUND = SyncStatusProto._(1, _omitEnumNames ? '' : 'RECORDS_NOT_FOUND');
 
-  static const $core.List<SyncStatusProto> values = <SyncStatusProto>[
+  static const $core.List<SyncStatusProto> values = <SyncStatusProto> [
     SYNCED,
     RECORDS_NOT_FOUND,
   ];
 
-  static final $core.Map<$core.int, SyncStatusProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, SyncStatusProto> _byValue = $pb.ProtobufEnum.initByValue(values);
   static SyncStatusProto? valueOf($core.int value) => _byValue[value];
 
   const SyncStatusProto._($core.int v, $core.String n) : super(v, n);
 }
 
 class SyncInstructionProto extends $pb.ProtobufEnum {
-  static const SyncInstructionProto NOTHING =
-      SyncInstructionProto._(0, _omitEnumNames ? '' : 'NOTHING');
-  static const SyncInstructionProto SYNC_OLDEST =
-      SyncInstructionProto._(1, _omitEnumNames ? '' : 'SYNC_OLDEST');
-  static const SyncInstructionProto SYNC_LATEST =
-      SyncInstructionProto._(2, _omitEnumNames ? '' : 'SYNC_LATEST');
+  static const SyncInstructionProto NOTHING = SyncInstructionProto._(0, _omitEnumNames ? '' : 'NOTHING');
+  static const SyncInstructionProto SYNC_OLDEST = SyncInstructionProto._(1, _omitEnumNames ? '' : 'SYNC_OLDEST');
+  static const SyncInstructionProto SYNC_LATEST = SyncInstructionProto._(2, _omitEnumNames ? '' : 'SYNC_LATEST');
 
-  static const $core.List<SyncInstructionProto> values = <SyncInstructionProto>[
+  static const $core.List<SyncInstructionProto> values = <SyncInstructionProto> [
     NOTHING,
     SYNC_OLDEST,
     SYNC_LATEST,
   ];
 
-  static final $core.Map<$core.int, SyncInstructionProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, SyncInstructionProto> _byValue = $pb.ProtobufEnum.initByValue(values);
   static SyncInstructionProto? valueOf($core.int value) => _byValue[value];
 
   const SyncInstructionProto._($core.int v, $core.String n) : super(v, n);
 }
 
 class HealthDataTypeProto extends $pb.ProtobufEnum {
-  static const HealthDataTypeProto SLEEP_SUMMARY =
-      HealthDataTypeProto._(0, _omitEnumNames ? '' : 'SLEEP_SUMMARY');
-  static const HealthDataTypeProto PHYSICAL_SUMMARY =
-      HealthDataTypeProto._(1, _omitEnumNames ? '' : 'PHYSICAL_SUMMARY');
-  static const HealthDataTypeProto BODY_SUMMARY =
-      HealthDataTypeProto._(2, _omitEnumNames ? '' : 'BODY_SUMMARY');
-  static const HealthDataTypeProto PHYSICAL_EVENT =
-      HealthDataTypeProto._(3, _omitEnumNames ? '' : 'PHYSICAL_EVENT');
-  static const HealthDataTypeProto BLOOD_GLUCOSE_BODY_EVENT =
-      HealthDataTypeProto._(
-          4, _omitEnumNames ? '' : 'BLOOD_GLUCOSE_BODY_EVENT');
-  static const HealthDataTypeProto BLOOD_PRESSURE_BODY_EVENT =
-      HealthDataTypeProto._(
-          5, _omitEnumNames ? '' : 'BLOOD_PRESSURE_BODY_EVENT');
-  static const HealthDataTypeProto BODY_METRICS_EVENT =
-      HealthDataTypeProto._(6, _omitEnumNames ? '' : 'BODY_METRICS_EVENT');
-  static const HealthDataTypeProto HEART_RATE_BODY_EVENT =
-      HealthDataTypeProto._(7, _omitEnumNames ? '' : 'HEART_RATE_BODY_EVENT');
-  static const HealthDataTypeProto HEART_RATE_PHYSICAL_EVENT =
-      HealthDataTypeProto._(
-          8, _omitEnumNames ? '' : 'HEART_RATE_PHYSICAL_EVENT');
-  static const HealthDataTypeProto HYDRATION_BODY_EVENT =
-      HealthDataTypeProto._(9, _omitEnumNames ? '' : 'HYDRATION_BODY_EVENT');
-  static const HealthDataTypeProto NUTRITION_BODY_EVENT =
-      HealthDataTypeProto._(10, _omitEnumNames ? '' : 'NUTRITION_BODY_EVENT');
-  static const HealthDataTypeProto OXYGENATION_BODY_EVENT =
-      HealthDataTypeProto._(11, _omitEnumNames ? '' : 'OXYGENATION_BODY_EVENT');
-  static const HealthDataTypeProto OXYGENATION_PHYSICAL_EVENT =
-      HealthDataTypeProto._(
-          12, _omitEnumNames ? '' : 'OXYGENATION_PHYSICAL_EVENT');
-  static const HealthDataTypeProto TEMPERATURE_BODY_EVENT =
-      HealthDataTypeProto._(13, _omitEnumNames ? '' : 'TEMPERATURE_BODY_EVENT');
+  static const HealthDataTypeProto SLEEP_SUMMARY = HealthDataTypeProto._(0, _omitEnumNames ? '' : 'SLEEP_SUMMARY');
+  static const HealthDataTypeProto PHYSICAL_SUMMARY = HealthDataTypeProto._(1, _omitEnumNames ? '' : 'PHYSICAL_SUMMARY');
+  static const HealthDataTypeProto BODY_SUMMARY = HealthDataTypeProto._(2, _omitEnumNames ? '' : 'BODY_SUMMARY');
+  static const HealthDataTypeProto PHYSICAL_EVENT = HealthDataTypeProto._(3, _omitEnumNames ? '' : 'PHYSICAL_EVENT');
+  static const HealthDataTypeProto BLOOD_GLUCOSE_BODY_EVENT = HealthDataTypeProto._(4, _omitEnumNames ? '' : 'BLOOD_GLUCOSE_BODY_EVENT');
+  static const HealthDataTypeProto BLOOD_PRESSURE_BODY_EVENT = HealthDataTypeProto._(5, _omitEnumNames ? '' : 'BLOOD_PRESSURE_BODY_EVENT');
+  static const HealthDataTypeProto BODY_METRICS_EVENT = HealthDataTypeProto._(6, _omitEnumNames ? '' : 'BODY_METRICS_EVENT');
+  static const HealthDataTypeProto HEART_RATE_BODY_EVENT = HealthDataTypeProto._(7, _omitEnumNames ? '' : 'HEART_RATE_BODY_EVENT');
+  static const HealthDataTypeProto HEART_RATE_PHYSICAL_EVENT = HealthDataTypeProto._(8, _omitEnumNames ? '' : 'HEART_RATE_PHYSICAL_EVENT');
+  static const HealthDataTypeProto HYDRATION_BODY_EVENT = HealthDataTypeProto._(9, _omitEnumNames ? '' : 'HYDRATION_BODY_EVENT');
+  static const HealthDataTypeProto NUTRITION_BODY_EVENT = HealthDataTypeProto._(10, _omitEnumNames ? '' : 'NUTRITION_BODY_EVENT');
+  static const HealthDataTypeProto OXYGENATION_BODY_EVENT = HealthDataTypeProto._(11, _omitEnumNames ? '' : 'OXYGENATION_BODY_EVENT');
+  static const HealthDataTypeProto OXYGENATION_PHYSICAL_EVENT = HealthDataTypeProto._(12, _omitEnumNames ? '' : 'OXYGENATION_PHYSICAL_EVENT');
+  static const HealthDataTypeProto TEMPERATURE_BODY_EVENT = HealthDataTypeProto._(13, _omitEnumNames ? '' : 'TEMPERATURE_BODY_EVENT');
 
-  static const $core.List<HealthDataTypeProto> values = <HealthDataTypeProto>[
+  static const $core.List<HealthDataTypeProto> values = <HealthDataTypeProto> [
     SLEEP_SUMMARY,
     PHYSICAL_SUMMARY,
     BODY_SUMMARY,
@@ -143,11 +110,26 @@ class HealthDataTypeProto extends $pb.ProtobufEnum {
     TEMPERATURE_BODY_EVENT,
   ];
 
-  static final $core.Map<$core.int, HealthDataTypeProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, HealthDataTypeProto> _byValue = $pb.ProtobufEnum.initByValue(values);
   static HealthDataTypeProto? valueOf($core.int value) => _byValue[value];
 
   const HealthDataTypeProto._($core.int v, $core.String n) : super(v, n);
 }
+
+class RequestPermissionsStatusProto extends $pb.ProtobufEnum {
+  static const RequestPermissionsStatusProto REQUEST_SENT = RequestPermissionsStatusProto._(0, _omitEnumNames ? '' : 'REQUEST_SENT');
+  static const RequestPermissionsStatusProto ALREADY_GRANTED = RequestPermissionsStatusProto._(1, _omitEnumNames ? '' : 'ALREADY_GRANTED');
+
+  static const $core.List<RequestPermissionsStatusProto> values = <RequestPermissionsStatusProto> [
+    REQUEST_SENT,
+    ALREADY_GRANTED,
+  ];
+
+  static final $core.Map<$core.int, RequestPermissionsStatusProto> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static RequestPermissionsStatusProto? valueOf($core.int value) => _byValue[value];
+
+  const RequestPermissionsStatusProto._($core.int v, $core.String n) : super(v, n);
+}
+
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

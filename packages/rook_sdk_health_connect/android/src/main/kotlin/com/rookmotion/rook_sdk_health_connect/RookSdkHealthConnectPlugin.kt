@@ -1,9 +1,9 @@
 package com.rookmotion.rook_sdk_health_connect
 
-import android.app.Activity
 import com.rookmotion.rook.sdk.RookConfigurationManager
 import com.rookmotion.rook.sdk.RookEventManager
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
+import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSummaryManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
@@ -12,6 +12,7 @@ import com.rookmotion.rook_sdk_health_connect.handler.DataSourcesHandler
 import com.rookmotion.rook_sdk_health_connect.handler.EventHandler
 import com.rookmotion.rook_sdk_health_connect.handler.HelperHandler
 import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandler
+import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandlerLegacy
 import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.SummaryHandler
 import com.rookmotion.rook_sdk_health_connect.handler.YesterdaySyncHandler
@@ -34,6 +35,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
     private lateinit var configurationHandler: ConfigurationHandler
     private lateinit var permissionsHandler: PermissionsHandler
+    private lateinit var permissionsHandlerLegacy: PermissionsHandlerLegacy
     private lateinit var summaryHandler: SummaryHandler
     private lateinit var eventHandler: EventHandler
     private lateinit var helperHandler: HelperHandler
@@ -41,12 +43,11 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var yesterdaySyncHandler: YesterdaySyncHandler
     private lateinit var dataSourcesHandler: DataSourcesHandler
 
-    private var activity: Activity? = null
-
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
         val rookConfigurationManager = RookConfigurationManager(flutterPluginBinding.applicationContext)
+        val rookPermissionsManager = RookPermissionsManager(flutterPluginBinding.applicationContext)
         val rookHealthPermissionsManager = RookHealthPermissionsManager(rookConfigurationManager)
         val rookSummaryManager = RookSummaryManager(rookConfigurationManager)
         val rookEventManager = RookEventManager(rookConfigurationManager)
@@ -59,7 +60,8 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             rookYesterdaySyncManager = yesterdaySyncManager,
             rookStepsManager = rookStepsManager,
         )
-        permissionsHandler = PermissionsHandler(
+        permissionsHandler = PermissionsHandler(coroutineScope, rookPermissionsManager)
+        permissionsHandlerLegacy = PermissionsHandlerLegacy(
             context = flutterPluginBinding.applicationContext,
             coroutineScope = coroutineScope,
             rookHealthPermissionsManager = rookHealthPermissionsManager,
@@ -67,7 +69,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         summaryHandler = SummaryHandler(coroutineScope, rookSummaryManager)
         eventHandler = EventHandler(coroutineScope, rookEventManager)
         helperHandler = HelperHandler(coroutineScope)
-        stepsHandler = StepsHandler(flutterPluginBinding.applicationContext, coroutineScope, rookStepsManager)
+        stepsHandler = StepsHandler(coroutineScope, rookStepsManager)
         yesterdaySyncHandler = YesterdaySyncHandler(
             context = flutterPluginBinding.applicationContext,
             coroutineScope = coroutineScope,
@@ -90,10 +92,17 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "deleteUserFromRook" -> configurationHandler.onMethodCall(call, result)
             "syncUserTimeZone" -> configurationHandler.onMethodCall(call, result)
 
-            "checkAvailability" -> permissionsHandler.onMethodCall(call, result)
+            "checkAvailability" -> permissionsHandlerLegacy.onMethodCall(call, result)
+            "checkPermissions" -> permissionsHandlerLegacy.onMethodCall(call, result)
+            "requestPermissions" -> permissionsHandlerLegacy.onMethodCall(call, result)
+
+            "checkHealthConnectAvailability" -> permissionsHandler.onMethodCall(call, result)
             "openHealthConnectSettings" -> permissionsHandler.onMethodCall(call, result)
-            "checkPermissions" -> permissionsHandler.onMethodCall(call, result)
-            "requestPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "checkHealthConnectPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "requestHealthConnectPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "checkAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "shouldRequestAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "requestAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)
 
             "shouldSyncFor" -> helperHandler.onMethodCall(call, result)
 
@@ -143,34 +152,26 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-        initializeActivity(binding)
+        try {
+            permissionsHandler.setActivity(binding.activity)
+        } catch (ignored: Exception) {
+            // Ignored
+        }
     }
 
     override fun onDetachedFromActivityForConfigChanges() {
-        destroyActivity()
+        permissionsHandler.setActivity(null)
     }
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-        initializeActivity(binding)
+        try {
+            permissionsHandler.setActivity(binding.activity)
+        } catch (ignored: Exception) {
+            // Ignored
+        }
     }
 
     override fun onDetachedFromActivity() {
-        destroyActivity()
-    }
-
-    private fun initializeActivity(binding: ActivityPluginBinding) {
-        try {
-            activity = binding.activity
-        } catch (ignored: Exception) {
-            // Ignored
-        }
-    }
-
-    private fun destroyActivity() {
-        try {
-            activity = null
-        } catch (ignored: Exception) {
-            // Ignored
-        }
+        permissionsHandler.setActivity(null)
     }
 }

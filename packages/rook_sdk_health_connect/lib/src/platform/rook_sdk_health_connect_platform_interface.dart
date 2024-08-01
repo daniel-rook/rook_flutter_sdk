@@ -36,12 +36,27 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<void> syncUserTimeZone();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<HCAvailabilityStatus> checkAvailability();
+
+  Future<HCAvailabilityStatus> checkHealthConnectAvailability();
 
   Future<void> openHealthConnectSettings();
 
+  Future<bool> checkHealthConnectPermissions();
+
+  Future<RequestPermissionsStatus> requestHealthConnectPermissions();
+
+  Future<bool> checkAndroidPermissions();
+
+  Future<bool> shouldRequestAndroidPermissions();
+
+  Future<RequestPermissionsStatus> requestAndroidPermissions();
+
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> checkPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestPermissions();
 
   Future<bool> shouldSyncFor(HCHealthDataType hcHealthDataType, DateTime date);
@@ -84,8 +99,10 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<bool> isBackgroundAndroidStepsActive();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasStepsPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestStepsPermissions();
 
   Future<void> enableBackgroundAndroidSteps();
@@ -94,12 +111,16 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<int> syncTodayAndroidStepsCount();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasYesterdaySyncAndroidPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestYesterdaySyncAndroidPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasYesterdaySyncHealthConnectPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestYesterdaySyncHealthConnectPermissions();
 
   Future<void> scheduleYesterdaySync(

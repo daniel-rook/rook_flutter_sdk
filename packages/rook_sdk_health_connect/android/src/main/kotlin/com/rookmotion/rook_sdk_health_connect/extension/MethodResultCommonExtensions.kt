@@ -2,8 +2,12 @@ package com.rookmotion.rook_sdk_health_connect.extension
 
 import io.flutter.plugin.common.MethodChannel
 
-fun MethodChannel.Result.intSuccess(int: Int) {
+fun MethodChannel.Result.int(int: Int) {
     success(int)
+}
+
+fun MethodChannel.Result.boolean(boolean: Boolean) {
+    success(boolean)
 }
 
 fun MethodChannel.Result.throwable(throwable: Throwable) {
