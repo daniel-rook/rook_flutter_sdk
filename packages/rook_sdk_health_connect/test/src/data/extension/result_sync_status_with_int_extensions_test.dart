@@ -76,8 +76,7 @@ void main() {
           throwsA(
             predicate(
               (exception) =>
-                  exception is HttpRequestException &&
-                  exception.error == error,
+                  exception is HttpRequestException && exception.error == error,
             ),
           ),
         );
