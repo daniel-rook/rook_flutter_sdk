@@ -4,7 +4,7 @@
 /// was sent or if the permissions are already granted.
 enum RequestPermissionsStatus {
   /// Indicates that the permissions request was sent.
-  requestSend,
+  requestSent,
 
   /// Indicates that the permissions are already granted, so no further action is required.
   alreadyGranted;
