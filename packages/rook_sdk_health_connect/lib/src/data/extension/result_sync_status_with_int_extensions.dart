@@ -1,9 +1,6 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/sync_status_with_data_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/device_not_supported_exception.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/health_connect_not_installed_exception.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/request_quota_exceeded_exception.dart';
 
 extension ResultSyncStatusWithIntExtensions on ResultSyncStatusWithIntProto {
   SyncStatusWithData<int?> unwrap() {
@@ -23,11 +20,11 @@ extension ResultSyncStatusWithIntExtensions on ResultSyncStatusWithIntProto {
         );
       case ResultSyncStatusWithIntProto_Result.httpRequestExceptionProto:
         throw HttpRequestException(
-          httpRequestExceptionProto.message,
           httpRequestExceptionProto.code,
+          httpRequestExceptionProto.message,
         );
       case ResultSyncStatusWithIntProto_Result.missingPermissionsExceptionProto:
-        throw MissingPermissionsException(
+        throw MissingAndroidPermissionsException(
           missingPermissionsExceptionProto.message,
         );
       case ResultSyncStatusWithIntProto_Result
