@@ -1,3 +1,18 @@
+## 0.4.0
+
+* Added BadUserTimeZoneException.
+* Added DateNotValidForEventsException.
+* Added DateNotValidForSummariesException. 
+* Added UserNotDeletedException.
+* Added UserNotRegisteredException.
+* MissingPermissionsException was renamed to MissingHealthConnectPermissionsException.
+* HttpRequestException `message` property was renamed to `error`.
+* Changed HttpRequestException constructor parameters order to `HttpRequestException(code, error)`.
+
+## 0.3.1
+
+* Added RequestPermissionsStatus.
+
 ## 0.3.0
 
 * Added `enableBackgroundSync` to RookConfiguration.

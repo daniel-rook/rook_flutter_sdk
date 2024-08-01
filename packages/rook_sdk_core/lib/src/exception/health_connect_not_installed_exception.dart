@@ -1,3 +1,4 @@
+/// Exception thrown when the Health Connect App is not installed on the device.
 class HealthConnectNotInstalledException implements Exception {
   final String message;
 

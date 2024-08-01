@@ -1,3 +1,4 @@
+/// Exception thrown when the app does not have the required android permissions.
 class MissingAndroidPermissionsException implements Exception {
   final String message;
 

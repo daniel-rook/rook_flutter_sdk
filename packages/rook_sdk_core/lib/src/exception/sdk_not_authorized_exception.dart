@@ -1,3 +1,4 @@
+/// Exception thrown when the SDK is not authorized.
 class SDKNotAuthorizedException implements Exception {
   final String message;
 

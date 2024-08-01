@@ -2,10 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/device_not_supported_exception.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/health_connect_not_installed_exception.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/missing_android_permissions_exception.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/request_quota_exceeded_exception.dart';
 
 void main() {
   group('ResultBooleanProto success', () {
@@ -73,8 +69,7 @@ void main() {
           throwsA(
             predicate(
               (exception) =>
-                  exception is HttpRequestException &&
-                  exception.message == error,
+                  exception is HttpRequestException && exception.error == error,
             ),
           ),
         );
@@ -113,7 +108,7 @@ void main() {
           throwsA(
             predicate(
               (exception) =>
-                  exception is MissingPermissionsException &&
+                  exception is MissingAndroidPermissionsException &&
                   exception.message == error,
             ),
           ),

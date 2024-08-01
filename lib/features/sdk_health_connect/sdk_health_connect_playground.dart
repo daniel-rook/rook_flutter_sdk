@@ -304,12 +304,12 @@ class _SdkHealthConnectPlaygroundState
               'HealthConnectNotInstalledException: ${it.message}',
             (DeviceNotSupportedException it) =>
               'DeviceNotSupportedException: ${it.message}',
-            (MissingPermissionsException it) =>
-              'MissingPermissionsException: ${it.message}',
+            (MissingAndroidPermissionsException it) =>
+              'MissingAndroidPermissionsException: ${it.message}',
             (ConnectTimeoutException it) =>
               'ConnectTimeoutException: ${it.message}',
             (HttpRequestException it) =>
-              'HttpRequestException: code: ${it.code} message: ${it.message}',
+              'HttpRequestException: code: ${it.code} message: ${it.error}',
             _ => exception.toString(),
           };
 
@@ -362,12 +362,12 @@ class _SdkHealthConnectPlaygroundState
               'HealthConnectNotInstalledException: ${it.message}',
             (DeviceNotSupportedException it) =>
               'DeviceNotSupportedException: ${it.message}',
-            (MissingPermissionsException it) =>
-              'MissingPermissionsException: ${it.message}',
+            (MissingAndroidPermissionsException it) =>
+              'MissingAndroidPermissionsException: ${it.message}',
             (ConnectTimeoutException it) =>
               'ConnectTimeoutException: ${it.message}',
             (HttpRequestException it) =>
-              'HttpRequestException: code: ${it.code} message: ${it.message}',
+              'HttpRequestException: code: ${it.code} message: ${it.error}',
             _ => exception.toString(),
           };
 
@@ -419,12 +419,12 @@ class _SdkHealthConnectPlaygroundState
               'HealthConnectNotInstalledException: ${it.message}',
             (DeviceNotSupportedException it) =>
               'DeviceNotSupportedException: ${it.message}',
-            (MissingPermissionsException it) =>
-              'MissingPermissionsException: ${it.message}',
+            (MissingAndroidPermissionsException it) =>
+              'MissingAndroidPermissionsException: ${it.message}',
             (ConnectTimeoutException it) =>
               'ConnectTimeoutException: ${it.message}',
             (HttpRequestException it) =>
-              'HttpRequestException: code: ${it.code} message: ${it.message}',
+              'HttpRequestException: code: ${it.code} message: ${it.error}',
             _ => exception.toString(),
           };
 
@@ -468,12 +468,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -498,12 +498,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -529,12 +529,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -559,12 +559,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -590,12 +590,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -621,12 +621,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -650,12 +650,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -679,12 +679,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -710,12 +710,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -741,12 +741,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -771,12 +771,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -812,12 +812,12 @@ class _SdkHealthConnectPlaygroundState
           'HealthConnectNotInstalledException: ${it.message}',
         (DeviceNotSupportedException it) =>
           'DeviceNotSupportedException: ${it.message}',
-        (MissingPermissionsException it) =>
-          'MissingPermissionsException: ${it.message}',
+        (MissingAndroidPermissionsException it) =>
+          'MissingAndroidPermissionsException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -844,7 +844,7 @@ class _SdkHealthConnectPlaygroundState
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 
@@ -870,7 +870,7 @@ class _SdkHealthConnectPlaygroundState
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
         (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.message}',
+          'HttpRequestException: code: ${it.code} message: ${it.error}',
         _ => exception.toString(),
       };
 

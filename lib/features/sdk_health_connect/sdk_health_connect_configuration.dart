@@ -277,7 +277,7 @@ class _SdkHealthConnectConfigurationState
           'UserNotInitializedException: ${it.message}',
         (ConnectTimeoutException it) =>
           'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) => 'HttpRequestException: ${it.message}',
+        (HttpRequestException it) => 'HttpRequestException: ${it.error}',
         _ => exception.toString(),
       };
 

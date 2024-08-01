@@ -1,3 +1,4 @@
+/// Exception thrown when the Health Connect rate limited request quota has been exceeded.
 class RequestQuotaExceededException implements Exception {
   final String message;
 

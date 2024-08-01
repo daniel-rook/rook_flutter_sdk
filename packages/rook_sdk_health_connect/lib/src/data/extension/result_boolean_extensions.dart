@@ -1,9 +1,5 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/device_not_supported_exception.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/health_connect_not_installed_exception.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/missing_android_permissions_exception.dart';
-import 'package:rook_sdk_health_connect/src/domain/exception/request_quota_exceeded_exception.dart';
 
 extension ResultBooleanExtensions on ResultBooleanProto {
   bool unwrap() {
@@ -22,15 +18,15 @@ extension ResultBooleanExtensions on ResultBooleanProto {
         );
       case ResultBooleanProto_Result.httpRequestExceptionProto:
         throw HttpRequestException(
-          httpRequestExceptionProto.message,
           httpRequestExceptionProto.code,
+          httpRequestExceptionProto.message,
         );
       case ResultBooleanProto_Result.missingConfigurationExceptionProto:
         throw MissingConfigurationException(
           missingConfigurationExceptionProto.message,
         );
       case ResultBooleanProto_Result.missingPermissionsExceptionProto:
-        throw MissingPermissionsException(
+        throw MissingAndroidPermissionsException(
           missingPermissionsExceptionProto.message,
         );
       case ResultBooleanProto_Result.requestQuotaExceededExceptionProto:
