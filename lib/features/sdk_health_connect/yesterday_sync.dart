@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
@@ -21,8 +24,43 @@ class _YesterdaySyncState extends State<YesterdaySync> {
   SharedPreferences? sharedPreferences;
 
   bool androidPermissionsChecked = false;
+  bool androidPermissionsPreviouslyDenied = false;
   bool healthConnectPermissionsChecked = false;
-  bool userAcceptedYesterdaySync = false;
+  bool yesterdaySyncChecked = false;
+
+  StreamSubscription<bool>? androidPermissionsSubscription;
+  StreamSubscription<bool>? healthConnectPermissionsSubscription;
+
+  @override
+  void initState() {
+    SharedPreferences.getInstance().then((value) => sharedPreferences = value);
+
+    androidPermissionsSubscription = HCRookPermissionsManager
+        .requestAndroidPermissionsUpdates
+        .listen((permissionsGranted) {
+      setState(() => androidPermissionsChecked = permissionsGranted);
+    });
+
+    healthConnectPermissionsSubscription = HCRookPermissionsManager
+        .requestHealthConnectPermissionsUpdates
+        .listen((permissionsGranted) {
+      setState(() => healthConnectPermissionsChecked = permissionsGranted);
+    });
+
+    HCRookPermissionsManager.shouldRequestAndroidPermissions().then(
+      (value) => setState(() => androidPermissionsPreviouslyDenied = value),
+    );
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    androidPermissionsSubscription?.cancel();
+    healthConnectPermissionsSubscription?.cancel();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,48 +76,72 @@ class _YesterdaySyncState extends State<YesterdaySync> {
           children: [
             CheckboxListTile(
               title: const Text("Android permissions"),
-              subtitle: const Text(
-                "POST_NOTIFICATIONS, FOREGROUND_SERVICE, FOREGROUND_SERVICE_HEALTH, ACTIVITY_RECOGNITION",
-              ),
               value: androidPermissionsChecked,
               onChanged: (value) {},
             ),
-            const SizedBox(height: 10),
-            const FilledButton(
-              onPressed:
-                  HCRookYesterdaySyncPermissions.requestAndroidPermissions,
-              child: Text("Request Permissions"),
-            ),
+            if (!androidPermissionsPreviouslyDenied &&
+                !androidPermissionsChecked)
+              FilledButton(
+                onPressed: requestAndroidPermissions,
+                child: const Text("Request Android permissions"),
+              ),
+            if (androidPermissionsPreviouslyDenied && !androidPermissionsChecked)
+              const Card(
+                child: Padding(
+                  padding: EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "You previously denied permissions, now you must manually grant them.",
+                      ),
+                      TextButton(
+                        onPressed: AppSettings.openAppSettings,
+                        child: Text("Open application Settings"),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             const SizedBox(height: 20),
             CheckboxListTile(
               title: const Text("Health Connect permissions"),
-              subtitle: const Text("SLEEP, PHYSICAL, BODY"),
               value: healthConnectPermissionsChecked,
               onChanged: (value) {},
             ),
-            const SizedBox(height: 10),
-            const FilledButton(
-              onPressed: HCRookYesterdaySyncPermissions
-                  .requestHealthConnectPermissions,
-              child: Text("Request Permissions"),
-            ),
             FilledButton(
-              onPressed: openHealthConnect,
-              child: const Text("Open Health Connect"),
+              onPressed: requestHealthConnectPermissions,
+              child: const Text("Request Health Connect permissions"),
+            ),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const Text(
+                      "If you don't see the permission request list you must manually grant them.",
+                    ),
+                    TextButton(
+                      onPressed: openHealthConnect,
+                      child: const Text("Open Health Connect"),
+                    )
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: 20),
             CheckboxListTile(
               title: const Text("Yesterday Sync"),
-              value: userAcceptedYesterdaySync,
+              value: yesterdaySyncChecked,
               onChanged: (value) {},
             ),
-            const SizedBox(height: 10),
             FilledButton(
-              onPressed: userAcceptedYesterdaySync
+              onPressed: yesterdaySyncChecked
                   ? disableYesterdaySync
                   : enableYesterdaySync,
               child: Text(
-                userAcceptedYesterdaySync
+                yesterdaySyncChecked
                     ? "Disable Yesterday Sync"
                     : "Enable Yesterday Sync",
               ),
@@ -91,56 +153,74 @@ class _YesterdaySyncState extends State<YesterdaySync> {
   }
 
   void checkPermissions() {
-    HCRookYesterdaySyncPermissions.hasAndroidPermissions()
-        .then((hasAndroidPermissions) {
-      setState(() => androidPermissionsChecked = hasAndroidPermissions);
+    HCRookPermissionsManager.checkAndroidPermissions()
+        .then((permissionsGranted) {
+      setState(() => androidPermissionsChecked = permissionsGranted);
     }).catchError((error) {
-      logger.severe("hasAndroidPermissions - error: $error");
+      logger.severe("checkAndroidPermissions - error: $error");
     });
 
-    HCRookYesterdaySyncPermissions.hasHealthConnectPermissions()
-        .then((hasHealthConnectPermissions) {
-      setState(
-          () => healthConnectPermissionsChecked = hasHealthConnectPermissions);
+    HCRookPermissionsManager.checkHealthConnectPermissions()
+        .then((permissionsGranted) {
+      setState(() => healthConnectPermissionsChecked = permissionsGranted);
     }).catchError((error) {
       logger.severe("hasHealthConnectPermissions - error: $error");
+    });
+  }
+
+  void requestAndroidPermissions() async {
+    try {
+      final shouldRequestPermissions =
+          await HCRookPermissionsManager.shouldRequestAndroidPermissions();
+
+      if (shouldRequestPermissions) {
+        final requestPermissionsStatus =
+            await HCRookPermissionsManager.requestAndroidPermissions();
+
+        final permissionsAlreadyGranted =
+            requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
+
+        if (permissionsAlreadyGranted) {
+          setState(() => androidPermissionsChecked = true);
+        }
+      } else {
+        setState(() => androidPermissionsPreviouslyDenied = true);
+      }
+    } catch (error) {
+      logger.severe('requestAndroidPermissions - error: $error');
+    }
+  }
+
+  void requestHealthConnectPermissions() {
+    HCRookPermissionsManager.requestHealthConnectPermissions()
+        .then((requestPermissionsStatus) {
+      final permissionsAlreadyGranted =
+          requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
+
+      if (permissionsAlreadyGranted) {
+        setState(() => healthConnectPermissionsChecked = true);
+      }
+    }).catchError((error) {
+      logger.severe('requestHealthConnectPermissions - error: $error');
     });
   }
 
   void openHealthConnect() {
     logger.info('Opening Health Connect...');
 
-    HCRookHealthPermissionsManager.openHealthConnectSettings().then((_) {
+    HCRookPermissionsManager.openHealthConnectSettings().then((_) {
       logger.info('Health Connect was opened');
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      logger.info('Error opening Health Connect:');
-      logger.info(error);
+    }).catchError((error) {
+      logger.severe('openHealthConnectSettings - error: $error');
     });
   }
 
-  void checkYesterdaySyncAcceptation() async {
-    try {
-      sharedPreferences = await SharedPreferences.getInstance();
+  void checkYesterdaySyncAcceptation() {
+    final acceptedYesterdaySync = sharedPreferences?.getBool(
+      "ACCEPTED_YESTERDAY_SYNC",
+    );
 
-      final acceptedYesterdaySync =
-          sharedPreferences?.getBool("ACCEPTED_YESTERDAY_SYNC") ?? false;
-
-      setState(() => userAcceptedYesterdaySync = acceptedYesterdaySync);
-    } catch (error) {
-      logger.severe("Error getting SharedPreferences: $error");
-    }
+    setState(() => yesterdaySyncChecked = acceptedYesterdaySync ?? false);
   }
 
   void enableYesterdaySync() {
