@@ -16,10 +16,9 @@ fun MethodChannel.Result.requestPermissionsStatusSuccess(requestPermissionsStatu
 }
 
 fun MethodChannel.Result.requestPermissionsStatusError(throwable: Throwable) {
-    // TODO: 01/08/24 Should check for real ID
     val pluginExceptionProto = PluginExceptionProto.newBuilder()
-        .setId(-1)
-        .setCode(0)
+        .setId(throwable.getPluginExceptionId())
+        .setCode(throwable.getPluginExceptionCode())
         .setMessage(throwable.getErrorMessage())
 
     val bytes = ResultRequestPermissionsStatusProto.newBuilder()
