@@ -5,18 +5,18 @@
 package com.rookmotion.rook_sdk_health_connect.data.proto;
 
 /**
- * Protobuf type {@code DataSourceProtoListWrapper}
+ * Protobuf type {@code DataSourcesProtoListWrapper}
  */
-public final class DataSourceProtoListWrapper extends
+public final class DataSourcesProtoListWrapper extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:DataSourceProtoListWrapper)
-    DataSourceProtoListWrapperOrBuilder {
+    // @@protoc_insertion_point(message_implements:DataSourcesProtoListWrapper)
+    DataSourcesProtoListWrapperOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use DataSourceProtoListWrapper.newBuilder() to construct.
-  private DataSourceProtoListWrapper(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use DataSourcesProtoListWrapper.newBuilder() to construct.
+  private DataSourcesProtoListWrapper(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private DataSourceProtoListWrapper() {
+  private DataSourcesProtoListWrapper() {
     dataSources_ = java.util.Collections.emptyList();
   }
 
@@ -24,20 +24,20 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new DataSourceProtoListWrapper();
+    return new DataSourcesProtoListWrapper();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourceProtoListWrapper_descriptor;
+    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourcesProtoListWrapper_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourceProtoListWrapper_fieldAccessorTable
+    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourcesProtoListWrapper_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper.class, com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper.Builder.class);
+            com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper.class, com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper.Builder.class);
   }
 
   public static final int DATASOURCES_FIELD_NUMBER = 1;
@@ -121,10 +121,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper)) {
+    if (!(obj instanceof com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper)) {
       return super.equals(obj);
     }
-    com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper other = (com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper) obj;
+    com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper other = (com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper) obj;
 
     if (!getDataSourcesList()
         .equals(other.getDataSourcesList())) return false;
@@ -148,44 +148,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -193,26 +193,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -225,7 +225,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -241,26 +241,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code DataSourceProtoListWrapper}
+   * Protobuf type {@code DataSourcesProtoListWrapper}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:DataSourceProtoListWrapper)
-      com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapperOrBuilder {
+      // @@protoc_insertion_point(builder_implements:DataSourcesProtoListWrapper)
+      com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapperOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourceProtoListWrapper_descriptor;
+      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourcesProtoListWrapper_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourceProtoListWrapper_fieldAccessorTable
+      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourcesProtoListWrapper_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper.class, com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper.Builder.class);
+              com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper.class, com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper.Builder.class);
     }
 
-    // Construct using com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper.newBuilder()
+    // Construct using com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper.newBuilder()
     private Builder() {
 
     }
@@ -287,17 +287,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourceProtoListWrapper_descriptor;
+      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_DataSourcesProtoListWrapper_descriptor;
     }
 
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper getDefaultInstanceForType() {
-      return com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper.getDefaultInstance();
+    public com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper getDefaultInstanceForType() {
+      return com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper build() {
-      com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper result = buildPartial();
+    public com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper build() {
+      com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -305,15 +305,15 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper buildPartial() {
-      com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper result = new com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper(this);
+    public com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper buildPartial() {
+      com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper result = new com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper(this);
       buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartialRepeatedFields(com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper result) {
+    private void buildPartialRepeatedFields(com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper result) {
       if (dataSourcesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           dataSources_ = java.util.Collections.unmodifiableList(dataSources_);
@@ -325,7 +325,7 @@ private static final long serialVersionUID = 0L;
       }
     }
 
-    private void buildPartial0(com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper result) {
+    private void buildPartial0(com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper result) {
       int from_bitField0_ = bitField0_;
     }
 
@@ -363,16 +363,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper) {
-        return mergeFrom((com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper)other);
+      if (other instanceof com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper) {
+        return mergeFrom((com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper other) {
-      if (other == com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper other) {
+      if (other == com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper.getDefaultInstance()) return this;
       if (dataSourcesBuilder_ == null) {
         if (!other.dataSources_.isEmpty()) {
           if (dataSources_.isEmpty()) {
@@ -707,23 +707,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:DataSourceProtoListWrapper)
+    // @@protoc_insertion_point(builder_scope:DataSourcesProtoListWrapper)
   }
 
-  // @@protoc_insertion_point(class_scope:DataSourceProtoListWrapper)
-  private static final com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:DataSourcesProtoListWrapper)
+  private static final com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper();
+    DEFAULT_INSTANCE = new com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper();
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<DataSourceProtoListWrapper>
-      PARSER = new com.google.protobuf.AbstractParser<DataSourceProtoListWrapper>() {
+  private static final com.google.protobuf.Parser<DataSourcesProtoListWrapper>
+      PARSER = new com.google.protobuf.AbstractParser<DataSourcesProtoListWrapper>() {
     @java.lang.Override
-    public DataSourceProtoListWrapper parsePartialFrom(
+    public DataSourcesProtoListWrapper parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -742,17 +742,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<DataSourceProtoListWrapper> parser() {
+  public static com.google.protobuf.Parser<DataSourcesProtoListWrapper> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<DataSourceProtoListWrapper> getParserForType() {
+  public com.google.protobuf.Parser<DataSourcesProtoListWrapper> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoListWrapper getDefaultInstanceForType() {
+  public com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -20,49 +20,19 @@ public interface ResultInt64ProtoOrBuilder extends
   long getValue();
 
   /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-   * @return Whether the sdkNotInitializedExceptionProto field is set.
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * @return Whether the pluginExceptionProto field is set.
    */
-  boolean hasSdkNotInitializedExceptionProto();
+  boolean hasPluginExceptionProto();
   /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-   * @return The sdkNotInitializedExceptionProto.
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * @return The pluginExceptionProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto getSdkNotInitializedExceptionProto();
+  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto getPluginExceptionProto();
   /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProtoOrBuilder getSdkNotInitializedExceptionProtoOrBuilder();
-
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   * @return Whether the genericExceptionProto field is set.
-   */
-  boolean hasGenericExceptionProto();
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   * @return The genericExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto getGenericExceptionProto();
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProtoOrBuilder getGenericExceptionProtoOrBuilder();
-
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   * @return Whether the sdkNotAuthorizedExceptionProto field is set.
-   */
-  boolean hasSdkNotAuthorizedExceptionProto();
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   * @return The sdkNotAuthorizedExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto getSdkNotAuthorizedExceptionProto();
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder getSdkNotAuthorizedExceptionProtoOrBuilder();
+  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
 
   com.rookmotion.rook_sdk_health_connect.data.proto.ResultInt64Proto.ResultCase getResultCase();
 }

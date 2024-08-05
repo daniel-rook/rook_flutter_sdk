@@ -1,22 +1,10 @@
 package com.rookmotion.rook_sdk_health_connect.extension
 
-import com.rookmotion.rook.sdk.domain.exception.DeviceNotSupportedException
-import com.rookmotion.rook.sdk.domain.exception.HealthConnectNotInstalledException
-import com.rookmotion.rook.sdk.domain.exception.HttpRequestException
-import com.rookmotion.rook.sdk.domain.exception.MissingAndroidPermissionsException
-import com.rookmotion.rook.sdk.domain.exception.MissingConfigurationException
-import com.rookmotion.rook.sdk.domain.exception.MissingHealthConnectPermissionsException
-import com.rookmotion.rook.sdk.domain.exception.RequestQuotaExceededException
-import com.rookmotion.rook.sdk.domain.exception.SDKNotAuthorizedException
-import com.rookmotion.rook.sdk.domain.exception.SDKNotInitializedException
-import com.rookmotion.rook.sdk.domain.exception.TimeoutException
-import com.rookmotion.rook.sdk.domain.exception.UserNotInitializedException
-import com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto
+import com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto
 import com.rookmotion.rook_sdk_health_connect.data.proto.ResultBooleanProto
-import com.rookmotion.rook_sdk_health_connect.mapper.toProto
 import io.flutter.plugin.common.MethodChannel
 
-fun MethodChannel.Result.resultBooleanSuccess(boolean: Boolean) {
+fun MethodChannel.Result.booleanSuccess(boolean: Boolean) {
     val bytes = ResultBooleanProto.newBuilder()
         .setSuccess(boolean)
         .build()
@@ -25,63 +13,16 @@ fun MethodChannel.Result.resultBooleanSuccess(boolean: Boolean) {
     success(bytes)
 }
 
-fun MethodChannel.Result.resultBooleanError(throwable: Throwable) {
-    val resultBooleanProtoBuilder = ResultBooleanProto.newBuilder()
+fun MethodChannel.Result.booleanError(throwable: Throwable) {
+    val pluginExceptionProto = PluginExceptionProto.newBuilder()
+        .setId(throwable.getPluginExceptionId())
+        .setCode(throwable.getPluginExceptionCode())
+        .setMessage(throwable.getErrorMessage())
 
-    when (throwable) {
-        is DeviceNotSupportedException -> {
-            resultBooleanProtoBuilder.setDeviceNotSupportedExceptionProto(throwable.toProto())
-        }
-
-        is HealthConnectNotInstalledException -> {
-            resultBooleanProtoBuilder.setHealthConnectNotInstalledExceptionProto(throwable.toProto())
-        }
-
-        is HttpRequestException -> {
-            resultBooleanProtoBuilder.setHttpRequestExceptionProto(throwable.toProto())
-        }
-
-        is MissingConfigurationException -> {
-            resultBooleanProtoBuilder.setMissingConfigurationExceptionProto(throwable.toProto())
-        }
-
-        is MissingHealthConnectPermissionsException -> {
-            resultBooleanProtoBuilder.setMissingPermissionsExceptionProto(throwable.toProto())
-        }
-
-        is RequestQuotaExceededException -> {
-            resultBooleanProtoBuilder.setRequestQuotaExceededExceptionProto(throwable.toProto())
-        }
-
-        is SDKNotInitializedException -> {
-            resultBooleanProtoBuilder.setSdkNotInitializedExceptionProto(throwable.toProto())
-        }
-
-        is TimeoutException -> {
-            resultBooleanProtoBuilder.setTimeoutExceptionProto(throwable.toProto())
-        }
-
-        is UserNotInitializedException -> {
-            resultBooleanProtoBuilder.setUserNotInitializedExceptionProto(throwable.toProto())
-        }
-
-        is MissingAndroidPermissionsException -> {
-            resultBooleanProtoBuilder.setMissingAndroidPermissionsExceptionProto(throwable.toProto())
-        }
-
-        is SDKNotAuthorizedException -> {
-            resultBooleanProtoBuilder.setSdkNotAuthorizedExceptionProto(throwable.toProto())
-        }
-
-        else -> {
-            val proto = GenericExceptionProto.newBuilder()
-                .setMessage(throwable.getErrorMessage())
-
-            resultBooleanProtoBuilder.setGenericExceptionProto(proto)
-        }
-    }
-
-    val bytes = resultBooleanProtoBuilder.build().toByteArray()
+    val bytes = ResultBooleanProto.newBuilder()
+        .setPluginExceptionProto(pluginExceptionProto)
+        .build()
+        .toByteArray()
 
     success(bytes)
 }

@@ -4,11 +4,11 @@ import android.content.Context
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
 import com.rookmotion.rook_sdk_health_connect.HealthConnectPermissionsActivity
 import com.rookmotion.rook_sdk_health_connect.MethodResult
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.int
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.throwable
-import com.rookmotion.rook_sdk_health_connect.mapper.toProto
+import com.rookmotion.rook_sdk_health_connect.mapper.toAvailabilityStatusProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -26,7 +26,7 @@ class PermissionsHandlerLegacy(
             "checkAvailability" -> {
                 try {
                     val hcAvailabilityStatus = RookHealthPermissionsManager.checkAvailability(context)
-                    val proto = hcAvailabilityStatus.toProto()
+                    val proto = hcAvailabilityStatus.toAvailabilityStatusProto()
 
                     methodResult.int(proto.number)
                 } catch (exception: NullPointerException) {
@@ -37,10 +37,10 @@ class PermissionsHandlerLegacy(
             "openHealthConnectSettings" -> coroutineScope.launch {
                 rookHealthPermissionsManager.openHealthConnectSettings().fold(
                     {
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }
@@ -48,10 +48,10 @@ class PermissionsHandlerLegacy(
             "checkPermissions" -> coroutineScope.launch {
                 rookHealthPermissionsManager.checkPermissions().fold(
                     {
-                        methodResult.resultBooleanSuccess(it)
+                        methodResult.booleanSuccess(it)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }
@@ -60,9 +60,9 @@ class PermissionsHandlerLegacy(
                 try {
                     HealthConnectPermissionsActivity.launch(context)
 
-                    methodResult.resultBooleanSuccess(true)
+                    methodResult.booleanSuccess(true)
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 

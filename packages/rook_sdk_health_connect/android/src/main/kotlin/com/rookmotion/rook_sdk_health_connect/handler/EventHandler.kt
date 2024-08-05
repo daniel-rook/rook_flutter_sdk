@@ -2,13 +2,13 @@ package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookEventManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusError
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusWithIntSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusWithIntError
+import com.rookmotion.rook_sdk_health_connect.extension.syncStatusError
+import com.rookmotion.rook_sdk_health_connect.extension.syncStatusSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.syncStatusWithIntError
+import com.rookmotion.rook_sdk_health_connect.extension.syncStatusWithIntSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
@@ -25,10 +25,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncPhysicalEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -39,10 +39,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncBloodGlucoseEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -53,10 +53,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncBloodPressureEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -67,10 +67,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncBodyMetricsEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -81,10 +81,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncBodyHeartRateEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -95,10 +95,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncPhysicalHeartRateEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -109,10 +109,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncHydrationEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -123,10 +123,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncNutritionEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -137,10 +137,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncBodyOxygenationEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -151,10 +151,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncPhysicalOxygenationEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -165,10 +165,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
 
                 rookEventManager.syncTemperatureEvents(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -176,10 +176,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
             "syncTodayHealthConnectStepsCount" -> coroutineScope.launch {
                 rookEventManager.syncTodayHealthConnectStepsCount().fold(
                     {
-                        methodResult.resultSyncStatusWithIntSuccess(it)
+                        methodResult.syncStatusWithIntSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusWithIntError(it)
+                        methodResult.syncStatusWithIntError(it)
                     }
                 )
             }
@@ -187,10 +187,10 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
             "syncPendingEvents" -> coroutineScope.launch {
                 rookEventManager.syncPendingEvents().fold(
                     {
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }

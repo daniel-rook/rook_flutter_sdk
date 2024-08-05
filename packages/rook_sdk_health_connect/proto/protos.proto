@@ -64,62 +64,13 @@ message DataSourceProto {
   bool authorizationUrlIsNull = 6;
 }
 
-message DataSourceProtoListWrapper {
+message DataSourcesProtoListWrapper {
   repeated DataSourceProto dataSources = 1;
 }
 
 message SyncStatusWithIntProto {
   SyncStatusProto syncStatus = 1;
   uint32 steps = 2;
-}
-
-message DeviceNotSupportedExceptionProto {
-  string message = 1;
-}
-
-message HealthConnectNotInstalledExceptionProto {
-  string message = 1;
-}
-
-message HttpRequestExceptionProto {
-  string message = 1;
-  uint32 code = 2;
-}
-
-message MissingConfigurationExceptionProto {
-  string message = 1;
-}
-
-message MissingPermissionsExceptionProto {
-  string message = 1;
-}
-
-message RequestQuotaExceededExceptionProto {
-  string message = 1;
-}
-
-message SDKNotInitializedExceptionProto {
-  string message = 1;
-}
-
-message TimeoutExceptionProto {
-  string message = 1;
-}
-
-message UserNotInitializedExceptionProto {
-  string message = 1;
-}
-
-message GenericExceptionProto {
-  string message = 1;
-}
-
-message MissingAndroidPermissionsExceptionProto {
-  string message = 1;
-}
-
-message SDKNotAuthorizedExceptionProto {
-  string message = 1;
 }
 
 message PluginExceptionProto {
@@ -129,97 +80,37 @@ message PluginExceptionProto {
 }
 
 message ResultBooleanProto {
-
   oneof result {
     bool success = 1;
-    DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;
-    HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;
-    HttpRequestExceptionProto httpRequestExceptionProto = 4;
-    MissingConfigurationExceptionProto missingConfigurationExceptionProto = 5;
-    MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;
-    RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;
-    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
-    TimeoutExceptionProto timeoutExceptionProto = 9;
-    UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
-    GenericExceptionProto genericExceptionProto = 11;
-    MissingAndroidPermissionsExceptionProto missingAndroidPermissionsExceptionProto = 12;
-    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }
 
 message ResultInt64Proto {
-  reserved 2; // DeviceNotSupportedExceptionProto
-  reserved 3; // HealthConnectNotInstalledExceptionProto
-  reserved 4; // HttpRequestExceptionProto
-  reserved 5; // MissingConfigurationExceptionProto
-  reserved 6; // MissingPermissionsExceptionProto
-  reserved 7; // RequestQuotaExceededExceptionProto
-  reserved 9; // TimeoutExceptionProto
-  reserved 10; // UserNotInitializedExceptionProto
-  reserved 12; // MissingAndroidPermissionsExceptionProto
-
   oneof result {
     int64 value = 1;
-    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
-    GenericExceptionProto genericExceptionProto = 11;
-    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }
 
 message ResultSyncStatusProto {
-  reserved 5; // MissingConfigurationExceptionProto
-  reserved 12; // MissingAndroidPermissionsExceptionProto
-
   oneof result {
     SyncStatusProto syncStatusProto = 1;
-    DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;
-    HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;
-    HttpRequestExceptionProto httpRequestExceptionProto = 4;
-    MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;
-    RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;
-    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
-    TimeoutExceptionProto timeoutExceptionProto = 9;
-    UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
-    GenericExceptionProto genericExceptionProto = 11;
-    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }
 
 message ResultSyncStatusWithIntProto {
-  reserved 5; // MissingConfigurationExceptionProto
-  reserved 12; // MissingAndroidPermissionsExceptionProto
-
   oneof result {
     SyncStatusWithIntProto syncStatusWithIntProto = 1;
-    DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;
-    HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;
-    HttpRequestExceptionProto httpRequestExceptionProto = 4;
-    MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;
-    RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;
-    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
-    TimeoutExceptionProto timeoutExceptionProto = 9;
-    UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
-    GenericExceptionProto genericExceptionProto = 11;
-    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }
 
-message ResultDataSourceProto {
-  reserved 2; // DeviceNotSupportedExceptionProto
-  reserved 3; // HealthConnectNotInstalledExceptionProto
-  reserved 4; // HttpRequestExceptionProto
-  reserved 5; // MissingConfigurationExceptionProto
-  reserved 6; // MissingPermissionsExceptionProto
-  reserved 7; // RequestQuotaExceededExceptionProto
-  reserved 9; // TimeoutExceptionProto
-  reserved 12; // MissingAndroidPermissionsExceptionProto
-
+message ResultDataSourcesProto {
   oneof result {
-    DataSourceProtoListWrapper dataSourceProtoListWrapper = 1;
-    SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;
-    UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;
-    GenericExceptionProto genericExceptionProto = 11;
-    SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;
+    DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }
 

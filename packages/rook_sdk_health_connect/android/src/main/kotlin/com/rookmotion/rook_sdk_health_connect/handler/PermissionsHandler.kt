@@ -4,13 +4,14 @@ import android.app.Activity
 import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.extension.boolean
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.int
 import com.rookmotion.rook_sdk_health_connect.extension.requestPermissionsStatusError
 import com.rookmotion.rook_sdk_health_connect.extension.requestPermissionsStatusSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.throwable
-import com.rookmotion.rook_sdk_health_connect.mapper.toProto
+import com.rookmotion.rook_sdk_health_connect.mapper.toAvailabilityStatusProto
+import com.rookmotion.rook_sdk_health_connect.mapper.toRequestPermissionsStatusProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -31,7 +32,7 @@ class PermissionsHandler(
             "checkHealthConnectAvailability" -> {
                 try {
                     val hcAvailabilityStatus = rookPermissionsManager.checkHealthConnectAvailability()
-                    val proto = hcAvailabilityStatus.toProto()
+                    val proto = hcAvailabilityStatus.toAvailabilityStatusProto()
 
                     methodResult.int(proto.number)
                 } catch (exception: NullPointerException) {
@@ -42,10 +43,10 @@ class PermissionsHandler(
             "openHealthConnectSettings" -> coroutineScope.launch {
                 rookPermissionsManager.openHealthConnectSettings().fold(
                     {
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }
@@ -53,10 +54,10 @@ class PermissionsHandler(
             "checkHealthConnectPermissions" -> coroutineScope.launch {
                 rookPermissionsManager.checkHealthConnectPermissions().fold(
                     {
-                        methodResult.resultBooleanSuccess(it)
+                        methodResult.booleanSuccess(it)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }
@@ -92,7 +93,7 @@ class PermissionsHandler(
 
             "requestAndroidPermissions" -> {
                 val requestPermissionsStatus = rookPermissionsManager.requestAndroidPermissions()
-                val code = requestPermissionsStatus.toProto().number
+                val code = requestPermissionsStatus.toRequestPermissionsStatusProto().number
 
                 methodResult.int(code)
             }

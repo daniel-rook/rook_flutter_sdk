@@ -46,16 +46,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     SYNCSTATUSWITHINTPROTO(1),
-    DEVICENOTSUPPORTEDEXCEPTIONPROTO(2),
-    HEALTHCONNECTNOTINSTALLEDEXCEPTIONPROTO(3),
-    HTTPREQUESTEXCEPTIONPROTO(4),
-    MISSINGPERMISSIONSEXCEPTIONPROTO(6),
-    REQUESTQUOTAEXCEEDEDEXCEPTIONPROTO(7),
-    SDKNOTINITIALIZEDEXCEPTIONPROTO(8),
-    TIMEOUTEXCEPTIONPROTO(9),
-    USERNOTINITIALIZEDEXCEPTIONPROTO(10),
-    GENERICEXCEPTIONPROTO(11),
-    SDKNOTAUTHORIZEDEXCEPTIONPROTO(13),
+    PLUGINEXCEPTIONPROTO(2),
     RESULT_NOT_SET(0);
     private final int value;
     private ResultCase(int value) {
@@ -74,16 +65,7 @@ private static final long serialVersionUID = 0L;
     public static ResultCase forNumber(int value) {
       switch (value) {
         case 1: return SYNCSTATUSWITHINTPROTO;
-        case 2: return DEVICENOTSUPPORTEDEXCEPTIONPROTO;
-        case 3: return HEALTHCONNECTNOTINSTALLEDEXCEPTIONPROTO;
-        case 4: return HTTPREQUESTEXCEPTIONPROTO;
-        case 6: return MISSINGPERMISSIONSEXCEPTIONPROTO;
-        case 7: return REQUESTQUOTAEXCEEDEDEXCEPTIONPROTO;
-        case 8: return SDKNOTINITIALIZEDEXCEPTIONPROTO;
-        case 9: return TIMEOUTEXCEPTIONPROTO;
-        case 10: return USERNOTINITIALIZEDEXCEPTIONPROTO;
-        case 11: return GENERICEXCEPTIONPROTO;
-        case 13: return SDKNOTAUTHORIZEDEXCEPTIONPROTO;
+        case 2: return PLUGINEXCEPTIONPROTO;
         case 0: return RESULT_NOT_SET;
         default: return null;
       }
@@ -130,314 +112,35 @@ private static final long serialVersionUID = 0L;
     return com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusWithIntProto.getDefaultInstance();
   }
 
-  public static final int DEVICENOTSUPPORTEDEXCEPTIONPROTO_FIELD_NUMBER = 2;
+  public static final int PLUGINEXCEPTIONPROTO_FIELD_NUMBER = 2;
   /**
-   * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
-   * @return Whether the deviceNotSupportedExceptionProto field is set.
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * @return Whether the pluginExceptionProto field is set.
    */
   @java.lang.Override
-  public boolean hasDeviceNotSupportedExceptionProto() {
+  public boolean hasPluginExceptionProto() {
     return resultCase_ == 2;
   }
   /**
-   * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
-   * @return The deviceNotSupportedExceptionProto.
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * @return The pluginExceptionProto.
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto getDeviceNotSupportedExceptionProto() {
+  public com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto getPluginExceptionProto() {
     if (resultCase_ == 2) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto) result_;
+       return (com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto) result_;
     }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.getDefaultInstance();
+    return com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProtoOrBuilder getDeviceNotSupportedExceptionProtoOrBuilder() {
+  public com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder() {
     if (resultCase_ == 2) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto) result_;
+       return (com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto) result_;
     }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.getDefaultInstance();
-  }
-
-  public static final int HEALTHCONNECTNOTINSTALLEDEXCEPTIONPROTO_FIELD_NUMBER = 3;
-  /**
-   * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-   * @return Whether the healthConnectNotInstalledExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasHealthConnectNotInstalledExceptionProto() {
-    return resultCase_ == 3;
-  }
-  /**
-   * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-   * @return The healthConnectNotInstalledExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto getHealthConnectNotInstalledExceptionProto() {
-    if (resultCase_ == 3) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProtoOrBuilder getHealthConnectNotInstalledExceptionProtoOrBuilder() {
-    if (resultCase_ == 3) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.getDefaultInstance();
-  }
-
-  public static final int HTTPREQUESTEXCEPTIONPROTO_FIELD_NUMBER = 4;
-  /**
-   * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-   * @return Whether the httpRequestExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasHttpRequestExceptionProto() {
-    return resultCase_ == 4;
-  }
-  /**
-   * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-   * @return The httpRequestExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto getHttpRequestExceptionProto() {
-    if (resultCase_ == 4) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProtoOrBuilder getHttpRequestExceptionProtoOrBuilder() {
-    if (resultCase_ == 4) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.getDefaultInstance();
-  }
-
-  public static final int MISSINGPERMISSIONSEXCEPTIONPROTO_FIELD_NUMBER = 6;
-  /**
-   * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-   * @return Whether the missingPermissionsExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasMissingPermissionsExceptionProto() {
-    return resultCase_ == 6;
-  }
-  /**
-   * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-   * @return The missingPermissionsExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto getMissingPermissionsExceptionProto() {
-    if (resultCase_ == 6) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProtoOrBuilder getMissingPermissionsExceptionProtoOrBuilder() {
-    if (resultCase_ == 6) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.getDefaultInstance();
-  }
-
-  public static final int REQUESTQUOTAEXCEEDEDEXCEPTIONPROTO_FIELD_NUMBER = 7;
-  /**
-   * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-   * @return Whether the requestQuotaExceededExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasRequestQuotaExceededExceptionProto() {
-    return resultCase_ == 7;
-  }
-  /**
-   * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-   * @return The requestQuotaExceededExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto getRequestQuotaExceededExceptionProto() {
-    if (resultCase_ == 7) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProtoOrBuilder getRequestQuotaExceededExceptionProtoOrBuilder() {
-    if (resultCase_ == 7) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.getDefaultInstance();
-  }
-
-  public static final int SDKNOTINITIALIZEDEXCEPTIONPROTO_FIELD_NUMBER = 8;
-  /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-   * @return Whether the sdkNotInitializedExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasSdkNotInitializedExceptionProto() {
-    return resultCase_ == 8;
-  }
-  /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-   * @return The sdkNotInitializedExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto getSdkNotInitializedExceptionProto() {
-    if (resultCase_ == 8) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProtoOrBuilder getSdkNotInitializedExceptionProtoOrBuilder() {
-    if (resultCase_ == 8) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.getDefaultInstance();
-  }
-
-  public static final int TIMEOUTEXCEPTIONPROTO_FIELD_NUMBER = 9;
-  /**
-   * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-   * @return Whether the timeoutExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasTimeoutExceptionProto() {
-    return resultCase_ == 9;
-  }
-  /**
-   * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-   * @return The timeoutExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto getTimeoutExceptionProto() {
-    if (resultCase_ == 9) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProtoOrBuilder getTimeoutExceptionProtoOrBuilder() {
-    if (resultCase_ == 9) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.getDefaultInstance();
-  }
-
-  public static final int USERNOTINITIALIZEDEXCEPTIONPROTO_FIELD_NUMBER = 10;
-  /**
-   * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-   * @return Whether the userNotInitializedExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasUserNotInitializedExceptionProto() {
-    return resultCase_ == 10;
-  }
-  /**
-   * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-   * @return The userNotInitializedExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto getUserNotInitializedExceptionProto() {
-    if (resultCase_ == 10) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProtoOrBuilder getUserNotInitializedExceptionProtoOrBuilder() {
-    if (resultCase_ == 10) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.getDefaultInstance();
-  }
-
-  public static final int GENERICEXCEPTIONPROTO_FIELD_NUMBER = 11;
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   * @return Whether the genericExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasGenericExceptionProto() {
-    return resultCase_ == 11;
-  }
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   * @return The genericExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto getGenericExceptionProto() {
-    if (resultCase_ == 11) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProtoOrBuilder getGenericExceptionProtoOrBuilder() {
-    if (resultCase_ == 11) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.getDefaultInstance();
-  }
-
-  public static final int SDKNOTAUTHORIZEDEXCEPTIONPROTO_FIELD_NUMBER = 13;
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   * @return Whether the sdkNotAuthorizedExceptionProto field is set.
-   */
-  @java.lang.Override
-  public boolean hasSdkNotAuthorizedExceptionProto() {
-    return resultCase_ == 13;
-  }
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   * @return The sdkNotAuthorizedExceptionProto.
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto getSdkNotAuthorizedExceptionProto() {
-    if (resultCase_ == 13) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
-  }
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   */
-  @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder getSdkNotAuthorizedExceptionProtoOrBuilder() {
-    if (resultCase_ == 13) {
-       return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_;
-    }
-    return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
+    return com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -458,34 +161,7 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(1, (com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusWithIntProto) result_);
     }
     if (resultCase_ == 2) {
-      output.writeMessage(2, (com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto) result_);
-    }
-    if (resultCase_ == 3) {
-      output.writeMessage(3, (com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto) result_);
-    }
-    if (resultCase_ == 4) {
-      output.writeMessage(4, (com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto) result_);
-    }
-    if (resultCase_ == 6) {
-      output.writeMessage(6, (com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto) result_);
-    }
-    if (resultCase_ == 7) {
-      output.writeMessage(7, (com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto) result_);
-    }
-    if (resultCase_ == 8) {
-      output.writeMessage(8, (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto) result_);
-    }
-    if (resultCase_ == 9) {
-      output.writeMessage(9, (com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto) result_);
-    }
-    if (resultCase_ == 10) {
-      output.writeMessage(10, (com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto) result_);
-    }
-    if (resultCase_ == 11) {
-      output.writeMessage(11, (com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto) result_);
-    }
-    if (resultCase_ == 13) {
-      output.writeMessage(13, (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_);
+      output.writeMessage(2, (com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto) result_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -502,43 +178,7 @@ private static final long serialVersionUID = 0L;
     }
     if (resultCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, (com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto) result_);
-    }
-    if (resultCase_ == 3) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, (com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto) result_);
-    }
-    if (resultCase_ == 4) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, (com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto) result_);
-    }
-    if (resultCase_ == 6) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, (com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto) result_);
-    }
-    if (resultCase_ == 7) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, (com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto) result_);
-    }
-    if (resultCase_ == 8) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto) result_);
-    }
-    if (resultCase_ == 9) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, (com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto) result_);
-    }
-    if (resultCase_ == 10) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, (com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto) result_);
-    }
-    if (resultCase_ == 11) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, (com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto) result_);
-    }
-    if (resultCase_ == 13) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(13, (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_);
+        .computeMessageSize(2, (com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto) result_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -562,44 +202,8 @@ private static final long serialVersionUID = 0L;
             .equals(other.getSyncStatusWithIntProto())) return false;
         break;
       case 2:
-        if (!getDeviceNotSupportedExceptionProto()
-            .equals(other.getDeviceNotSupportedExceptionProto())) return false;
-        break;
-      case 3:
-        if (!getHealthConnectNotInstalledExceptionProto()
-            .equals(other.getHealthConnectNotInstalledExceptionProto())) return false;
-        break;
-      case 4:
-        if (!getHttpRequestExceptionProto()
-            .equals(other.getHttpRequestExceptionProto())) return false;
-        break;
-      case 6:
-        if (!getMissingPermissionsExceptionProto()
-            .equals(other.getMissingPermissionsExceptionProto())) return false;
-        break;
-      case 7:
-        if (!getRequestQuotaExceededExceptionProto()
-            .equals(other.getRequestQuotaExceededExceptionProto())) return false;
-        break;
-      case 8:
-        if (!getSdkNotInitializedExceptionProto()
-            .equals(other.getSdkNotInitializedExceptionProto())) return false;
-        break;
-      case 9:
-        if (!getTimeoutExceptionProto()
-            .equals(other.getTimeoutExceptionProto())) return false;
-        break;
-      case 10:
-        if (!getUserNotInitializedExceptionProto()
-            .equals(other.getUserNotInitializedExceptionProto())) return false;
-        break;
-      case 11:
-        if (!getGenericExceptionProto()
-            .equals(other.getGenericExceptionProto())) return false;
-        break;
-      case 13:
-        if (!getSdkNotAuthorizedExceptionProto()
-            .equals(other.getSdkNotAuthorizedExceptionProto())) return false;
+        if (!getPluginExceptionProto()
+            .equals(other.getPluginExceptionProto())) return false;
         break;
       case 0:
       default:
@@ -621,44 +225,8 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getSyncStatusWithIntProto().hashCode();
         break;
       case 2:
-        hash = (37 * hash) + DEVICENOTSUPPORTEDEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getDeviceNotSupportedExceptionProto().hashCode();
-        break;
-      case 3:
-        hash = (37 * hash) + HEALTHCONNECTNOTINSTALLEDEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getHealthConnectNotInstalledExceptionProto().hashCode();
-        break;
-      case 4:
-        hash = (37 * hash) + HTTPREQUESTEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getHttpRequestExceptionProto().hashCode();
-        break;
-      case 6:
-        hash = (37 * hash) + MISSINGPERMISSIONSEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getMissingPermissionsExceptionProto().hashCode();
-        break;
-      case 7:
-        hash = (37 * hash) + REQUESTQUOTAEXCEEDEDEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getRequestQuotaExceededExceptionProto().hashCode();
-        break;
-      case 8:
-        hash = (37 * hash) + SDKNOTINITIALIZEDEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getSdkNotInitializedExceptionProto().hashCode();
-        break;
-      case 9:
-        hash = (37 * hash) + TIMEOUTEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getTimeoutExceptionProto().hashCode();
-        break;
-      case 10:
-        hash = (37 * hash) + USERNOTINITIALIZEDEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getUserNotInitializedExceptionProto().hashCode();
-        break;
-      case 11:
-        hash = (37 * hash) + GENERICEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getGenericExceptionProto().hashCode();
-        break;
-      case 13:
-        hash = (37 * hash) + SDKNOTAUTHORIZEDEXCEPTIONPROTO_FIELD_NUMBER;
-        hash = (53 * hash) + getSdkNotAuthorizedExceptionProto().hashCode();
+        hash = (37 * hash) + PLUGINEXCEPTIONPROTO_FIELD_NUMBER;
+        hash = (53 * hash) + getPluginExceptionProto().hashCode();
         break;
       case 0:
       default:
@@ -797,35 +365,8 @@ private static final long serialVersionUID = 0L;
       if (syncStatusWithIntProtoBuilder_ != null) {
         syncStatusWithIntProtoBuilder_.clear();
       }
-      if (deviceNotSupportedExceptionProtoBuilder_ != null) {
-        deviceNotSupportedExceptionProtoBuilder_.clear();
-      }
-      if (healthConnectNotInstalledExceptionProtoBuilder_ != null) {
-        healthConnectNotInstalledExceptionProtoBuilder_.clear();
-      }
-      if (httpRequestExceptionProtoBuilder_ != null) {
-        httpRequestExceptionProtoBuilder_.clear();
-      }
-      if (missingPermissionsExceptionProtoBuilder_ != null) {
-        missingPermissionsExceptionProtoBuilder_.clear();
-      }
-      if (requestQuotaExceededExceptionProtoBuilder_ != null) {
-        requestQuotaExceededExceptionProtoBuilder_.clear();
-      }
-      if (sdkNotInitializedExceptionProtoBuilder_ != null) {
-        sdkNotInitializedExceptionProtoBuilder_.clear();
-      }
-      if (timeoutExceptionProtoBuilder_ != null) {
-        timeoutExceptionProtoBuilder_.clear();
-      }
-      if (userNotInitializedExceptionProtoBuilder_ != null) {
-        userNotInitializedExceptionProtoBuilder_.clear();
-      }
-      if (genericExceptionProtoBuilder_ != null) {
-        genericExceptionProtoBuilder_.clear();
-      }
-      if (sdkNotAuthorizedExceptionProtoBuilder_ != null) {
-        sdkNotAuthorizedExceptionProtoBuilder_.clear();
+      if (pluginExceptionProtoBuilder_ != null) {
+        pluginExceptionProtoBuilder_.clear();
       }
       resultCase_ = 0;
       result_ = null;
@@ -873,44 +414,8 @@ private static final long serialVersionUID = 0L;
         result.result_ = syncStatusWithIntProtoBuilder_.build();
       }
       if (resultCase_ == 2 &&
-          deviceNotSupportedExceptionProtoBuilder_ != null) {
-        result.result_ = deviceNotSupportedExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 3 &&
-          healthConnectNotInstalledExceptionProtoBuilder_ != null) {
-        result.result_ = healthConnectNotInstalledExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 4 &&
-          httpRequestExceptionProtoBuilder_ != null) {
-        result.result_ = httpRequestExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 6 &&
-          missingPermissionsExceptionProtoBuilder_ != null) {
-        result.result_ = missingPermissionsExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 7 &&
-          requestQuotaExceededExceptionProtoBuilder_ != null) {
-        result.result_ = requestQuotaExceededExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 8 &&
-          sdkNotInitializedExceptionProtoBuilder_ != null) {
-        result.result_ = sdkNotInitializedExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 9 &&
-          timeoutExceptionProtoBuilder_ != null) {
-        result.result_ = timeoutExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 10 &&
-          userNotInitializedExceptionProtoBuilder_ != null) {
-        result.result_ = userNotInitializedExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 11 &&
-          genericExceptionProtoBuilder_ != null) {
-        result.result_ = genericExceptionProtoBuilder_.build();
-      }
-      if (resultCase_ == 13 &&
-          sdkNotAuthorizedExceptionProtoBuilder_ != null) {
-        result.result_ = sdkNotAuthorizedExceptionProtoBuilder_.build();
+          pluginExceptionProtoBuilder_ != null) {
+        result.result_ = pluginExceptionProtoBuilder_.build();
       }
     }
 
@@ -963,44 +468,8 @@ private static final long serialVersionUID = 0L;
           mergeSyncStatusWithIntProto(other.getSyncStatusWithIntProto());
           break;
         }
-        case DEVICENOTSUPPORTEDEXCEPTIONPROTO: {
-          mergeDeviceNotSupportedExceptionProto(other.getDeviceNotSupportedExceptionProto());
-          break;
-        }
-        case HEALTHCONNECTNOTINSTALLEDEXCEPTIONPROTO: {
-          mergeHealthConnectNotInstalledExceptionProto(other.getHealthConnectNotInstalledExceptionProto());
-          break;
-        }
-        case HTTPREQUESTEXCEPTIONPROTO: {
-          mergeHttpRequestExceptionProto(other.getHttpRequestExceptionProto());
-          break;
-        }
-        case MISSINGPERMISSIONSEXCEPTIONPROTO: {
-          mergeMissingPermissionsExceptionProto(other.getMissingPermissionsExceptionProto());
-          break;
-        }
-        case REQUESTQUOTAEXCEEDEDEXCEPTIONPROTO: {
-          mergeRequestQuotaExceededExceptionProto(other.getRequestQuotaExceededExceptionProto());
-          break;
-        }
-        case SDKNOTINITIALIZEDEXCEPTIONPROTO: {
-          mergeSdkNotInitializedExceptionProto(other.getSdkNotInitializedExceptionProto());
-          break;
-        }
-        case TIMEOUTEXCEPTIONPROTO: {
-          mergeTimeoutExceptionProto(other.getTimeoutExceptionProto());
-          break;
-        }
-        case USERNOTINITIALIZEDEXCEPTIONPROTO: {
-          mergeUserNotInitializedExceptionProto(other.getUserNotInitializedExceptionProto());
-          break;
-        }
-        case GENERICEXCEPTIONPROTO: {
-          mergeGenericExceptionProto(other.getGenericExceptionProto());
-          break;
-        }
-        case SDKNOTAUTHORIZEDEXCEPTIONPROTO: {
-          mergeSdkNotAuthorizedExceptionProto(other.getSdkNotAuthorizedExceptionProto());
+        case PLUGINEXCEPTIONPROTO: {
+          mergePluginExceptionProto(other.getPluginExceptionProto());
           break;
         }
         case RESULT_NOT_SET: {
@@ -1042,74 +511,11 @@ private static final long serialVersionUID = 0L;
             } // case 10
             case 18: {
               input.readMessage(
-                  getDeviceNotSupportedExceptionProtoFieldBuilder().getBuilder(),
+                  getPluginExceptionProtoFieldBuilder().getBuilder(),
                   extensionRegistry);
               resultCase_ = 2;
               break;
             } // case 18
-            case 26: {
-              input.readMessage(
-                  getHealthConnectNotInstalledExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 3;
-              break;
-            } // case 26
-            case 34: {
-              input.readMessage(
-                  getHttpRequestExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 4;
-              break;
-            } // case 34
-            case 50: {
-              input.readMessage(
-                  getMissingPermissionsExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 6;
-              break;
-            } // case 50
-            case 58: {
-              input.readMessage(
-                  getRequestQuotaExceededExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 7;
-              break;
-            } // case 58
-            case 66: {
-              input.readMessage(
-                  getSdkNotInitializedExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 8;
-              break;
-            } // case 66
-            case 74: {
-              input.readMessage(
-                  getTimeoutExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 9;
-              break;
-            } // case 74
-            case 82: {
-              input.readMessage(
-                  getUserNotInitializedExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 10;
-              break;
-            } // case 82
-            case 90: {
-              input.readMessage(
-                  getGenericExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 11;
-              break;
-            } // case 90
-            case 106: {
-              input.readMessage(
-                  getSdkNotAuthorizedExceptionProtoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              resultCase_ = 13;
-              break;
-            } // case 106
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1285,71 +691,71 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProtoOrBuilder> deviceNotSupportedExceptionProtoBuilder_;
+        com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder> pluginExceptionProtoBuilder_;
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
-     * @return Whether the deviceNotSupportedExceptionProto field is set.
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * @return Whether the pluginExceptionProto field is set.
      */
     @java.lang.Override
-    public boolean hasDeviceNotSupportedExceptionProto() {
+    public boolean hasPluginExceptionProto() {
       return resultCase_ == 2;
     }
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
-     * @return The deviceNotSupportedExceptionProto.
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * @return The pluginExceptionProto.
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto getDeviceNotSupportedExceptionProto() {
-      if (deviceNotSupportedExceptionProtoBuilder_ == null) {
+    public com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto getPluginExceptionProto() {
+      if (pluginExceptionProtoBuilder_ == null) {
         if (resultCase_ == 2) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto) result_;
+          return (com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto) result_;
         }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.getDefaultInstance();
+        return com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.getDefaultInstance();
       } else {
         if (resultCase_ == 2) {
-          return deviceNotSupportedExceptionProtoBuilder_.getMessage();
+          return pluginExceptionProtoBuilder_.getMessage();
         }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.getDefaultInstance();
+        return com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.getDefaultInstance();
       }
     }
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
      */
-    public Builder setDeviceNotSupportedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto value) {
-      if (deviceNotSupportedExceptionProtoBuilder_ == null) {
+    public Builder setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto value) {
+      if (pluginExceptionProtoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         result_ = value;
         onChanged();
       } else {
-        deviceNotSupportedExceptionProtoBuilder_.setMessage(value);
+        pluginExceptionProtoBuilder_.setMessage(value);
       }
       resultCase_ = 2;
       return this;
     }
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
      */
-    public Builder setDeviceNotSupportedExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.Builder builderForValue) {
-      if (deviceNotSupportedExceptionProtoBuilder_ == null) {
+    public Builder setPluginExceptionProto(
+        com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.Builder builderForValue) {
+      if (pluginExceptionProtoBuilder_ == null) {
         result_ = builderForValue.build();
         onChanged();
       } else {
-        deviceNotSupportedExceptionProtoBuilder_.setMessage(builderForValue.build());
+        pluginExceptionProtoBuilder_.setMessage(builderForValue.build());
       }
       resultCase_ = 2;
       return this;
     }
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
      */
-    public Builder mergeDeviceNotSupportedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto value) {
-      if (deviceNotSupportedExceptionProtoBuilder_ == null) {
+    public Builder mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto value) {
+      if (pluginExceptionProtoBuilder_ == null) {
         if (resultCase_ == 2 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto) result_)
+            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.getDefaultInstance()) {
+          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto) result_)
               .mergeFrom(value).buildPartial();
         } else {
           result_ = value;
@@ -1357,19 +763,19 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } else {
         if (resultCase_ == 2) {
-          deviceNotSupportedExceptionProtoBuilder_.mergeFrom(value);
+          pluginExceptionProtoBuilder_.mergeFrom(value);
         } else {
-          deviceNotSupportedExceptionProtoBuilder_.setMessage(value);
+          pluginExceptionProtoBuilder_.setMessage(value);
         }
       }
       resultCase_ = 2;
       return this;
     }
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
      */
-    public Builder clearDeviceNotSupportedExceptionProto() {
-      if (deviceNotSupportedExceptionProtoBuilder_ == null) {
+    public Builder clearPluginExceptionProto() {
+      if (pluginExceptionProtoBuilder_ == null) {
         if (resultCase_ == 2) {
           resultCase_ = 0;
           result_ = null;
@@ -1380,1328 +786,50 @@ private static final long serialVersionUID = 0L;
           resultCase_ = 0;
           result_ = null;
         }
-        deviceNotSupportedExceptionProtoBuilder_.clear();
+        pluginExceptionProtoBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
      */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.Builder getDeviceNotSupportedExceptionProtoBuilder() {
-      return getDeviceNotSupportedExceptionProtoFieldBuilder().getBuilder();
+    public com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.Builder getPluginExceptionProtoBuilder() {
+      return getPluginExceptionProtoFieldBuilder().getBuilder();
     }
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProtoOrBuilder getDeviceNotSupportedExceptionProtoOrBuilder() {
-      if ((resultCase_ == 2) && (deviceNotSupportedExceptionProtoBuilder_ != null)) {
-        return deviceNotSupportedExceptionProtoBuilder_.getMessageOrBuilder();
+    public com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder() {
+      if ((resultCase_ == 2) && (pluginExceptionProtoBuilder_ != null)) {
+        return pluginExceptionProtoBuilder_.getMessageOrBuilder();
       } else {
         if (resultCase_ == 2) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto) result_;
+          return (com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto) result_;
         }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.getDefaultInstance();
+        return com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.getDefaultInstance();
       }
     }
     /**
-     * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProtoOrBuilder> 
-        getDeviceNotSupportedExceptionProtoFieldBuilder() {
-      if (deviceNotSupportedExceptionProtoBuilder_ == null) {
+        com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder> 
+        getPluginExceptionProtoFieldBuilder() {
+      if (pluginExceptionProtoBuilder_ == null) {
         if (!(resultCase_ == 2)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.getDefaultInstance();
+          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.getDefaultInstance();
         }
-        deviceNotSupportedExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto) result_,
+        pluginExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder>(
+                (com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto) result_,
                 getParentForChildren(),
                 isClean());
         result_ = null;
       }
       resultCase_ = 2;
       onChanged();
-      return deviceNotSupportedExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProtoOrBuilder> healthConnectNotInstalledExceptionProtoBuilder_;
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     * @return Whether the healthConnectNotInstalledExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasHealthConnectNotInstalledExceptionProto() {
-      return resultCase_ == 3;
-    }
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     * @return The healthConnectNotInstalledExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto getHealthConnectNotInstalledExceptionProto() {
-      if (healthConnectNotInstalledExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 3) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 3) {
-          return healthConnectNotInstalledExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     */
-    public Builder setHealthConnectNotInstalledExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto value) {
-      if (healthConnectNotInstalledExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        healthConnectNotInstalledExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 3;
-      return this;
-    }
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     */
-    public Builder setHealthConnectNotInstalledExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.Builder builderForValue) {
-      if (healthConnectNotInstalledExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        healthConnectNotInstalledExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 3;
-      return this;
-    }
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     */
-    public Builder mergeHealthConnectNotInstalledExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto value) {
-      if (healthConnectNotInstalledExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 3 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 3) {
-          healthConnectNotInstalledExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          healthConnectNotInstalledExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 3;
-      return this;
-    }
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     */
-    public Builder clearHealthConnectNotInstalledExceptionProto() {
-      if (healthConnectNotInstalledExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 3) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 3) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        healthConnectNotInstalledExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.Builder getHealthConnectNotInstalledExceptionProtoBuilder() {
-      return getHealthConnectNotInstalledExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProtoOrBuilder getHealthConnectNotInstalledExceptionProtoOrBuilder() {
-      if ((resultCase_ == 3) && (healthConnectNotInstalledExceptionProtoBuilder_ != null)) {
-        return healthConnectNotInstalledExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 3) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProtoOrBuilder> 
-        getHealthConnectNotInstalledExceptionProtoFieldBuilder() {
-      if (healthConnectNotInstalledExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 3)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.getDefaultInstance();
-        }
-        healthConnectNotInstalledExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 3;
-      onChanged();
-      return healthConnectNotInstalledExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProtoOrBuilder> httpRequestExceptionProtoBuilder_;
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     * @return Whether the httpRequestExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasHttpRequestExceptionProto() {
-      return resultCase_ == 4;
-    }
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     * @return The httpRequestExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto getHttpRequestExceptionProto() {
-      if (httpRequestExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 4) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 4) {
-          return httpRequestExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     */
-    public Builder setHttpRequestExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto value) {
-      if (httpRequestExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        httpRequestExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 4;
-      return this;
-    }
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     */
-    public Builder setHttpRequestExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.Builder builderForValue) {
-      if (httpRequestExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        httpRequestExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 4;
-      return this;
-    }
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     */
-    public Builder mergeHttpRequestExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto value) {
-      if (httpRequestExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 4 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 4) {
-          httpRequestExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          httpRequestExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 4;
-      return this;
-    }
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     */
-    public Builder clearHttpRequestExceptionProto() {
-      if (httpRequestExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 4) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 4) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        httpRequestExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.Builder getHttpRequestExceptionProtoBuilder() {
-      return getHttpRequestExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProtoOrBuilder getHttpRequestExceptionProtoOrBuilder() {
-      if ((resultCase_ == 4) && (httpRequestExceptionProtoBuilder_ != null)) {
-        return httpRequestExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 4) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProtoOrBuilder> 
-        getHttpRequestExceptionProtoFieldBuilder() {
-      if (httpRequestExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 4)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.getDefaultInstance();
-        }
-        httpRequestExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 4;
-      onChanged();
-      return httpRequestExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProtoOrBuilder> missingPermissionsExceptionProtoBuilder_;
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     * @return Whether the missingPermissionsExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasMissingPermissionsExceptionProto() {
-      return resultCase_ == 6;
-    }
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     * @return The missingPermissionsExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto getMissingPermissionsExceptionProto() {
-      if (missingPermissionsExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 6) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 6) {
-          return missingPermissionsExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     */
-    public Builder setMissingPermissionsExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto value) {
-      if (missingPermissionsExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        missingPermissionsExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 6;
-      return this;
-    }
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     */
-    public Builder setMissingPermissionsExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.Builder builderForValue) {
-      if (missingPermissionsExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        missingPermissionsExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 6;
-      return this;
-    }
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     */
-    public Builder mergeMissingPermissionsExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto value) {
-      if (missingPermissionsExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 6 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 6) {
-          missingPermissionsExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          missingPermissionsExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 6;
-      return this;
-    }
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     */
-    public Builder clearMissingPermissionsExceptionProto() {
-      if (missingPermissionsExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 6) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 6) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        missingPermissionsExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.Builder getMissingPermissionsExceptionProtoBuilder() {
-      return getMissingPermissionsExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProtoOrBuilder getMissingPermissionsExceptionProtoOrBuilder() {
-      if ((resultCase_ == 6) && (missingPermissionsExceptionProtoBuilder_ != null)) {
-        return missingPermissionsExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 6) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProtoOrBuilder> 
-        getMissingPermissionsExceptionProtoFieldBuilder() {
-      if (missingPermissionsExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 6)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.getDefaultInstance();
-        }
-        missingPermissionsExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 6;
-      onChanged();
-      return missingPermissionsExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProtoOrBuilder> requestQuotaExceededExceptionProtoBuilder_;
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     * @return Whether the requestQuotaExceededExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasRequestQuotaExceededExceptionProto() {
-      return resultCase_ == 7;
-    }
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     * @return The requestQuotaExceededExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto getRequestQuotaExceededExceptionProto() {
-      if (requestQuotaExceededExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 7) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 7) {
-          return requestQuotaExceededExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     */
-    public Builder setRequestQuotaExceededExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto value) {
-      if (requestQuotaExceededExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        requestQuotaExceededExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 7;
-      return this;
-    }
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     */
-    public Builder setRequestQuotaExceededExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.Builder builderForValue) {
-      if (requestQuotaExceededExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        requestQuotaExceededExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 7;
-      return this;
-    }
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     */
-    public Builder mergeRequestQuotaExceededExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto value) {
-      if (requestQuotaExceededExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 7 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 7) {
-          requestQuotaExceededExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          requestQuotaExceededExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 7;
-      return this;
-    }
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     */
-    public Builder clearRequestQuotaExceededExceptionProto() {
-      if (requestQuotaExceededExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 7) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 7) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        requestQuotaExceededExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.Builder getRequestQuotaExceededExceptionProtoBuilder() {
-      return getRequestQuotaExceededExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProtoOrBuilder getRequestQuotaExceededExceptionProtoOrBuilder() {
-      if ((resultCase_ == 7) && (requestQuotaExceededExceptionProtoBuilder_ != null)) {
-        return requestQuotaExceededExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 7) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProtoOrBuilder> 
-        getRequestQuotaExceededExceptionProtoFieldBuilder() {
-      if (requestQuotaExceededExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 7)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.getDefaultInstance();
-        }
-        requestQuotaExceededExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 7;
-      onChanged();
-      return requestQuotaExceededExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProtoOrBuilder> sdkNotInitializedExceptionProtoBuilder_;
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     * @return Whether the sdkNotInitializedExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasSdkNotInitializedExceptionProto() {
-      return resultCase_ == 8;
-    }
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     * @return The sdkNotInitializedExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto getSdkNotInitializedExceptionProto() {
-      if (sdkNotInitializedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 8) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 8) {
-          return sdkNotInitializedExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     */
-    public Builder setSdkNotInitializedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto value) {
-      if (sdkNotInitializedExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        sdkNotInitializedExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 8;
-      return this;
-    }
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     */
-    public Builder setSdkNotInitializedExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.Builder builderForValue) {
-      if (sdkNotInitializedExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        sdkNotInitializedExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 8;
-      return this;
-    }
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     */
-    public Builder mergeSdkNotInitializedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto value) {
-      if (sdkNotInitializedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 8 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 8) {
-          sdkNotInitializedExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          sdkNotInitializedExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 8;
-      return this;
-    }
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     */
-    public Builder clearSdkNotInitializedExceptionProto() {
-      if (sdkNotInitializedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 8) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 8) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        sdkNotInitializedExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.Builder getSdkNotInitializedExceptionProtoBuilder() {
-      return getSdkNotInitializedExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProtoOrBuilder getSdkNotInitializedExceptionProtoOrBuilder() {
-      if ((resultCase_ == 8) && (sdkNotInitializedExceptionProtoBuilder_ != null)) {
-        return sdkNotInitializedExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 8) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProtoOrBuilder> 
-        getSdkNotInitializedExceptionProtoFieldBuilder() {
-      if (sdkNotInitializedExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 8)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.getDefaultInstance();
-        }
-        sdkNotInitializedExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 8;
-      onChanged();
-      return sdkNotInitializedExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProtoOrBuilder> timeoutExceptionProtoBuilder_;
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     * @return Whether the timeoutExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasTimeoutExceptionProto() {
-      return resultCase_ == 9;
-    }
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     * @return The timeoutExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto getTimeoutExceptionProto() {
-      if (timeoutExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 9) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 9) {
-          return timeoutExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     */
-    public Builder setTimeoutExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto value) {
-      if (timeoutExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        timeoutExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 9;
-      return this;
-    }
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     */
-    public Builder setTimeoutExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.Builder builderForValue) {
-      if (timeoutExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        timeoutExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 9;
-      return this;
-    }
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     */
-    public Builder mergeTimeoutExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto value) {
-      if (timeoutExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 9 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 9) {
-          timeoutExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          timeoutExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 9;
-      return this;
-    }
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     */
-    public Builder clearTimeoutExceptionProto() {
-      if (timeoutExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 9) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 9) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        timeoutExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.Builder getTimeoutExceptionProtoBuilder() {
-      return getTimeoutExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProtoOrBuilder getTimeoutExceptionProtoOrBuilder() {
-      if ((resultCase_ == 9) && (timeoutExceptionProtoBuilder_ != null)) {
-        return timeoutExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 9) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProtoOrBuilder> 
-        getTimeoutExceptionProtoFieldBuilder() {
-      if (timeoutExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 9)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.getDefaultInstance();
-        }
-        timeoutExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 9;
-      onChanged();
-      return timeoutExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProtoOrBuilder> userNotInitializedExceptionProtoBuilder_;
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     * @return Whether the userNotInitializedExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasUserNotInitializedExceptionProto() {
-      return resultCase_ == 10;
-    }
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     * @return The userNotInitializedExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto getUserNotInitializedExceptionProto() {
-      if (userNotInitializedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 10) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 10) {
-          return userNotInitializedExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     */
-    public Builder setUserNotInitializedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto value) {
-      if (userNotInitializedExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        userNotInitializedExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 10;
-      return this;
-    }
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     */
-    public Builder setUserNotInitializedExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.Builder builderForValue) {
-      if (userNotInitializedExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        userNotInitializedExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 10;
-      return this;
-    }
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     */
-    public Builder mergeUserNotInitializedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto value) {
-      if (userNotInitializedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 10 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 10) {
-          userNotInitializedExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          userNotInitializedExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 10;
-      return this;
-    }
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     */
-    public Builder clearUserNotInitializedExceptionProto() {
-      if (userNotInitializedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 10) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 10) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        userNotInitializedExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.Builder getUserNotInitializedExceptionProtoBuilder() {
-      return getUserNotInitializedExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProtoOrBuilder getUserNotInitializedExceptionProtoOrBuilder() {
-      if ((resultCase_ == 10) && (userNotInitializedExceptionProtoBuilder_ != null)) {
-        return userNotInitializedExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 10) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProtoOrBuilder> 
-        getUserNotInitializedExceptionProtoFieldBuilder() {
-      if (userNotInitializedExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 10)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.getDefaultInstance();
-        }
-        userNotInitializedExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 10;
-      onChanged();
-      return userNotInitializedExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProtoOrBuilder> genericExceptionProtoBuilder_;
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     * @return Whether the genericExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasGenericExceptionProto() {
-      return resultCase_ == 11;
-    }
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     * @return The genericExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto getGenericExceptionProto() {
-      if (genericExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 11) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 11) {
-          return genericExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     */
-    public Builder setGenericExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto value) {
-      if (genericExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        genericExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 11;
-      return this;
-    }
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     */
-    public Builder setGenericExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.Builder builderForValue) {
-      if (genericExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        genericExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 11;
-      return this;
-    }
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     */
-    public Builder mergeGenericExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto value) {
-      if (genericExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 11 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 11) {
-          genericExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          genericExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 11;
-      return this;
-    }
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     */
-    public Builder clearGenericExceptionProto() {
-      if (genericExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 11) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 11) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        genericExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.Builder getGenericExceptionProtoBuilder() {
-      return getGenericExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProtoOrBuilder getGenericExceptionProtoOrBuilder() {
-      if ((resultCase_ == 11) && (genericExceptionProtoBuilder_ != null)) {
-        return genericExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 11) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProtoOrBuilder> 
-        getGenericExceptionProtoFieldBuilder() {
-      if (genericExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 11)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.getDefaultInstance();
-        }
-        genericExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 11;
-      onChanged();
-      return genericExceptionProtoBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder> sdkNotAuthorizedExceptionProtoBuilder_;
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     * @return Whether the sdkNotAuthorizedExceptionProto field is set.
-     */
-    @java.lang.Override
-    public boolean hasSdkNotAuthorizedExceptionProto() {
-      return resultCase_ == 13;
-    }
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     * @return The sdkNotAuthorizedExceptionProto.
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto getSdkNotAuthorizedExceptionProto() {
-      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 13) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
-      } else {
-        if (resultCase_ == 13) {
-          return sdkNotAuthorizedExceptionProtoBuilder_.getMessage();
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     */
-    public Builder setSdkNotAuthorizedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto value) {
-      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
-      } else {
-        sdkNotAuthorizedExceptionProtoBuilder_.setMessage(value);
-      }
-      resultCase_ = 13;
-      return this;
-    }
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     */
-    public Builder setSdkNotAuthorizedExceptionProto(
-        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder builderForValue) {
-      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        sdkNotAuthorizedExceptionProtoBuilder_.setMessage(builderForValue.build());
-      }
-      resultCase_ = 13;
-      return this;
-    }
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     */
-    public Builder mergeSdkNotAuthorizedExceptionProto(com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto value) {
-      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 13 &&
-            result_ != com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance()) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        if (resultCase_ == 13) {
-          sdkNotAuthorizedExceptionProtoBuilder_.mergeFrom(value);
-        } else {
-          sdkNotAuthorizedExceptionProtoBuilder_.setMessage(value);
-        }
-      }
-      resultCase_ = 13;
-      return this;
-    }
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     */
-    public Builder clearSdkNotAuthorizedExceptionProto() {
-      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
-        if (resultCase_ == 13) {
-          resultCase_ = 0;
-          result_ = null;
-          onChanged();
-        }
-      } else {
-        if (resultCase_ == 13) {
-          resultCase_ = 0;
-          result_ = null;
-        }
-        sdkNotAuthorizedExceptionProtoBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     */
-    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder getSdkNotAuthorizedExceptionProtoBuilder() {
-      return getSdkNotAuthorizedExceptionProtoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     */
-    @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder getSdkNotAuthorizedExceptionProtoOrBuilder() {
-      if ((resultCase_ == 13) && (sdkNotAuthorizedExceptionProtoBuilder_ != null)) {
-        return sdkNotAuthorizedExceptionProtoBuilder_.getMessageOrBuilder();
-      } else {
-        if (resultCase_ == 13) {
-          return (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_;
-        }
-        return com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder> 
-        getSdkNotAuthorizedExceptionProtoFieldBuilder() {
-      if (sdkNotAuthorizedExceptionProtoBuilder_ == null) {
-        if (!(resultCase_ == 13)) {
-          result_ = com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.getDefaultInstance();
-        }
-        sdkNotAuthorizedExceptionProtoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto.Builder, com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder>(
-                (com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto) result_,
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      resultCase_ = 13;
-      onChanged();
-      return sdkNotAuthorizedExceptionProtoBuilder_;
+      return pluginExceptionProtoBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

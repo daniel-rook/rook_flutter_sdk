@@ -9,11 +9,11 @@ import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.mapper.toDomain
+import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -35,7 +35,7 @@ class ConfigurationHandler(
                 enableNativeLogs = true
                 rookConfigurationManager.enableLocalLogs()
 
-                methodResult.resultBooleanSuccess(true)
+                methodResult.booleanSuccess(true)
             }
 
             "setConfiguration" -> {
@@ -44,11 +44,11 @@ class ConfigurationHandler(
                 }
 
                 enableBackgroundSync = rookConfigurationProto.enableBackgroundSync
-                rookConfiguration = rookConfigurationProto.toDomain()
+                rookConfiguration = rookConfigurationProto.toRookConfiguration()
 
-                rookConfigurationManager.setConfiguration(rookConfigurationProto.toDomain())
+                rookConfigurationManager.setConfiguration(rookConfigurationProto.toRookConfiguration())
 
-                methodResult.resultBooleanSuccess(true)
+                methodResult.booleanSuccess(true)
             }
 
             "getUserID" -> {
@@ -63,10 +63,10 @@ class ConfigurationHandler(
                 rookConfigurationManager.initRook().fold(
                     {
                         attemptToEnableBackgroundSync()
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }
@@ -76,10 +76,10 @@ class ConfigurationHandler(
 
                 rookConfigurationManager.updateUserID(userID).fold(
                     {
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }
@@ -87,16 +87,16 @@ class ConfigurationHandler(
             "clearUserID" -> coroutineScope.launch {
                 rookConfigurationManager.clearUserID()
 
-                methodResult.resultBooleanSuccess(true)
+                methodResult.booleanSuccess(true)
             }
 
             "deleteUserFromRook" -> coroutineScope.launch {
                 rookConfigurationManager.deleteUserFromRook().fold(
                     {
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }
@@ -104,10 +104,10 @@ class ConfigurationHandler(
             "syncUserTimeZone" -> coroutineScope.launch {
                 rookConfigurationManager.syncUserTimeZone().fold(
                     {
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }

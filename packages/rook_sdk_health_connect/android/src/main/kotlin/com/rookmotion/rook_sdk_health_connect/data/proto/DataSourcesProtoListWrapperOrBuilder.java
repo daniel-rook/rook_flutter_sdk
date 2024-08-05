@@ -4,8 +4,8 @@
 // Protobuf Java Version: 3.25.3
 package com.rookmotion.rook_sdk_health_connect.data.proto;
 
-public interface DataSourceProtoListWrapperOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:DataSourceProtoListWrapper)
+public interface DataSourcesProtoListWrapperOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:DataSourcesProtoListWrapper)
     com.google.protobuf.MessageOrBuilder {
 
   /**

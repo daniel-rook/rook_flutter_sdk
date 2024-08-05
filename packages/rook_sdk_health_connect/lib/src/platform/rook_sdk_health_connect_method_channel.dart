@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_data_source_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_request_permissions_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
@@ -624,7 +624,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       ],
     );
 
-    final result = ResultDataSourceProto.fromBuffer(bytes);
+    final result = ResultDataSourcesProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

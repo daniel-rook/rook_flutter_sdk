@@ -1,6 +1,5 @@
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 
@@ -19,55 +18,21 @@ void main() {
 
   group('ResultInt64Proto exception', () {
     test(
-      'GIVEN a SDKNotInitializedExceptionProto WHEN unwrap THEN throw SDKNotInitializedException',
+      'GIVEN the unhappy path WHEN unwrap THEN throw an Exception',
       () {
-        final proto = ResultInt64Proto.create();
-        proto.sdkNotInitializedExceptionProto =
-            SDKNotInitializedExceptionProto(message: error);
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
 
-        expect(
-          proto.unwrap,
-          throwsA(
-            predicate(
-              (exception) =>
-                  exception is SDKNotInitializedException &&
-                  exception.message == error,
-            ),
-          ),
-        );
-      },
-    );
+        final proto = ResultInt64Proto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
 
-    test(
-      'GIVEN a SDKNotAuthorizedExceptionProto WHEN unwrap THEN throw SDKNotAuthorizedException',
-      () {
-        final proto = ResultInt64Proto.create();
-        proto.sdkNotAuthorizedExceptionProto =
-            SDKNotAuthorizedExceptionProto(message: error);
-
-        expect(
-          proto.unwrap,
-          throwsA(
-            predicate(
-              (exception) =>
-                  exception is SDKNotAuthorizedException &&
-                  exception.message == error,
-            ),
-          ),
-        );
-      },
-    );
-
-    test(
-      'GIVEN a GenericExceptionProto WHEN unwrap THEN throw Exception',
-      () {
-        final proto = ResultInt64Proto.create();
-        proto.genericExceptionProto = GenericExceptionProto(message: error);
-
-        expect(proto.unwrap, throwsException);
+        expect(proto.unwrap, throwsA(isA<Exception>));
       },
     );
   });
 }
 
-const error = 'There was an error';
+const _exceptionMessage = "There was an error";
+const _exceptionCode = 401;

@@ -3,12 +3,12 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import com.rookmotion.rook.sdk.RookHelpers
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
-import com.rookmotion.rook_sdk_health_connect.mapper.toDomain
+import com.rookmotion.rook_sdk_health_connect.mapper.toHealthDataType
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -20,7 +20,7 @@ class HelperHandler(private val coroutineScope: CoroutineScope) {
         when (methodCall.method) {
             "shouldSyncFor" -> coroutineScope.launch {
                 val healthDataType = methodCall.getIntArgAt(0).let {
-                    HealthDataTypeProto.forNumber(it).toDomain()
+                    HealthDataTypeProto.forNumber(it).toHealthDataType()
                 }
 
                 val localDate = methodCall.getLongArgAt(1).let {
@@ -29,10 +29,10 @@ class HelperHandler(private val coroutineScope: CoroutineScope) {
 
                 RookHelpers.shouldSyncFor(healthDataType, localDate).fold(
                     {
-                        methodResult.resultBooleanSuccess(it)
+                        methodResult.booleanSuccess(it)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }

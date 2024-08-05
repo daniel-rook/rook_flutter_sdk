@@ -2,11 +2,11 @@ package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookSummaryManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultSyncStatusError
+import com.rookmotion.rook_sdk_health_connect.extension.syncStatusError
+import com.rookmotion.rook_sdk_health_connect.extension.syncStatusSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
@@ -23,10 +23,10 @@ class SummaryHandler(private val coroutineScope: CoroutineScope, private val roo
 
                 rookSummaryManager.syncSleepSummary(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -37,10 +37,10 @@ class SummaryHandler(private val coroutineScope: CoroutineScope, private val roo
 
                 rookSummaryManager.syncBodySummary(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -51,10 +51,10 @@ class SummaryHandler(private val coroutineScope: CoroutineScope, private val roo
 
                 rookSummaryManager.syncPhysicalSummary(localDate).fold(
                     {
-                        methodResult.resultSyncStatusSuccess(it)
+                        methodResult.syncStatusSuccess(it)
                     },
                     {
-                        methodResult.resultSyncStatusError(it)
+                        methodResult.syncStatusError(it)
                     }
                 )
             }
@@ -62,10 +62,10 @@ class SummaryHandler(private val coroutineScope: CoroutineScope, private val roo
             "syncPendingSummaries" -> coroutineScope.launch {
                 rookSummaryManager.syncPendingSummaries().fold(
                     {
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }

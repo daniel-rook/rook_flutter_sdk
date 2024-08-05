@@ -3,11 +3,11 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import android.content.Context
 import com.rookmotion.rook.sdk.RookDataSources
 import com.rookmotion.rook_sdk_health_connect.MethodResult
+import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesError
+import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getStringNullableArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesError
-import com.rookmotion.rook_sdk_health_connect.extension.resultDataSourcesSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -23,10 +23,10 @@ class DataSourcesHandler(context: Context, private val coroutineScope: Coroutine
 
                 rookDataSources.getAvailableDataSources(redirectUrl = redirectUrl).fold(
                     {
-                        methodResult.resultDataSourcesSuccess(it)
+                        methodResult.dataSourcesSuccess(it)
                     },
                     {
-                        methodResult.resultDataSourcesError(it)
+                        methodResult.dataSourcesError(it)
                     }
                 )
             }
@@ -36,10 +36,10 @@ class DataSourcesHandler(context: Context, private val coroutineScope: Coroutine
 
                 rookDataSources.presentDataSourceView(redirectUrl = redirectUrl).fold(
                     {
-                        methodResult.resultBooleanSuccess(true)
+                        methodResult.booleanSuccess(true)
                     },
                     {
-                        methodResult.resultBooleanError(it)
+                        methodResult.booleanError(it)
                     }
                 )
             }

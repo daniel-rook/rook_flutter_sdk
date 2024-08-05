@@ -25,154 +25,19 @@ public interface ResultSyncStatusProtoOrBuilder extends
   com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusProto getSyncStatusProto();
 
   /**
-   * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
-   * @return Whether the deviceNotSupportedExceptionProto field is set.
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * @return Whether the pluginExceptionProto field is set.
    */
-  boolean hasDeviceNotSupportedExceptionProto();
+  boolean hasPluginExceptionProto();
   /**
-   * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
-   * @return The deviceNotSupportedExceptionProto.
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * @return The pluginExceptionProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProto getDeviceNotSupportedExceptionProto();
+  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto getPluginExceptionProto();
   /**
-   * <code>.DeviceNotSupportedExceptionProto deviceNotSupportedExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.DeviceNotSupportedExceptionProtoOrBuilder getDeviceNotSupportedExceptionProtoOrBuilder();
-
-  /**
-   * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-   * @return Whether the healthConnectNotInstalledExceptionProto field is set.
-   */
-  boolean hasHealthConnectNotInstalledExceptionProto();
-  /**
-   * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-   * @return The healthConnectNotInstalledExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProto getHealthConnectNotInstalledExceptionProto();
-  /**
-   * <code>.HealthConnectNotInstalledExceptionProto healthConnectNotInstalledExceptionProto = 3;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.HealthConnectNotInstalledExceptionProtoOrBuilder getHealthConnectNotInstalledExceptionProtoOrBuilder();
-
-  /**
-   * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-   * @return Whether the httpRequestExceptionProto field is set.
-   */
-  boolean hasHttpRequestExceptionProto();
-  /**
-   * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-   * @return The httpRequestExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProto getHttpRequestExceptionProto();
-  /**
-   * <code>.HttpRequestExceptionProto httpRequestExceptionProto = 4;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.HttpRequestExceptionProtoOrBuilder getHttpRequestExceptionProtoOrBuilder();
-
-  /**
-   * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-   * @return Whether the missingPermissionsExceptionProto field is set.
-   */
-  boolean hasMissingPermissionsExceptionProto();
-  /**
-   * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-   * @return The missingPermissionsExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProto getMissingPermissionsExceptionProto();
-  /**
-   * <code>.MissingPermissionsExceptionProto missingPermissionsExceptionProto = 6;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.MissingPermissionsExceptionProtoOrBuilder getMissingPermissionsExceptionProtoOrBuilder();
-
-  /**
-   * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-   * @return Whether the requestQuotaExceededExceptionProto field is set.
-   */
-  boolean hasRequestQuotaExceededExceptionProto();
-  /**
-   * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-   * @return The requestQuotaExceededExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProto getRequestQuotaExceededExceptionProto();
-  /**
-   * <code>.RequestQuotaExceededExceptionProto requestQuotaExceededExceptionProto = 7;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.RequestQuotaExceededExceptionProtoOrBuilder getRequestQuotaExceededExceptionProtoOrBuilder();
-
-  /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-   * @return Whether the sdkNotInitializedExceptionProto field is set.
-   */
-  boolean hasSdkNotInitializedExceptionProto();
-  /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-   * @return The sdkNotInitializedExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProto getSdkNotInitializedExceptionProto();
-  /**
-   * <code>.SDKNotInitializedExceptionProto sdkNotInitializedExceptionProto = 8;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotInitializedExceptionProtoOrBuilder getSdkNotInitializedExceptionProtoOrBuilder();
-
-  /**
-   * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-   * @return Whether the timeoutExceptionProto field is set.
-   */
-  boolean hasTimeoutExceptionProto();
-  /**
-   * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-   * @return The timeoutExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProto getTimeoutExceptionProto();
-  /**
-   * <code>.TimeoutExceptionProto timeoutExceptionProto = 9;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.TimeoutExceptionProtoOrBuilder getTimeoutExceptionProtoOrBuilder();
-
-  /**
-   * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-   * @return Whether the userNotInitializedExceptionProto field is set.
-   */
-  boolean hasUserNotInitializedExceptionProto();
-  /**
-   * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-   * @return The userNotInitializedExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProto getUserNotInitializedExceptionProto();
-  /**
-   * <code>.UserNotInitializedExceptionProto userNotInitializedExceptionProto = 10;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.UserNotInitializedExceptionProtoOrBuilder getUserNotInitializedExceptionProtoOrBuilder();
-
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   * @return Whether the genericExceptionProto field is set.
-   */
-  boolean hasGenericExceptionProto();
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   * @return The genericExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProto getGenericExceptionProto();
-  /**
-   * <code>.GenericExceptionProto genericExceptionProto = 11;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.GenericExceptionProtoOrBuilder getGenericExceptionProtoOrBuilder();
-
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   * @return Whether the sdkNotAuthorizedExceptionProto field is set.
-   */
-  boolean hasSdkNotAuthorizedExceptionProto();
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   * @return The sdkNotAuthorizedExceptionProto.
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProto getSdkNotAuthorizedExceptionProto();
-  /**
-   * <code>.SDKNotAuthorizedExceptionProto sdkNotAuthorizedExceptionProto = 13;</code>
-   */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SDKNotAuthorizedExceptionProtoOrBuilder getSdkNotAuthorizedExceptionProtoOrBuilder();
+  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
 
   com.rookmotion.rook_sdk_health_connect.data.proto.ResultSyncStatusProto.ResultCase getResultCase();
 }
