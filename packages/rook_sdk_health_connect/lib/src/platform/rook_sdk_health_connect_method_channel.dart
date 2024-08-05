@@ -23,6 +23,16 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('rook_sdk_health_connect');
 
+  @visibleForTesting
+  final androidPermissionsEventChannel = const EventChannel(
+    "io.tryrook.permissions.android",
+  );
+
+  @visibleForTesting
+  final healthConnectPermissionsEventChannel = const EventChannel(
+    "io.tryrook.permissions.healthconnect",
+  );
+
   @override
   Future<void> enableNativeLogs() async {
     await methodChannel.invokeMethod('enableNativeLogs');
@@ -145,6 +155,15 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  Stream<bool> get requestHealthConnectPermissionsUpdates {
+    return healthConnectPermissionsEventChannel.receiveBroadcastStream().map(
+      (bytes) {
+        return bytes as bool;
+      },
+    );
+  }
+
+  @override
   Future<bool> checkAndroidPermissions() async {
     final bool result = await methodChannel.invokeMethod(
       'checkAndroidPermissions',
@@ -175,6 +194,15 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     }
 
     return proto.toDomain();
+  }
+
+  @override
+  Stream<bool> get requestAndroidPermissionsUpdates {
+    return androidPermissionsEventChannel.receiveBroadcastStream().map(
+      (bytes) {
+        return bytes as bool;
+      },
+    );
   }
 
   @override

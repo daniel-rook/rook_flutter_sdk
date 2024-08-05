@@ -47,11 +47,15 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<RequestPermissionsStatus> requestHealthConnectPermissions();
 
+  Stream<bool> get requestHealthConnectPermissionsUpdates;
+
   Future<bool> checkAndroidPermissions();
 
   Future<bool> shouldRequestAndroidPermissions();
 
   Future<RequestPermissionsStatus> requestAndroidPermissions();
+
+  Stream<bool> get requestAndroidPermissionsUpdates;
 
   @Deprecated("Will be deleted in next VERSION release")
   Future<bool> checkPermissions();

@@ -1,5 +1,7 @@
 package com.rookmotion.rook_sdk_health_connect
 
+import android.content.IntentFilter
+import androidx.core.content.ContextCompat
 import com.rookmotion.rook.sdk.RookConfigurationManager
 import com.rookmotion.rook.sdk.RookEventManager
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
@@ -16,9 +18,12 @@ import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandlerLegacy
 import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.SummaryHandler
 import com.rookmotion.rook_sdk_health_connect.handler.YesterdaySyncHandler
+import com.rookmotion.rook_sdk_health_connect.permissions.AndroidPermissionsReceiverTransmitter
+import com.rookmotion.rook_sdk_health_connect.permissions.HealthConnectPermissionsReceiverTransmitter
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
+import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -30,6 +35,7 @@ import kotlinx.coroutines.cancel
 
 /** RookSdkHealthConnectPlugin */
 class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+
     private lateinit var methodChannel: MethodChannel
     private lateinit var coroutineScope: CoroutineScope
 
@@ -42,6 +48,12 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var stepsHandler: StepsHandler
     private lateinit var yesterdaySyncHandler: YesterdaySyncHandler
     private lateinit var dataSourcesHandler: DataSourcesHandler
+
+    private lateinit var androidPermissionsEventChannel: EventChannel
+    private lateinit var healthConnectPermissionsEventChannel: EventChannel
+
+    private val androidPermissions = AndroidPermissionsReceiverTransmitter()
+    private val healthConnectPermissions = HealthConnectPermissionsReceiverTransmitter()
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -76,6 +88,31 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             rookYesterdaySyncManager = yesterdaySyncManager,
         )
         dataSourcesHandler = DataSourcesHandler(flutterPluginBinding.applicationContext, coroutineScope)
+
+        androidPermissionsEventChannel = EventChannel(
+            flutterPluginBinding.binaryMessenger,
+            AndroidPermissionsReceiverTransmitter.EVENT_CHANNEL_NAME
+        )
+        healthConnectPermissionsEventChannel = EventChannel(
+            flutterPluginBinding.binaryMessenger,
+            HealthConnectPermissionsReceiverTransmitter.EVENT_CHANNEL_NAME
+        )
+
+        androidPermissionsEventChannel.setStreamHandler(androidPermissions)
+        healthConnectPermissionsEventChannel.setStreamHandler(healthConnectPermissions)
+
+        ContextCompat.registerReceiver(
+            flutterPluginBinding.applicationContext,
+            androidPermissions,
+            IntentFilter(RookPermissionsManager.ACTION_ANDROID_PERMISSIONS),
+            ContextCompat.RECEIVER_EXPORTED,
+        )
+        ContextCompat.registerReceiver(
+            flutterPluginBinding.applicationContext,
+            healthConnectPermissions,
+            IntentFilter(RookPermissionsManager.ACTION_HEALTH_CONNECT_PERMISSIONS),
+            ContextCompat.RECEIVER_EXPORTED,
+        )
 
         methodChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "rook_sdk_health_connect")
         methodChannel.setMethodCallHandler(this)
@@ -148,6 +185,13 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         methodChannel.setMethodCallHandler(null)
+
+        binding.applicationContext.unregisterReceiver(androidPermissions)
+        binding.applicationContext.unregisterReceiver(healthConnectPermissions)
+
+        androidPermissionsEventChannel.setStreamHandler(null)
+        healthConnectPermissionsEventChannel.setStreamHandler(null)
+
         coroutineScope.cancel()
     }
 
@@ -159,7 +203,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         }
     }
 
-    override fun onDetachedFromActivityForConfigChanges() {
+    override fun onDetachedFromActivity() {
         permissionsHandler.setActivity(null)
     }
 
@@ -171,7 +215,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         }
     }
 
-    override fun onDetachedFromActivity() {
+    override fun onDetachedFromActivityForConfigChanges() {
         permissionsHandler.setActivity(null)
     }
 }

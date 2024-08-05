@@ -9,6 +9,7 @@ export 'src/hc_rook_data_sources.dart';
 export 'src/hc_rook_event_manager.dart';
 export 'src/hc_rook_health_permissions_manager.dart';
 export 'src/hc_rook_helpers.dart';
+export 'src/hc_rook_permissions_manager.dart';
 export 'src/hc_rook_summary_manager.dart';
 export 'src/hc_rook_yesterday_sync_manager.dart';
 export 'src/hc_rook_yesterday_sync_permissions.dart';

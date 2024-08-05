@@ -1,5 +1,6 @@
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
+@Deprecated("Functions from RookPermissionsManager offer better functionality.")
 class HCRookYesterdaySyncPermissions {
   HCRookYesterdaySyncPermissions._();
 
