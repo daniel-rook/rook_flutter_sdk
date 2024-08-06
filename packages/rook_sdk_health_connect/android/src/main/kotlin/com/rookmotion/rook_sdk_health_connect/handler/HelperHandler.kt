@@ -2,7 +2,7 @@ package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookHelpers
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
+import com.rookmotion.rook_sdk_health_connect.proto.HealthDataTypeProto
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt

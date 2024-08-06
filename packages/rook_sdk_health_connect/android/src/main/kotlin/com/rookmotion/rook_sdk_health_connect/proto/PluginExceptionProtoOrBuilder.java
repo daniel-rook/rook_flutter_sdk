@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public interface PluginExceptionProtoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PluginExceptionProto)

@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public interface SyncStatusWithIntProtoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:SyncStatusWithIntProto)
@@ -17,7 +17,7 @@ public interface SyncStatusWithIntProtoOrBuilder extends
    * <code>.SyncStatusProto syncStatus = 1;</code>
    * @return The syncStatus.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusProto getSyncStatus();
+  com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto getSyncStatus();
 
   /**
    * <code>uint32 steps = 2;</code>

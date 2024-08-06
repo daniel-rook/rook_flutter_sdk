@@ -2,32 +2,40 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code RookEnvironmentProto}
+ * Protobuf enum {@code AvailabilityStatusProto}
  */
-public enum RookEnvironmentProto
+public enum AvailabilityStatusProto
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>SANDBOX = 0;</code>
+   * <code>INSTALLED = 0;</code>
    */
-  SANDBOX(0),
+  INSTALLED(0),
   /**
-   * <code>PRODUCTION = 1;</code>
+   * <code>NOT_INSTALLED = 1;</code>
    */
-  PRODUCTION(1),
+  NOT_INSTALLED(1),
+  /**
+   * <code>NOT_SUPPORTED = 2;</code>
+   */
+  NOT_SUPPORTED(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>SANDBOX = 0;</code>
+   * <code>INSTALLED = 0;</code>
    */
-  public static final int SANDBOX_VALUE = 0;
+  public static final int INSTALLED_VALUE = 0;
   /**
-   * <code>PRODUCTION = 1;</code>
+   * <code>NOT_INSTALLED = 1;</code>
    */
-  public static final int PRODUCTION_VALUE = 1;
+  public static final int NOT_INSTALLED_VALUE = 1;
+  /**
+   * <code>NOT_SUPPORTED = 2;</code>
+   */
+  public static final int NOT_SUPPORTED_VALUE = 2;
 
 
   public final int getNumber() {
@@ -44,7 +52,7 @@ public enum RookEnvironmentProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static RookEnvironmentProto valueOf(int value) {
+  public static AvailabilityStatusProto valueOf(int value) {
     return forNumber(value);
   }
 
@@ -52,23 +60,24 @@ public enum RookEnvironmentProto
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static RookEnvironmentProto forNumber(int value) {
+  public static AvailabilityStatusProto forNumber(int value) {
     switch (value) {
-      case 0: return SANDBOX;
-      case 1: return PRODUCTION;
+      case 0: return INSTALLED;
+      case 1: return NOT_INSTALLED;
+      case 2: return NOT_SUPPORTED;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<RookEnvironmentProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<AvailabilityStatusProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      RookEnvironmentProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<RookEnvironmentProto>() {
-          public RookEnvironmentProto findValueByNumber(int number) {
-            return RookEnvironmentProto.forNumber(number);
+      AvailabilityStatusProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<AvailabilityStatusProto>() {
+          public AvailabilityStatusProto findValueByNumber(int number) {
+            return AvailabilityStatusProto.forNumber(number);
           }
         };
 
@@ -86,12 +95,12 @@ public enum RookEnvironmentProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.getDescriptor().getEnumTypes().get(0);
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(1);
   }
 
-  private static final RookEnvironmentProto[] VALUES = values();
+  private static final AvailabilityStatusProto[] VALUES = values();
 
-  public static RookEnvironmentProto valueOf(
+  public static AvailabilityStatusProto valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -105,10 +114,10 @@ public enum RookEnvironmentProto
 
   private final int value;
 
-  private RookEnvironmentProto(int value) {
+  private AvailabilityStatusProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:RookEnvironmentProto)
+  // @@protoc_insertion_point(enum_scope:AvailabilityStatusProto)
 }
 

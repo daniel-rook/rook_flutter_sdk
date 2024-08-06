@@ -1,7 +1,7 @@
 package com.rookmotion.rook_sdk_health_connect.mapper
 
 import com.rookmotion.rook.sdk.domain.model.DataSource
-import com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProto
+import com.rookmotion.rook_sdk_health_connect.proto.DataSourceProto
 
 fun DataSource.toDataSourceProto(): DataSourceProto {
     val dataSourceProtoBuilder = DataSourceProto.newBuilder()

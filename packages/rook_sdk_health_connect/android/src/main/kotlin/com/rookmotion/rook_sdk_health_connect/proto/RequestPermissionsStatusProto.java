@@ -2,32 +2,32 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code SyncStatusProto}
+ * Protobuf enum {@code RequestPermissionsStatusProto}
  */
-public enum SyncStatusProto
+public enum RequestPermissionsStatusProto
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>SYNCED = 0;</code>
+   * <code>REQUEST_SENT = 0;</code>
    */
-  SYNCED(0),
+  REQUEST_SENT(0),
   /**
-   * <code>RECORDS_NOT_FOUND = 1;</code>
+   * <code>ALREADY_GRANTED = 1;</code>
    */
-  RECORDS_NOT_FOUND(1),
+  ALREADY_GRANTED(1),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>SYNCED = 0;</code>
+   * <code>REQUEST_SENT = 0;</code>
    */
-  public static final int SYNCED_VALUE = 0;
+  public static final int REQUEST_SENT_VALUE = 0;
   /**
-   * <code>RECORDS_NOT_FOUND = 1;</code>
+   * <code>ALREADY_GRANTED = 1;</code>
    */
-  public static final int RECORDS_NOT_FOUND_VALUE = 1;
+  public static final int ALREADY_GRANTED_VALUE = 1;
 
 
   public final int getNumber() {
@@ -44,7 +44,7 @@ public enum SyncStatusProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static SyncStatusProto valueOf(int value) {
+  public static RequestPermissionsStatusProto valueOf(int value) {
     return forNumber(value);
   }
 
@@ -52,23 +52,23 @@ public enum SyncStatusProto
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static SyncStatusProto forNumber(int value) {
+  public static RequestPermissionsStatusProto forNumber(int value) {
     switch (value) {
-      case 0: return SYNCED;
-      case 1: return RECORDS_NOT_FOUND;
+      case 0: return REQUEST_SENT;
+      case 1: return ALREADY_GRANTED;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<SyncStatusProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<RequestPermissionsStatusProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      SyncStatusProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<SyncStatusProto>() {
-          public SyncStatusProto findValueByNumber(int number) {
-            return SyncStatusProto.forNumber(number);
+      RequestPermissionsStatusProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RequestPermissionsStatusProto>() {
+          public RequestPermissionsStatusProto findValueByNumber(int number) {
+            return RequestPermissionsStatusProto.forNumber(number);
           }
         };
 
@@ -86,12 +86,12 @@ public enum SyncStatusProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.getDescriptor().getEnumTypes().get(2);
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(5);
   }
 
-  private static final SyncStatusProto[] VALUES = values();
+  private static final RequestPermissionsStatusProto[] VALUES = values();
 
-  public static SyncStatusProto valueOf(
+  public static RequestPermissionsStatusProto valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -105,10 +105,10 @@ public enum SyncStatusProto
 
   private final int value;
 
-  private SyncStatusProto(int value) {
+  private RequestPermissionsStatusProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:SyncStatusProto)
+  // @@protoc_insertion_point(enum_scope:RequestPermissionsStatusProto)
 }
 

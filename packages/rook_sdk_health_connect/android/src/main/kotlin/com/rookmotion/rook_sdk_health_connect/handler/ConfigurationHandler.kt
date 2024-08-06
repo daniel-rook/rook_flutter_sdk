@@ -8,7 +8,7 @@ import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
+import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt

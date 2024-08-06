@@ -1,7 +1,7 @@
 package com.rookmotion.rook_sdk_health_connect.extension
 
-import com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.ResultInt64Proto
+import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
+import com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.int64Success(long: Long) {

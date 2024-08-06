@@ -1,7 +1,7 @@
 package com.rookmotion.rook_sdk_health_connect.mapper
 
 import com.rookmotion.rook.sdk.domain.enums.RequestPermissionsStatus
-import com.rookmotion.rook_sdk_health_connect.data.proto.RequestPermissionsStatusProto
+import com.rookmotion.rook_sdk_health_connect.proto.RequestPermissionsStatusProto
 
 fun RequestPermissionsStatus.toRequestPermissionsStatusProto(): RequestPermissionsStatusProto {
     return when (this) {

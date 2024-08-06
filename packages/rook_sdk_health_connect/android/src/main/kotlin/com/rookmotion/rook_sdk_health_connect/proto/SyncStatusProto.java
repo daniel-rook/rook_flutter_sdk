@@ -2,40 +2,32 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code AvailabilityStatusProto}
+ * Protobuf enum {@code SyncStatusProto}
  */
-public enum AvailabilityStatusProto
+public enum SyncStatusProto
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>INSTALLED = 0;</code>
+   * <code>SYNCED = 0;</code>
    */
-  INSTALLED(0),
+  SYNCED(0),
   /**
-   * <code>NOT_INSTALLED = 1;</code>
+   * <code>RECORDS_NOT_FOUND = 1;</code>
    */
-  NOT_INSTALLED(1),
-  /**
-   * <code>NOT_SUPPORTED = 2;</code>
-   */
-  NOT_SUPPORTED(2),
+  RECORDS_NOT_FOUND(1),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>INSTALLED = 0;</code>
+   * <code>SYNCED = 0;</code>
    */
-  public static final int INSTALLED_VALUE = 0;
+  public static final int SYNCED_VALUE = 0;
   /**
-   * <code>NOT_INSTALLED = 1;</code>
+   * <code>RECORDS_NOT_FOUND = 1;</code>
    */
-  public static final int NOT_INSTALLED_VALUE = 1;
-  /**
-   * <code>NOT_SUPPORTED = 2;</code>
-   */
-  public static final int NOT_SUPPORTED_VALUE = 2;
+  public static final int RECORDS_NOT_FOUND_VALUE = 1;
 
 
   public final int getNumber() {
@@ -52,7 +44,7 @@ public enum AvailabilityStatusProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static AvailabilityStatusProto valueOf(int value) {
+  public static SyncStatusProto valueOf(int value) {
     return forNumber(value);
   }
 
@@ -60,24 +52,23 @@ public enum AvailabilityStatusProto
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static AvailabilityStatusProto forNumber(int value) {
+  public static SyncStatusProto forNumber(int value) {
     switch (value) {
-      case 0: return INSTALLED;
-      case 1: return NOT_INSTALLED;
-      case 2: return NOT_SUPPORTED;
+      case 0: return SYNCED;
+      case 1: return RECORDS_NOT_FOUND;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<AvailabilityStatusProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<SyncStatusProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      AvailabilityStatusProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<AvailabilityStatusProto>() {
-          public AvailabilityStatusProto findValueByNumber(int number) {
-            return AvailabilityStatusProto.forNumber(number);
+      SyncStatusProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<SyncStatusProto>() {
+          public SyncStatusProto findValueByNumber(int number) {
+            return SyncStatusProto.forNumber(number);
           }
         };
 
@@ -95,12 +86,12 @@ public enum AvailabilityStatusProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.getDescriptor().getEnumTypes().get(1);
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(2);
   }
 
-  private static final AvailabilityStatusProto[] VALUES = values();
+  private static final SyncStatusProto[] VALUES = values();
 
-  public static AvailabilityStatusProto valueOf(
+  public static SyncStatusProto valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -114,10 +105,10 @@ public enum AvailabilityStatusProto
 
   private final int value;
 
-  private AvailabilityStatusProto(int value) {
+  private SyncStatusProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:AvailabilityStatusProto)
+  // @@protoc_insertion_point(enum_scope:SyncStatusProto)
 }
 

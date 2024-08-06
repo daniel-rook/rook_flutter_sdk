@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
  * Protobuf enum {@code HealthDataTypeProto}
@@ -194,7 +194,7 @@ public enum HealthDataTypeProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.getDescriptor().getEnumTypes().get(4);
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(4);
   }
 
   private static final HealthDataTypeProto[] VALUES = values();

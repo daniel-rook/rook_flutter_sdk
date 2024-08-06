@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public interface ResultSyncStatusProtoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:ResultSyncStatusProto)
@@ -22,7 +22,7 @@ public interface ResultSyncStatusProtoOrBuilder extends
    * <code>.SyncStatusProto syncStatusProto = 1;</code>
    * @return The syncStatusProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusProto getSyncStatusProto();
+  com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto getSyncStatusProto();
 
   /**
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
@@ -33,11 +33,11 @@ public interface ResultSyncStatusProtoOrBuilder extends
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    * @return The pluginExceptionProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto getPluginExceptionProto();
+  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto();
   /**
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
+  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
 
-  com.rookmotion.rook_sdk_health_connect.data.proto.ResultSyncStatusProto.ResultCase getResultCase();
+  com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto.ResultCase getResultCase();
 }

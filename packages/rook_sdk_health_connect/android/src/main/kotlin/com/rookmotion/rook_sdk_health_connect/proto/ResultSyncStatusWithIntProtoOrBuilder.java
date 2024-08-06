@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public interface ResultSyncStatusWithIntProtoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:ResultSyncStatusWithIntProto)
@@ -17,11 +17,11 @@ public interface ResultSyncStatusWithIntProtoOrBuilder extends
    * <code>.SyncStatusWithIntProto syncStatusWithIntProto = 1;</code>
    * @return The syncStatusWithIntProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusWithIntProto getSyncStatusWithIntProto();
+  com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithIntProto getSyncStatusWithIntProto();
   /**
    * <code>.SyncStatusWithIntProto syncStatusWithIntProto = 1;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusWithIntProtoOrBuilder getSyncStatusWithIntProtoOrBuilder();
+  com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithIntProtoOrBuilder getSyncStatusWithIntProtoOrBuilder();
 
   /**
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
@@ -32,11 +32,11 @@ public interface ResultSyncStatusWithIntProtoOrBuilder extends
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    * @return The pluginExceptionProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto getPluginExceptionProto();
+  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto();
   /**
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
+  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
 
-  com.rookmotion.rook_sdk_health_connect.data.proto.ResultSyncStatusWithIntProto.ResultCase getResultCase();
+  com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusWithIntProto.ResultCase getResultCase();
 }

@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public final class ProtobufModels {
   private ProtobufModels() {}
@@ -130,9 +130,9 @@ public final class ProtobufModels {
       "GENATION_BODY_EVENT\020\013\022\036\n\032OXYGENATION_PHY" +
       "SICAL_EVENT\020\014\022\032\n\026TEMPERATURE_BODY_EVENT\020" +
       "\r*F\n\035RequestPermissionsStatusProto\022\020\n\014RE" +
-      "QUEST_SENT\020\000\022\023\n\017ALREADY_GRANTED\020\001BE\n1com" +
-      ".rookmotion.rook_sdk_health_connect.data" +
-      ".protoB\016ProtobufModelsP\001b\006proto3"
+      "QUEST_SENT\020\000\022\023\n\017ALREADY_GRANTED\020\001B@\n,com" +
+      ".rookmotion.rook_sdk_health_connect.prot" +
+      "oB\016ProtobufModelsP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

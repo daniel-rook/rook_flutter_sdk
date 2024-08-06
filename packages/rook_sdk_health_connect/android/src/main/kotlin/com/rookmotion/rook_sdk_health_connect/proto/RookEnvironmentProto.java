@@ -2,40 +2,32 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code SyncInstructionProto}
+ * Protobuf enum {@code RookEnvironmentProto}
  */
-public enum SyncInstructionProto
+public enum RookEnvironmentProto
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>NOTHING = 0;</code>
+   * <code>SANDBOX = 0;</code>
    */
-  NOTHING(0),
+  SANDBOX(0),
   /**
-   * <code>SYNC_OLDEST = 1;</code>
+   * <code>PRODUCTION = 1;</code>
    */
-  SYNC_OLDEST(1),
-  /**
-   * <code>SYNC_LATEST = 2;</code>
-   */
-  SYNC_LATEST(2),
+  PRODUCTION(1),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>NOTHING = 0;</code>
+   * <code>SANDBOX = 0;</code>
    */
-  public static final int NOTHING_VALUE = 0;
+  public static final int SANDBOX_VALUE = 0;
   /**
-   * <code>SYNC_OLDEST = 1;</code>
+   * <code>PRODUCTION = 1;</code>
    */
-  public static final int SYNC_OLDEST_VALUE = 1;
-  /**
-   * <code>SYNC_LATEST = 2;</code>
-   */
-  public static final int SYNC_LATEST_VALUE = 2;
+  public static final int PRODUCTION_VALUE = 1;
 
 
   public final int getNumber() {
@@ -52,7 +44,7 @@ public enum SyncInstructionProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static SyncInstructionProto valueOf(int value) {
+  public static RookEnvironmentProto valueOf(int value) {
     return forNumber(value);
   }
 
@@ -60,24 +52,23 @@ public enum SyncInstructionProto
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static SyncInstructionProto forNumber(int value) {
+  public static RookEnvironmentProto forNumber(int value) {
     switch (value) {
-      case 0: return NOTHING;
-      case 1: return SYNC_OLDEST;
-      case 2: return SYNC_LATEST;
+      case 0: return SANDBOX;
+      case 1: return PRODUCTION;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<SyncInstructionProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<RookEnvironmentProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      SyncInstructionProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<SyncInstructionProto>() {
-          public SyncInstructionProto findValueByNumber(int number) {
-            return SyncInstructionProto.forNumber(number);
+      RookEnvironmentProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RookEnvironmentProto>() {
+          public RookEnvironmentProto findValueByNumber(int number) {
+            return RookEnvironmentProto.forNumber(number);
           }
         };
 
@@ -95,12 +86,12 @@ public enum SyncInstructionProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.getDescriptor().getEnumTypes().get(3);
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(0);
   }
 
-  private static final SyncInstructionProto[] VALUES = values();
+  private static final RookEnvironmentProto[] VALUES = values();
 
-  public static SyncInstructionProto valueOf(
+  public static RookEnvironmentProto valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -114,10 +105,10 @@ public enum SyncInstructionProto
 
   private final int value;
 
-  private SyncInstructionProto(int value) {
+  private RookEnvironmentProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:SyncInstructionProto)
+  // @@protoc_insertion_point(enum_scope:RookEnvironmentProto)
 }
 

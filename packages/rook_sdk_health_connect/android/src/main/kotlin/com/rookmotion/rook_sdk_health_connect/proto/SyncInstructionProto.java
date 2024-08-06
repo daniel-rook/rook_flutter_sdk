@@ -2,32 +2,40 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code RequestPermissionsStatusProto}
+ * Protobuf enum {@code SyncInstructionProto}
  */
-public enum RequestPermissionsStatusProto
+public enum SyncInstructionProto
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>REQUEST_SENT = 0;</code>
+   * <code>NOTHING = 0;</code>
    */
-  REQUEST_SENT(0),
+  NOTHING(0),
   /**
-   * <code>ALREADY_GRANTED = 1;</code>
+   * <code>SYNC_OLDEST = 1;</code>
    */
-  ALREADY_GRANTED(1),
+  SYNC_OLDEST(1),
+  /**
+   * <code>SYNC_LATEST = 2;</code>
+   */
+  SYNC_LATEST(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>REQUEST_SENT = 0;</code>
+   * <code>NOTHING = 0;</code>
    */
-  public static final int REQUEST_SENT_VALUE = 0;
+  public static final int NOTHING_VALUE = 0;
   /**
-   * <code>ALREADY_GRANTED = 1;</code>
+   * <code>SYNC_OLDEST = 1;</code>
    */
-  public static final int ALREADY_GRANTED_VALUE = 1;
+  public static final int SYNC_OLDEST_VALUE = 1;
+  /**
+   * <code>SYNC_LATEST = 2;</code>
+   */
+  public static final int SYNC_LATEST_VALUE = 2;
 
 
   public final int getNumber() {
@@ -44,7 +52,7 @@ public enum RequestPermissionsStatusProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static RequestPermissionsStatusProto valueOf(int value) {
+  public static SyncInstructionProto valueOf(int value) {
     return forNumber(value);
   }
 
@@ -52,23 +60,24 @@ public enum RequestPermissionsStatusProto
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static RequestPermissionsStatusProto forNumber(int value) {
+  public static SyncInstructionProto forNumber(int value) {
     switch (value) {
-      case 0: return REQUEST_SENT;
-      case 1: return ALREADY_GRANTED;
+      case 0: return NOTHING;
+      case 1: return SYNC_OLDEST;
+      case 2: return SYNC_LATEST;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<RequestPermissionsStatusProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<SyncInstructionProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      RequestPermissionsStatusProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<RequestPermissionsStatusProto>() {
-          public RequestPermissionsStatusProto findValueByNumber(int number) {
-            return RequestPermissionsStatusProto.forNumber(number);
+      SyncInstructionProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<SyncInstructionProto>() {
+          public SyncInstructionProto findValueByNumber(int number) {
+            return SyncInstructionProto.forNumber(number);
           }
         };
 
@@ -86,12 +95,12 @@ public enum RequestPermissionsStatusProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.getDescriptor().getEnumTypes().get(5);
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(3);
   }
 
-  private static final RequestPermissionsStatusProto[] VALUES = values();
+  private static final SyncInstructionProto[] VALUES = values();
 
-  public static RequestPermissionsStatusProto valueOf(
+  public static SyncInstructionProto valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -105,10 +114,10 @@ public enum RequestPermissionsStatusProto
 
   private final int value;
 
-  private RequestPermissionsStatusProto(int value) {
+  private SyncInstructionProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:RequestPermissionsStatusProto)
+  // @@protoc_insertion_point(enum_scope:SyncInstructionProto)
 }
 

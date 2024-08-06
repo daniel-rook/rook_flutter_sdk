@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public interface ResultDataSourcesProtoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:ResultDataSourcesProto)
@@ -17,11 +17,11 @@ public interface ResultDataSourcesProtoOrBuilder extends
    * <code>.DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;</code>
    * @return The dataSourcesProtoListWrapper.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper getDataSourcesProtoListWrapper();
+  com.rookmotion.rook_sdk_health_connect.proto.DataSourcesProtoListWrapper getDataSourcesProtoListWrapper();
   /**
    * <code>.DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapperOrBuilder getDataSourcesProtoListWrapperOrBuilder();
+  com.rookmotion.rook_sdk_health_connect.proto.DataSourcesProtoListWrapperOrBuilder getDataSourcesProtoListWrapperOrBuilder();
 
   /**
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
@@ -32,11 +32,11 @@ public interface ResultDataSourcesProtoOrBuilder extends
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    * @return The pluginExceptionProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto getPluginExceptionProto();
+  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto();
   /**
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
+  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
 
-  com.rookmotion.rook_sdk_health_connect.data.proto.ResultDataSourcesProto.ResultCase getResultCase();
+  com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourcesProto.ResultCase getResultCase();
 }

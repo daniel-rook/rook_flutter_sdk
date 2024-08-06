@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
  * Protobuf type {@code RookConfigurationProto}
@@ -31,15 +31,15 @@ private static final long serialVersionUID = 0L;
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_RookConfigurationProto_descriptor;
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.internal_static_RookConfigurationProto_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_RookConfigurationProto_fieldAccessorTable
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.internal_static_RookConfigurationProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto.class, com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto.Builder.class);
+            com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.class, com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.Builder.class);
   }
 
   public static final int CLIENTUUID_FIELD_NUMBER = 1;
@@ -133,9 +133,9 @@ private static final long serialVersionUID = 0L;
    * <code>.RookEnvironmentProto environment = 3;</code>
    * @return The environment.
    */
-  @java.lang.Override public com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto getEnvironment() {
-    com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto result = com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.forNumber(environment_);
-    return result == null ? com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.UNRECOGNIZED : result;
+  @java.lang.Override public com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto getEnvironment() {
+    com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto result = com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto.forNumber(environment_);
+    return result == null ? com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto.UNRECOGNIZED : result;
   }
 
   public static final int ENABLEBACKGROUNDSYNC_FIELD_NUMBER = 4;
@@ -169,7 +169,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, secretKey_);
     }
-    if (environment_ != com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.SANDBOX.getNumber()) {
+    if (environment_ != com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto.SANDBOX.getNumber()) {
       output.writeEnum(3, environment_);
     }
     if (enableBackgroundSync_ != false) {
@@ -190,7 +190,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretKey_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, secretKey_);
     }
-    if (environment_ != com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.SANDBOX.getNumber()) {
+    if (environment_ != com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto.SANDBOX.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, environment_);
     }
@@ -208,10 +208,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto)) {
+    if (!(obj instanceof com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto)) {
       return super.equals(obj);
     }
-    com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto other = (com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto) obj;
+    com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto other = (com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto) obj;
 
     if (!getClientUUID()
         .equals(other.getClientUUID())) return false;
@@ -245,44 +245,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -290,26 +290,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -322,7 +322,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -343,21 +343,21 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:RookConfigurationProto)
-      com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProtoOrBuilder {
+      com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_RookConfigurationProto_descriptor;
+      return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.internal_static_RookConfigurationProto_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_RookConfigurationProto_fieldAccessorTable
+      return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.internal_static_RookConfigurationProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto.class, com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto.Builder.class);
+              com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.class, com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.Builder.class);
     }
 
-    // Construct using com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto.newBuilder()
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.newBuilder()
     private Builder() {
 
     }
@@ -381,17 +381,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.rookmotion.rook_sdk_health_connect.data.proto.ProtobufModels.internal_static_RookConfigurationProto_descriptor;
+      return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.internal_static_RookConfigurationProto_descriptor;
     }
 
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto getDefaultInstanceForType() {
-      return com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto.getDefaultInstance();
+    public com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto getDefaultInstanceForType() {
+      return com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto build() {
-      com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto result = buildPartial();
+    public com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto build() {
+      com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -399,14 +399,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto buildPartial() {
-      com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto result = new com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto(this);
+    public com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto buildPartial() {
+      com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto result = new com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto result) {
+    private void buildPartial0(com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.clientUUID_ = clientUUID_;
@@ -456,16 +456,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto) {
-        return mergeFrom((com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto)other);
+      if (other instanceof com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto) {
+        return mergeFrom((com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto other) {
-      if (other == com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto other) {
+      if (other == com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.getDefaultInstance()) return this;
       if (!other.getClientUUID().isEmpty()) {
         clientUUID_ = other.clientUUID_;
         bitField0_ |= 0x00000001;
@@ -713,16 +713,16 @@ private static final long serialVersionUID = 0L;
      * @return The environment.
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto getEnvironment() {
-      com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto result = com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.forNumber(environment_);
-      return result == null ? com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto.UNRECOGNIZED : result;
+    public com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto getEnvironment() {
+      com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto result = com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto.forNumber(environment_);
+      return result == null ? com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto.UNRECOGNIZED : result;
     }
     /**
      * <code>.RookEnvironmentProto environment = 3;</code>
      * @param value The environment to set.
      * @return This builder for chaining.
      */
-    public Builder setEnvironment(com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto value) {
+    public Builder setEnvironment(com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -790,12 +790,12 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:RookConfigurationProto)
-  private static final com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto DEFAULT_INSTANCE;
+  private static final com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto();
+    DEFAULT_INSTANCE = new com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto();
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -831,7 +831,7 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto getDefaultInstanceForType() {
+  public com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

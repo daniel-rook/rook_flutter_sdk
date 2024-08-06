@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public interface ResultRequestPermissionsStatusProtoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:ResultRequestPermissionsStatusProto)
@@ -22,7 +22,7 @@ public interface ResultRequestPermissionsStatusProtoOrBuilder extends
    * <code>.RequestPermissionsStatusProto requestPermissionsStatusProto = 1;</code>
    * @return The requestPermissionsStatusProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.RequestPermissionsStatusProto getRequestPermissionsStatusProto();
+  com.rookmotion.rook_sdk_health_connect.proto.RequestPermissionsStatusProto getRequestPermissionsStatusProto();
 
   /**
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
@@ -33,11 +33,11 @@ public interface ResultRequestPermissionsStatusProtoOrBuilder extends
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    * @return The pluginExceptionProto.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto getPluginExceptionProto();
+  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto();
   /**
    * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
+  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProtoOrBuilder getPluginExceptionProtoOrBuilder();
 
-  com.rookmotion.rook_sdk_health_connect.data.proto.ResultRequestPermissionsStatusProto.ResultCase getResultCase();
+  com.rookmotion.rook_sdk_health_connect.proto.ResultRequestPermissionsStatusProto.ResultCase getResultCase();
 }

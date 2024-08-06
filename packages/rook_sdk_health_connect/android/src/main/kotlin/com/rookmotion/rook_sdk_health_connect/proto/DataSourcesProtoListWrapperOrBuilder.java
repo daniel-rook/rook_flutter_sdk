@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public interface DataSourcesProtoListWrapperOrBuilder extends
     // @@protoc_insertion_point(interface_extends:DataSourcesProtoListWrapper)
@@ -11,12 +11,12 @@ public interface DataSourcesProtoListWrapperOrBuilder extends
   /**
    * <code>repeated .DataSourceProto dataSources = 1;</code>
    */
-  java.util.List<com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProto> 
+  java.util.List<com.rookmotion.rook_sdk_health_connect.proto.DataSourceProto> 
       getDataSourcesList();
   /**
    * <code>repeated .DataSourceProto dataSources = 1;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProto getDataSources(int index);
+  com.rookmotion.rook_sdk_health_connect.proto.DataSourceProto getDataSources(int index);
   /**
    * <code>repeated .DataSourceProto dataSources = 1;</code>
    */
@@ -24,11 +24,11 @@ public interface DataSourcesProtoListWrapperOrBuilder extends
   /**
    * <code>repeated .DataSourceProto dataSources = 1;</code>
    */
-  java.util.List<? extends com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoOrBuilder> 
+  java.util.List<? extends com.rookmotion.rook_sdk_health_connect.proto.DataSourceProtoOrBuilder> 
       getDataSourcesOrBuilderList();
   /**
    * <code>repeated .DataSourceProto dataSources = 1;</code>
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.DataSourceProtoOrBuilder getDataSourcesOrBuilder(
+  com.rookmotion.rook_sdk_health_connect.proto.DataSourceProtoOrBuilder getDataSourcesOrBuilder(
       int index);
 }

@@ -4,8 +4,8 @@ import android.content.Context
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncPermissions
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.SyncInstructionProto
+import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
+import com.rookmotion.rook_sdk_health_connect.proto.SyncInstructionProto
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt

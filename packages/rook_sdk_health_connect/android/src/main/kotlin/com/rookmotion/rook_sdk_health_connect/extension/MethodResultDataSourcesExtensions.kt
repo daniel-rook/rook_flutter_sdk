@@ -1,9 +1,9 @@
 package com.rookmotion.rook_sdk_health_connect.extension
 
 import com.rookmotion.rook.sdk.domain.model.DataSource
-import com.rookmotion.rook_sdk_health_connect.data.proto.DataSourcesProtoListWrapper
-import com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.ResultDataSourcesProto
+import com.rookmotion.rook_sdk_health_connect.proto.DataSourcesProtoListWrapper
+import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
+import com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourcesProto
 import com.rookmotion.rook_sdk_health_connect.mapper.toDataSourceProto
 import io.flutter.plugin.common.MethodChannel
 

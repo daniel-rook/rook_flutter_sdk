@@ -2,10 +2,10 @@ package com.rookmotion.rook_sdk_health_connect.extension
 
 import com.rookmotion.rook.sdk.domain.model.SyncStatusWithData
 import com.rookmotion.rook_sdk_health_connect.DEFAULT_INT
-import com.rookmotion.rook_sdk_health_connect.data.proto.PluginExceptionProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.ResultSyncStatusWithIntProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.SyncStatusWithIntProto
+import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
+import com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusWithIntProto
+import com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto
+import com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithIntProto
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.syncStatusWithIntSuccess(syncStatusWithData: SyncStatusWithData<Int?>) {

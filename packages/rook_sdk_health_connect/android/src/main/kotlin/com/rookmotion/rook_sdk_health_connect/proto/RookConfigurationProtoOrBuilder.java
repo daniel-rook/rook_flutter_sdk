@@ -2,7 +2,7 @@
 // source: protos.proto
 
 // Protobuf Java Version: 3.25.3
-package com.rookmotion.rook_sdk_health_connect.data.proto;
+package com.rookmotion.rook_sdk_health_connect.proto;
 
 public interface RookConfigurationProtoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:RookConfigurationProto)
@@ -41,7 +41,7 @@ public interface RookConfigurationProtoOrBuilder extends
    * <code>.RookEnvironmentProto environment = 3;</code>
    * @return The environment.
    */
-  com.rookmotion.rook_sdk_health_connect.data.proto.RookEnvironmentProto getEnvironment();
+  com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto getEnvironment();
 
   /**
    * <code>bool enableBackgroundSync = 4;</code>
