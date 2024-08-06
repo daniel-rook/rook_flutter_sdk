@@ -48,7 +48,9 @@ class _YesterdaySyncState extends State<YesterdaySync> {
     });
 
     HCRookPermissionsManager.shouldRequestAndroidPermissions().then(
-      (value) => setState(() => androidPermissionsPreviouslyDenied = value),
+      (shouldRequestPermissions) => setState(
+        () => androidPermissionsPreviouslyDenied = !shouldRequestPermissions,
+      ),
     );
 
     super.initState();
@@ -85,7 +87,8 @@ class _YesterdaySyncState extends State<YesterdaySync> {
                 onPressed: requestAndroidPermissions,
                 child: const Text("Request Android permissions"),
               ),
-            if (androidPermissionsPreviouslyDenied && !androidPermissionsChecked)
+            if (androidPermissionsPreviouslyDenied &&
+                !androidPermissionsChecked)
               const Card(
                 child: Padding(
                   padding: EdgeInsets.all(12),
