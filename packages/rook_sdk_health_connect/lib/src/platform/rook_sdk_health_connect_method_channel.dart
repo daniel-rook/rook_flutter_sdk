@@ -9,7 +9,6 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_ex
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/request_permissions_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_environment_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/sync_instruction_mappers.dart';
@@ -78,7 +77,10 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
 
   @override
   Future<void> clearUserID() async {
-    await methodChannel.invokeMethod('clearUserID');
+    final Uint8List bytes = await methodChannel.invokeMethod('clearUserID');
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
   }
 
   @override
@@ -183,17 +185,13 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
 
   @override
   Future<RequestPermissionsStatus> requestAndroidPermissions() async {
-    final int code = await methodChannel.invokeMethod(
+    final Uint8List bytes = await methodChannel.invokeMethod(
       'requestAndroidPermissions',
     );
 
-    final proto = RequestPermissionsStatusProto.valueOf(code);
+    final result = ResultRequestPermissionsStatusProto.fromBuffer(bytes);
 
-    if (proto == null) {
-      throw Exception("Unknown error");
-    }
-
-    return proto.toDomain();
+    return result.unwrap();
   }
 
   @override

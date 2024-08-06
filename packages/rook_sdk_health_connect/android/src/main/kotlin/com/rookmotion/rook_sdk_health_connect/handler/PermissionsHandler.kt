@@ -93,9 +93,8 @@ class PermissionsHandler(
 
             "requestAndroidPermissions" -> {
                 val requestPermissionsStatus = rookPermissionsManager.requestAndroidPermissions()
-                val code = requestPermissionsStatus.toRequestPermissionsStatusProto().number
 
-                methodResult.int(code)
+                methodResult.requestPermissionsStatusSuccess(requestPermissionsStatus)
             }
 
             else -> Unit

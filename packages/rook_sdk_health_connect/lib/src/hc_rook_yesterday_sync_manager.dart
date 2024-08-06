@@ -17,7 +17,7 @@ class HCRookYesterdaySyncManager {
   ///
   /// Before calling [scheduleYesterdaySync] verify that your app has all necessary permissions
   /// granted, [scheduleYesterdaySync] requires Android & Health Connect permissions.
-  /// You can use [HCRookYesterdaySyncPermissions] utility functions to easily check and request both types of permissions.
+  /// You can use [HCRookPermissionsManager] utility functions to easily check and request both types of permissions.
   ///
   /// [scheduleYesterdaySync] Also requires a user id ([HCRookConfigurationManager.updateUserID]),
   /// so it's possible that the first time you launch your app nothing will happen,

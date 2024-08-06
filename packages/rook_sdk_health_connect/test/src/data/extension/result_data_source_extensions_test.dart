@@ -41,7 +41,7 @@ void main() {
   group('ResultDataSourceProto exception', () {
     test(
       'GIVEN the unhappy path WHEN unwrap THEN throw an Exception',
-          () {
+      () {
         final pluginExceptionProto = PluginExceptionProto.create()
           ..id = -1
           ..message = _exceptionMessage

@@ -28,7 +28,6 @@ extension PluginExceptionProtoExtensions on PluginExceptionProto {
   }
 }
 
-const _unknown = -1;
 const _badUserTimeZone = 1;
 const _dateNotValidForEvents = 2;
 const _dateNotValidForSummaries = 3;

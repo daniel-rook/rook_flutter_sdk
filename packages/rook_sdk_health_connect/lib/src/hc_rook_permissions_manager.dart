@@ -53,7 +53,8 @@ class HCRookPermissionsManager {
   }
 
   static Stream<bool> get requestHealthConnectPermissionsUpdates {
-    return RookSdkHealthConnectPlatform.instance.requestHealthConnectPermissionsUpdates;
+    return RookSdkHealthConnectPlatform
+        .instance.requestHealthConnectPermissionsUpdates;
   }
 
   /// Checks if the following permissions are granted:
@@ -87,6 +88,7 @@ class HCRookPermissionsManager {
   }
 
   static Stream<bool> get requestAndroidPermissionsUpdates {
-    return RookSdkHealthConnectPlatform.instance.requestAndroidPermissionsUpdates;
+    return RookSdkHealthConnectPlatform
+        .instance.requestAndroidPermissionsUpdates;
   }
 }

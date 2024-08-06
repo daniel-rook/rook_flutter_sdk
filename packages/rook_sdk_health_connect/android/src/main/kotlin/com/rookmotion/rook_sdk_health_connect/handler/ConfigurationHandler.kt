@@ -8,12 +8,12 @@ import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
+import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -85,9 +85,14 @@ class ConfigurationHandler(
             }
 
             "clearUserID" -> coroutineScope.launch {
-                rookConfigurationManager.clearUserID()
-
-                methodResult.booleanSuccess(true)
+                rookConfigurationManager.clearUserID().fold(
+                    {
+                        methodResult.booleanSuccess(true)
+                    },
+                    {
+                        methodResult.booleanError(it)
+                    },
+                )
             }
 
             "deleteUserFromRook" -> coroutineScope.launch {
