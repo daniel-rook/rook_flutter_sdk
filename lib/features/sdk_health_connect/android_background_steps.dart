@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
-const String androidBackgroundStepsRoute = '/android/zandroid-background-steps';
+const String androidBackgroundStepsRoute = '/android/android-background-steps';
 
 class AndroidBackgroundSteps extends StatefulWidget {
   const AndroidBackgroundSteps({super.key});
@@ -27,16 +26,10 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
   @override
   void initState() {
     AndroidStepsManager.syncTodayAndroidStepsCount().then((todaySteps) {
-      setState(() => steps = todaySteps);
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (SDKNotAuthorizedException it) =>
-        'SDKNotAuthorizedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
+      setState(
+        () => steps = todaySteps,
+      );
+    }).catchError((error) {
       logger.info('Error obtaining steps: $error');
     });
 
@@ -112,44 +105,38 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
   }
 
   void startStepsService() async {
-    setState(() => isLoading = true);
+    setState(
+      () => isLoading = true,
+    );
 
     try {
       await AndroidStepsManager.enableBackgroundAndroidSteps();
 
       checkStepsServiceStatus();
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        _ => exception.toString(),
-      };
-
+    } catch (error) {
       logger.info('Error starting steps service: $error');
 
-      setState(() => isLoading = false);
+      setState(
+        () => isLoading = false,
+      );
     }
   }
 
   void stopStepsService() async {
-    setState(() => isLoading = true);
+    setState(
+      () => isLoading = true,
+    );
 
     try {
       await AndroidStepsManager.disableBackgroundAndroidSteps();
 
       checkStepsServiceStatus();
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
+    } catch (error) {
       logger.info('Error stopping steps service: $error');
 
-      setState(() => isLoading = false);
+      setState(
+        () => isLoading = false,
+      );
     }
   }
 }

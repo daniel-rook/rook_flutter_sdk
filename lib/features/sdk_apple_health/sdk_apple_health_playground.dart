@@ -69,7 +69,9 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     final today = DateTime.now();
     final yesterday = today.subtract(const Duration(days: 1));
 
-    setState(() => syncOutput.append('Syncing health data...'));
+    setState(
+      () => syncOutput.append('Syncing health data...'),
+    );
 
     setState(
       () => syncOutput
@@ -150,14 +152,13 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     try {
       await AHRookSummaryManager.syncSleepSummary(yesterday);
 
-      setState(() => syncOutput.append('Sleep summary synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Sleep summary:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('Sleep summary synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Sleep summary: $error'),
+      );
     }
   }
 
@@ -165,14 +166,13 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     try {
       await AHRookSummaryManager.syncPhysicalSummary(yesterday);
 
-      setState(() => syncOutput.append('Physical summary synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Physical summary:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('Physical summary synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Physical summary: $error'),
+      );
     }
   }
 
@@ -180,14 +180,13 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     try {
       await AHRookSummaryManager.syncBodySummary(yesterday);
 
-      setState(() => syncOutput.append('Body summary synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Body summary:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('Body summary synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Body summary: $error'),
+      );
     }
   }
 
@@ -195,14 +194,13 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     try {
       await AHRookEventManager.syncPhysicalEvents(today);
 
-      setState(() => syncOutput.append('Physical events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Physical events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('Physical events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Physical events: $error'),
+      );
     }
   }
 
@@ -211,14 +209,12 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
       await AHRookEventManager.syncBloodGlucoseEvents(today);
 
       setState(
-          () => syncOutput.append('BloodGlucose events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BloodGlucose events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('BloodGlucose events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BloodGlucose events: $error'),
+      );
     }
   }
 
@@ -227,14 +223,12 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
       await AHRookEventManager.syncBloodPressureEvents(today);
 
       setState(
-          () => syncOutput.append('BloodPressure events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BloodPressure events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('BloodPressure events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BloodPressure events: $error'),
+      );
     }
   }
 
@@ -243,14 +237,12 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
       await AHRookEventManager.syncBodyMetricsEvents(today);
 
       setState(
-          () => syncOutput.append('BodyMetrics events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BodyMetrics events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('BodyMetrics events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BodyMetrics events: $error'),
+      );
     }
   }
 
@@ -259,14 +251,12 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
       await AHRookEventManager.syncBodyHeartRateEvents(today);
 
       setState(
-          () => syncOutput.append('BodyHeartRate events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BodyHeartRate events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('BodyHeartRate events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BodyHeartRate events: $error'),
+      );
     }
   }
 
@@ -274,15 +264,14 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     try {
       await AHRookEventManager.syncPhysicalHeartRateEvents(today);
 
-      setState(() =>
-          syncOutput.append('PhysicalHeartRate events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing PhysicalHeartRate events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('PhysicalHeartRate events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () =>
+            syncOutput.append('Error syncing PhysicalHeartRate events: $error'),
+      );
     }
   }
 
@@ -290,15 +279,13 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     try {
       await AHRookEventManager.syncBodyOxygenationEvents(today);
 
-      setState(() =>
-          syncOutput.append('BodyOxygenation events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BodyOxygenation events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('BodyOxygenation events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BodyOxygenation events: $error'),
+      );
     }
   }
 
@@ -306,15 +293,15 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
     try {
       await AHRookEventManager.syncPhysicalOxygenationEvents(today);
 
-      setState(() =>
-          syncOutput.append('PhysicalOxygenation events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing PhysicalOxygenation events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () =>
+            syncOutput.append('PhysicalOxygenation events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput
+            .append('Error syncing PhysicalOxygenation events: $error'),
+      );
     }
   }
 
@@ -323,14 +310,12 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
       await AHRookEventManager.syncTemperatureEvents(today);
 
       setState(
-          () => syncOutput.append('Temperature events synced successfully'));
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Temperature events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('Temperature events synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Temperature events: $error'),
+      );
     }
   }
 
@@ -341,50 +326,50 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
       setState(
         () => syncOutput.append('$steps steps synced successfully'),
       );
-    } catch (exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Steps events:');
-      setState(() => syncOutput.append(error));
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Steps events: $error'),
+      );
     }
   }
 
   void syncPendingSummaries() {
     syncPendingSummariesOutput.clear();
 
-    setState(() =>
-        syncPendingSummariesOutput.append('Syncing pending summaries...'));
+    setState(
+      () => syncPendingSummariesOutput.append('Syncing pending summaries...'),
+    );
 
     AHRookSummaryManager.syncPendingSummaries().then((_) {
-      setState(() => syncPendingSummariesOutput
-          .append('Pending summaries synced successfully'));
-    }).catchError((exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncPendingSummariesOutput.append('Error syncing pending summaries:');
-      setState(() => syncPendingSummariesOutput.append(error));
+      setState(
+        () => syncPendingSummariesOutput
+            .append('Pending summaries synced successfully'),
+      );
+    }).catchError((error) {
+      setState(
+        () => syncPendingSummariesOutput
+            .append('Error syncing pending summaries: $error'),
+      );
     });
   }
 
   void syncPendingEvents() {
     syncPendingEventsOutput.clear();
 
-    setState(() => syncPendingEventsOutput.append('Syncing pending events...'));
+    setState(
+      () => syncPendingEventsOutput.append('Syncing pending events...'),
+    );
 
     AHRookEventManager.syncPendingEvents().then((_) {
-      setState(() =>
-          syncPendingEventsOutput.append('Pending events synced successfully'));
-    }).catchError((exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      syncPendingEventsOutput.append('Error syncing pending events:');
-      setState(() => syncPendingEventsOutput.append(error));
+      setState(
+        () => syncPendingEventsOutput
+            .append('Pending events synced successfully'),
+      );
+    }).catchError((error) {
+      setState(
+        () => syncPendingEventsOutput
+            .append('Error syncing pending events: $error'),
+      );
     });
   }
 
@@ -398,8 +383,8 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
       );
 
       logger.info('Continuous upload enabled successfully');
-    } catch (exception) {
-      logger.severe('enableContinuousUpload error: $exception');
+    } catch (error) {
+      logger.severe('enableContinuousUpload error: $error');
     }
   }
 
@@ -413,8 +398,8 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
       );
 
       logger.info('Background enabled successfully');
-    } catch (exception) {
-      logger.severe('enableBackGroundForSummaries error: $exception');
+    } catch (error) {
+      logger.severe('enableBackGroundForSummaries error: $error');
     }
   }
 }

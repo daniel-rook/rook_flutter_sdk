@@ -38,13 +38,17 @@ class _YesterdaySyncState extends State<YesterdaySync> {
     androidPermissionsSubscription = HCRookPermissionsManager
         .requestAndroidPermissionsUpdates
         .listen((permissionsGranted) {
-      setState(() => androidPermissionsChecked = permissionsGranted);
+      setState(
+        () => androidPermissionsChecked = permissionsGranted,
+      );
     });
 
     healthConnectPermissionsSubscription = HCRookPermissionsManager
         .requestHealthConnectPermissionsUpdates
         .listen((permissionsGranted) {
-      setState(() => healthConnectPermissionsChecked = permissionsGranted);
+      setState(
+        () => healthConnectPermissionsChecked = permissionsGranted,
+      );
     });
 
     HCRookPermissionsManager.shouldRequestAndroidPermissions().then(
@@ -158,14 +162,18 @@ class _YesterdaySyncState extends State<YesterdaySync> {
   void checkPermissions() {
     HCRookPermissionsManager.checkAndroidPermissions()
         .then((permissionsGranted) {
-      setState(() => androidPermissionsChecked = permissionsGranted);
+      setState(
+        () => androidPermissionsChecked = permissionsGranted,
+      );
     }).catchError((error) {
       logger.severe("checkAndroidPermissions - error: $error");
     });
 
     HCRookPermissionsManager.checkHealthConnectPermissions()
         .then((permissionsGranted) {
-      setState(() => healthConnectPermissionsChecked = permissionsGranted);
+      setState(
+        () => healthConnectPermissionsChecked = permissionsGranted,
+      );
     }).catchError((error) {
       logger.severe("hasHealthConnectPermissions - error: $error");
     });
@@ -184,10 +192,14 @@ class _YesterdaySyncState extends State<YesterdaySync> {
             requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
 
         if (permissionsAlreadyGranted) {
-          setState(() => androidPermissionsChecked = true);
+          setState(
+            () => androidPermissionsChecked = true,
+          );
         }
       } else {
-        setState(() => androidPermissionsPreviouslyDenied = true);
+        setState(
+          () => androidPermissionsPreviouslyDenied = true,
+        );
       }
     } catch (error) {
       logger.severe('requestAndroidPermissions - error: $error');
@@ -201,10 +213,12 @@ class _YesterdaySyncState extends State<YesterdaySync> {
           requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
 
       if (permissionsAlreadyGranted) {
-        setState(() => healthConnectPermissionsChecked = true);
+        setState(
+          () => healthConnectPermissionsChecked = true,
+        );
       }
     }).catchError((error) {
-      logger.severe('requestHealthConnectPermissions - error: $error');
+      logger.severe('Error requesting permissions: $error');
     });
   }
 
@@ -214,7 +228,7 @@ class _YesterdaySyncState extends State<YesterdaySync> {
     HCRookPermissionsManager.openHealthConnectSettings().then((_) {
       logger.info('Health Connect was opened');
     }).catchError((error) {
-      logger.severe('openHealthConnectSettings - error: $error');
+      logger.severe('Error opening Health Connect: $error');
     });
   }
 
@@ -223,7 +237,9 @@ class _YesterdaySyncState extends State<YesterdaySync> {
       "ACCEPTED_YESTERDAY_SYNC",
     );
 
-    setState(() => yesterdaySyncChecked = acceptedYesterdaySync ?? false);
+    setState(
+      () => yesterdaySyncChecked = acceptedYesterdaySync ?? false,
+    );
   }
 
   void enableYesterdaySync() {
