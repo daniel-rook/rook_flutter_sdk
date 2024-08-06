@@ -28,7 +28,7 @@ void main() {
         final proto = ResultInt64Proto.create()
           ..pluginExceptionProto = pluginExceptionProto;
 
-        expect(proto.unwrap, throwsA(isA<Exception>));
+        expect(proto.unwrap, throwsA(isException));
       },
     );
   });

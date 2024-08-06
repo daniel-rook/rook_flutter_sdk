@@ -50,7 +50,7 @@ void main() {
         final proto = ResultDataSourcesProto.create()
           ..pluginExceptionProto = pluginExceptionProto;
 
-        expect(proto.unwrap, throwsA(isA<Exception>));
+        expect(proto.unwrap, throwsA(isException));
       },
     );
   });

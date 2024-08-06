@@ -29,7 +29,7 @@ void main() {
         final proto = ResultRequestPermissionsStatusProto.create()
           ..pluginExceptionProto = pluginExceptionProto;
 
-        expect(proto.unwrap, throwsA(isA<Exception>));
+        expect(proto.unwrap, throwsA(isException));
       },
     );
   });

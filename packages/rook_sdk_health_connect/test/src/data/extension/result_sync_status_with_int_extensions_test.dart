@@ -34,7 +34,7 @@ void main() {
         final proto = ResultSyncStatusWithIntProto.create()
           ..pluginExceptionProto = pluginExceptionProto;
 
-        expect(proto.unwrap, throwsA(isA<Exception>));
+        expect(proto.unwrap, throwsA(isException));
       },
     );
   });
