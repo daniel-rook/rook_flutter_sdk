@@ -169,15 +169,17 @@ class HCRookPermissionsManager {
   /// });
   ///
   /// // 3.- Request permissions
-  /// HCRookPermissionsManager.requestAndroidPermissions().then((requestPermissionsStatus) {
+  /// try {
+  ///   final requestPermissionsStatus = await HCRookPermissionsManager.requestAndroidPermissions();
+  ///
   ///   if (requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted) {
   ///     // Permissions already granted, update your UI
   ///   } else {
   ///     // Wait for result in stream
   ///   }
-  ///  }).catchError((error) {
+  /// } catch (error) {
   ///   // Handle error
-  ///  });
+  /// }
   ///
   /// // 4.- Stop listening to the stream
   /// streamSubscription?.cancel();

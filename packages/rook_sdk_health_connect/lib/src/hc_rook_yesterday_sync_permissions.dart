@@ -1,6 +1,6 @@
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
-@Deprecated("Functions from RookPermissionsManager offer better functionality.")
+@Deprecated("Methods from HCRookPermissionsManager offer better functionality.")
 class HCRookYesterdaySyncPermissions {
   HCRookYesterdaySyncPermissions._();
 
@@ -16,7 +16,7 @@ class HCRookYesterdaySyncPermissions {
   ///
   /// @return True if the permissions are granted, false otherwise.
   @Deprecated(
-      "Functions from RookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.checkAndroidPermissions")
+      "Methods from HCRookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.checkAndroidPermissions")
   static Future<bool> hasAndroidPermissions() {
     return RookSdkHealthConnectPlatform.instance
         .hasYesterdaySyncAndroidPermissions();
@@ -32,7 +32,7 @@ class HCRookYesterdaySyncPermissions {
   /// • FOREGROUND_SERVICE_HEALTH (API Level 34+)
   /// ```
   @Deprecated(
-      "Functions from RookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.requestAndroidPermissions")
+      "Methods from HCRookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.requestAndroidPermissions")
   static Future<void> requestAndroidPermissions() {
     return RookSdkHealthConnectPlatform.instance
         .requestYesterdaySyncAndroidPermissions();
@@ -50,7 +50,7 @@ class HCRookYesterdaySyncPermissions {
   ///
   /// @return True if the permissions are granted, false otherwise.
   @Deprecated(
-      "Functions from RookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.checkHealthConnectPermissions")
+      "Methods from HCRookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.checkHealthConnectPermissions")
   static Future<bool> hasHealthConnectPermissions() {
     return RookSdkHealthConnectPlatform.instance
         .hasYesterdaySyncHealthConnectPermissions();
@@ -66,7 +66,7 @@ class HCRookYesterdaySyncPermissions {
   /// • BODY
   /// ```
   @Deprecated(
-      "Functions from RookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.requestHealthConnectPermissions")
+      "Methods from HCRookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.requestHealthConnectPermissions")
   static Future<void> requestHealthConnectPermissions() {
     return RookSdkHealthConnectPlatform.instance
         .requestYesterdaySyncHealthConnectPermissions();
