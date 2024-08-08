@@ -122,7 +122,7 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
   Future<void> checkStepsServiceStatus() async {
     final isStepsServiceAvailable = await AndroidStepsManager.isAvailable();
     final hasAndroidPermissions =
-        await HCRookPermissionsManager.checkAndroidPermissions();
+        await HCRookHealthPermissionsManager.checkAndroidPermissions();
     final isActive = await AndroidStepsManager.isBackgroundAndroidStepsActive();
 
     setState(() {
@@ -135,11 +135,11 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
   void requestAndroidPermissions() async {
     try {
       final shouldRequestPermissions =
-          await HCRookPermissionsManager.shouldRequestAndroidPermissions();
+          await HCRookHealthPermissionsManager.shouldRequestAndroidPermissions();
 
       if (shouldRequestPermissions) {
         final requestPermissionsStatus =
-            await HCRookPermissionsManager.requestAndroidPermissions();
+            await HCRookHealthPermissionsManager.requestAndroidPermissions();
 
         final permissionsAlreadyGranted =
             requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;

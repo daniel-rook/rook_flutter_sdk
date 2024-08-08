@@ -90,7 +90,7 @@ class _SdkHealthConnectPlaygroundState
       () => availabilityOutput.append('Checking availability...'),
     );
 
-    HCRookPermissionsManager.checkHealthConnectAvailability()
+    HCRookHealthPermissionsManager.checkHealthConnectAvailability()
         .then((availability) {
       availabilityOutput.append('Availability checked successfully');
 
@@ -130,7 +130,7 @@ class _SdkHealthConnectPlaygroundState
       () => checkPermissionsOutput.append('Checking all permissions...'),
     );
 
-    HCRookPermissionsManager.checkHealthConnectPermissions()
+    HCRookHealthPermissionsManager.checkHealthConnectPermissions()
         .then((hasPermissions) {
       checkPermissionsOutput.append('All permissions checked successfully');
 
@@ -150,7 +150,7 @@ class _SdkHealthConnectPlaygroundState
   }
 
   void requestHealthConnectPermissions() {
-    HCRookPermissionsManager.requestHealthConnectPermissions()
+    HCRookHealthPermissionsManager.requestHealthConnectPermissions()
         .then((requestPermissionsStatus) {
       final permissionsAlreadyGranted =
           requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
@@ -170,7 +170,7 @@ class _SdkHealthConnectPlaygroundState
   void openHealthConnect() {
     logger.info('Opening Health Connect...');
 
-    HCRookPermissionsManager.openHealthConnectSettings().then((_) {
+    HCRookHealthPermissionsManager.openHealthConnectSettings().then((_) {
       logger.info('Health Connect was opened');
     }).catchError((error) {
       logger.severe('Error opening Health Connect: $error');

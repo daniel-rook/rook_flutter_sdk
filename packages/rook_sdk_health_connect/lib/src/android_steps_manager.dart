@@ -16,14 +16,16 @@ class AndroidStepsManager {
 
   /// Check if all required permissions are granted.
   @Deprecated(
-      "Methods from HCRookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.checkAndroidPermissions")
+    "Replace with HCRookHealthPermissionsManager.checkAndroidPermissions",
+  )
   static Future<bool> hasPermissions() {
     return RookSdkHealthConnectPlatform.instance.hasStepsPermissions();
   }
 
   /// Request all required permissions, the permissions requested may vary depending on the Android version.
   @Deprecated(
-      "Methods from HCRookPermissionsManager offer better functionality. Replace with HCRookPermissionsManager.requestAndroidPermissions")
+    "Replace with HCRookHealthPermissionsManager.requestAndroidPermissions",
+  )
   static Future<void> requestPermissions() {
     return RookSdkHealthConnectPlatform.instance.requestStepsPermissions();
   }
