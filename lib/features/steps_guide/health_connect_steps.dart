@@ -32,10 +32,9 @@ class _HealthConnectStepsState extends State<HealthConnectSteps> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const FilledButton(
-                    onPressed:
-                        HCRookHealthPermissionsManager.requestPermissions,
-                    child: Text("Request permissions"),
+                  FilledButton(
+                    onPressed: requestHealthConnectPermissions,
+                    child: const Text("Request permissions"),
                   ),
                   FilledButton(
                     onPressed: () {
@@ -89,5 +88,21 @@ class _HealthConnectStepsState extends State<HealthConnectSteps> {
     } catch (ignored) {
       // Ignored
     }
+  }
+
+  void requestHealthConnectPermissions() {
+    HCRookHealthPermissionsManager.requestHealthConnectPermissions()
+        .then((requestPermissionsStatus) {
+      final permissionsAlreadyGranted =
+          requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
+
+      if (permissionsAlreadyGranted) {
+        logger.info("Permissions are already granted, no request was sent.");
+      } else {
+        logger.info("Request sent.");
+      }
+    }).catchError((error) {
+      logger.severe('Error requesting permissions: $error');
+    });
   }
 }

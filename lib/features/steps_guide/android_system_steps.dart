@@ -1,6 +1,8 @@
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
 class AndroidSystemSteps extends StatefulWidget {
@@ -14,7 +16,8 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
   final Logger logger = Logger('AndroidSystemSteps');
 
   bool isStepsServiceAvailable = false;
-  bool hasStepsPermissions = false;
+  bool hasAndroidPermissions = false;
+  bool androidPermissionsPreviouslyDenied = false;
   bool isTrackingSteps = false;
 
   int steps = 0;
@@ -31,12 +34,32 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    if (!hasStepsPermissions)
-                      const FilledButton(
-                        onPressed: AndroidStepsManager.requestPermissions,
-                        child: Text("Request permissions"),
+                    if (!androidPermissionsPreviouslyDenied &&
+                        !hasAndroidPermissions)
+                      FilledButton(
+                        onPressed: requestAndroidPermissions,
+                        child: const Text("Request Android permissions"),
                       ),
-                    if (hasStepsPermissions && !isTrackingSteps)
+                    if (androidPermissionsPreviouslyDenied &&
+                        !hasAndroidPermissions)
+                      const Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                "You previously denied permissions, now you must manually grant them.",
+                              ),
+                              TextButton(
+                                onPressed: AppSettings.openAppSettings,
+                                child: Text("Open application Settings"),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    if (hasAndroidPermissions && !isTrackingSteps)
                       FilledButton(
                         onPressed: () {
                           AndroidStepsManager.enableBackgroundAndroidSteps()
@@ -72,7 +95,8 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
                         },
                         child: const Text("Sync today steps"),
                       ),
-                    if (isTrackingSteps && steps > 0) Text("Steps synced: $steps")
+                    if (isTrackingSteps && steps > 0)
+                      Text("Steps synced: $steps"),
                   ],
                 ),
               )
@@ -85,13 +109,41 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
 
   Future<void> checkStepsServiceStatus() async {
     final isStepsServiceAvailable = await AndroidStepsManager.isAvailable();
-    final hasStepsPermissions = await AndroidStepsManager.hasPermissions();
+    final hasAndroidPermissions =
+        await HCRookHealthPermissionsManager.checkAndroidPermissions();
     final isActive = await AndroidStepsManager.isBackgroundAndroidStepsActive();
 
     setState(() {
       this.isStepsServiceAvailable = isStepsServiceAvailable;
-      this.hasStepsPermissions = hasStepsPermissions;
+      this.hasAndroidPermissions = hasAndroidPermissions;
       isTrackingSteps = isActive;
     });
+  }
+
+  void requestAndroidPermissions() async {
+    try {
+      final shouldRequestPermissions = await HCRookHealthPermissionsManager
+          .shouldRequestAndroidPermissions();
+
+      if (shouldRequestPermissions) {
+        final requestPermissionsStatus =
+            await HCRookHealthPermissionsManager.requestAndroidPermissions();
+
+        final permissionsAlreadyGranted =
+            requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
+
+        if (permissionsAlreadyGranted) {
+          setState(
+            () => hasAndroidPermissions = true,
+          );
+        }
+      } else {
+        setState(
+          () => androidPermissionsPreviouslyDenied = true,
+        );
+      }
+    } catch (error) {
+      logger.severe('requestAndroidPermissions - error: $error');
+    }
   }
 }
