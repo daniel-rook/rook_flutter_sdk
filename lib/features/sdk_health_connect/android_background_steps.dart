@@ -134,8 +134,8 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
 
   void requestAndroidPermissions() async {
     try {
-      final shouldRequestPermissions =
-          await HCRookHealthPermissionsManager.shouldRequestAndroidPermissions();
+      final shouldRequestPermissions = await HCRookHealthPermissionsManager
+          .shouldRequestAndroidPermissions();
 
       if (shouldRequestPermissions) {
         final requestPermissionsStatus =
