@@ -77,16 +77,11 @@ class YesterdaySyncHandler(
                         RookConfigurationProto.parseFrom(it).toRookConfiguration()
                     }
 
-                    val syncInstruction = methodCall.getIntArgAt(2).let {
-                        SyncInstructionProto.forNumber(it).toSyncInstruction()
-                    }
-
                     rookYesterdaySyncManager.scheduleYesterdaySync(
                         enableNativeLogs,
                         rookConfiguration.clientUUID,
                         rookConfiguration.secretKey,
                         rookConfiguration.environment,
-                        syncInstruction
                     )
 
                     methodResult.booleanSuccess(true)

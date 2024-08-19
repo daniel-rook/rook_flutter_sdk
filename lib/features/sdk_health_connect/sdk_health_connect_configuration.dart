@@ -137,7 +137,6 @@ class _SdkHealthConnectConfigurationState
     //       clientUUID: Secrets.clientUUID,
     //       secretKey: Secrets.secretKey,
     //       environment: rookEnvironment,
-    //       doOnEnd: HCSyncInstruction.nothing,
     //     );
     //   } else {
     //     logger.info('User did not accept yesterday sync');

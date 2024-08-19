@@ -11,11 +11,9 @@ import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mapp
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_environment_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/sync_instruction_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
@@ -589,7 +587,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     String clientUUID,
     String secretKey,
     RookEnvironment environment,
-    HCSyncInstruction doOnEnd,
   ) async {
     final rookConfigurationProto = RookConfigurationProto(
       clientUUID: clientUUID,
@@ -597,14 +594,12 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       environment: environment.toProto(),
       enableBackgroundSync: false,
     );
-    final syncInstructionProto = doOnEnd.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(
       'scheduleYesterdaySync',
       [
         enableNativeLogs,
         rookConfigurationProto.writeToBuffer(),
-        syncInstructionProto.value,
       ],
     );
 

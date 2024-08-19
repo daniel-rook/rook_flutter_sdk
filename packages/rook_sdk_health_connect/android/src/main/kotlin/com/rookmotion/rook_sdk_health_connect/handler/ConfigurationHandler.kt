@@ -133,7 +133,6 @@ class ConfigurationHandler(
             clientUUID = configuration.clientUUID,
             secretKey = configuration.secretKey,
             environment = configuration.environment,
-            doOnEnd = SyncInstruction.SYNC_OLDEST,
         )
 
         rookStepsManager.enableBackgroundAndroidSteps()

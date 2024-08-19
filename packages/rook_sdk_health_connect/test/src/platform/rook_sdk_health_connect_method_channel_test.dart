@@ -165,7 +165,6 @@ void resultBooleanTests(
         'rookUrl',
         'clientUUID',
         RookEnvironment.sandbox,
-        HCSyncInstruction.syncLatest,
       );
 
       await expectLater(future, completes);
@@ -323,7 +322,6 @@ void resultBooleanTests(
         'rookUrl',
         'clientUUID',
         RookEnvironment.sandbox,
-        HCSyncInstruction.syncLatest,
       );
 
       await expectLater(future, throwsA(isException));
