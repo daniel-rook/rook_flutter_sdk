@@ -17,7 +17,7 @@ class HCRookYesterdaySyncManager {
   ///
   /// Before calling [scheduleYesterdaySync] verify that your app has all necessary permissions
   /// granted, [scheduleYesterdaySync] requires Android & Health Connect permissions.
-  /// You can use [HCRookYesterdaySyncPermissions] utility functions to easily check and request both types of permissions.
+  /// You can use [HCRookHealthPermissionsManager] utility functions to easily check and request both types of permissions.
   ///
   /// [scheduleYesterdaySync] Also requires a user id ([HCRookConfigurationManager.updateUserID]),
   /// so it's possible that the first time you launch your app nothing will happen,
@@ -28,27 +28,22 @@ class HCRookYesterdaySyncManager {
   /// * [clientUUID] Client unique identifier provided by ROOK.
   /// * [secretKey] Client secretKey provided by ROOK.
   /// * [environment] Behaviour configuration.
-  /// * [doOnEnd] Once yesterday data is synced, what order should subsequent syncs have?  Supported values: [HCSyncInstruction.nothing] (Default), [HCSyncInstruction.syncOldest], [HCSyncInstruction.syncLatest].
   ///
   /// **WARNING:**
   ///
-  /// Even if you use [HCSyncInstruction.syncOldest] or [HCSyncInstruction.syncLatest] is possible that all those days won't be synced,
-  /// that's because Google imposes a limit on the number of request your app can made to the Health Connect API.
+  /// Is possible that all days won't be synced, that's because Google imposes a limit on the number of request your app can made to the Health Connect API.
   /// This SDK will attempt to get as much data as possible and when the limit is meet all further attempts will be stopped
   /// until the user re-opens the app after a few hours.
-  static Future<void> scheduleYesterdaySync({
-    required bool enableNativeLogs,
-    required String clientUUID,
-    required String secretKey,
-    required RookEnvironment environment,
-    HCSyncInstruction doOnEnd = HCSyncInstruction.nothing,
-  }) {
+  static Future<void> scheduleYesterdaySync(
+      {required bool enableNativeLogs,
+      required String clientUUID,
+      required String secretKey,
+      required RookEnvironment environment}) {
     return RookSdkHealthConnectPlatform.instance.scheduleYesterdaySync(
       enableNativeLogs,
       clientUUID,
       secretKey,
       environment,
-      doOnEnd,
     );
   }
 }

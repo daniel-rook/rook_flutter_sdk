@@ -1,5 +1,8 @@
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
+@Deprecated(
+  "Methods from HCRookHealthPermissionsManager offer better functionality.",
+)
 class HCRookYesterdaySyncPermissions {
   HCRookYesterdaySyncPermissions._();
 
@@ -14,6 +17,9 @@ class HCRookYesterdaySyncPermissions {
   /// ```
   ///
   /// @return True if the permissions are granted, false otherwise.
+  @Deprecated(
+    "Replace with HCRookHealthPermissionsManager.checkAndroidPermissions",
+  )
   static Future<bool> hasAndroidPermissions() {
     return RookSdkHealthConnectPlatform.instance
         .hasYesterdaySyncAndroidPermissions();
@@ -28,6 +34,9 @@ class HCRookYesterdaySyncPermissions {
   /// • FOREGROUND_SERVICE (API Level 28+)
   /// • FOREGROUND_SERVICE_HEALTH (API Level 34+)
   /// ```
+  @Deprecated(
+    "Replace with HCRookHealthPermissionsManager.requestAndroidPermissions",
+  )
   static Future<void> requestAndroidPermissions() {
     return RookSdkHealthConnectPlatform.instance
         .requestYesterdaySyncAndroidPermissions();
@@ -44,6 +53,9 @@ class HCRookYesterdaySyncPermissions {
   /// ```
   ///
   /// @return True if the permissions are granted, false otherwise.
+  @Deprecated(
+    "Replace with HCRookHealthPermissionsManager.checkHealthConnectPermissions",
+  )
   static Future<bool> hasHealthConnectPermissions() {
     return RookSdkHealthConnectPlatform.instance
         .hasYesterdaySyncHealthConnectPermissions();
@@ -58,6 +70,9 @@ class HCRookYesterdaySyncPermissions {
   /// • PHYSICAL
   /// • BODY
   /// ```
+  @Deprecated(
+    "Replace with HCRookHealthPermissionsManager.requestHealthConnectPermissions",
+  )
   static Future<void> requestHealthConnectPermissions() {
     return RookSdkHealthConnectPlatform.instance
         .requestYesterdaySyncHealthConnectPermissions();

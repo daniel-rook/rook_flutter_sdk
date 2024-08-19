@@ -47,12 +47,12 @@ class _SdkHealthConnectPlaygroundState
           const SectionTitle('5. Check permissions'),
           Text(checkPermissionsOutput.current),
           FilledButton(
-            onPressed: checkPermissions,
+            onPressed: checkHealthConnectPermissions,
             child: const Text('Check permissions'),
           ),
           const SectionTitle('5.1. Request permissions'),
           FilledButton(
-            onPressed: requestPermissions,
+            onPressed: requestHealthConnectPermissions,
             child: const Text('Request permissions'),
           ),
           const SectionTitle('5.2. Open Health Connect'),
@@ -86,9 +86,14 @@ class _SdkHealthConnectPlaygroundState
   void checkAvailability() {
     availabilityOutput.clear();
 
-    setState(() => availabilityOutput.append('Checking availability...'));
+    setState(
+      () => availabilityOutput.append('Checking availability...'),
+    );
 
-    HCRookHealthPermissionsManager.checkAvailability().then((availability) {
+    HCRookHealthPermissionsManager.checkHealthConnectAvailability()
+        .then((availability) {
+      availabilityOutput.append('Availability checked successfully');
+
       final string = switch (availability) {
         HCAvailabilityStatus.installed =>
           'Health Connect is installed! You can skip the next step',
@@ -98,13 +103,13 @@ class _SdkHealthConnectPlaygroundState
           'This device is not compatible with health connect. Please close the app',
       };
 
-      availabilityOutput.append('Availability checked successfully');
-      setState(() => availabilityOutput.append(string));
-    }).catchError((exception) {
-      final error = exception.toString();
-
-      availabilityOutput.append('Error checking availability:');
-      setState(() => availabilityOutput.append(error));
+      setState(
+        () => availabilityOutput.append(string),
+      );
+    }).catchError((error) {
+      setState(
+        () => availabilityOutput.append('Error checking availability: $error'),
+      );
     });
   }
 
@@ -118,49 +123,47 @@ class _SdkHealthConnectPlaygroundState
     }
   }
 
-  void checkPermissions() {
+  void checkHealthConnectPermissions() {
     checkPermissionsOutput.clear();
 
-    setState(() => checkPermissionsOutput
-        .append('Checking all permissions (Sleep, Physical and Body)...'));
+    setState(
+      () => checkPermissionsOutput.append('Checking all permissions...'),
+    );
 
-    HCRookHealthPermissionsManager.checkPermissions().then((hasPermissions) {
+    HCRookHealthPermissionsManager.checkHealthConnectPermissions()
+        .then((hasPermissions) {
+      checkPermissionsOutput.append('All permissions checked successfully');
+
       final string = hasPermissions
           ? 'All permissions are granted! You can skip the next 2 steps'
           : 'There are missing permissions. Please grant them';
 
-      checkPermissionsOutput.append('All permissions checked successfully');
-      setState(() => checkPermissionsOutput.append(string));
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      checkPermissionsOutput.append('Error checking all permissions:');
-      setState(() => checkPermissionsOutput.append(error));
+      setState(
+        () => checkPermissionsOutput.append(string),
+      );
+    }).catchError((error) {
+      setState(
+        () => checkPermissionsOutput
+            .append('Error checking all permissions: $error'),
+      );
     });
   }
 
-  void requestPermissions() {
-    logger.info('Requesting all permissions...');
+  void requestHealthConnectPermissions() {
+    HCRookHealthPermissionsManager.requestHealthConnectPermissions()
+        .then((requestPermissionsStatus) {
+      final permissionsAlreadyGranted =
+          requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
 
-    HCRookHealthPermissionsManager.requestPermissions().then((_) {
-      logger.info('All permissions request sent');
-    }).catchError((exception) {
-      final error = switch (exception) {
-        _ => exception.toString(),
-      };
-
-      logger.info('Error requesting all permissions:');
-      logger.info(error);
+      if (permissionsAlreadyGranted) {
+        logger.info(
+          "Request was not sent because the requested permissions were already granted",
+        );
+      } else {
+        logger.info("Request was sent");
+      }
+    }).catchError((error) {
+      logger.severe('Error requesting permissions: $error');
     });
   }
 
@@ -169,21 +172,8 @@ class _SdkHealthConnectPlaygroundState
 
     HCRookHealthPermissionsManager.openHealthConnectSettings().then((_) {
       logger.info('Health Connect was opened');
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      logger.info('Error opening Health Connect:');
-      logger.info(error);
+    }).catchError((error) {
+      logger.severe('Error opening Health Connect: $error');
     });
   }
 
@@ -193,7 +183,9 @@ class _SdkHealthConnectPlaygroundState
     final today = DateTime.now();
     final yesterday = today.subtract(const Duration(days: 1));
 
-    setState(() => syncOutput.append('Syncing health data...'));
+    setState(
+      () => syncOutput.append('Syncing health data...'),
+    );
 
     setState(
       () => syncOutput
@@ -289,52 +281,28 @@ class _SdkHealthConnectPlaygroundState
 
       if (shouldSyncSummariesForYesterday) {
         try {
-          final syncStatus =
-              await HCRookSummaryManager.syncSleepSummary(yesterday);
+          final syncStatus = await HCRookSummaryManager.syncSleepSummary(
+            yesterday,
+          );
 
           setState(
-              () => syncOutput.append('Sleep summary: ${syncStatus.name}'));
-        } catch (exception) {
-          final error = switch (exception) {
-            (SDKNotInitializedException it) =>
-              'SDKNotInitializedException: ${it.message}',
-            (UserNotInitializedException it) =>
-              'UserNotInitializedException: ${it.message}',
-            (HealthConnectNotInstalledException it) =>
-              'HealthConnectNotInstalledException: ${it.message}',
-            (DeviceNotSupportedException it) =>
-              'DeviceNotSupportedException: ${it.message}',
-            (MissingAndroidPermissionsException it) =>
-              'MissingAndroidPermissionsException: ${it.message}',
-            (ConnectTimeoutException it) =>
-              'ConnectTimeoutException: ${it.message}',
-            (HttpRequestException it) =>
-              'HttpRequestException: code: ${it.code} message: ${it.error}',
-            _ => exception.toString(),
-          };
-
-          syncOutput.append('Error syncing Sleep summary:');
-          setState(() => syncOutput.append(error));
+            () => syncOutput.append('Sleep summary: ${syncStatus.name}'),
+          );
+        } catch (error) {
+          setState(
+            () => syncOutput.append('Error syncing Sleep summary: $error'),
+          );
         }
       } else {
-        setState(() =>
-            syncOutput.append('Sleep summary was already synced for this day'));
+        setState(
+          () => syncOutput
+              .append('Sleep summary was already synced for this day'),
+        );
       }
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Sleep summary:');
-      setState(() => syncOutput.append(error));
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Sleep summary: $error'),
+      );
     }
   }
 
@@ -347,52 +315,28 @@ class _SdkHealthConnectPlaygroundState
 
       if (shouldSyncSummariesForYesterday) {
         try {
-          final syncStatus =
-              await HCRookSummaryManager.syncPhysicalSummary(yesterday);
+          final syncStatus = await HCRookSummaryManager.syncPhysicalSummary(
+            yesterday,
+          );
 
           setState(
-              () => syncOutput.append('Physical summary: ${syncStatus.name}'));
-        } catch (exception) {
-          final error = switch (exception) {
-            (SDKNotInitializedException it) =>
-              'SDKNotInitializedException: ${it.message}',
-            (UserNotInitializedException it) =>
-              'UserNotInitializedException: ${it.message}',
-            (HealthConnectNotInstalledException it) =>
-              'HealthConnectNotInstalledException: ${it.message}',
-            (DeviceNotSupportedException it) =>
-              'DeviceNotSupportedException: ${it.message}',
-            (MissingAndroidPermissionsException it) =>
-              'MissingAndroidPermissionsException: ${it.message}',
-            (ConnectTimeoutException it) =>
-              'ConnectTimeoutException: ${it.message}',
-            (HttpRequestException it) =>
-              'HttpRequestException: code: ${it.code} message: ${it.error}',
-            _ => exception.toString(),
-          };
-
-          syncOutput.append('Error syncing Physical summary:');
-          setState(() => syncOutput.append(error));
+            () => syncOutput.append('Physical summary: ${syncStatus.name}'),
+          );
+        } catch (error) {
+          setState(
+            () => syncOutput.append('Error syncing Physical summary: $error'),
+          );
         }
       } else {
-        setState(() => syncOutput
-            .append('Physical summary was already synced for this day'));
+        setState(
+          () => syncOutput
+              .append('Physical summary was already synced for this day'),
+        );
       }
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Physical summary:');
-      setState(() => syncOutput.append(error));
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Physical summary: $error'),
+      );
     }
   }
 
@@ -405,51 +349,28 @@ class _SdkHealthConnectPlaygroundState
 
       if (shouldSyncSummariesForYesterday) {
         try {
-          final syncStatus =
-              await HCRookSummaryManager.syncBodySummary(yesterday);
+          final syncStatus = await HCRookSummaryManager.syncBodySummary(
+            yesterday,
+          );
 
-          setState(() => syncOutput.append('Body summary: ${syncStatus.name}'));
-        } catch (exception) {
-          final error = switch (exception) {
-            (SDKNotInitializedException it) =>
-              'SDKNotInitializedException: ${it.message}',
-            (UserNotInitializedException it) =>
-              'UserNotInitializedException: ${it.message}',
-            (HealthConnectNotInstalledException it) =>
-              'HealthConnectNotInstalledException: ${it.message}',
-            (DeviceNotSupportedException it) =>
-              'DeviceNotSupportedException: ${it.message}',
-            (MissingAndroidPermissionsException it) =>
-              'MissingAndroidPermissionsException: ${it.message}',
-            (ConnectTimeoutException it) =>
-              'ConnectTimeoutException: ${it.message}',
-            (HttpRequestException it) =>
-              'HttpRequestException: code: ${it.code} message: ${it.error}',
-            _ => exception.toString(),
-          };
-
-          syncOutput.append('Error syncing Body summary:');
-          setState(() => syncOutput.append(error));
+          setState(
+            () => syncOutput.append('Body summary: ${syncStatus.name}'),
+          );
+        } catch (error) {
+          setState(
+            () => syncOutput.append('Error syncing Body summary: $error'),
+          );
         }
       } else {
-        setState(() =>
-            syncOutput.append('Body summary was already synced for this day'));
+        setState(
+          () =>
+              syncOutput.append('Body summary was already synced for this day'),
+        );
       }
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Body summary:');
-      setState(() => syncOutput.append(error));
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Body summary: $error'),
+      );
     }
   }
 
@@ -457,28 +378,13 @@ class _SdkHealthConnectPlaygroundState
     try {
       final syncStatus = await HCRookEventManager.syncPhysicalEvents(today);
 
-      setState(() => syncOutput.append('Physical events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Physical events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('Physical events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Physical events: $error'),
+      );
     }
   }
 
@@ -487,59 +393,28 @@ class _SdkHealthConnectPlaygroundState
       final syncStatus = await HCRookEventManager.syncBloodGlucoseEvents(today);
 
       setState(
-          () => syncOutput.append('BloodGlucose events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BloodGlucose events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('BloodGlucose events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BloodGlucose events: $error'),
+      );
     }
   }
 
   Future<void> syncBloodPressureEvents(DateTime today) async {
     try {
-      final syncStatus =
-          await HCRookEventManager.syncBloodPressureEvents(today);
+      final syncStatus = await HCRookEventManager.syncBloodPressureEvents(
+        today,
+      );
 
       setState(
-          () => syncOutput.append('BloodPressure events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BloodPressure events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('BloodPressure events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BloodPressure events: $error'),
+      );
     }
   }
 
@@ -548,90 +423,45 @@ class _SdkHealthConnectPlaygroundState
       final syncStatus = await HCRookEventManager.syncBodyMetricsEvents(today);
 
       setState(
-          () => syncOutput.append('BodyMetrics events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BodyMetrics events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('BodyMetrics events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BodyMetrics events: $error'),
+      );
     }
   }
 
   Future<void> syncBodyHeartRateEvents(DateTime today) async {
     try {
-      final syncStatus =
-          await HCRookEventManager.syncBodyHeartRateEvents(today);
+      final syncStatus = await HCRookEventManager.syncBodyHeartRateEvents(
+        today,
+      );
 
       setState(
-          () => syncOutput.append('BodyHeartRate events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BodyHeartRate events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('BodyHeartRate events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BodyHeartRate events: $error'),
+      );
     }
   }
 
   Future<void> syncPhysicalHeartRateEvents(DateTime today) async {
     try {
-      final syncStatus =
-          await HCRookEventManager.syncPhysicalHeartRateEvents(today);
+      final syncStatus = await HCRookEventManager.syncPhysicalHeartRateEvents(
+        today,
+      );
 
-      setState(() =>
-          syncOutput.append('PhysicalHeartRate events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing PhysicalHeartRate events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('PhysicalHeartRate events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () =>
+            syncOutput.append('Error syncing PhysicalHeartRate events: $error'),
+      );
     }
   }
 
@@ -639,28 +469,13 @@ class _SdkHealthConnectPlaygroundState
     try {
       final syncStatus = await HCRookEventManager.syncHydrationEvents(today);
 
-      setState(() => syncOutput.append('Hydration events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Hydration events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('Hydration events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Hydration events: $error'),
+      );
     }
   }
 
@@ -668,90 +483,47 @@ class _SdkHealthConnectPlaygroundState
     try {
       final syncStatus = await HCRookEventManager.syncNutritionEvents(today);
 
-      setState(() => syncOutput.append('Nutrition events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Nutrition events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('Nutrition events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Nutrition events: $error'),
+      );
     }
   }
 
   Future<void> syncBodyOxygenationEvents(DateTime today) async {
     try {
-      final syncStatus =
-          await HCRookEventManager.syncBodyOxygenationEvents(today);
+      final syncStatus = await HCRookEventManager.syncBodyOxygenationEvents(
+        today,
+      );
 
-      setState(() =>
-          syncOutput.append('BodyOxygenation events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing BodyOxygenation events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () => syncOutput.append('BodyOxygenation events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing BodyOxygenation events: $error'),
+      );
     }
   }
 
   Future<void> syncPhysicalOxygenationEvents(DateTime today) async {
     try {
-      final syncStatus =
-          await HCRookEventManager.syncPhysicalOxygenationEvents(today);
+      final syncStatus = await HCRookEventManager.syncPhysicalOxygenationEvents(
+        today,
+      );
 
-      setState(() =>
-          syncOutput.append('PhysicalOxygenation events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing PhysicalOxygenation events:');
-      setState(() => syncOutput.append(error));
+      setState(
+        () =>
+            syncOutput.append('PhysicalOxygenation events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput
+            .append('Error syncing PhysicalOxygenation events: $error'),
+      );
     }
   }
 
@@ -760,28 +532,12 @@ class _SdkHealthConnectPlaygroundState
       final syncStatus = await HCRookEventManager.syncTemperatureEvents(today);
 
       setState(
-          () => syncOutput.append('Temperature events: ${syncStatus.name}'));
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Temperature events:');
-      setState(() => syncOutput.append(error));
+        () => syncOutput.append('Temperature events: ${syncStatus.name}'),
+      );
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Temperature events: $error'),
+      );
     }
   }
 
@@ -802,80 +558,50 @@ class _SdkHealthConnectPlaygroundState
           );
           break;
       }
-    } catch (exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (HealthConnectNotInstalledException it) =>
-          'HealthConnectNotInstalledException: ${it.message}',
-        (DeviceNotSupportedException it) =>
-          'DeviceNotSupportedException: ${it.message}',
-        (MissingAndroidPermissionsException it) =>
-          'MissingAndroidPermissionsException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncOutput.append('Error syncing Steps events:');
-      setState(() => syncOutput.append(error));
+    } catch (error) {
+      setState(
+        () => syncOutput.append('Error syncing Steps events: $error'),
+      );
     }
   }
 
   void syncPendingSummaries() {
     syncPendingSummariesOutput.clear();
 
-    setState(() =>
-        syncPendingSummariesOutput.append('Syncing pending summaries...'));
+    setState(
+      () => syncPendingSummariesOutput.append('Syncing pending summaries...'),
+    );
 
     HCRookSummaryManager.syncPendingSummaries().then((_) {
-      setState(() => syncPendingSummariesOutput
-          .append('Pending summaries synced successfully'));
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncPendingSummariesOutput.append('Error syncing pending summaries:');
-      setState(() => syncPendingSummariesOutput.append(error));
+      setState(
+        () => syncPendingSummariesOutput
+            .append('Pending summaries synced successfully'),
+      );
+    }).catchError((error) {
+      setState(
+        () => syncPendingSummariesOutput
+            .append('Error syncing pending summaries: $error'),
+      );
     });
   }
 
   void syncPendingEvents() {
     syncPendingEventsOutput.clear();
 
-    setState(() => syncPendingEventsOutput.append('Syncing pending events...'));
+    setState(
+      () => syncPendingEventsOutput.append('Syncing pending events...'),
+    );
 
     HCRookEventManager.syncPendingEvents().then((_) {
-      setState(() =>
-          syncPendingEventsOutput.append('Pending events synced successfully'));
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) =>
-          'HttpRequestException: code: ${it.code} message: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      syncPendingEventsOutput.append('Error syncing pending events:');
-      setState(() => syncPendingEventsOutput.append(error));
+      setState(
+        () => syncPendingEventsOutput
+            .append('Pending events synced successfully'),
+      );
+    }).catchError((error) {
+      setState(
+        () => syncPendingEventsOutput
+            .append('Error syncing pending events: $error'),
+      );
     });
   }
 }

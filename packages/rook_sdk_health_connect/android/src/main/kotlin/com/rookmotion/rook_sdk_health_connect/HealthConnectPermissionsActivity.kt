@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.rookmotion.rook.sdk.RookHealthPermissionsManager
 
+@Deprecated(message = "Will be deleted in next VERSION release")
 class HealthConnectPermissionsActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +27,8 @@ class HealthConnectPermissionsActivity : ComponentActivity() {
     }
 
     companion object {
+
+        @Deprecated(message = "Will be deleted in next VERSION release")
         fun launch(context: Context) {
             val intent = Intent(context, HealthConnectPermissionsActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK

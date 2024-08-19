@@ -150,4 +150,26 @@ class HealthDataTypeProto extends $pb.ProtobufEnum {
   const HealthDataTypeProto._($core.int v, $core.String n) : super(v, n);
 }
 
+class RequestPermissionsStatusProto extends $pb.ProtobufEnum {
+  static const RequestPermissionsStatusProto REQUEST_SENT =
+      RequestPermissionsStatusProto._(0, _omitEnumNames ? '' : 'REQUEST_SENT');
+  static const RequestPermissionsStatusProto ALREADY_GRANTED =
+      RequestPermissionsStatusProto._(
+          1, _omitEnumNames ? '' : 'ALREADY_GRANTED');
+
+  static const $core.List<RequestPermissionsStatusProto> values =
+      <RequestPermissionsStatusProto>[
+    REQUEST_SENT,
+    ALREADY_GRANTED,
+  ];
+
+  static final $core.Map<$core.int, RequestPermissionsStatusProto> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
+  static RequestPermissionsStatusProto? valueOf($core.int value) =>
+      _byValue[value];
+
+  const RequestPermissionsStatusProto._($core.int v, $core.String n)
+      : super(v, n);
+}
+
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

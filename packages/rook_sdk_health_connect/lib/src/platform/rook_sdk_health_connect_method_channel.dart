@@ -2,24 +2,33 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_data_source_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_request_permissions_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_environment_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/sync_instruction_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('rook_sdk_health_connect');
+
+  @visibleForTesting
+  final androidPermissionsEventChannel = const EventChannel(
+    "io.tryrook.permissions.android",
+  );
+
+  @visibleForTesting
+  final healthConnectPermissionsEventChannel = const EventChannel(
+    "io.tryrook.permissions.healthconnect",
+  );
 
   @override
   Future<void> enableNativeLogs() async {
@@ -66,7 +75,10 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
 
   @override
   Future<void> clearUserID() async {
-    await methodChannel.invokeMethod('clearUserID');
+    final Uint8List bytes = await methodChannel.invokeMethod('clearUserID');
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
   }
 
   @override
@@ -90,8 +102,20 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<HCAvailabilityStatus> checkAvailability() async {
     final int code = await methodChannel.invokeMethod('checkAvailability');
+    final proto = AvailabilityStatusProto.valueOf(code) ??
+        AvailabilityStatusProto.NOT_SUPPORTED;
+
+    return proto.toDomain();
+  }
+
+  @override
+  Future<HCAvailabilityStatus> checkHealthConnectAvailability() async {
+    final int code = await methodChannel.invokeMethod(
+      'checkHealthConnectAvailability',
+    );
     final proto = AvailabilityStatusProto.valueOf(code) ??
         AvailabilityStatusProto.NOT_SUPPORTED;
 
@@ -109,6 +133,76 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  Future<bool> checkHealthConnectPermissions() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'checkHealthConnectPermissions',
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<RequestPermissionsStatus> requestHealthConnectPermissions() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'requestHealthConnectPermissions',
+    );
+
+    final result = ResultRequestPermissionsStatusProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Stream<bool> get requestHealthConnectPermissionsUpdates {
+    return healthConnectPermissionsEventChannel.receiveBroadcastStream().map(
+      (bytes) {
+        return bytes as bool;
+      },
+    );
+  }
+
+  @override
+  Future<bool> checkAndroidPermissions() async {
+    final bool result = await methodChannel.invokeMethod(
+      'checkAndroidPermissions',
+    );
+
+    return result;
+  }
+
+  @override
+  Future<bool> shouldRequestAndroidPermissions() async {
+    final bool result = await methodChannel.invokeMethod(
+      'shouldRequestAndroidPermissions',
+    );
+
+    return result;
+  }
+
+  @override
+  Future<RequestPermissionsStatus> requestAndroidPermissions() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'requestAndroidPermissions',
+    );
+
+    final result = ResultRequestPermissionsStatusProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Stream<bool> get requestAndroidPermissionsUpdates {
+    return androidPermissionsEventChannel.receiveBroadcastStream().map(
+      (bytes) {
+        return bytes as bool;
+      },
+    );
+  }
+
+  @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> checkPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'checkPermissions',
@@ -120,6 +214,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'requestPermissions',
@@ -382,6 +477,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasStepsPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'hasStepsPermissions',
@@ -393,6 +489,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestStepsPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'requestStepsPermissions',
@@ -437,6 +534,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasYesterdaySyncAndroidPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'hasYesterdaySyncAndroidPermissions',
@@ -448,6 +546,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestYesterdaySyncAndroidPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'requestYesterdaySyncAndroidPermissions',
@@ -459,6 +558,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasYesterdaySyncHealthConnectPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'hasYesterdaySyncHealthConnectPermissions',
@@ -470,6 +570,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestYesterdaySyncHealthConnectPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'requestYesterdaySyncHealthConnectPermissions',
@@ -486,7 +587,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     String clientUUID,
     String secretKey,
     RookEnvironment environment,
-    HCSyncInstruction doOnEnd,
   ) async {
     final rookConfigurationProto = RookConfigurationProto(
       clientUUID: clientUUID,
@@ -494,14 +594,12 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       environment: environment.toProto(),
       enableBackgroundSync: false,
     );
-    final syncInstructionProto = doOnEnd.toProto();
 
     final Uint8List bytes = await methodChannel.invokeMethod(
       'scheduleYesterdaySync',
       [
         enableNativeLogs,
         rookConfigurationProto.writeToBuffer(),
-        syncInstructionProto.value,
       ],
     );
 
@@ -519,7 +617,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       ],
     );
 
-    final result = ResultDataSourceProto.fromBuffer(bytes);
+    final result = ResultDataSourcesProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

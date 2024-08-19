@@ -2,9 +2,9 @@ package com.rookmotion.rook_sdk_health_connect.mapper
 
 import com.rookmotion.rook.sdk.domain.enums.HealthDataType
 import com.rookmotion.rook_sdk_health_connect.exception.UnknownDataTypeException
-import com.rookmotion.rook_sdk_health_connect.data.proto.HealthDataTypeProto
+import com.rookmotion.rook_sdk_health_connect.proto.HealthDataTypeProto
 
-fun HealthDataTypeProto.toDomain(): HealthDataType {
+fun HealthDataTypeProto.toHealthDataType(): HealthDataType {
     return when (this) {
         HealthDataTypeProto.SLEEP_SUMMARY -> HealthDataType.SLEEP_SUMMARY
         HealthDataTypeProto.PHYSICAL_SUMMARY -> HealthDataType.PHYSICAL_SUMMARY

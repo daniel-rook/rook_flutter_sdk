@@ -137,7 +137,6 @@ class _SdkHealthConnectConfigurationState
     //       clientUUID: Secrets.clientUUID,
     //       secretKey: Secrets.secretKey,
     //       environment: rookEnvironment,
-    //       doOnEnd: HCSyncInstruction.nothing,
     //     );
     //   } else {
     //     logger.info('User did not accept yesterday sync');
@@ -177,29 +176,26 @@ class _SdkHealthConnectConfigurationState
     HCRookConfigurationManager.setConfiguration(rookConfiguration);
 
     setState(
-        () => configurationOutput.append('Configuration set successfully'));
+      () => configurationOutput.append('Configuration set successfully'),
+    );
   }
 
   void initialize() {
     initializeOutput.clear();
 
-    setState(() => initializeOutput.append('Initializing...'));
+    setState(
+      () => initializeOutput.append('Initializing...'),
+    );
 
     HCRookConfigurationManager.initRook().then((_) {
-      setState(() => initializeOutput.append('SDK initialized successfully'));
+      setState(
+        () => initializeOutput.append('SDK initialized successfully'),
+      );
       checkUserIDRegistered();
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (MissingConfigurationException it) =>
-          'MissingConfigurationException: ${it.message}',
-        (SDKNotAuthorizedException it) =>
-          'SDKNotAuthorizedException: ${it.message}',
-        (ConnectTimeoutException it) => 'TimeoutException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      initializeOutput.append('Error initializing SDK:');
-      setState(() => initializeOutput.append(error));
+    }).catchError((error) {
+      setState(
+        () => initializeOutput.append('Error initializing SDK: $error'),
+      );
     });
   }
 
@@ -225,23 +221,19 @@ class _SdkHealthConnectConfigurationState
   void updateUserID(String? userID) {
     updateUserOutput.clear();
 
-    setState(() => updateUserOutput.append('Updating userID...'));
+    setState(
+      () => updateUserOutput.append('Updating userID...'),
+    );
 
     HCRookConfigurationManager.updateUserID(userID!).then((_) {
       setState(() {
         updateUserOutput.append('userID updated successfully');
         enableNavigation = true;
       });
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (ConnectTimeoutException it) => 'TimeoutException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      updateUserOutput.append('Error updating userID:');
-      setState(() => updateUserOutput.append(error));
+    }).catchError((error) {
+      setState(
+        () => updateUserOutput.append('Error updating userID: $error'),
+      );
     });
   }
 
@@ -250,17 +242,8 @@ class _SdkHealthConnectConfigurationState
 
     HCRookConfigurationManager.deleteUserFromRook().then((_) {
       logger.info('User deleted from rook');
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        _ => exception.toString(),
-      };
-
-      logger.info('Error deleting user from rook:');
-      logger.info(error);
+    }).catchError((error) {
+      logger.info('Error deleting user from rook: $error');
     });
   }
 
@@ -269,20 +252,8 @@ class _SdkHealthConnectConfigurationState
 
     HCRookConfigurationManager.syncUserTimeZone().then((_) {
       logger.info('User timezone updated successfully');
-    }).catchError((exception) {
-      final error = switch (exception) {
-        (SDKNotInitializedException it) =>
-          'SDKNotInitializedException: ${it.message}',
-        (UserNotInitializedException it) =>
-          'UserNotInitializedException: ${it.message}',
-        (ConnectTimeoutException it) =>
-          'ConnectTimeoutException: ${it.message}',
-        (HttpRequestException it) => 'HttpRequestException: ${it.error}',
-        _ => exception.toString(),
-      };
-
-      logger.info('Error updating user timezone:');
-      logger.info(error);
+    }).catchError((error) {
+      logger.info('Error updating user timezone: $error');
     });
   }
 

@@ -4,14 +4,15 @@ import android.content.Context
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncPermissions
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.data.proto.RookConfigurationProto
-import com.rookmotion.rook_sdk_health_connect.data.proto.SyncInstructionProto
+import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
+import com.rookmotion.rook_sdk_health_connect.proto.SyncInstructionProto
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.mapper.toDomain
+import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
+import com.rookmotion.rook_sdk_health_connect.mapper.toSyncInstruction
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -30,9 +31,9 @@ class YesterdaySyncHandler(
                         context
                     )
 
-                    methodResult.resultBooleanSuccess(hasPermissions)
+                    methodResult.booleanSuccess(hasPermissions)
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
@@ -40,9 +41,9 @@ class YesterdaySyncHandler(
                 try {
                     RookYesterdaySyncPermissions.requestAndroidPermissions(context)
 
-                    methodResult.resultBooleanSuccess(true)
+                    methodResult.booleanSuccess(true)
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
@@ -52,9 +53,9 @@ class YesterdaySyncHandler(
                         context
                     )
 
-                    methodResult.resultBooleanSuccess(hasPermissions)
+                    methodResult.booleanSuccess(hasPermissions)
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
@@ -62,9 +63,9 @@ class YesterdaySyncHandler(
                 try {
                     RookYesterdaySyncPermissions.requestHealthConnectPermissions(context)
 
-                    methodResult.resultBooleanSuccess(true)
+                    methodResult.booleanSuccess(true)
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
@@ -73,11 +74,7 @@ class YesterdaySyncHandler(
                     val enableNativeLogs = methodCall.getBooleanArgAt(0)
 
                     val rookConfiguration = methodCall.getByteArrayArgAt(1).let {
-                        RookConfigurationProto.parseFrom(it).toDomain()
-                    }
-
-                    val syncInstruction = methodCall.getIntArgAt(2).let {
-                        SyncInstructionProto.forNumber(it).toDomain()
+                        RookConfigurationProto.parseFrom(it).toRookConfiguration()
                     }
 
                     rookYesterdaySyncManager.scheduleYesterdaySync(
@@ -85,12 +82,11 @@ class YesterdaySyncHandler(
                         rookConfiguration.clientUUID,
                         rookConfiguration.secretKey,
                         rookConfiguration.environment,
-                        syncInstruction
                     )
 
-                    methodResult.resultBooleanSuccess(true)
+                    methodResult.booleanSuccess(true)
                 } catch (exception: Exception) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 

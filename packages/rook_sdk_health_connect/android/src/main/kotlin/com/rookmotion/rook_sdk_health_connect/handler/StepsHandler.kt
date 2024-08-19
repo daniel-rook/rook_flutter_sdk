@@ -1,18 +1,16 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
-import android.content.Context
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanError
-import com.rookmotion.rook_sdk_health_connect.extension.resultBooleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Error
-import com.rookmotion.rook_sdk_health_connect.extension.resultInt64Success
+import com.rookmotion.rook_sdk_health_connect.extension.booleanError
+import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.int64Error
+import com.rookmotion.rook_sdk_health_connect.extension.int64Success
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class StepsHandler(
-    context: Context,
     private val coroutineScope: CoroutineScope,
     private val rookStepsManager: RookStepsManager,
 ) {
@@ -23,25 +21,25 @@ class StepsHandler(
                 try {
                     val isAvailable = rookStepsManager.isAvailable()
 
-                    methodResult.resultBooleanSuccess(isAvailable)
+                    methodResult.booleanSuccess(isAvailable)
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
             "isBackgroundAndroidStepsActive" -> coroutineScope.launch {
                 val isActive = rookStepsManager.isBackgroundAndroidStepsActive()
 
-                methodResult.resultBooleanSuccess(isActive)
+                methodResult.booleanSuccess(isActive)
             }
 
             "hasStepsPermissions" -> {
                 try {
                     val hasPermissions = rookStepsManager.hasPermissions()
 
-                    methodResult.resultBooleanSuccess(hasPermissions)
+                    methodResult.booleanSuccess(hasPermissions)
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
@@ -49,9 +47,9 @@ class StepsHandler(
                 try {
                     rookStepsManager.requestPermissions()
 
-                    methodResult.resultBooleanSuccess(true)
+                    methodResult.booleanSuccess(true)
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
@@ -59,14 +57,14 @@ class StepsHandler(
                 try {
                     rookStepsManager.enableBackgroundAndroidSteps().fold(
                         {
-                            methodResult.resultBooleanSuccess(true)
+                            methodResult.booleanSuccess(true)
                         },
                         {
-                            methodResult.resultBooleanError(it)
+                            methodResult.booleanError(it)
                         }
                     )
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
@@ -74,24 +72,24 @@ class StepsHandler(
                 try {
                     rookStepsManager.disableBackgroundAndroidSteps().fold(
                         {
-                            methodResult.resultBooleanSuccess(true)
+                            methodResult.booleanSuccess(true)
                         },
                         {
-                            methodResult.resultBooleanError(it)
+                            methodResult.booleanError(it)
                         }
                     )
                 } catch (exception: NullPointerException) {
-                    methodResult.resultBooleanError(exception)
+                    methodResult.booleanError(exception)
                 }
             }
 
             "syncTodayAndroidStepsCount" -> coroutineScope.launch {
                 rookStepsManager.syncTodayAndroidStepsCount().fold(
                     {
-                        methodResult.resultInt64Success(it)
+                        methodResult.int64Success(it)
                     },
                     {
-                        methodResult.resultInt64Error(it)
+                        methodResult.int64Error(it)
                     }
                 )
             }

@@ -2,7 +2,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_sync_instruction.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
 abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
@@ -36,12 +35,31 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<void> syncUserTimeZone();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<HCAvailabilityStatus> checkAvailability();
+
+  Future<HCAvailabilityStatus> checkHealthConnectAvailability();
 
   Future<void> openHealthConnectSettings();
 
+  Future<bool> checkHealthConnectPermissions();
+
+  Future<RequestPermissionsStatus> requestHealthConnectPermissions();
+
+  Stream<bool> get requestHealthConnectPermissionsUpdates;
+
+  Future<bool> checkAndroidPermissions();
+
+  Future<bool> shouldRequestAndroidPermissions();
+
+  Future<RequestPermissionsStatus> requestAndroidPermissions();
+
+  Stream<bool> get requestAndroidPermissionsUpdates;
+
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> checkPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestPermissions();
 
   Future<bool> shouldSyncFor(HCHealthDataType hcHealthDataType, DateTime date);
@@ -84,8 +102,10 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<bool> isBackgroundAndroidStepsActive();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasStepsPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestStepsPermissions();
 
   Future<void> enableBackgroundAndroidSteps();
@@ -94,12 +114,16 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<int> syncTodayAndroidStepsCount();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasYesterdaySyncAndroidPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestYesterdaySyncAndroidPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> hasYesterdaySyncHealthConnectPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestYesterdaySyncHealthConnectPermissions();
 
   Future<void> scheduleYesterdaySync(
@@ -107,7 +131,6 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
     String clientUUID,
     String secretKey,
     RookEnvironment environment,
-    HCSyncInstruction doOnEnd,
   );
 
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
