@@ -35,7 +35,8 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
                         secretKey: it.secretKey,
-                        enableBackgroundSync: it.enableBackgroundSync
+                        enableBackgroundSync: it.enableBackgroundSync,
+                        enableEventsBackgroundSync: it.enableBackgroundSync
                     )
                     
                     resultBoolSuccess(flutterResult: result, true)
@@ -319,7 +320,8 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
                         secretKey: it.secretKey,
-                        enableBackgroundSync: true
+                        enableBackgroundSync: true,
+                        enableEventsBackgroundSync: true
                     )
                     
                     RookConnectConfigurationManager.shared.initRook { it in
@@ -353,7 +355,8 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     RookConnectConfigurationManager.shared.setConfiguration(
                         clientUUID: it.clientUuid,
                         secretKey: it.secretKey,
-                        enableBackgroundSync: true
+                        enableBackgroundSync: true,
+                        enableEventsBackgroundSync: true
                     )
                     
                     RookConnectConfigurationManager.shared.initRook { it in
