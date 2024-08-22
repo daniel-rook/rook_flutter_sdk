@@ -238,7 +238,7 @@ packages:
       path: "packages/rook_sdk_apple_health"
       relative: true
     source: path
-    version: "1.2.1"
+    version: "1.2.2"
   rook_sdk_core:
     dependency: "direct main"
     description:

@@ -4,9 +4,9 @@ PODS:
   - Flutter (1.0.0)
   - rook_sdk_apple_health (0.0.1):
     - Flutter
-    - RookSDK (= 1.5.8)
+    - RookSDK (= 1.6.0)
     - SwiftProtobuf (= 1.21.0)
-  - RookSDK (1.5.8)
+  - RookSDK (1.6.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -41,8 +41,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   app_settings: 017320c6a680cdc94c799949d95b84cb69389ebc
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  rook_sdk_apple_health: c462932fd617a3f0808defd55a3bb00fcc843688
-  RookSDK: d979ea4f6b4199360bcb41501361eca17e792223
+  rook_sdk_apple_health: 52788e48bf7e63b5eb20a75c343353b642501178
+  RookSDK: 3fa0b38edbe85131e7361d0b84511fe29aec0c33
   shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
   SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
