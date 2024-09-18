@@ -42,7 +42,7 @@ fun MethodChannel.Result.syncStatusWithIntError(throwable: Throwable) {
     val pluginExceptionProto = PluginExceptionProto.newBuilder()
         .setId(throwable.getPluginExceptionId())
         .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getErrorMessage())
+        .setMessage(throwable.getPluginExceptionMessage())
 
     val bytes = ResultSyncStatusWithIntProto.newBuilder()
         .setPluginExceptionProto(pluginExceptionProto)
