@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 void main() {
   group('ResultBooleanProto success', () {
@@ -18,35 +17,21 @@ void main() {
 
   group('ResultBooleanProto exception', () {
     test(
-      'GIVEN a MissingConfigurationExceptionProto WHEN unwrap THEN throw MissingConfigurationException',
+      'GIVEN the unhappy path WHEN unwrap THEN throw an Exception',
       () {
-        final proto = ResultBooleanProto.create();
-        proto.missingConfigurationExceptionProto =
-            MissingConfigurationExceptionProto(message: error);
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
 
-        expect(
-          proto.unwrap,
-          throwsA(
-            predicate(
-              (exception) =>
-                  exception is MissingConfigurationException &&
-                  exception.message == error,
-            ),
-          ),
-        );
-      },
-    );
+        final proto = ResultBooleanProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
 
-    test(
-      'GIVEN a GenericExceptionProto WHEN unwrap THEN throw Exception',
-      () {
-        final proto = ResultBooleanProto.create();
-        proto.genericExceptionProto = GenericExceptionProto(message: error);
-
-        expect(proto.unwrap, throwsException);
+        expect(proto.unwrap, throwsA(isException));
       },
     );
   });
 }
 
-const error = 'There was an error';
+const _exceptionMessage = "There was an error";
+const _exceptionCode = 401;

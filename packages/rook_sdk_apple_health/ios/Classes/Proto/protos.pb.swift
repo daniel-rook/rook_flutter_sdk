@@ -100,7 +100,7 @@ struct DataSourceProto {
   init() {}
 }
 
-struct DataSourceProtoListWrapper {
+struct DataSourcesProtoListWrapper {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -112,22 +112,14 @@ struct DataSourceProtoListWrapper {
   init() {}
 }
 
-struct MissingConfigurationExceptionProto {
+struct PluginExceptionProto {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var message: String = String()
+  var id: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-}
-
-struct GenericExceptionProto {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+  var code: Int32 = 0
 
   var message: String = String()
 
@@ -151,28 +143,19 @@ struct ResultBooleanProto {
     set {result = .success(newValue)}
   }
 
-  var missingConfigurationExceptionProto: MissingConfigurationExceptionProto {
+  var pluginExceptionProto: PluginExceptionProto {
     get {
-      if case .missingConfigurationExceptionProto(let v)? = result {return v}
-      return MissingConfigurationExceptionProto()
+      if case .pluginExceptionProto(let v)? = result {return v}
+      return PluginExceptionProto()
     }
-    set {result = .missingConfigurationExceptionProto(newValue)}
-  }
-
-  var genericExceptionProto: GenericExceptionProto {
-    get {
-      if case .genericExceptionProto(let v)? = result {return v}
-      return GenericExceptionProto()
-    }
-    set {result = .genericExceptionProto(newValue)}
+    set {result = .pluginExceptionProto(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable {
     case success(Bool)
-    case missingConfigurationExceptionProto(MissingConfigurationExceptionProto)
-    case genericExceptionProto(GenericExceptionProto)
+    case pluginExceptionProto(PluginExceptionProto)
 
   #if !swift(>=4.1)
     static func ==(lhs: ResultBooleanProto.OneOf_Result, rhs: ResultBooleanProto.OneOf_Result) -> Bool {
@@ -184,12 +167,8 @@ struct ResultBooleanProto {
         guard case .success(let l) = lhs, case .success(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
-      case (.missingConfigurationExceptionProto, .missingConfigurationExceptionProto): return {
-        guard case .missingConfigurationExceptionProto(let l) = lhs, case .missingConfigurationExceptionProto(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.genericExceptionProto, .genericExceptionProto): return {
-        guard case .genericExceptionProto(let l) = lhs, case .genericExceptionProto(let r) = rhs else { preconditionFailure() }
+      case (.pluginExceptionProto, .pluginExceptionProto): return {
+        guard case .pluginExceptionProto(let l) = lhs, case .pluginExceptionProto(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -216,19 +195,19 @@ struct ResultInt64Proto {
     set {result = .value(newValue)}
   }
 
-  var genericExceptionProto: GenericExceptionProto {
+  var pluginExceptionProto: PluginExceptionProto {
     get {
-      if case .genericExceptionProto(let v)? = result {return v}
-      return GenericExceptionProto()
+      if case .pluginExceptionProto(let v)? = result {return v}
+      return PluginExceptionProto()
     }
-    set {result = .genericExceptionProto(newValue)}
+    set {result = .pluginExceptionProto(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable {
     case value(Int64)
-    case genericExceptionProto(GenericExceptionProto)
+    case pluginExceptionProto(PluginExceptionProto)
 
   #if !swift(>=4.1)
     static func ==(lhs: ResultInt64Proto.OneOf_Result, rhs: ResultInt64Proto.OneOf_Result) -> Bool {
@@ -240,8 +219,8 @@ struct ResultInt64Proto {
         guard case .value(let l) = lhs, case .value(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
-      case (.genericExceptionProto, .genericExceptionProto): return {
-        guard case .genericExceptionProto(let l) = lhs, case .genericExceptionProto(let r) = rhs else { preconditionFailure() }
+      case (.pluginExceptionProto, .pluginExceptionProto): return {
+        guard case .pluginExceptionProto(let l) = lhs, case .pluginExceptionProto(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -253,47 +232,47 @@ struct ResultInt64Proto {
   init() {}
 }
 
-struct ResultDataSourceProto {
+struct ResultDataSourcesProto {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var result: ResultDataSourceProto.OneOf_Result? = nil
+  var result: ResultDataSourcesProto.OneOf_Result? = nil
 
-  var dataSourceProtoListWrapper: DataSourceProtoListWrapper {
+  var dataSourcesProtoListWrapper: DataSourcesProtoListWrapper {
     get {
-      if case .dataSourceProtoListWrapper(let v)? = result {return v}
-      return DataSourceProtoListWrapper()
+      if case .dataSourcesProtoListWrapper(let v)? = result {return v}
+      return DataSourcesProtoListWrapper()
     }
-    set {result = .dataSourceProtoListWrapper(newValue)}
+    set {result = .dataSourcesProtoListWrapper(newValue)}
   }
 
-  var genericExceptionProto: GenericExceptionProto {
+  var pluginExceptionProto: PluginExceptionProto {
     get {
-      if case .genericExceptionProto(let v)? = result {return v}
-      return GenericExceptionProto()
+      if case .pluginExceptionProto(let v)? = result {return v}
+      return PluginExceptionProto()
     }
-    set {result = .genericExceptionProto(newValue)}
+    set {result = .pluginExceptionProto(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable {
-    case dataSourceProtoListWrapper(DataSourceProtoListWrapper)
-    case genericExceptionProto(GenericExceptionProto)
+    case dataSourcesProtoListWrapper(DataSourcesProtoListWrapper)
+    case pluginExceptionProto(PluginExceptionProto)
 
   #if !swift(>=4.1)
-    static func ==(lhs: ResultDataSourceProto.OneOf_Result, rhs: ResultDataSourceProto.OneOf_Result) -> Bool {
+    static func ==(lhs: ResultDataSourcesProto.OneOf_Result, rhs: ResultDataSourcesProto.OneOf_Result) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.dataSourceProtoListWrapper, .dataSourceProtoListWrapper): return {
-        guard case .dataSourceProtoListWrapper(let l) = lhs, case .dataSourceProtoListWrapper(let r) = rhs else { preconditionFailure() }
+      case (.dataSourcesProtoListWrapper, .dataSourcesProtoListWrapper): return {
+        guard case .dataSourcesProtoListWrapper(let l) = lhs, case .dataSourcesProtoListWrapper(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
-      case (.genericExceptionProto, .genericExceptionProto): return {
-        guard case .genericExceptionProto(let l) = lhs, case .genericExceptionProto(let r) = rhs else { preconditionFailure() }
+      case (.pluginExceptionProto, .pluginExceptionProto): return {
+        guard case .pluginExceptionProto(let l) = lhs, case .pluginExceptionProto(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -309,15 +288,14 @@ struct ResultDataSourceProto {
 extension RookEnvironmentProto: @unchecked Sendable {}
 extension RookConfigurationProto: @unchecked Sendable {}
 extension DataSourceProto: @unchecked Sendable {}
-extension DataSourceProtoListWrapper: @unchecked Sendable {}
-extension MissingConfigurationExceptionProto: @unchecked Sendable {}
-extension GenericExceptionProto: @unchecked Sendable {}
+extension DataSourcesProtoListWrapper: @unchecked Sendable {}
+extension PluginExceptionProto: @unchecked Sendable {}
 extension ResultBooleanProto: @unchecked Sendable {}
 extension ResultBooleanProto.OneOf_Result: @unchecked Sendable {}
 extension ResultInt64Proto: @unchecked Sendable {}
 extension ResultInt64Proto.OneOf_Result: @unchecked Sendable {}
-extension ResultDataSourceProto: @unchecked Sendable {}
-extension ResultDataSourceProto.OneOf_Result: @unchecked Sendable {}
+extension ResultDataSourcesProto: @unchecked Sendable {}
+extension ResultDataSourcesProto.OneOf_Result: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -441,8 +419,8 @@ extension DataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension DataSourceProtoListWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "DataSourceProtoListWrapper"
+extension DataSourcesProtoListWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "DataSourcesProtoListWrapper"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dataSources"),
   ]
@@ -466,17 +444,19 @@ extension DataSourceProtoListWrapper: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: DataSourceProtoListWrapper, rhs: DataSourceProtoListWrapper) -> Bool {
+  static func ==(lhs: DataSourcesProtoListWrapper, rhs: DataSourcesProtoListWrapper) -> Bool {
     if lhs.dataSources != rhs.dataSources {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension MissingConfigurationExceptionProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MissingConfigurationExceptionProto"
+extension PluginExceptionProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "PluginExceptionProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "message"),
+    1: .same(proto: "id"),
+    2: .same(proto: "code"),
+    3: .same(proto: "message"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -485,52 +465,30 @@ extension MissingConfigurationExceptionProto: SwiftProtobuf.Message, SwiftProtob
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 1: try { try decoder.decodeSingularSInt32Field(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.code) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.message) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.id != 0 {
+      try visitor.visitSingularSInt32Field(value: self.id, fieldNumber: 1)
+    }
+    if self.code != 0 {
+      try visitor.visitSingularSInt32Field(value: self.code, fieldNumber: 2)
+    }
     if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 1)
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: MissingConfigurationExceptionProto, rhs: MissingConfigurationExceptionProto) -> Bool {
-    if lhs.message != rhs.message {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension GenericExceptionProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "GenericExceptionProto"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "message"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: GenericExceptionProto, rhs: GenericExceptionProto) -> Bool {
+  static func ==(lhs: PluginExceptionProto, rhs: PluginExceptionProto) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -541,8 +499,7 @@ extension ResultBooleanProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   static let protoMessageName: String = "ResultBooleanProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "success"),
-    5: .same(proto: "missingConfigurationExceptionProto"),
-    11: .same(proto: "genericExceptionProto"),
+    2: .same(proto: "pluginExceptionProto"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -559,30 +516,17 @@ extension ResultBooleanProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
           self.result = .success(v)
         }
       }()
-      case 5: try {
-        var v: MissingConfigurationExceptionProto?
+      case 2: try {
+        var v: PluginExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
-          if case .missingConfigurationExceptionProto(let m) = current {v = m}
+          if case .pluginExceptionProto(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .missingConfigurationExceptionProto(v)
-        }
-      }()
-      case 11: try {
-        var v: GenericExceptionProto?
-        var hadOneofValue = false
-        if let current = self.result {
-          hadOneofValue = true
-          if case .genericExceptionProto(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .genericExceptionProto(v)
+          self.result = .pluginExceptionProto(v)
         }
       }()
       default: break
@@ -600,13 +544,9 @@ extension ResultBooleanProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       guard case .success(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
     }()
-    case .missingConfigurationExceptionProto?: try {
-      guard case .missingConfigurationExceptionProto(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    }()
-    case .genericExceptionProto?: try {
-      guard case .genericExceptionProto(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    case .pluginExceptionProto?: try {
+      guard case .pluginExceptionProto(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }()
     case nil: break
     }
@@ -624,7 +564,7 @@ extension ResultInt64Proto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   static let protoMessageName: String = "ResultInt64Proto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
-    11: .same(proto: "genericExceptionProto"),
+    2: .same(proto: "pluginExceptionProto"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -641,17 +581,17 @@ extension ResultInt64Proto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
           self.result = .value(v)
         }
       }()
-      case 11: try {
-        var v: GenericExceptionProto?
+      case 2: try {
+        var v: PluginExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
-          if case .genericExceptionProto(let m) = current {v = m}
+          if case .pluginExceptionProto(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .genericExceptionProto(v)
+          self.result = .pluginExceptionProto(v)
         }
       }()
       default: break
@@ -669,9 +609,9 @@ extension ResultInt64Proto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       guard case .value(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
     }()
-    case .genericExceptionProto?: try {
-      guard case .genericExceptionProto(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    case .pluginExceptionProto?: try {
+      guard case .pluginExceptionProto(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }()
     case nil: break
     }
@@ -685,11 +625,11 @@ extension ResultInt64Proto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
-extension ResultDataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ResultDataSourceProto"
+extension ResultDataSourcesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ResultDataSourcesProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "dataSourceProtoListWrapper"),
-    11: .same(proto: "genericExceptionProto"),
+    1: .same(proto: "dataSourcesProtoListWrapper"),
+    2: .same(proto: "pluginExceptionProto"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -699,29 +639,29 @@ extension ResultDataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        var v: DataSourceProtoListWrapper?
+        var v: DataSourcesProtoListWrapper?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
-          if case .dataSourceProtoListWrapper(let m) = current {v = m}
+          if case .dataSourcesProtoListWrapper(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .dataSourceProtoListWrapper(v)
+          self.result = .dataSourcesProtoListWrapper(v)
         }
       }()
-      case 11: try {
-        var v: GenericExceptionProto?
+      case 2: try {
+        var v: PluginExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
-          if case .genericExceptionProto(let m) = current {v = m}
+          if case .pluginExceptionProto(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .genericExceptionProto(v)
+          self.result = .pluginExceptionProto(v)
         }
       }()
       default: break
@@ -735,20 +675,20 @@ extension ResultDataSourceProto: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
     switch self.result {
-    case .dataSourceProtoListWrapper?: try {
-      guard case .dataSourceProtoListWrapper(let v)? = self.result else { preconditionFailure() }
+    case .dataSourcesProtoListWrapper?: try {
+      guard case .dataSourcesProtoListWrapper(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }()
-    case .genericExceptionProto?: try {
-      guard case .genericExceptionProto(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    case .pluginExceptionProto?: try {
+      guard case .pluginExceptionProto(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ResultDataSourceProto, rhs: ResultDataSourceProto) -> Bool {
+  static func ==(lhs: ResultDataSourcesProto, rhs: ResultDataSourcesProto) -> Bool {
     if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

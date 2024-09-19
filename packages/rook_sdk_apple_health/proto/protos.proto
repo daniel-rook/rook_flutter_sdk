@@ -21,68 +21,33 @@ message DataSourceProto {
   bool authorizationUrlIsNull = 6;
 }
 
-message DataSourceProtoListWrapper {
+message DataSourcesProtoListWrapper {
   repeated DataSourceProto dataSources = 1;
 }
 
-message MissingConfigurationExceptionProto {
-  string message = 1;
-}
-
-message GenericExceptionProto {
-  string message = 1;
+message PluginExceptionProto {
+  sint32 id = 1;
+  sint32 code = 2;
+  string message = 3;
 }
 
 message ResultBooleanProto {
-  reserved 2; // DeviceNotSupportedExceptionProto
-  reserved 3; // HealthConnectNotInstalledExceptionProto
-  reserved 4; // HttpRequestExceptionProto
-  reserved 6; // MissingPermissionsExceptionProto
-  reserved 7; // RequestQuotaExceededExceptionProto
-  reserved 8; // SDKNotInitializedExceptionProto
-  reserved 9; // TimeoutExceptionProto
-  reserved 10; // UserNotInitializedExceptionProto
-  reserved 12; // MissingAndroidPermissionsExceptionProto
-
   oneof result {
     bool success = 1;
-    MissingConfigurationExceptionProto missingConfigurationExceptionProto = 5;
-    GenericExceptionProto genericExceptionProto = 11;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }
 
 message ResultInt64Proto {
-  reserved 2; // DeviceNotSupportedExceptionProto
-  reserved 3; // HealthConnectNotInstalledExceptionProto
-  reserved 4; // HttpRequestExceptionProto
-  reserved 5; // MissingConfigurationExceptionProto
-  reserved 6; // MissingPermissionsExceptionProto
-  reserved 7; // RequestQuotaExceededExceptionProto
-  reserved 8; // SDKNotInitializedExceptionProto
-  reserved 9; // TimeoutExceptionProto
-  reserved 10; // UserNotInitializedExceptionProto
-  reserved 12; // MissingAndroidPermissionsExceptionProto
-
   oneof result {
     int64 value = 1;
-    GenericExceptionProto genericExceptionProto = 11;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }
 
-message ResultDataSourceProto {
-  reserved 2; // DeviceNotSupportedExceptionProto
-  reserved 3; // HealthConnectNotInstalledExceptionProto
-  reserved 4; // HttpRequestExceptionProto
-  reserved 5; // MissingConfigurationExceptionProto
-  reserved 6; // MissingPermissionsExceptionProto
-  reserved 7; // RequestQuotaExceededExceptionProto
-  reserved 8; // SDKNotInitializedExceptionProto
-  reserved 9; // TimeoutExceptionProto
-  reserved 10; // UserNotInitializedExceptionProto
-  reserved 12; // MissingAndroidPermissionsExceptionProto
-
+message ResultDataSourcesProto {
   oneof result {
-    DataSourceProtoListWrapper dataSourceProtoListWrapper = 1;
-    GenericExceptionProto genericExceptionProto = 11;
+    DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }

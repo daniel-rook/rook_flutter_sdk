@@ -284,9 +284,13 @@ void resultBooleanTests(
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultBooleanProto();
-        proto.genericExceptionProto =
-            GenericExceptionProto(message: 'Generic error');
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultDataSourcesProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
 
         return proto.writeToBuffer();
       });
@@ -544,9 +548,13 @@ void resultInt64Tests(
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultInt64Proto();
-        proto.genericExceptionProto =
-            GenericExceptionProto(message: 'Generic error');
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultDataSourcesProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
 
         return proto.writeToBuffer();
       });
@@ -572,8 +580,8 @@ void resultDataSourceTests(
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultDataSourceProto();
-        proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper(
+        final proto = ResultDataSourcesProto();
+        proto.dataSourcesProtoListWrapper = DataSourcesProtoListWrapper(
           dataSources: [
             DataSourceProto(
               name: 'name',
@@ -616,9 +624,13 @@ void resultDataSourceTests(
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultDataSourceProto();
-        proto.genericExceptionProto =
-            GenericExceptionProto(message: 'Generic error');
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultDataSourcesProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
 
         return proto.writeToBuffer();
       });
@@ -688,3 +700,6 @@ void stringTests(
     });
   });
 }
+
+const _exceptionMessage = "There was an error";
+const _exceptionCode = 401;
