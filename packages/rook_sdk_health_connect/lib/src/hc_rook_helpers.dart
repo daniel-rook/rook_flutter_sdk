@@ -5,11 +5,16 @@ class HCRookHelpers {
   HCRookHelpers._();
 
   /// Checks if the provided [HealthDataType] hasn't been synced for the provided [localDate].
+  @Deprecated(
+    "No longer necessary, RookSummaryManager and RookEventManager already handle this",
+  )
   static Future<bool> shouldSyncFor(
     HCHealthDataType hcHealthDataType,
     DateTime date,
   ) {
-    return RookSdkHealthConnectPlatform.instance
-        .shouldSyncFor(hcHealthDataType, date);
+    return RookSdkHealthConnectPlatform.instance.shouldSyncFor(
+      hcHealthDataType,
+      date,
+    );
   }
 }
