@@ -1,3 +1,7 @@
+## 0.4.1
+
+* Added DataSourceType
+
 ## 0.4.0
 
 * Added BadUserTimeZoneException.

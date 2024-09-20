@@ -1,5 +1,6 @@
 library rook_sdk_core;
 
+export 'src/enum/data_source_type.dart';
 export 'src/enum/request_permissions_status.dart';
 export 'src/enum/rook_environment.dart';
 export 'src/enum/sync_status.dart';
