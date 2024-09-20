@@ -41,59 +41,42 @@ class RookConfigurationProto extends $pb.GeneratedMessage {
     return $result;
   }
   RookConfigurationProto._() : super();
-  factory RookConfigurationProto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory RookConfigurationProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory RookConfigurationProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RookConfigurationProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'RookConfigurationProto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RookConfigurationProto', createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'clientUUID', protoName: 'clientUUID')
     ..aOS(2, _omitFieldNames ? '' : 'secretKey', protoName: 'secretKey')
-    ..e<RookEnvironmentProto>(
-        3, _omitFieldNames ? '' : 'environment', $pb.PbFieldType.OE,
-        defaultOrMaker: RookEnvironmentProto.SANDBOX,
-        valueOf: RookEnvironmentProto.valueOf,
-        enumValues: RookEnvironmentProto.values)
-    ..aOB(4, _omitFieldNames ? '' : 'enableBackgroundSync',
-        protoName: 'enableBackgroundSync')
-    ..hasRequiredFields = false;
+    ..e<RookEnvironmentProto>(3, _omitFieldNames ? '' : 'environment', $pb.PbFieldType.OE, defaultOrMaker: RookEnvironmentProto.SANDBOX, valueOf: RookEnvironmentProto.valueOf, enumValues: RookEnvironmentProto.values)
+    ..aOB(4, _omitFieldNames ? '' : 'enableBackgroundSync', protoName: 'enableBackgroundSync')
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  RookConfigurationProto clone() =>
-      RookConfigurationProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  RookConfigurationProto copyWith(
-          void Function(RookConfigurationProto) updates) =>
-      super.copyWith((message) => updates(message as RookConfigurationProto))
-          as RookConfigurationProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RookConfigurationProto clone() => RookConfigurationProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RookConfigurationProto copyWith(void Function(RookConfigurationProto) updates) => super.copyWith((message) => updates(message as RookConfigurationProto)) as RookConfigurationProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static RookConfigurationProto create() => RookConfigurationProto._();
   RookConfigurationProto createEmptyInstance() => create();
-  static $pb.PbList<RookConfigurationProto> createRepeated() =>
-      $pb.PbList<RookConfigurationProto>();
+  static $pb.PbList<RookConfigurationProto> createRepeated() => $pb.PbList<RookConfigurationProto>();
   @$core.pragma('dart2js:noInline')
-  static RookConfigurationProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<RookConfigurationProto>(create);
+  static RookConfigurationProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RookConfigurationProto>(create);
   static RookConfigurationProto? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get clientUUID => $_getSZ(0);
   @$pb.TagNumber(1)
-  set clientUUID($core.String v) {
-    $_setString(0, v);
-  }
-
+  set clientUUID($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasClientUUID() => $_has(0);
   @$pb.TagNumber(1)
@@ -102,10 +85,7 @@ class RookConfigurationProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.String get secretKey => $_getSZ(1);
   @$pb.TagNumber(2)
-  set secretKey($core.String v) {
-    $_setString(1, v);
-  }
-
+  set secretKey($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasSecretKey() => $_has(1);
   @$pb.TagNumber(2)
@@ -114,10 +94,7 @@ class RookConfigurationProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   RookEnvironmentProto get environment => $_getN(2);
   @$pb.TagNumber(3)
-  set environment(RookEnvironmentProto v) {
-    setField(3, v);
-  }
-
+  set environment(RookEnvironmentProto v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasEnvironment() => $_has(2);
   @$pb.TagNumber(3)
@@ -126,10 +103,7 @@ class RookConfigurationProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool get enableBackgroundSync => $_getBF(3);
   @$pb.TagNumber(4)
-  set enableBackgroundSync($core.bool v) {
-    $_setBool(3, v);
-  }
-
+  set enableBackgroundSync($core.bool v) { $_setBool(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasEnableBackgroundSync() => $_has(3);
   @$pb.TagNumber(4)
@@ -167,56 +141,44 @@ class DataSourceProto extends $pb.GeneratedMessage {
     return $result;
   }
   DataSourceProto._() : super();
-  factory DataSourceProto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory DataSourceProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory DataSourceProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DataSourceProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DataSourceProto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DataSourceProto', createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'name')
     ..aOS(2, _omitFieldNames ? '' : 'description')
     ..aOS(3, _omitFieldNames ? '' : 'image')
     ..aOB(4, _omitFieldNames ? '' : 'connected')
-    ..aOS(5, _omitFieldNames ? '' : 'authorizationUrl',
-        protoName: 'authorizationUrl')
-    ..aOB(6, _omitFieldNames ? '' : 'authorizationUrlIsNull',
-        protoName: 'authorizationUrlIsNull')
-    ..hasRequiredFields = false;
+    ..aOS(5, _omitFieldNames ? '' : 'authorizationUrl', protoName: 'authorizationUrl')
+    ..aOB(6, _omitFieldNames ? '' : 'authorizationUrlIsNull', protoName: 'authorizationUrlIsNull')
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   DataSourceProto clone() => DataSourceProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  DataSourceProto copyWith(void Function(DataSourceProto) updates) =>
-      super.copyWith((message) => updates(message as DataSourceProto))
-          as DataSourceProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DataSourceProto copyWith(void Function(DataSourceProto) updates) => super.copyWith((message) => updates(message as DataSourceProto)) as DataSourceProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static DataSourceProto create() => DataSourceProto._();
   DataSourceProto createEmptyInstance() => create();
-  static $pb.PbList<DataSourceProto> createRepeated() =>
-      $pb.PbList<DataSourceProto>();
+  static $pb.PbList<DataSourceProto> createRepeated() => $pb.PbList<DataSourceProto>();
   @$core.pragma('dart2js:noInline')
-  static DataSourceProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DataSourceProto>(create);
+  static DataSourceProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DataSourceProto>(create);
   static DataSourceProto? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
-  set name($core.String v) {
-    $_setString(0, v);
-  }
-
+  set name($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasName() => $_has(0);
   @$pb.TagNumber(1)
@@ -225,10 +187,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.String get description => $_getSZ(1);
   @$pb.TagNumber(2)
-  set description($core.String v) {
-    $_setString(1, v);
-  }
-
+  set description($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasDescription() => $_has(1);
   @$pb.TagNumber(2)
@@ -237,10 +196,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.String get image => $_getSZ(2);
   @$pb.TagNumber(3)
-  set image($core.String v) {
-    $_setString(2, v);
-  }
-
+  set image($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasImage() => $_has(2);
   @$pb.TagNumber(3)
@@ -249,10 +205,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool get connected => $_getBF(3);
   @$pb.TagNumber(4)
-  set connected($core.bool v) {
-    $_setBool(3, v);
-  }
-
+  set connected($core.bool v) { $_setBool(3, v); }
   @$pb.TagNumber(4)
   $core.bool hasConnected() => $_has(3);
   @$pb.TagNumber(4)
@@ -261,10 +214,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.String get authorizationUrl => $_getSZ(4);
   @$pb.TagNumber(5)
-  set authorizationUrl($core.String v) {
-    $_setString(4, v);
-  }
-
+  set authorizationUrl($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasAuthorizationUrl() => $_has(4);
   @$pb.TagNumber(5)
@@ -273,10 +223,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool get authorizationUrlIsNull => $_getBF(5);
   @$pb.TagNumber(6)
-  set authorizationUrlIsNull($core.bool v) {
-    $_setBool(5, v);
-  }
-
+  set authorizationUrlIsNull($core.bool v) { $_setBool(5, v); }
   @$pb.TagNumber(6)
   $core.bool hasAuthorizationUrlIsNull() => $_has(5);
   @$pb.TagNumber(6)
@@ -294,46 +241,33 @@ class DataSourcesProtoListWrapper extends $pb.GeneratedMessage {
     return $result;
   }
   DataSourcesProtoListWrapper._() : super();
-  factory DataSourcesProtoListWrapper.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory DataSourcesProtoListWrapper.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory DataSourcesProtoListWrapper.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DataSourcesProtoListWrapper.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DataSourcesProtoListWrapper',
-      createEmptyInstance: create)
-    ..pc<DataSourceProto>(
-        1, _omitFieldNames ? '' : 'dataSources', $pb.PbFieldType.PM,
-        protoName: 'dataSources', subBuilder: DataSourceProto.create)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DataSourcesProtoListWrapper', createEmptyInstance: create)
+    ..pc<DataSourceProto>(1, _omitFieldNames ? '' : 'dataSources', $pb.PbFieldType.PM, protoName: 'dataSources', subBuilder: DataSourceProto.create)
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  DataSourcesProtoListWrapper clone() =>
-      DataSourcesProtoListWrapper()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  DataSourcesProtoListWrapper copyWith(
-          void Function(DataSourcesProtoListWrapper) updates) =>
-      super.copyWith(
-              (message) => updates(message as DataSourcesProtoListWrapper))
-          as DataSourcesProtoListWrapper;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DataSourcesProtoListWrapper clone() => DataSourcesProtoListWrapper()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DataSourcesProtoListWrapper copyWith(void Function(DataSourcesProtoListWrapper) updates) => super.copyWith((message) => updates(message as DataSourcesProtoListWrapper)) as DataSourcesProtoListWrapper;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static DataSourcesProtoListWrapper create() =>
-      DataSourcesProtoListWrapper._();
+  static DataSourcesProtoListWrapper create() => DataSourcesProtoListWrapper._();
   DataSourcesProtoListWrapper createEmptyInstance() => create();
-  static $pb.PbList<DataSourcesProtoListWrapper> createRepeated() =>
-      $pb.PbList<DataSourcesProtoListWrapper>();
+  static $pb.PbList<DataSourcesProtoListWrapper> createRepeated() => $pb.PbList<DataSourcesProtoListWrapper>();
   @$core.pragma('dart2js:noInline')
-  static DataSourcesProtoListWrapper getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DataSourcesProtoListWrapper>(create);
+  static DataSourcesProtoListWrapper getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DataSourcesProtoListWrapper>(create);
   static DataSourcesProtoListWrapper? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -355,57 +289,40 @@ class SyncStatusWithIntProto extends $pb.GeneratedMessage {
     return $result;
   }
   SyncStatusWithIntProto._() : super();
-  factory SyncStatusWithIntProto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory SyncStatusWithIntProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory SyncStatusWithIntProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SyncStatusWithIntProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SyncStatusWithIntProto',
-      createEmptyInstance: create)
-    ..e<SyncStatusProto>(
-        1, _omitFieldNames ? '' : 'syncStatus', $pb.PbFieldType.OE,
-        protoName: 'syncStatus',
-        defaultOrMaker: SyncStatusProto.SYNCED,
-        valueOf: SyncStatusProto.valueOf,
-        enumValues: SyncStatusProto.values)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SyncStatusWithIntProto', createEmptyInstance: create)
+    ..e<SyncStatusProto>(1, _omitFieldNames ? '' : 'syncStatus', $pb.PbFieldType.OE, protoName: 'syncStatus', defaultOrMaker: SyncStatusProto.SYNCED, valueOf: SyncStatusProto.valueOf, enumValues: SyncStatusProto.values)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'steps', $pb.PbFieldType.OU3)
-    ..hasRequiredFields = false;
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  SyncStatusWithIntProto clone() =>
-      SyncStatusWithIntProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  SyncStatusWithIntProto copyWith(
-          void Function(SyncStatusWithIntProto) updates) =>
-      super.copyWith((message) => updates(message as SyncStatusWithIntProto))
-          as SyncStatusWithIntProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SyncStatusWithIntProto clone() => SyncStatusWithIntProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SyncStatusWithIntProto copyWith(void Function(SyncStatusWithIntProto) updates) => super.copyWith((message) => updates(message as SyncStatusWithIntProto)) as SyncStatusWithIntProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static SyncStatusWithIntProto create() => SyncStatusWithIntProto._();
   SyncStatusWithIntProto createEmptyInstance() => create();
-  static $pb.PbList<SyncStatusWithIntProto> createRepeated() =>
-      $pb.PbList<SyncStatusWithIntProto>();
+  static $pb.PbList<SyncStatusWithIntProto> createRepeated() => $pb.PbList<SyncStatusWithIntProto>();
   @$core.pragma('dart2js:noInline')
-  static SyncStatusWithIntProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SyncStatusWithIntProto>(create);
+  static SyncStatusWithIntProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SyncStatusWithIntProto>(create);
   static SyncStatusWithIntProto? _defaultInstance;
 
   @$pb.TagNumber(1)
   SyncStatusProto get syncStatus => $_getN(0);
   @$pb.TagNumber(1)
-  set syncStatus(SyncStatusProto v) {
-    setField(1, v);
-  }
-
+  set syncStatus(SyncStatusProto v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasSyncStatus() => $_has(0);
   @$pb.TagNumber(1)
@@ -414,10 +331,7 @@ class SyncStatusWithIntProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.int get steps => $_getIZ(1);
   @$pb.TagNumber(2)
-  set steps($core.int v) {
-    $_setUnsignedInt32(1, v);
-  }
-
+  set steps($core.int v) { $_setUnsignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasSteps() => $_has(1);
   @$pb.TagNumber(2)
@@ -443,52 +357,41 @@ class PluginExceptionProto extends $pb.GeneratedMessage {
     return $result;
   }
   PluginExceptionProto._() : super();
-  factory PluginExceptionProto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory PluginExceptionProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory PluginExceptionProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PluginExceptionProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'PluginExceptionProto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PluginExceptionProto', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OS3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OS3)
     ..aOS(3, _omitFieldNames ? '' : 'message')
-    ..hasRequiredFields = false;
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  PluginExceptionProto clone() =>
-      PluginExceptionProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  PluginExceptionProto copyWith(void Function(PluginExceptionProto) updates) =>
-      super.copyWith((message) => updates(message as PluginExceptionProto))
-          as PluginExceptionProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PluginExceptionProto clone() => PluginExceptionProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PluginExceptionProto copyWith(void Function(PluginExceptionProto) updates) => super.copyWith((message) => updates(message as PluginExceptionProto)) as PluginExceptionProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static PluginExceptionProto create() => PluginExceptionProto._();
   PluginExceptionProto createEmptyInstance() => create();
-  static $pb.PbList<PluginExceptionProto> createRepeated() =>
-      $pb.PbList<PluginExceptionProto>();
+  static $pb.PbList<PluginExceptionProto> createRepeated() => $pb.PbList<PluginExceptionProto>();
   @$core.pragma('dart2js:noInline')
-  static PluginExceptionProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<PluginExceptionProto>(create);
+  static PluginExceptionProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PluginExceptionProto>(create);
   static PluginExceptionProto? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.int get id => $_getIZ(0);
   @$pb.TagNumber(1)
-  set id($core.int v) {
-    $_setSignedInt32(0, v);
-  }
-
+  set id($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
@@ -497,10 +400,7 @@ class PluginExceptionProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.int get code => $_getIZ(1);
   @$pb.TagNumber(2)
-  set code($core.int v) {
-    $_setSignedInt32(1, v);
-  }
-
+  set code($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasCode() => $_has(1);
   @$pb.TagNumber(2)
@@ -509,17 +409,18 @@ class PluginExceptionProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.String get message => $_getSZ(2);
   @$pb.TagNumber(3)
-  set message($core.String v) {
-    $_setString(2, v);
-  }
-
+  set message($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasMessage() => $_has(2);
   @$pb.TagNumber(3)
   void clearMessage() => clearField(3);
 }
 
-enum ResultBooleanProto_Result { success, pluginExceptionProto, notSet }
+enum ResultBooleanProto_Result {
+  success, 
+  pluginExceptionProto, 
+  notSet
+}
 
 class ResultBooleanProto extends $pb.GeneratedMessage {
   factory ResultBooleanProto({
@@ -536,64 +437,49 @@ class ResultBooleanProto extends $pb.GeneratedMessage {
     return $result;
   }
   ResultBooleanProto._() : super();
-  factory ResultBooleanProto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory ResultBooleanProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory ResultBooleanProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResultBooleanProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, ResultBooleanProto_Result>
-      _ResultBooleanProto_ResultByTag = {
-    1: ResultBooleanProto_Result.success,
-    2: ResultBooleanProto_Result.pluginExceptionProto,
-    0: ResultBooleanProto_Result.notSet
+  static const $core.Map<$core.int, ResultBooleanProto_Result> _ResultBooleanProto_ResultByTag = {
+    1 : ResultBooleanProto_Result.success,
+    2 : ResultBooleanProto_Result.pluginExceptionProto,
+    0 : ResultBooleanProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultBooleanProto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResultBooleanProto', createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOB(1, _omitFieldNames ? '' : 'success')
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'pluginExceptionProto', protoName: 'pluginExceptionProto', subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   ResultBooleanProto clone() => ResultBooleanProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  ResultBooleanProto copyWith(void Function(ResultBooleanProto) updates) =>
-      super.copyWith((message) => updates(message as ResultBooleanProto))
-          as ResultBooleanProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResultBooleanProto copyWith(void Function(ResultBooleanProto) updates) => super.copyWith((message) => updates(message as ResultBooleanProto)) as ResultBooleanProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static ResultBooleanProto create() => ResultBooleanProto._();
   ResultBooleanProto createEmptyInstance() => create();
-  static $pb.PbList<ResultBooleanProto> createRepeated() =>
-      $pb.PbList<ResultBooleanProto>();
+  static $pb.PbList<ResultBooleanProto> createRepeated() => $pb.PbList<ResultBooleanProto>();
   @$core.pragma('dart2js:noInline')
-  static ResultBooleanProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ResultBooleanProto>(create);
+  static ResultBooleanProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResultBooleanProto>(create);
   static ResultBooleanProto? _defaultInstance;
 
-  ResultBooleanProto_Result whichResult() =>
-      _ResultBooleanProto_ResultByTag[$_whichOneof(0)]!;
+  ResultBooleanProto_Result whichResult() => _ResultBooleanProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
   $core.bool get success => $_getBF(0);
   @$pb.TagNumber(1)
-  set success($core.bool v) {
-    $_setBool(0, v);
-  }
-
+  set success($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
@@ -602,10 +488,7 @@ class ResultBooleanProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);
   @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto v) {
-    setField(2, v);
-  }
-
+  set pluginExceptionProto(PluginExceptionProto v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPluginExceptionProto() => $_has(1);
   @$pb.TagNumber(2)
@@ -614,7 +497,11 @@ class ResultBooleanProto extends $pb.GeneratedMessage {
   PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
 }
 
-enum ResultInt64Proto_Result { value, pluginExceptionProto, notSet }
+enum ResultInt64Proto_Result {
+  value, 
+  pluginExceptionProto, 
+  notSet
+}
 
 class ResultInt64Proto extends $pb.GeneratedMessage {
   factory ResultInt64Proto({
@@ -631,64 +518,49 @@ class ResultInt64Proto extends $pb.GeneratedMessage {
     return $result;
   }
   ResultInt64Proto._() : super();
-  factory ResultInt64Proto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory ResultInt64Proto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory ResultInt64Proto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResultInt64Proto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, ResultInt64Proto_Result>
-      _ResultInt64Proto_ResultByTag = {
-    1: ResultInt64Proto_Result.value,
-    2: ResultInt64Proto_Result.pluginExceptionProto,
-    0: ResultInt64Proto_Result.notSet
+  static const $core.Map<$core.int, ResultInt64Proto_Result> _ResultInt64Proto_ResultByTag = {
+    1 : ResultInt64Proto_Result.value,
+    2 : ResultInt64Proto_Result.pluginExceptionProto,
+    0 : ResultInt64Proto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultInt64Proto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResultInt64Proto', createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aInt64(1, _omitFieldNames ? '' : 'value')
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'pluginExceptionProto', protoName: 'pluginExceptionProto', subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   ResultInt64Proto clone() => ResultInt64Proto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  ResultInt64Proto copyWith(void Function(ResultInt64Proto) updates) =>
-      super.copyWith((message) => updates(message as ResultInt64Proto))
-          as ResultInt64Proto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResultInt64Proto copyWith(void Function(ResultInt64Proto) updates) => super.copyWith((message) => updates(message as ResultInt64Proto)) as ResultInt64Proto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static ResultInt64Proto create() => ResultInt64Proto._();
   ResultInt64Proto createEmptyInstance() => create();
-  static $pb.PbList<ResultInt64Proto> createRepeated() =>
-      $pb.PbList<ResultInt64Proto>();
+  static $pb.PbList<ResultInt64Proto> createRepeated() => $pb.PbList<ResultInt64Proto>();
   @$core.pragma('dart2js:noInline')
-  static ResultInt64Proto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ResultInt64Proto>(create);
+  static ResultInt64Proto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResultInt64Proto>(create);
   static ResultInt64Proto? _defaultInstance;
 
-  ResultInt64Proto_Result whichResult() =>
-      _ResultInt64Proto_ResultByTag[$_whichOneof(0)]!;
+  ResultInt64Proto_Result whichResult() => _ResultInt64Proto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get value => $_getI64(0);
   @$pb.TagNumber(1)
-  set value($fixnum.Int64 v) {
-    $_setInt64(0, v);
-  }
-
+  set value($fixnum.Int64 v) { $_setInt64(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
@@ -697,10 +569,7 @@ class ResultInt64Proto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);
   @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto v) {
-    setField(2, v);
-  }
-
+  set pluginExceptionProto(PluginExceptionProto v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPluginExceptionProto() => $_has(1);
   @$pb.TagNumber(2)
@@ -710,8 +579,8 @@ class ResultInt64Proto extends $pb.GeneratedMessage {
 }
 
 enum ResultSyncStatusProto_Result {
-  syncStatusProto,
-  pluginExceptionProto,
+  syncStatusProto, 
+  pluginExceptionProto, 
   notSet
 }
 
@@ -730,71 +599,49 @@ class ResultSyncStatusProto extends $pb.GeneratedMessage {
     return $result;
   }
   ResultSyncStatusProto._() : super();
-  factory ResultSyncStatusProto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory ResultSyncStatusProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory ResultSyncStatusProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResultSyncStatusProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, ResultSyncStatusProto_Result>
-      _ResultSyncStatusProto_ResultByTag = {
-    1: ResultSyncStatusProto_Result.syncStatusProto,
-    2: ResultSyncStatusProto_Result.pluginExceptionProto,
-    0: ResultSyncStatusProto_Result.notSet
+  static const $core.Map<$core.int, ResultSyncStatusProto_Result> _ResultSyncStatusProto_ResultByTag = {
+    1 : ResultSyncStatusProto_Result.syncStatusProto,
+    2 : ResultSyncStatusProto_Result.pluginExceptionProto,
+    0 : ResultSyncStatusProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultSyncStatusProto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResultSyncStatusProto', createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..e<SyncStatusProto>(
-        1, _omitFieldNames ? '' : 'syncStatusProto', $pb.PbFieldType.OE,
-        protoName: 'syncStatusProto',
-        defaultOrMaker: SyncStatusProto.SYNCED,
-        valueOf: SyncStatusProto.valueOf,
-        enumValues: SyncStatusProto.values)
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
+    ..e<SyncStatusProto>(1, _omitFieldNames ? '' : 'syncStatusProto', $pb.PbFieldType.OE, protoName: 'syncStatusProto', defaultOrMaker: SyncStatusProto.SYNCED, valueOf: SyncStatusProto.valueOf, enumValues: SyncStatusProto.values)
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'pluginExceptionProto', protoName: 'pluginExceptionProto', subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  ResultSyncStatusProto clone() =>
-      ResultSyncStatusProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  ResultSyncStatusProto copyWith(
-          void Function(ResultSyncStatusProto) updates) =>
-      super.copyWith((message) => updates(message as ResultSyncStatusProto))
-          as ResultSyncStatusProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResultSyncStatusProto clone() => ResultSyncStatusProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResultSyncStatusProto copyWith(void Function(ResultSyncStatusProto) updates) => super.copyWith((message) => updates(message as ResultSyncStatusProto)) as ResultSyncStatusProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static ResultSyncStatusProto create() => ResultSyncStatusProto._();
   ResultSyncStatusProto createEmptyInstance() => create();
-  static $pb.PbList<ResultSyncStatusProto> createRepeated() =>
-      $pb.PbList<ResultSyncStatusProto>();
+  static $pb.PbList<ResultSyncStatusProto> createRepeated() => $pb.PbList<ResultSyncStatusProto>();
   @$core.pragma('dart2js:noInline')
-  static ResultSyncStatusProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ResultSyncStatusProto>(create);
+  static ResultSyncStatusProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResultSyncStatusProto>(create);
   static ResultSyncStatusProto? _defaultInstance;
 
-  ResultSyncStatusProto_Result whichResult() =>
-      _ResultSyncStatusProto_ResultByTag[$_whichOneof(0)]!;
+  ResultSyncStatusProto_Result whichResult() => _ResultSyncStatusProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
   SyncStatusProto get syncStatusProto => $_getN(0);
   @$pb.TagNumber(1)
-  set syncStatusProto(SyncStatusProto v) {
-    setField(1, v);
-  }
-
+  set syncStatusProto(SyncStatusProto v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasSyncStatusProto() => $_has(0);
   @$pb.TagNumber(1)
@@ -803,10 +650,7 @@ class ResultSyncStatusProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);
   @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto v) {
-    setField(2, v);
-  }
-
+  set pluginExceptionProto(PluginExceptionProto v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPluginExceptionProto() => $_has(1);
   @$pb.TagNumber(2)
@@ -816,8 +660,8 @@ class ResultSyncStatusProto extends $pb.GeneratedMessage {
 }
 
 enum ResultSyncStatusWithIntProto_Result {
-  syncStatusWithIntProto,
-  pluginExceptionProto,
+  syncStatusWithIntProto, 
+  pluginExceptionProto, 
   notSet
 }
 
@@ -836,71 +680,49 @@ class ResultSyncStatusWithIntProto extends $pb.GeneratedMessage {
     return $result;
   }
   ResultSyncStatusWithIntProto._() : super();
-  factory ResultSyncStatusWithIntProto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory ResultSyncStatusWithIntProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory ResultSyncStatusWithIntProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResultSyncStatusWithIntProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, ResultSyncStatusWithIntProto_Result>
-      _ResultSyncStatusWithIntProto_ResultByTag = {
-    1: ResultSyncStatusWithIntProto_Result.syncStatusWithIntProto,
-    2: ResultSyncStatusWithIntProto_Result.pluginExceptionProto,
-    0: ResultSyncStatusWithIntProto_Result.notSet
+  static const $core.Map<$core.int, ResultSyncStatusWithIntProto_Result> _ResultSyncStatusWithIntProto_ResultByTag = {
+    1 : ResultSyncStatusWithIntProto_Result.syncStatusWithIntProto,
+    2 : ResultSyncStatusWithIntProto_Result.pluginExceptionProto,
+    0 : ResultSyncStatusWithIntProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultSyncStatusWithIntProto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResultSyncStatusWithIntProto', createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<SyncStatusWithIntProto>(
-        1, _omitFieldNames ? '' : 'syncStatusWithIntProto',
-        protoName: 'syncStatusWithIntProto',
-        subBuilder: SyncStatusWithIntProto.create)
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
+    ..aOM<SyncStatusWithIntProto>(1, _omitFieldNames ? '' : 'syncStatusWithIntProto', protoName: 'syncStatusWithIntProto', subBuilder: SyncStatusWithIntProto.create)
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'pluginExceptionProto', protoName: 'pluginExceptionProto', subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  ResultSyncStatusWithIntProto clone() =>
-      ResultSyncStatusWithIntProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  ResultSyncStatusWithIntProto copyWith(
-          void Function(ResultSyncStatusWithIntProto) updates) =>
-      super.copyWith(
-              (message) => updates(message as ResultSyncStatusWithIntProto))
-          as ResultSyncStatusWithIntProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResultSyncStatusWithIntProto clone() => ResultSyncStatusWithIntProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResultSyncStatusWithIntProto copyWith(void Function(ResultSyncStatusWithIntProto) updates) => super.copyWith((message) => updates(message as ResultSyncStatusWithIntProto)) as ResultSyncStatusWithIntProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ResultSyncStatusWithIntProto create() =>
-      ResultSyncStatusWithIntProto._();
+  static ResultSyncStatusWithIntProto create() => ResultSyncStatusWithIntProto._();
   ResultSyncStatusWithIntProto createEmptyInstance() => create();
-  static $pb.PbList<ResultSyncStatusWithIntProto> createRepeated() =>
-      $pb.PbList<ResultSyncStatusWithIntProto>();
+  static $pb.PbList<ResultSyncStatusWithIntProto> createRepeated() => $pb.PbList<ResultSyncStatusWithIntProto>();
   @$core.pragma('dart2js:noInline')
-  static ResultSyncStatusWithIntProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ResultSyncStatusWithIntProto>(create);
+  static ResultSyncStatusWithIntProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResultSyncStatusWithIntProto>(create);
   static ResultSyncStatusWithIntProto? _defaultInstance;
 
-  ResultSyncStatusWithIntProto_Result whichResult() =>
-      _ResultSyncStatusWithIntProto_ResultByTag[$_whichOneof(0)]!;
+  ResultSyncStatusWithIntProto_Result whichResult() => _ResultSyncStatusWithIntProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
   SyncStatusWithIntProto get syncStatusWithIntProto => $_getN(0);
   @$pb.TagNumber(1)
-  set syncStatusWithIntProto(SyncStatusWithIntProto v) {
-    setField(1, v);
-  }
-
+  set syncStatusWithIntProto(SyncStatusWithIntProto v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasSyncStatusWithIntProto() => $_has(0);
   @$pb.TagNumber(1)
@@ -911,10 +733,7 @@ class ResultSyncStatusWithIntProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);
   @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto v) {
-    setField(2, v);
-  }
-
+  set pluginExceptionProto(PluginExceptionProto v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPluginExceptionProto() => $_has(1);
   @$pb.TagNumber(2)
@@ -924,8 +743,8 @@ class ResultSyncStatusWithIntProto extends $pb.GeneratedMessage {
 }
 
 enum ResultDataSourcesProto_Result {
-  dataSourcesProtoListWrapper,
-  pluginExceptionProto,
+  dataSourcesProtoListWrapper, 
+  pluginExceptionProto, 
   notSet
 }
 
@@ -944,84 +763,60 @@ class ResultDataSourcesProto extends $pb.GeneratedMessage {
     return $result;
   }
   ResultDataSourcesProto._() : super();
-  factory ResultDataSourcesProto.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory ResultDataSourcesProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory ResultDataSourcesProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResultDataSourcesProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, ResultDataSourcesProto_Result>
-      _ResultDataSourcesProto_ResultByTag = {
-    1: ResultDataSourcesProto_Result.dataSourcesProtoListWrapper,
-    2: ResultDataSourcesProto_Result.pluginExceptionProto,
-    0: ResultDataSourcesProto_Result.notSet
+  static const $core.Map<$core.int, ResultDataSourcesProto_Result> _ResultDataSourcesProto_ResultByTag = {
+    1 : ResultDataSourcesProto_Result.dataSourcesProtoListWrapper,
+    2 : ResultDataSourcesProto_Result.pluginExceptionProto,
+    0 : ResultDataSourcesProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultDataSourcesProto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResultDataSourcesProto', createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<DataSourcesProtoListWrapper>(
-        1, _omitFieldNames ? '' : 'dataSourcesProtoListWrapper',
-        protoName: 'dataSourcesProtoListWrapper',
-        subBuilder: DataSourcesProtoListWrapper.create)
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
+    ..aOM<DataSourcesProtoListWrapper>(1, _omitFieldNames ? '' : 'dataSourcesProtoListWrapper', protoName: 'dataSourcesProtoListWrapper', subBuilder: DataSourcesProtoListWrapper.create)
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'pluginExceptionProto', protoName: 'pluginExceptionProto', subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  ResultDataSourcesProto clone() =>
-      ResultDataSourcesProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  ResultDataSourcesProto copyWith(
-          void Function(ResultDataSourcesProto) updates) =>
-      super.copyWith((message) => updates(message as ResultDataSourcesProto))
-          as ResultDataSourcesProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResultDataSourcesProto clone() => ResultDataSourcesProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResultDataSourcesProto copyWith(void Function(ResultDataSourcesProto) updates) => super.copyWith((message) => updates(message as ResultDataSourcesProto)) as ResultDataSourcesProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static ResultDataSourcesProto create() => ResultDataSourcesProto._();
   ResultDataSourcesProto createEmptyInstance() => create();
-  static $pb.PbList<ResultDataSourcesProto> createRepeated() =>
-      $pb.PbList<ResultDataSourcesProto>();
+  static $pb.PbList<ResultDataSourcesProto> createRepeated() => $pb.PbList<ResultDataSourcesProto>();
   @$core.pragma('dart2js:noInline')
-  static ResultDataSourcesProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ResultDataSourcesProto>(create);
+  static ResultDataSourcesProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResultDataSourcesProto>(create);
   static ResultDataSourcesProto? _defaultInstance;
 
-  ResultDataSourcesProto_Result whichResult() =>
-      _ResultDataSourcesProto_ResultByTag[$_whichOneof(0)]!;
+  ResultDataSourcesProto_Result whichResult() => _ResultDataSourcesProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
   DataSourcesProtoListWrapper get dataSourcesProtoListWrapper => $_getN(0);
   @$pb.TagNumber(1)
-  set dataSourcesProtoListWrapper(DataSourcesProtoListWrapper v) {
-    setField(1, v);
-  }
-
+  set dataSourcesProtoListWrapper(DataSourcesProtoListWrapper v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasDataSourcesProtoListWrapper() => $_has(0);
   @$pb.TagNumber(1)
   void clearDataSourcesProtoListWrapper() => clearField(1);
   @$pb.TagNumber(1)
-  DataSourcesProtoListWrapper ensureDataSourcesProtoListWrapper() =>
-      $_ensure(0);
+  DataSourcesProtoListWrapper ensureDataSourcesProtoListWrapper() => $_ensure(0);
 
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);
   @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto v) {
-    setField(2, v);
-  }
-
+  set pluginExceptionProto(PluginExceptionProto v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPluginExceptionProto() => $_has(1);
   @$pb.TagNumber(2)
@@ -1031,8 +826,8 @@ class ResultDataSourcesProto extends $pb.GeneratedMessage {
 }
 
 enum ResultRequestPermissionsStatusProto_Result {
-  requestPermissionsStatusProto,
-  pluginExceptionProto,
+  requestPermissionsStatusProto, 
+  pluginExceptionProto, 
   notSet
 }
 
@@ -1051,77 +846,49 @@ class ResultRequestPermissionsStatusProto extends $pb.GeneratedMessage {
     return $result;
   }
   ResultRequestPermissionsStatusProto._() : super();
-  factory ResultRequestPermissionsStatusProto.fromBuffer(
-          $core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory ResultRequestPermissionsStatusProto.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+  factory ResultRequestPermissionsStatusProto.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResultRequestPermissionsStatusProto.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, ResultRequestPermissionsStatusProto_Result>
-      _ResultRequestPermissionsStatusProto_ResultByTag = {
-    1: ResultRequestPermissionsStatusProto_Result.requestPermissionsStatusProto,
-    2: ResultRequestPermissionsStatusProto_Result.pluginExceptionProto,
-    0: ResultRequestPermissionsStatusProto_Result.notSet
+  static const $core.Map<$core.int, ResultRequestPermissionsStatusProto_Result> _ResultRequestPermissionsStatusProto_ResultByTag = {
+    1 : ResultRequestPermissionsStatusProto_Result.requestPermissionsStatusProto,
+    2 : ResultRequestPermissionsStatusProto_Result.pluginExceptionProto,
+    0 : ResultRequestPermissionsStatusProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultRequestPermissionsStatusProto',
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResultRequestPermissionsStatusProto', createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..e<RequestPermissionsStatusProto>(
-        1,
-        _omitFieldNames ? '' : 'requestPermissionsStatusProto',
-        $pb.PbFieldType.OE,
-        protoName: 'requestPermissionsStatusProto',
-        defaultOrMaker: RequestPermissionsStatusProto.REQUEST_SENT,
-        valueOf: RequestPermissionsStatusProto.valueOf,
-        enumValues: RequestPermissionsStatusProto.values)
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
+    ..e<RequestPermissionsStatusProto>(1, _omitFieldNames ? '' : 'requestPermissionsStatusProto', $pb.PbFieldType.OE, protoName: 'requestPermissionsStatusProto', defaultOrMaker: RequestPermissionsStatusProto.REQUEST_SENT, valueOf: RequestPermissionsStatusProto.valueOf, enumValues: RequestPermissionsStatusProto.values)
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'pluginExceptionProto', protoName: 'pluginExceptionProto', subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false
+  ;
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  ResultRequestPermissionsStatusProto clone() =>
-      ResultRequestPermissionsStatusProto()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  ResultRequestPermissionsStatusProto copyWith(
-          void Function(ResultRequestPermissionsStatusProto) updates) =>
-      super.copyWith((message) =>
-              updates(message as ResultRequestPermissionsStatusProto))
-          as ResultRequestPermissionsStatusProto;
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResultRequestPermissionsStatusProto clone() => ResultRequestPermissionsStatusProto()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResultRequestPermissionsStatusProto copyWith(void Function(ResultRequestPermissionsStatusProto) updates) => super.copyWith((message) => updates(message as ResultRequestPermissionsStatusProto)) as ResultRequestPermissionsStatusProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ResultRequestPermissionsStatusProto create() =>
-      ResultRequestPermissionsStatusProto._();
+  static ResultRequestPermissionsStatusProto create() => ResultRequestPermissionsStatusProto._();
   ResultRequestPermissionsStatusProto createEmptyInstance() => create();
-  static $pb.PbList<ResultRequestPermissionsStatusProto> createRepeated() =>
-      $pb.PbList<ResultRequestPermissionsStatusProto>();
+  static $pb.PbList<ResultRequestPermissionsStatusProto> createRepeated() => $pb.PbList<ResultRequestPermissionsStatusProto>();
   @$core.pragma('dart2js:noInline')
-  static ResultRequestPermissionsStatusProto getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
-          ResultRequestPermissionsStatusProto>(create);
+  static ResultRequestPermissionsStatusProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResultRequestPermissionsStatusProto>(create);
   static ResultRequestPermissionsStatusProto? _defaultInstance;
 
-  ResultRequestPermissionsStatusProto_Result whichResult() =>
-      _ResultRequestPermissionsStatusProto_ResultByTag[$_whichOneof(0)]!;
+  ResultRequestPermissionsStatusProto_Result whichResult() => _ResultRequestPermissionsStatusProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
   RequestPermissionsStatusProto get requestPermissionsStatusProto => $_getN(0);
   @$pb.TagNumber(1)
-  set requestPermissionsStatusProto(RequestPermissionsStatusProto v) {
-    setField(1, v);
-  }
-
+  set requestPermissionsStatusProto(RequestPermissionsStatusProto v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasRequestPermissionsStatusProto() => $_has(0);
   @$pb.TagNumber(1)
@@ -1130,10 +897,7 @@ class ResultRequestPermissionsStatusProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);
   @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto v) {
-    setField(2, v);
-  }
-
+  set pluginExceptionProto(PluginExceptionProto v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPluginExceptionProto() => $_has(1);
   @$pb.TagNumber(2)
@@ -1142,6 +906,6 @@ class ResultRequestPermissionsStatusProto extends $pb.GeneratedMessage {
   PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
 }
 
+
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
-const _omitMessageNames =
-    $core.bool.fromEnvironment('protobuf.omit_message_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

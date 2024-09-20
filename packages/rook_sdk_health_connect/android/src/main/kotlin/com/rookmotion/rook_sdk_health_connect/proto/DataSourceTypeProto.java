@@ -6,18 +6,34 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code RequestPermissionsStatusProto}
+ * Protobuf enum {@code DataSourceTypeProto}
  */
-public enum RequestPermissionsStatusProto
+public enum DataSourceTypeProto
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>REQUEST_SENT = 0;</code>
+   * <code>GARMIN = 0;</code>
    */
-  REQUEST_SENT(0),
+  GARMIN(0),
   /**
-   * <code>ALREADY_GRANTED = 1;</code>
+   * <code>OURA = 1;</code>
    */
-  ALREADY_GRANTED(1),
+  OURA(1),
+  /**
+   * <code>POLAR = 2;</code>
+   */
+  POLAR(2),
+  /**
+   * <code>FITBIT = 3;</code>
+   */
+  FITBIT(3),
+  /**
+   * <code>WITHINGS = 4;</code>
+   */
+  WITHINGS(4),
+  /**
+   * <code>WHOOP = 5;</code>
+   */
+  WHOOP(5),
   UNRECOGNIZED(-1),
   ;
 
@@ -28,16 +44,32 @@ public enum RequestPermissionsStatusProto
       /* minor= */ 28,
       /* patch= */ 0,
       /* suffix= */ "",
-      RequestPermissionsStatusProto.class.getName());
+      DataSourceTypeProto.class.getName());
   }
   /**
-   * <code>REQUEST_SENT = 0;</code>
+   * <code>GARMIN = 0;</code>
    */
-  public static final int REQUEST_SENT_VALUE = 0;
+  public static final int GARMIN_VALUE = 0;
   /**
-   * <code>ALREADY_GRANTED = 1;</code>
+   * <code>OURA = 1;</code>
    */
-  public static final int ALREADY_GRANTED_VALUE = 1;
+  public static final int OURA_VALUE = 1;
+  /**
+   * <code>POLAR = 2;</code>
+   */
+  public static final int POLAR_VALUE = 2;
+  /**
+   * <code>FITBIT = 3;</code>
+   */
+  public static final int FITBIT_VALUE = 3;
+  /**
+   * <code>WITHINGS = 4;</code>
+   */
+  public static final int WITHINGS_VALUE = 4;
+  /**
+   * <code>WHOOP = 5;</code>
+   */
+  public static final int WHOOP_VALUE = 5;
 
 
   public final int getNumber() {
@@ -54,7 +86,7 @@ public enum RequestPermissionsStatusProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static RequestPermissionsStatusProto valueOf(int value) {
+  public static DataSourceTypeProto valueOf(int value) {
     return forNumber(value);
   }
 
@@ -62,23 +94,27 @@ public enum RequestPermissionsStatusProto
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static RequestPermissionsStatusProto forNumber(int value) {
+  public static DataSourceTypeProto forNumber(int value) {
     switch (value) {
-      case 0: return REQUEST_SENT;
-      case 1: return ALREADY_GRANTED;
+      case 0: return GARMIN;
+      case 1: return OURA;
+      case 2: return POLAR;
+      case 3: return FITBIT;
+      case 4: return WITHINGS;
+      case 5: return WHOOP;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<RequestPermissionsStatusProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<DataSourceTypeProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      RequestPermissionsStatusProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<RequestPermissionsStatusProto>() {
-          public RequestPermissionsStatusProto findValueByNumber(int number) {
-            return RequestPermissionsStatusProto.forNumber(number);
+      DataSourceTypeProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<DataSourceTypeProto>() {
+          public DataSourceTypeProto findValueByNumber(int number) {
+            return DataSourceTypeProto.forNumber(number);
           }
         };
 
@@ -96,12 +132,12 @@ public enum RequestPermissionsStatusProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(5);
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(6);
   }
 
-  private static final RequestPermissionsStatusProto[] VALUES = values();
+  private static final DataSourceTypeProto[] VALUES = values();
 
-  public static RequestPermissionsStatusProto valueOf(
+  public static DataSourceTypeProto valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -115,10 +151,10 @@ public enum RequestPermissionsStatusProto
 
   private final int value;
 
-  private RequestPermissionsStatusProto(int value) {
+  private DataSourceTypeProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:RequestPermissionsStatusProto)
+  // @@protoc_insertion_point(enum_scope:DataSourceTypeProto)
 }
 
