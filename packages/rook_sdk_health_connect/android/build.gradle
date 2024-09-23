@@ -6,7 +6,7 @@ buildscript {
         kotlinVersion = "1.8.10"
         gradleVersion = "8.1.2"
         rookSdkVersion = "1.6.0-alpha02"
-        protoVersion = "3.25.3"
+        protoVersion = "4.28.1"
         timber_version = "5.0.1"
 
 //        protoPluginVersion = "0.9.4"
