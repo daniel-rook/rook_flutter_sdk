@@ -29,7 +29,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
             runWithValue(
                 flutterResult: result,
-                builder: { try RookConfigurationProto(serializedData: bytes.data) },
+                builder: { try RookConfigurationProto(serializedBytes: bytes.data) },
                 block: { it in
                     RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
                     RookConnectConfigurationManager.shared.setConfiguration(
@@ -313,7 +313,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
             runWithValue(
                 flutterResult: result,
-                builder: { try RookConfigurationProto(serializedData: bytes.data) },
+                builder: { try RookConfigurationProto(serializedBytes: bytes.data) },
                 block: { it in
                     RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
                     RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
@@ -348,7 +348,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
             runWithValue(
                 flutterResult: result,
-                builder: { try RookConfigurationProto(serializedData: bytes.data) },
+                builder: { try RookConfigurationProto(serializedBytes: bytes.data) },
                 block: { it in
                     RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
                     RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
