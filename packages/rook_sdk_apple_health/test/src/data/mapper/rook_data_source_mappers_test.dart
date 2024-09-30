@@ -2,6 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/data_source_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 
+// ignore_for_file: deprecated_member_use
+
 void main() {
   group('DataSource mappers', () {
     test(

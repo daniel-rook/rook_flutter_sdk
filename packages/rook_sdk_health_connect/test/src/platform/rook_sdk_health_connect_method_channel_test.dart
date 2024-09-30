@@ -6,6 +6,8 @@ import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -98,7 +100,9 @@ void resultBooleanTests(
       'GIVEN the happy path WHEN shouldSyncFor THEN complete with expected value',
       () async {
         final future = platform.shouldSyncFor(
-            HCHealthDataType.sleepSummary, DateTime.now());
+          HCHealthDataType.sleepSummary,
+          DateTime.now(),
+        );
 
         await expectLater(future, completion(true));
       },
@@ -341,13 +345,12 @@ void resultBooleanTests(
       await expectLater(future, throwsA(isException));
     });
 
-    test(
-        'GIVEN the unhappy path WHEN revokeDataSource THEN throw exception',
-            () async {
-          final future = platform.revokeDataSource(DataSourceType.fitbit);
+    test('GIVEN the unhappy path WHEN revokeDataSource THEN throw exception',
+        () async {
+      final future = platform.revokeDataSource(DataSourceType.fitbit);
 
-          await expectLater(future, throwsA(isException));
-        });
+      await expectLater(future, throwsA(isException));
+    });
   });
 }
 

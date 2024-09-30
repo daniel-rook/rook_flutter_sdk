@@ -5,6 +5,8 @@ import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_method_channel.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
+// ignore_for_file: deprecated_member_use
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 

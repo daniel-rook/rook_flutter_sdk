@@ -10,7 +10,6 @@ extension DataSourceTypeMappers on DataSourceType {
       DataSourceType.fitbit => DataSourceTypeProto.FITBIT,
       DataSourceType.withings => DataSourceTypeProto.WITHINGS,
       DataSourceType.whoop => DataSourceTypeProto.WHOOP,
-      _ => DataSourceTypeProto.WHOOP,
     };
   }
 }

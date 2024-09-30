@@ -6,20 +6,20 @@ import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 void main() {
   group('ResultInt64Proto success', () {
     test('GIVEN the happy path WHEN unwrap THEN return the expected result',
-            () {
-          final proto = ResultInt64Proto.create();
-          proto.value = Int64(1000);
+        () {
+      final proto = ResultInt64Proto.create();
+      proto.value = Int64(1000);
 
-          final result = proto.unwrap();
+      final result = proto.unwrap();
 
-          expect(result, 1000);
-        });
+      expect(result, 1000);
+    });
   });
 
   group('ResultInt64Proto exception', () {
     test(
       'GIVEN the unhappy path WHEN unwrap THEN throw an Exception',
-          () {
+      () {
         final pluginExceptionProto = PluginExceptionProto.create()
           ..id = -1
           ..message = _exceptionMessage

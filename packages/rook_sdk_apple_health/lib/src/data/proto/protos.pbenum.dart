@@ -14,19 +14,21 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class RookEnvironmentProto extends $pb.ProtobufEnum {
-  static const RookEnvironmentProto SANDBOX = RookEnvironmentProto._(0, _omitEnumNames ? '' : 'SANDBOX');
-  static const RookEnvironmentProto PRODUCTION = RookEnvironmentProto._(1, _omitEnumNames ? '' : 'PRODUCTION');
+  static const RookEnvironmentProto SANDBOX =
+      RookEnvironmentProto._(0, _omitEnumNames ? '' : 'SANDBOX');
+  static const RookEnvironmentProto PRODUCTION =
+      RookEnvironmentProto._(1, _omitEnumNames ? '' : 'PRODUCTION');
 
-  static const $core.List<RookEnvironmentProto> values = <RookEnvironmentProto> [
+  static const $core.List<RookEnvironmentProto> values = <RookEnvironmentProto>[
     SANDBOX,
     PRODUCTION,
   ];
 
-  static final $core.Map<$core.int, RookEnvironmentProto> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, RookEnvironmentProto> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
   static RookEnvironmentProto? valueOf($core.int value) => _byValue[value];
 
   const RookEnvironmentProto._($core.int v, $core.String n) : super(v, n);
 }
-
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');
