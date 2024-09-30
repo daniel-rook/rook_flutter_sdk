@@ -237,14 +237,14 @@ packages:
       path: "packages/rook_sdk_core"
       relative: true
     source: path
-    version: "0.4.1"
+    version: "0.4.3"
   rook_sdk_health_connect:
     dependency: "direct main"
     description:
       path: "packages/rook_sdk_health_connect"
       relative: true
     source: path
-    version: "2.3.0"
+    version: "2.4.0"
   shared_preferences:
     dependency: "direct main"
     description:

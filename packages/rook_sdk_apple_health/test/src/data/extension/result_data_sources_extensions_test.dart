@@ -26,6 +26,7 @@ void main() {
             'name',
             'description',
             'image',
+            'imageUrl',
             true,
             'authorizationUrl',
           );

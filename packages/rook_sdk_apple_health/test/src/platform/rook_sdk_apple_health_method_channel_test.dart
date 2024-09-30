@@ -606,6 +606,7 @@ void resultDataSourceTests(
         'name',
         'description',
         'image',
+        'imageUrl',
         true,
         'authorizationUrl',
       );
