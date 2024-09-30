@@ -1,3 +1,7 @@
+## 0.4.3
+
+* Deprecated property `image` in `DataSource`, replace with `imageUrl`.
+
 ## 0.4.1
 
 * Added DataSourceType
