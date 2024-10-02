@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 /// Represents a data source that can be connected to the current user.
 ///
 /// * [name] The name of the data source.
