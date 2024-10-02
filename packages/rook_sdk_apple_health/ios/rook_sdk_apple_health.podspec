@@ -15,7 +15,7 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'RookSDK', '1.6.0'
+  s.dependency 'RookSDK', '1.6.2'
   s.dependency 'SwiftProtobuf', '1.28.1'
   s.platform = :ios, '13.0'
 

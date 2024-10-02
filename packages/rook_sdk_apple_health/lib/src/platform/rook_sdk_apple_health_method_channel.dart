@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/data_source_type_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_environment_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
@@ -375,6 +376,22 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final result = ResultDataSourcesProto.fromBuffer(bytes);
 
     return result.unwrap();
+  }
+
+  @override
+  Future<void> revokeDataSource(DataSourceType dataSourceType) async {
+    final proto = dataSourceType.toProto();
+
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'revokeDataSource',
+      [
+        proto.value,
+      ],
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
   }
 
   @override

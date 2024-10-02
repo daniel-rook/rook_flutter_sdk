@@ -60,6 +60,62 @@ extension RookEnvironmentProto: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+enum DataSourceTypeProto: SwiftProtobuf.Enum {
+  typealias RawValue = Int
+  case garmin // = 0
+  case oura // = 1
+  case polar // = 2
+  case fitbit // = 3
+  case withings // = 4
+  case whoop // = 5
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .garmin
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .garmin
+    case 1: self = .oura
+    case 2: self = .polar
+    case 3: self = .fitbit
+    case 4: self = .withings
+    case 5: self = .whoop
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .garmin: return 0
+    case .oura: return 1
+    case .polar: return 2
+    case .fitbit: return 3
+    case .withings: return 4
+    case .whoop: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension DataSourceTypeProto: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [DataSourceTypeProto] = [
+    .garmin,
+    .oura,
+    .polar,
+    .fitbit,
+    .withings,
+    .whoop,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 struct RookConfigurationProto {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -286,6 +342,7 @@ struct ResultDataSourcesProto {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension RookEnvironmentProto: @unchecked Sendable {}
+extension DataSourceTypeProto: @unchecked Sendable {}
 extension RookConfigurationProto: @unchecked Sendable {}
 extension DataSourceProto: @unchecked Sendable {}
 extension DataSourcesProtoListWrapper: @unchecked Sendable {}
@@ -304,6 +361,17 @@ extension RookEnvironmentProto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SANDBOX"),
     1: .same(proto: "PRODUCTION"),
+  ]
+}
+
+extension DataSourceTypeProto: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "GARMIN"),
+    1: .same(proto: "OURA"),
+    2: .same(proto: "POLAR"),
+    3: .same(proto: "FITBIT"),
+    4: .same(proto: "WITHINGS"),
+    5: .same(proto: "WHOOP"),
   ]
 }
 

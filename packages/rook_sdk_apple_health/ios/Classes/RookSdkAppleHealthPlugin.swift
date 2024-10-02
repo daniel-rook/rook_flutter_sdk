@@ -7,6 +7,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
     private let rookSummaryManager = RookSummaryManager()
     private let rookEventsManager = RookEventsManager()
     private let dataSourcesManager = DataSourcesManager()
+    private let userManager = UserManager()
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "rook_sdk_apple_health", binaryMessenger: registrar.messenger())
@@ -389,6 +390,22 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 case let Result.failure(error):
                     dataSourcesError(flutterResult: result, error: error)
                 }
+            }
+            break
+        case "revokeDataSource":
+            let dataSourceTypeProto = DataSourceTypeProto(rawValue: call.getIntArgAt(0))
+
+            if let dataSourceType = try? dataSourceTypeProto?.toDomain() {
+                userManager.revokeDataSource(dataSource: dataSourceType) { it in
+                    switch it {
+                    case let Result.success(success):
+                        boolSuccess(flutterResult: result, success: success)
+                    case let Result.failure(error):
+                        boolError(flutterResult: result, error: error)
+                    }
+                }
+            } else {
+                boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
             }
             break
         case "presentDataSourceView":
