@@ -1,4 +1,4 @@
-name: global CI
+name: SDKs CI
 
 on:
   pull_request:
