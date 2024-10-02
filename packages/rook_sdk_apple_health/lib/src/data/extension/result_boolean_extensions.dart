@@ -1,5 +1,5 @@
+import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 extension ResultBooleanExtensions on ResultBooleanProto {
   bool unwrap() {
@@ -8,14 +8,8 @@ extension ResultBooleanExtensions on ResultBooleanProto {
     switch (resultType) {
       case ResultBooleanProto_Result.success:
         return success;
-      case ResultBooleanProto_Result.missingConfigurationExceptionProto:
-        throw MissingConfigurationException(
-          missingConfigurationExceptionProto.message,
-        );
-      case ResultBooleanProto_Result.genericExceptionProto:
-        throw Exception(
-          genericExceptionProto.message,
-        );
+      case ResultBooleanProto_Result.pluginExceptionProto:
+        throw pluginExceptionProto.toDartException();
       default:
         throw Exception("Unknown error");
     }

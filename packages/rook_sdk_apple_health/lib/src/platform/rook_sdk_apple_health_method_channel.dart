@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
-import 'package:rook_sdk_apple_health/src/data/extension/result_data_source_extensions.dart';
+import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_environment_mappers.dart';
@@ -372,7 +372,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       ],
     );
 
-    final result = ResultDataSourceProto.fromBuffer(bytes);
+    final result = ResultDataSourcesProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

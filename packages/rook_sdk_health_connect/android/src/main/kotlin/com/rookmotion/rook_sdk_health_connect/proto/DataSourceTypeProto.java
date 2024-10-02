@@ -6,22 +6,34 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code AvailabilityStatusProto}
+ * Protobuf enum {@code DataSourceTypeProto}
  */
-public enum AvailabilityStatusProto
+public enum DataSourceTypeProto
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>INSTALLED = 0;</code>
+   * <code>GARMIN = 0;</code>
    */
-  INSTALLED(0),
+  GARMIN(0),
   /**
-   * <code>NOT_INSTALLED = 1;</code>
+   * <code>OURA = 1;</code>
    */
-  NOT_INSTALLED(1),
+  OURA(1),
   /**
-   * <code>NOT_SUPPORTED = 2;</code>
+   * <code>POLAR = 2;</code>
    */
-  NOT_SUPPORTED(2),
+  POLAR(2),
+  /**
+   * <code>FITBIT = 3;</code>
+   */
+  FITBIT(3),
+  /**
+   * <code>WITHINGS = 4;</code>
+   */
+  WITHINGS(4),
+  /**
+   * <code>WHOOP = 5;</code>
+   */
+  WHOOP(5),
   UNRECOGNIZED(-1),
   ;
 
@@ -32,20 +44,32 @@ public enum AvailabilityStatusProto
       /* minor= */ 28,
       /* patch= */ 1,
       /* suffix= */ "",
-      AvailabilityStatusProto.class.getName());
+      DataSourceTypeProto.class.getName());
   }
   /**
-   * <code>INSTALLED = 0;</code>
+   * <code>GARMIN = 0;</code>
    */
-  public static final int INSTALLED_VALUE = 0;
+  public static final int GARMIN_VALUE = 0;
   /**
-   * <code>NOT_INSTALLED = 1;</code>
+   * <code>OURA = 1;</code>
    */
-  public static final int NOT_INSTALLED_VALUE = 1;
+  public static final int OURA_VALUE = 1;
   /**
-   * <code>NOT_SUPPORTED = 2;</code>
+   * <code>POLAR = 2;</code>
    */
-  public static final int NOT_SUPPORTED_VALUE = 2;
+  public static final int POLAR_VALUE = 2;
+  /**
+   * <code>FITBIT = 3;</code>
+   */
+  public static final int FITBIT_VALUE = 3;
+  /**
+   * <code>WITHINGS = 4;</code>
+   */
+  public static final int WITHINGS_VALUE = 4;
+  /**
+   * <code>WHOOP = 5;</code>
+   */
+  public static final int WHOOP_VALUE = 5;
 
 
   public final int getNumber() {
@@ -62,7 +86,7 @@ public enum AvailabilityStatusProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static AvailabilityStatusProto valueOf(int value) {
+  public static DataSourceTypeProto valueOf(int value) {
     return forNumber(value);
   }
 
@@ -70,24 +94,27 @@ public enum AvailabilityStatusProto
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static AvailabilityStatusProto forNumber(int value) {
+  public static DataSourceTypeProto forNumber(int value) {
     switch (value) {
-      case 0: return INSTALLED;
-      case 1: return NOT_INSTALLED;
-      case 2: return NOT_SUPPORTED;
+      case 0: return GARMIN;
+      case 1: return OURA;
+      case 2: return POLAR;
+      case 3: return FITBIT;
+      case 4: return WITHINGS;
+      case 5: return WHOOP;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<AvailabilityStatusProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<DataSourceTypeProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      AvailabilityStatusProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<AvailabilityStatusProto>() {
-          public AvailabilityStatusProto findValueByNumber(int number) {
-            return AvailabilityStatusProto.forNumber(number);
+      DataSourceTypeProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<DataSourceTypeProto>() {
+          public DataSourceTypeProto findValueByNumber(int number) {
+            return DataSourceTypeProto.forNumber(number);
           }
         };
 
@@ -105,12 +132,12 @@ public enum AvailabilityStatusProto
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(1);
+    return com.rookmotion.rook_sdk_health_connect.proto.ProtobufModels.getDescriptor().getEnumTypes().get(6);
   }
 
-  private static final AvailabilityStatusProto[] VALUES = values();
+  private static final DataSourceTypeProto[] VALUES = values();
 
-  public static AvailabilityStatusProto valueOf(
+  public static DataSourceTypeProto valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -124,10 +151,10 @@ public enum AvailabilityStatusProto
 
   private final int value;
 
-  private AvailabilityStatusProto(int value) {
+  private DataSourceTypeProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:AvailabilityStatusProto)
+  // @@protoc_insertion_point(enum_scope:DataSourceTypeProto)
 }
 

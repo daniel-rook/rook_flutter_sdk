@@ -5,12 +5,12 @@ PODS:
   - rook_sdk_apple_health (0.0.1):
     - Flutter
     - RookSDK (= 1.6.0)
-    - SwiftProtobuf (= 1.21.0)
+    - SwiftProtobuf (= 1.28.1)
   - RookSDK (1.6.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - SwiftProtobuf (1.21.0)
+  - SwiftProtobuf (1.28.1)
   - url_launcher_ios (0.0.1):
     - Flutter
 
@@ -40,12 +40,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   app_settings: 017320c6a680cdc94c799949d95b84cb69389ebc
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  rook_sdk_apple_health: 52788e48bf7e63b5eb20a75c343353b642501178
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  rook_sdk_apple_health: 05b6db5ea28acb0aab56e20814b9b4b5d9789dce
   RookSDK: 3fa0b38edbe85131e7361d0b84511fe29aec0c33
-  shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
-  SwiftProtobuf: afced68785854575756db965e9da52bbf3dc45e7
-  url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
+  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
+  SwiftProtobuf: cc47329e2a10c235e35ba4faed831742ae5135ce
+  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
 PODFILE CHECKSUM: 4bb23276e476b381edc77e3c10d53a81ce4cfe16
 

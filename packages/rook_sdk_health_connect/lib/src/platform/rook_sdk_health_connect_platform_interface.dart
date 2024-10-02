@@ -62,6 +62,7 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestPermissions();
 
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> shouldSyncFor(HCHealthDataType hcHealthDataType, DateTime date);
 
   Future<SyncStatus> syncSleepSummary(DateTime date);
@@ -134,6 +135,8 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   );
 
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
+
+  Future<void> revokeDataSource(DataSourceType dataSourceType);
 
   Future<void> presentDataSourceView(
     String? redirectUrl,

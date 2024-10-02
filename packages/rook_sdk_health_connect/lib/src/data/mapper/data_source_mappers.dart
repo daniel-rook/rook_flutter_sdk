@@ -7,6 +7,7 @@ extension DataSourceMappers on DataSourceProto {
       name,
       description,
       image,
+      image,
       connected,
       authorizationUrlIsNull ? null : authorizationUrl,
     );

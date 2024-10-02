@@ -18,15 +18,21 @@ void main() {
 
   group('ResultInt64Proto exception', () {
     test(
-      'GIVEN a GenericExceptionProto WHEN unwrap THEN throw Exception',
+      'GIVEN the unhappy path WHEN unwrap THEN throw an Exception',
       () {
-        final proto = ResultInt64Proto.create();
-        proto.genericExceptionProto = GenericExceptionProto(message: error);
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
 
-        expect(proto.unwrap, throwsException);
+        final proto = ResultInt64Proto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
+
+        expect(proto.unwrap, throwsA(isException));
       },
     );
   });
 }
 
-const error = 'There was an error';
+const _exceptionMessage = "There was an error";
+const _exceptionCode = 401;

@@ -3,11 +3,14 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import android.content.Context
 import com.rookmotion.rook.sdk.RookDataSources
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesError
-import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.getStringNullableArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesError
+import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
+import com.rookmotion.rook_sdk_health_connect.extension.getStringNullableArgAt
+import com.rookmotion.rook_sdk_health_connect.mapper.toDataSourceType
+import com.rookmotion.rook_sdk_health_connect.proto.DataSourceTypeProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -27,6 +30,21 @@ class DataSourcesHandler(context: Context, private val coroutineScope: Coroutine
                     },
                     {
                         methodResult.dataSourcesError(it)
+                    }
+                )
+            }
+
+            "revokeDataSource" -> coroutineScope.launch {
+                val dataSourceType = methodCall.getIntArgAt(0).let {
+                    DataSourceTypeProto.forNumber(it).toDataSourceType()
+                }
+
+                rookDataSources.revokeDataSource(dataSourceType).fold(
+                    {
+                        methodResult.booleanSuccess(true)
+                    },
+                    {
+                        methodResult.booleanError(it)
                     }
                 )
             }

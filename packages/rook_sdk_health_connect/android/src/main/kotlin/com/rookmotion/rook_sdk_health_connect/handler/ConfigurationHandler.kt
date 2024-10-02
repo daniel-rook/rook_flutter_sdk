@@ -3,7 +3,6 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import com.rookmotion.rook.sdk.RookConfigurationManager
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
-import com.rookmotion.rook.sdk.domain.enums.SyncInstruction
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
@@ -51,7 +50,7 @@ class ConfigurationHandler(
                 methodResult.booleanSuccess(true)
             }
 
-            "getUserID" -> {
+            "getUserID" -> coroutineScope.launch {
                 val userID = rookConfigurationManager.getUserID()
 
                 methodResult.success(userID)

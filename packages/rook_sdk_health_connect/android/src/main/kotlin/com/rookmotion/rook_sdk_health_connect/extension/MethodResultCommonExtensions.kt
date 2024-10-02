@@ -11,7 +11,7 @@ fun MethodChannel.Result.boolean(boolean: Boolean) {
 }
 
 fun MethodChannel.Result.throwable(throwable: Throwable) {
-    error(GENERIC_ERROR_CODE, throwable.getErrorMessage(), null)
+    error(GENERIC_ERROR_CODE, throwable.getPluginExceptionMessage(), null)
 }
 
 private const val GENERIC_ERROR_CODE = "-1"

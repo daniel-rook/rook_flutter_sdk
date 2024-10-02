@@ -17,8 +17,8 @@ import com.rookmotion.rook.sdk.domain.exception.UserNotDeletedException
 import com.rookmotion.rook.sdk.domain.exception.UserNotInitializedException
 import com.rookmotion.rook.sdk.domain.exception.UserNotRegisteredException
 
-fun Throwable.getErrorMessage(): String {
-    return message ?: GENERIC_ERROR_MESSAGE
+fun Throwable.getPluginExceptionMessage(): String {
+    return message ?: cause?.message ?: GENERIC_ERROR_MESSAGE
 }
 
 fun Throwable.getPluginExceptionId(): Int {

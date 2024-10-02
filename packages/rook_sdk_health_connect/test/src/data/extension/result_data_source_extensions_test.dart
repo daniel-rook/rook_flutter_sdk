@@ -3,6 +3,8 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 
+// ignore_for_file: deprecated_member_use
+
 void main() {
   group('ResultDataSourceProto success', () {
     test('GIVEN the happy path WHEN unwrap THEN return the expected result',
@@ -26,6 +28,7 @@ void main() {
         'name',
         'description',
         'image',
+        'imageUrl',
         true,
         'authorizationUrl',
       );

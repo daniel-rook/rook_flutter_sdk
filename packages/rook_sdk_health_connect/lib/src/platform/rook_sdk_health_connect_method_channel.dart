@@ -8,6 +8,7 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_request_permis
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/data_source_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_environment_mappers.dart';
@@ -226,6 +227,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Will be deleted in next VERSION release")
   Future<bool> shouldSyncFor(
       HCHealthDataType hcHealthDataType, DateTime date) async {
     final proto = hcHealthDataType.toProto();
@@ -620,6 +622,22 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final result = ResultDataSourcesProto.fromBuffer(bytes);
 
     return result.unwrap();
+  }
+
+  @override
+  Future<void> revokeDataSource(DataSourceType dataSourceType) async {
+    final proto = dataSourceType.toProto();
+
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'revokeDataSource',
+      [
+        proto.value,
+      ],
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
   }
 
   @override

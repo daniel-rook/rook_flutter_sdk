@@ -5,6 +5,8 @@ import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_method_channel.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
+// ignore_for_file: deprecated_member_use
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -284,9 +286,13 @@ void resultBooleanTests(
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultBooleanProto();
-        proto.genericExceptionProto =
-            GenericExceptionProto(message: 'Generic error');
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultDataSourcesProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
 
         return proto.writeToBuffer();
       });
@@ -544,9 +550,13 @@ void resultInt64Tests(
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultInt64Proto();
-        proto.genericExceptionProto =
-            GenericExceptionProto(message: 'Generic error');
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultDataSourcesProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
 
         return proto.writeToBuffer();
       });
@@ -572,8 +582,8 @@ void resultDataSourceTests(
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultDataSourceProto();
-        proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper(
+        final proto = ResultDataSourcesProto();
+        proto.dataSourcesProtoListWrapper = DataSourcesProtoListWrapper(
           dataSources: [
             DataSourceProto(
               name: 'name',
@@ -598,6 +608,7 @@ void resultDataSourceTests(
         'name',
         'description',
         'image',
+        'imageUrl',
         true,
         'authorizationUrl',
       );
@@ -616,9 +627,13 @@ void resultDataSourceTests(
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultDataSourceProto();
-        proto.genericExceptionProto =
-            GenericExceptionProto(message: 'Generic error');
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultDataSourcesProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
 
         return proto.writeToBuffer();
       });
@@ -688,3 +703,6 @@ void stringTests(
     });
   });
 }
+
+const _exceptionMessage = "There was an error";
+const _exceptionCode = 401;

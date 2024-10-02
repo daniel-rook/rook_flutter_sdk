@@ -17,7 +17,7 @@ fun MethodChannel.Result.booleanError(throwable: Throwable) {
     val pluginExceptionProto = PluginExceptionProto.newBuilder()
         .setId(throwable.getPluginExceptionId())
         .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getErrorMessage())
+        .setMessage(throwable.getPluginExceptionMessage())
 
     val bytes = ResultBooleanProto.newBuilder()
         .setPluginExceptionProto(pluginExceptionProto)

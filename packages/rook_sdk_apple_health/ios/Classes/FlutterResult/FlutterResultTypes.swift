@@ -5,98 +5,101 @@
 //  Created by Daniel Nolasco on 04/09/23.
 //
 
-import Foundation
 import Flutter
+import Foundation
 import RookSDK
 
-func resultBoolSuccess(flutterResult: FlutterResult, _ bool: Bool) {
-    let result = ResultBooleanProto.with { it in
-        it.success = bool
+func boolSuccess(flutterResult: FlutterResult, success: Bool) {
+    do {
+        let bytes = try ResultBooleanProto.with {
+            $0.success = success
+        }.serializedData()
+        
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
     }
-    
-    runWithValue(
-        flutterResult: flutterResult,
-        builder: { try result.serializedData() },
-        block: { it in flutterResult(it) }
-    )
 }
 
-func resultBoolError(flutterResult: FlutterResult, _ error: Error) {
-    var result = ResultBooleanProto()
-    
-    if let rookConnectError = error as? RookConnectErrors {
-        if rookConnectError == .missingConfiguration {
-            result.missingConfigurationExceptionProto = MissingConfigurationExceptionProto.with { it in
-                it.message = "No configuration found. Did you forget to call setConfiguration() ?"
-            }
-        } else {
-            result.genericExceptionProto = GenericExceptionProto.with { it in
-                it.message = "\(rookConnectError)"
-            }
+func boolError(flutterResult: FlutterResult, error: Error) {
+    do {
+        let pluginExceptionProto = PluginExceptionProto.with {
+            $0.id = error.getPluginExceptionId()
+            $0.code = error.getPluginExceptionCode()
+            $0.message = error.getPluginExceptionMessage()
         }
-    } else {
-        result.genericExceptionProto = GenericExceptionProto.with { it in
-            it.message = "\(error)"
+        
+        let bytes = try ResultBooleanProto.with {
+            $0.pluginExceptionProto = pluginExceptionProto
+        }.serializedData()
+
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
+    }
+}
+
+func int64Success(flutterResult: FlutterResult, int64: Int64) {
+    do {
+        let bytes = try ResultInt64Proto.with {
+            $0.value = int64
+        }.serializedData()
+        
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
+    }
+}
+
+func int64Error(flutterResult: FlutterResult, error: Error) {
+    do {
+        let pluginExceptionProto = PluginExceptionProto.with {
+            $0.id = error.getPluginExceptionId()
+            $0.code = error.getPluginExceptionCode()
+            $0.message = error.getPluginExceptionMessage()
         }
+        
+        let bytes = try ResultInt64Proto.with {
+            $0.pluginExceptionProto = pluginExceptionProto
+        }.serializedData()
+        
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
     }
-    
-    runWithValue(
-        flutterResult: flutterResult,
-        builder: { try result.serializedData() },
-        block: { it in flutterResult(it) }
-    )
 }
 
-func resultInt64Success(flutterResult: FlutterResult, _ int: Int) {
-    let result = ResultInt64Proto.with { it in
-        it.value = Int64(int)
-    }
-    
-    runWithValue(
-        flutterResult: flutterResult,
-        builder: { try result.serializedData() },
-        block: { it in flutterResult(it) }
-    )
-}
-
-func resultInt64Error(flutterResult: FlutterResult, _ error: Error) {
-    var result = ResultBooleanProto()
-    
-    result.genericExceptionProto = GenericExceptionProto.with { it in
-        it.message = "\(error)"
-    }
-    
-    runWithValue(
-        flutterResult: flutterResult,
-        builder: { try result.serializedData() },
-        block: { it in flutterResult(it) }
-    )
-}
-
-func resultDataSourceSuccess(flutterResult: FlutterResult, _ dataSources: [RookDataSource]) {
-    let result = ResultDataSourceProto.with { proto in
-        proto.dataSourceProtoListWrapper = DataSourceProtoListWrapper.with{ wrapper in
-            wrapper.dataSources = dataSources.map { it in it.toProto() }
+func dataSourcesSuccess(flutterResult: FlutterResult, dataSources: [RookDataSource]) {
+    do {
+        let dataSourcesProtoListWrapper = DataSourcesProtoListWrapper.with {
+            $0.dataSources = dataSources.map { it in it.toProto() }
         }
+        
+        let bytes = try ResultDataSourcesProto.with {
+            $0.dataSourcesProtoListWrapper = dataSourcesProtoListWrapper
+        }.serializedData()
+        
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
     }
-    
-    runWithValue(
-        flutterResult: flutterResult,
-        builder: { try result.serializedData() },
-        block: { it in flutterResult(it) }
-    )
+
 }
 
-func resultDataSourceError(flutterResult: FlutterResult, _ error: Error) {
-    var result = ResultDataSourceProto()
-    
-    result.genericExceptionProto = GenericExceptionProto.with { it in
-        it.message = "\(error)"
+func dataSourcesError(flutterResult: FlutterResult, error: Error) {
+    do {
+        let pluginExceptionProto = PluginExceptionProto.with {
+            $0.id = error.getPluginExceptionId()
+            $0.code = error.getPluginExceptionCode()
+            $0.message = error.getPluginExceptionMessage()
+        }
+        
+        let bytes = try ResultDataSourcesProto.with {
+            $0.pluginExceptionProto = pluginExceptionProto
+        }.serializedData()
+        
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
     }
-    
-    runWithValue(
-        flutterResult: flutterResult,
-        builder: { try result.serializedData() },
-        block: { it in flutterResult(it) }
-    )
 }

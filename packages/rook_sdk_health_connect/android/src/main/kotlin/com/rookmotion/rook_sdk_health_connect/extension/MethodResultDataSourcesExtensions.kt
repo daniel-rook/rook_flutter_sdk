@@ -24,7 +24,7 @@ fun MethodChannel.Result.dataSourcesError(throwable: Throwable) {
     val pluginExceptionProto = PluginExceptionProto.newBuilder()
         .setId(throwable.getPluginExceptionId())
         .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getErrorMessage())
+        .setMessage(throwable.getPluginExceptionMessage())
 
     val bytes = ResultDataSourcesProto.newBuilder()
         .setPluginExceptionProto(pluginExceptionProto)
