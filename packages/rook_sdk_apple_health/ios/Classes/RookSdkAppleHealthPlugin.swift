@@ -45,7 +45,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             )
             break
         case "getUserID":
-            RookConnectConfigurationManager.shared.getUserId { it in
+            userManager.getUserId { it in
                 switch it {
                 case let Result.success(userID):
                     result(userID)
@@ -67,7 +67,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
         case "updateUserID":
             let userID = call.getStringArgAt(0)
 
-            RookConnectConfigurationManager.shared.updateUserId(userID) { it in
+            userManager.updateUserId(userID) { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -77,7 +77,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "clearUserID":
-            RookConnectConfigurationManager.shared.clearUser { it in
+            userManager.clearUser { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -87,7 +87,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "deleteUserFromRook":
-            RookConnectConfigurationManager.shared.removeUserFromRook { it in
+            userManager.removeUserFromRook { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -97,7 +97,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "syncUserTimeZone":
-            RookConnectConfigurationManager.shared.syncUserTimeZone { it in
+            userManager.syncUserTimeZone { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -407,6 +407,17 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             } else {
                 boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
             }
+//            if let dataSourceType = try? dataSourceTypeProto?.toDomain() {
+//                userManager.revokeDataSource(dataSource: dataSourceType.rawValue) { success, error in
+//                    if error != nil {
+//                        boolError(flutterResult: result, error: error!)
+//                    } else {
+//                        boolSuccess(flutterResult: result, success: success)
+//                    }
+//                }
+//            } else {
+//                boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
+//            }
             break
         case "presentDataSourceView":
             DispatchQueue.main.async {

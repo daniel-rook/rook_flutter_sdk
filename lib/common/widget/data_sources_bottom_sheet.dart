@@ -68,8 +68,8 @@ void _revokeDataSource(DataSource dataSource) {
   final logger = Logger('dataSourcesBottomSheet');
 
   AHRookDataSources.revokeDataSource(dataSourceType).then((_) {
-    logger.info('Garmin data source was successfully revoked');
+    logger.info('$dataSourceType was successfully revoked');
   }).catchError((error) {
-    logger.info('Garmin data source revoke failed: $error');
+    logger.info('$dataSourceType revoke failed: $error');
   });
 }
