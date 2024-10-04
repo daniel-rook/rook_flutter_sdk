@@ -11,14 +11,42 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "rook_sdk_apple_health", binaryMessenger: registrar.messenger())
+        let backgroundErrorsEventChannel = FlutterEventChannel(
+            name: BackgroundErrorsObserver.EVENT_CHANNEL_NAME,
+            binaryMessenger: registrar.messenger()
+        )
+
         let instance = RookSdkAppleHealthPlugin()
+
         registrar.addMethodCallDelegate(instance, channel: channel)
 
         AnalyticsExtractionConfigurator.shared.setPlatform(.flutter)
         AnalyticsTransmissionConfigurator.shared.setPlatform(.flutter)
-
         RookBackGroundSync.shared.setBackListeners()
+        
+        backgroundErrorsEventChannel.setStreamHandler(BackgroundErrorsObserver())
+        
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(handleErrorBackground),
+//            name: NSNotification.Name(EventNames.errorBackGround),
+//            object: nil
+//        )
     }
+    
+//    @objc private func handleErrorBackground(_ notification: Notification) {
+//        debugPrint("received: \(notification)")
+//        
+//        if let data: [AnyHashable: Any] = notification.userInfo {
+//            let nullableError: Error? = data["Error"] as? Error
+//            
+//            guard let error: Error = nullableError else {
+//                return
+//            }
+//            
+//            debugPrint(error)
+//        }
+//    }
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
