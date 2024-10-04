@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
@@ -23,15 +25,31 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
   final ConsoleOutput syncOutput = ConsoleOutput();
   final ConsoleOutput syncPendingSummariesOutput = ConsoleOutput();
   final ConsoleOutput syncPendingEventsOutput = ConsoleOutput();
+  final ConsoleOutput backgroundErrorsOutput = ConsoleOutput();
 
+  StreamSubscription<Exception>? backgroundErrorsSubscription;
   bool enableNavigation = false;
 
   @override
   void initState() {
+    backgroundErrorsSubscription = AHRookHelpers.backgroundErrorsUpdates.listen(
+      (backgroundError) {
+        setState(
+          () => backgroundErrorsOutput.append(backgroundError.toString()),
+        );
+      },
+    );
+
     enableContinuousUpload();
     enableBackground();
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    backgroundErrorsSubscription?.cancel();
+    super.dispose();
   }
 
   @override
@@ -58,6 +76,8 @@ class _SdkAppleHealthPlaygroundState extends State<SdkAppleHealthPlayground> {
             onPressed: syncPendingEvents,
             child: const Text('Sync pending events'),
           ),
+          const SectionTitle('Extra: background errors'),
+          Text(backgroundErrorsOutput.current),
         ],
       ),
     );
