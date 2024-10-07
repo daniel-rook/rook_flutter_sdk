@@ -30,7 +30,7 @@ extension Error {
     }
 
     func getPluginExceptionMessage() -> String {
-        return "\(self)"
+        return self.localizedDescription
     }
 }
 

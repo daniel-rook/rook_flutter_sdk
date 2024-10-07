@@ -19,21 +19,23 @@ class BackgroundErrorsObserver: NSObject, FlutterStreamHandler {
         
         eventSink = events
 
-        debugPrint("listening...")
-
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleErrorBackground),
+            selector: #selector(backgroundErrorReceiver),
             name: NSNotification.Name(EventNames.errorBackGround),
             object: nil
         )
 
         return nil
     }
+    
+    @objc private func backgroundErrorReceiver(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.handleErrorBackground(notification)
+        }
+    }
 
-    @objc private func handleErrorBackground(_ notification: Notification) {
-        debugPrint("received: \(notification)")
-
+    func handleErrorBackground(_ notification: Notification) {
         if let data: [AnyHashable: Any] = notification.userInfo {
             let nullableError: Error? = data["Error"] as? Error
 
