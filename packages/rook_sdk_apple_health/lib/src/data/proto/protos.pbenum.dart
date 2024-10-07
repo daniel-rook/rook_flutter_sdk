@@ -14,29 +14,38 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class RookEnvironmentProto extends $pb.ProtobufEnum {
-  static const RookEnvironmentProto SANDBOX = RookEnvironmentProto._(0, _omitEnumNames ? '' : 'SANDBOX');
-  static const RookEnvironmentProto PRODUCTION = RookEnvironmentProto._(1, _omitEnumNames ? '' : 'PRODUCTION');
+  static const RookEnvironmentProto SANDBOX =
+      RookEnvironmentProto._(0, _omitEnumNames ? '' : 'SANDBOX');
+  static const RookEnvironmentProto PRODUCTION =
+      RookEnvironmentProto._(1, _omitEnumNames ? '' : 'PRODUCTION');
 
-  static const $core.List<RookEnvironmentProto> values = <RookEnvironmentProto> [
+  static const $core.List<RookEnvironmentProto> values = <RookEnvironmentProto>[
     SANDBOX,
     PRODUCTION,
   ];
 
-  static final $core.Map<$core.int, RookEnvironmentProto> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, RookEnvironmentProto> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
   static RookEnvironmentProto? valueOf($core.int value) => _byValue[value];
 
   const RookEnvironmentProto._($core.int v, $core.String n) : super(v, n);
 }
 
 class DataSourceTypeProto extends $pb.ProtobufEnum {
-  static const DataSourceTypeProto GARMIN = DataSourceTypeProto._(0, _omitEnumNames ? '' : 'GARMIN');
-  static const DataSourceTypeProto OURA = DataSourceTypeProto._(1, _omitEnumNames ? '' : 'OURA');
-  static const DataSourceTypeProto POLAR = DataSourceTypeProto._(2, _omitEnumNames ? '' : 'POLAR');
-  static const DataSourceTypeProto FITBIT = DataSourceTypeProto._(3, _omitEnumNames ? '' : 'FITBIT');
-  static const DataSourceTypeProto WITHINGS = DataSourceTypeProto._(4, _omitEnumNames ? '' : 'WITHINGS');
-  static const DataSourceTypeProto WHOOP = DataSourceTypeProto._(5, _omitEnumNames ? '' : 'WHOOP');
+  static const DataSourceTypeProto GARMIN =
+      DataSourceTypeProto._(0, _omitEnumNames ? '' : 'GARMIN');
+  static const DataSourceTypeProto OURA =
+      DataSourceTypeProto._(1, _omitEnumNames ? '' : 'OURA');
+  static const DataSourceTypeProto POLAR =
+      DataSourceTypeProto._(2, _omitEnumNames ? '' : 'POLAR');
+  static const DataSourceTypeProto FITBIT =
+      DataSourceTypeProto._(3, _omitEnumNames ? '' : 'FITBIT');
+  static const DataSourceTypeProto WITHINGS =
+      DataSourceTypeProto._(4, _omitEnumNames ? '' : 'WITHINGS');
+  static const DataSourceTypeProto WHOOP =
+      DataSourceTypeProto._(5, _omitEnumNames ? '' : 'WHOOP');
 
-  static const $core.List<DataSourceTypeProto> values = <DataSourceTypeProto> [
+  static const $core.List<DataSourceTypeProto> values = <DataSourceTypeProto>[
     GARMIN,
     OURA,
     POLAR,
@@ -45,11 +54,11 @@ class DataSourceTypeProto extends $pb.ProtobufEnum {
     WHOOP,
   ];
 
-  static final $core.Map<$core.int, DataSourceTypeProto> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, DataSourceTypeProto> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
   static DataSourceTypeProto? valueOf($core.int value) => _byValue[value];
 
   const DataSourceTypeProto._($core.int v, $core.String n) : super(v, n);
 }
-
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

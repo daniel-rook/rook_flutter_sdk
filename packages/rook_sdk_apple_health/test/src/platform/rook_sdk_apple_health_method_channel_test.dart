@@ -527,11 +527,11 @@ void resultBooleanTests(
     });
 
     test('GIVEN the unhappy path WHEN revokeDataSource THEN throw exception',
-            () async {
-          final future = platform.revokeDataSource(DataSourceType.fitbit);
+        () async {
+      final future = platform.revokeDataSource(DataSourceType.fitbit);
 
-          await expectLater(future, throwsA(isException));
-        });
+      await expectLater(future, throwsA(isException));
+    });
   });
 }
 
