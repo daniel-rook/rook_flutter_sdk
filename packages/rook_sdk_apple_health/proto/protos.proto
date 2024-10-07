@@ -5,6 +5,15 @@ enum RookEnvironmentProto {
   PRODUCTION = 1;
 }
 
+enum DataSourceTypeProto {
+  GARMIN = 0;
+  OURA = 1;
+  POLAR = 2;
+  FITBIT = 3;
+  WITHINGS = 4;
+  WHOOP = 5;
+}
+
 message RookConfigurationProto {
   string clientUUID = 1;
   string secretKey = 2;

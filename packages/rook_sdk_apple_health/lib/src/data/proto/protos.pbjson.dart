@@ -27,6 +27,24 @@ final $typed_data.Uint8List rookEnvironmentProtoDescriptor =
     $convert.base64Decode(
         'ChRSb29rRW52aXJvbm1lbnRQcm90bxILCgdTQU5EQk9YEAASDgoKUFJPRFVDVElPThAB');
 
+@$core.Deprecated('Use dataSourceTypeProtoDescriptor instead')
+const DataSourceTypeProto$json = {
+  '1': 'DataSourceTypeProto',
+  '2': [
+    {'1': 'GARMIN', '2': 0},
+    {'1': 'OURA', '2': 1},
+    {'1': 'POLAR', '2': 2},
+    {'1': 'FITBIT', '2': 3},
+    {'1': 'WITHINGS', '2': 4},
+    {'1': 'WHOOP', '2': 5},
+  ],
+};
+
+/// Descriptor for `DataSourceTypeProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List dataSourceTypeProtoDescriptor = $convert.base64Decode(
+    'ChNEYXRhU291cmNlVHlwZVByb3RvEgoKBkdBUk1JThAAEggKBE9VUkEQARIJCgVQT0xBUhACEg'
+    'oKBkZJVEJJVBADEgwKCFdJVEhJTkdTEAQSCQoFV0hPT1AQBQ==');
+
 @$core.Deprecated('Use rookConfigurationProtoDescriptor instead')
 const RookConfigurationProto$json = {
   '1': 'RookConfigurationProto',

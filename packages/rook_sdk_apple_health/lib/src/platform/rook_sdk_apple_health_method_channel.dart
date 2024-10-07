@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/data_source_type_mappers.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_environment_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
@@ -12,6 +14,11 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('rook_sdk_apple_health');
+
+  @visibleForTesting
+  final backgroundErrorsEventChannel = const EventChannel(
+    "io.tryrook.errors.background",
+  );
 
   @override
   Future<void> enableNativeLogs() async {
@@ -378,6 +385,22 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  Future<void> revokeDataSource(DataSourceType dataSourceType) async {
+    final proto = dataSourceType.toProto();
+
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'revokeDataSource',
+      [
+        proto.value,
+      ],
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
   Future<void> presentDataSourceView(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'presentDataSourceView',
@@ -389,5 +412,16 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final result = ResultBooleanProto.fromBuffer(bytes);
 
     result.unwrap();
+  }
+
+  @override
+  Stream<Exception> get backgroundErrorsUpdates {
+    return backgroundErrorsEventChannel.receiveBroadcastStream().map(
+      (bytes) {
+        final proto = PluginExceptionProto.fromBuffer(bytes);
+
+        return proto.toDartException();
+      },
+    );
   }
 }

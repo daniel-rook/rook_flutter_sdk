@@ -15,6 +15,9 @@ class HCRookDataSources {
     );
   }
 
+  /// Unlinks (revoke authorization) from a data source for the current user.
+  ///
+  /// [dataSourceType] The type of the data source to revoke.
   static Future<void> revokeDataSource(DataSourceType dataSourceType) {
     return RookSdkHealthConnectPlatform.instance.revokeDataSource(
       dataSourceType,

@@ -7,16 +7,24 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
     private let rookSummaryManager = RookSummaryManager()
     private let rookEventsManager = RookEventsManager()
     private let dataSourcesManager = DataSourcesManager()
+    private let userManager = UserManager()
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "rook_sdk_apple_health", binaryMessenger: registrar.messenger())
+        let backgroundErrorsEventChannel = FlutterEventChannel(
+            name: BackgroundErrorsObserver.EVENT_CHANNEL_NAME,
+            binaryMessenger: registrar.messenger()
+        )
+
         let instance = RookSdkAppleHealthPlugin()
+
         registrar.addMethodCallDelegate(instance, channel: channel)
 
         AnalyticsExtractionConfigurator.shared.setPlatform(.flutter)
         AnalyticsTransmissionConfigurator.shared.setPlatform(.flutter)
-
         RookBackGroundSync.shared.setBackListeners()
+        
+        backgroundErrorsEventChannel.setStreamHandler(BackgroundErrorsObserver())
     }
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -44,7 +52,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             )
             break
         case "getUserID":
-            RookConnectConfigurationManager.shared.getUserId { it in
+            userManager.getUserId { it in
                 switch it {
                 case let Result.success(userID):
                     result(userID)
@@ -66,7 +74,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
         case "updateUserID":
             let userID = call.getStringArgAt(0)
 
-            RookConnectConfigurationManager.shared.updateUserId(userID) { it in
+            userManager.updateUserId(userID) { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -76,7 +84,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "clearUserID":
-            RookConnectConfigurationManager.shared.clearUser { it in
+            userManager.clearUser { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -86,7 +94,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "deleteUserFromRook":
-            RookConnectConfigurationManager.shared.removeUserFromRook { it in
+            userManager.removeUserFromRook { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -96,7 +104,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "syncUserTimeZone":
-            RookConnectConfigurationManager.shared.syncUserTimeZone { it in
+            userManager.syncUserTimeZone { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -390,6 +398,33 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     dataSourcesError(flutterResult: result, error: error)
                 }
             }
+            break
+        case "revokeDataSource":
+            let dataSourceTypeProto = DataSourceTypeProto(rawValue: call.getIntArgAt(0))
+
+            if let dataSourceType = try? dataSourceTypeProto?.toDomain() {
+                userManager.revokeDataSource(dataSource: dataSourceType) { it in
+                    switch it {
+                    case let Result.success(success):
+                        boolSuccess(flutterResult: result, success: success)
+                    case let Result.failure(error):
+                        boolError(flutterResult: result, error: error)
+                    }
+                }
+            } else {
+                boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
+            }
+//            if let dataSourceType = try? dataSourceTypeProto?.toDomain() {
+//                userManager.revokeDataSource(dataSource: dataSourceType.rawValue) { success, error in
+//                    if error != nil {
+//                        boolError(flutterResult: result, error: error!)
+//                    } else {
+//                        boolSuccess(flutterResult: result, success: success)
+//                    }
+//                }
+//            } else {
+//                boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
+//            }
             break
         case "presentDataSourceView":
             DispatchQueue.main.async {

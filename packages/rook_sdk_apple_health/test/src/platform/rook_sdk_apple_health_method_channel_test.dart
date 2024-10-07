@@ -279,6 +279,12 @@ void resultBooleanTests(
 
       await expectLater(future, completes);
     });
+
+    test('GIVEN the happy path WHEN revokeDataSource THEN complete', () async {
+      final future = platform.revokeDataSource(DataSourceType.garmin);
+
+      await expectLater(future, completes);
+    });
   });
 
   group('MethodChannelRookSdkAppleHealth | ResultBooleanProto exception unwrap',
@@ -516,6 +522,13 @@ void resultBooleanTests(
         'GIVEN a Result.exception WHEN presentDataSourceView THEN throw exception',
         () async {
       final future = platform.presentDataSourceView("http://tryrook.io");
+
+      await expectLater(future, throwsA(isException));
+    });
+
+    test('GIVEN the unhappy path WHEN revokeDataSource THEN throw exception',
+        () async {
+      final future = platform.revokeDataSource(DataSourceType.fitbit);
 
       await expectLater(future, throwsA(isException));
     });

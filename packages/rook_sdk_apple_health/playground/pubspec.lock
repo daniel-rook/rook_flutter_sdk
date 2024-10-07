@@ -184,15 +184,15 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.2.2"
+    version: "1.2.3"
   rook_sdk_core:
     dependency: transitive
     description:
       name: rook_sdk_core
-      sha256: "62fdfd9068693fbae2100982ac75cbb5af172c93a4f8ec9853bece0a2334ae2b"
+      sha256: "500927e978306e018a60e3cea0bbafb3833e18e947fa7b2b018b1384d54b3161"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.0"
+    version: "0.4.3"
   sky_engine:
     dependency: transitive
     description: flutter

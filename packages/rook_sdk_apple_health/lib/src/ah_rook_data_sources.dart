@@ -15,6 +15,15 @@ class AHRookDataSources {
     );
   }
 
+  /// Unlinks (revoke authorization) from a data source for the current user.
+  ///
+  /// [dataSourceType] The type of the data source to revoke.
+  static Future<void> revokeDataSource(DataSourceType dataSourceType) {
+    return RookSdkAppleHealthPlatform.instance.revokeDataSource(
+      dataSourceType,
+    );
+  }
+
   /// Displays a pre-built screen that allows the users to connect to a data source.
   ///
   /// * [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
