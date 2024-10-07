@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
+import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Widget dataSourcesBottomSheet(
@@ -67,9 +69,17 @@ void _revokeDataSource(DataSource dataSource) {
 
   final logger = Logger('dataSourcesBottomSheet');
 
-  AHRookDataSources.revokeDataSource(dataSourceType).then((_) {
-    logger.info('$dataSourceType was successfully revoked');
-  }).catchError((error) {
-    logger.info('$dataSourceType revoke failed: $error');
-  });
+  if (defaultTargetPlatform == TargetPlatform.android) {
+    HCRookDataSources.revokeDataSource(dataSourceType).then((_) {
+      logger.info('$dataSourceType was successfully revoked');
+    }).catchError((error) {
+      logger.info('$dataSourceType revoke failed: $error');
+    });
+  } else {
+    AHRookDataSources.revokeDataSource(dataSourceType).then((_) {
+      logger.info('$dataSourceType was successfully revoked');
+    }).catchError((error) {
+      logger.info('$dataSourceType revoke failed: $error');
+    });
+  }
 }
