@@ -25,28 +25,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
         RookBackGroundSync.shared.setBackListeners()
         
         backgroundErrorsEventChannel.setStreamHandler(BackgroundErrorsObserver())
-        
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(handleErrorBackground),
-//            name: NSNotification.Name(EventNames.errorBackGround),
-//            object: nil
-//        )
     }
-    
-//    @objc private func handleErrorBackground(_ notification: Notification) {
-//        debugPrint("received: \(notification)")
-//        
-//        if let data: [AnyHashable: Any] = notification.userInfo {
-//            let nullableError: Error? = data["Error"] as? Error
-//            
-//            guard let error: Error = nullableError else {
-//                return
-//            }
-//            
-//            debugPrint(error)
-//        }
-//    }
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
