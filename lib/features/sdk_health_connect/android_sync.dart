@@ -5,24 +5,19 @@ import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-const String sdkHealthConnectPlaygroundRoute = '/sdk-health-connect/playground';
+const String androidSyncRoute = '/android/sync';
 
-class SdkHealthConnectPlayground extends StatefulWidget {
-  const SdkHealthConnectPlayground({super.key});
+class AndroidSync extends StatefulWidget {
+  const AndroidSync({super.key});
 
   @override
-  State<SdkHealthConnectPlayground> createState() =>
-      _SdkHealthConnectPlaygroundState();
+  State<AndroidSync> createState() => _AndroidSyncState();
 }
 
-class _SdkHealthConnectPlaygroundState
-    extends State<SdkHealthConnectPlayground> {
-  final Logger logger = Logger('SdkHealthConnectPlayground');
+class _AndroidSyncState extends State<AndroidSync> {
+  final Logger logger = Logger('AndroidSync');
 
-  final ConsoleOutput availabilityOutput = ConsoleOutput();
-  final ConsoleOutput checkPermissionsOutput = ConsoleOutput();
   final ConsoleOutput syncOutput = ConsoleOutput();
   final ConsoleOutput syncPendingSummariesOutput = ConsoleOutput();
   final ConsoleOutput syncPendingEventsOutput = ConsoleOutput();
@@ -30,41 +25,14 @@ class _SdkHealthConnectPlaygroundState
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
-      name: 'SDK Health Connect',
+      name: 'Manually sync health data',
       child: Column(
         children: [
-          const SectionTitle('4. Check availability'),
-          Text(availabilityOutput.current),
-          FilledButton(
-            onPressed: checkAvailability,
-            child: const Text('Check availability'),
-          ),
-          const SectionTitle('4.1. Download Health Connect'),
-          FilledButton(
-            onPressed: downloadHealthConnect,
-            child: const Text('Download Health Connect'),
-          ),
-          const SectionTitle('5. Check permissions'),
-          Text(checkPermissionsOutput.current),
-          FilledButton(
-            onPressed: checkHealthConnectPermissions,
-            child: const Text('Check permissions'),
-          ),
-          const SectionTitle('5.1. Request permissions'),
-          FilledButton(
-            onPressed: requestHealthConnectPermissions,
-            child: const Text('Request permissions'),
-          ),
-          const SectionTitle('5.2. Open Health Connect'),
-          FilledButton(
-            onPressed: openHealthConnect,
-            child: const Text('Open Health Connect'),
-          ),
-          const SectionTitle('6. Sync health data'),
+          const SectionTitle('Sync today events and yesterday summaries'),
           Text(syncOutput.current),
           FilledButton(
             onPressed: syncHealthData,
-            child: const Text('Sync health data'),
+            child: const Text('Sync'),
           ),
           const SectionTitle('Sync pending summaries (optional)'),
           Text(syncPendingSummariesOutput.current),
@@ -81,100 +49,6 @@ class _SdkHealthConnectPlaygroundState
         ],
       ),
     );
-  }
-
-  void checkAvailability() {
-    availabilityOutput.clear();
-
-    setState(
-      () => availabilityOutput.append('Checking availability...'),
-    );
-
-    HCRookHealthPermissionsManager.checkHealthConnectAvailability()
-        .then((availability) {
-      availabilityOutput.append('Availability checked successfully');
-
-      final string = switch (availability) {
-        HCAvailabilityStatus.installed =>
-          'Health Connect is installed! You can skip the next step',
-        HCAvailabilityStatus.notInstalled =>
-          'Health Connect is not installed. Please download from the Play Store',
-        _ =>
-          'This device is not compatible with health connect. Please close the app',
-      };
-
-      setState(
-        () => availabilityOutput.append(string),
-      );
-    }).catchError((error) {
-      setState(
-        () => availabilityOutput.append('Error checking availability: $error'),
-      );
-    });
-  }
-
-  void downloadHealthConnect() async {
-    try {
-      await launchUrl(Uri.parse(
-        'https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata',
-      ));
-    } catch (ignored) {
-      // Ignored
-    }
-  }
-
-  void checkHealthConnectPermissions() {
-    checkPermissionsOutput.clear();
-
-    setState(
-      () => checkPermissionsOutput.append('Checking all permissions...'),
-    );
-
-    HCRookHealthPermissionsManager.checkHealthConnectPermissions()
-        .then((hasPermissions) {
-      checkPermissionsOutput.append('All permissions checked successfully');
-
-      final string = hasPermissions
-          ? 'All permissions are granted! You can skip the next 2 steps'
-          : 'There are missing permissions. Please grant them';
-
-      setState(
-        () => checkPermissionsOutput.append(string),
-      );
-    }).catchError((error) {
-      setState(
-        () => checkPermissionsOutput
-            .append('Error checking all permissions: $error'),
-      );
-    });
-  }
-
-  void requestHealthConnectPermissions() {
-    HCRookHealthPermissionsManager.requestHealthConnectPermissions()
-        .then((requestPermissionsStatus) {
-      final permissionsAlreadyGranted =
-          requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
-
-      if (permissionsAlreadyGranted) {
-        logger.info(
-          "Request was not sent because the requested permissions were already granted",
-        );
-      } else {
-        logger.info("Request was sent");
-      }
-    }).catchError((error) {
-      logger.severe('Error requesting permissions: $error');
-    });
-  }
-
-  void openHealthConnect() {
-    logger.info('Opening Health Connect...');
-
-    HCRookHealthPermissionsManager.openHealthConnectSettings().then((_) {
-      logger.info('Health Connect was opened');
-    }).catchError((error) {
-      logger.severe('Error opening Health Connect: $error');
-    });
   }
 
   void syncHealthData() async {
@@ -274,29 +148,17 @@ class _SdkHealthConnectPlaygroundState
 
   Future<void> syncSleepSummary(DateTime yesterday) async {
     try {
-      final shouldSyncSummariesForYesterday = await HCRookHelpers.shouldSyncFor(
-        HCHealthDataType.sleepSummary,
-        yesterday,
-      );
+      try {
+        final syncStatus = await HCRookSummaryManager.syncSleepSummary(
+          yesterday,
+        );
 
-      if (shouldSyncSummariesForYesterday) {
-        try {
-          final syncStatus = await HCRookSummaryManager.syncSleepSummary(
-            yesterday,
-          );
-
-          setState(
-            () => syncOutput.append('Sleep summary: ${syncStatus.name}'),
-          );
-        } catch (error) {
-          setState(
-            () => syncOutput.append('Error syncing Sleep summary: $error'),
-          );
-        }
-      } else {
         setState(
-          () => syncOutput
-              .append('Sleep summary was already synced for this day'),
+          () => syncOutput.append('Sleep summary: ${syncStatus.name}'),
+        );
+      } catch (error) {
+        setState(
+          () => syncOutput.append('Error syncing Sleep summary: $error'),
         );
       }
     } catch (error) {
@@ -308,29 +170,17 @@ class _SdkHealthConnectPlaygroundState
 
   Future<void> syncPhysicalSummary(DateTime yesterday) async {
     try {
-      final shouldSyncSummariesForYesterday = await HCRookHelpers.shouldSyncFor(
-        HCHealthDataType.physicalSummary,
-        yesterday,
-      );
+      try {
+        final syncStatus = await HCRookSummaryManager.syncPhysicalSummary(
+          yesterday,
+        );
 
-      if (shouldSyncSummariesForYesterday) {
-        try {
-          final syncStatus = await HCRookSummaryManager.syncPhysicalSummary(
-            yesterday,
-          );
-
-          setState(
-            () => syncOutput.append('Physical summary: ${syncStatus.name}'),
-          );
-        } catch (error) {
-          setState(
-            () => syncOutput.append('Error syncing Physical summary: $error'),
-          );
-        }
-      } else {
         setState(
-          () => syncOutput
-              .append('Physical summary was already synced for this day'),
+          () => syncOutput.append('Physical summary: ${syncStatus.name}'),
+        );
+      } catch (error) {
+        setState(
+          () => syncOutput.append('Error syncing Physical summary: $error'),
         );
       }
     } catch (error) {
@@ -342,29 +192,17 @@ class _SdkHealthConnectPlaygroundState
 
   Future<void> syncBodySummary(DateTime yesterday) async {
     try {
-      final shouldSyncSummariesForYesterday = await HCRookHelpers.shouldSyncFor(
-        HCHealthDataType.bodySummary,
-        yesterday,
-      );
+      try {
+        final syncStatus = await HCRookSummaryManager.syncBodySummary(
+          yesterday,
+        );
 
-      if (shouldSyncSummariesForYesterday) {
-        try {
-          final syncStatus = await HCRookSummaryManager.syncBodySummary(
-            yesterday,
-          );
-
-          setState(
-            () => syncOutput.append('Body summary: ${syncStatus.name}'),
-          );
-        } catch (error) {
-          setState(
-            () => syncOutput.append('Error syncing Body summary: $error'),
-          );
-        }
-      } else {
         setState(
-          () =>
-              syncOutput.append('Body summary was already synced for this day'),
+          () => syncOutput.append('Body summary: ${syncStatus.name}'),
+        );
+      } catch (error) {
+        setState(
+          () => syncOutput.append('Error syncing Body summary: $error'),
         );
       }
     } catch (error) {

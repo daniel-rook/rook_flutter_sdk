@@ -6,7 +6,7 @@ import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
-const String androidBackgroundStepsRoute = '/android/android-background-steps';
+const String androidBackgroundStepsRoute = '/android/background-steps';
 
 class AndroidBackgroundSteps extends StatefulWidget {
   const AndroidBackgroundSteps({super.key});
@@ -28,7 +28,7 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
-      name: 'Android Steps Manager',
+      name: 'Background steps',
       alignment: Alignment.topCenter,
       child: FocusDetector(
         onFocusGained: checkStepsServiceStatus,

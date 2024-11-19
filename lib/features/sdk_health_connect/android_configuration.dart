@@ -3,31 +3,30 @@ import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/widget/data_sources_bottom_sheet.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/sdk_health_connect_playground.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/yesterday_sync.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_continuous_upload.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_data_sources.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_permissions.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_sync.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_user_management.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-const String sdkHealthConnectConfigurationRoute =
-    '/sdk-health-connect/configuration';
+const String androidConfigurationRoute = '/android/configuration';
 
-class SdkHealthConnectConfiguration extends StatefulWidget {
-  const SdkHealthConnectConfiguration({super.key});
+class AndroidConfiguration extends StatefulWidget {
+  const AndroidConfiguration({super.key});
 
   @override
-  State<SdkHealthConnectConfiguration> createState() =>
-      _SdkHealthConnectConfigurationState();
+  State<AndroidConfiguration> createState() => _AndroidConfigurationState();
 }
 
-class _SdkHealthConnectConfigurationState
-    extends State<SdkHealthConnectConfiguration> {
-  final Logger logger = Logger('SdkHealthConnectConfiguration');
+class _AndroidConfigurationState extends State<AndroidConfiguration> {
+  final Logger logger = Logger('AndroidConfiguration');
 
   final ConsoleOutput configurationOutput = ConsoleOutput();
   final ConsoleOutput initializeOutput = ConsoleOutput();
@@ -40,7 +39,7 @@ class _SdkHealthConnectConfigurationState
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
-      name: 'SDK Health Connect Configuration',
+      name: 'SDK Configuration',
       child: FocusDetector(
         onFocusGained: attemptToEnableYesterdaySync,
         child: Column(
@@ -49,13 +48,13 @@ class _SdkHealthConnectConfigurationState
             Text(configurationOutput.current),
             FilledButton(
               onPressed: setConfiguration,
-              child: const Text('Set configuration'),
+              child: const Text('setConfiguration'),
             ),
             const SectionTitle('2. Initialize SDK'),
             Text(initializeOutput.current),
             FilledButton(
               onPressed: initialize,
-              child: const Text('Initialize'),
+              child: const Text('initRook'),
             ),
             const SectionTitle('3. Update user ID'),
             TextFormField(
@@ -72,46 +71,56 @@ class _SdkHealthConnectConfigurationState
                   _formKey.currentState?.save();
                 }
               },
-              child: const Text('Update user'),
+              child: const Text('updateUserID'),
             ),
             const SizedBox(height: 20),
-            FilledButton(
-              onPressed: enableNavigation
-                  ? () => Navigator.of(context).pushNamed(
-                        sdkHealthConnectPlaygroundRoute,
-                      )
-                  : null,
-              child: const Text('Health Connect'),
-            ),
             FilledButton(
               onPressed: enableNavigation
                   ? () => Navigator.of(context).pushNamed(
                         androidBackgroundStepsRoute,
                       )
                   : null,
-              child: const Text('Background Steps'),
+              child: const Text('Background steps'),
             ),
             FilledButton(
               onPressed: enableNavigation
                   ? () => Navigator.of(context).pushNamed(
-                        yesterdaySyncRoute,
+                        androidUserManagementRoute,
                       )
                   : null,
-              child: const Text('Yesterday Sync'),
-            ),
-            FilledButton(
-              onPressed: enableNavigation ? loadDataSources : null,
-              child: const Text('Connections page (data sources list)'),
+              child: const Text('User management'),
             ),
             FilledButton(
               onPressed: enableNavigation
-                  ? () {
-                      HCRookDataSources.presentDataSourceView(
-                        redirectUrl: "https://tryrook.io",
-                      );
-                    }
+                  ? () => Navigator.of(context).pushNamed(
+                        androidDataSourcesRoute,
+                      )
                   : null,
-              child: const Text('Connections page (pre-built)'),
+              child: const Text('Data sources'),
+            ),
+            FilledButton(
+              onPressed: enableNavigation
+                  ? () => Navigator.of(context).pushNamed(
+                        androidPermissionsRoute,
+                      )
+                  : null,
+              child: const Text('Permissions'),
+            ),
+            FilledButton(
+              onPressed: enableNavigation
+                  ? () => Navigator.of(context).pushNamed(
+                        androidSyncRoute,
+                      )
+                  : null,
+              child: const Text('Manually sync health data'),
+            ),
+            FilledButton(
+              onPressed: enableNavigation
+                  ? () => Navigator.of(context).pushNamed(
+                        androidContinuousUploadRoute,
+                      )
+                  : null,
+              child: const Text('Continuous upload'),
             ),
           ],
         ),
@@ -175,27 +184,27 @@ class _SdkHealthConnectConfigurationState
 
     HCRookConfigurationManager.setConfiguration(rookConfiguration);
 
-    setState(
-      () => configurationOutput.append('Configuration set successfully'),
-    );
+    setState(() {
+      configurationOutput.append('Configuration set successfully');
+    });
   }
 
   void initialize() {
     initializeOutput.clear();
 
-    setState(
-      () => initializeOutput.append('Initializing...'),
-    );
+    setState(() {
+      initializeOutput.append('Initializing...');
+    });
 
     HCRookConfigurationManager.initRook().then((_) {
-      setState(
-        () => initializeOutput.append('SDK initialized successfully'),
-      );
+      setState(() {
+        initializeOutput.append('SDK initialized successfully');
+      });
       checkUserIDRegistered();
     }).catchError((error) {
-      setState(
-        () => initializeOutput.append('Error initializing SDK: $error'),
-      );
+      setState(() {
+        initializeOutput.append('Error initializing SDK: $error');
+      });
     });
   }
 
@@ -210,10 +219,10 @@ class _SdkHealthConnectConfigurationState
           enableNavigation = true;
         });
       } else {
-        setState(
-          () => updateUserOutput
-              .append('Local userID not found, please set a userID'),
-        );
+        setState(() {
+          updateUserOutput
+              .append('Local userID not found, please set a userID');
+        });
       }
     });
   }
@@ -221,9 +230,9 @@ class _SdkHealthConnectConfigurationState
   void updateUserID(String? userID) {
     updateUserOutput.clear();
 
-    setState(
-      () => updateUserOutput.append('Updating userID...'),
-    );
+    setState(() {
+      updateUserOutput.append('Updating userID...');
+    });
 
     HCRookConfigurationManager.updateUserID(userID!).then((_) {
       setState(() {
@@ -231,62 +240,9 @@ class _SdkHealthConnectConfigurationState
         enableNavigation = true;
       });
     }).catchError((error) {
-      setState(
-        () => updateUserOutput.append('Error updating userID: $error'),
-      );
+      setState(() {
+        updateUserOutput.append('Error updating userID: $error');
+      });
     });
-  }
-
-  void deleteUser() {
-    logger.info('Deleting user from rook...');
-
-    HCRookConfigurationManager.deleteUserFromRook().then((_) {
-      logger.info('User deleted from rook');
-    }).catchError((error) {
-      logger.info('Error deleting user from rook: $error');
-    });
-  }
-
-  void updateTimeZoneInformation() {
-    logger.info('Updating user timezone...');
-
-    HCRookConfigurationManager.syncUserTimeZone().then((_) {
-      logger.info('User timezone updated successfully');
-    }).catchError((error) {
-      logger.info('Error updating user timezone: $error');
-    });
-  }
-
-  void loadDataSources() {
-    showModalBottomSheet<void>(
-      context: context,
-      enableDrag: false,
-      builder: (BuildContext context) {
-        return FutureBuilder(
-          future: HCRookDataSources.getAvailableDataSources(
-            redirectUrl: null,
-          ),
-          builder: (
-            BuildContext ctx,
-            AsyncSnapshot<List<DataSource>> snapshot,
-          ) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text('Error: ${snapshot.error}'),
-              );
-            } else {
-              return dataSourcesBottomSheet(
-                ctx,
-                snapshot.data!,
-              );
-            }
-          },
-        );
-      },
-    );
   }
 }
