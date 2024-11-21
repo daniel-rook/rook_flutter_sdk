@@ -71,27 +71,6 @@ class SyncStatusProto extends $pb.ProtobufEnum {
   const SyncStatusProto._($core.int v, $core.String n) : super(v, n);
 }
 
-class SyncInstructionProto extends $pb.ProtobufEnum {
-  static const SyncInstructionProto NOTHING =
-      SyncInstructionProto._(0, _omitEnumNames ? '' : 'NOTHING');
-  static const SyncInstructionProto SYNC_OLDEST =
-      SyncInstructionProto._(1, _omitEnumNames ? '' : 'SYNC_OLDEST');
-  static const SyncInstructionProto SYNC_LATEST =
-      SyncInstructionProto._(2, _omitEnumNames ? '' : 'SYNC_LATEST');
-
-  static const $core.List<SyncInstructionProto> values = <SyncInstructionProto>[
-    NOTHING,
-    SYNC_OLDEST,
-    SYNC_LATEST,
-  ];
-
-  static final $core.Map<$core.int, SyncInstructionProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static SyncInstructionProto? valueOf($core.int value) => _byValue[value];
-
-  const SyncInstructionProto._($core.int v, $core.String n) : super(v, n);
-}
-
 class HealthDataTypeProto extends $pb.ProtobufEnum {
   static const HealthDataTypeProto SLEEP_SUMMARY =
       HealthDataTypeProto._(0, _omitEnumNames ? '' : 'SLEEP_SUMMARY');

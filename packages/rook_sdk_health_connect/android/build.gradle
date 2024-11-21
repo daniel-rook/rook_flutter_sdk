@@ -5,8 +5,8 @@ buildscript {
     ext {
         kotlinVersion = "1.8.10"
         gradleVersion = "8.1.2"
-        rookSdkVersion = "1.6.0"
-        protoVersion = "4.28.1"
+        rookSdkVersion = "1.8.0"
+        protoVersion = "4.28.3"
         timber_version = "5.0.1"
 
 //        protoPluginVersion = "0.9.4"
@@ -61,7 +61,7 @@ android {
 
     dependencies {
         implementation "com.jakewharton.timber:timber:$timber_version"
-        implementation "com.google.protobuf:protobuf-java:$protoVersion"
+        implementation "com.google.protobuf:protobuf-javalite:$protoVersion"
         implementation("com.rookmotion.android:rook-sdk") {
             version {
                 strictly rookSdkVersion

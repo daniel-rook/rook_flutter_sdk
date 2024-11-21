@@ -1,28 +1,27 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
+import android.annotation.SuppressLint
 import android.content.Context
-import com.rookmotion.rook.sdk.RookYesterdaySyncManager
+import com.rookmotion.rook.sdk.RookContinuousUploadManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncPermissions
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
-import com.rookmotion.rook_sdk_health_connect.proto.SyncInstructionProto
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
-import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
 import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
-import com.rookmotion.rook_sdk_health_connect.mapper.toSyncInstruction
+import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-class YesterdaySyncHandler(
+class ContinuousUploadHandler(
     private val context: Context,
     private val coroutineScope: CoroutineScope,
-    private val rookYesterdaySyncManager: RookYesterdaySyncManager,
+    private val rookContinuousUploadManager: RookContinuousUploadManager,
 ) {
 
+    @SuppressLint("MissingPermission")
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
             "hasYesterdaySyncAndroidPermissions" -> {
@@ -73,18 +72,14 @@ class YesterdaySyncHandler(
                 try {
                     val enableNativeLogs = methodCall.getBooleanArgAt(0)
 
-                    val rookConfiguration = methodCall.getByteArrayArgAt(1).let {
-                        RookConfigurationProto.parseFrom(it).toRookConfiguration()
-                    }
-
-                    rookYesterdaySyncManager.scheduleYesterdaySync(
-                        enableNativeLogs,
-                        rookConfiguration.clientUUID,
-                        rookConfiguration.secretKey,
-                        rookConfiguration.environment,
+                    rookContinuousUploadManager.launchInForegroundService(enableNativeLogs).fold(
+                        {
+                            methodResult.booleanSuccess(true)
+                        },
+                        {
+                            methodResult.booleanError(it)
+                        }
                     )
-
-                    methodResult.booleanSuccess(true)
                 } catch (exception: Exception) {
                     methodResult.booleanError(exception)
                 }

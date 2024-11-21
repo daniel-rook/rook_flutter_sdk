@@ -5,8 +5,8 @@ import 'package:receive_intent/receive_intent.dart';
 import 'package:rook_flutter_sdk/app_router.dart';
 import 'package:rook_flutter_sdk/color_schemes.g.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/sdk_apple_health_configuration.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_configuration.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/hc_privacy_policy_screen.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/sdk_health_connect_configuration.dart';
 
 const String hc = 'androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE';
 const String hc14 = 'android.intent.action.VIEW_PERMISSION_USAGE';
@@ -53,7 +53,7 @@ class RookApp extends StatelessWidget {
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       initialRoute: defaultTargetPlatform == TargetPlatform.android
-          ? sdkHealthConnectConfigurationRoute
+          ? androidConfigurationRoute
           : sdkAppleHealthConfigurationRoute,
       onGenerateRoute: _router.onGenerateRoute,
     );

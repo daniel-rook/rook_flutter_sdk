@@ -1,7 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
+import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
 abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
@@ -44,9 +43,14 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<bool> checkHealthConnectPermissions();
 
+  Future<bool> checkHealthConnectPermissionsPartially();
+
   Future<RequestPermissionsStatus> requestHealthConnectPermissions();
 
-  Stream<bool> get requestHealthConnectPermissionsUpdates;
+  Future<void> revokeHealthConnectPermissions();
+
+  Stream<HealthConnectPermissionsSummary>
+      get requestHealthConnectPermissionsUpdates;
 
   Future<bool> checkAndroidPermissions();
 
@@ -54,7 +58,7 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<RequestPermissionsStatus> requestAndroidPermissions();
 
-  Stream<bool> get requestAndroidPermissionsUpdates;
+  Stream<AndroidPermissionsSummary> get requestAndroidPermissionsUpdates;
 
   @Deprecated("Will be deleted in next VERSION release")
   Future<bool> checkPermissions();
@@ -127,12 +131,7 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   @Deprecated("Will be deleted in next VERSION release")
   Future<void> requestYesterdaySyncHealthConnectPermissions();
 
-  Future<void> scheduleYesterdaySync(
-    bool enableNativeLogs,
-    String clientUUID,
-    String secretKey,
-    RookEnvironment environment,
-  );
+  Future<void> scheduleYesterdaySync(bool enableNativeLogs);
 
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
 

@@ -519,6 +519,174 @@ class PluginExceptionProto extends $pb.GeneratedMessage {
   void clearMessage() => clearField(3);
 }
 
+class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
+  factory HealthConnectPermissionsSummaryProto({
+    $core.bool? dataTypesGranted,
+    $core.bool? dataTypesPartiallyGranted,
+  }) {
+    final $result = create();
+    if (dataTypesGranted != null) {
+      $result.dataTypesGranted = dataTypesGranted;
+    }
+    if (dataTypesPartiallyGranted != null) {
+      $result.dataTypesPartiallyGranted = dataTypesPartiallyGranted;
+    }
+    return $result;
+  }
+  HealthConnectPermissionsSummaryProto._() : super();
+  factory HealthConnectPermissionsSummaryProto.fromBuffer(
+          $core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory HealthConnectPermissionsSummaryProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HealthConnectPermissionsSummaryProto',
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'dataTypesGranted',
+        protoName: 'dataTypesGranted')
+    ..aOB(2, _omitFieldNames ? '' : 'dataTypesPartiallyGranted',
+        protoName: 'dataTypesPartiallyGranted')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  HealthConnectPermissionsSummaryProto clone() =>
+      HealthConnectPermissionsSummaryProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  HealthConnectPermissionsSummaryProto copyWith(
+          void Function(HealthConnectPermissionsSummaryProto) updates) =>
+      super.copyWith((message) =>
+              updates(message as HealthConnectPermissionsSummaryProto))
+          as HealthConnectPermissionsSummaryProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static HealthConnectPermissionsSummaryProto create() =>
+      HealthConnectPermissionsSummaryProto._();
+  HealthConnectPermissionsSummaryProto createEmptyInstance() => create();
+  static $pb.PbList<HealthConnectPermissionsSummaryProto> createRepeated() =>
+      $pb.PbList<HealthConnectPermissionsSummaryProto>();
+  @$core.pragma('dart2js:noInline')
+  static HealthConnectPermissionsSummaryProto getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          HealthConnectPermissionsSummaryProto>(create);
+  static HealthConnectPermissionsSummaryProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get dataTypesGranted => $_getBF(0);
+  @$pb.TagNumber(1)
+  set dataTypesGranted($core.bool v) {
+    $_setBool(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasDataTypesGranted() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDataTypesGranted() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get dataTypesPartiallyGranted => $_getBF(1);
+  @$pb.TagNumber(2)
+  set dataTypesPartiallyGranted($core.bool v) {
+    $_setBool(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDataTypesPartiallyGranted() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDataTypesPartiallyGranted() => clearField(2);
+}
+
+class AndroidPermissionsSummaryProto extends $pb.GeneratedMessage {
+  factory AndroidPermissionsSummaryProto({
+    $core.bool? permissionsGranted,
+    $core.bool? dialogDisplayed,
+  }) {
+    final $result = create();
+    if (permissionsGranted != null) {
+      $result.permissionsGranted = permissionsGranted;
+    }
+    if (dialogDisplayed != null) {
+      $result.dialogDisplayed = dialogDisplayed;
+    }
+    return $result;
+  }
+  AndroidPermissionsSummaryProto._() : super();
+  factory AndroidPermissionsSummaryProto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AndroidPermissionsSummaryProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AndroidPermissionsSummaryProto',
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'permissionsGranted',
+        protoName: 'permissionsGranted')
+    ..aOB(2, _omitFieldNames ? '' : 'dialogDisplayed',
+        protoName: 'dialogDisplayed')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  AndroidPermissionsSummaryProto clone() =>
+      AndroidPermissionsSummaryProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  AndroidPermissionsSummaryProto copyWith(
+          void Function(AndroidPermissionsSummaryProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as AndroidPermissionsSummaryProto))
+          as AndroidPermissionsSummaryProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AndroidPermissionsSummaryProto create() =>
+      AndroidPermissionsSummaryProto._();
+  AndroidPermissionsSummaryProto createEmptyInstance() => create();
+  static $pb.PbList<AndroidPermissionsSummaryProto> createRepeated() =>
+      $pb.PbList<AndroidPermissionsSummaryProto>();
+  @$core.pragma('dart2js:noInline')
+  static AndroidPermissionsSummaryProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AndroidPermissionsSummaryProto>(create);
+  static AndroidPermissionsSummaryProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get permissionsGranted => $_getBF(0);
+  @$pb.TagNumber(1)
+  set permissionsGranted($core.bool v) {
+    $_setBool(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasPermissionsGranted() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPermissionsGranted() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get dialogDisplayed => $_getBF(1);
+  @$pb.TagNumber(2)
+  set dialogDisplayed($core.bool v) {
+    $_setBool(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDialogDisplayed() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDialogDisplayed() => clearField(2);
+}
+
 enum ResultBooleanProto_Result { success, pluginExceptionProto, notSet }
 
 class ResultBooleanProto extends $pb.GeneratedMessage {

@@ -56,21 +56,6 @@ const SyncStatusProto$json = {
 final $typed_data.Uint8List syncStatusProtoDescriptor = $convert.base64Decode(
     'Cg9TeW5jU3RhdHVzUHJvdG8SCgoGU1lOQ0VEEAASFQoRUkVDT1JEU19OT1RfRk9VTkQQAQ==');
 
-@$core.Deprecated('Use syncInstructionProtoDescriptor instead')
-const SyncInstructionProto$json = {
-  '1': 'SyncInstructionProto',
-  '2': [
-    {'1': 'NOTHING', '2': 0},
-    {'1': 'SYNC_OLDEST', '2': 1},
-    {'1': 'SYNC_LATEST', '2': 2},
-  ],
-};
-
-/// Descriptor for `SyncInstructionProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List syncInstructionProtoDescriptor = $convert.base64Decode(
-    'ChRTeW5jSW5zdHJ1Y3Rpb25Qcm90bxILCgdOT1RISU5HEAASDwoLU1lOQ19PTERFU1QQARIPCg'
-    'tTWU5DX0xBVEVTVBAC');
-
 @$core.Deprecated('Use healthDataTypeProtoDescriptor instead')
 const HealthDataTypeProto$json = {
   '1': 'HealthDataTypeProto',
@@ -250,6 +235,50 @@ const PluginExceptionProto$json = {
 final $typed_data.Uint8List pluginExceptionProtoDescriptor = $convert.base64Decode(
     'ChRQbHVnaW5FeGNlcHRpb25Qcm90bxIOCgJpZBgBIAEoEVICaWQSEgoEY29kZRgCIAEoEVIEY2'
     '9kZRIYCgdtZXNzYWdlGAMgASgJUgdtZXNzYWdl');
+
+@$core.Deprecated('Use healthConnectPermissionsSummaryProtoDescriptor instead')
+const HealthConnectPermissionsSummaryProto$json = {
+  '1': 'HealthConnectPermissionsSummaryProto',
+  '2': [
+    {'1': 'dataTypesGranted', '3': 1, '4': 1, '5': 8, '10': 'dataTypesGranted'},
+    {
+      '1': 'dataTypesPartiallyGranted',
+      '3': 2,
+      '4': 1,
+      '5': 8,
+      '10': 'dataTypesPartiallyGranted'
+    },
+  ],
+};
+
+/// Descriptor for `HealthConnectPermissionsSummaryProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List healthConnectPermissionsSummaryProtoDescriptor =
+    $convert.base64Decode(
+        'CiRIZWFsdGhDb25uZWN0UGVybWlzc2lvbnNTdW1tYXJ5UHJvdG8SKgoQZGF0YVR5cGVzR3Jhbn'
+        'RlZBgBIAEoCFIQZGF0YVR5cGVzR3JhbnRlZBI8ChlkYXRhVHlwZXNQYXJ0aWFsbHlHcmFudGVk'
+        'GAIgASgIUhlkYXRhVHlwZXNQYXJ0aWFsbHlHcmFudGVk');
+
+@$core.Deprecated('Use androidPermissionsSummaryProtoDescriptor instead')
+const AndroidPermissionsSummaryProto$json = {
+  '1': 'AndroidPermissionsSummaryProto',
+  '2': [
+    {
+      '1': 'permissionsGranted',
+      '3': 1,
+      '4': 1,
+      '5': 8,
+      '10': 'permissionsGranted'
+    },
+    {'1': 'dialogDisplayed', '3': 2, '4': 1, '5': 8, '10': 'dialogDisplayed'},
+  ],
+};
+
+/// Descriptor for `AndroidPermissionsSummaryProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List androidPermissionsSummaryProtoDescriptor =
+    $convert.base64Decode(
+        'Ch5BbmRyb2lkUGVybWlzc2lvbnNTdW1tYXJ5UHJvdG8SLgoScGVybWlzc2lvbnNHcmFudGVkGA'
+        'EgASgIUhJwZXJtaXNzaW9uc0dyYW50ZWQSKAoPZGlhbG9nRGlzcGxheWVkGAIgASgIUg9kaWFs'
+        'b2dEaXNwbGF5ZWQ=');
 
 @$core.Deprecated('Use resultBooleanProtoDescriptor instead')
 const ResultBooleanProto$json = {

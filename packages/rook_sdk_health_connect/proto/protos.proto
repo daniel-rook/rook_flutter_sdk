@@ -20,12 +20,6 @@ enum SyncStatusProto {
   RECORDS_NOT_FOUND = 1;
 }
 
-enum SyncInstructionProto {
-  NOTHING = 0;
-  SYNC_OLDEST = 1;
-  SYNC_LATEST = 2;
-}
-
 enum HealthDataTypeProto {
   SLEEP_SUMMARY = 0;
   PHYSICAL_SUMMARY = 1;
@@ -86,6 +80,16 @@ message PluginExceptionProto {
   sint32 id = 1;
   sint32 code = 2;
   string message = 3;
+}
+
+message HealthConnectPermissionsSummaryProto {
+  bool dataTypesGranted = 1;
+  bool dataTypesPartiallyGranted = 2;
+}
+
+message AndroidPermissionsSummaryProto {
+  bool permissionsGranted = 1;
+  bool dialogDisplayed = 2;
 }
 
 message ResultBooleanProto {

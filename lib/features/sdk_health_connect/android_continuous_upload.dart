@@ -9,17 +9,18 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-const String yesterdaySyncRoute = '/android/yesterday-sync';
+const String androidContinuousUploadRoute = '/android/continuous-upload';
 
-class YesterdaySync extends StatefulWidget {
-  const YesterdaySync({super.key});
+class AndroidContinuousUpload extends StatefulWidget {
+  const AndroidContinuousUpload({super.key});
 
   @override
-  State<YesterdaySync> createState() => _YesterdaySyncState();
+  State<AndroidContinuousUpload> createState() =>
+      _AndroidContinuousUploadState();
 }
 
-class _YesterdaySyncState extends State<YesterdaySync> {
-  final Logger logger = Logger('YesterdaySync');
+class _AndroidContinuousUploadState extends State<AndroidContinuousUpload> {
+  final Logger logger = Logger('AndroidContinuousUpload');
 
   SharedPreferences? sharedPreferences;
 
@@ -28,8 +29,9 @@ class _YesterdaySyncState extends State<YesterdaySync> {
   bool healthConnectPermissionsChecked = false;
   bool yesterdaySyncChecked = false;
 
-  StreamSubscription<bool>? androidPermissionsSubscription;
-  StreamSubscription<bool>? healthConnectPermissionsSubscription;
+  StreamSubscription<AndroidPermissionsSummary>? androidPermissionsSubscription;
+  StreamSubscription<HealthConnectPermissionsSummary>?
+      healthConnectPermissionsSubscription;
 
   @override
   void initState() {
@@ -37,25 +39,29 @@ class _YesterdaySyncState extends State<YesterdaySync> {
 
     androidPermissionsSubscription = HCRookHealthPermissionsManager
         .requestAndroidPermissionsUpdates
-        .listen((permissionsGranted) {
-      setState(
-        () => androidPermissionsChecked = permissionsGranted,
-      );
+        .listen((permissionsSummary) {
+      setState(() {
+        androidPermissionsChecked = permissionsSummary.permissionsGranted;
+        androidPermissionsPreviouslyDenied =
+            !permissionsSummary.dialogDisplayed;
+      });
     });
 
     healthConnectPermissionsSubscription = HCRookHealthPermissionsManager
         .requestHealthConnectPermissionsUpdates
-        .listen((permissionsGranted) {
-      setState(
-        () => healthConnectPermissionsChecked = permissionsGranted,
-      );
+        .listen((permissionsSummary) {
+      setState(() {
+        healthConnectPermissionsChecked = permissionsSummary.dataTypesGranted ||
+            permissionsSummary.dataTypesPartiallyGranted;
+      });
     });
 
-    HCRookHealthPermissionsManager.shouldRequestAndroidPermissions().then(
-      (shouldRequestPermissions) => setState(
-        () => androidPermissionsPreviouslyDenied = !shouldRequestPermissions,
-      ),
-    );
+    HCRookHealthPermissionsManager.shouldRequestAndroidPermissions()
+        .then((shouldRequestPermissions) {
+      setState(() {
+        androidPermissionsPreviouslyDenied = !shouldRequestPermissions;
+      });
+    });
 
     super.initState();
   }
@@ -71,7 +77,7 @@ class _YesterdaySyncState extends State<YesterdaySync> {
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
-      name: 'Yesterday Sync Permissions',
+      name: 'Continuous upload',
       alignment: Alignment.topCenter,
       child: FocusDetector(
         onFocusGained: () {
