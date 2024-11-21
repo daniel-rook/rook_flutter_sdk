@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.rookmotion.rook.sdk.RookPermissionsManager
+import com.rookmotion.rook_sdk_health_connect.proto.HealthConnectPermissionsSummaryProto
 import io.flutter.plugin.common.EventChannel
 
 class HealthConnectPermissionsReceiverTransmitter : BroadcastReceiver(), EventChannel.StreamHandler {
@@ -18,12 +19,23 @@ class HealthConnectPermissionsReceiverTransmitter : BroadcastReceiver(), EventCh
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        val permissionsGranted = intent?.getBooleanExtra(
+        val dataTypesGranted = intent?.getBooleanExtra(
             /* name = */ RookPermissionsManager.EXTRA_HEALTH_CONNECT_PERMISSIONS_GRANTED,
             /* defaultValue = */ false
         ) ?: false
 
-        eventSink?.success(permissionsGranted)
+        val dataTypesPartiallyGranted = intent?.getBooleanExtra(
+            /* name = */ RookPermissionsManager.EXTRA_HEALTH_CONNECT_PERMISSIONS_PARTIALLY_GRANTED,
+            /* defaultValue = */ false
+        ) ?: false
+
+        val bytes = HealthConnectPermissionsSummaryProto.newBuilder()
+            .setDataTypesGranted(dataTypesGranted)
+            .setDataTypesPartiallyGranted(dataTypesPartiallyGranted)
+            .build()
+            .toByteArray()
+
+        eventSink?.success(bytes)
     }
 
     companion object {

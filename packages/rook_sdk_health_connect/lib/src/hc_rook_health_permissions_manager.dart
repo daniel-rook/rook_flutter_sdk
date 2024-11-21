@@ -1,5 +1,5 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
+import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class HCRookHealthPermissionsManager {
@@ -65,6 +65,15 @@ class HCRookHealthPermissionsManager {
         .checkHealthConnectPermissions();
   }
 
+  /// Checks if at least one of the health connect permissions declared in manifest is granted:
+  ///
+  /// Health Connect permissions are declared with the syntax: **android.permission.health.READ..**,
+  /// to see the current Health Connect permissions go to you AndroidManifest and select the merged manifest tab.
+  static Future<bool> checkHealthConnectPermissionsPartially() {
+    return RookSdkHealthConnectPlatform.instance
+        .checkHealthConnectPermissionsPartially();
+  }
+
   /// Request the following permissions:
   ///
   /// * READ_SLEEP
@@ -99,6 +108,15 @@ class HCRookHealthPermissionsManager {
         .requestHealthConnectPermissions();
   }
 
+  /// Revoke (reset) all granted health connect permissions.
+  ///
+  /// You may notice that after calling this function the permissions are still granted,
+  /// however they will be revoked the next time the app is closed (process stops).
+  static Future<void> revokeHealthConnectPermissions() {
+    return RookSdkHealthConnectPlatform.instance
+        .revokeHealthConnectPermissions();
+  }
+
   /// Listen to this stream to get updates of a Health Connect permissions request.
   ///
   /// Example:
@@ -108,7 +126,7 @@ class HCRookHealthPermissionsManager {
   /// StreamSubscription<bool>? streamSubscription;
   ///
   /// // 2.- Listen to stream
-  /// streamSubscription = HCRookHealthPermissionsManager.requestHealthConnectPermissionsUpdates.listen((permissionsGranted) {
+  /// streamSubscription = HCRookHealthPermissionsManager.requestHealthConnectPermissionsUpdates.listen((permissionsSummary) {
   ///   // Updated your UI
   /// });
   ///
@@ -126,7 +144,8 @@ class HCRookHealthPermissionsManager {
   /// // 4.- Stop listening to the stream
   /// streamSubscription?.cancel();
   /// ```
-  static Stream<bool> get requestHealthConnectPermissionsUpdates {
+  static Stream<HealthConnectPermissionsSummary>
+      get requestHealthConnectPermissionsUpdates {
     return RookSdkHealthConnectPlatform
         .instance.requestHealthConnectPermissionsUpdates;
   }
@@ -182,7 +201,7 @@ class HCRookHealthPermissionsManager {
   /// StreamSubscription<bool>? streamSubscription;
   ///
   /// // 2.- Listen to stream
-  /// streamSubscription = HCRookHealthPermissionsManager.requestAndroidPermissionsUpdates.listen((permissionsGranted) {
+  /// streamSubscription = HCRookHealthPermissionsManager.requestAndroidPermissionsUpdates.listen((permissionsSummary) {
   ///   // Updated your UI
   /// });
   ///
@@ -202,7 +221,8 @@ class HCRookHealthPermissionsManager {
   /// // 4.- Stop listening to the stream
   /// streamSubscription?.cancel();
   /// ```
-  static Stream<bool> get requestAndroidPermissionsUpdates {
+  static Stream<AndroidPermissionsSummary>
+      get requestAndroidPermissionsUpdates {
     return RookSdkHealthConnectPlatform
         .instance.requestAndroidPermissionsUpdates;
   }

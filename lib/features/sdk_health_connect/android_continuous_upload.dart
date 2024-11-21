@@ -15,7 +15,8 @@ class AndroidContinuousUpload extends StatefulWidget {
   const AndroidContinuousUpload({super.key});
 
   @override
-  State<AndroidContinuousUpload> createState() => _AndroidContinuousUploadState();
+  State<AndroidContinuousUpload> createState() =>
+      _AndroidContinuousUploadState();
 }
 
 class _AndroidContinuousUploadState extends State<AndroidContinuousUpload> {
@@ -28,8 +29,9 @@ class _AndroidContinuousUploadState extends State<AndroidContinuousUpload> {
   bool healthConnectPermissionsChecked = false;
   bool yesterdaySyncChecked = false;
 
-  StreamSubscription<bool>? androidPermissionsSubscription;
-  StreamSubscription<bool>? healthConnectPermissionsSubscription;
+  StreamSubscription<AndroidPermissionsSummary>? androidPermissionsSubscription;
+  StreamSubscription<HealthConnectPermissionsSummary>?
+      healthConnectPermissionsSubscription;
 
   @override
   void initState() {
@@ -37,25 +39,29 @@ class _AndroidContinuousUploadState extends State<AndroidContinuousUpload> {
 
     androidPermissionsSubscription = HCRookHealthPermissionsManager
         .requestAndroidPermissionsUpdates
-        .listen((permissionsGranted) {
-      setState(
-        () => androidPermissionsChecked = permissionsGranted,
-      );
+        .listen((permissionsSummary) {
+      setState(() {
+        androidPermissionsChecked = permissionsSummary.permissionsGranted;
+        androidPermissionsPreviouslyDenied =
+            !permissionsSummary.dialogDisplayed;
+      });
     });
 
     healthConnectPermissionsSubscription = HCRookHealthPermissionsManager
         .requestHealthConnectPermissionsUpdates
-        .listen((permissionsGranted) {
-      setState(
-        () => healthConnectPermissionsChecked = permissionsGranted,
-      );
+        .listen((permissionsSummary) {
+      setState(() {
+        healthConnectPermissionsChecked = permissionsSummary.dataTypesGranted ||
+            permissionsSummary.dataTypesPartiallyGranted;
+      });
     });
 
-    HCRookHealthPermissionsManager.shouldRequestAndroidPermissions().then(
-      (shouldRequestPermissions) => setState(
-        () => androidPermissionsPreviouslyDenied = !shouldRequestPermissions,
-      ),
-    );
+    HCRookHealthPermissionsManager.shouldRequestAndroidPermissions()
+        .then((shouldRequestPermissions) {
+      setState(() {
+        androidPermissionsPreviouslyDenied = !shouldRequestPermissions;
+      });
+    });
 
     super.initState();
   }

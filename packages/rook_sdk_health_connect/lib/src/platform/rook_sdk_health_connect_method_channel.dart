@@ -1,20 +1,20 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
+import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_request_permissions_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/data_source_type_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/health_connect_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/rook_environment_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
-import 'package:rook_sdk_health_connect/src/domain/enums/hc_health_data_type.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
@@ -145,6 +145,17 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  Future<bool> checkHealthConnectPermissionsPartially() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'checkHealthConnectPermissionsPartially',
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
   Future<RequestPermissionsStatus> requestHealthConnectPermissions() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'requestHealthConnectPermissions',
@@ -156,10 +167,22 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Stream<bool> get requestHealthConnectPermissionsUpdates {
+  Future<void> revokeHealthConnectPermissions() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'revokeHealthConnectPermissions',
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Stream<HealthConnectPermissionsSummary>
+      get requestHealthConnectPermissionsUpdates {
     return healthConnectPermissionsEventChannel.receiveBroadcastStream().map(
       (bytes) {
-        return bytes as bool;
+        return HealthConnectPermissionsSummaryProto.fromBuffer(bytes)
+            .toDomain();
       },
     );
   }
@@ -194,10 +217,10 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Stream<bool> get requestAndroidPermissionsUpdates {
+  Stream<AndroidPermissionsSummary> get requestAndroidPermissionsUpdates {
     return androidPermissionsEventChannel.receiveBroadcastStream().map(
       (bytes) {
-        return bytes as bool;
+        return AndroidPermissionsSummaryProto.fromBuffer(bytes).toDomain();
       },
     );
   }
@@ -584,24 +607,11 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> scheduleYesterdaySync(
-    bool enableNativeLogs,
-    String clientUUID,
-    String secretKey,
-    RookEnvironment environment,
-  ) async {
-    final rookConfigurationProto = RookConfigurationProto(
-      clientUUID: clientUUID,
-      secretKey: secretKey,
-      environment: environment.toProto(),
-      enableBackgroundSync: false,
-    );
-
+  Future<void> scheduleYesterdaySync(bool enableNativeLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'scheduleYesterdaySync',
       [
         enableNativeLogs,
-        rookConfigurationProto.writeToBuffer(),
       ],
     );
 

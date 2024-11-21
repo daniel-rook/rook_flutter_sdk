@@ -62,6 +62,17 @@ class PermissionsHandler(
                 )
             }
 
+            "checkHealthConnectPermissionsPartially" -> coroutineScope.launch {
+                rookPermissionsManager.checkHealthConnectPermissionsPartially().fold(
+                    {
+                        methodResult.booleanSuccess(it)
+                    },
+                    {
+                        methodResult.booleanError(it)
+                    }
+                )
+            }
+
             "requestHealthConnectPermissions" -> coroutineScope.launch {
                 rookPermissionsManager.requestHealthConnectPermissions().fold(
                     {
@@ -69,6 +80,17 @@ class PermissionsHandler(
                     },
                     {
                         methodResult.requestPermissionsStatusError(it)
+                    }
+                )
+            }
+
+            "revokeHealthConnectPermissions" -> coroutineScope.launch {
+                rookPermissionsManager.revokeHealthConnectPermissions().fold(
+                    {
+                        methodResult.booleanSuccess(true)
+                    },
+                    {
+                        methodResult.booleanError(it)
                     }
                 )
             }

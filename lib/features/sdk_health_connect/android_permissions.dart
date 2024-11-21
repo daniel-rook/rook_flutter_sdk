@@ -24,32 +24,60 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
 
   final ConsoleOutput hcAvailabilityOutput = ConsoleOutput();
   final ConsoleOutput checkHCPermissionsOutput = ConsoleOutput();
+  final ConsoleOutput checkHCPermissionsPartiallyOutput = ConsoleOutput();
   final ConsoleOutput requestHCPermissionsOutput = ConsoleOutput();
+  final ConsoleOutput revokeHCPermissionsOutput = ConsoleOutput();
   final ConsoleOutput openHealthConnectOutput = ConsoleOutput();
   final ConsoleOutput checkAndroidPermissionsOutput = ConsoleOutput();
   final ConsoleOutput requestAndroidPermissionsOutput = ConsoleOutput();
 
-  StreamSubscription<bool>? healthConnectPermissionsSubscription;
-  StreamSubscription<bool>? androidPermissionsSubscription;
+  StreamSubscription<HealthConnectPermissionsSummary>?
+      healthConnectPermissionsSubscription;
+  StreamSubscription<AndroidPermissionsSummary>? androidPermissionsSubscription;
 
   @override
   void initState() {
     healthConnectPermissionsSubscription = HCRookHealthPermissionsManager
         .requestHealthConnectPermissionsUpdates
-        .listen((permissionsGranted) {
-      setState(() {
-        checkHCPermissionsOutput.append('Permissions granted');
-        requestHCPermissionsOutput.append('Permissions granted');
-      });
+        .listen((permissionsSummary) {
+      if (permissionsSummary.dataTypesGranted) {
+        setState(() {
+          checkHCPermissionsOutput.append('Permissions granted');
+          checkHCPermissionsPartiallyOutput
+              .append('Permissions partially granted');
+          requestHCPermissionsOutput.append('Permissions granted');
+        });
+      }
+
+      if (permissionsSummary.dataTypesPartiallyGranted) {
+        setState(() {
+          checkHCPermissionsPartiallyOutput
+              .append('Permissions partially granted');
+        });
+      }
     });
 
     androidPermissionsSubscription = HCRookHealthPermissionsManager
         .requestAndroidPermissionsUpdates
-        .listen((permissionsGranted) {
-      setState(() {
-        checkAndroidPermissionsOutput.append('Permissions granted');
-        requestAndroidPermissionsOutput.append('Permissions granted');
-      });
+        .listen((permissionsSummary) {
+      if (permissionsSummary.dialogDisplayed) {
+        setState(() {
+          requestAndroidPermissionsOutput.append('Dialog was displayed');
+        });
+      } else {
+        setState(() {
+          requestAndroidPermissionsOutput.append(
+            'Android permissions previously denied, open app settings and give permissions manually',
+          );
+        });
+      }
+
+      if (permissionsSummary.permissionsGranted) {
+        setState(() {
+          checkAndroidPermissionsOutput.append('Permissions granted');
+          requestAndroidPermissionsOutput.append('Permissions granted');
+        });
+      }
     });
 
     super.initState();
@@ -87,10 +115,20 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
             onPressed: checkHealthConnectPermissions,
             child: const Text('checkHealthConnectPermissions'),
           ),
+          Text(checkHCPermissionsPartiallyOutput.current),
+          FilledButton(
+            onPressed: checkHealthConnectPermissionsPartially,
+            child: const Text('checkHealthConnectPermissionsPartially'),
+          ),
           Text(requestHCPermissionsOutput.current),
           FilledButton(
             onPressed: requestHealthConnectPermissions,
             child: const Text('requestHealthConnectPermissions'),
+          ),
+          Text(revokeHCPermissionsOutput.current),
+          FilledButton(
+            onPressed: revokeHealthConnectPermissions,
+            child: const Text('revokeHealthConnectPermissions'),
           ),
           Text(openHealthConnectOutput.current),
           FilledButton(
@@ -179,6 +217,32 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
     });
   }
 
+  void checkHealthConnectPermissionsPartially() {
+    checkHCPermissionsPartiallyOutput.clear();
+
+    setState(() {
+      checkHCPermissionsPartiallyOutput
+          .append('Verifying Health Connect permissions...');
+    });
+
+    HCRookHealthPermissionsManager.checkHealthConnectPermissionsPartially()
+        .then((permissionsPartiallyGranted) {
+      String message = switch (permissionsPartiallyGranted) {
+        true => 'Permissions partially granted',
+        false => 'There is one or more missing permissions',
+      };
+
+      setState(() {
+        checkHCPermissionsPartiallyOutput.append(message);
+      });
+    }).catchError((error) {
+      setState(() {
+        checkHCPermissionsPartiallyOutput
+            .append('Error verifying Health Connect permissions: $error');
+      });
+    });
+  }
+
   void requestHealthConnectPermissions() {
     requestHCPermissionsOutput.clear();
 
@@ -203,6 +267,27 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
       setState(() {
         requestHCPermissionsOutput
             .append('Error requesting Health Connect permissions: $error');
+      });
+    });
+  }
+
+  void revokeHealthConnectPermissions() {
+    revokeHCPermissionsOutput.clear();
+
+    setState(() {
+      revokeHCPermissionsOutput
+          .append('Verifying Health Connect permissions...');
+    });
+
+    HCRookHealthPermissionsManager.revokeHealthConnectPermissions().then((_) {
+      setState(() {
+        revokeHCPermissionsOutput.append(
+            'Health Connect permissions revoked, restart the app to apply the changes');
+      });
+    }).catchError((error) {
+      setState(() {
+        revokeHCPermissionsOutput
+            .append('Error revoking Health Connect permissions: $error');
       });
     });
   }

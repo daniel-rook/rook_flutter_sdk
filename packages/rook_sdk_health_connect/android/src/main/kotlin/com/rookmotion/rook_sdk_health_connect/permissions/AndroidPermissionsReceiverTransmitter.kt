@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.rookmotion.rook.sdk.RookPermissionsManager
+import com.rookmotion.rook_sdk_health_connect.proto.AndroidPermissionsSummaryProto
 import io.flutter.plugin.common.EventChannel
 
 class AndroidPermissionsReceiverTransmitter : BroadcastReceiver(), EventChannel.StreamHandler {
@@ -23,7 +24,18 @@ class AndroidPermissionsReceiverTransmitter : BroadcastReceiver(), EventChannel.
             /* defaultValue = */ false
         ) ?: false
 
-        eventSink?.success(permissionsGranted)
+        val dialogDisplayed = intent?.getBooleanExtra(
+            /* name = */ RookPermissionsManager.EXTRA_ANDROID_PERMISSIONS_DIALOG_DISPLAYED,
+            /* defaultValue = */ false
+        ) ?: false
+
+        val bytes = AndroidPermissionsSummaryProto.newBuilder()
+            .setPermissionsGranted(permissionsGranted)
+            .setDialogDisplayed(dialogDisplayed)
+            .build()
+            .toByteArray()
+
+        eventSink?.success(bytes)
     }
 
     companion object {

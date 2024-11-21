@@ -1,4 +1,3 @@
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
@@ -34,16 +33,11 @@ class HCRookYesterdaySyncManager {
   /// Is possible that all days won't be synced, that's because Google imposes a limit on the number of request your app can made to the Health Connect API.
   /// This SDK will attempt to get as much data as possible and when the limit is meet all further attempts will be stopped
   /// until the user re-opens the app after a few hours.
-  static Future<void> scheduleYesterdaySync(
-      {required bool enableNativeLogs,
-      required String clientUUID,
-      required String secretKey,
-      required RookEnvironment environment}) {
+  static Future<void> scheduleYesterdaySync({
+    required bool enableNativeLogs,
+  }) {
     return RookSdkHealthConnectPlatform.instance.scheduleYesterdaySync(
       enableNativeLogs,
-      clientUUID,
-      secretKey,
-      environment,
     );
   }
 }

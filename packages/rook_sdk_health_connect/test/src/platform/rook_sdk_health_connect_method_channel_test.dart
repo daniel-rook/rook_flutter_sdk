@@ -164,12 +164,7 @@ void resultBooleanTests(
 
     test('GIVEN the happy path WHEN scheduleYesterdaySync THEN complete',
         () async {
-      final future = platform.scheduleYesterdaySync(
-        true,
-        'rookUrl',
-        'clientUUID',
-        RookEnvironment.sandbox,
-      );
+      final future = platform.scheduleYesterdaySync(true);
 
       await expectLater(future, completes);
     });
@@ -327,12 +322,7 @@ void resultBooleanTests(
     test(
         'GIVEN the unhappy path WHEN scheduleYesterdaySync THEN throw exception',
         () async {
-      final future = platform.scheduleYesterdaySync(
-        true,
-        'rookUrl',
-        'clientUUID',
-        RookEnvironment.sandbox,
-      );
+      final future = platform.scheduleYesterdaySync(true);
 
       await expectLater(future, throwsA(isException));
     });

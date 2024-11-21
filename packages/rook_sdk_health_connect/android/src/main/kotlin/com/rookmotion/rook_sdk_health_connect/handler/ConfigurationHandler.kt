@@ -1,6 +1,8 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
+import android.annotation.SuppressLint
 import com.rookmotion.rook.sdk.RookConfigurationManager
+import com.rookmotion.rook.sdk.RookContinuousUploadManager
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookYesterdaySyncManager
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
@@ -20,7 +22,7 @@ import kotlinx.coroutines.launch
 class ConfigurationHandler(
     private val coroutineScope: CoroutineScope,
     private val rookConfigurationManager: RookConfigurationManager,
-    private val rookYesterdaySyncManager: RookYesterdaySyncManager,
+    private val rookContinuousUploadManager: RookContinuousUploadManager,
     private val rookStepsManager: RookStepsManager,
 ) {
 
@@ -120,20 +122,13 @@ class ConfigurationHandler(
         }
     }
 
+    @SuppressLint("MissingPermission")
     private suspend fun attemptToEnableBackgroundSync() {
         if (!enableBackgroundSync) {
             return
         }
 
-        val configuration = rookConfiguration ?: return
-
-        rookYesterdaySyncManager.scheduleYesterdaySync(
-            enableLogs = enableNativeLogs,
-            clientUUID = configuration.clientUUID,
-            secretKey = configuration.secretKey,
-            environment = configuration.environment,
-        )
-
+        rookContinuousUploadManager.launchInForegroundService(enableNativeLogs)
         rookStepsManager.enableBackgroundAndroidSteps()
     }
 }
