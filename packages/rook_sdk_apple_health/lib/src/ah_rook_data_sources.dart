@@ -1,6 +1,7 @@
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
+/// Helper class used to manage the data sources of the current user.
 class AHRookDataSources {
   AHRookDataSources._();
 

@@ -1,3 +1,4 @@
+/// This enum represents all available data types on Health Connect.
 enum HCHealthDataType {
   sleepSummary,
   physicalSummary,

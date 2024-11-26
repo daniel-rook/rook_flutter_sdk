@@ -1,5 +1,6 @@
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 
+/// Helper class to request/check permissions used by this SDK.
 class AHRookHealthPermissionsManager {
   AHRookHealthPermissionsManager._();
 
