@@ -45,13 +45,13 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
           const SectionTitle('Sync user (Device) timezone'),
           Text(syncTimezoneUserOutput.current),
           FilledButton(
-            onPressed: deleteUser,
+            onPressed: updateTimeZoneInformation,
             child: const Text("syncUserTimeZone"),
           ),
           const SectionTitle('Delete (locally) user'),
           Text(clearUserOutput.current),
           FilledButton(
-            onPressed: deleteUser,
+            onPressed: clearUser,
             child: const Text("clearUserID"),
           ),
           const SectionTitle('Delete (deactivate) user from ROOK'),

@@ -74,7 +74,7 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
           Text(requestAHPermissionsOutput.current),
           FilledButton(
             onPressed: requestAppleHealthPermissions,
-            child: const Text('requestHealthConnectPermissions'),
+            child: const Text('requestAppleHealthPermissions'),
           ),
           const SizedBox(height: 20),
           FilledButton(
