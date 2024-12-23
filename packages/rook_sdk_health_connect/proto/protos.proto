@@ -15,6 +15,20 @@ enum AvailabilityStatusProto {
   NOT_SUPPORTED = 2;
 }
 
+enum RequestPermissionsStatusProto {
+  REQUEST_SENT = 0;
+  ALREADY_GRANTED = 1;
+}
+
+enum DataSourceTypeProto {
+  GARMIN = 0;
+  OURA = 1;
+  POLAR = 2;
+  FITBIT = 3;
+  WITHINGS = 4;
+  WHOOP = 5;
+}
+
 enum SyncStatusProto {
   SYNCED = 0;
   RECORDS_NOT_FOUND = 1;
@@ -37,20 +51,6 @@ enum HealthDataTypeProto {
   TEMPERATURE_BODY_EVENT = 13;
 }
 
-enum RequestPermissionsStatusProto {
-  REQUEST_SENT = 0;
-  ALREADY_GRANTED = 1;
-}
-
-enum DataSourceTypeProto {
-  GARMIN = 0;
-  OURA = 1;
-  POLAR = 2;
-  FITBIT = 3;
-  WITHINGS = 4;
-  WHOOP = 5;
-}
-
 message RookConfigurationProto {
   string clientUUID = 1;
   string secretKey = 2;
@@ -71,6 +71,16 @@ message DataSourcesProtoListWrapper {
   repeated DataSourceProto dataSources = 1;
 }
 
+message HealthConnectPermissionsSummaryProto {
+  bool dataTypesGranted = 1;
+  bool dataTypesPartiallyGranted = 2;
+}
+
+message AndroidPermissionsSummaryProto {
+  bool permissionsGranted = 1;
+  bool dialogDisplayed = 2;
+}
+
 message SyncStatusWithIntProto {
   SyncStatusProto syncStatus = 1;
   uint32 steps = 2;
@@ -80,16 +90,6 @@ message PluginExceptionProto {
   sint32 id = 1;
   sint32 code = 2;
   string message = 3;
-}
-
-message HealthConnectPermissionsSummaryProto {
-  bool dataTypesGranted = 1;
-  bool dataTypesPartiallyGranted = 2;
-}
-
-message AndroidPermissionsSummaryProto {
-  bool permissionsGranted = 1;
-  bool dialogDisplayed = 2;
 }
 
 message ResultBooleanProto {
@@ -106,20 +106,6 @@ message ResultInt64Proto {
   }
 }
 
-message ResultSyncStatusProto {
-  oneof result {
-    SyncStatusProto syncStatusProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultSyncStatusWithIntProto {
-  oneof result {
-    SyncStatusWithIntProto syncStatusWithIntProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
 message ResultDataSourcesProto {
   oneof result {
     DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
@@ -130,6 +116,20 @@ message ResultDataSourcesProto {
 message ResultRequestPermissionsStatusProto {
   oneof result {
     RequestPermissionsStatusProto requestPermissionsStatusProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultSyncStatusProto {
+  oneof result {
+    SyncStatusProto syncStatusProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultSyncStatusWithIntProto {
+  oneof result {
+    SyncStatusWithIntProto syncStatusWithIntProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }
