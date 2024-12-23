@@ -20,6 +20,7 @@ export 'src/exception/sdk_not_initialized_exception.dart';
 export 'src/exception/user_not_deleted_exception.dart';
 export 'src/exception/user_not_initialized_exception.dart';
 export 'src/exception/user_not_registered_exception.dart';
+export 'src/model/authorized_data_sources.dart';
 export 'src/model/data_source.dart';
 export 'src/model/rook_configuration.dart';
 export 'src/model/sync_status_with_data.dart';

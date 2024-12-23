@@ -1,3 +1,7 @@
+## 0.4.4
+
+* Added `AuthorizedDataSources`
+
 ## 0.4.3
 
 * Deprecated property `image` in `DataSource`, replace with `imageUrl`.
