@@ -3,19 +3,19 @@ import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
+import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 
-const String androidUserManagementRoute = '/android/user-management';
+const String iosUserManagementRoute = '/ios/user-management';
 
-class AndroidUserManagement extends StatefulWidget {
-  const AndroidUserManagement({super.key});
+class IOSUserManagement extends StatefulWidget {
+  const IOSUserManagement({super.key});
 
   @override
-  State<AndroidUserManagement> createState() => _AndroidUserManagementState();
+  State<IOSUserManagement> createState() => _IOSUserManagementState();
 }
 
-class _AndroidUserManagementState extends State<AndroidUserManagement> {
-  final Logger logger = Logger('AndroidUserManagement');
+class _IOSUserManagementState extends State<IOSUserManagement> {
+  final Logger logger = Logger('IOSUserManagement');
 
   final ConsoleOutput clearUserOutput = ConsoleOutput();
   final ConsoleOutput deleteUserOutput = ConsoleOutput();
@@ -25,7 +25,7 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
 
   @override
   void initState() {
-    HCRookConfigurationManager.getUserID().then((userID) {
+    AHRookConfigurationManager.getUserID().then((userID) {
       this.userID = userID;
     }).catchError((error) {
       userID = '$error';
@@ -72,7 +72,7 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
       syncTimezoneUserOutput.append('Updating user timezone...');
     });
 
-    HCRookConfigurationManager.syncUserTimeZone().then((_) {
+    AHRookConfigurationManager.syncUserTimeZone().then((_) {
       setState(() {
         syncTimezoneUserOutput.append('User timezone updated successfully');
       });
@@ -90,7 +90,7 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
       deleteUserOutput.append('Clearing user...');
     });
 
-    HCRookConfigurationManager.clearUserID().then((_) {
+    AHRookConfigurationManager.clearUserID().then((_) {
       setState(() {
         deleteUserOutput.append('User cleared');
         userID = '';
@@ -109,7 +109,7 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
       deleteUserOutput.append('Deleting user from rook...');
     });
 
-    HCRookConfigurationManager.deleteUserFromRook().then((_) {
+    AHRookConfigurationManager.deleteUserFromRook().then((_) {
       setState(() {
         deleteUserOutput.append('User deleted from rook');
         userID = '';

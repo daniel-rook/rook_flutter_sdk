@@ -1,6 +1,13 @@
 import 'package:rook_sdk_health_connect/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 
+/// Unwraps the `ResultBooleanProto` and returns a bool if exists.
+///
+/// Throws an exception if the bool does not exists.
+///
+/// **Exceptions:**
+/// * Throws a `PlatformException` if the result contains a `PluginExceptionProto`.
+/// * Throws a generic `Exception` if the result type is unknown.
 extension ResultBooleanExtensions on ResultBooleanProto {
   bool unwrap() {
     final resultType = whichResult();

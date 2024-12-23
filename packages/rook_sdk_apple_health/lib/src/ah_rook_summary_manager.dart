@@ -1,5 +1,6 @@
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 
+/// Helper class used to manage health summaries synchronization.
 class AHRookSummaryManager {
   AHRookSummaryManager._();
 

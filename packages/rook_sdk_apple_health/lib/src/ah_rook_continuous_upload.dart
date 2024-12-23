@@ -1,6 +1,7 @@
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
+/// Helper class to launch 29 days historic health data synchronizations.
 class AHRookContinuousUpload {
   AHRookContinuousUpload._();
 

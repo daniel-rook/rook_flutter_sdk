@@ -1,6 +1,7 @@
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 
+/// Helper functions for Rook SDK.
 class AHRookHelpers {
   AHRookHelpers._();
 

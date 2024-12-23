@@ -2,32 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/widget/data_sources_bottom_sheet.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/sdk_apple_health_playground.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_background_sync.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_continuous_upload.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_data_sources.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_sync.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_user_management.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-const String sdkAppleHealthConfigurationRoute =
-    '/sdk-apple-health/configuration';
+const String iosConfigurationRoute = '/ios/configuration';
 
-class SdkAppleHealthConfiguration extends StatefulWidget {
-  const SdkAppleHealthConfiguration({super.key});
+class IOSConfiguration extends StatefulWidget {
+  const IOSConfiguration({super.key});
 
   @override
-  State<SdkAppleHealthConfiguration> createState() =>
-      _SdkAppleHealthConfigurationState();
+  State<IOSConfiguration> createState() => _IOSConfigurationState();
 }
 
-class _SdkAppleHealthConfigurationState
-    extends State<SdkAppleHealthConfiguration> {
-  final Logger logger = Logger('SdkAppleHealthConfiguration');
+class _IOSConfigurationState extends State<IOSConfiguration> {
+  final Logger logger = Logger('IOSConfiguration');
 
   final ConsoleOutput configurationOutput = ConsoleOutput();
   final ConsoleOutput initializeOutput = ConsoleOutput();
   final ConsoleOutput updateUserOutput = ConsoleOutput();
+  final ConsoleOutput requestAHPermissionsOutput = ConsoleOutput();
 
   bool enableNavigation = false;
 
@@ -36,7 +38,7 @@ class _SdkAppleHealthConfigurationState
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
-      name: 'SDK Apple Health Configuration',
+      name: 'SDK Configuration',
       child: Column(
         children: [
           const SectionTitle('1. Configure SDK'),
@@ -68,33 +70,52 @@ class _SdkAppleHealthConfigurationState
             },
             child: const Text('Update user'),
           ),
-          const SectionTitle('4. Request permissions'),
+          const SectionTitle('4. Apple Health permissions'),
+          Text(requestAHPermissionsOutput.current),
           FilledButton(
-            onPressed: requestPermissions,
-            child: const Text('Request permissions'),
+            onPressed: requestAppleHealthPermissions,
+            child: const Text('requestAppleHealthPermissions'),
           ),
           const SizedBox(height: 20),
           FilledButton(
             onPressed: enableNavigation
                 ? () => Navigator.of(context).pushNamed(
-                      sdkAppleHealthPlaygroundRoute,
+                      iosUserManagementRoute,
                     )
                 : null,
-            child: const Text('Apple Health'),
-          ),
-          FilledButton(
-            onPressed: enableNavigation ? loadDataSources : null,
-            child: const Text('Connections page (data sources list)'),
+            child: const Text('User management'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () {
-                    AHRookDataSources.presentDataSourceView(
-                      redirectUrl: "https://tryrook.io",
-                    );
-                  }
+                ? () => Navigator.of(context).pushNamed(
+                      iosDataSourcesRoute,
+                    )
                 : null,
-            child: const Text('Connections page (pre-built)'),
+            child: const Text('Data sources'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+                      iosSyncRoute,
+                    )
+                : null,
+            child: const Text('Manually sync health data'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+                      iosContinuousUploadRoute,
+                    )
+                : null,
+            child: const Text('Continuous upload'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+              iosBackgroundSyncRoute,
+            )
+                : null,
+            child: const Text('Background sync'),
           ),
         ],
       ),
@@ -108,12 +129,18 @@ class _SdkAppleHealthConfigurationState
     return null;
   }
 
-  void setConfiguration() {
+  void setConfiguration() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    final acceptedBackground = sharedPreferences.getBool(
+      acceptedIosBackgroundKey,
+    );
+
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
       secretKey: Secrets.secretKey,
       environment: rookEnvironment,
-      enableBackgroundSync: true,
+      // This should be based on user choice: acceptedBackground
+      enableBackgroundSync: false,
     );
 
     configurationOutput.clear();
@@ -127,27 +154,27 @@ class _SdkAppleHealthConfigurationState
 
     AHRookConfigurationManager.setConfiguration(rookConfiguration);
 
-    setState(
-      () => configurationOutput.append('Configuration set successfully'),
-    );
+    setState(() {
+      configurationOutput.append('Configuration set successfully');
+    });
   }
 
   void initialize() {
     initializeOutput.clear();
 
-    setState(
-      () => initializeOutput.append('Initializing...'),
-    );
+    setState(() {
+      initializeOutput.append('Initializing...');
+    });
 
     AHRookConfigurationManager.initRook().then((_) {
-      setState(
-        () => initializeOutput.append('SDK initialized successfully'),
-      );
+      setState(() {
+        initializeOutput.append('SDK initialized successfully');
+      });
       checkUserIDRegistered();
     }).catchError((error) {
-      setState(
-        () => initializeOutput.append('Error initializing SDK: $error'),
-      );
+      setState(() {
+        initializeOutput.append('Error initializing SDK: $error');
+      });
     });
   }
 
@@ -172,85 +199,42 @@ class _SdkAppleHealthConfigurationState
   void updateUserID(String? userID) {
     updateUserOutput.clear();
 
-    setState(
-      () => updateUserOutput.append('Updating userID...'),
-    );
+    setState(() {
+      updateUserOutput.append('Updating userID...');
+    });
 
     AHRookConfigurationManager.updateUserID(userID!).then((_) {
       setState(() {
         updateUserOutput.append('userID updated successfully');
       });
     }).catchError((error) {
-      setState(
-        () => updateUserOutput.append('Error updating userID: $error'),
-      );
+      setState(() {
+        updateUserOutput.append('Error updating userID: $error');
+      });
     });
   }
 
-  void deleteUser() {
-    logger.info('Deleting user from rook...');
+  void requestAppleHealthPermissions() {
+    requestAHPermissionsOutput.clear();
 
-    AHRookConfigurationManager.deleteUserFromRook().then((_) {
-      logger.info('User deleted from rook');
-    }).catchError((error) {
-      logger.info('Error deleting user from rook: $error');
+    setState(() {
+      requestAHPermissionsOutput
+          .append('Requesting Apple Health permissions...');
     });
-  }
-
-  void updateTimeZoneInformation() {
-    logger.info('Updating user timezone...');
-
-    AHRookConfigurationManager.syncUserTimeZone().then((_) {
-      logger.info('User timezone updated successfully');
-    }).catchError((error) {
-      logger.info('Error updating user timezone: $error');
-    });
-  }
-
-  void requestPermissions() {
-    logger.info('Requesting all permissions...');
 
     AHRookHealthPermissionsManager.requestPermissions().then((_) {
-      logger.info('All permissions request sent');
-
-      setState(
-        () => enableNavigation = true,
-      );
-    }).catchError((error) {
-      logger.severe('Error requesting permissions: $error');
-    });
-  }
-
-  void loadDataSources() {
-    showModalBottomSheet<void>(
-      context: context,
-      enableDrag: false,
-      builder: (BuildContext context) {
-        return FutureBuilder(
-          future: AHRookDataSources.getAvailableDataSources(
-            redirectUrl: null,
-          ),
-          builder: (
-            BuildContext ctx,
-            AsyncSnapshot<List<DataSource>> snapshot,
-          ) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text('Error: ${snapshot.error}'),
-              );
-            } else {
-              return dataSourcesBottomSheet(
-                ctx,
-                snapshot.data!,
-              );
-            }
-          },
+      setState(() {
+        enableNavigation = true;
+        requestAHPermissionsOutput.append(
+          'Permissions request sent, if nothing happens open Apple Health settings and give permissions manually',
         );
-      },
-    );
+      });
+    }).catchError((error) {
+      setState(() {
+        requestAHPermissionsOutput.append(
+          'Error requesting Apple Health permissions: $error',
+        );
+      });
+    });
   }
 }

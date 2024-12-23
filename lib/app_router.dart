@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/sdk_apple_health_configuration.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/sdk_apple_health_playground.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_background_sync.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_configuration.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_continuous_upload.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_data_sources.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_sync.dart';
+import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_user_management.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_configuration.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_continuous_upload.dart';
@@ -40,13 +44,29 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const AndroidContinuousUpload(),
         );
-      case sdkAppleHealthConfigurationRoute:
+      case iosConfigurationRoute:
         return MaterialPageRoute(
-          builder: (context) => const SdkAppleHealthConfiguration(),
+          builder: (context) => const IOSConfiguration(),
         );
-      case sdkAppleHealthPlaygroundRoute:
+      case iosUserManagementRoute:
         return MaterialPageRoute(
-          builder: (context) => const SdkAppleHealthPlayground(),
+          builder: (context) => const IOSUserManagement(),
+        );
+      case iosDataSourcesRoute:
+        return MaterialPageRoute(
+          builder: (context) => const IOSDataSources(),
+        );
+      case iosSyncRoute:
+        return MaterialPageRoute(
+          builder: (context) => const IOSSync(),
+        );
+      case iosContinuousUploadRoute:
+        return MaterialPageRoute(
+          builder: (context) => const IOSContinuousUpload(),
+        );
+      case iosBackgroundSyncRoute:
+        return MaterialPageRoute(
+          builder: (context) => const IOSBackgroundSync(),
         );
       default:
         return null;

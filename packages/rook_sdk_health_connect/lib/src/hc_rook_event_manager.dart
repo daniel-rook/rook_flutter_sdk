@@ -1,6 +1,7 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
+/// Helper class used to manage health events synchronization.
 class HCRookEventManager {
   HCRookEventManager._();
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
@@ -40,117 +39,91 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
   Widget build(BuildContext context) {
     return ScrollableScaffold(
       name: 'SDK Configuration',
-      child: FocusDetector(
-        onFocusGained: attemptToEnableYesterdaySync,
-        child: Column(
-          children: [
-            const SectionTitle('1. Configure SDK'),
-            Text(configurationOutput.current),
-            FilledButton(
-              onPressed: setConfiguration,
-              child: const Text('setConfiguration'),
+      child: Column(
+        children: [
+          const SectionTitle('1. Configure SDK'),
+          Text(configurationOutput.current),
+          FilledButton(
+            onPressed: setConfiguration,
+            child: const Text('setConfiguration'),
+          ),
+          const SectionTitle('2. Initialize SDK'),
+          Text(initializeOutput.current),
+          FilledButton(
+            onPressed: initialize,
+            child: const Text('initRook'),
+          ),
+          const SectionTitle('3. Update user ID'),
+          TextFormField(
+            key: _formKey,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'User ID',
             ),
-            const SectionTitle('2. Initialize SDK'),
-            Text(initializeOutput.current),
-            FilledButton(
-              onPressed: initialize,
-              child: const Text('initRook'),
-            ),
-            const SectionTitle('3. Update user ID'),
-            TextFormField(
-              key: _formKey,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'User ID'),
-              validator: validate,
-              onSaved: updateUserID,
-            ),
-            Text(updateUserOutput.current),
-            FilledButton(
-              onPressed: () {
-                if (_formKey.currentState?.validate() == true) {
-                  _formKey.currentState?.save();
-                }
-              },
-              child: const Text('updateUserID'),
-            ),
-            const SizedBox(height: 20),
-            FilledButton(
-              onPressed: enableNavigation
-                  ? () => Navigator.of(context).pushNamed(
-                        androidBackgroundStepsRoute,
-                      )
-                  : null,
-              child: const Text('Background steps'),
-            ),
-            FilledButton(
-              onPressed: enableNavigation
-                  ? () => Navigator.of(context).pushNamed(
-                        androidUserManagementRoute,
-                      )
-                  : null,
-              child: const Text('User management'),
-            ),
-            FilledButton(
-              onPressed: enableNavigation
-                  ? () => Navigator.of(context).pushNamed(
-                        androidDataSourcesRoute,
-                      )
-                  : null,
-              child: const Text('Data sources'),
-            ),
-            FilledButton(
-              onPressed: enableNavigation
-                  ? () => Navigator.of(context).pushNamed(
-                        androidPermissionsRoute,
-                      )
-                  : null,
-              child: const Text('Permissions'),
-            ),
-            FilledButton(
-              onPressed: enableNavigation
-                  ? () => Navigator.of(context).pushNamed(
-                        androidSyncRoute,
-                      )
-                  : null,
-              child: const Text('Manually sync health data'),
-            ),
-            FilledButton(
-              onPressed: enableNavigation
-                  ? () => Navigator.of(context).pushNamed(
-                        androidContinuousUploadRoute,
-                      )
-                  : null,
-              child: const Text('Continuous upload'),
-            ),
-          ],
-        ),
+            validator: validate,
+            onSaved: updateUserID,
+          ),
+          Text(updateUserOutput.current),
+          FilledButton(
+            onPressed: () {
+              if (_formKey.currentState?.validate() == true) {
+                _formKey.currentState?.save();
+              }
+            },
+            child: const Text('updateUserID'),
+          ),
+          const SizedBox(height: 20),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+                      androidBackgroundStepsRoute,
+                    )
+                : null,
+            child: const Text('Background steps'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+                      androidUserManagementRoute,
+                    )
+                : null,
+            child: const Text('User management'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+                      androidDataSourcesRoute,
+                    )
+                : null,
+            child: const Text('Data sources'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+                      androidPermissionsRoute,
+                    )
+                : null,
+            child: const Text('Permissions'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+                      androidSyncRoute,
+                    )
+                : null,
+            child: const Text('Manually sync health data'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+                      androidContinuousUploadRoute,
+                    )
+                : null,
+            child: const Text('Continuous upload'),
+          ),
+        ],
       ),
     );
-  }
-
-  void attemptToEnableYesterdaySync() {
-    // Already using the enableBackgroundSync parameter on RookConfiguration,
-    // the following is not necessary
-
-    // logger.info('Attempting to enable yesterday sync...');
-    //
-    // SharedPreferences.getInstance().then((prefs) {
-    //   final userAcceptedYesterdaySync =
-    //       prefs.getBool("ACCEPTED_YESTERDAY_SYNC") ?? false;
-    //
-    //   if (userAcceptedYesterdaySync) {
-    //     logger.info('User accepted yesterday sync');
-    //
-    //     HCRookYesterdaySyncManager.scheduleYesterdaySync(
-    //       enableNativeLogs: isDebug,
-    //       clientUUID: Secrets.clientUUID,
-    //       secretKey: Secrets.secretKey,
-    //       environment: rookEnvironment,
-    //     );
-    //   } else {
-    //     logger.info('User did not accept yesterday sync');
-    //   }
-    // });
   }
 
   String? validate(String? value) {
@@ -162,15 +135,16 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
 
   void setConfiguration() async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    final enableBackgroundSync = sharedPreferences.getBool(
-      "ACCEPTED_YESTERDAY_SYNC",
+    final acceptedContinuous = sharedPreferences.getBool(
+      acceptedAndroidContinuousKey,
     );
 
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
       secretKey: Secrets.secretKey,
       environment: rookEnvironment,
-      enableBackgroundSync: enableBackgroundSync ?? false,
+      // This should be based on user choice: acceptedContinuous
+      enableBackgroundSync: false,
     );
 
     configurationOutput.clear();

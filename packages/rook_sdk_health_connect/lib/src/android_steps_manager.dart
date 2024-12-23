@@ -1,5 +1,6 @@
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
+/// Helper class to manage steps from Android system.
 class AndroidStepsManager {
   AndroidStepsManager._();
 

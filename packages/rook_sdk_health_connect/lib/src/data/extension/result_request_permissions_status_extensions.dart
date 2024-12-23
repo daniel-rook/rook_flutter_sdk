@@ -3,6 +3,16 @@ import 'package:rook_sdk_health_connect/src/data/mapper/plugin_exception_mappers
 import 'package:rook_sdk_health_connect/src/data/mapper/request_permissions_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 
+/// Unwraps the `ResultRequestPermissionsStatusProto` and returns the `RequestPermissionsStatus` if successful.
+///
+/// This method extracts the `RequestPermissionsStatus` from the result, converting it from
+/// a `RequestPermissionsStatusProto` to a `RequestPermissionsStatus` domain object.
+///
+/// Throws an exception if the result is not successful.
+///
+/// **Exceptions:**
+/// * Throws a `PlatformException` if the result contains a `PluginExceptionProto`.
+/// * Throws a generic `Exception` if the result type is unknown.
 extension ResultRequestPermissionsStatusExtensions
     on ResultRequestPermissionsStatusProto {
   RequestPermissionsStatus unwrap() {

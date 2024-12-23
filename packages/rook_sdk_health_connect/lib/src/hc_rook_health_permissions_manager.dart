@@ -2,6 +2,7 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
+/// Helper class to request/check permissions used by this SDK.
 class HCRookHealthPermissionsManager {
   HCRookHealthPermissionsManager._();
 
