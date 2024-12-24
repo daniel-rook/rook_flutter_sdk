@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:rook_flutter_sdk/common/widget/authorized_data_sources_list.dart';
 import 'package:rook_flutter_sdk/common/widget/data_sources_bottom_sheet.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
@@ -30,6 +31,11 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
             onPressed: loadDataSources,
             child: const Text('Connections page (data sources list)'),
           ),
+          const SectionTitle("Authorized data sources"),
+          FilledButton(
+            onPressed: loadAuthorizedDataSources,
+            child: const Text('getAuthorizedDataSources'),
+          ),
           const SectionTitle("Connections page (pre-built)"),
           FilledButton(
             onPressed: () {
@@ -41,6 +47,32 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
           ),
         ],
       ),
+    );
+  }
+
+  void loadAuthorizedDataSources() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return FutureBuilder(
+          future: AHRookDataSources.getAuthorizedDataSources(),
+          builder: (ctx, AsyncSnapshot<AuthorizedDataSources> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('Error: ${snapshot.error}'),
+              );
+            } else {
+              return AuthorizedDataSourcesList(
+                authorizedDataSources: snapshot.data!,
+              );
+            }
+          },
+        );
+      },
     );
   }
 

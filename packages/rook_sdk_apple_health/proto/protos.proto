@@ -34,6 +34,18 @@ message DataSourcesProtoListWrapper {
   repeated DataSourceProto dataSources = 1;
 }
 
+message AuthorizedDataSourcesProto {
+  bool oura = 1;
+  bool polar = 2;
+  bool whoop = 3;
+  bool fitbit = 4;
+  bool garmin = 5;
+  bool withings = 6;
+  bool appleHealth = 7;
+  bool healthConnect = 8;
+  bool android = 9;
+}
+
 message PluginExceptionProto {
   sint32 id = 1;
   sint32 code = 2;
@@ -57,6 +69,13 @@ message ResultInt64Proto {
 message ResultDataSourcesProto {
   oneof result {
     DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultAuthorizedDataSourcesProto {
+  oneof result {
+    AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }

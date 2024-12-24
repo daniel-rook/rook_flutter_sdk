@@ -87,6 +87,8 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
 
+  Future<AuthorizedDataSources> getAuthorizedDataSources();
+
   Future<void> revokeDataSource(DataSourceType dataSourceType);
 
   Future<void> presentDataSourceView(String? redirectUrl);
