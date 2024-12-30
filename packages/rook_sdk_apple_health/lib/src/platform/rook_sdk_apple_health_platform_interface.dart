@@ -85,6 +85,8 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> disableBackground();
 
+  Stream<Exception> get backgroundErrorsUpdates;
+
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
 
   Future<AuthorizedDataSources> getAuthorizedDataSources();
@@ -92,6 +94,4 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
   Future<void> revokeDataSource(DataSourceType dataSourceType);
 
   Future<void> presentDataSourceView(String? redirectUrl);
-
-  Stream<Exception> get backgroundErrorsUpdates;
 }

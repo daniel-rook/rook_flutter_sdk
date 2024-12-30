@@ -372,6 +372,17 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  Stream<Exception> get backgroundErrorsUpdates {
+    return backgroundErrorsEventChannel.receiveBroadcastStream().map(
+      (bytes) {
+        final proto = PluginExceptionProto.fromBuffer(bytes);
+
+        return proto.toDartException();
+      },
+    );
+  }
+
+  @override
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAvailableDataSources',
@@ -424,16 +435,5 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final result = ResultBooleanProto.fromBuffer(bytes);
 
     result.unwrap();
-  }
-
-  @override
-  Stream<Exception> get backgroundErrorsUpdates {
-    return backgroundErrorsEventChannel.receiveBroadcastStream().map(
-      (bytes) {
-        final proto = PluginExceptionProto.fromBuffer(bytes);
-
-        return proto.toDartException();
-      },
-    );
   }
 }

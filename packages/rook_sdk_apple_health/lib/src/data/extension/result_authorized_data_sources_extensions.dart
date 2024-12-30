@@ -10,7 +10,8 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 /// **Exceptions:**
 /// * Throws a `PlatformException` if the result contains a `PluginExceptionProto`.
 /// * Throws a generic `Exception` if the result type is unknown.
-extension ResultAuthorizedDataSourcesExtensions on ResultAuthorizedDataSourcesProto {
+extension ResultAuthorizedDataSourcesExtensions
+    on ResultAuthorizedDataSourcesProto {
   AuthorizedDataSources unwrap() {
     final resultType = whichResult();
 
