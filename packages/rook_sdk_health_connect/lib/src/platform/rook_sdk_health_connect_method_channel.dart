@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_authorized_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
@@ -630,6 +631,17 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     );
 
     final result = ResultDataSourcesProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<AuthorizedDataSources> getAuthorizedDataSources() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getAuthorizedDataSources',
+    );
+
+    final result = ResultAuthorizedDataSourcesProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

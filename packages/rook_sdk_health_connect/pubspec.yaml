@@ -17,6 +17,10 @@ dependencies:
   fixnum: "^1.0.0"
   rook_sdk_core: "^0.4.3"
 
+dependency_overrides:
+  rook_sdk_core:
+    path: "../rook_sdk_core"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -5,7 +5,7 @@ buildscript {
     ext {
         kotlinVersion = "1.8.10"
         gradleVersion = "8.1.2"
-        rookSdkVersion = "1.8.0"
+        rookSdkVersion = "1.9.0-alpha01"
         protoVersion = "4.28.3"
         timber_version = "5.0.1"
 
