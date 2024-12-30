@@ -414,17 +414,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             } else {
                 boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
             }
-//            if let dataSourceType = try? dataSourceTypeProto?.toDomain() {
-//                userManager.revokeDataSource(dataSource: dataSourceType.rawValue) { success, error in
-//                    if error != nil {
-//                        boolError(flutterResult: result, error: error!)
-//                    } else {
-//                        boolSuccess(flutterResult: result, success: success)
-//                    }
-//                }
-//            } else {
-//                boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
-//            }
             break
         case "presentDataSourceView":
             DispatchQueue.main.async {
