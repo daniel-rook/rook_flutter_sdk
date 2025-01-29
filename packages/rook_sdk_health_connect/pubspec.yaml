@@ -15,11 +15,11 @@ dependencies:
   plugin_platform_interface: ">=2.0.0 <3.0.0"
   protobuf: ">=3.0.0 <4.0.0"
   fixnum: "^1.0.0"
-  rook_sdk_core: "^0.4.3"
+  rook_sdk_core: "^0.4.4"
 
-dependency_overrides:
-  rook_sdk_core:
-    path: "../rook_sdk_core"
+#dependency_overrides:
+#  rook_sdk_core:
+#    path: "../rook_sdk_core"
 
 dev_dependencies:
   flutter_test:
