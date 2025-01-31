@@ -23,7 +23,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
         AnalyticsExtractionConfigurator.shared.setPlatform(.flutter)
         AnalyticsTransmissionConfigurator.shared.setPlatform(.flutter)
         RookBackGroundSync.shared.setBackListeners()
-        
+
         backgroundErrorsEventChannel.setStreamHandler(BackgroundErrorsObserver())
     }
 
@@ -396,6 +396,17 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     dataSourcesSuccess(flutterResult: result, dataSources: dataSources)
                 case let Result.failure(error):
                     dataSourcesError(flutterResult: result, error: error)
+                }
+            }
+            break
+        case "getAuthorizedDataSources":
+            Task.init {
+                do {
+                    let statusDataSources = try await dataSourcesManager.getAuthorizedDataSources()
+
+                    authorizedDataSourcesSuccess(flutterResult: result, statusDataSources: statusDataSources)
+                } catch {
+                    authorizedDataSourcesError(flutterResult: result, error: error)
                 }
             }
             break

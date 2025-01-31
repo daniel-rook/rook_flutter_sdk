@@ -47,12 +47,28 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
               .append('Permissions partially granted');
           requestHCPermissionsOutput.append('Permissions granted');
         });
+      } else {
+        setState(() {
+          checkHCPermissionsOutput.append(
+            "There is one or more missing permissions",
+          );
+          requestHCPermissionsOutput.append(
+            "There is one or more missing permissions",
+          );
+        });
       }
 
       if (permissionsSummary.dataTypesPartiallyGranted) {
         setState(() {
-          checkHCPermissionsPartiallyOutput
-              .append('Permissions partially granted');
+          checkHCPermissionsPartiallyOutput.append(
+            'Permissions partially granted',
+          );
+        });
+      } else {
+        setState(() {
+          checkHCPermissionsPartiallyOutput.append(
+            "No permission granted",
+          );
         });
       }
     });
@@ -76,6 +92,15 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
         setState(() {
           checkAndroidPermissionsOutput.append('Permissions granted');
           requestAndroidPermissionsOutput.append('Permissions granted');
+        });
+      } else {
+        setState(() {
+          checkAndroidPermissionsOutput.append(
+            'There is one or more missing permissions',
+          );
+          requestAndroidPermissionsOutput.append(
+            'There is one or more missing permissions',
+          );
         });
       }
     });
@@ -229,7 +254,7 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
         .then((permissionsPartiallyGranted) {
       String message = switch (permissionsPartiallyGranted) {
         true => 'Permissions partially granted',
-        false => 'There is one or more missing permissions',
+        false => 'No permission granted',
       };
 
       setState(() {
@@ -276,7 +301,7 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
 
     setState(() {
       revokeHCPermissionsOutput
-          .append('Verifying Health Connect permissions...');
+          .append('Revoking Health Connect permissions...');
     });
 
     HCRookHealthPermissionsManager.revokeHealthConnectPermissions().then((_) {

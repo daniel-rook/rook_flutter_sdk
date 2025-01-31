@@ -179,6 +179,8 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "scheduleYesterdaySync" -> continuousUploadHandler.onMethodCall(call, result)
 
             "getAvailableDataSources" -> dataSourcesHandler.onMethodCall(call, result)
+            "getAuthorizedDataSources" -> dataSourcesHandler.onMethodCall(call, result)
+            "revokeDataSource" -> dataSourcesHandler.onMethodCall(call, result)
             "presentDataSourceView" -> dataSourcesHandler.onMethodCall(call, result)
 
             else -> result.notImplemented()

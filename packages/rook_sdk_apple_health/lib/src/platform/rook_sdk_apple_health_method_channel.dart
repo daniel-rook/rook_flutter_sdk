@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:rook_sdk_apple_health/src/data/extension/result_authorized_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
@@ -371,6 +372,17 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  Stream<Exception> get backgroundErrorsUpdates {
+    return backgroundErrorsEventChannel.receiveBroadcastStream().map(
+      (bytes) {
+        final proto = PluginExceptionProto.fromBuffer(bytes);
+
+        return proto.toDartException();
+      },
+    );
+  }
+
+  @override
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAvailableDataSources',
@@ -380,6 +392,17 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     );
 
     final result = ResultDataSourcesProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<AuthorizedDataSources> getAuthorizedDataSources() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getAuthorizedDataSources',
+    );
+
+    final result = ResultAuthorizedDataSourcesProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -412,16 +435,5 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final result = ResultBooleanProto.fromBuffer(bytes);
 
     result.unwrap();
-  }
-
-  @override
-  Stream<Exception> get backgroundErrorsUpdates {
-    return backgroundErrorsEventChannel.receiveBroadcastStream().map(
-      (bytes) {
-        final proto = PluginExceptionProto.fromBuffer(bytes);
-
-        return proto.toDartException();
-      },
-    );
   }
 }

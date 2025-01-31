@@ -3,6 +3,8 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import android.content.Context
 import com.rookmotion.rook.sdk.RookDataSources
 import com.rookmotion.rook_sdk_health_connect.MethodResult
+import com.rookmotion.rook_sdk_health_connect.extension.authorizedDataSourcesError
+import com.rookmotion.rook_sdk_health_connect.extension.authorizedDataSourcesSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesError
@@ -30,6 +32,17 @@ class DataSourcesHandler(context: Context, private val coroutineScope: Coroutine
                     },
                     {
                         methodResult.dataSourcesError(it)
+                    }
+                )
+            }
+
+            "getAuthorizedDataSources" -> coroutineScope.launch {
+                rookDataSources.getAuthorizedDataSources().fold(
+                    {
+                        methodResult.authorizedDataSourcesSuccess(it)
+                    },
+                    {
+                        methodResult.authorizedDataSourcesError(it)
                     }
                 )
             }

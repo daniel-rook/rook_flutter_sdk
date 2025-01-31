@@ -16,6 +16,14 @@ class HCRookDataSources {
     );
   }
 
+  /// Returns the authorized data sources for the current user.
+  ///
+  ///  Please note that this only represents the user authorization status,
+  ///  and not whether the data source is currently active (sending data) or not.
+  static Future<AuthorizedDataSources> getAuthorizedDataSources() {
+    return RookSdkHealthConnectPlatform.instance.getAuthorizedDataSources();
+  }
+
   /// Unlinks (revoke authorization) from a data source for the current user.
   ///
   /// [dataSourceType] The type of the data source to revoke.
