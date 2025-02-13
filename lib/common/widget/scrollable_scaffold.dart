@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ScrollableScaffold extends StatelessWidget {
   final String name;
-  final double padding;
+  final EdgeInsets padding;
   final Alignment alignment;
   final Widget? floatingActionButton;
   final Widget child;
@@ -10,7 +10,7 @@ class ScrollableScaffold extends StatelessWidget {
   const ScrollableScaffold({
     Key? key,
     required this.name,
-    this.padding = 10,
+    this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
     this.alignment = Alignment.topCenter,
     this.floatingActionButton,
     required this.child,
@@ -18,6 +18,8 @@ class ScrollableScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final systemPadding = MediaQuery.of(context).padding;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(name),
@@ -30,9 +32,16 @@ class ScrollableScaffold extends StatelessWidget {
       ),
       floatingActionButton: floatingActionButton,
       body: Container(
-        padding: EdgeInsets.all(padding),
+        padding: padding +
+            EdgeInsets.fromLTRB(
+              systemPadding.left,
+              0,
+              systemPadding.right,
+              0,
+            ),
         alignment: alignment,
         child: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(0, 0, 0, systemPadding.bottom),
           child: child,
         ),
       ),

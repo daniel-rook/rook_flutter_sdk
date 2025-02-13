@@ -1,1 +1,2 @@
 -keep class * extends com.google.protobuf.GeneratedMessageLite { *; }
+-keep class com.google.crypto.** { *; }

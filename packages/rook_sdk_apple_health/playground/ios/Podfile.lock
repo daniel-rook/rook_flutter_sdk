@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  integration_test: 13825b8a9334a850581300559b8839134b124670
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
   rook_sdk_apple_health: c2f6256fa8cc3d2563ca4b3d3ec40fa9a919f3a1
   RookSDK: e12b91e14bc589469b0c1c01237186f13b162121
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
