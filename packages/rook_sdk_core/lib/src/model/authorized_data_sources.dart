@@ -26,6 +26,33 @@ class AuthorizedDataSources {
   });
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AuthorizedDataSources &&
+          runtimeType == other.runtimeType &&
+          oura == other.oura &&
+          polar == other.polar &&
+          whoop == other.whoop &&
+          fitbit == other.fitbit &&
+          garmin == other.garmin &&
+          withings == other.withings &&
+          appleHealth == other.appleHealth &&
+          healthConnect == other.healthConnect &&
+          android == other.android;
+
+  @override
+  int get hashCode =>
+      oura.hashCode ^
+      polar.hashCode ^
+      whoop.hashCode ^
+      fitbit.hashCode ^
+      garmin.hashCode ^
+      withings.hashCode ^
+      appleHealth.hashCode ^
+      healthConnect.hashCode ^
+      android.hashCode;
+
+  @override
   String toString() {
     return 'AuthorizedDataSources{oura: $oura, polar: $polar, whoop: $whoop, fitbit: $fitbit, garmin: $garmin, withings: $withings, appleHealth: $appleHealth, healthConnect: $healthConnect, android: $android}';
   }

@@ -27,6 +27,27 @@ class DataSource {
   );
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DataSource &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          description == other.description &&
+          image == other.image &&
+          imageUrl == other.imageUrl &&
+          connected == other.connected &&
+          authorizationUrl == other.authorizationUrl;
+
+  @override
+  int get hashCode =>
+      name.hashCode ^
+      description.hashCode ^
+      image.hashCode ^
+      imageUrl.hashCode ^
+      connected.hashCode ^
+      authorizationUrl.hashCode;
+
+  @override
   String toString() {
     return 'DataSource{name: $name, description: $description, image: $image, imageUrl: $imageUrl, connected: $connected, authorizationUrl: $authorizationUrl}';
   }
