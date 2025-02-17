@@ -1,3 +1,8 @@
+## 0.4.5
+
+* Added `DailyCalories`
+* Added equals and hashCode implementation to `data_source`, `rook_configuration` and `authorized_data_sources`. 
+
 ## 0.4.4
 
 * Added `AuthorizedDataSources`
