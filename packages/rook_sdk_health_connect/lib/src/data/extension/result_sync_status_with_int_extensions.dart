@@ -1,6 +1,6 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/plugin_exception_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/sync_status_with_data_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/sync_status_with_int_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 
 /// Unwraps the `ResultSyncStatusWithIntProto` and returns the `SyncStatusWithData<int?>` if successful.
