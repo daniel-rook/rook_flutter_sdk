@@ -8,7 +8,7 @@ import com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto
 import com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithIntProto
 import io.flutter.plugin.common.MethodChannel
 
-fun MethodChannel.Result.syncStatusWithIntSuccess(syncStatusWithData: SyncStatusWithData<Int?>) {
+fun MethodChannel.Result.syncStatusWithIntSuccess(syncStatusWithData: SyncStatusWithData<Int>) {
     val bytes = when (syncStatusWithData) {
         SyncStatusWithData.RecordsNotFound -> {
             val syncStatusWithIntProto = SyncStatusWithIntProto.newBuilder()
@@ -25,7 +25,7 @@ fun MethodChannel.Result.syncStatusWithIntSuccess(syncStatusWithData: SyncStatus
         is SyncStatusWithData.Synced -> {
             val syncStatusWithIntProto = SyncStatusWithIntProto.newBuilder()
                 .setSyncStatus(SyncStatusProto.SYNCED)
-                .setSteps(syncStatusWithData.data ?: DEFAULT_INT)
+                .setSteps(syncStatusWithData.data)
                 .build()
 
             ResultSyncStatusWithIntProto.newBuilder()

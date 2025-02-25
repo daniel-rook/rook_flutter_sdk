@@ -162,6 +162,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "syncPhysicalOxygenationEvents" -> eventHandler.onMethodCall(call, result)
             "syncTemperatureEvents" -> eventHandler.onMethodCall(call, result)
             "syncTodayHealthConnectStepsCount" -> eventHandler.onMethodCall(call, result)
+            "getTodayCaloriesCount" -> eventHandler.onMethodCall(call, result)
             "syncPendingEvents" -> eventHandler.onMethodCall(call, result)
 
             "isStepsAvailable" -> stepsHandler.onMethodCall(call, result)

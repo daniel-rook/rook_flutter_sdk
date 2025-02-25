@@ -1,4 +1,5 @@
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 /// Helper class used to manage health events synchronization.
 class AHRookEventManager {
@@ -67,6 +68,15 @@ class AHRookEventManager {
   /// **Warning: This function is resource intensive, don't call it too frequently.**
   static Future<int?> syncTodayAppleHealthStepsCount() {
     return RookSdkAppleHealthPlatform.instance.syncTodayAppleHealthStepsCount();
+  }
+
+  /// Retrieve and upload current day calories count of Apple Health.
+  ///
+  /// Returns today's current calories.
+  ///
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  static Future<DailyCalories?> getTodayCaloriesCount() {
+    return RookSdkAppleHealthPlatform.instance.getTodayCaloriesCount();
   }
 
   /// Attempts to upload any queued events, if the upload is successful the events will be removed from the queue.

@@ -14,7 +14,7 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 /// * Throws a `PlatformException` if the result contains a `PluginExceptionProto`.
 /// * Throws a generic `Exception` if the result type is unknown.
 extension ResultSyncStatusWithIntExtensions on ResultSyncStatusWithIntProto {
-  SyncStatusWithData<int?> unwrap() {
+  SyncStatusWithData<int> unwrap() {
     final resultType = whichResult();
 
     switch (resultType) {

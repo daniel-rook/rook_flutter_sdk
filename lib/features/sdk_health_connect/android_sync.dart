@@ -144,6 +144,10 @@ class _AndroidSyncState extends State<AndroidSync> {
       () => syncOutput.append('Syncing Steps events of today: $today...'),
     );
     await syncStepsEvents();
+    setState(
+          () => syncOutput.append('Syncing Calories events of today: $today...'),
+    );
+    await syncCaloriesEvents();
   }
 
   Future<void> syncSleepSummary(DateTime yesterday) async {
@@ -399,6 +403,29 @@ class _AndroidSyncState extends State<AndroidSync> {
     } catch (error) {
       setState(
         () => syncOutput.append('Error syncing Steps events: $error'),
+      );
+    }
+  }
+
+  Future<void> syncCaloriesEvents() async {
+    try {
+      final syncStatusWithData = await HCRookEventManager.getTodayCaloriesCount();
+
+      switch (syncStatusWithData) {
+        case Synced(data: final calories):
+          setState(
+                () => syncOutput.append('$calories synced successfully'),
+          );
+          break;
+        case RecordsNotFound():
+          setState(
+                () => syncOutput.append('Calories events not found'),
+          );
+          break;
+      }
+    } catch (error) {
+      setState(
+            () => syncOutput.append('Error syncing Calories events: $error'),
       );
     }
   }

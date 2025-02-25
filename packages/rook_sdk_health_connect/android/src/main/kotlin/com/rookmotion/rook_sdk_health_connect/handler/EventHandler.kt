@@ -7,6 +7,8 @@ import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.syncStatusError
 import com.rookmotion.rook_sdk_health_connect.extension.syncStatusSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.syncStatusWithDailyCaloriesError
+import com.rookmotion.rook_sdk_health_connect.extension.syncStatusWithDailyCaloriesSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.syncStatusWithIntError
 import com.rookmotion.rook_sdk_health_connect.extension.syncStatusWithIntSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
@@ -180,6 +182,17 @@ class EventHandler(private val coroutineScope: CoroutineScope, private val rookE
                     },
                     {
                         methodResult.syncStatusWithIntError(it)
+                    }
+                )
+            }
+
+            "getTodayCaloriesCount" -> coroutineScope.launch {
+                rookEventManager.getTodayCaloriesCount().fold(
+                    {
+                        methodResult.syncStatusWithDailyCaloriesSuccess(it)
+                    },
+                    {
+                        methodResult.syncStatusWithDailyCaloriesError(it)
                     }
                 )
             }

@@ -98,6 +98,16 @@ message AuthorizedDataSourcesProto {
   bool android = 9;
 }
 
+message DailyCaloriesProto {
+  double basal = 1;
+  double active = 2;
+}
+
+message SyncStatusWithDailyCaloriesProto {
+  SyncStatusProto syncStatus = 1;
+  DailyCaloriesProto dailyCalories = 2;
+}
+
 message PluginExceptionProto {
   sint32 id = 1;
   sint32 code = 2;
@@ -149,6 +159,13 @@ message ResultSyncStatusWithIntProto {
 message ResultAuthorizedDataSourcesProto {
   oneof result {
     AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultSyncStatusWithDailyCaloriesProto {
+  oneof result {
+    SyncStatusWithDailyCaloriesProto syncStatusWithDailyCaloriesProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }

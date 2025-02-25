@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_authorized_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
+import 'package:rook_sdk_apple_health/src/data/extension/result_daily_calories_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/data_source_type_mappers.dart';
@@ -269,6 +270,17 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     );
 
     final result = ResultInt64Proto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<DailyCalories?> getTodayCaloriesCount() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getTodayCaloriesCount',
+    );
+
+    final result = ResultDailyCaloriesProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

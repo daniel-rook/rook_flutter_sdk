@@ -69,6 +69,39 @@ func int64Error(flutterResult: FlutterResult, error: Error) {
     }
 }
 
+func dailyCaloriesSuccess(flutterResult: FlutterResult, rookCalories: RookCalories) {
+    do {
+        let bytes = try ResultDailyCaloriesProto.with {
+            $0.dailyCalories = DailyCaloriesProto.with {
+                $0.basal = Double(rookCalories.basalCalories ?? .zero)
+                $0.active = Double(rookCalories.activeCalories ?? .zero)
+            }
+        }.serializedData()
+
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
+    }
+}
+
+func dailyCaloriesError(flutterResult: FlutterResult, error: Error) {
+    do {
+        let pluginExceptionProto = PluginExceptionProto.with {
+            $0.id = error.getPluginExceptionId()
+            $0.code = error.getPluginExceptionCode()
+            $0.message = error.getPluginExceptionMessage()
+        }
+
+        let bytes = try ResultDailyCaloriesProto.with {
+            $0.pluginExceptionProto = pluginExceptionProto
+        }.serializedData()
+
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
+    }
+}
+
 func dataSourcesSuccess(flutterResult: FlutterResult, dataSources: [RookDataSource]) {
     do {
         let dataSourcesProtoListWrapper = DataSourcesProtoListWrapper.with {

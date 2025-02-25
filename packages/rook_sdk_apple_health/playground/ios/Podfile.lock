@@ -4,9 +4,9 @@ PODS:
     - Flutter
   - rook_sdk_apple_health (0.0.1):
     - Flutter
-    - RookSDK (= 1.6.7)
+    - RookSDK (= 1.6.9)
     - SwiftProtobuf (= 1.28.2)
-  - RookSDK (1.6.7)
+  - RookSDK (1.6.9)
   - SwiftProtobuf (1.28.2)
 
 DEPENDENCIES:
@@ -30,10 +30,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
-  rook_sdk_apple_health: c2f6256fa8cc3d2563ca4b3d3ec40fa9a919f3a1
-  RookSDK: e12b91e14bc589469b0c1c01237186f13b162121
+  rook_sdk_apple_health: ba41c012ce14f9cf1180f2adb9f2c9ed7605c951
+  RookSDK: 9d820dc3122adfce33f3ec7fb8dce643d868f15c
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
 
-PODFILE CHECKSUM: 868a8e850aa5b3edf4dbe97c50064ccbd51cf91b
+PODFILE CHECKSUM: 9bf60f32594babf56ce45d42177c859fe6941bc7
 
 COCOAPODS: 1.14.3
