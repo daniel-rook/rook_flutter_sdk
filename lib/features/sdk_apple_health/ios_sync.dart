@@ -133,6 +133,10 @@ class _IOSSyncState extends State<IOSSync> {
       () => syncOutput.append('Syncing Steps events of today: $today...'),
     );
     await syncStepsEvents();
+    setState(
+          () => syncOutput.append('Syncing Calories events of today: $today...'),
+    );
+    await syncCaloriesEvents();
   }
 
   Future<void> syncSleepSummary(DateTime yesterday) async {
@@ -356,6 +360,26 @@ class _IOSSyncState extends State<IOSSync> {
     } catch (error) {
       setState(
         () => syncOutput.append('Error syncing Steps events: $error'),
+      );
+    }
+  }
+
+  Future<void> syncCaloriesEvents() async {
+    try {
+      final calories = await AHRookEventManager.getTodayCaloriesCount();
+
+      if (calories != null) {
+        setState(
+              () => syncOutput.append('$calories calories synced successfully'),
+        );
+      } else {
+        setState(
+              () => syncOutput.append('Calories events not found'),
+        );
+      }
+    } catch (error) {
+      setState(
+            () => syncOutput.append('Error syncing Calories events: $error'),
       );
     }
   }
