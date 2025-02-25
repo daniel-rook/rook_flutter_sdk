@@ -148,6 +148,20 @@ final $typed_data.Uint8List authorizedDataSourcesProtoDescriptor = $convert.base
     'dzEiAKC2FwcGxlSGVhbHRoGAcgASgIUgthcHBsZUhlYWx0aBIkCg1oZWFsdGhDb25uZWN0GAgg'
     'ASgIUg1oZWFsdGhDb25uZWN0EhgKB2FuZHJvaWQYCSABKAhSB2FuZHJvaWQ=');
 
+@$core.Deprecated('Use dailyCaloriesProtoDescriptor instead')
+const DailyCaloriesProto$json = {
+  '1': 'DailyCaloriesProto',
+  '2': [
+    {'1': 'basal', '3': 1, '4': 1, '5': 1, '10': 'basal'},
+    {'1': 'active', '3': 2, '4': 1, '5': 1, '10': 'active'},
+  ],
+};
+
+/// Descriptor for `DailyCaloriesProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List dailyCaloriesProtoDescriptor = $convert.base64Decode(
+    'ChJEYWlseUNhbG9yaWVzUHJvdG8SFAoFYmFzYWwYASABKAFSBWJhc2FsEhYKBmFjdGl2ZRgCIA'
+    'EoAVIGYWN0aXZl');
+
 @$core.Deprecated('Use pluginExceptionProtoDescriptor instead')
 const PluginExceptionProto$json = {
   '1': 'PluginExceptionProto',
@@ -285,3 +299,38 @@ final $typed_data.Uint8List resultAuthorizedDataSourcesProtoDescriptor =
         'JjZXNQcm90bxgBIAEoCzIbLkF1dGhvcml6ZWREYXRhU291cmNlc1Byb3RvSABSGmF1dGhvcml6'
         'ZWREYXRhU291cmNlc1Byb3RvEksKFHBsdWdpbkV4Y2VwdGlvblByb3RvGAIgASgLMhUuUGx1Z2'
         'luRXhjZXB0aW9uUHJvdG9IAFIUcGx1Z2luRXhjZXB0aW9uUHJvdG9CCAoGcmVzdWx0');
+
+@$core.Deprecated('Use resultDailyCaloriesProtoDescriptor instead')
+const ResultDailyCaloriesProto$json = {
+  '1': 'ResultDailyCaloriesProto',
+  '2': [
+    {
+      '1': 'dailyCalories',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DailyCaloriesProto',
+      '9': 0,
+      '10': 'dailyCalories'
+    },
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `ResultDailyCaloriesProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resultDailyCaloriesProtoDescriptor = $convert.base64Decode(
+    'ChhSZXN1bHREYWlseUNhbG9yaWVzUHJvdG8SOwoNZGFpbHlDYWxvcmllcxgBIAEoCzITLkRhaW'
+    'x5Q2Fsb3JpZXNQcm90b0gAUg1kYWlseUNhbG9yaWVzEksKFHBsdWdpbkV4Y2VwdGlvblByb3Rv'
+    'GAIgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIUcGx1Z2luRXhjZXB0aW9uUHJvdG9CCA'
+    'oGcmVzdWx0');

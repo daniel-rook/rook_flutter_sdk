@@ -20,6 +20,7 @@ void main() {
 
   resultBooleanTests(platform, channel);
   resultInt64Tests(platform, channel);
+  resultDailyCaloriesTests(platform, channel);
   resultDataSourceTests(platform, channel);
   resultAuthorizedDataSourcesTests(platform, channel);
   stringTests(platform, channel);
@@ -580,6 +581,69 @@ void resultInt64Tests(
         'GIVEN a Result.exception WHEN syncTodayAppleHealthStepsCount THEN throw exception',
         () async {
       final future = platform.syncTodayAppleHealthStepsCount();
+
+      await expectLater(future, throwsA(isException));
+    });
+  });
+}
+
+void resultDailyCaloriesTests(
+  MethodChannelRookSdkAppleHealth platform,
+  MethodChannel channel,
+) {
+  group(
+      'MethodChannelRookSdkAppleHealth | ResultDailyCaloriesProto value unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final dailyCaloriesProto = DailyCaloriesProto.create()
+          ..basal = 12.5
+          ..active = 22.5;
+        final proto = ResultDailyCaloriesProto.create()
+          ..dailyCalories = dailyCaloriesProto;
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+        'GIVEN a Result.value WHEN getTodayCaloriesCount THEN complete with expected value',
+        () async {
+      final future = platform.getTodayCaloriesCount();
+
+      await expectLater(
+        future,
+        completion(
+          predicate<DailyCalories?>((value) {
+            return value?.basal == 12.5 && value?.active == 22.5;
+          }),
+        ),
+      );
+    });
+  });
+
+  group(
+      'MethodChannelRookSdkAppleHealth | ResultDailyCaloriesProto exception unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultDataSourcesProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
+
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+        'GIVEN a Result.exception WHEN getTodayCaloriesCount THEN throw exception',
+        () async {
+      final future = platform.getTodayCaloriesCount();
 
       await expectLater(future, throwsA(isException));
     });

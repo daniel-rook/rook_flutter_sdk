@@ -184,6 +184,20 @@ struct AuthorizedDataSourcesProto: Sendable {
   init() {}
 }
 
+struct DailyCaloriesProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var basal: Double = 0
+
+  var active: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 struct PluginExceptionProto: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -329,6 +343,40 @@ struct ResultAuthorizedDataSourcesProto: Sendable {
 
   enum OneOf_Result: Equatable, Sendable {
     case authorizedDataSourcesProto(AuthorizedDataSourcesProto)
+    case pluginExceptionProto(PluginExceptionProto)
+
+  }
+
+  init() {}
+}
+
+struct ResultDailyCaloriesProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: ResultDailyCaloriesProto.OneOf_Result? = nil
+
+  var dailyCalories: DailyCaloriesProto {
+    get {
+      if case .dailyCalories(let v)? = result {return v}
+      return DailyCaloriesProto()
+    }
+    set {result = .dailyCalories(newValue)}
+  }
+
+  var pluginExceptionProto: PluginExceptionProto {
+    get {
+      if case .pluginExceptionProto(let v)? = result {return v}
+      return PluginExceptionProto()
+    }
+    set {result = .pluginExceptionProto(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable, Sendable {
+    case dailyCalories(DailyCaloriesProto)
     case pluginExceptionProto(PluginExceptionProto)
 
   }
@@ -575,6 +623,44 @@ extension AuthorizedDataSourcesProto: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if lhs.appleHealth != rhs.appleHealth {return false}
     if lhs.healthConnect != rhs.healthConnect {return false}
     if lhs.android != rhs.android {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension DailyCaloriesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "DailyCaloriesProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "basal"),
+    2: .same(proto: "active"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularDoubleField(value: &self.basal) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.active) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.basal.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.basal, fieldNumber: 1)
+    }
+    if self.active.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.active, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: DailyCaloriesProto, rhs: DailyCaloriesProto) -> Bool {
+    if lhs.basal != rhs.basal {return false}
+    if lhs.active != rhs.active {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -888,6 +974,76 @@ extension ResultAuthorizedDataSourcesProto: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   static func ==(lhs: ResultAuthorizedDataSourcesProto, rhs: ResultAuthorizedDataSourcesProto) -> Bool {
+    if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ResultDailyCaloriesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ResultDailyCaloriesProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dailyCalories"),
+    2: .same(proto: "pluginExceptionProto"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: DailyCaloriesProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .dailyCalories(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .dailyCalories(v)
+        }
+      }()
+      case 2: try {
+        var v: PluginExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .pluginExceptionProto(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .pluginExceptionProto(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .dailyCalories?: try {
+      guard case .dailyCalories(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .pluginExceptionProto?: try {
+      guard case .pluginExceptionProto(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ResultDailyCaloriesProto, rhs: ResultDailyCaloriesProto) -> Bool {
     if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

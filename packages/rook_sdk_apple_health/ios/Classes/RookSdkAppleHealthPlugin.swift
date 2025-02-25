@@ -300,6 +300,16 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
+        case "getTodayCaloriesCount":
+            rookEventsManager.getTodayCalories { it in
+                switch it {
+                case let Result.success(calories):
+                    dailyCaloriesSuccess(flutterResult: result, rookCalories: calories)
+                case let Result.failure(error):
+                    dailyCaloriesError(flutterResult: result, error: error)
+                }
+            }
+            break
         case "syncPendingEvents":
             rookEventsManager.syncPendingEvents { it in
                 switch it {
