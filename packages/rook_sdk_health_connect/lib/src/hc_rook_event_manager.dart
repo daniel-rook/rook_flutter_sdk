@@ -74,15 +74,23 @@ class HCRookEventManager {
     return RookSdkHealthConnectPlatform.instance.syncTemperatureEvents(date);
   }
 
-  /// Retrieve and upload current day steps count of Health Connect, if the upload fails the events
-  /// will be keep in the queue for a retry with [syncPendingEvents].
+  /// Retrieve and upload current day steps count of Health Connect.
   ///
   /// Returns a [SyncStatusWithData] with the current day steps count (if available).
   ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
-  static Future<SyncStatusWithData<int?>> syncTodayHealthConnectStepsCount() {
+  static Future<SyncStatusWithData<int>> syncTodayHealthConnectStepsCount() {
     return RookSdkHealthConnectPlatform.instance
         .syncTodayHealthConnectStepsCount();
+  }
+
+  /// Retrieve and upload current day calories count of Health Connect.
+  ///
+  /// Returns a [SyncStatusWithData] with the current day calories count (if available).
+  ///
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  static Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount() {
+    return RookSdkHealthConnectPlatform.instance.getTodayCaloriesCount();
   }
 
   /// Attempts to upload any queued events, if the upload is successful the events will be removed from the queue.

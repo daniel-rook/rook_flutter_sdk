@@ -791,6 +791,173 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   void clearAndroid() => clearField(9);
 }
 
+class DailyCaloriesProto extends $pb.GeneratedMessage {
+  factory DailyCaloriesProto({
+    $core.double? basal,
+    $core.double? active,
+  }) {
+    final $result = create();
+    if (basal != null) {
+      $result.basal = basal;
+    }
+    if (active != null) {
+      $result.active = active;
+    }
+    return $result;
+  }
+  DailyCaloriesProto._() : super();
+  factory DailyCaloriesProto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory DailyCaloriesProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DailyCaloriesProto',
+      createEmptyInstance: create)
+    ..a<$core.double>(1, _omitFieldNames ? '' : 'basal', $pb.PbFieldType.OD)
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'active', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  DailyCaloriesProto clone() => DailyCaloriesProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  DailyCaloriesProto copyWith(void Function(DailyCaloriesProto) updates) =>
+      super.copyWith((message) => updates(message as DailyCaloriesProto))
+          as DailyCaloriesProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DailyCaloriesProto create() => DailyCaloriesProto._();
+  DailyCaloriesProto createEmptyInstance() => create();
+  static $pb.PbList<DailyCaloriesProto> createRepeated() =>
+      $pb.PbList<DailyCaloriesProto>();
+  @$core.pragma('dart2js:noInline')
+  static DailyCaloriesProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DailyCaloriesProto>(create);
+  static DailyCaloriesProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.double get basal => $_getN(0);
+  @$pb.TagNumber(1)
+  set basal($core.double v) {
+    $_setDouble(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasBasal() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBasal() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.double get active => $_getN(1);
+  @$pb.TagNumber(2)
+  set active($core.double v) {
+    $_setDouble(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasActive() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearActive() => clearField(2);
+}
+
+class SyncStatusWithDailyCaloriesProto extends $pb.GeneratedMessage {
+  factory SyncStatusWithDailyCaloriesProto({
+    SyncStatusProto? syncStatus,
+    DailyCaloriesProto? dailyCalories,
+  }) {
+    final $result = create();
+    if (syncStatus != null) {
+      $result.syncStatus = syncStatus;
+    }
+    if (dailyCalories != null) {
+      $result.dailyCalories = dailyCalories;
+    }
+    return $result;
+  }
+  SyncStatusWithDailyCaloriesProto._() : super();
+  factory SyncStatusWithDailyCaloriesProto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SyncStatusWithDailyCaloriesProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SyncStatusWithDailyCaloriesProto',
+      createEmptyInstance: create)
+    ..e<SyncStatusProto>(
+        1, _omitFieldNames ? '' : 'syncStatus', $pb.PbFieldType.OE,
+        protoName: 'syncStatus',
+        defaultOrMaker: SyncStatusProto.SYNCED,
+        valueOf: SyncStatusProto.valueOf,
+        enumValues: SyncStatusProto.values)
+    ..aOM<DailyCaloriesProto>(2, _omitFieldNames ? '' : 'dailyCalories',
+        protoName: 'dailyCalories', subBuilder: DailyCaloriesProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SyncStatusWithDailyCaloriesProto clone() =>
+      SyncStatusWithDailyCaloriesProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SyncStatusWithDailyCaloriesProto copyWith(
+          void Function(SyncStatusWithDailyCaloriesProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as SyncStatusWithDailyCaloriesProto))
+          as SyncStatusWithDailyCaloriesProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SyncStatusWithDailyCaloriesProto create() =>
+      SyncStatusWithDailyCaloriesProto._();
+  SyncStatusWithDailyCaloriesProto createEmptyInstance() => create();
+  static $pb.PbList<SyncStatusWithDailyCaloriesProto> createRepeated() =>
+      $pb.PbList<SyncStatusWithDailyCaloriesProto>();
+  @$core.pragma('dart2js:noInline')
+  static SyncStatusWithDailyCaloriesProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SyncStatusWithDailyCaloriesProto>(
+          create);
+  static SyncStatusWithDailyCaloriesProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  SyncStatusProto get syncStatus => $_getN(0);
+  @$pb.TagNumber(1)
+  set syncStatus(SyncStatusProto v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSyncStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSyncStatus() => clearField(1);
+
+  @$pb.TagNumber(2)
+  DailyCaloriesProto get dailyCalories => $_getN(1);
+  @$pb.TagNumber(2)
+  set dailyCalories(DailyCaloriesProto v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasDailyCalories() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDailyCalories() => clearField(2);
+  @$pb.TagNumber(2)
+  DailyCaloriesProto ensureDailyCalories() => $_ensure(1);
+}
+
 class PluginExceptionProto extends $pb.GeneratedMessage {
   factory PluginExceptionProto({
     $core.int? id,
@@ -1602,6 +1769,121 @@ class ResultAuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   void clearAuthorizedDataSourcesProto() => clearField(1);
   @$pb.TagNumber(1)
   AuthorizedDataSourcesProto ensureAuthorizedDataSourcesProto() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  PluginExceptionProto get pluginExceptionProto => $_getN(1);
+  @$pb.TagNumber(2)
+  set pluginExceptionProto(PluginExceptionProto v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPluginExceptionProto() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPluginExceptionProto() => clearField(2);
+  @$pb.TagNumber(2)
+  PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
+}
+
+enum ResultSyncStatusWithDailyCaloriesProto_Result {
+  syncStatusWithDailyCaloriesProto,
+  pluginExceptionProto,
+  notSet
+}
+
+class ResultSyncStatusWithDailyCaloriesProto extends $pb.GeneratedMessage {
+  factory ResultSyncStatusWithDailyCaloriesProto({
+    SyncStatusWithDailyCaloriesProto? syncStatusWithDailyCaloriesProto,
+    PluginExceptionProto? pluginExceptionProto,
+  }) {
+    final $result = create();
+    if (syncStatusWithDailyCaloriesProto != null) {
+      $result.syncStatusWithDailyCaloriesProto =
+          syncStatusWithDailyCaloriesProto;
+    }
+    if (pluginExceptionProto != null) {
+      $result.pluginExceptionProto = pluginExceptionProto;
+    }
+    return $result;
+  }
+  ResultSyncStatusWithDailyCaloriesProto._() : super();
+  factory ResultSyncStatusWithDailyCaloriesProto.fromBuffer(
+          $core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ResultSyncStatusWithDailyCaloriesProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static const $core
+      .Map<$core.int, ResultSyncStatusWithDailyCaloriesProto_Result>
+      _ResultSyncStatusWithDailyCaloriesProto_ResultByTag = {
+    1: ResultSyncStatusWithDailyCaloriesProto_Result
+        .syncStatusWithDailyCaloriesProto,
+    2: ResultSyncStatusWithDailyCaloriesProto_Result.pluginExceptionProto,
+    0: ResultSyncStatusWithDailyCaloriesProto_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ResultSyncStatusWithDailyCaloriesProto',
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<SyncStatusWithDailyCaloriesProto>(
+        1, _omitFieldNames ? '' : 'syncStatusWithDailyCaloriesProto',
+        protoName: 'syncStatusWithDailyCaloriesProto',
+        subBuilder: SyncStatusWithDailyCaloriesProto.create)
+    ..aOM<PluginExceptionProto>(
+        2, _omitFieldNames ? '' : 'pluginExceptionProto',
+        protoName: 'pluginExceptionProto',
+        subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ResultSyncStatusWithDailyCaloriesProto clone() =>
+      ResultSyncStatusWithDailyCaloriesProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ResultSyncStatusWithDailyCaloriesProto copyWith(
+          void Function(ResultSyncStatusWithDailyCaloriesProto) updates) =>
+      super.copyWith((message) =>
+              updates(message as ResultSyncStatusWithDailyCaloriesProto))
+          as ResultSyncStatusWithDailyCaloriesProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResultSyncStatusWithDailyCaloriesProto create() =>
+      ResultSyncStatusWithDailyCaloriesProto._();
+  ResultSyncStatusWithDailyCaloriesProto createEmptyInstance() => create();
+  static $pb.PbList<ResultSyncStatusWithDailyCaloriesProto> createRepeated() =>
+      $pb.PbList<ResultSyncStatusWithDailyCaloriesProto>();
+  @$core.pragma('dart2js:noInline')
+  static ResultSyncStatusWithDailyCaloriesProto getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          ResultSyncStatusWithDailyCaloriesProto>(create);
+  static ResultSyncStatusWithDailyCaloriesProto? _defaultInstance;
+
+  ResultSyncStatusWithDailyCaloriesProto_Result whichResult() =>
+      _ResultSyncStatusWithDailyCaloriesProto_ResultByTag[$_whichOneof(0)]!;
+  void clearResult() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  SyncStatusWithDailyCaloriesProto get syncStatusWithDailyCaloriesProto =>
+      $_getN(0);
+  @$pb.TagNumber(1)
+  set syncStatusWithDailyCaloriesProto(SyncStatusWithDailyCaloriesProto v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSyncStatusWithDailyCaloriesProto() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSyncStatusWithDailyCaloriesProto() => clearField(1);
+  @$pb.TagNumber(1)
+  SyncStatusWithDailyCaloriesProto ensureSyncStatusWithDailyCaloriesProto() =>
+      $_ensure(0);
 
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);

@@ -99,7 +99,9 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<SyncStatus> syncTemperatureEvents(DateTime date);
 
-  Future<SyncStatusWithData<int?>> syncTodayHealthConnectStepsCount();
+  Future<SyncStatusWithData<int>> syncTodayHealthConnectStepsCount();
+
+  Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount();
 
   Future<void> syncPendingEvents();
 

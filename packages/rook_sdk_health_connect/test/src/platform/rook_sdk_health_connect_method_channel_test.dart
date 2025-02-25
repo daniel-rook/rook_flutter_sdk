@@ -23,6 +23,7 @@ void main() {
   resultInt64Tests(platform, channel);
   resultSyncStatusTests(platform, channel);
   resultSyncStatusWithIntTest(platform, channel);
+  resultSyncStatusWithDailyCaloriesTest(platform, channel);
   resultDataSourceTests(platform, channel);
   resultAuthorizedDataSourcesTests(platform, channel);
   resultRequestPermissionsStatusTests(platform, channel);
@@ -746,6 +747,82 @@ void resultSyncStatusWithIntTest(
       'GIVEN the unhappy path WHEN syncTodayHealthConnectStepsCount throw exception',
       () async {
         final future = platform.syncTodayHealthConnectStepsCount();
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+  });
+}
+
+void resultSyncStatusWithDailyCaloriesTest(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
+  group(
+      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithDailyCaloriesProto value unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final dailyCaloriesProto = DailyCaloriesProto.create()
+          ..basal = 12.5
+          ..active = 22.5;
+        final syncStatusWithDailyCaloriesProto =
+            SyncStatusWithDailyCaloriesProto.create()
+              ..syncStatus = SyncStatusProto.SYNCED
+              ..dailyCalories = dailyCaloriesProto;
+
+        final proto = ResultSyncStatusWithDailyCaloriesProto()
+          ..syncStatusWithDailyCaloriesProto = syncStatusWithDailyCaloriesProto;
+
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+      'GIVEN a Result.syncStatusWithDailyCaloriesProto WHEN getTodayCaloriesCount THEN complete with expected value',
+      () async {
+        final future = platform.getTodayCaloriesCount();
+
+        await expectLater(
+          future,
+          completion(
+            predicate<SyncStatusWithData<DailyCalories>>(
+              (value) {
+                final dailyCalories = (value as Synced<DailyCalories>).data;
+
+                return dailyCalories.basal == 12.5 &&
+                    dailyCalories.active == 22.5;
+              },
+            ),
+          ),
+        );
+      },
+    );
+  });
+
+  group(
+      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithDailyCaloriesProto exception unwrap',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultSyncStatusWithDailyCaloriesProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
+
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+      'GIVEN the unhappy path WHEN getTodayCaloriesCount throw exception',
+      () async {
+        final future = platform.getTodayCaloriesCount();
 
         await expectLater(future, throwsA(isException));
       },

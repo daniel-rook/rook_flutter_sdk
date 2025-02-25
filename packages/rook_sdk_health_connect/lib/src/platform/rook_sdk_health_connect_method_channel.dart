@@ -8,6 +8,7 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_e
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_request_permissions_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_daily_calories_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
@@ -461,11 +462,22 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<SyncStatusWithData<int?>> syncTodayHealthConnectStepsCount() async {
+  Future<SyncStatusWithData<int>> syncTodayHealthConnectStepsCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncTodayHealthConnectStepsCount',
     );
     final result = ResultSyncStatusWithIntProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getTodayCaloriesCount',
+    );
+
+    final result = ResultSyncStatusWithDailyCaloriesProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
