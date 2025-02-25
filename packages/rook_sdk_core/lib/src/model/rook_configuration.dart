@@ -20,6 +20,23 @@ class RookConfiguration {
   });
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RookConfiguration &&
+          runtimeType == other.runtimeType &&
+          clientUUID == other.clientUUID &&
+          secretKey == other.secretKey &&
+          environment == other.environment &&
+          enableBackgroundSync == other.enableBackgroundSync;
+
+  @override
+  int get hashCode =>
+      clientUUID.hashCode ^
+      secretKey.hashCode ^
+      environment.hashCode ^
+      enableBackgroundSync.hashCode;
+
+  @override
   String toString() {
     return 'RookConfiguration{clientUUID: $clientUUID, secretKey: $secretKey, environment: $environment}';
   }
