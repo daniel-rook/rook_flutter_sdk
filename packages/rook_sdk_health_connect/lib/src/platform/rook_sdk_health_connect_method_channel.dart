@@ -13,9 +13,11 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_wi
 import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/data_source_type_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/event_sync_type_mapper.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_connect_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
@@ -270,6 +272,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.sync() instead")
   Future<SyncStatus> syncSleepSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncSleepSummary',
@@ -283,6 +286,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.sync() instead")
   Future<SyncStatus> syncBodySummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBodySummary',
@@ -296,6 +300,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.sync() instead")
   Future<SyncStatus> syncPhysicalSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalSummary',
@@ -309,6 +314,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.sync() instead")
   Future<void> syncPendingSummaries() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPendingSummaries',
@@ -319,6 +325,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncPhysicalEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalEvents',
@@ -332,6 +339,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBloodGlucoseEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBloodGlucoseEvents',
@@ -345,6 +353,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBloodPressureEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBloodPressureEvents',
@@ -358,6 +367,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBodyMetricsEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBodyMetricsEvents',
@@ -371,6 +381,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBodyHeartRateEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBodyHeartRateEvents',
@@ -384,6 +395,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncPhysicalHeartRateEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalHeartRateEvents',
@@ -397,6 +409,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncHydrationEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncHydrationEvents',
@@ -410,6 +423,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncNutritionEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncNutritionEvents',
@@ -423,6 +437,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBodyOxygenationEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBodyOxygenationEvents',
@@ -436,6 +451,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncPhysicalOxygenationEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalOxygenationEvents',
@@ -449,6 +465,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncTemperatureEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncTemperatureEvents',
@@ -462,9 +479,90 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated("Use HCRookSyncManager.getTodayStepsCount() instead")
   Future<SyncStatusWithData<int>> syncTodayHealthConnectStepsCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncTodayHealthConnectStepsCount',
+    );
+    final result = ResultSyncStatusWithIntProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
+  Future<void> syncPendingEvents() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncPendingEvents',
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Future<bool> syncHistoricSummaries(bool enableLogs) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncHistoricSummaries',
+      [
+        enableLogs,
+      ],
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> syncSummariesByDate(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncSummariesByDate',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> syncByDateAndSummary(
+    DateTime date,
+    HCSummarySyncType summary,
+  ) async {
+    final proto = summary.toProto();
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncByDateAndSummary',
+      [
+        date.millisecondsSinceEpoch,
+        proto.value,
+      ],
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> syncByDateAndEvent(DateTime date, HCEventSyncType event) async {
+    final proto = event.toProto();
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncByDateAndEvent',
+      [
+        date.millisecondsSinceEpoch,
+        proto.value,
+      ],
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<SyncStatusWithData<int>> getTodayStepsCount() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getTodayStepsCount',
     );
     final result = ResultSyncStatusWithIntProto.fromBuffer(bytes);
 
@@ -480,16 +578,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final result = ResultSyncStatusWithDailyCaloriesProto.fromBuffer(bytes);
 
     return result.unwrap();
-  }
-
-  @override
-  Future<void> syncPendingEvents() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'syncPendingEvents',
-    );
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
   }
 
   @override

@@ -129,6 +129,48 @@ void resultBooleanTests(
     );
 
     test(
+      'GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value',
+      () async {
+        final future = platform.syncHistoricSummaries(true);
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN syncSummariesByDate THEN complete with expected value',
+      () async {
+        final future = platform.syncSummariesByDate(DateTime.now());
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN syncByDateAndSummary THEN complete with expected value',
+      () async {
+        final future = platform.syncByDateAndSummary(
+          DateTime.now(),
+          HCSummarySyncType.sleep,
+        );
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN syncByDateAndEvent THEN complete with expected value',
+      () async {
+        final future = platform.syncByDateAndEvent(
+          DateTime.now(),
+          HCEventSyncType.activity,
+        );
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
       'GIVEN the happy path WHEN isStepsAvailable THEN complete with expected value',
       () async {
         final future = platform.isStepsAvailable();
@@ -280,6 +322,48 @@ void resultBooleanTests(
       'GIVEN the unhappy path WHEN syncPendingEvents THEN throw exception',
       () async {
         final future = platform.syncPendingEvents();
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncHistoricSummaries THEN throw exception',
+      () async {
+        final future = platform.syncHistoricSummaries(true);
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncSummariesByDate THEN throw exception',
+      () async {
+        final future = platform.syncSummariesByDate(DateTime.now());
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncByDateAndSummary THEN throw exception',
+      () async {
+        final future = platform.syncByDateAndSummary(
+          DateTime.now(),
+          HCSummarySyncType.body,
+        );
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncByDateAndEvent THEN throw exception',
+      () async {
+        final future = platform.syncByDateAndEvent(
+          DateTime.now(),
+          HCEventSyncType.steps,
+        );
 
         await expectLater(future, throwsA(isException));
       },
@@ -723,6 +807,22 @@ void resultSyncStatusWithIntTest(
         );
       },
     );
+
+    test(
+      'GIVEN a Result.syncStatusWithIntProto WHEN getTodayStepsCount THEN complete with expected value',
+          () async {
+        final future = platform.getTodayStepsCount();
+
+        await expectLater(
+          future,
+          completion(
+            predicate<SyncStatusWithData<int?>>(
+                  (value) => (value as Synced<int?>).data == 1,
+            ),
+          ),
+        );
+      },
+    );
   });
 
   group(
@@ -747,6 +847,15 @@ void resultSyncStatusWithIntTest(
       'GIVEN the unhappy path WHEN syncTodayHealthConnectStepsCount throw exception',
       () async {
         final future = platform.syncTodayHealthConnectStepsCount();
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN getTodayStepsCount throw exception',
+          () async {
+        final future = platform.getTodayStepsCount();
 
         await expectLater(future, throwsA(isException));
       },

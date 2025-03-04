@@ -17,8 +17,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.time.Instant
 
+@Deprecated(message = "Use SyncHandler instead")
 class EventHandler(private val coroutineScope: CoroutineScope, private val rookEventManager: RookEventManager) {
 
+    @Deprecated(message = "Use SyncHandler.onMethodCall() instead")
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
             "syncPhysicalEvents" -> coroutineScope.launch {
