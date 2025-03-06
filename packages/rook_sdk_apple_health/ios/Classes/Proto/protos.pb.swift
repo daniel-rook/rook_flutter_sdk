@@ -104,6 +104,98 @@ enum DataSourceTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+enum SummarySyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case sleep // = 0
+  case physical // = 1
+  case body // = 2
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .sleep
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .sleep
+    case 1: self = .physical
+    case 2: self = .body
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .sleep: return 0
+    case .physical: return 1
+    case .body: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [SummarySyncTypeProto] = [
+    .sleep,
+    .physical,
+    .body,
+  ]
+
+}
+
+enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case activity // = 0
+  case bloodGlucose // = 1
+  case bloodPressure // = 2
+  case bodyMetrics // = 3
+  case heartRate // = 4
+  case oxygenation // = 7
+  case temperature // = 8
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .activity
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .activity
+    case 1: self = .bloodGlucose
+    case 2: self = .bloodPressure
+    case 3: self = .bodyMetrics
+    case 4: self = .heartRate
+    case 7: self = .oxygenation
+    case 8: self = .temperature
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .activity: return 0
+    case .bloodGlucose: return 1
+    case .bloodPressure: return 2
+    case .bodyMetrics: return 3
+    case .heartRate: return 4
+    case .oxygenation: return 7
+    case .temperature: return 8
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [EventSyncTypeProto] = [
+    .activity,
+    .bloodGlucose,
+    .bloodPressure,
+    .bodyMetrics,
+    .heartRate,
+    .oxygenation,
+    .temperature,
+  ]
+
+}
+
 struct RookConfigurationProto: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -401,6 +493,26 @@ extension DataSourceTypeProto: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "FITBIT"),
     4: .same(proto: "WITHINGS"),
     5: .same(proto: "WHOOP"),
+  ]
+}
+
+extension SummarySyncTypeProto: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SLEEP"),
+    1: .same(proto: "PHYSICAL"),
+    2: .same(proto: "BODY"),
+  ]
+}
+
+extension EventSyncTypeProto: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ACTIVITY"),
+    1: .same(proto: "BLOOD_GLUCOSE"),
+    2: .same(proto: "BLOOD_PRESSURE"),
+    3: .same(proto: "BODY_METRICS"),
+    4: .same(proto: "HEART_RATE"),
+    7: .same(proto: "OXYGENATION"),
+    8: .same(proto: "TEMPERATURE"),
   ]
 }
 

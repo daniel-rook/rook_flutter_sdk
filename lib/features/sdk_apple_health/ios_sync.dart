@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
+import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
@@ -15,11 +15,34 @@ class IOSSync extends StatefulWidget {
 }
 
 class _IOSSyncState extends State<IOSSync> {
-  final Logger logger = Logger('IOSSync');
+  TextEditingController syncSummariesDate = TextEditingController();
+  TextEditingController syncSingleSummaryDate = TextEditingController();
+  TextEditingController syncSingleEventDate = TextEditingController();
 
-  final ConsoleOutput syncOutput = ConsoleOutput();
-  final ConsoleOutput syncPendingSummariesOutput = ConsoleOutput();
-  final ConsoleOutput syncPendingEventsOutput = ConsoleOutput();
+  AHSummarySyncType summarySyncType = AHSummarySyncType.sleep;
+  AHEventSyncType eventSyncType = AHEventSyncType.activity;
+
+  final ConsoleOutput syncSummariesHistoricOutput = ConsoleOutput();
+  final ConsoleOutput syncSummariesOutput = ConsoleOutput();
+  final ConsoleOutput syncSingleSummaryOutput = ConsoleOutput();
+  final ConsoleOutput syncSingleEventOutput = ConsoleOutput();
+  final ConsoleOutput getTodayStepsOutput = ConsoleOutput();
+  final ConsoleOutput getTodayCaloriesOutput = ConsoleOutput();
+
+  @override
+  void initState() {
+    final now = DateTime.now();
+    final today = now.subtract(
+      Duration(hours: now.hour, minutes: now.minute, seconds: now.second),
+    );
+    final yesterday = today.subtract(const Duration(days: 1));
+
+    syncSummariesDate.text = yesterday.toIso8601String().split("T").first;
+    syncSingleSummaryDate.text = yesterday.toIso8601String().split("T").first;
+    syncSingleEventDate.text = today.toIso8601String().split("T").first;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,400 +50,276 @@ class _IOSSyncState extends State<IOSSync> {
       name: 'Manually sync health data',
       child: Column(
         children: [
-          const SectionTitle('Sync today events and yesterday summaries'),
-          Text(syncOutput.current),
+          const SectionTitle('Sync summaries historic'),
+          Text(syncSummariesHistoricOutput.current),
           FilledButton(
-            onPressed: syncHealthData,
-            child: const Text('Sync'),
+            onPressed: syncSummariesHistoric,
+            child: const Text('Sync summaries historic'),
           ),
-          const SectionTitle('Sync pending summaries (optional)'),
-          Text(syncPendingSummariesOutput.current),
-          FilledButton(
-            onPressed: syncPendingSummaries,
-            child: const Text('Sync pending summaries'),
+          const SectionTitle('Sync summaries'),
+          TextField(
+            controller: syncSummariesDate,
+            decoration: const InputDecoration(
+              helperText: 'YYYY-MM-DD',
+              border: OutlineInputBorder(),
+            ),
           ),
-          const SectionTitle('Sync pending events (optional)'),
-          Text(syncPendingEventsOutput.current),
+          Text(syncSummariesOutput.current),
           FilledButton(
-            onPressed: syncPendingEvents,
-            child: const Text('Sync pending events'),
+            onPressed: syncSummaries,
+            child: const Text('Sync summaries'),
+          ),
+          const SectionTitle('Sync single summary'),
+          TextField(
+            controller: syncSingleSummaryDate,
+            decoration: const InputDecoration(
+              helperText: 'YYYY-MM-DD',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          DropdownMenu(
+            onSelected: (selection) {
+              summarySyncType = selection ?? AHSummarySyncType.sleep;
+            },
+            dropdownMenuEntries: const [
+              DropdownMenuEntry(
+                value: AHSummarySyncType.sleep,
+                label: "Sleep",
+              ),
+              DropdownMenuEntry(
+                value: AHSummarySyncType.physical,
+                label: "Physical",
+              ),
+              DropdownMenuEntry(
+                value: AHSummarySyncType.body,
+                label: "Body",
+              ),
+            ],
+          ),
+          Text(syncSingleSummaryOutput.current),
+          FilledButton(
+            onPressed: syncSingleSummary,
+            child: const Text('Sync single summary'),
+          ),
+          const SectionTitle('Sync single event'),
+          TextField(
+            controller: syncSingleEventDate,
+            decoration: const InputDecoration(
+              helperText: 'YYYY-MM-DD',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          DropdownMenu(
+            onSelected: (selection) {
+              eventSyncType = selection ?? AHEventSyncType.activity;
+            },
+            dropdownMenuEntries: const [
+              DropdownMenuEntry(
+                value: AHEventSyncType.activity,
+                label: "Activity",
+              ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.bloodGlucose,
+                label: "Blood glucose",
+              ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.bloodPressure,
+                label: "Blood pressure",
+              ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.bodyMetrics,
+                label: "Body metrics",
+              ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.heartRate,
+                label: "Heart rate",
+              ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.oxygenation,
+                label: "Oxygenation",
+              ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.temperature,
+                label: "Temperature",
+              ),
+            ],
+          ),
+          Text(syncSingleEventOutput.current),
+          FilledButton(
+            onPressed: syncSingleEvent,
+            child: const Text('Sync single event'),
+          ),
+          const SectionTitle('Get today steps'),
+          Text(getTodayStepsOutput.current),
+          FilledButton(
+            onPressed: getTodaySteps,
+            child: const Text('Get today steps'),
+          ),
+          const SectionTitle('Get today calories'),
+          Text(getTodayCaloriesOutput.current),
+          FilledButton(
+            onPressed: getTodayCalories,
+            child: const Text('Get today calories'),
           ),
         ],
       ),
     );
   }
 
-  void syncHealthData() async {
-    syncOutput.clear();
+  void syncSummariesHistoric() async {
+    syncSummariesHistoricOutput.clear();
 
-    final today = DateTime.now();
-    final yesterday = today.subtract(const Duration(days: 1));
+    setState(() {
+      syncSummariesHistoricOutput.append("Syncing historic summaries...");
+    });
 
-    setState(
-      () => syncOutput.append('Syncing health data...'),
-    );
-
-    setState(
-      () => syncOutput
-          .append('Syncing Sleep summary of yesterday: $yesterday...'),
-    );
-    await syncSleepSummary(yesterday);
-
-    setState(
-      () => syncOutput
-          .append('Syncing Physical summary of yesterday: $yesterday...'),
-    );
-    await syncPhysicalSummary(yesterday);
-
-    setState(
-      () =>
-          syncOutput.append('Syncing Body summary of yesterday: $yesterday...'),
-    );
-    await syncBodySummary(yesterday);
-
-    setState(
-      () => syncOutput.append('Syncing Physical events of today: $today...'),
-    );
-    await syncPhysicalEvents(today);
-
-    setState(
-      () =>
-          syncOutput.append('Syncing BloodGlucose events of today: $today...'),
-    );
-    await syncBloodGlucoseEvents(today);
-
-    setState(
-      () =>
-          syncOutput.append('Syncing BloodPressure events of today: $today...'),
-    );
-    await syncBloodPressureEvents(today);
-
-    setState(
-      () => syncOutput.append('Syncing BodyMetrics events of today: $today...'),
-    );
-    await syncBodyMetricsEvents(today);
-
-    setState(
-      () =>
-          syncOutput.append('Syncing BodyHeartRate events of today: $today...'),
-    );
-    await syncBodyHeartRateEvents(today);
-
-    setState(
-      () => syncOutput
-          .append('Syncing PhysicalHeartRate events of today: $today...'),
-    );
-    await syncPhysicalHeartRateEvents(today);
-
-    setState(
-      () => syncOutput
-          .append('Syncing BodyOxygenation events of today: $today...'),
-    );
-    await syncBodyOxygenationEvents(today);
-
-    setState(
-      () => syncOutput
-          .append('Syncing PhysicalOxygenation events of today: $today...'),
-    );
-    await syncPhysicalOxygenationEvents(today);
-
-    setState(
-      () => syncOutput.append('Syncing Temperature events of today: $today...'),
-    );
-    await syncTemperatureEvents(today);
-
-    setState(
-      () => syncOutput.append('Syncing Steps events of today: $today...'),
-    );
-    await syncStepsEvents();
-    setState(
-          () => syncOutput.append('Syncing Calories events of today: $today...'),
-    );
-    await syncCaloriesEvents();
-  }
-
-  Future<void> syncSleepSummary(DateTime yesterday) async {
     try {
-      try {
-        final syncStatus = await AHRookSummaryManager.syncSleepSummary(
-          yesterday,
+      await AHRookSyncManager.sync(enableLogs: isDebug);
+
+      setState(() {
+        syncSummariesHistoricOutput.append("Historic summaries sync started");
+      });
+    } catch (error) {
+      setState(() {
+        syncSummariesHistoricOutput.append(
+          "Error syncing historic summaries: $error",
         );
+      });
+    }
+  }
 
-        setState(
-          () => syncOutput.append('Sleep summary: SyncStatus.synced'),
+  void syncSummaries() async {
+    syncSummariesOutput.clear();
+
+    final dateString = syncSummariesDate.text;
+    final date = DateTime.parse(dateString);
+
+    setState(() {
+      syncSummariesOutput.append("Syncing $date summaries...");
+    });
+
+    try {
+      await AHRookSyncManager.sync(date: date);
+
+      setState(() {
+        syncSummariesOutput.append("$date summaries synced successfully");
+      });
+    } catch (error) {
+      setState(() {
+        syncSummariesOutput.append("Error syncing $date summaries: $error");
+      });
+    }
+  }
+
+  void syncSingleSummary() async {
+    syncSingleSummaryOutput.clear();
+
+    final dateString = syncSingleSummaryDate.text;
+    final date = DateTime.parse(dateString);
+
+    setState(() {
+      syncSingleSummaryOutput.append("Syncing $date $summarySyncType...");
+    });
+
+    try {
+      await AHRookSyncManager.sync(date: date, summary: summarySyncType);
+
+      setState(() {
+        syncSingleSummaryOutput.append(
+          "$date $summarySyncType synced successfully",
         );
-      } catch (error) {
-        setState(
-          () => syncOutput.append('Error syncing Sleep summary: $error'),
+      });
+    } catch (error) {
+      setState(() {
+        syncSingleSummaryOutput.append(
+          "Error syncing $date $summarySyncType: $error",
         );
-      }
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing Sleep summary: $error'),
-      );
+      });
     }
   }
 
-  Future<void> syncPhysicalSummary(DateTime yesterday) async {
+  void syncSingleEvent() async {
+    syncSingleEventOutput.clear();
+
+    final dateString = syncSingleEventDate.text;
+    final date = DateTime.parse(dateString);
+
+    setState(() {
+      syncSingleEventOutput.append("Syncing $date $eventSyncType...");
+    });
+
     try {
-      try {
-        final syncStatus = await AHRookSummaryManager.syncPhysicalSummary(
-          yesterday,
+      await AHRookSyncManager.syncEvents(date, eventSyncType);
+
+      setState(() {
+        syncSingleEventOutput.append(
+          "$date $eventSyncType synced successfully",
         );
-
-        setState(
-          () => syncOutput.append('Physical summary: SyncStatus.synced'),
+      });
+    } catch (error) {
+      setState(() {
+        syncSingleEventOutput.append(
+          "Error syncing $date $eventSyncType: $error",
         );
-      } catch (error) {
-        setState(
-          () => syncOutput.append('Error syncing Physical summary: $error'),
-        );
-      }
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing Physical summary: $error'),
-      );
+      });
     }
   }
 
-  Future<void> syncBodySummary(DateTime yesterday) async {
+  void getTodaySteps() async {
+    getTodayStepsOutput.clear();
+
+    setState(
+      () => getTodayStepsOutput.append('Syncing steps events of today...'),
+    );
+
     try {
-      try {
-        final syncStatus = await AHRookSummaryManager.syncBodySummary(
-          yesterday,
-        );
-
-        setState(
-          () => syncOutput.append('Body summary: SyncStatus.synced'),
-        );
-      } catch (error) {
-        setState(
-          () => syncOutput.append('Error syncing Body summary: $error'),
-        );
-      }
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing Body summary: $error'),
-      );
-    }
-  }
-
-  Future<void> syncPhysicalEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncPhysicalEvents(today);
-
-      setState(
-        () => syncOutput.append('Physical events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing Physical events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncBloodGlucoseEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncBloodGlucoseEvents(today);
-
-      setState(
-        () => syncOutput.append('BloodGlucose events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing BloodGlucose events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncBloodPressureEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncBloodPressureEvents(
-        today,
-      );
-
-      setState(
-        () => syncOutput.append('BloodPressure events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing BloodPressure events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncBodyMetricsEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncBodyMetricsEvents(today);
-
-      setState(
-        () => syncOutput.append('BodyMetrics events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing BodyMetrics events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncBodyHeartRateEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncBodyHeartRateEvents(
-        today,
-      );
-
-      setState(
-        () => syncOutput.append('BodyHeartRate events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing BodyHeartRate events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncPhysicalHeartRateEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncPhysicalHeartRateEvents(
-        today,
-      );
-
-      setState(
-        () => syncOutput.append('PhysicalHeartRate events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () =>
-            syncOutput.append('Error syncing PhysicalHeartRate events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncBodyOxygenationEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncBodyOxygenationEvents(
-        today,
-      );
-
-      setState(
-        () => syncOutput.append('BodyOxygenation events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing BodyOxygenation events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncPhysicalOxygenationEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncPhysicalOxygenationEvents(
-        today,
-      );
-
-      setState(
-        () =>
-            syncOutput.append('PhysicalOxygenation events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () => syncOutput
-            .append('Error syncing PhysicalOxygenation events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncTemperatureEvents(DateTime today) async {
-    try {
-      await AHRookEventManager.syncTemperatureEvents(today);
-
-      setState(
-        () => syncOutput.append('Temperature events: SyncStatus.synced'),
-      );
-    } catch (error) {
-      setState(
-        () => syncOutput.append('Error syncing Temperature events: $error'),
-      );
-    }
-  }
-
-  Future<void> syncStepsEvents() async {
-    try {
-      final steps = await AHRookEventManager.syncTodayAppleHealthStepsCount();
+      final steps = await AHRookSyncManager.getTodayStepsCount();
 
       if (steps != null) {
         setState(
-          () => syncOutput.append('$steps steps synced successfully'),
+          () => getTodayStepsOutput.append('$steps steps synced successfully'),
         );
       } else {
         setState(
-          () => syncOutput.append('Steps events not found'),
+          () => getTodayStepsOutput.append('Steps events not found'),
         );
       }
     } catch (error) {
       setState(
-        () => syncOutput.append('Error syncing Steps events: $error'),
+        () => getTodayStepsOutput.append('Error syncing Steps events: $error'),
       );
     }
   }
 
-  Future<void> syncCaloriesEvents() async {
+  void getTodayCalories() async {
+    getTodayCaloriesOutput.clear();
+
+    setState(
+      () => getTodayCaloriesOutput.append(
+        'Syncing calories events of today...',
+      ),
+    );
+
     try {
-      final calories = await AHRookEventManager.getTodayCaloriesCount();
+      final calories = await AHRookSyncManager.getTodayCaloriesCount();
 
       if (calories != null) {
         setState(
-              () => syncOutput.append('$calories calories synced successfully'),
+          () => getTodayCaloriesOutput.append(
+            '$calories synced successfully',
+          ),
         );
       } else {
         setState(
-              () => syncOutput.append('Calories events not found'),
+          () => getTodayCaloriesOutput.append('Calories events not found'),
         );
       }
     } catch (error) {
       setState(
-            () => syncOutput.append('Error syncing Calories events: $error'),
+        () => getTodayCaloriesOutput.append(
+          'Error syncing Calories events: $error',
+        ),
       );
     }
-  }
-
-  void syncPendingSummaries() {
-    syncPendingSummariesOutput.clear();
-
-    setState(
-      () => syncPendingSummariesOutput.append('Syncing pending summaries...'),
-    );
-
-    AHRookSummaryManager.syncPendingSummaries().then((_) {
-      setState(
-        () => syncPendingSummariesOutput
-            .append('Pending summaries synced successfully'),
-      );
-    }).catchError((error) {
-      setState(
-        () => syncPendingSummariesOutput
-            .append('Error syncing pending summaries: $error'),
-      );
-    });
-  }
-
-  void syncPendingEvents() {
-    syncPendingEventsOutput.clear();
-
-    setState(
-      () => syncPendingEventsOutput.append('Syncing pending events...'),
-    );
-
-    AHRookEventManager.syncPendingEvents().then((_) {
-      setState(
-        () => syncPendingEventsOutput
-            .append('Pending events synced successfully'),
-      );
-    }).catchError((error) {
-      setState(
-        () => syncPendingEventsOutput
-            .append('Error syncing pending events: $error'),
-      );
-    });
   }
 }

@@ -2,6 +2,8 @@ import 'package:fixnum/fixnum.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
+import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_method_channel.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
@@ -226,6 +228,48 @@ void resultBooleanTests(
         final future = platform.syncPendingEvents();
 
         await expectLater(future, completes);
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value',
+          () async {
+        final future = platform.syncHistoricSummaries(true);
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN syncSummariesByDate THEN complete with expected value',
+          () async {
+        final future = platform.syncSummariesByDate(DateTime.now());
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN syncByDateAndSummary THEN complete with expected value',
+          () async {
+        final future = platform.syncByDateAndSummary(
+          DateTime.now(),
+          AHSummarySyncType.sleep,
+        );
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN syncByDateAndEvent THEN complete with expected value',
+          () async {
+        final future = platform.syncByDateAndEvent(
+          DateTime.now(),
+          AHEventSyncType.activity,
+        );
+
+        await expectLater(future, completion(true));
       },
     );
 
@@ -473,6 +517,48 @@ void resultBooleanTests(
     );
 
     test(
+      'GIVEN the unhappy path WHEN syncHistoricSummaries THEN throw exception',
+          () async {
+        final future = platform.syncHistoricSummaries(true);
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncSummariesByDate THEN throw exception',
+          () async {
+        final future = platform.syncSummariesByDate(DateTime.now());
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncByDateAndSummary THEN throw exception',
+          () async {
+        final future = platform.syncByDateAndSummary(
+          DateTime.now(),
+          AHSummarySyncType.body,
+        );
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncByDateAndEvent THEN throw exception',
+          () async {
+        final future = platform.syncByDateAndEvent(
+          DateTime.now(),
+          AHEventSyncType.oxygenation,
+        );
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
         'GIVEN a Result.exception WHEN isContinuousUploadEnabled THEN throw exception',
         () async {
       final future = platform.isContinuousUploadEnabled();
@@ -558,6 +644,15 @@ void resultInt64Tests(
 
       await expectLater(future, completion(1000));
     });
+
+    test(
+      'GIVEN a Result.syncStatusWithIntProto WHEN getTodayStepsCount THEN complete with expected value',
+      () async {
+        final future = platform.getTodayStepsCount();
+
+        await expectLater(future, completion(1000));
+      },
+    );
   });
 
   group('MethodChannelRookSdkAppleHealth | ResultInt64Proto exception unwrap',
@@ -584,6 +679,15 @@ void resultInt64Tests(
 
       await expectLater(future, throwsA(isException));
     });
+
+    test(
+      'GIVEN the unhappy path WHEN getTodayStepsCount throw exception',
+          () async {
+        final future = platform.getTodayStepsCount();
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
   });
 }
 
