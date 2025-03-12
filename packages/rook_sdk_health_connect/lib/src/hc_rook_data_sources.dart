@@ -8,6 +8,9 @@ class HCRookDataSources {
   /// Returns the available data sources for the current user.
   ///
   /// * [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
+  @Deprecated(
+    "It is recommended to query individual authorizations using getDataSourceAuthorizer to get a more efficient and scalable solution, reducing unnecessary data retrieval",
+  )
   static Future<List<DataSource>> getAvailableDataSources({
     String? redirectUrl,
   }) {
@@ -36,6 +39,9 @@ class HCRookDataSources {
   /// Displays a pre-built screen that allows the users to connect to a data source.
   ///
   /// * [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
+  @Deprecated(
+    "It is recommended to query individual authorizations using getDataSourceAuthorizer to get a more efficient and scalable solution, reducing unnecessary data retrieval",
+  )
   static Future<void> presentDataSourceView({
     String? redirectUrl,
   }) {

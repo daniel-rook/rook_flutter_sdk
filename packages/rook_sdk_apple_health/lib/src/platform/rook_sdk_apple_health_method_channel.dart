@@ -484,6 +484,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use getDataSourceAuthorizer instead")
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAvailableDataSources',
@@ -525,6 +526,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use getDataSourceAuthorizer instead")
   Future<void> presentDataSourceView(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'presentDataSourceView',

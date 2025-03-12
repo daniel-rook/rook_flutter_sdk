@@ -116,11 +116,13 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Stream<Exception> get backgroundErrorsUpdates;
 
+  @Deprecated("Use getDataSourceAuthorizer instead")
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
 
   Future<AuthorizedDataSources> getAuthorizedDataSources();
 
   Future<void> revokeDataSource(DataSourceType dataSourceType);
 
+  @Deprecated("Use getDataSourceAuthorizer instead")
   Future<void> presentDataSourceView(String? redirectUrl);
 }
