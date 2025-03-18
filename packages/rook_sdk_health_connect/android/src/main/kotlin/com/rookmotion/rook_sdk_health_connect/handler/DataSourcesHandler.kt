@@ -7,9 +7,12 @@ import com.rookmotion.rook_sdk_health_connect.extension.authorizedDataSourcesErr
 import com.rookmotion.rook_sdk_health_connect.extension.authorizedDataSourcesSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
+import com.rookmotion.rook_sdk_health_connect.extension.dataSourceAuthorizerError
+import com.rookmotion.rook_sdk_health_connect.extension.dataSourceAuthorizerSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesError
 import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
+import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringNullableArgAt
 import com.rookmotion.rook_sdk_health_connect.mapper.toDataSourceType
 import com.rookmotion.rook_sdk_health_connect.proto.DataSourceTypeProto
@@ -36,6 +39,20 @@ class DataSourcesHandler(context: Context, private val coroutineScope: Coroutine
                 )
             }
 
+            "getDataSourceAuthorizer" -> coroutineScope.launch {
+                val dataSource = methodCall.getStringArgAt(0)
+                val redirectUrl = methodCall.getStringNullableArgAt(1)
+
+                rookDataSources.getDataSourceAuthorizer(dataSource, redirectUrl).fold(
+                    {
+                        methodResult.dataSourceAuthorizerSuccess(it)
+                    },
+                    {
+                        methodResult.dataSourceAuthorizerError(it)
+                    }
+                )
+            }
+
             "getAuthorizedDataSources" -> coroutineScope.launch {
                 rookDataSources.getAuthorizedDataSources().fold(
                     {
@@ -48,11 +65,9 @@ class DataSourcesHandler(context: Context, private val coroutineScope: Coroutine
             }
 
             "revokeDataSource" -> coroutineScope.launch {
-                val dataSourceType = methodCall.getIntArgAt(0).let {
-                    DataSourceTypeProto.forNumber(it).toDataSourceType()
-                }
+                val dataSource = methodCall.getStringArgAt(0)
 
-                rookDataSources.revokeDataSource(dataSourceType).fold(
+                rookDataSources.revokeDataSource(dataSource).fold(
                     {
                         methodResult.booleanSuccess(true)
                     },

@@ -16,237 +16,263 @@ public  final class AuthorizedDataSourcesProto extends
   private AuthorizedDataSourcesProto() {
   }
   public static final int OURA_FIELD_NUMBER = 1;
-  private boolean oura_;
+  private int oura_;
   /**
-   * <code>bool oura = 1;</code>
+   * <code>uint32 oura = 1;</code>
    * @return The oura.
    */
   @java.lang.Override
-  public boolean getOura() {
+  public int getOura() {
     return oura_;
   }
   /**
-   * <code>bool oura = 1;</code>
+   * <code>uint32 oura = 1;</code>
    * @param value The oura to set.
    */
-  private void setOura(boolean value) {
+  private void setOura(int value) {
     
     oura_ = value;
   }
   /**
-   * <code>bool oura = 1;</code>
+   * <code>uint32 oura = 1;</code>
    */
   private void clearOura() {
 
-    oura_ = false;
+    oura_ = 0;
   }
 
   public static final int POLAR_FIELD_NUMBER = 2;
-  private boolean polar_;
+  private int polar_;
   /**
-   * <code>bool polar = 2;</code>
+   * <code>uint32 polar = 2;</code>
    * @return The polar.
    */
   @java.lang.Override
-  public boolean getPolar() {
+  public int getPolar() {
     return polar_;
   }
   /**
-   * <code>bool polar = 2;</code>
+   * <code>uint32 polar = 2;</code>
    * @param value The polar to set.
    */
-  private void setPolar(boolean value) {
+  private void setPolar(int value) {
     
     polar_ = value;
   }
   /**
-   * <code>bool polar = 2;</code>
+   * <code>uint32 polar = 2;</code>
    */
   private void clearPolar() {
 
-    polar_ = false;
+    polar_ = 0;
   }
 
   public static final int WHOOP_FIELD_NUMBER = 3;
-  private boolean whoop_;
+  private int whoop_;
   /**
-   * <code>bool whoop = 3;</code>
+   * <code>uint32 whoop = 3;</code>
    * @return The whoop.
    */
   @java.lang.Override
-  public boolean getWhoop() {
+  public int getWhoop() {
     return whoop_;
   }
   /**
-   * <code>bool whoop = 3;</code>
+   * <code>uint32 whoop = 3;</code>
    * @param value The whoop to set.
    */
-  private void setWhoop(boolean value) {
+  private void setWhoop(int value) {
     
     whoop_ = value;
   }
   /**
-   * <code>bool whoop = 3;</code>
+   * <code>uint32 whoop = 3;</code>
    */
   private void clearWhoop() {
 
-    whoop_ = false;
+    whoop_ = 0;
   }
 
   public static final int FITBIT_FIELD_NUMBER = 4;
-  private boolean fitbit_;
+  private int fitbit_;
   /**
-   * <code>bool fitbit = 4;</code>
+   * <code>uint32 fitbit = 4;</code>
    * @return The fitbit.
    */
   @java.lang.Override
-  public boolean getFitbit() {
+  public int getFitbit() {
     return fitbit_;
   }
   /**
-   * <code>bool fitbit = 4;</code>
+   * <code>uint32 fitbit = 4;</code>
    * @param value The fitbit to set.
    */
-  private void setFitbit(boolean value) {
+  private void setFitbit(int value) {
     
     fitbit_ = value;
   }
   /**
-   * <code>bool fitbit = 4;</code>
+   * <code>uint32 fitbit = 4;</code>
    */
   private void clearFitbit() {
 
-    fitbit_ = false;
+    fitbit_ = 0;
   }
 
   public static final int GARMIN_FIELD_NUMBER = 5;
-  private boolean garmin_;
+  private int garmin_;
   /**
-   * <code>bool garmin = 5;</code>
+   * <code>uint32 garmin = 5;</code>
    * @return The garmin.
    */
   @java.lang.Override
-  public boolean getGarmin() {
+  public int getGarmin() {
     return garmin_;
   }
   /**
-   * <code>bool garmin = 5;</code>
+   * <code>uint32 garmin = 5;</code>
    * @param value The garmin to set.
    */
-  private void setGarmin(boolean value) {
+  private void setGarmin(int value) {
     
     garmin_ = value;
   }
   /**
-   * <code>bool garmin = 5;</code>
+   * <code>uint32 garmin = 5;</code>
    */
   private void clearGarmin() {
 
-    garmin_ = false;
+    garmin_ = 0;
   }
 
   public static final int WITHINGS_FIELD_NUMBER = 6;
-  private boolean withings_;
+  private int withings_;
   /**
-   * <code>bool withings = 6;</code>
+   * <code>uint32 withings = 6;</code>
    * @return The withings.
    */
   @java.lang.Override
-  public boolean getWithings() {
+  public int getWithings() {
     return withings_;
   }
   /**
-   * <code>bool withings = 6;</code>
+   * <code>uint32 withings = 6;</code>
    * @param value The withings to set.
    */
-  private void setWithings(boolean value) {
+  private void setWithings(int value) {
     
     withings_ = value;
   }
   /**
-   * <code>bool withings = 6;</code>
+   * <code>uint32 withings = 6;</code>
    */
   private void clearWithings() {
 
-    withings_ = false;
+    withings_ = 0;
   }
 
-  public static final int APPLEHEALTH_FIELD_NUMBER = 7;
-  private boolean appleHealth_;
+  public static final int DEXCOM_FIELD_NUMBER = 7;
+  private int dexcom_;
   /**
-   * <code>bool appleHealth = 7;</code>
+   * <code>uint32 dexcom = 7;</code>
+   * @return The dexcom.
+   */
+  @java.lang.Override
+  public int getDexcom() {
+    return dexcom_;
+  }
+  /**
+   * <code>uint32 dexcom = 7;</code>
+   * @param value The dexcom to set.
+   */
+  private void setDexcom(int value) {
+    
+    dexcom_ = value;
+  }
+  /**
+   * <code>uint32 dexcom = 7;</code>
+   */
+  private void clearDexcom() {
+
+    dexcom_ = 0;
+  }
+
+  public static final int APPLEHEALTH_FIELD_NUMBER = 8;
+  private int appleHealth_;
+  /**
+   * <code>uint32 appleHealth = 8;</code>
    * @return The appleHealth.
    */
   @java.lang.Override
-  public boolean getAppleHealth() {
+  public int getAppleHealth() {
     return appleHealth_;
   }
   /**
-   * <code>bool appleHealth = 7;</code>
+   * <code>uint32 appleHealth = 8;</code>
    * @param value The appleHealth to set.
    */
-  private void setAppleHealth(boolean value) {
+  private void setAppleHealth(int value) {
     
     appleHealth_ = value;
   }
   /**
-   * <code>bool appleHealth = 7;</code>
+   * <code>uint32 appleHealth = 8;</code>
    */
   private void clearAppleHealth() {
 
-    appleHealth_ = false;
+    appleHealth_ = 0;
   }
 
-  public static final int HEALTHCONNECT_FIELD_NUMBER = 8;
-  private boolean healthConnect_;
+  public static final int HEALTHCONNECT_FIELD_NUMBER = 9;
+  private int healthConnect_;
   /**
-   * <code>bool healthConnect = 8;</code>
+   * <code>uint32 healthConnect = 9;</code>
    * @return The healthConnect.
    */
   @java.lang.Override
-  public boolean getHealthConnect() {
+  public int getHealthConnect() {
     return healthConnect_;
   }
   /**
-   * <code>bool healthConnect = 8;</code>
+   * <code>uint32 healthConnect = 9;</code>
    * @param value The healthConnect to set.
    */
-  private void setHealthConnect(boolean value) {
+  private void setHealthConnect(int value) {
     
     healthConnect_ = value;
   }
   /**
-   * <code>bool healthConnect = 8;</code>
+   * <code>uint32 healthConnect = 9;</code>
    */
   private void clearHealthConnect() {
 
-    healthConnect_ = false;
+    healthConnect_ = 0;
   }
 
-  public static final int ANDROID_FIELD_NUMBER = 9;
-  private boolean android_;
+  public static final int ANDROID_FIELD_NUMBER = 10;
+  private int android_;
   /**
-   * <code>bool android = 9;</code>
+   * <code>uint32 android = 10;</code>
    * @return The android.
    */
   @java.lang.Override
-  public boolean getAndroid() {
+  public int getAndroid() {
     return android_;
   }
   /**
-   * <code>bool android = 9;</code>
+   * <code>uint32 android = 10;</code>
    * @param value The android to set.
    */
-  private void setAndroid(boolean value) {
+  private void setAndroid(int value) {
     
     android_ = value;
   }
   /**
-   * <code>bool android = 9;</code>
+   * <code>uint32 android = 10;</code>
    */
   private void clearAndroid() {
 
-    android_ = false;
+    android_ = 0;
   }
 
   public static com.rookmotion.rook_sdk_health_connect.proto.AuthorizedDataSourcesProto parseFrom(
@@ -347,25 +373,25 @@ public  final class AuthorizedDataSourcesProto extends
 
 
     /**
-     * <code>bool oura = 1;</code>
+     * <code>uint32 oura = 1;</code>
      * @return The oura.
      */
     @java.lang.Override
-    public boolean getOura() {
+    public int getOura() {
       return instance.getOura();
     }
     /**
-     * <code>bool oura = 1;</code>
+     * <code>uint32 oura = 1;</code>
      * @param value The oura to set.
      * @return This builder for chaining.
      */
-    public Builder setOura(boolean value) {
+    public Builder setOura(int value) {
       copyOnWrite();
       instance.setOura(value);
       return this;
     }
     /**
-     * <code>bool oura = 1;</code>
+     * <code>uint32 oura = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearOura() {
@@ -375,25 +401,25 @@ public  final class AuthorizedDataSourcesProto extends
     }
 
     /**
-     * <code>bool polar = 2;</code>
+     * <code>uint32 polar = 2;</code>
      * @return The polar.
      */
     @java.lang.Override
-    public boolean getPolar() {
+    public int getPolar() {
       return instance.getPolar();
     }
     /**
-     * <code>bool polar = 2;</code>
+     * <code>uint32 polar = 2;</code>
      * @param value The polar to set.
      * @return This builder for chaining.
      */
-    public Builder setPolar(boolean value) {
+    public Builder setPolar(int value) {
       copyOnWrite();
       instance.setPolar(value);
       return this;
     }
     /**
-     * <code>bool polar = 2;</code>
+     * <code>uint32 polar = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearPolar() {
@@ -403,25 +429,25 @@ public  final class AuthorizedDataSourcesProto extends
     }
 
     /**
-     * <code>bool whoop = 3;</code>
+     * <code>uint32 whoop = 3;</code>
      * @return The whoop.
      */
     @java.lang.Override
-    public boolean getWhoop() {
+    public int getWhoop() {
       return instance.getWhoop();
     }
     /**
-     * <code>bool whoop = 3;</code>
+     * <code>uint32 whoop = 3;</code>
      * @param value The whoop to set.
      * @return This builder for chaining.
      */
-    public Builder setWhoop(boolean value) {
+    public Builder setWhoop(int value) {
       copyOnWrite();
       instance.setWhoop(value);
       return this;
     }
     /**
-     * <code>bool whoop = 3;</code>
+     * <code>uint32 whoop = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearWhoop() {
@@ -431,25 +457,25 @@ public  final class AuthorizedDataSourcesProto extends
     }
 
     /**
-     * <code>bool fitbit = 4;</code>
+     * <code>uint32 fitbit = 4;</code>
      * @return The fitbit.
      */
     @java.lang.Override
-    public boolean getFitbit() {
+    public int getFitbit() {
       return instance.getFitbit();
     }
     /**
-     * <code>bool fitbit = 4;</code>
+     * <code>uint32 fitbit = 4;</code>
      * @param value The fitbit to set.
      * @return This builder for chaining.
      */
-    public Builder setFitbit(boolean value) {
+    public Builder setFitbit(int value) {
       copyOnWrite();
       instance.setFitbit(value);
       return this;
     }
     /**
-     * <code>bool fitbit = 4;</code>
+     * <code>uint32 fitbit = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearFitbit() {
@@ -459,25 +485,25 @@ public  final class AuthorizedDataSourcesProto extends
     }
 
     /**
-     * <code>bool garmin = 5;</code>
+     * <code>uint32 garmin = 5;</code>
      * @return The garmin.
      */
     @java.lang.Override
-    public boolean getGarmin() {
+    public int getGarmin() {
       return instance.getGarmin();
     }
     /**
-     * <code>bool garmin = 5;</code>
+     * <code>uint32 garmin = 5;</code>
      * @param value The garmin to set.
      * @return This builder for chaining.
      */
-    public Builder setGarmin(boolean value) {
+    public Builder setGarmin(int value) {
       copyOnWrite();
       instance.setGarmin(value);
       return this;
     }
     /**
-     * <code>bool garmin = 5;</code>
+     * <code>uint32 garmin = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearGarmin() {
@@ -487,25 +513,25 @@ public  final class AuthorizedDataSourcesProto extends
     }
 
     /**
-     * <code>bool withings = 6;</code>
+     * <code>uint32 withings = 6;</code>
      * @return The withings.
      */
     @java.lang.Override
-    public boolean getWithings() {
+    public int getWithings() {
       return instance.getWithings();
     }
     /**
-     * <code>bool withings = 6;</code>
+     * <code>uint32 withings = 6;</code>
      * @param value The withings to set.
      * @return This builder for chaining.
      */
-    public Builder setWithings(boolean value) {
+    public Builder setWithings(int value) {
       copyOnWrite();
       instance.setWithings(value);
       return this;
     }
     /**
-     * <code>bool withings = 6;</code>
+     * <code>uint32 withings = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearWithings() {
@@ -515,25 +541,53 @@ public  final class AuthorizedDataSourcesProto extends
     }
 
     /**
-     * <code>bool appleHealth = 7;</code>
+     * <code>uint32 dexcom = 7;</code>
+     * @return The dexcom.
+     */
+    @java.lang.Override
+    public int getDexcom() {
+      return instance.getDexcom();
+    }
+    /**
+     * <code>uint32 dexcom = 7;</code>
+     * @param value The dexcom to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDexcom(int value) {
+      copyOnWrite();
+      instance.setDexcom(value);
+      return this;
+    }
+    /**
+     * <code>uint32 dexcom = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDexcom() {
+      copyOnWrite();
+      instance.clearDexcom();
+      return this;
+    }
+
+    /**
+     * <code>uint32 appleHealth = 8;</code>
      * @return The appleHealth.
      */
     @java.lang.Override
-    public boolean getAppleHealth() {
+    public int getAppleHealth() {
       return instance.getAppleHealth();
     }
     /**
-     * <code>bool appleHealth = 7;</code>
+     * <code>uint32 appleHealth = 8;</code>
      * @param value The appleHealth to set.
      * @return This builder for chaining.
      */
-    public Builder setAppleHealth(boolean value) {
+    public Builder setAppleHealth(int value) {
       copyOnWrite();
       instance.setAppleHealth(value);
       return this;
     }
     /**
-     * <code>bool appleHealth = 7;</code>
+     * <code>uint32 appleHealth = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearAppleHealth() {
@@ -543,25 +597,25 @@ public  final class AuthorizedDataSourcesProto extends
     }
 
     /**
-     * <code>bool healthConnect = 8;</code>
+     * <code>uint32 healthConnect = 9;</code>
      * @return The healthConnect.
      */
     @java.lang.Override
-    public boolean getHealthConnect() {
+    public int getHealthConnect() {
       return instance.getHealthConnect();
     }
     /**
-     * <code>bool healthConnect = 8;</code>
+     * <code>uint32 healthConnect = 9;</code>
      * @param value The healthConnect to set.
      * @return This builder for chaining.
      */
-    public Builder setHealthConnect(boolean value) {
+    public Builder setHealthConnect(int value) {
       copyOnWrite();
       instance.setHealthConnect(value);
       return this;
     }
     /**
-     * <code>bool healthConnect = 8;</code>
+     * <code>uint32 healthConnect = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearHealthConnect() {
@@ -571,25 +625,25 @@ public  final class AuthorizedDataSourcesProto extends
     }
 
     /**
-     * <code>bool android = 9;</code>
+     * <code>uint32 android = 10;</code>
      * @return The android.
      */
     @java.lang.Override
-    public boolean getAndroid() {
+    public int getAndroid() {
       return instance.getAndroid();
     }
     /**
-     * <code>bool android = 9;</code>
+     * <code>uint32 android = 10;</code>
      * @param value The android to set.
      * @return This builder for chaining.
      */
-    public Builder setAndroid(boolean value) {
+    public Builder setAndroid(int value) {
       copyOnWrite();
       instance.setAndroid(value);
       return this;
     }
     /**
-     * <code>bool android = 9;</code>
+     * <code>uint32 android = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearAndroid() {
@@ -620,13 +674,14 @@ public  final class AuthorizedDataSourcesProto extends
             "fitbit_",
             "garmin_",
             "withings_",
+            "dexcom_",
             "appleHealth_",
             "healthConnect_",
             "android_",
           };
           java.lang.String info =
-              "\u0000\t\u0000\u0000\u0001\t\t\u0000\u0000\u0000\u0001\u0007\u0002\u0007\u0003\u0007" +
-              "\u0004\u0007\u0005\u0007\u0006\u0007\u0007\u0007\b\u0007\t\u0007";
+              "\u0000\n\u0000\u0000\u0001\n\n\u0000\u0000\u0000\u0001\u000b\u0002\u000b\u0003\u000b" +
+              "\u0004\u000b\u0005\u000b\u0006\u000b\u0007\u000b\b\u000b\t\u000b\n\u000b";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through

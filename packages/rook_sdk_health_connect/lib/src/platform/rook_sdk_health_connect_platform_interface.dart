@@ -165,9 +165,14 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   @Deprecated("Use getDataSourceAuthorizer instead")
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
 
+  Future<DataSourceAuthorizer> getDataSourceAuthorizer(
+    String dataSource,
+    String? redirectUrl,
+  );
+
   Future<AuthorizedDataSources> getAuthorizedDataSources();
 
-  Future<void> revokeDataSource(DataSourceType dataSourceType);
+  Future<void> revokeDataSource(String dataSource);
 
   @Deprecated("Use getDataSourceAuthorizer instead")
   Future<void> presentDataSourceView(String? redirectUrl);

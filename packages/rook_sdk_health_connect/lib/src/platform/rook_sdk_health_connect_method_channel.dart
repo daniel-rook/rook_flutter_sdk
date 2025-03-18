@@ -4,6 +4,7 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_authorized_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_data_source_authorizer_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_request_permissions_status_extensions.dart';
@@ -12,7 +13,6 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_wi
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/data_source_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/event_sync_type_mapper.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_connect_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
@@ -737,6 +737,24 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  Future<DataSourceAuthorizer> getDataSourceAuthorizer(
+    String dataSource,
+    String? redirectUrl,
+  ) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getDataSourceAuthorizer',
+      [
+        dataSource,
+        redirectUrl,
+      ]
+    );
+
+    final result = ResultDataSourceAuthorizerProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
   Future<AuthorizedDataSources> getAuthorizedDataSources() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAuthorizedDataSources',
@@ -748,13 +766,11 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> revokeDataSource(DataSourceType dataSourceType) async {
-    final proto = dataSourceType.toProto();
-
+  Future<void> revokeDataSource(String dataSource) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'revokeDataSource',
       [
-        proto.value,
+        dataSource,
       ],
     );
 
