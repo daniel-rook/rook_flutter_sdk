@@ -1,3 +1,9 @@
+## 1.0.0
+
+* Added `DataSourceAuthorizer`
+* `AuthorizedDataSources` properties have been changed to nullable in order to show data source availability.
+    * Added Dexcom to `AuthorizedDataSources` properties.
+
 ## 0.4.5
 
 * Added `DailyCalories`
