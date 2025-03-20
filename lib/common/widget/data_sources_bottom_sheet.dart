@@ -40,46 +40,32 @@ Widget dataSourcesBottomSheet(
 }
 
 final Set<String> revokableDataSources = {
-  "Garmin",
   "Oura",
+  "Garmin",
   "Polar",
   "Fitbit",
   "Withings",
   "Whoop",
 };
 
-DataSourceType? _getDataSourceType(DataSource dataSource) {
-  return switch (dataSource.name) {
-    "Garmin" => DataSourceType.garmin,
-    "Oura" => DataSourceType.oura,
-    "Polar" => DataSourceType.polar,
-    "Fitbit" => DataSourceType.fitbit,
-    "Withings" => DataSourceType.withings,
-    "Whoop" => DataSourceType.whoop,
-    _ => null
-  };
-}
-
 void _revokeDataSource(DataSource dataSource) {
-  final dataSourceType = _getDataSourceType(dataSource);
-
-  if (dataSourceType == null) {
+  if(!revokableDataSources.contains(dataSource.name)) {
     return;
   }
 
   final logger = Logger('dataSourcesBottomSheet');
 
   if (defaultTargetPlatform == TargetPlatform.android) {
-    HCRookDataSources.revokeDataSource(dataSourceType).then((_) {
-      logger.info('$dataSourceType was successfully revoked');
+    HCRookDataSources.revokeDataSource(dataSource.name).then((_) {
+      logger.info('${dataSource.name} was successfully revoked');
     }).catchError((error) {
-      logger.info('$dataSourceType revoke failed: $error');
+      logger.info('${dataSource.name} revoke failed: $error');
     });
   } else {
-    AHRookDataSources.revokeDataSource(dataSourceType).then((_) {
-      logger.info('$dataSourceType was successfully revoked');
+    AHRookDataSources.revokeDataSource(dataSource.name).then((_) {
+      logger.info('${dataSource.name} was successfully revoked');
     }).catchError((error) {
-      logger.info('$dataSourceType revoke failed: $error');
+      logger.info('${dataSource.name} revoke failed: $error');
     });
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/widget/authorized_data_sources_list.dart';
 import 'package:rook_flutter_sdk/common/widget/data_sources_bottom_sheet.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
@@ -19,6 +20,10 @@ class IOSDataSources extends StatefulWidget {
 class _IOSDataSourcesState extends State<IOSDataSources> {
   final Logger logger = Logger('IOSDataSources');
 
+  ConsoleOutput dataSourceAuthorizerOutput = ConsoleOutput();
+
+  String dataSource = "Fitbit";
+
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
@@ -30,6 +35,47 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
           FilledButton(
             onPressed: loadDataSources,
             child: const Text('Connections page (data sources list)'),
+          ),
+          const SectionTitle('Data source authorizer'),
+          DropdownMenu(
+            onSelected: (selection) {
+              dataSource = selection ?? "Fitbit";
+            },
+            dropdownMenuEntries: const [
+              DropdownMenuEntry(
+                value: "Garmin",
+                label: "Garmin",
+              ),
+              DropdownMenuEntry(
+                value: "Oura",
+                label: "Oura",
+              ),
+              DropdownMenuEntry(
+                value: "Polar",
+                label: "Polar",
+              ),
+              DropdownMenuEntry(
+                value: "Fitbit",
+                label: "Fitbit",
+              ),
+              DropdownMenuEntry(
+                value: "Withings",
+                label: "Withings",
+              ),
+              DropdownMenuEntry(
+                value: "Whoop",
+                label: "Whoop",
+              ),
+              DropdownMenuEntry(
+                value: "Dexcom",
+                label: "Dexcom",
+              ),
+            ],
+          ),
+          Text(dataSourceAuthorizerOutput.current),
+          FilledButton(
+            onPressed: getDataSourceAuthorizer,
+            child: const Text('getDataSourceAuthorizer'),
           ),
           const SectionTitle("Authorized data sources"),
           FilledButton(
@@ -47,32 +93,6 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
           ),
         ],
       ),
-    );
-  }
-
-  void loadAuthorizedDataSources() {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return FutureBuilder(
-          future: AHRookDataSources.getAuthorizedDataSources(),
-          builder: (ctx, AsyncSnapshot<AuthorizedDataSources> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text('Error: ${snapshot.error}'),
-              );
-            } else {
-              return AuthorizedDataSourcesList(
-                authorizedDataSources: snapshot.data!,
-              );
-            }
-          },
-        );
-      },
     );
   }
 
@@ -101,6 +121,65 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
               return dataSourcesBottomSheet(
                 ctx,
                 snapshot.data!,
+              );
+            }
+          },
+        );
+      },
+    );
+  }
+
+  void getDataSourceAuthorizer() async {
+    dataSourceAuthorizerOutput.clear();
+
+    setState(() {
+      dataSourceAuthorizerOutput.append("Getting data source authorizer...");
+    });
+
+    try {
+      final authorizer = await AHRookDataSources.getDataSourceAuthorizer(
+        dataSource,
+        redirectUrl: null,
+      );
+
+      final string = "Success getting data source authorizer"
+          "\n"
+          "Data source: ${authorizer.dataSource}"
+          "\n"
+          "Is authorized: ${authorizer.authorized}"
+          "\n"
+          "Authorization URL: ${authorizer.authorizationUrl}";
+
+      setState(() {
+        dataSourceAuthorizerOutput.append(string);
+      });
+    } catch (error) {
+      setState(() {
+        dataSourceAuthorizerOutput.append(
+          "Error getting data source authorizer $error",
+        );
+      });
+    }
+  }
+
+  void loadAuthorizedDataSources() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return FutureBuilder(
+          future: AHRookDataSources.getAuthorizedDataSources(),
+          builder: (ctx, AsyncSnapshot<AuthorizedDataSources> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('Error: ${snapshot.error}'),
+              );
+            } else {
+              return AuthorizedDataSourcesList(
+                authorizedDataSources: snapshot.data!,
               );
             }
           },

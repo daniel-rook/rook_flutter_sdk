@@ -41,6 +41,10 @@ class AuthorizedDataSourcesList extends StatelessWidget {
               authorizedDataSources.withings,
             ),
             buildAuthorizedDataSourceListTile(
+              "Dexcom",
+              authorizedDataSources.dexcom,
+            ),
+            buildAuthorizedDataSourceListTile(
               "Apple Health",
               authorizedDataSources.appleHealth,
             ),
@@ -58,11 +62,16 @@ class AuthorizedDataSourcesList extends StatelessWidget {
     );
   }
 
-  Widget buildAuthorizedDataSourceListTile(String name, bool authorized) {
-    return ListTile(
-      title: Text(name),
-      trailing:
-          authorized ? const Icon(Icons.check_circle) : const Icon(Icons.not_interested),
-    );
+  Widget buildAuthorizedDataSourceListTile(String name, bool? authorized) {
+    if (authorized != null) {
+      return ListTile(
+        title: Text(name),
+        trailing: authorized
+            ? const Icon(Icons.check_circle)
+            : const Icon(Icons.not_interested),
+      );
+    } else {
+      return Container();
+    }
   }
 }

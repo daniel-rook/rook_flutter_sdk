@@ -4,9 +4,9 @@ PODS:
   - Flutter (1.0.0)
   - rook_sdk_apple_health (0.0.1):
     - Flutter
-    - RookSDK (= 1.7.0)
+    - RookSDK (= 1.7.0-beta.2)
     - SwiftProtobuf (= 1.28.2)
-  - RookSDK (1.7.0)
+  - RookSDK (1.7.0-beta.2)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -18,12 +18,12 @@ DEPENDENCIES:
   - app_settings (from `.symlinks/plugins/app_settings/ios`)
   - Flutter (from `Flutter`)
   - rook_sdk_apple_health (from `.symlinks/plugins/rook_sdk_apple_health/ios`)
-  - RookSDK (from `https://github.com/RookeriesDevelopment/rook-ios-sdk-rook-sdk-pod.git`, branch `feature/new_release_1.7.0`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
   trunk:
+    - RookSDK
     - SwiftProtobuf
 
 EXTERNAL SOURCES:
@@ -33,28 +33,20 @@ EXTERNAL SOURCES:
     :path: Flutter
   rook_sdk_apple_health:
     :path: ".symlinks/plugins/rook_sdk_apple_health/ios"
-  RookSDK:
-    :branch: feature/new_release_1.7.0
-    :git: https://github.com/RookeriesDevelopment/rook-ios-sdk-rook-sdk-pod.git
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
-CHECKOUT OPTIONS:
-  RookSDK:
-    :commit: bcc4e6a0bcd742c3f1b7f9797af9c23093cb9393
-    :git: https://github.com/RookeriesDevelopment/rook-ios-sdk-rook-sdk-pod.git
-
 SPEC CHECKSUMS:
   app_settings: 017320c6a680cdc94c799949d95b84cb69389ebc
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  rook_sdk_apple_health: a6059177d17536917a422c7e4d3c6f11d4511a3b
-  RookSDK: 3400b9bfea06363cabc714485adf85ffb574d8af
+  rook_sdk_apple_health: 1c26beb77389738636b611a13aff892db6e9fd00
+  RookSDK: 951e9776174035ec5a4e5b035bf45ea6a72f20d8
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
-PODFILE CHECKSUM: 1d990540654f7d56b07d5e3d955925003c2effd3
+PODFILE CHECKSUM: 28a161b9cdc8ee7379d6a34e4425ddc0d26f5f19
 
 COCOAPODS: 1.14.3
