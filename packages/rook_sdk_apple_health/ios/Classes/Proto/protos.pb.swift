@@ -253,23 +253,25 @@ struct AuthorizedDataSourcesProto: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var oura: Bool = false
+  var oura: UInt32 = 0
 
-  var polar: Bool = false
+  var polar: UInt32 = 0
 
-  var whoop: Bool = false
+  var whoop: UInt32 = 0
 
-  var fitbit: Bool = false
+  var fitbit: UInt32 = 0
 
-  var garmin: Bool = false
+  var garmin: UInt32 = 0
 
-  var withings: Bool = false
+  var withings: UInt32 = 0
 
-  var appleHealth: Bool = false
+  var dexcom: UInt32 = 0
 
-  var healthConnect: Bool = false
+  var appleHealth: UInt32 = 0
 
-  var android: Bool = false
+  var healthConnect: UInt32 = 0
+
+  var android: UInt32 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -284,6 +286,24 @@ struct DailyCaloriesProto: Sendable {
   var basal: Double = 0
 
   var active: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct DataSourceAuthorizerProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dataSource: String = String()
+
+  var authorized: Bool = false
+
+  var authorizationURL: String = String()
+
+  var authorizationURLIsNull: Bool = false
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -469,6 +489,40 @@ struct ResultDailyCaloriesProto: Sendable {
 
   enum OneOf_Result: Equatable, Sendable {
     case dailyCalories(DailyCaloriesProto)
+    case pluginExceptionProto(PluginExceptionProto)
+
+  }
+
+  init() {}
+}
+
+struct ResultDataSourceAuthorizerProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: ResultDataSourceAuthorizerProto.OneOf_Result? = nil
+
+  var dataSourceAuthorizerProto: DataSourceAuthorizerProto {
+    get {
+      if case .dataSourceAuthorizerProto(let v)? = result {return v}
+      return DataSourceAuthorizerProto()
+    }
+    set {result = .dataSourceAuthorizerProto(newValue)}
+  }
+
+  var pluginExceptionProto: PluginExceptionProto {
+    get {
+      if case .pluginExceptionProto(let v)? = result {return v}
+      return PluginExceptionProto()
+    }
+    set {result = .pluginExceptionProto(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable, Sendable {
+    case dataSourceAuthorizerProto(DataSourceAuthorizerProto)
     case pluginExceptionProto(PluginExceptionProto)
 
   }
@@ -669,9 +723,10 @@ extension AuthorizedDataSourcesProto: SwiftProtobuf.Message, SwiftProtobuf._Mess
     4: .same(proto: "fitbit"),
     5: .same(proto: "garmin"),
     6: .same(proto: "withings"),
-    7: .same(proto: "appleHealth"),
-    8: .same(proto: "healthConnect"),
-    9: .same(proto: "android"),
+    7: .same(proto: "dexcom"),
+    8: .same(proto: "appleHealth"),
+    9: .same(proto: "healthConnect"),
+    10: .same(proto: "android"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -680,47 +735,51 @@ extension AuthorizedDataSourcesProto: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBoolField(value: &self.oura) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.polar) }()
-      case 3: try { try decoder.decodeSingularBoolField(value: &self.whoop) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.fitbit) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.garmin) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self.withings) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.appleHealth) }()
-      case 8: try { try decoder.decodeSingularBoolField(value: &self.healthConnect) }()
-      case 9: try { try decoder.decodeSingularBoolField(value: &self.android) }()
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.oura) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.polar) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.whoop) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.fitbit) }()
+      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.garmin) }()
+      case 6: try { try decoder.decodeSingularUInt32Field(value: &self.withings) }()
+      case 7: try { try decoder.decodeSingularUInt32Field(value: &self.dexcom) }()
+      case 8: try { try decoder.decodeSingularUInt32Field(value: &self.appleHealth) }()
+      case 9: try { try decoder.decodeSingularUInt32Field(value: &self.healthConnect) }()
+      case 10: try { try decoder.decodeSingularUInt32Field(value: &self.android) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.oura != false {
-      try visitor.visitSingularBoolField(value: self.oura, fieldNumber: 1)
+    if self.oura != 0 {
+      try visitor.visitSingularUInt32Field(value: self.oura, fieldNumber: 1)
     }
-    if self.polar != false {
-      try visitor.visitSingularBoolField(value: self.polar, fieldNumber: 2)
+    if self.polar != 0 {
+      try visitor.visitSingularUInt32Field(value: self.polar, fieldNumber: 2)
     }
-    if self.whoop != false {
-      try visitor.visitSingularBoolField(value: self.whoop, fieldNumber: 3)
+    if self.whoop != 0 {
+      try visitor.visitSingularUInt32Field(value: self.whoop, fieldNumber: 3)
     }
-    if self.fitbit != false {
-      try visitor.visitSingularBoolField(value: self.fitbit, fieldNumber: 4)
+    if self.fitbit != 0 {
+      try visitor.visitSingularUInt32Field(value: self.fitbit, fieldNumber: 4)
     }
-    if self.garmin != false {
-      try visitor.visitSingularBoolField(value: self.garmin, fieldNumber: 5)
+    if self.garmin != 0 {
+      try visitor.visitSingularUInt32Field(value: self.garmin, fieldNumber: 5)
     }
-    if self.withings != false {
-      try visitor.visitSingularBoolField(value: self.withings, fieldNumber: 6)
+    if self.withings != 0 {
+      try visitor.visitSingularUInt32Field(value: self.withings, fieldNumber: 6)
     }
-    if self.appleHealth != false {
-      try visitor.visitSingularBoolField(value: self.appleHealth, fieldNumber: 7)
+    if self.dexcom != 0 {
+      try visitor.visitSingularUInt32Field(value: self.dexcom, fieldNumber: 7)
     }
-    if self.healthConnect != false {
-      try visitor.visitSingularBoolField(value: self.healthConnect, fieldNumber: 8)
+    if self.appleHealth != 0 {
+      try visitor.visitSingularUInt32Field(value: self.appleHealth, fieldNumber: 8)
     }
-    if self.android != false {
-      try visitor.visitSingularBoolField(value: self.android, fieldNumber: 9)
+    if self.healthConnect != 0 {
+      try visitor.visitSingularUInt32Field(value: self.healthConnect, fieldNumber: 9)
+    }
+    if self.android != 0 {
+      try visitor.visitSingularUInt32Field(value: self.android, fieldNumber: 10)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -732,6 +791,7 @@ extension AuthorizedDataSourcesProto: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if lhs.fitbit != rhs.fitbit {return false}
     if lhs.garmin != rhs.garmin {return false}
     if lhs.withings != rhs.withings {return false}
+    if lhs.dexcom != rhs.dexcom {return false}
     if lhs.appleHealth != rhs.appleHealth {return false}
     if lhs.healthConnect != rhs.healthConnect {return false}
     if lhs.android != rhs.android {return false}
@@ -773,6 +833,56 @@ extension DailyCaloriesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   static func ==(lhs: DailyCaloriesProto, rhs: DailyCaloriesProto) -> Bool {
     if lhs.basal != rhs.basal {return false}
     if lhs.active != rhs.active {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension DataSourceAuthorizerProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "DataSourceAuthorizerProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dataSource"),
+    2: .same(proto: "authorized"),
+    3: .same(proto: "authorizationUrl"),
+    6: .same(proto: "authorizationUrlIsNull"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dataSource) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.authorized) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.authorizationURL) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.authorizationURLIsNull) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dataSource.isEmpty {
+      try visitor.visitSingularStringField(value: self.dataSource, fieldNumber: 1)
+    }
+    if self.authorized != false {
+      try visitor.visitSingularBoolField(value: self.authorized, fieldNumber: 2)
+    }
+    if !self.authorizationURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.authorizationURL, fieldNumber: 3)
+    }
+    if self.authorizationURLIsNull != false {
+      try visitor.visitSingularBoolField(value: self.authorizationURLIsNull, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: DataSourceAuthorizerProto, rhs: DataSourceAuthorizerProto) -> Bool {
+    if lhs.dataSource != rhs.dataSource {return false}
+    if lhs.authorized != rhs.authorized {return false}
+    if lhs.authorizationURL != rhs.authorizationURL {return false}
+    if lhs.authorizationURLIsNull != rhs.authorizationURLIsNull {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1156,6 +1266,76 @@ extension ResultDailyCaloriesProto: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 
   static func ==(lhs: ResultDailyCaloriesProto, rhs: ResultDailyCaloriesProto) -> Bool {
+    if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ResultDataSourceAuthorizerProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ResultDataSourceAuthorizerProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dataSourceAuthorizerProto"),
+    2: .same(proto: "pluginExceptionProto"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: DataSourceAuthorizerProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .dataSourceAuthorizerProto(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .dataSourceAuthorizerProto(v)
+        }
+      }()
+      case 2: try {
+        var v: PluginExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .pluginExceptionProto(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .pluginExceptionProto(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .dataSourceAuthorizerProto?: try {
+      guard case .dataSourceAuthorizerProto(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .pluginExceptionProto?: try {
+      guard case .pluginExceptionProto(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ResultDataSourceAuthorizerProto, rhs: ResultDataSourceAuthorizerProto) -> Bool {
     if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

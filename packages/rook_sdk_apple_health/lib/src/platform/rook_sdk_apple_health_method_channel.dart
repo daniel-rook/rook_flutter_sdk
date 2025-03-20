@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_authorized_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_daily_calories_extensions.dart';
+import 'package:rook_sdk_apple_health/src/data/extension/result_data_source_authorizer_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
-import 'package:rook_sdk_apple_health/src/data/mapper/data_source_type_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/event_sync_type_mapper.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
@@ -499,6 +499,24 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  Future<DataSourceAuthorizer> getDataSourceAuthorizer(
+      String dataSource,
+      String? redirectUrl,
+      ) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getDataSourceAuthorizer',
+      [
+        dataSource,
+        redirectUrl,
+      ]
+    );
+
+    final result = ResultDataSourceAuthorizerProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
   Future<AuthorizedDataSources> getAuthorizedDataSources() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAuthorizedDataSources',
@@ -510,13 +528,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> revokeDataSource(DataSourceType dataSourceType) async {
-    final proto = dataSourceType.toProto();
-
+  Future<void> revokeDataSource(String dataSource) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'revokeDataSource',
       [
-        proto.value,
+        dataSource,
       ],
     );
 

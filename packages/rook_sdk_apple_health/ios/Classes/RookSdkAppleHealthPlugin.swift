@@ -312,9 +312,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             break
         case "syncHistoricSummaries":
             let enableLogs = call.getBoolArgAt(0)
-            
+
             RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableLogs)
-            
+
             rookSummaryManager.sync { it in
                 switch it {
                 case let Result.success(success):
@@ -484,10 +484,23 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
+        case "getDataSourceAuthorizer":
+            let dataSource = call.getStringArgAt(0)
+            let redirectUrl = call.getNullableStringArgAt(1)
+
+            dataSourcesManager.getDataSourceAuthorizer(dataSource: dataSource, redirectUrl: redirectUrl) { it in
+                switch it {
+                case let Result.success(dataSourceAuthorizer):
+                    dataSourceAuthorizerSuccess(flutterResult: result, dataSourceAuthorizer: dataSourceAuthorizer)
+                case let Result.failure(error):
+                    dataSourceAuthorizerError(flutterResult: result, error: error)
+                }
+            }
+            break
         case "getAuthorizedDataSources":
-            Task.init {
+            Task(priority: .background) {
                 do {
-                    let statusDataSources = try await dataSourcesManager.getAuthorizedDataSources()
+                    let statusDataSources: StatusDataSources = try await dataSourcesManager.getAuthorizedDataSources()
 
                     authorizedDataSourcesSuccess(flutterResult: result, statusDataSources: statusDataSources)
                 } catch {
@@ -496,19 +509,14 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "revokeDataSource":
-            let dataSourceTypeProto = DataSourceTypeProto(rawValue: call.getIntArgAt(0))
+            let dataSource = call.getStringArgAt(0)
 
-            if let dataSourceType = try? dataSourceTypeProto?.toDomain() {
-                userManager.revokeDataSource(dataSource: dataSourceType) { it in
-                    switch it {
-                    case let Result.success(success):
-                        boolSuccess(flutterResult: result, success: success)
-                    case let Result.failure(error):
-                        boolError(flutterResult: result, error: error)
-                    }
+            userManager.revokeDataSource(dataSource: dataSource) { success, error in
+                if let error = error {
+                    boolError(flutterResult: result, error: error)
+                } else {
+                    boolSuccess(flutterResult: result, success: success)
                 }
-            } else {
-                boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
             }
             break
         case "presentDataSourceView":

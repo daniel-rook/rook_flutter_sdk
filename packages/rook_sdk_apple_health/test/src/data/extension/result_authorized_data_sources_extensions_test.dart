@@ -5,38 +5,41 @@ import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 void main() {
   group('ResultAuthorizedDataSourcesProto success', () {
     test('GIVEN the happy path WHEN unwrap THEN return the expected result',
-        () {
-      final authorizedDataSourcesProto = AuthorizedDataSourcesProto.create()
-        ..oura = true
-        ..polar = false
-        ..whoop = true
-        ..fitbit = false
-        ..garmin = true
-        ..withings = false
-        ..appleHealth = true
-        ..healthConnect = false
-        ..android = true;
-      final proto = ResultAuthorizedDataSourcesProto.create()
-        ..authorizedDataSourcesProto = authorizedDataSourcesProto;
+            () {
+          final authorizedDataSourcesProto = AuthorizedDataSourcesProto.create()
+            ..oura = 0
+            ..polar = 1
+            ..whoop = 2
+            ..fitbit = 0
+            ..garmin = 1
+            ..withings = 2
+            ..dexcom = 0
+            ..appleHealth = 1
+            ..healthConnect = 2
+            ..android = 0;
 
-      final result = proto.unwrap();
+          final proto = ResultAuthorizedDataSourcesProto.create()
+            ..authorizedDataSourcesProto = authorizedDataSourcesProto;
 
-      expect(result.oura, true);
-      expect(result.polar, false);
-      expect(result.whoop, true);
-      expect(result.fitbit, false);
-      expect(result.garmin, true);
-      expect(result.withings, false);
-      expect(result.appleHealth, true);
-      expect(result.healthConnect, false);
-      expect(result.android, true);
-    });
+          final result = proto.unwrap();
+
+          expect(result.oura, false);
+          expect(result.polar, true);
+          expect(result.whoop, null);
+          expect(result.fitbit, false);
+          expect(result.garmin, true);
+          expect(result.withings, null);
+          expect(result.dexcom, false);
+          expect(result.appleHealth, true);
+          expect(result.healthConnect, null);
+          expect(result.android, false);
+        });
   });
 
   group('ResultAuthorizedDataSourcesProto exception', () {
     test(
       'GIVEN the unhappy path WHEN unwrap THEN throw an Exception',
-      () {
+          () {
         final pluginExceptionProto = PluginExceptionProto.create()
           ..id = -1
           ..message = _exceptionMessage

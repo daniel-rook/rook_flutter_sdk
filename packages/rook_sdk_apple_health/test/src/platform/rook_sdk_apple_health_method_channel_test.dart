@@ -24,6 +24,7 @@ void main() {
   resultInt64Tests(platform, channel);
   resultDailyCaloriesTests(platform, channel);
   resultDataSourceTests(platform, channel);
+  resultDataSourceAuthorizerTests(platform, channel);
   resultAuthorizedDataSourcesTests(platform, channel);
   stringTests(platform, channel);
 }
@@ -327,7 +328,7 @@ void resultBooleanTests(
     });
 
     test('GIVEN the happy path WHEN revokeDataSource THEN complete', () async {
-      final future = platform.revokeDataSource(DataSourceType.garmin);
+      final future = platform.revokeDataSource("Garmin");
 
       await expectLater(future, completes);
     });
@@ -616,7 +617,7 @@ void resultBooleanTests(
 
     test('GIVEN the unhappy path WHEN revokeDataSource THEN throw exception',
         () async {
-      final future = platform.revokeDataSource(DataSourceType.fitbit);
+      final future = platform.revokeDataSource("Fitbit");
 
       await expectLater(future, throwsA(isException));
     });
@@ -831,6 +832,79 @@ void resultDataSourceTests(
   });
 }
 
+void resultDataSourceAuthorizerTests(
+    MethodChannelRookSdkAppleHealth platform,
+    MethodChannel channel,
+    ) {
+  group(
+      'MethodChannelRookSdkHealthConnect | DataSourceAuthorizerProto dataSourceAuthorizerProto unwrap',
+          () {
+        setUp(() {
+          TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+              .setMockMethodCallHandler(channel, (_) async {
+            final dataSourceAuthorizerProto = DataSourceAuthorizerProto.create()
+              ..dataSource = "Test"
+              ..authorized = false
+              ..authorizationUrlIsNull = false
+              ..authorizationUrl = "Test url";
+
+            final proto = ResultDataSourceAuthorizerProto.create()
+              ..dataSourceAuthorizerProto = dataSourceAuthorizerProto;
+
+            return proto.writeToBuffer();
+          });
+        });
+
+        test(
+            'GIVEN a Result.DataSourceAuthorizerProto WHEN getDataSourceAuthorizer THEN complete with expected value',
+                () async {
+              final result = await platform.getDataSourceAuthorizer(
+                "Fitbit",
+                "url",
+              );
+              final expected = DataSourceAuthorizer(
+                dataSource: "Test",
+                authorized: false,
+                authorizationUrl: "Test url",
+              );
+
+              expect(result.dataSource, expected.dataSource);
+              expect(result.authorized, expected.authorized);
+              expect(result.authorizationUrl, expected.authorizationUrl);
+            });
+      });
+
+  group(
+      'MethodChannelRookSdkHealthConnect | DataSourceAuthorizerProto exception unwrap',
+          () {
+        setUp(() {
+          TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+              .setMockMethodCallHandler(channel, (_) async {
+            final pluginExceptionProto = PluginExceptionProto.create()
+              ..id = -1
+              ..message = _exceptionMessage
+              ..code = _exceptionCode;
+
+            final proto = ResultDataSourceAuthorizerProto.create()
+              ..pluginExceptionProto = pluginExceptionProto;
+
+            return proto.writeToBuffer();
+          });
+        });
+
+        test(
+            'GIVEN the unhappy path WHEN getDataSourceAuthorizer THEN throw exception',
+                () async {
+              final future = platform.getDataSourceAuthorizer(
+                "Fitbit",
+                "url",
+              );
+
+              await expectLater(future, throwsA(isException));
+            });
+      });
+}
+
 void resultAuthorizedDataSourcesTests(
   MethodChannelRookSdkAppleHealth platform,
   MethodChannel channel,
@@ -844,15 +918,16 @@ void resultAuthorizedDataSourcesTests(
         final proto = ResultAuthorizedDataSourcesProto();
 
         proto.authorizedDataSourcesProto = AuthorizedDataSourcesProto.create()
-          ..oura = true
-          ..polar = false
-          ..whoop = true
-          ..fitbit = false
-          ..garmin = true
-          ..withings = false
-          ..appleHealth = true
-          ..healthConnect = false
-          ..android = true;
+          ..oura = 0
+          ..polar = 1
+          ..whoop = 2
+          ..fitbit = 0
+          ..garmin = 1
+          ..withings = 2
+          ..dexcom = 0
+          ..appleHealth = 1
+          ..healthConnect = 2
+          ..android = 0;
 
         return proto.writeToBuffer();
       });
@@ -863,15 +938,16 @@ void resultAuthorizedDataSourcesTests(
         () async {
       final result = await platform.getAuthorizedDataSources();
       final expected = AuthorizedDataSources(
-        oura: true,
-        polar: false,
-        whoop: true,
+        oura: false,
+        polar: true,
+        whoop: null,
         fitbit: false,
         garmin: true,
-        withings: false,
+        withings: null,
+        dexcom: false,
         appleHealth: true,
-        healthConnect: false,
-        android: true,
+        healthConnect: null,
+        android: false,
       );
 
       expect(result.oura, expected.oura);

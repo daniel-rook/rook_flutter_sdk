@@ -53,20 +53,28 @@ message DataSourcesProtoListWrapper {
 }
 
 message AuthorizedDataSourcesProto {
-  bool oura = 1;
-  bool polar = 2;
-  bool whoop = 3;
-  bool fitbit = 4;
-  bool garmin = 5;
-  bool withings = 6;
-  bool appleHealth = 7;
-  bool healthConnect = 8;
-  bool android = 9;
+  uint32 oura = 1;
+  uint32 polar = 2;
+  uint32 whoop = 3;
+  uint32 fitbit = 4;
+  uint32 garmin = 5;
+  uint32 withings = 6;
+  uint32 dexcom = 7;
+  uint32 appleHealth = 8;
+  uint32 healthConnect = 9;
+  uint32 android = 10;
 }
 
 message DailyCaloriesProto {
   double basal = 1;
   double active = 2;
+}
+
+message DataSourceAuthorizerProto {
+  string dataSource = 1;
+  bool authorized= 2;
+  string authorizationUrl = 3;
+  bool authorizationUrlIsNull = 6;
 }
 
 message PluginExceptionProto {
@@ -106,6 +114,13 @@ message ResultAuthorizedDataSourcesProto {
 message ResultDailyCaloriesProto {
   oneof result {
     DailyCaloriesProto dailyCalories = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultDataSourceAuthorizerProto {
+  oneof result {
+    DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }
