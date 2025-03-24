@@ -27,9 +27,9 @@ class AHRookDataSources {
   /// [dataSource] The data source type. Allowed values: Garmin, Oura, Polar, Fitbit, Withings, Whoop, Dexcom.
   /// [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
   static Future<DataSourceAuthorizer> getDataSourceAuthorizer(
-      String dataSource, {
-        String? redirectUrl,
-      }) {
+    String dataSource, {
+    String? redirectUrl,
+  }) {
     return RookSdkAppleHealthPlatform.instance.getDataSourceAuthorizer(
       dataSource,
       redirectUrl,

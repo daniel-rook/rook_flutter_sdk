@@ -6,7 +6,7 @@ void main() {
   group('AuthorizedDataSourcesProto to AuthorizedDataSources mappers', () {
     test(
       'GIVEN a AuthorizedDataSourcesProto WHEN toDomain THEN return AuthorizedDataSources',
-          () {
+      () {
         final proto = AuthorizedDataSourcesProto.create()
           ..oura = 0
           ..polar = 1

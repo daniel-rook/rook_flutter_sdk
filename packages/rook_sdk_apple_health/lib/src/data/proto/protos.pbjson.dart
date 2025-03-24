@@ -23,8 +23,9 @@ const RookEnvironmentProto$json = {
 };
 
 /// Descriptor for `RookEnvironmentProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List rookEnvironmentProtoDescriptor = $convert.base64Decode(
-    'ChRSb29rRW52aXJvbm1lbnRQcm90bxILCgdTQU5EQk9YEAASDgoKUFJPRFVDVElPThAB');
+final $typed_data.Uint8List rookEnvironmentProtoDescriptor =
+    $convert.base64Decode(
+        'ChRSb29rRW52aXJvbm1lbnRQcm90bxILCgdTQU5EQk9YEAASDgoKUFJPRFVDVElPThAB');
 
 @$core.Deprecated('Use dataSourceTypeProtoDescriptor instead')
 const DataSourceTypeProto$json = {
@@ -91,8 +92,21 @@ const RookConfigurationProto$json = {
   '2': [
     {'1': 'clientUUID', '3': 1, '4': 1, '5': 9, '10': 'clientUUID'},
     {'1': 'secretKey', '3': 2, '4': 1, '5': 9, '10': 'secretKey'},
-    {'1': 'environment', '3': 3, '4': 1, '5': 14, '6': '.RookEnvironmentProto', '10': 'environment'},
-    {'1': 'enableBackgroundSync', '3': 4, '4': 1, '5': 8, '10': 'enableBackgroundSync'},
+    {
+      '1': 'environment',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.RookEnvironmentProto',
+      '10': 'environment'
+    },
+    {
+      '1': 'enableBackgroundSync',
+      '3': 4,
+      '4': 1,
+      '5': 8,
+      '10': 'enableBackgroundSync'
+    },
   ],
 };
 
@@ -112,7 +126,13 @@ const DataSourceProto$json = {
     {'1': 'image', '3': 3, '4': 1, '5': 9, '10': 'image'},
     {'1': 'connected', '3': 4, '4': 1, '5': 8, '10': 'connected'},
     {'1': 'authorizationUrl', '3': 5, '4': 1, '5': 9, '10': 'authorizationUrl'},
-    {'1': 'authorizationUrlIsNull', '3': 6, '4': 1, '5': 8, '10': 'authorizationUrlIsNull'},
+    {
+      '1': 'authorizationUrlIsNull',
+      '3': 6,
+      '4': 1,
+      '5': 8,
+      '10': 'authorizationUrlIsNull'
+    },
   ],
 };
 
@@ -128,14 +148,22 @@ final $typed_data.Uint8List dataSourceProtoDescriptor = $convert.base64Decode(
 const DataSourcesProtoListWrapper$json = {
   '1': 'DataSourcesProtoListWrapper',
   '2': [
-    {'1': 'dataSources', '3': 1, '4': 3, '5': 11, '6': '.DataSourceProto', '10': 'dataSources'},
+    {
+      '1': 'dataSources',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.DataSourceProto',
+      '10': 'dataSources'
+    },
   ],
 };
 
 /// Descriptor for `DataSourcesProtoListWrapper`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataSourcesProtoListWrapperDescriptor = $convert.base64Decode(
-    'ChtEYXRhU291cmNlc1Byb3RvTGlzdFdyYXBwZXISMgoLZGF0YVNvdXJjZXMYASADKAsyEC5EYX'
-    'RhU291cmNlUHJvdG9SC2RhdGFTb3VyY2Vz');
+final $typed_data.Uint8List dataSourcesProtoListWrapperDescriptor =
+    $convert.base64Decode(
+        'ChtEYXRhU291cmNlc1Byb3RvTGlzdFdyYXBwZXISMgoLZGF0YVNvdXJjZXMYASADKAsyEC5EYX'
+        'RhU291cmNlUHJvdG9SC2RhdGFTb3VyY2Vz');
 
 @$core.Deprecated('Use authorizedDataSourcesProtoDescriptor instead')
 const AuthorizedDataSourcesProto$json = {
@@ -184,7 +212,13 @@ const DataSourceAuthorizerProto$json = {
     {'1': 'dataSource', '3': 1, '4': 1, '5': 9, '10': 'dataSource'},
     {'1': 'authorized', '3': 2, '4': 1, '5': 8, '10': 'authorized'},
     {'1': 'authorizationUrl', '3': 3, '4': 1, '5': 9, '10': 'authorizationUrl'},
-    {'1': 'authorizationUrlIsNull', '3': 6, '4': 1, '5': 8, '10': 'authorizationUrlIsNull'},
+    {
+      '1': 'authorizationUrlIsNull',
+      '3': 6,
+      '4': 1,
+      '5': 8,
+      '10': 'authorizationUrlIsNull'
+    },
   ],
 };
 
@@ -215,7 +249,15 @@ const ResultBooleanProto$json = {
   '1': 'ResultBooleanProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'success'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -233,7 +275,15 @@ const ResultInt64Proto$json = {
   '1': 'ResultInt64Proto',
   '2': [
     {'1': 'value', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'value'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -250,8 +300,24 @@ final $typed_data.Uint8List resultInt64ProtoDescriptor = $convert.base64Decode(
 const ResultDataSourcesProto$json = {
   '1': 'ResultDataSourcesProto',
   '2': [
-    {'1': 'dataSourcesProtoListWrapper', '3': 1, '4': 1, '5': 11, '6': '.DataSourcesProtoListWrapper', '9': 0, '10': 'dataSourcesProtoListWrapper'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'dataSourcesProtoListWrapper',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DataSourcesProtoListWrapper',
+      '9': 0,
+      '10': 'dataSourcesProtoListWrapper'
+    },
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -269,8 +335,24 @@ final $typed_data.Uint8List resultDataSourcesProtoDescriptor = $convert.base64De
 const ResultAuthorizedDataSourcesProto$json = {
   '1': 'ResultAuthorizedDataSourcesProto',
   '2': [
-    {'1': 'authorizedDataSourcesProto', '3': 1, '4': 1, '5': 11, '6': '.AuthorizedDataSourcesProto', '9': 0, '10': 'authorizedDataSourcesProto'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'authorizedDataSourcesProto',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.AuthorizedDataSourcesProto',
+      '9': 0,
+      '10': 'authorizedDataSourcesProto'
+    },
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -278,18 +360,35 @@ const ResultAuthorizedDataSourcesProto$json = {
 };
 
 /// Descriptor for `ResultAuthorizedDataSourcesProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultAuthorizedDataSourcesProtoDescriptor = $convert.base64Decode(
-    'CiBSZXN1bHRBdXRob3JpemVkRGF0YVNvdXJjZXNQcm90bxJdChphdXRob3JpemVkRGF0YVNvdX'
-    'JjZXNQcm90bxgBIAEoCzIbLkF1dGhvcml6ZWREYXRhU291cmNlc1Byb3RvSABSGmF1dGhvcml6'
-    'ZWREYXRhU291cmNlc1Byb3RvEksKFHBsdWdpbkV4Y2VwdGlvblByb3RvGAIgASgLMhUuUGx1Z2'
-    'luRXhjZXB0aW9uUHJvdG9IAFIUcGx1Z2luRXhjZXB0aW9uUHJvdG9CCAoGcmVzdWx0');
+final $typed_data.Uint8List resultAuthorizedDataSourcesProtoDescriptor =
+    $convert.base64Decode(
+        'CiBSZXN1bHRBdXRob3JpemVkRGF0YVNvdXJjZXNQcm90bxJdChphdXRob3JpemVkRGF0YVNvdX'
+        'JjZXNQcm90bxgBIAEoCzIbLkF1dGhvcml6ZWREYXRhU291cmNlc1Byb3RvSABSGmF1dGhvcml6'
+        'ZWREYXRhU291cmNlc1Byb3RvEksKFHBsdWdpbkV4Y2VwdGlvblByb3RvGAIgASgLMhUuUGx1Z2'
+        'luRXhjZXB0aW9uUHJvdG9IAFIUcGx1Z2luRXhjZXB0aW9uUHJvdG9CCAoGcmVzdWx0');
 
 @$core.Deprecated('Use resultDailyCaloriesProtoDescriptor instead')
 const ResultDailyCaloriesProto$json = {
   '1': 'ResultDailyCaloriesProto',
   '2': [
-    {'1': 'dailyCalories', '3': 1, '4': 1, '5': 11, '6': '.DailyCaloriesProto', '9': 0, '10': 'dailyCalories'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'dailyCalories',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DailyCaloriesProto',
+      '9': 0,
+      '10': 'dailyCalories'
+    },
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -307,8 +406,24 @@ final $typed_data.Uint8List resultDailyCaloriesProtoDescriptor = $convert.base64
 const ResultDataSourceAuthorizerProto$json = {
   '1': 'ResultDataSourceAuthorizerProto',
   '2': [
-    {'1': 'dataSourceAuthorizerProto', '3': 1, '4': 1, '5': 11, '6': '.DataSourceAuthorizerProto', '9': 0, '10': 'dataSourceAuthorizerProto'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'dataSourceAuthorizerProto',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DataSourceAuthorizerProto',
+      '9': 0,
+      '10': 'dataSourceAuthorizerProto'
+    },
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -316,9 +431,9 @@ const ResultDataSourceAuthorizerProto$json = {
 };
 
 /// Descriptor for `ResultDataSourceAuthorizerProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultDataSourceAuthorizerProtoDescriptor = $convert.base64Decode(
-    'Ch9SZXN1bHREYXRhU291cmNlQXV0aG9yaXplclByb3RvEloKGWRhdGFTb3VyY2VBdXRob3Jpem'
-    'VyUHJvdG8YASABKAsyGi5EYXRhU291cmNlQXV0aG9yaXplclByb3RvSABSGWRhdGFTb3VyY2VB'
-    'dXRob3JpemVyUHJvdG8SSwoUcGx1Z2luRXhjZXB0aW9uUHJvdG8YAiABKAsyFS5QbHVnaW5FeG'
-    'NlcHRpb25Qcm90b0gAUhRwbHVnaW5FeGNlcHRpb25Qcm90b0IICgZyZXN1bHQ=');
-
+final $typed_data.Uint8List resultDataSourceAuthorizerProtoDescriptor =
+    $convert.base64Decode(
+        'Ch9SZXN1bHREYXRhU291cmNlQXV0aG9yaXplclByb3RvEloKGWRhdGFTb3VyY2VBdXRob3Jpem'
+        'VyUHJvdG8YASABKAsyGi5EYXRhU291cmNlQXV0aG9yaXplclByb3RvSABSGWRhdGFTb3VyY2VB'
+        'dXRob3JpemVyUHJvdG8SSwoUcGx1Z2luRXhjZXB0aW9uUHJvdG8YAiABKAsyFS5QbHVnaW5FeG'
+        'NlcHRpb25Qcm90b0gAUhRwbHVnaW5FeGNlcHRpb25Qcm90b0IICgZyZXN1bHQ=');

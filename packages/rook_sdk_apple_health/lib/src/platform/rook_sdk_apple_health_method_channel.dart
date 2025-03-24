@@ -330,9 +330,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<bool> syncByDateAndSummary(
-      DateTime date,
-      AHSummarySyncType summary,
-      ) async {
+    DateTime date,
+    AHSummarySyncType summary,
+  ) async {
     final proto = summary.toProto();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncByDateAndSummary',
@@ -500,16 +500,14 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<DataSourceAuthorizer> getDataSourceAuthorizer(
-      String dataSource,
-      String? redirectUrl,
-      ) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getDataSourceAuthorizer',
-      [
-        dataSource,
-        redirectUrl,
-      ]
-    );
+    String dataSource,
+    String? redirectUrl,
+  ) async {
+    final Uint8List bytes =
+        await methodChannel.invokeMethod('getDataSourceAuthorizer', [
+      dataSource,
+      redirectUrl,
+    ]);
 
     final result = ResultDataSourceAuthorizerProto.fromBuffer(bytes);
 
