@@ -8,8 +8,6 @@ buildscript {
         rookSdkVersion = "1.11.0"
         protoVersion = "4.28.3"
         timber_version = "5.0.1"
-
-//        protoPluginVersion = "0.9.4"
     }
 
     repositories {
@@ -20,7 +18,6 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-//        classpath "com.google.protobuf:protobuf-gradle-plugin:$protoPluginVersion"
     }
 }
 
@@ -33,7 +30,6 @@ allprojects {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-//apply plugin: 'com.google.protobuf'
 
 android {
     namespace "com.rookmotion.rook_sdk_health_connect"
@@ -55,7 +51,6 @@ android {
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
-//        main.proto.srcDirs += '../proto'
         test.java.srcDirs += 'src/test/kotlin'
     }
 
@@ -83,20 +78,4 @@ android {
             }
         }
     }
-
-//    protobuf {
-//        protoc {
-//            artifact = "com.google.protobuf:protoc:$protoVersion"
-//        }
-//
-//        generateProtoTasks {
-//            all().each { task ->
-//                task.builtins {
-//                    java {
-//                        option "lite"
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
