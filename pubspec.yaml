@@ -15,11 +15,11 @@ dependencies:
     path: 'packages/rook_sdk_health_connect'
   rook_sdk_apple_health:
     path: 'packages/rook_sdk_apple_health'
-  app_settings: ^5.1.1
-  receive_intent: ^0.2.5
+  app_settings: ^5.2.0
+  receive_intent: ^0.2.7
   logging: ">=1.0.0 <2.0.0"
   shared_preferences: ^2.5.2
-  url_launcher: ">=6.0.0 <7.0.0"
+  url_launcher: ">=6.3.1 <7.0.0"
   focus_detector: ">=2.0.0 <3.0.0"
 
 dependency_overrides:

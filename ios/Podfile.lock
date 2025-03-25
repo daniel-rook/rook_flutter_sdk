@@ -39,7 +39,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  app_settings: 017320c6a680cdc94c799949d95b84cb69389ebc
+  app_settings: 58017cd26b604ae98c3e65acbdd8ba173703cc82
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   rook_sdk_apple_health: a6059177d17536917a422c7e4d3c6f11d4511a3b
   RookSDK: 3400b9bfea06363cabc714485adf85ffb574d8af

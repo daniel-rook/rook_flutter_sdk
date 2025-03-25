@@ -1,25 +1,16 @@
-group 'com.rookmotion.rook_sdk_health_connect'
-version '1.0-SNAPSHOT'
-
-buildscript {
-    ext {
-        kotlinVersion = "1.8.10"
-        gradleVersion = "8.1.2"
-        rookSdkVersion = "1.11.0"
-        protoVersion = "4.28.3"
-        timber_version = "5.0.1"
-    }
-
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath "com.android.tools.build:gradle:$gradleVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    }
+plugins {
+    id "com.android.library"
+    id "org.jetbrains.kotlin.android"
 }
+
+// ------------------------ Dependencies ------------------------
+String rookSdkVersion = "1.11.0"
+String protoVersion = "4.28.3"
+String timberVersion = "5.0.1"
+// ------------------------ Dependencies ------------------------
+
+group 'com.rookmotion.rook_sdk_health_connect'
+version rookSdkVersion
 
 allprojects {
     repositories {
@@ -27,9 +18,6 @@ allprojects {
         mavenCentral()
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 
 android {
     namespace "com.rookmotion.rook_sdk_health_connect"
@@ -55,7 +43,7 @@ android {
     }
 
     dependencies {
-        implementation "com.jakewharton.timber:timber:$timber_version"
+        implementation "com.jakewharton.timber:timber:$timberVersion"
         implementation "com.google.protobuf:protobuf-javalite:$protoVersion"
         implementation("com.rookmotion.android:rook-sdk") {
             version {
