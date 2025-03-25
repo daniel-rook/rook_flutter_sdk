@@ -3,15 +3,16 @@
 ///  Please note that this only represents the user authorization status,
 ///  and not whether the data source is currently active (sending data) or not.
 class AuthorizedDataSources {
-  bool oura;
-  bool polar;
-  bool whoop;
-  bool fitbit;
-  bool garmin;
-  bool withings;
-  bool appleHealth;
-  bool healthConnect;
-  bool android;
+  bool? oura;
+  bool? polar;
+  bool? whoop;
+  bool? fitbit;
+  bool? garmin;
+  bool? withings;
+  bool? dexcom;
+  bool? appleHealth;
+  bool? healthConnect;
+  bool? android;
 
   AuthorizedDataSources({
     required this.oura,
@@ -20,6 +21,7 @@ class AuthorizedDataSources {
     required this.fitbit,
     required this.garmin,
     required this.withings,
+    required this.dexcom,
     required this.appleHealth,
     required this.healthConnect,
     required this.android,
@@ -36,6 +38,7 @@ class AuthorizedDataSources {
           fitbit == other.fitbit &&
           garmin == other.garmin &&
           withings == other.withings &&
+          dexcom == other.dexcom &&
           appleHealth == other.appleHealth &&
           healthConnect == other.healthConnect &&
           android == other.android;
@@ -48,12 +51,13 @@ class AuthorizedDataSources {
       fitbit.hashCode ^
       garmin.hashCode ^
       withings.hashCode ^
+      dexcom.hashCode ^
       appleHealth.hashCode ^
       healthConnect.hashCode ^
       android.hashCode;
 
   @override
   String toString() {
-    return 'AuthorizedDataSources{oura: $oura, polar: $polar, whoop: $whoop, fitbit: $fitbit, garmin: $garmin, withings: $withings, appleHealth: $appleHealth, healthConnect: $healthConnect, android: $android}';
+    return 'AuthorizedDataSources{oura: $oura, polar: $polar, whoop: $whoop, fitbit: $fitbit, garmin: $garmin, withings: $withings, dexcom: $dexcom, appleHealth: $appleHealth, healthConnect: $healthConnect, android: $android}';
   }
 }

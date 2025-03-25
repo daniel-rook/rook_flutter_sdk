@@ -61,4 +61,58 @@ class DataSourceTypeProto extends $pb.ProtobufEnum {
   const DataSourceTypeProto._($core.int v, $core.String n) : super(v, n);
 }
 
+class SummarySyncTypeProto extends $pb.ProtobufEnum {
+  static const SummarySyncTypeProto SLEEP =
+      SummarySyncTypeProto._(0, _omitEnumNames ? '' : 'SLEEP');
+  static const SummarySyncTypeProto PHYSICAL =
+      SummarySyncTypeProto._(1, _omitEnumNames ? '' : 'PHYSICAL');
+  static const SummarySyncTypeProto BODY =
+      SummarySyncTypeProto._(2, _omitEnumNames ? '' : 'BODY');
+
+  static const $core.List<SummarySyncTypeProto> values = <SummarySyncTypeProto>[
+    SLEEP,
+    PHYSICAL,
+    BODY,
+  ];
+
+  static final $core.Map<$core.int, SummarySyncTypeProto> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
+  static SummarySyncTypeProto? valueOf($core.int value) => _byValue[value];
+
+  const SummarySyncTypeProto._($core.int v, $core.String n) : super(v, n);
+}
+
+class EventSyncTypeProto extends $pb.ProtobufEnum {
+  static const EventSyncTypeProto ACTIVITY =
+      EventSyncTypeProto._(0, _omitEnumNames ? '' : 'ACTIVITY');
+  static const EventSyncTypeProto BLOOD_GLUCOSE =
+      EventSyncTypeProto._(1, _omitEnumNames ? '' : 'BLOOD_GLUCOSE');
+  static const EventSyncTypeProto BLOOD_PRESSURE =
+      EventSyncTypeProto._(2, _omitEnumNames ? '' : 'BLOOD_PRESSURE');
+  static const EventSyncTypeProto BODY_METRICS =
+      EventSyncTypeProto._(3, _omitEnumNames ? '' : 'BODY_METRICS');
+  static const EventSyncTypeProto HEART_RATE =
+      EventSyncTypeProto._(4, _omitEnumNames ? '' : 'HEART_RATE');
+  static const EventSyncTypeProto OXYGENATION =
+      EventSyncTypeProto._(7, _omitEnumNames ? '' : 'OXYGENATION');
+  static const EventSyncTypeProto TEMPERATURE =
+      EventSyncTypeProto._(8, _omitEnumNames ? '' : 'TEMPERATURE');
+
+  static const $core.List<EventSyncTypeProto> values = <EventSyncTypeProto>[
+    ACTIVITY,
+    BLOOD_GLUCOSE,
+    BLOOD_PRESSURE,
+    BODY_METRICS,
+    HEART_RATE,
+    OXYGENATION,
+    TEMPERATURE,
+  ];
+
+  static final $core.Map<$core.int, EventSyncTypeProto> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
+  static EventSyncTypeProto? valueOf($core.int value) => _byValue[value];
+
+  const EventSyncTypeProto._($core.int v, $core.String n) : super(v, n);
+}
+
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

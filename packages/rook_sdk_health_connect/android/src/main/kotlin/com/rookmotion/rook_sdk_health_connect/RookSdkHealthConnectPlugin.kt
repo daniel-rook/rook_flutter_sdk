@@ -9,6 +9,7 @@ import com.rookmotion.rook.sdk.RookHealthPermissionsManager
 import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSummaryManager
+import com.rookmotion.rook.sdk.RookSyncManager
 import com.rookmotion.rook_sdk_health_connect.handler.ConfigurationHandler
 import com.rookmotion.rook_sdk_health_connect.handler.DataSourcesHandler
 import com.rookmotion.rook_sdk_health_connect.handler.EventHandler
@@ -18,6 +19,7 @@ import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandlerLegacy
 import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.SummaryHandler
 import com.rookmotion.rook_sdk_health_connect.handler.ContinuousUploadHandler
+import com.rookmotion.rook_sdk_health_connect.handler.SyncHandler
 import com.rookmotion.rook_sdk_health_connect.permissions.AndroidPermissionsReceiverTransmitter
 import com.rookmotion.rook_sdk_health_connect.permissions.HealthConnectPermissionsReceiverTransmitter
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -44,6 +46,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var permissionsHandlerLegacy: PermissionsHandlerLegacy
     private lateinit var summaryHandler: SummaryHandler
     private lateinit var eventHandler: EventHandler
+    private lateinit var syncHandler: SyncHandler
     private lateinit var helperHandler: HelperHandler
     private lateinit var stepsHandler: StepsHandler
     private lateinit var continuousUploadHandler: ContinuousUploadHandler
@@ -63,6 +66,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         val rookHealthPermissionsManager = RookHealthPermissionsManager(rookConfigurationManager)
         val rookSummaryManager = RookSummaryManager(rookConfigurationManager)
         val rookEventManager = RookEventManager(rookConfigurationManager)
+        val rookSyncManager = RookSyncManager(flutterPluginBinding.applicationContext)
         val rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
         val rookContinuousUploadManager = RookContinuousUploadManager(flutterPluginBinding.applicationContext)
 
@@ -80,6 +84,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         )
         summaryHandler = SummaryHandler(coroutineScope, rookSummaryManager)
         eventHandler = EventHandler(coroutineScope, rookEventManager)
+        syncHandler = SyncHandler(coroutineScope, rookSyncManager)
         helperHandler = HelperHandler(coroutineScope)
         stepsHandler = StepsHandler(coroutineScope, rookStepsManager)
         continuousUploadHandler = ContinuousUploadHandler(
@@ -162,8 +167,14 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "syncPhysicalOxygenationEvents" -> eventHandler.onMethodCall(call, result)
             "syncTemperatureEvents" -> eventHandler.onMethodCall(call, result)
             "syncTodayHealthConnectStepsCount" -> eventHandler.onMethodCall(call, result)
-            "getTodayCaloriesCount" -> eventHandler.onMethodCall(call, result)
             "syncPendingEvents" -> eventHandler.onMethodCall(call, result)
+
+            "syncHistoricSummaries" -> syncHandler.onMethodCall(call, result)
+            "syncSummariesByDate" -> syncHandler.onMethodCall(call, result)
+            "syncByDateAndSummary" -> syncHandler.onMethodCall(call, result)
+            "syncByDateAndEvent" -> syncHandler.onMethodCall(call, result)
+            "getTodayStepsCount" -> syncHandler.onMethodCall(call, result)
+            "getTodayCaloriesCount" -> syncHandler.onMethodCall(call, result)
 
             "isStepsAvailable" -> stepsHandler.onMethodCall(call, result)
             "isBackgroundAndroidStepsActive" -> stepsHandler.onMethodCall(call, result)
@@ -180,6 +191,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "scheduleYesterdaySync" -> continuousUploadHandler.onMethodCall(call, result)
 
             "getAvailableDataSources" -> dataSourcesHandler.onMethodCall(call, result)
+            "getDataSourceAuthorizer" -> dataSourcesHandler.onMethodCall(call, result)
             "getAuthorizedDataSources" -> dataSourcesHandler.onMethodCall(call, result)
             "revokeDataSource" -> dataSourcesHandler.onMethodCall(call, result)
             "presentDataSourceView" -> dataSourcesHandler.onMethodCall(call, result)

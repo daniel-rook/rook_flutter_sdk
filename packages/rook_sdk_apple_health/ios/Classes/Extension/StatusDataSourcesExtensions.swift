@@ -11,15 +11,16 @@ import RookSDK
 extension StatusDataSources {
     func toProto() -> AuthorizedDataSourcesProto {
         return AuthorizedDataSourcesProto.with {
-            $0.oura = self.oura
-            $0.polar = self.polar
-            $0.whoop = self.whoop
-            $0.fitbit = self.fitbit
-            $0.garmin = self.garmin
-            $0.withings = self.withings
-            $0.appleHealth = self.appleHealth
-            $0.healthConnect = self.healthConnect
-            $0.android = self.android
+            $0.oura = self.oura.toUInt32()
+            $0.polar = self.polar.toUInt32()
+            $0.whoop = self.whoop.toUInt32()
+            $0.fitbit = self.fitbit.toUInt32()
+            $0.garmin = self.garmin.toUInt32()
+            $0.withings = self.withings.toUInt32()
+            $0.dexcom = self.dexcom.toUInt32()
+            $0.appleHealth = self.appleHealth.toUInt32()
+            $0.healthConnect = self.healthConnect.toUInt32()
+            $0.android = self.android.toUInt32()
         }
     }
 }

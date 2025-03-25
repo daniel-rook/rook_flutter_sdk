@@ -594,15 +594,16 @@ class SyncStatusWithIntProto extends $pb.GeneratedMessage {
 
 class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   factory AuthorizedDataSourcesProto({
-    $core.bool? oura,
-    $core.bool? polar,
-    $core.bool? whoop,
-    $core.bool? fitbit,
-    $core.bool? garmin,
-    $core.bool? withings,
-    $core.bool? appleHealth,
-    $core.bool? healthConnect,
-    $core.bool? android,
+    $core.int? oura,
+    $core.int? polar,
+    $core.int? whoop,
+    $core.int? fitbit,
+    $core.int? garmin,
+    $core.int? withings,
+    $core.int? dexcom,
+    $core.int? appleHealth,
+    $core.int? healthConnect,
+    $core.int? android,
   }) {
     final $result = create();
     if (oura != null) {
@@ -622,6 +623,9 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
     }
     if (withings != null) {
       $result.withings = withings;
+    }
+    if (dexcom != null) {
+      $result.dexcom = dexcom;
     }
     if (appleHealth != null) {
       $result.appleHealth = appleHealth;
@@ -645,15 +649,19 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'AuthorizedDataSourcesProto',
       createEmptyInstance: create)
-    ..aOB(1, _omitFieldNames ? '' : 'oura')
-    ..aOB(2, _omitFieldNames ? '' : 'polar')
-    ..aOB(3, _omitFieldNames ? '' : 'whoop')
-    ..aOB(4, _omitFieldNames ? '' : 'fitbit')
-    ..aOB(5, _omitFieldNames ? '' : 'garmin')
-    ..aOB(6, _omitFieldNames ? '' : 'withings')
-    ..aOB(7, _omitFieldNames ? '' : 'appleHealth', protoName: 'appleHealth')
-    ..aOB(8, _omitFieldNames ? '' : 'healthConnect', protoName: 'healthConnect')
-    ..aOB(9, _omitFieldNames ? '' : 'android')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'oura', $pb.PbFieldType.OU3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'polar', $pb.PbFieldType.OU3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'whoop', $pb.PbFieldType.OU3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'fitbit', $pb.PbFieldType.OU3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'garmin', $pb.PbFieldType.OU3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'withings', $pb.PbFieldType.OU3)
+    ..a<$core.int>(7, _omitFieldNames ? '' : 'dexcom', $pb.PbFieldType.OU3)
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'appleHealth', $pb.PbFieldType.OU3,
+        protoName: 'appleHealth')
+    ..a<$core.int>(
+        9, _omitFieldNames ? '' : 'healthConnect', $pb.PbFieldType.OU3,
+        protoName: 'healthConnect')
+    ..a<$core.int>(10, _omitFieldNames ? '' : 'android', $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -683,10 +691,10 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   static AuthorizedDataSourcesProto? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get oura => $_getBF(0);
+  $core.int get oura => $_getIZ(0);
   @$pb.TagNumber(1)
-  set oura($core.bool v) {
-    $_setBool(0, v);
+  set oura($core.int v) {
+    $_setUnsignedInt32(0, v);
   }
 
   @$pb.TagNumber(1)
@@ -695,10 +703,10 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   void clearOura() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.bool get polar => $_getBF(1);
+  $core.int get polar => $_getIZ(1);
   @$pb.TagNumber(2)
-  set polar($core.bool v) {
-    $_setBool(1, v);
+  set polar($core.int v) {
+    $_setUnsignedInt32(1, v);
   }
 
   @$pb.TagNumber(2)
@@ -707,10 +715,10 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   void clearPolar() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.bool get whoop => $_getBF(2);
+  $core.int get whoop => $_getIZ(2);
   @$pb.TagNumber(3)
-  set whoop($core.bool v) {
-    $_setBool(2, v);
+  set whoop($core.int v) {
+    $_setUnsignedInt32(2, v);
   }
 
   @$pb.TagNumber(3)
@@ -719,10 +727,10 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   void clearWhoop() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.bool get fitbit => $_getBF(3);
+  $core.int get fitbit => $_getIZ(3);
   @$pb.TagNumber(4)
-  set fitbit($core.bool v) {
-    $_setBool(3, v);
+  set fitbit($core.int v) {
+    $_setUnsignedInt32(3, v);
   }
 
   @$pb.TagNumber(4)
@@ -731,10 +739,10 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   void clearFitbit() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.bool get garmin => $_getBF(4);
+  $core.int get garmin => $_getIZ(4);
   @$pb.TagNumber(5)
-  set garmin($core.bool v) {
-    $_setBool(4, v);
+  set garmin($core.int v) {
+    $_setUnsignedInt32(4, v);
   }
 
   @$pb.TagNumber(5)
@@ -743,10 +751,10 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   void clearGarmin() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.bool get withings => $_getBF(5);
+  $core.int get withings => $_getIZ(5);
   @$pb.TagNumber(6)
-  set withings($core.bool v) {
-    $_setBool(5, v);
+  set withings($core.int v) {
+    $_setUnsignedInt32(5, v);
   }
 
   @$pb.TagNumber(6)
@@ -755,40 +763,52 @@ class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
   void clearWithings() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.bool get appleHealth => $_getBF(6);
+  $core.int get dexcom => $_getIZ(6);
   @$pb.TagNumber(7)
-  set appleHealth($core.bool v) {
-    $_setBool(6, v);
+  set dexcom($core.int v) {
+    $_setUnsignedInt32(6, v);
   }
 
   @$pb.TagNumber(7)
-  $core.bool hasAppleHealth() => $_has(6);
+  $core.bool hasDexcom() => $_has(6);
   @$pb.TagNumber(7)
-  void clearAppleHealth() => clearField(7);
+  void clearDexcom() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.bool get healthConnect => $_getBF(7);
+  $core.int get appleHealth => $_getIZ(7);
   @$pb.TagNumber(8)
-  set healthConnect($core.bool v) {
-    $_setBool(7, v);
+  set appleHealth($core.int v) {
+    $_setUnsignedInt32(7, v);
   }
 
   @$pb.TagNumber(8)
-  $core.bool hasHealthConnect() => $_has(7);
+  $core.bool hasAppleHealth() => $_has(7);
   @$pb.TagNumber(8)
-  void clearHealthConnect() => clearField(8);
+  void clearAppleHealth() => clearField(8);
 
   @$pb.TagNumber(9)
-  $core.bool get android => $_getBF(8);
+  $core.int get healthConnect => $_getIZ(8);
   @$pb.TagNumber(9)
-  set android($core.bool v) {
-    $_setBool(8, v);
+  set healthConnect($core.int v) {
+    $_setUnsignedInt32(8, v);
   }
 
   @$pb.TagNumber(9)
-  $core.bool hasAndroid() => $_has(8);
+  $core.bool hasHealthConnect() => $_has(8);
   @$pb.TagNumber(9)
-  void clearAndroid() => clearField(9);
+  void clearHealthConnect() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.int get android => $_getIZ(9);
+  @$pb.TagNumber(10)
+  set android($core.int v) {
+    $_setUnsignedInt32(9, v);
+  }
+
+  @$pb.TagNumber(10)
+  $core.bool hasAndroid() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearAndroid() => clearField(10);
 }
 
 class DailyCaloriesProto extends $pb.GeneratedMessage {
@@ -956,6 +976,121 @@ class SyncStatusWithDailyCaloriesProto extends $pb.GeneratedMessage {
   void clearDailyCalories() => clearField(2);
   @$pb.TagNumber(2)
   DailyCaloriesProto ensureDailyCalories() => $_ensure(1);
+}
+
+class DataSourceAuthorizerProto extends $pb.GeneratedMessage {
+  factory DataSourceAuthorizerProto({
+    $core.String? dataSource,
+    $core.bool? authorized,
+    $core.String? authorizationUrl,
+    $core.bool? authorizationUrlIsNull,
+  }) {
+    final $result = create();
+    if (dataSource != null) {
+      $result.dataSource = dataSource;
+    }
+    if (authorized != null) {
+      $result.authorized = authorized;
+    }
+    if (authorizationUrl != null) {
+      $result.authorizationUrl = authorizationUrl;
+    }
+    if (authorizationUrlIsNull != null) {
+      $result.authorizationUrlIsNull = authorizationUrlIsNull;
+    }
+    return $result;
+  }
+  DataSourceAuthorizerProto._() : super();
+  factory DataSourceAuthorizerProto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory DataSourceAuthorizerProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DataSourceAuthorizerProto',
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'dataSource', protoName: 'dataSource')
+    ..aOB(2, _omitFieldNames ? '' : 'authorized')
+    ..aOS(3, _omitFieldNames ? '' : 'authorizationUrl',
+        protoName: 'authorizationUrl')
+    ..aOB(6, _omitFieldNames ? '' : 'authorizationUrlIsNull',
+        protoName: 'authorizationUrlIsNull')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  DataSourceAuthorizerProto clone() =>
+      DataSourceAuthorizerProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  DataSourceAuthorizerProto copyWith(
+          void Function(DataSourceAuthorizerProto) updates) =>
+      super.copyWith((message) => updates(message as DataSourceAuthorizerProto))
+          as DataSourceAuthorizerProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DataSourceAuthorizerProto create() => DataSourceAuthorizerProto._();
+  DataSourceAuthorizerProto createEmptyInstance() => create();
+  static $pb.PbList<DataSourceAuthorizerProto> createRepeated() =>
+      $pb.PbList<DataSourceAuthorizerProto>();
+  @$core.pragma('dart2js:noInline')
+  static DataSourceAuthorizerProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DataSourceAuthorizerProto>(create);
+  static DataSourceAuthorizerProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get dataSource => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set dataSource($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasDataSource() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDataSource() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get authorized => $_getBF(1);
+  @$pb.TagNumber(2)
+  set authorized($core.bool v) {
+    $_setBool(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasAuthorized() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAuthorized() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get authorizationUrl => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set authorizationUrl($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasAuthorizationUrl() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAuthorizationUrl() => clearField(3);
+
+  @$pb.TagNumber(6)
+  $core.bool get authorizationUrlIsNull => $_getBF(3);
+  @$pb.TagNumber(6)
+  set authorizationUrlIsNull($core.bool v) {
+    $_setBool(3, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasAuthorizationUrlIsNull() => $_has(3);
+  @$pb.TagNumber(6)
+  void clearAuthorizationUrlIsNull() => clearField(6);
 }
 
 class PluginExceptionProto extends $pb.GeneratedMessage {
@@ -1884,6 +2019,115 @@ class ResultSyncStatusWithDailyCaloriesProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   SyncStatusWithDailyCaloriesProto ensureSyncStatusWithDailyCaloriesProto() =>
       $_ensure(0);
+
+  @$pb.TagNumber(2)
+  PluginExceptionProto get pluginExceptionProto => $_getN(1);
+  @$pb.TagNumber(2)
+  set pluginExceptionProto(PluginExceptionProto v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPluginExceptionProto() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPluginExceptionProto() => clearField(2);
+  @$pb.TagNumber(2)
+  PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
+}
+
+enum ResultDataSourceAuthorizerProto_Result {
+  dataSourceAuthorizerProto,
+  pluginExceptionProto,
+  notSet
+}
+
+class ResultDataSourceAuthorizerProto extends $pb.GeneratedMessage {
+  factory ResultDataSourceAuthorizerProto({
+    DataSourceAuthorizerProto? dataSourceAuthorizerProto,
+    PluginExceptionProto? pluginExceptionProto,
+  }) {
+    final $result = create();
+    if (dataSourceAuthorizerProto != null) {
+      $result.dataSourceAuthorizerProto = dataSourceAuthorizerProto;
+    }
+    if (pluginExceptionProto != null) {
+      $result.pluginExceptionProto = pluginExceptionProto;
+    }
+    return $result;
+  }
+  ResultDataSourceAuthorizerProto._() : super();
+  factory ResultDataSourceAuthorizerProto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ResultDataSourceAuthorizerProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, ResultDataSourceAuthorizerProto_Result>
+      _ResultDataSourceAuthorizerProto_ResultByTag = {
+    1: ResultDataSourceAuthorizerProto_Result.dataSourceAuthorizerProto,
+    2: ResultDataSourceAuthorizerProto_Result.pluginExceptionProto,
+    0: ResultDataSourceAuthorizerProto_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ResultDataSourceAuthorizerProto',
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<DataSourceAuthorizerProto>(
+        1, _omitFieldNames ? '' : 'dataSourceAuthorizerProto',
+        protoName: 'dataSourceAuthorizerProto',
+        subBuilder: DataSourceAuthorizerProto.create)
+    ..aOM<PluginExceptionProto>(
+        2, _omitFieldNames ? '' : 'pluginExceptionProto',
+        protoName: 'pluginExceptionProto',
+        subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ResultDataSourceAuthorizerProto clone() =>
+      ResultDataSourceAuthorizerProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ResultDataSourceAuthorizerProto copyWith(
+          void Function(ResultDataSourceAuthorizerProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as ResultDataSourceAuthorizerProto))
+          as ResultDataSourceAuthorizerProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResultDataSourceAuthorizerProto create() =>
+      ResultDataSourceAuthorizerProto._();
+  ResultDataSourceAuthorizerProto createEmptyInstance() => create();
+  static $pb.PbList<ResultDataSourceAuthorizerProto> createRepeated() =>
+      $pb.PbList<ResultDataSourceAuthorizerProto>();
+  @$core.pragma('dart2js:noInline')
+  static ResultDataSourceAuthorizerProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ResultDataSourceAuthorizerProto>(
+          create);
+  static ResultDataSourceAuthorizerProto? _defaultInstance;
+
+  ResultDataSourceAuthorizerProto_Result whichResult() =>
+      _ResultDataSourceAuthorizerProto_ResultByTag[$_whichOneof(0)]!;
+  void clearResult() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  DataSourceAuthorizerProto get dataSourceAuthorizerProto => $_getN(0);
+  @$pb.TagNumber(1)
+  set dataSourceAuthorizerProto(DataSourceAuthorizerProto v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasDataSourceAuthorizerProto() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDataSourceAuthorizerProto() => clearField(1);
+  @$pb.TagNumber(1)
+  DataSourceAuthorizerProto ensureDataSourceAuthorizerProto() => $_ensure(0);
 
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);

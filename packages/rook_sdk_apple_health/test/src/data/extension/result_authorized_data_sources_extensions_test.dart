@@ -7,29 +7,32 @@ void main() {
     test('GIVEN the happy path WHEN unwrap THEN return the expected result',
         () {
       final authorizedDataSourcesProto = AuthorizedDataSourcesProto.create()
-        ..oura = true
-        ..polar = false
-        ..whoop = true
-        ..fitbit = false
-        ..garmin = true
-        ..withings = false
-        ..appleHealth = true
-        ..healthConnect = false
-        ..android = true;
+        ..oura = 0
+        ..polar = 1
+        ..whoop = 2
+        ..fitbit = 0
+        ..garmin = 1
+        ..withings = 2
+        ..dexcom = 0
+        ..appleHealth = 1
+        ..healthConnect = 2
+        ..android = 0;
+
       final proto = ResultAuthorizedDataSourcesProto.create()
         ..authorizedDataSourcesProto = authorizedDataSourcesProto;
 
       final result = proto.unwrap();
 
-      expect(result.oura, true);
-      expect(result.polar, false);
-      expect(result.whoop, true);
+      expect(result.oura, false);
+      expect(result.polar, true);
+      expect(result.whoop, null);
       expect(result.fitbit, false);
       expect(result.garmin, true);
-      expect(result.withings, false);
+      expect(result.withings, null);
+      expect(result.dexcom, false);
       expect(result.appleHealth, true);
-      expect(result.healthConnect, false);
-      expect(result.android, true);
+      expect(result.healthConnect, null);
+      expect(result.android, false);
     });
   });
 

@@ -8,10 +8,30 @@ class HCRookDataSources {
   /// Returns the available data sources for the current user.
   ///
   /// * [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
+  @Deprecated(
+    "It is recommended to query individual authorizations using getDataSourceAuthorizer to get a more efficient and scalable solution, reducing unnecessary data retrieval",
+  )
   static Future<List<DataSource>> getAvailableDataSources({
     String? redirectUrl,
   }) {
     return RookSdkHealthConnectPlatform.instance.getAvailableDataSources(
+      redirectUrl,
+    );
+  }
+
+  /// Returns a [DataSourceAuthorizer] of a specific data source for the current user.
+  ///
+  /// * If the user is not authorized, an [DataSourceAuthorizer.authorizationUrl] is provided,
+  /// otherwise [DataSourceAuthorizer.authorizationUrl] will be null.
+  ///
+  /// [dataSource] The data source type. Allowed values: Garmin, Oura, Polar, Fitbit, Withings, Whoop, Dexcom.
+  /// [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
+  static Future<DataSourceAuthorizer> getDataSourceAuthorizer(
+    String dataSource, {
+    String? redirectUrl,
+  }) {
+    return RookSdkHealthConnectPlatform.instance.getDataSourceAuthorizer(
+      dataSource,
       redirectUrl,
     );
   }
@@ -26,16 +46,19 @@ class HCRookDataSources {
 
   /// Unlinks (revoke authorization) from a data source for the current user.
   ///
-  /// [dataSourceType] The type of the data source to revoke.
-  static Future<void> revokeDataSource(DataSourceType dataSourceType) {
+  /// [dataSource] The data source type. Allowed values: Garmin, Oura, Polar, Fitbit, Withings, Whoop.
+  static Future<void> revokeDataSource(String dataSource) {
     return RookSdkHealthConnectPlatform.instance.revokeDataSource(
-      dataSourceType,
+      dataSource,
     );
   }
 
   /// Displays a pre-built screen that allows the users to connect to a data source.
   ///
   /// * [redirectUrl] After the user successfully connects to a data source, the user will be redirected to this URL.
+  @Deprecated(
+    "It is recommended to query individual authorizations using getDataSourceAuthorizer to get a more efficient and scalable solution, reducing unnecessary data retrieval",
+  )
   static Future<void> presentDataSourceView({
     String? redirectUrl,
   }) {

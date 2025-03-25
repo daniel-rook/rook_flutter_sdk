@@ -69,41 +69,68 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   @Deprecated("Will be deleted in next VERSION release")
   Future<bool> shouldSyncFor(HCHealthDataType hcHealthDataType, DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.sync() instead")
   Future<SyncStatus> syncSleepSummary(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.sync() instead")
   Future<SyncStatus> syncPhysicalSummary(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.sync() instead")
   Future<SyncStatus> syncBodySummary(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.sync() instead")
   Future<void> syncPendingSummaries();
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncPhysicalEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBloodGlucoseEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBloodPressureEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBodyMetricsEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBodyHeartRateEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncPhysicalHeartRateEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncHydrationEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncNutritionEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncBodyOxygenationEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncPhysicalOxygenationEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<SyncStatus> syncTemperatureEvents(DateTime date);
 
+  @Deprecated("Use HCRookSyncManager.getTodayStepsCount() instead")
   Future<SyncStatusWithData<int>> syncTodayHealthConnectStepsCount();
 
-  Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount();
-
+  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
   Future<void> syncPendingEvents();
+
+  Future<bool> syncHistoricSummaries(bool enableLogs);
+
+  Future<bool> syncSummariesByDate(DateTime date);
+
+  Future<bool> syncByDateAndSummary(DateTime date, HCSummarySyncType summary);
+
+  Future<bool> syncByDateAndEvent(DateTime date, HCEventSyncType event);
+
+  Future<SyncStatusWithData<int>> getTodayStepsCount();
+
+  Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount();
 
   Future<bool> isStepsAvailable();
 
@@ -135,13 +162,18 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<void> scheduleYesterdaySync(bool enableNativeLogs);
 
+  @Deprecated("Use getDataSourceAuthorizer instead")
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
+
+  Future<DataSourceAuthorizer> getDataSourceAuthorizer(
+    String dataSource,
+    String? redirectUrl,
+  );
 
   Future<AuthorizedDataSources> getAuthorizedDataSources();
 
-  Future<void> revokeDataSource(DataSourceType dataSourceType);
+  Future<void> revokeDataSource(String dataSource);
 
-  Future<void> presentDataSourceView(
-    String? redirectUrl,
-  );
+  @Deprecated("Use getDataSourceAuthorizer instead")
+  Future<void> presentDataSourceView(String? redirectUrl);
 }

@@ -10,56 +10,62 @@ public interface AuthorizedDataSourcesProtoOrBuilder extends
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>bool oura = 1;</code>
+   * <code>uint32 oura = 1;</code>
    * @return The oura.
    */
-  boolean getOura();
+  int getOura();
 
   /**
-   * <code>bool polar = 2;</code>
+   * <code>uint32 polar = 2;</code>
    * @return The polar.
    */
-  boolean getPolar();
+  int getPolar();
 
   /**
-   * <code>bool whoop = 3;</code>
+   * <code>uint32 whoop = 3;</code>
    * @return The whoop.
    */
-  boolean getWhoop();
+  int getWhoop();
 
   /**
-   * <code>bool fitbit = 4;</code>
+   * <code>uint32 fitbit = 4;</code>
    * @return The fitbit.
    */
-  boolean getFitbit();
+  int getFitbit();
 
   /**
-   * <code>bool garmin = 5;</code>
+   * <code>uint32 garmin = 5;</code>
    * @return The garmin.
    */
-  boolean getGarmin();
+  int getGarmin();
 
   /**
-   * <code>bool withings = 6;</code>
+   * <code>uint32 withings = 6;</code>
    * @return The withings.
    */
-  boolean getWithings();
+  int getWithings();
 
   /**
-   * <code>bool appleHealth = 7;</code>
+   * <code>uint32 dexcom = 7;</code>
+   * @return The dexcom.
+   */
+  int getDexcom();
+
+  /**
+   * <code>uint32 appleHealth = 8;</code>
    * @return The appleHealth.
    */
-  boolean getAppleHealth();
+  int getAppleHealth();
 
   /**
-   * <code>bool healthConnect = 8;</code>
+   * <code>uint32 healthConnect = 9;</code>
    * @return The healthConnect.
    */
-  boolean getHealthConnect();
+  int getHealthConnect();
 
   /**
-   * <code>bool android = 9;</code>
+   * <code>uint32 android = 10;</code>
    * @return The android.
    */
-  boolean getAndroid();
+  int getAndroid();
 }

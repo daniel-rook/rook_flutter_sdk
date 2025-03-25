@@ -300,16 +300,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
-        case "getTodayCaloriesCount":
-            rookEventsManager.getTodayCalories { it in
-                switch it {
-                case let Result.success(calories):
-                    dailyCaloriesSuccess(flutterResult: result, rookCalories: calories)
-                case let Result.failure(error):
-                    dailyCaloriesError(flutterResult: result, error: error)
-                }
-            }
-            break
         case "syncPendingEvents":
             rookEventsManager.syncPendingEvents { it in
                 switch it {
@@ -317,6 +307,91 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     boolSuccess(flutterResult: result, success: success)
                 case let Result.failure(error):
                     boolError(flutterResult: result, error: error)
+                }
+            }
+            break
+        case "syncHistoricSummaries":
+            let enableLogs = call.getBoolArgAt(0)
+
+            RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableLogs)
+
+            rookSummaryManager.sync { it in
+                switch it {
+                case let Result.success(success):
+                    boolSuccess(flutterResult: result, success: success)
+                case let Result.failure(error):
+                    boolError(flutterResult: result, error: error)
+                }
+            }
+            break
+        case "syncSummariesByDate":
+            let millis = call.getInt64ArgAt(0)
+            let date = buildDateFromMillis(millis)
+
+            rookSummaryManager.sync(date: date) { success, error in
+                if let error = error {
+                    boolError(flutterResult: result, error: error)
+                } else {
+                    boolSuccess(flutterResult: result, success: success)
+                }
+            }
+            break
+        case "syncByDateAndSummary":
+            let millis = call.getInt64ArgAt(0)
+            let date = buildDateFromMillis(millis)
+
+            let summary = {
+                let value = call.getIntArgAt(1)
+                let proto = SummarySyncTypeProto(rawValue: value)!
+
+                return [proto.toSyncType()]
+            }()
+
+            rookSummaryManager.sync(date: date, summaryType: summary) { success, error in
+                if let error = error {
+                    boolError(flutterResult: result, error: error)
+                } else {
+                    boolSuccess(flutterResult: result, success: success)
+                }
+            }
+            break
+        case "syncByDateAndEvent":
+            let millis = call.getInt64ArgAt(0)
+            let date = buildDateFromMillis(millis)
+
+            let event = {
+                let value = call.getIntArgAt(1)
+                let proto = EventSyncTypeProto(rawValue: value)!
+
+                return proto.toSyncType()
+            }()
+
+            rookEventsManager.syncEvents(date: date, eventType: event) { it in
+                switch it {
+                case let Result.success(success):
+                    boolSuccess(flutterResult: result, success: success)
+                case let Result.failure(error):
+                    boolError(flutterResult: result, error: error)
+                }
+            }
+            break
+        case "getTodayStepsCount":
+            rookEventsManager.getTodayStepCount { it in
+                switch it {
+                case let Result.success(steps):
+                    int64Success(flutterResult: result, int64: Int64(steps))
+                case let Result.failure(error):
+                    int64Error(flutterResult: result, error: error)
+                }
+            }
+            break
+        case "getTodayCaloriesCount":
+            rookEventsManager.getTodayCalories { it in
+                switch it {
+                case let Result.success(calories):
+                    dailyCaloriesSuccess(flutterResult: result, rookCalories: calories)
+                case let Result.failure(error):
+                    dailyCaloriesError(flutterResult: result, error: error)
                 }
             }
             break
@@ -409,10 +484,23 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
+        case "getDataSourceAuthorizer":
+            let dataSource = call.getStringArgAt(0)
+            let redirectUrl = call.getNullableStringArgAt(1)
+
+            dataSourcesManager.getDataSourceAuthorizer(dataSource: dataSource, redirectUrl: redirectUrl) { it in
+                switch it {
+                case let Result.success(dataSourceAuthorizer):
+                    dataSourceAuthorizerSuccess(flutterResult: result, dataSourceAuthorizer: dataSourceAuthorizer)
+                case let Result.failure(error):
+                    dataSourceAuthorizerError(flutterResult: result, error: error)
+                }
+            }
+            break
         case "getAuthorizedDataSources":
-            Task.init {
+            Task(priority: .background) {
                 do {
-                    let statusDataSources = try await dataSourcesManager.getAuthorizedDataSources()
+                    let statusDataSources: StatusDataSources = try await dataSourcesManager.getAuthorizedDataSources()
 
                     authorizedDataSourcesSuccess(flutterResult: result, statusDataSources: statusDataSources)
                 } catch {
@@ -421,19 +509,14 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "revokeDataSource":
-            let dataSourceTypeProto = DataSourceTypeProto(rawValue: call.getIntArgAt(0))
+            let dataSource = call.getStringArgAt(0)
 
-            if let dataSourceType = try? dataSourceTypeProto?.toDomain() {
-                userManager.revokeDataSource(dataSource: dataSourceType) { it in
-                    switch it {
-                    case let Result.success(success):
-                        boolSuccess(flutterResult: result, success: success)
-                    case let Result.failure(error):
-                        boolError(flutterResult: result, error: error)
-                    }
+            userManager.revokeDataSource(dataSource: dataSource) { success, error in
+                if let error = error {
+                    boolError(flutterResult: result, error: error)
+                } else {
+                    boolSuccess(flutterResult: result, success: success)
                 }
-            } else {
-                boolError(flutterResult: result, error: RookSdkPluginErrors.UnknownDataSourceType)
             }
             break
         case "presentDataSourceView":

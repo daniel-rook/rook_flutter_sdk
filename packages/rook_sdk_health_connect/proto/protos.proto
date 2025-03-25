@@ -51,6 +51,26 @@ enum HealthDataTypeProto {
   TEMPERATURE_BODY_EVENT = 13;
 }
 
+enum SummarySyncTypeProto {
+  SLEEP = 0;
+  PHYSICAL = 1;
+  BODY = 2;
+}
+
+enum EventSyncTypeProto {
+  ACTIVITY = 0;
+  BLOOD_GLUCOSE = 1;
+  BLOOD_PRESSURE = 2;
+  BODY_METRICS = 3;
+  HEART_RATE = 4;
+  HYDRATION = 5;
+  NUTRITION = 6;
+  OXYGENATION = 7;
+  TEMPERATURE = 8;
+  STEPS = 9;
+  CALORIES = 10;
+}
+
 message RookConfigurationProto {
   string clientUUID = 1;
   string secretKey = 2;
@@ -87,15 +107,16 @@ message SyncStatusWithIntProto {
 }
 
 message AuthorizedDataSourcesProto {
-  bool oura = 1;
-  bool polar = 2;
-  bool whoop = 3;
-  bool fitbit = 4;
-  bool garmin = 5;
-  bool withings = 6;
-  bool appleHealth = 7;
-  bool healthConnect = 8;
-  bool android = 9;
+  uint32 oura = 1;
+  uint32 polar = 2;
+  uint32 whoop = 3;
+  uint32 fitbit = 4;
+  uint32 garmin = 5;
+  uint32 withings = 6;
+  uint32 dexcom = 7;
+  uint32 appleHealth = 8;
+  uint32 healthConnect = 9;
+  uint32 android = 10;
 }
 
 message DailyCaloriesProto {
@@ -106,6 +127,13 @@ message DailyCaloriesProto {
 message SyncStatusWithDailyCaloriesProto {
   SyncStatusProto syncStatus = 1;
   DailyCaloriesProto dailyCalories = 2;
+}
+
+message DataSourceAuthorizerProto {
+  string dataSource = 1;
+  bool authorized = 2;
+  string authorizationUrl = 3;
+  bool authorizationUrlIsNull = 6;
 }
 
 message PluginExceptionProto {
@@ -166,6 +194,13 @@ message ResultAuthorizedDataSourcesProto {
 message ResultSyncStatusWithDailyCaloriesProto {
   oneof result {
     SyncStatusWithDailyCaloriesProto syncStatusWithDailyCaloriesProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultDataSourceAuthorizerProto {
+  oneof result {
+    DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }

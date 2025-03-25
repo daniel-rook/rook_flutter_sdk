@@ -3,13 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_authorized_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_daily_calories_extensions.dart';
+import 'package:rook_sdk_apple_health/src/data/extension/result_data_source_authorizer_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
-import 'package:rook_sdk_apple_health/src/data/mapper/data_source_type_mappers.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/event_sync_type_mapper.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_environment_mappers.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
+import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
@@ -99,6 +103,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.sync() instead")
   Future<void> syncSleepSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncSleepSummary',
@@ -112,6 +117,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.sync() instead")
   Future<void> syncBodySummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBodySummary',
@@ -125,6 +131,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.sync() instead")
   Future<void> syncPhysicalSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalSummary',
@@ -138,6 +145,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.sync() instead")
   Future<void> syncPendingSummaries() async {
     final Uint8List bytes =
         await methodChannel.invokeMethod('syncPendingSummaries');
@@ -147,6 +155,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncPhysicalEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalEvents',
@@ -160,6 +169,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncBloodGlucoseEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBloodGlucoseEvents',
@@ -173,6 +183,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncBloodPressureEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBloodPressureEvents',
@@ -186,6 +197,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncBodyMetricsEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBodyMetricsEvents',
@@ -199,6 +211,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncBodyHeartRateEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBodyHeartRateEvents',
@@ -212,6 +225,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncPhysicalHeartRateEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalHeartRateEvents',
@@ -225,6 +239,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncBodyOxygenationEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncBodyOxygenationEvents',
@@ -238,6 +253,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncPhysicalOxygenationEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncPhysicalOxygenationEvents',
@@ -251,6 +267,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
   Future<void> syncTemperatureEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncTemperatureEvents',
@@ -264,9 +281,90 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use AHRookSyncManager.getTodayStepsCount() instead")
   Future<int?> syncTodayAppleHealthStepsCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncTodayAppleHealthStepsCount',
+    );
+
+    final result = ResultInt64Proto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
+  Future<void> syncPendingEvents() async {
+    final Uint8List bytes =
+        await methodChannel.invokeMethod('syncPendingEvents');
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Future<bool> syncHistoricSummaries(bool enableLogs) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncHistoricSummaries',
+      [
+        enableLogs,
+      ],
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> syncSummariesByDate(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncSummariesByDate',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> syncByDateAndSummary(
+    DateTime date,
+    AHSummarySyncType summary,
+  ) async {
+    final proto = summary.toProto();
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncByDateAndSummary',
+      [
+        date.millisecondsSinceEpoch,
+        proto.value,
+      ],
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> syncByDateAndEvent(DateTime date, AHEventSyncType event) async {
+    final proto = event.toProto();
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncByDateAndEvent',
+      [
+        date.millisecondsSinceEpoch,
+        proto.value,
+      ],
+    );
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<int?> getTodayStepsCount() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getTodayStepsCount',
     );
 
     final result = ResultInt64Proto.fromBuffer(bytes);
@@ -283,15 +381,6 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final result = ResultDailyCaloriesProto.fromBuffer(bytes);
 
     return result.unwrap();
-  }
-
-  @override
-  Future<void> syncPendingEvents() async {
-    final Uint8List bytes =
-        await methodChannel.invokeMethod('syncPendingEvents');
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
   }
 
   @override
@@ -395,6 +484,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use getDataSourceAuthorizer instead")
   Future<List<DataSource>> getAvailableDataSources(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getAvailableDataSources',
@@ -404,6 +494,22 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     );
 
     final result = ResultDataSourcesProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<DataSourceAuthorizer> getDataSourceAuthorizer(
+    String dataSource,
+    String? redirectUrl,
+  ) async {
+    final Uint8List bytes =
+        await methodChannel.invokeMethod('getDataSourceAuthorizer', [
+      dataSource,
+      redirectUrl,
+    ]);
+
+    final result = ResultDataSourceAuthorizerProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -420,13 +526,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> revokeDataSource(DataSourceType dataSourceType) async {
-    final proto = dataSourceType.toProto();
-
+  Future<void> revokeDataSource(String dataSource) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'revokeDataSource',
       [
-        proto.value,
+        dataSource,
       ],
     );
 
@@ -436,6 +540,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  @Deprecated("Use getDataSourceAuthorizer instead")
   Future<void> presentDataSourceView(String? redirectUrl) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'presentDataSourceView',

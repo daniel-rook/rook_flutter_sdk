@@ -120,6 +120,46 @@ final $typed_data.Uint8List healthDataTypeProtoDescriptor = $convert.base64Decod
     'lUSU9OX0JPRFlfRVZFTlQQChIaChZPWFlHRU5BVElPTl9CT0RZX0VWRU5UEAsSHgoaT1hZR0VO'
     'QVRJT05fUEhZU0lDQUxfRVZFTlQQDBIaChZURU1QRVJBVFVSRV9CT0RZX0VWRU5UEA0=');
 
+@$core.Deprecated('Use summarySyncTypeProtoDescriptor instead')
+const SummarySyncTypeProto$json = {
+  '1': 'SummarySyncTypeProto',
+  '2': [
+    {'1': 'SLEEP', '2': 0},
+    {'1': 'PHYSICAL', '2': 1},
+    {'1': 'BODY', '2': 2},
+  ],
+};
+
+/// Descriptor for `SummarySyncTypeProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List summarySyncTypeProtoDescriptor = $convert.base64Decode(
+    'ChRTdW1tYXJ5U3luY1R5cGVQcm90bxIJCgVTTEVFUBAAEgwKCFBIWVNJQ0FMEAESCAoEQk9EWR'
+    'AC');
+
+@$core.Deprecated('Use eventSyncTypeProtoDescriptor instead')
+const EventSyncTypeProto$json = {
+  '1': 'EventSyncTypeProto',
+  '2': [
+    {'1': 'ACTIVITY', '2': 0},
+    {'1': 'BLOOD_GLUCOSE', '2': 1},
+    {'1': 'BLOOD_PRESSURE', '2': 2},
+    {'1': 'BODY_METRICS', '2': 3},
+    {'1': 'HEART_RATE', '2': 4},
+    {'1': 'HYDRATION', '2': 5},
+    {'1': 'NUTRITION', '2': 6},
+    {'1': 'OXYGENATION', '2': 7},
+    {'1': 'TEMPERATURE', '2': 8},
+    {'1': 'STEPS', '2': 9},
+    {'1': 'CALORIES', '2': 10},
+  ],
+};
+
+/// Descriptor for `EventSyncTypeProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List eventSyncTypeProtoDescriptor = $convert.base64Decode(
+    'ChJFdmVudFN5bmNUeXBlUHJvdG8SDAoIQUNUSVZJVFkQABIRCg1CTE9PRF9HTFVDT1NFEAESEg'
+    'oOQkxPT0RfUFJFU1NVUkUQAhIQCgxCT0RZX01FVFJJQ1MQAxIOCgpIRUFSVF9SQVRFEAQSDQoJ'
+    'SFlEUkFUSU9OEAUSDQoJTlVUUklUSU9OEAYSDwoLT1hZR0VOQVRJT04QBxIPCgtURU1QRVJBVF'
+    'VSRRAIEgkKBVNURVBTEAkSDAoIQ0FMT1JJRVMQCg==');
+
 @$core.Deprecated('Use rookConfigurationProtoDescriptor instead')
 const RookConfigurationProto$json = {
   '1': 'RookConfigurationProto',
@@ -269,25 +309,27 @@ final $typed_data.Uint8List syncStatusWithIntProtoDescriptor =
 const AuthorizedDataSourcesProto$json = {
   '1': 'AuthorizedDataSourcesProto',
   '2': [
-    {'1': 'oura', '3': 1, '4': 1, '5': 8, '10': 'oura'},
-    {'1': 'polar', '3': 2, '4': 1, '5': 8, '10': 'polar'},
-    {'1': 'whoop', '3': 3, '4': 1, '5': 8, '10': 'whoop'},
-    {'1': 'fitbit', '3': 4, '4': 1, '5': 8, '10': 'fitbit'},
-    {'1': 'garmin', '3': 5, '4': 1, '5': 8, '10': 'garmin'},
-    {'1': 'withings', '3': 6, '4': 1, '5': 8, '10': 'withings'},
-    {'1': 'appleHealth', '3': 7, '4': 1, '5': 8, '10': 'appleHealth'},
-    {'1': 'healthConnect', '3': 8, '4': 1, '5': 8, '10': 'healthConnect'},
-    {'1': 'android', '3': 9, '4': 1, '5': 8, '10': 'android'},
+    {'1': 'oura', '3': 1, '4': 1, '5': 13, '10': 'oura'},
+    {'1': 'polar', '3': 2, '4': 1, '5': 13, '10': 'polar'},
+    {'1': 'whoop', '3': 3, '4': 1, '5': 13, '10': 'whoop'},
+    {'1': 'fitbit', '3': 4, '4': 1, '5': 13, '10': 'fitbit'},
+    {'1': 'garmin', '3': 5, '4': 1, '5': 13, '10': 'garmin'},
+    {'1': 'withings', '3': 6, '4': 1, '5': 13, '10': 'withings'},
+    {'1': 'dexcom', '3': 7, '4': 1, '5': 13, '10': 'dexcom'},
+    {'1': 'appleHealth', '3': 8, '4': 1, '5': 13, '10': 'appleHealth'},
+    {'1': 'healthConnect', '3': 9, '4': 1, '5': 13, '10': 'healthConnect'},
+    {'1': 'android', '3': 10, '4': 1, '5': 13, '10': 'android'},
   ],
 };
 
 /// Descriptor for `AuthorizedDataSourcesProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List authorizedDataSourcesProtoDescriptor = $convert.base64Decode(
-    'ChpBdXRob3JpemVkRGF0YVNvdXJjZXNQcm90bxISCgRvdXJhGAEgASgIUgRvdXJhEhQKBXBvbG'
-    'FyGAIgASgIUgVwb2xhchIUCgV3aG9vcBgDIAEoCFIFd2hvb3ASFgoGZml0Yml0GAQgASgIUgZm'
-    'aXRiaXQSFgoGZ2FybWluGAUgASgIUgZnYXJtaW4SGgoId2l0aGluZ3MYBiABKAhSCHdpdGhpbm'
-    'dzEiAKC2FwcGxlSGVhbHRoGAcgASgIUgthcHBsZUhlYWx0aBIkCg1oZWFsdGhDb25uZWN0GAgg'
-    'ASgIUg1oZWFsdGhDb25uZWN0EhgKB2FuZHJvaWQYCSABKAhSB2FuZHJvaWQ=');
+    'ChpBdXRob3JpemVkRGF0YVNvdXJjZXNQcm90bxISCgRvdXJhGAEgASgNUgRvdXJhEhQKBXBvbG'
+    'FyGAIgASgNUgVwb2xhchIUCgV3aG9vcBgDIAEoDVIFd2hvb3ASFgoGZml0Yml0GAQgASgNUgZm'
+    'aXRiaXQSFgoGZ2FybWluGAUgASgNUgZnYXJtaW4SGgoId2l0aGluZ3MYBiABKA1SCHdpdGhpbm'
+    'dzEhYKBmRleGNvbRgHIAEoDVIGZGV4Y29tEiAKC2FwcGxlSGVhbHRoGAggASgNUgthcHBsZUhl'
+    'YWx0aBIkCg1oZWFsdGhDb25uZWN0GAkgASgNUg1oZWFsdGhDb25uZWN0EhgKB2FuZHJvaWQYCi'
+    'ABKA1SB2FuZHJvaWQ=');
 
 @$core.Deprecated('Use dailyCaloriesProtoDescriptor instead')
 const DailyCaloriesProto$json = {
@@ -332,6 +374,30 @@ final $typed_data.Uint8List syncStatusWithDailyCaloriesProtoDescriptor =
         'CiBTeW5jU3RhdHVzV2l0aERhaWx5Q2Fsb3JpZXNQcm90bxIwCgpzeW5jU3RhdHVzGAEgASgOMh'
         'AuU3luY1N0YXR1c1Byb3RvUgpzeW5jU3RhdHVzEjkKDWRhaWx5Q2Fsb3JpZXMYAiABKAsyEy5E'
         'YWlseUNhbG9yaWVzUHJvdG9SDWRhaWx5Q2Fsb3JpZXM=');
+
+@$core.Deprecated('Use dataSourceAuthorizerProtoDescriptor instead')
+const DataSourceAuthorizerProto$json = {
+  '1': 'DataSourceAuthorizerProto',
+  '2': [
+    {'1': 'dataSource', '3': 1, '4': 1, '5': 9, '10': 'dataSource'},
+    {'1': 'authorized', '3': 2, '4': 1, '5': 8, '10': 'authorized'},
+    {'1': 'authorizationUrl', '3': 3, '4': 1, '5': 9, '10': 'authorizationUrl'},
+    {
+      '1': 'authorizationUrlIsNull',
+      '3': 6,
+      '4': 1,
+      '5': 8,
+      '10': 'authorizationUrlIsNull'
+    },
+  ],
+};
+
+/// Descriptor for `DataSourceAuthorizerProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List dataSourceAuthorizerProtoDescriptor = $convert.base64Decode(
+    'ChlEYXRhU291cmNlQXV0aG9yaXplclByb3RvEh4KCmRhdGFTb3VyY2UYASABKAlSCmRhdGFTb3'
+    'VyY2USHgoKYXV0aG9yaXplZBgCIAEoCFIKYXV0aG9yaXplZBIqChBhdXRob3JpemF0aW9uVXJs'
+    'GAMgASgJUhBhdXRob3JpemF0aW9uVXJsEjYKFmF1dGhvcml6YXRpb25VcmxJc051bGwYBiABKA'
+    'hSFmF1dGhvcml6YXRpb25VcmxJc051bGw=');
 
 @$core.Deprecated('Use pluginExceptionProtoDescriptor instead')
 const PluginExceptionProto$json = {
@@ -615,3 +681,39 @@ final $typed_data.Uint8List resultSyncStatusWithDailyCaloriesProtoDescriptor =
         'c1Byb3RvSABSIHN5bmNTdGF0dXNXaXRoRGFpbHlDYWxvcmllc1Byb3RvEksKFHBsdWdpbkV4Y2'
         'VwdGlvblByb3RvGAIgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIUcGx1Z2luRXhjZXB0'
         'aW9uUHJvdG9CCAoGcmVzdWx0');
+
+@$core.Deprecated('Use resultDataSourceAuthorizerProtoDescriptor instead')
+const ResultDataSourceAuthorizerProto$json = {
+  '1': 'ResultDataSourceAuthorizerProto',
+  '2': [
+    {
+      '1': 'dataSourceAuthorizerProto',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DataSourceAuthorizerProto',
+      '9': 0,
+      '10': 'dataSourceAuthorizerProto'
+    },
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `ResultDataSourceAuthorizerProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resultDataSourceAuthorizerProtoDescriptor =
+    $convert.base64Decode(
+        'Ch9SZXN1bHREYXRhU291cmNlQXV0aG9yaXplclByb3RvEloKGWRhdGFTb3VyY2VBdXRob3Jpem'
+        'VyUHJvdG8YASABKAsyGi5EYXRhU291cmNlQXV0aG9yaXplclByb3RvSABSGWRhdGFTb3VyY2VB'
+        'dXRob3JpemVyUHJvdG8SSwoUcGx1Z2luRXhjZXB0aW9uUHJvdG8YAiABKAsyFS5QbHVnaW5FeG'
+        'NlcHRpb25Qcm90b0gAUhRwbHVnaW5FeGNlcHRpb25Qcm90b0IICgZyZXN1bHQ=');
