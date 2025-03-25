@@ -741,13 +741,11 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     String dataSource,
     String? redirectUrl,
   ) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getDataSourceAuthorizer',
-      [
-        dataSource,
-        redirectUrl,
-      ]
-    );
+    final Uint8List bytes =
+        await methodChannel.invokeMethod('getDataSourceAuthorizer', [
+      dataSource,
+      redirectUrl,
+    ]);
 
     final result = ResultDataSourceAuthorizerProto.fromBuffer(bytes);
 

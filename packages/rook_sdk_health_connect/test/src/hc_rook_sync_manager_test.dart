@@ -52,7 +52,8 @@ void main() {
         HCRookSyncManager.sync();
       } catch (error) {
         expect(error, isA<UnsupportedError>());
-        expect((error as UnsupportedError).message, "At least one parameter is required");
+        expect((error as UnsupportedError).message,
+            "At least one parameter is required");
         return;
       }
 

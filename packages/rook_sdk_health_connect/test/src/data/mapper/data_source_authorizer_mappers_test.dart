@@ -23,7 +23,7 @@ void main() {
 
     test(
       "GIVEN an unauthorized DataSourceAuthorizerProto without authorizationUrl WHEN toDomain THEN return the expected DataSourceAuthorizer",
-          () {
+      () {
         final proto = DataSourceAuthorizerProto.create()
           ..dataSource = "Test"
           ..authorized = false

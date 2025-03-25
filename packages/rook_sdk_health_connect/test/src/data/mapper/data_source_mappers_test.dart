@@ -2,6 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/data_source_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 
+// ignore_for_file: deprecated_member_use_from_same_package
+// ignore_for_file: deprecated_member_use
+
 void main() {
   group("DataSourceProto to DataSource mappers", () {
     test(
@@ -28,7 +31,7 @@ void main() {
 
     test(
       "GIVEN a disconnected DataSourceProto without authorizationUrl WHEN toDomain THEN return the expected DataSource",
-          () {
+      () {
         final proto = DataSourceProto.create()
           ..name = "Test"
           ..description = "Test description"
