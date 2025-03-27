@@ -13,7 +13,7 @@ void main() {
         final proto = DataSourceProto.create()
           ..name = "Test"
           ..description = "Test description"
-          ..image = "Test image"
+          ..imageUrl = "Test image"
           ..connected = true
           ..authorizationUrlIsNull = false
           ..authorizationUrl = "Test url";
@@ -22,8 +22,8 @@ void main() {
 
         expect(result.name, proto.name);
         expect(result.description, proto.description);
-        expect(result.image, proto.image);
-        expect(result.imageUrl, proto.image);
+        expect(result.image, proto.imageUrl);
+        expect(result.imageUrl, proto.imageUrl);
         expect(result.connected, proto.connected);
         expect(result.authorizationUrl, proto.authorizationUrl);
       },
@@ -35,7 +35,7 @@ void main() {
         final proto = DataSourceProto.create()
           ..name = "Test"
           ..description = "Test description"
-          ..image = "Test image"
+          ..imageUrl = "Test image"
           ..connected = false
           ..authorizationUrlIsNull = true
           ..authorizationUrl = "Test url";
@@ -44,8 +44,8 @@ void main() {
 
         expect(result.name, proto.name);
         expect(result.description, proto.description);
-        expect(result.image, proto.image);
-        expect(result.imageUrl, proto.image);
+        expect(result.image, proto.imageUrl);
+        expect(result.imageUrl, proto.imageUrl);
         expect(result.connected, proto.connected);
         expect(result.authorizationUrl, isNull);
       },

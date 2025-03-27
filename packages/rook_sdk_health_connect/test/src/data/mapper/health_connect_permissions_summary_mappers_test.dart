@@ -11,12 +11,14 @@ void main() {
       () {
         final proto = HealthConnectPermissionsSummaryProto.create()
           ..dataTypesGranted = false
-          ..dataTypesPartiallyGranted = true;
+          ..dataTypesPartiallyGranted = true
+          ..backgroundReadGranted = false;
 
         final result = proto.toDomain();
 
         expect(result.dataTypesGranted, false);
         expect(result.dataTypesPartiallyGranted, true);
+        expect(result.dataTypesPartiallyGranted, false);
       },
     );
   });

@@ -16,7 +16,7 @@ public  final class DataSourceProto extends
   private DataSourceProto() {
     name_ = "";
     description_ = "";
-    image_ = "";
+    imageUrl_ = "";
     authorizationUrl_ = "";
   }
   public static final int NAME_FIELD_NUMBER = 1;
@@ -113,50 +113,50 @@ public  final class DataSourceProto extends
 
   }
 
-  public static final int IMAGE_FIELD_NUMBER = 3;
-  private java.lang.String image_;
+  public static final int IMAGEURL_FIELD_NUMBER = 3;
+  private java.lang.String imageUrl_;
   /**
-   * <code>string image = 3;</code>
-   * @return The image.
+   * <code>string imageUrl = 3;</code>
+   * @return The imageUrl.
    */
   @java.lang.Override
-  public java.lang.String getImage() {
-    return image_;
+  public java.lang.String getImageUrl() {
+    return imageUrl_;
   }
   /**
-   * <code>string image = 3;</code>
-   * @return The bytes for image.
+   * <code>string imageUrl = 3;</code>
+   * @return The bytes for imageUrl.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getImageBytes() {
-    return com.google.protobuf.ByteString.copyFromUtf8(image_);
+      getImageUrlBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(imageUrl_);
   }
   /**
-   * <code>string image = 3;</code>
-   * @param value The image to set.
+   * <code>string imageUrl = 3;</code>
+   * @param value The imageUrl to set.
    */
-  private void setImage(
+  private void setImageUrl(
       java.lang.String value) {
     java.lang.Class<?> valueClass = value.getClass();
   
-    image_ = value;
+    imageUrl_ = value;
   }
   /**
-   * <code>string image = 3;</code>
+   * <code>string imageUrl = 3;</code>
    */
-  private void clearImage() {
+  private void clearImageUrl() {
 
-    image_ = getDefaultInstance().getImage();
+    imageUrl_ = getDefaultInstance().getImageUrl();
   }
   /**
-   * <code>string image = 3;</code>
-   * @param value The bytes for image to set.
+   * <code>string imageUrl = 3;</code>
+   * @param value The bytes for imageUrl to set.
    */
-  private void setImageBytes(
+  private void setImageUrlBytes(
       com.google.protobuf.ByteString value) {
     checkByteStringIsUtf8(value);
-    image_ = value.toStringUtf8();
+    imageUrl_ = value.toStringUtf8();
 
   }
 
@@ -455,51 +455,51 @@ public  final class DataSourceProto extends
     }
 
     /**
-     * <code>string image = 3;</code>
-     * @return The image.
+     * <code>string imageUrl = 3;</code>
+     * @return The imageUrl.
      */
     @java.lang.Override
-    public java.lang.String getImage() {
-      return instance.getImage();
+    public java.lang.String getImageUrl() {
+      return instance.getImageUrl();
     }
     /**
-     * <code>string image = 3;</code>
-     * @return The bytes for image.
+     * <code>string imageUrl = 3;</code>
+     * @return The bytes for imageUrl.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getImageBytes() {
-      return instance.getImageBytes();
+        getImageUrlBytes() {
+      return instance.getImageUrlBytes();
     }
     /**
-     * <code>string image = 3;</code>
-     * @param value The image to set.
+     * <code>string imageUrl = 3;</code>
+     * @param value The imageUrl to set.
      * @return This builder for chaining.
      */
-    public Builder setImage(
+    public Builder setImageUrl(
         java.lang.String value) {
       copyOnWrite();
-      instance.setImage(value);
+      instance.setImageUrl(value);
       return this;
     }
     /**
-     * <code>string image = 3;</code>
+     * <code>string imageUrl = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearImage() {
+    public Builder clearImageUrl() {
       copyOnWrite();
-      instance.clearImage();
+      instance.clearImageUrl();
       return this;
     }
     /**
-     * <code>string image = 3;</code>
-     * @param value The bytes for image to set.
+     * <code>string imageUrl = 3;</code>
+     * @param value The bytes for imageUrl to set.
      * @return This builder for chaining.
      */
-    public Builder setImageBytes(
+    public Builder setImageUrlBytes(
         com.google.protobuf.ByteString value) {
       copyOnWrite();
-      instance.setImageBytes(value);
+      instance.setImageUrlBytes(value);
       return this;
     }
 
@@ -626,7 +626,7 @@ public  final class DataSourceProto extends
           java.lang.Object[] objects = new java.lang.Object[] {
             "name_",
             "description_",
-            "image_",
+            "imageUrl_",
             "connected_",
             "authorizationUrl_",
             "authorizationUrlIsNull_",

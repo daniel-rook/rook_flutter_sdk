@@ -15,22 +15,6 @@ class AndroidStepsManager {
         .isBackgroundAndroidStepsActive();
   }
 
-  /// Check if all required permissions are granted.
-  @Deprecated(
-    "Replace with HCRookHealthPermissionsManager.checkAndroidPermissions",
-  )
-  static Future<bool> hasPermissions() {
-    return RookSdkHealthConnectPlatform.instance.hasStepsPermissions();
-  }
-
-  /// Request all required permissions, the permissions requested may vary depending on the Android version.
-  @Deprecated(
-    "Replace with HCRookHealthPermissionsManager.requestAndroidPermissions",
-  )
-  static Future<void> requestPermissions() {
-    return RookSdkHealthConnectPlatform.instance.requestStepsPermissions();
-  }
-
   /// Starts the StepsTracker service, if the service is already active this function won't do anything.
   static Future<void> enableBackgroundAndroidSteps() {
     return RookSdkHealthConnectPlatform.instance.enableBackgroundAndroidSteps();

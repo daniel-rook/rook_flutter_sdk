@@ -7,24 +7,6 @@ class HCRookHealthPermissionsManager {
   HCRookHealthPermissionsManager._();
 
   /// Check if the Health Connect APK is installed in this device.
-  @Deprecated("Replace with checkHealthConnectAvailability")
-  static Future<HCAvailabilityStatus> checkAvailability() {
-    return RookSdkHealthConnectPlatform.instance.checkAvailability();
-  }
-
-  /// Checks if Health Connect permissions are granted.
-  @Deprecated("Replace with checkHealthConnectPermissions")
-  static Future<bool> checkPermissions() {
-    return RookSdkHealthConnectPlatform.instance.checkPermissions();
-  }
-
-  /// Launch a request to ask the user to grant Health Connect permissions.
-  @Deprecated("Replace with requestHealthConnectPermissions")
-  static Future<void> requestPermissions() {
-    return RookSdkHealthConnectPlatform.instance.requestPermissions();
-  }
-
-  /// Check if the Health Connect APK is installed in this device.
   static Future<HCAvailabilityStatus> checkHealthConnectAvailability() {
     return RookSdkHealthConnectPlatform.instance
         .checkHealthConnectAvailability();
@@ -73,6 +55,11 @@ class HCRookHealthPermissionsManager {
   static Future<bool> checkHealthConnectPermissionsPartially() {
     return RookSdkHealthConnectPlatform.instance
         .checkHealthConnectPermissionsPartially();
+  }
+
+  /// Checks if the background read permission is granted or if the background read feature is available.
+  static Future<HCBackgroundReadStatus> checkBackgroundReadStatus() {
+    return RookSdkHealthConnectPlatform.instance.checkBackgroundReadStatus();
   }
 
   /// Request the following permissions:

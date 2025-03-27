@@ -3,6 +3,8 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import android.app.Activity
 import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
+import com.rookmotion.rook_sdk_health_connect.extension.backgroundReadStatusError
+import com.rookmotion.rook_sdk_health_connect.extension.backgroundReadStatusSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.boolean
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
@@ -11,7 +13,6 @@ import com.rookmotion.rook_sdk_health_connect.extension.requestPermissionsStatus
 import com.rookmotion.rook_sdk_health_connect.extension.requestPermissionsStatusSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.throwable
 import com.rookmotion.rook_sdk_health_connect.mapper.toAvailabilityStatusProto
-import com.rookmotion.rook_sdk_health_connect.mapper.toRequestPermissionsStatusProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -69,6 +70,17 @@ class PermissionsHandler(
                     },
                     {
                         methodResult.booleanError(it)
+                    }
+                )
+            }
+
+            "checkBackgroundReadStatus" -> coroutineScope.launch {
+                rookPermissionsManager.checkBackgroundReadStatus().fold(
+                    {
+                        methodResult.backgroundReadStatusSuccess(it)
+                    },
+                    {
+                        methodResult.backgroundReadStatusError(it)
                     }
                 )
             }

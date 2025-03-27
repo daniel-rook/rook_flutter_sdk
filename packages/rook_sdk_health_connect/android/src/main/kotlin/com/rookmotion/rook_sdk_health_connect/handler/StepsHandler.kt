@@ -33,26 +33,6 @@ class StepsHandler(
                 methodResult.booleanSuccess(isActive)
             }
 
-            "hasStepsPermissions" -> {
-                try {
-                    val hasPermissions = rookStepsManager.hasPermissions()
-
-                    methodResult.booleanSuccess(hasPermissions)
-                } catch (exception: NullPointerException) {
-                    methodResult.booleanError(exception)
-                }
-            }
-
-            "requestStepsPermissions" -> {
-                try {
-                    rookStepsManager.requestPermissions()
-
-                    methodResult.booleanSuccess(true)
-                } catch (exception: NullPointerException) {
-                    methodResult.booleanError(exception)
-                }
-            }
-
             "enableBackgroundAndroidSteps" -> {
                 try {
                     rookStepsManager.enableBackgroundAndroidSteps().fold(

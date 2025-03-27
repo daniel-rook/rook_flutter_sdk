@@ -5,6 +5,7 @@ import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_continuous_upload.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_data_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_permissions.dart';
@@ -120,6 +121,14 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
                     )
                 : null,
             child: const Text('Continuous upload'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+              androidBackgroundSyncRoute,
+            )
+                : null,
+            child: const Text('Background sync'),
           ),
         ],
       ),
