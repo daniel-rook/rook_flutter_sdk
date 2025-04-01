@@ -5,10 +5,10 @@ import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/future_extensions.dart';
+import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const String androidBackgroundSyncRoute = '/android/background-sync';
 
@@ -21,8 +21,6 @@ class AndroidBackgroundSync extends StatefulWidget {
 
 class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
   final Logger logger = Logger('AndroidBackgroundSync');
-
-  SharedPreferences? sharedPreferences;
 
   bool isBackgroundSyncSupported = false;
   bool hasDataTypesPermissions = false;
@@ -37,8 +35,6 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
 
   @override
   void initState() {
-    SharedPreferences.getInstance().then((value) => sharedPreferences = value);
-
     healthConnectPermissionsSubscription = HCRookHealthPermissionsManager
         .requestHealthConnectPermissionsUpdates
         .listen((permissionsSummary) {
@@ -196,12 +192,11 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final acceptedBackground =
-        sharedPreferences?.getBool(acceptedAndroidBackgroundKey) ?? false;
+    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
 
     backgroundSyncOutput.clear();
 
-    if (acceptedBackground) {
+    if (autoSyncAcceptation) {
       setState(() {
         backgroundSyncOutput.append("Enabling background sync...");
       });
@@ -236,15 +231,13 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
     }
   }
 
-  void enableBackgroundSync() {
-    sharedPreferences?.setBool(acceptedAndroidBackgroundKey, true);
+  void enableBackgroundSync() async {
+    await AppPreferences().setAutoSyncAcceptation(true);
     automaticallyStartBackgroundSync();
   }
 
-  void disableBackgroundSync() {
-    sharedPreferences?.setBool(acceptedAndroidBackgroundKey, false);
+  void disableBackgroundSync() async {
+    await AppPreferences().setAutoSyncAcceptation(false);
     automaticallyStartBackgroundSync();
   }
 }
-
-const acceptedAndroidBackgroundKey = "ACCEPTED_ANDROID_BACKGROUND";

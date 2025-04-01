@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
+import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const String iosBackgroundSyncRoute = '/ios/background-sync';
 
@@ -22,7 +22,6 @@ class IOSBackgroundSync extends StatefulWidget {
 class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
   final Logger logger = Logger('IOSBackgroundSync');
 
-  SharedPreferences? sharedPreferences;
   bool backgroundChecked = false;
 
   ConsoleOutput backgroundSyncOutput = ConsoleOutput();
@@ -32,12 +31,10 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
 
   @override
   void initState() {
-    SharedPreferences.getInstance().then((value) => sharedPreferences = value);
-
     backgroundErrorsSubscription = AHRookHelpers.backgroundErrorsUpdates.listen(
-          (backgroundError) {
+      (backgroundError) {
         setState(
-              () => backgroundErrorsOutput.append(backgroundError.toString()),
+          () => backgroundErrorsOutput.append(backgroundError.toString()),
         );
       },
     );
@@ -83,10 +80,9 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final acceptedBackground =
-        sharedPreferences?.getBool(acceptedIosBackgroundKey) ?? false;
+    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
 
-    if (acceptedBackground) {
+    if (autoSyncAcceptation) {
       backgroundSyncOutput.clear();
 
       setState(() {
@@ -130,19 +126,17 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
     }
 
     setState(() {
-      backgroundChecked = acceptedBackground;
+      backgroundChecked = autoSyncAcceptation;
     });
   }
 
-  void enableBackgroundSync() {
-    sharedPreferences?.setBool(acceptedIosBackgroundKey, true);
+  void enableBackgroundSync() async {
+    await AppPreferences().setAutoSyncAcceptation(true);
     automaticallyStartBackgroundSync();
   }
 
-  void disableBackgroundSync() {
-    sharedPreferences?.setBool(acceptedIosBackgroundKey, false);
+  void disableBackgroundSync() async {
+    await AppPreferences().setAutoSyncAcceptation(false);
     automaticallyStartBackgroundSync();
   }
 }
-
-const acceptedIosBackgroundKey = "ACCEPTED_IOS_BACKGROUND";

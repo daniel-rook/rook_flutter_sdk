@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
+import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_background_sync.dart';
@@ -12,7 +13,6 @@ import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_user_management.d
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const String iosConfigurationRoute = '/ios/configuration';
 
@@ -112,8 +112,8 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
           FilledButton(
             onPressed: enableNavigation
                 ? () => Navigator.of(context).pushNamed(
-              iosBackgroundSyncRoute,
-            )
+                      iosBackgroundSyncRoute,
+                    )
                 : null,
             child: const Text('Background sync'),
           ),
@@ -130,16 +130,13 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
   }
 
   void setConfiguration() async {
-    final sharedPreferences = await SharedPreferences.getInstance();
-    final acceptedBackground = sharedPreferences.getBool(
-      acceptedIosBackgroundKey,
-    );
+    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
 
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
       secretKey: Secrets.secretKey,
       environment: rookEnvironment,
-      // This should be based on user choice: acceptedBackground
+      // This should be based on user choice: autoSyncAcceptation
       enableBackgroundSync: false,
     );
 
