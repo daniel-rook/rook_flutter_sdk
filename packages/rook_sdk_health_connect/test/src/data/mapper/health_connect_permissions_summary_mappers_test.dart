@@ -18,7 +18,7 @@ void main() {
 
         expect(result.dataTypesGranted, false);
         expect(result.dataTypesPartiallyGranted, true);
-        expect(result.dataTypesPartiallyGranted, false);
+        expect(result.backgroundReadGranted, false);
       },
     );
   });

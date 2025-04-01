@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_background_read_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_health_connect/src/domain/enums/hc_background_read_status.dart';
 
 void main() {
   group('ResultBackgroundReadStatusProto success', () {
@@ -12,7 +13,7 @@ void main() {
 
       final result = proto.unwrap();
 
-      expect(result, true);
+      expect(result, HCBackgroundReadStatus.permissionGranted);
     });
   });
 
