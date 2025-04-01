@@ -7,7 +7,8 @@ void main() {
     test('GIVEN the happy path WHEN unwrap THEN return the expected result',
         () {
       final proto = ResultBackgroundReadStatusProto.create();
-      proto.backgroundReadStatusProto = BackgroundReadStatusProto.PERMISSION_GRANTED;
+      proto.backgroundReadStatusProto =
+          BackgroundReadStatusProto.PERMISSION_GRANTED;
 
       final result = proto.unwrap();
 

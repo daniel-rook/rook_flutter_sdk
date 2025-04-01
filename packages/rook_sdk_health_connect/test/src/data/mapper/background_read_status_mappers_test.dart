@@ -7,7 +7,7 @@ void main() {
   group('BackgroundReadStatusProto to HCBackgroundReadStatus mappers', () {
     test(
       'GIVEN BackgroundReadStatusProto.UNAVAILABLE WHEN toDomain THEN return HCBackgroundReadStatus.unavailable',
-          () {
+      () {
         const proto = BackgroundReadStatusProto.UNAVAILABLE;
         final result = proto.toDomain();
 
@@ -17,7 +17,7 @@ void main() {
 
     test(
       'GIVEN BackgroundReadStatusProto.PERMISSION_NOT_GRANTED WHEN toDomain THEN return HCBackgroundReadStatus.permissionNotGranted',
-          () {
+      () {
         const proto = BackgroundReadStatusProto.PERMISSION_NOT_GRANTED;
         final result = proto.toDomain();
 
@@ -27,7 +27,7 @@ void main() {
 
     test(
       'GIVEN BackgroundReadStatusProto.PERMISSION_GRANTED WHEN toDomain THEN return HCBackgroundReadStatus.permissionGranted',
-          () {
+      () {
         const proto = BackgroundReadStatusProto.PERMISSION_GRANTED;
         final result = proto.toDomain();
 
