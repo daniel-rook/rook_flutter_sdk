@@ -26,7 +26,6 @@ import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.SummaryHandler
 import com.rookmotion.rook_sdk_health_connect.handler.SyncHandler
-import com.rookmotion.rook_sdk_health_connect.preferences.PluginPreferences
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -39,15 +38,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
-import timber.log.Timber
 
 /** RookSdkHealthConnectPlugin */
 class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     private lateinit var methodChannel: MethodChannel
     private lateinit var coroutineScope: CoroutineScope
-    private lateinit var pluginPreferences: PluginPreferences
 
     private lateinit var rookConfigurationManager: RookConfigurationManager
     private lateinit var rookPermissionsManager: RookPermissionsManager
@@ -76,7 +72,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-        pluginPreferences = PluginPreferences(flutterPluginBinding.applicationContext)
 
         rookConfigurationManager = RookConfigurationManager(flutterPluginBinding.applicationContext)
         rookPermissionsManager = RookPermissionsManager(flutterPluginBinding.applicationContext)
@@ -90,8 +85,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         configurationHandler = ConfigurationHandler(
             coroutineScope = coroutineScope,
             rookConfigurationManager = rookConfigurationManager,
-            pluginPreferences = pluginPreferences,
-            onSDKInitialized = { enableAutoSync() }
+            onSDKInitialized = { enableAutoSync(it) }
         )
         permissionsHandler = PermissionsHandler(coroutineScope, rookPermissionsManager)
         summaryHandler = SummaryHandler(coroutineScope, rookSummaryManager)
@@ -247,12 +241,10 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     }
 
     @SuppressLint("MissingPermission", "LogNotTimber")
-    private suspend fun enableAutoSync() {
-        val enableBackgroundSync = pluginPreferences.getEnableBackground()
-
+    private suspend fun enableAutoSync(configuration: AutoSyncConfiguration) {
         Log.i("AutoSync", "Verifying auto sync acceptation...")
 
-        if (!enableBackgroundSync) {
+        if (!configuration.enableBackgroundSync) {
             return
         }
 
@@ -261,17 +253,16 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         // Check if user is logged in
         rookConfigurationManager.getUserID() ?: return
 
-        val enableNativeLogs = pluginPreferences.getEnableNativeLogs()
         val hasBackground = rookPermissionsManager.checkBackgroundReadStatus().getOrDefault(
             defaultValue = BackgroundReadStatus.UNAVAILABLE,
         ) == BackgroundReadStatus.PERMISSION_GRANTED
 
         if (hasBackground) {
             Log.i("AutoSync", "Starting background sync...")
-            rookBackgroundSyncManager.schedule(enableNativeLogs)
+            rookBackgroundSyncManager.schedule(configuration.enableNativeLogs)
         } else {
             Log.i("AutoSync", "Starting continuous upload...")
-            rookContinuousUploadManager.launchInForegroundService(enableNativeLogs)
+            rookContinuousUploadManager.launchInForegroundService(configuration.enableNativeLogs)
         }
 
         Log.i("AutoSync", "Starting steps counter...")

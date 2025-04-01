@@ -4,13 +4,13 @@ import com.rookmotion.rook.sdk.RookConfigurationManager
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
+import com.rookmotion.rook_sdk_health_connect.AutoSyncConfiguration
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
-import com.rookmotion.rook_sdk_health_connect.preferences.PluginPreferences
 import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
@@ -19,15 +19,16 @@ import kotlinx.coroutines.launch
 class ConfigurationHandler(
     private val coroutineScope: CoroutineScope,
     private val rookConfigurationManager: RookConfigurationManager,
-    private val pluginPreferences: PluginPreferences,
-    private val onSDKInitialized: suspend () -> Unit,
+    private val onSDKInitialized: suspend (AutoSyncConfiguration) -> Unit,
 ) {
     private var rookConfiguration: RookConfiguration? = null
+    private var enableBackgroundSync: Boolean = false
+    private var enableNativeLogs: Boolean = false
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
             "enableNativeLogs" -> {
-                pluginPreferences.setEnableNativeLogs(true)
+                enableNativeLogs = true
                 rookConfigurationManager.enableLocalLogs()
 
                 methodResult.booleanSuccess(true)
@@ -38,7 +39,7 @@ class ConfigurationHandler(
                     RookConfigurationProto.parseFrom(it)
                 }
 
-                pluginPreferences.setEnableBackground(rookConfigurationProto.enableBackgroundSync)
+                enableBackgroundSync = rookConfigurationProto.enableBackgroundSync
                 rookConfiguration = rookConfigurationProto.toRookConfiguration()
 
                 rookConfigurationManager.setConfiguration(rookConfigurationProto.toRookConfiguration())
@@ -57,7 +58,12 @@ class ConfigurationHandler(
 
                 rookConfigurationManager.initRook().fold(
                     {
-                        onSDKInitialized()
+                        val autoSyncConfiguration = AutoSyncConfiguration(
+                            enableBackgroundSync = enableBackgroundSync,
+                            enableNativeLogs = enableNativeLogs,
+                        )
+
+                        onSDKInitialized(autoSyncConfiguration)
                         methodResult.booleanSuccess(true)
                     },
                     {
