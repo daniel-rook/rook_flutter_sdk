@@ -1,9 +1,6 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
-import android.annotation.SuppressLint
 import com.rookmotion.rook.sdk.RookConfigurationManager
-import com.rookmotion.rook.sdk.RookContinuousUploadManager
-import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
@@ -13,6 +10,7 @@ import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
+import com.rookmotion.rook_sdk_health_connect.preferences.PluginPreferences
 import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
@@ -21,18 +19,15 @@ import kotlinx.coroutines.launch
 class ConfigurationHandler(
     private val coroutineScope: CoroutineScope,
     private val rookConfigurationManager: RookConfigurationManager,
-    private val rookContinuousUploadManager: RookContinuousUploadManager,
-    private val rookStepsManager: RookStepsManager,
+    private val pluginPreferences: PluginPreferences,
+    private val onSDKInitialized: suspend () -> Unit,
 ) {
-
-    private var enableNativeLogs: Boolean = false
-    private var enableBackgroundSync: Boolean = false
     private var rookConfiguration: RookConfiguration? = null
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
             "enableNativeLogs" -> {
-                enableNativeLogs = true
+                pluginPreferences.setEnableNativeLogs(true)
                 rookConfigurationManager.enableLocalLogs()
 
                 methodResult.booleanSuccess(true)
@@ -43,7 +38,7 @@ class ConfigurationHandler(
                     RookConfigurationProto.parseFrom(it)
                 }
 
-                enableBackgroundSync = rookConfigurationProto.enableBackgroundSync
+                pluginPreferences.setEnableBackground(rookConfigurationProto.enableBackgroundSync)
                 rookConfiguration = rookConfigurationProto.toRookConfiguration()
 
                 rookConfigurationManager.setConfiguration(rookConfigurationProto.toRookConfiguration())
@@ -62,7 +57,7 @@ class ConfigurationHandler(
 
                 rookConfigurationManager.initRook().fold(
                     {
-                        attemptToEnableBackgroundSync()
+                        onSDKInitialized()
                         methodResult.booleanSuccess(true)
                     },
                     {
@@ -121,13 +116,5 @@ class ConfigurationHandler(
         }
     }
 
-    @SuppressLint("MissingPermission")
-    private suspend fun attemptToEnableBackgroundSync() {
-        if (!enableBackgroundSync) {
-            return
-        }
 
-        rookContinuousUploadManager.launchInForegroundService(enableNativeLogs)
-        rookStepsManager.enableBackgroundAndroidSteps()
-    }
 }

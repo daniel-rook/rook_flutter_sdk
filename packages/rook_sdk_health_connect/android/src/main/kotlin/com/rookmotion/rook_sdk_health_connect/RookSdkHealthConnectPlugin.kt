@@ -1,6 +1,8 @@
 package com.rookmotion.rook_sdk_health_connect
 
+import android.annotation.SuppressLint
 import android.content.IntentFilter
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.rookmotion.rook.sdk.RookBackgroundSyncManager
 import com.rookmotion.rook.sdk.RookConfigurationManager
@@ -10,19 +12,21 @@ import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSummaryManager
 import com.rookmotion.rook.sdk.RookSyncManager
+import com.rookmotion.rook.sdk.domain.enums.BackgroundReadStatus
+import com.rookmotion.rook_sdk_health_connect.eventhandler.AndroidPermissionsReceiverTransmitter
+import com.rookmotion.rook_sdk_health_connect.eventhandler.HealthConnectPermissionsReceiverTransmitter
+import com.rookmotion.rook_sdk_health_connect.eventhandler.IsScheduledTransmitter
 import com.rookmotion.rook_sdk_health_connect.handler.BackgroundSyncHandler
 import com.rookmotion.rook_sdk_health_connect.handler.ConfigurationHandler
+import com.rookmotion.rook_sdk_health_connect.handler.ContinuousUploadHandler
 import com.rookmotion.rook_sdk_health_connect.handler.DataSourcesHandler
 import com.rookmotion.rook_sdk_health_connect.handler.EventHandler
 import com.rookmotion.rook_sdk_health_connect.handler.HelperHandler
 import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.SummaryHandler
-import com.rookmotion.rook_sdk_health_connect.handler.ContinuousUploadHandler
 import com.rookmotion.rook_sdk_health_connect.handler.SyncHandler
-import com.rookmotion.rook_sdk_health_connect.eventhandler.AndroidPermissionsReceiverTransmitter
-import com.rookmotion.rook_sdk_health_connect.eventhandler.HealthConnectPermissionsReceiverTransmitter
-import com.rookmotion.rook_sdk_health_connect.eventhandler.IsScheduledTransmitter
+import com.rookmotion.rook_sdk_health_connect.preferences.PluginPreferences
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -35,12 +39,21 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
 /** RookSdkHealthConnectPlugin */
 class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     private lateinit var methodChannel: MethodChannel
     private lateinit var coroutineScope: CoroutineScope
+    private lateinit var pluginPreferences: PluginPreferences
+
+    private lateinit var rookConfigurationManager: RookConfigurationManager
+    private lateinit var rookPermissionsManager: RookPermissionsManager
+    private lateinit var rookStepsManager: RookStepsManager
+    private lateinit var rookContinuousUploadManager: RookContinuousUploadManager
+    private lateinit var rookBackgroundSyncManager: RookBackgroundSyncManager
 
     private lateinit var configurationHandler: ConfigurationHandler
     private lateinit var permissionsHandler: PermissionsHandler
@@ -63,21 +76,22 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+        pluginPreferences = PluginPreferences(flutterPluginBinding.applicationContext)
 
-        val rookConfigurationManager = RookConfigurationManager(flutterPluginBinding.applicationContext)
-        val rookPermissionsManager = RookPermissionsManager(flutterPluginBinding.applicationContext)
+        rookConfigurationManager = RookConfigurationManager(flutterPluginBinding.applicationContext)
+        rookPermissionsManager = RookPermissionsManager(flutterPluginBinding.applicationContext)
         val rookSummaryManager = RookSummaryManager(rookConfigurationManager)
         val rookEventManager = RookEventManager(rookConfigurationManager)
         val rookSyncManager = RookSyncManager(flutterPluginBinding.applicationContext)
-        val rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
-        val rookContinuousUploadManager = RookContinuousUploadManager(flutterPluginBinding.applicationContext)
-        val rookBackgroundSyncManager = RookBackgroundSyncManager(flutterPluginBinding.applicationContext)
+        rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
+        rookContinuousUploadManager = RookContinuousUploadManager(flutterPluginBinding.applicationContext)
+        rookBackgroundSyncManager = RookBackgroundSyncManager(flutterPluginBinding.applicationContext)
 
         configurationHandler = ConfigurationHandler(
             coroutineScope = coroutineScope,
             rookConfigurationManager = rookConfigurationManager,
-            rookContinuousUploadManager = rookContinuousUploadManager,
-            rookStepsManager = rookStepsManager,
+            pluginPreferences = pluginPreferences,
+            onSDKInitialized = { enableAutoSync() }
         )
         permissionsHandler = PermissionsHandler(coroutineScope, rookPermissionsManager)
         summaryHandler = SummaryHandler(coroutineScope, rookSummaryManager)
@@ -230,5 +244,37 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
     override fun onDetachedFromActivityForConfigChanges() {
         permissionsHandler.setActivity(null)
+    }
+
+    @SuppressLint("MissingPermission", "LogNotTimber")
+    private suspend fun enableAutoSync() {
+        val enableBackgroundSync = pluginPreferences.getEnableBackground()
+
+        Log.i("AutoSync", "Verifying auto sync acceptation...")
+
+        if (!enableBackgroundSync) {
+            return
+        }
+
+        Log.i("AutoSync", "Verifying user session...")
+
+        // Check if user is logged in
+        rookConfigurationManager.getUserID() ?: return
+
+        val enableNativeLogs = pluginPreferences.getEnableNativeLogs()
+        val hasBackground = rookPermissionsManager.checkBackgroundReadStatus().getOrDefault(
+            defaultValue = BackgroundReadStatus.UNAVAILABLE,
+        ) == BackgroundReadStatus.PERMISSION_GRANTED
+
+        if (hasBackground) {
+            Log.i("AutoSync", "Starting background sync...")
+            rookBackgroundSyncManager.schedule(enableNativeLogs)
+        } else {
+            Log.i("AutoSync", "Starting continuous upload...")
+            rookContinuousUploadManager.launchInForegroundService(enableNativeLogs)
+        }
+
+        Log.i("AutoSync", "Starting steps counter...")
+        rookStepsManager.enableBackgroundAndroidSteps()
     }
 }
