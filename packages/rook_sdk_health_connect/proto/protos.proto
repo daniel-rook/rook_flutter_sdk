@@ -34,23 +34,6 @@ enum SyncStatusProto {
   RECORDS_NOT_FOUND = 1;
 }
 
-enum HealthDataTypeProto {
-  SLEEP_SUMMARY = 0;
-  PHYSICAL_SUMMARY = 1;
-  BODY_SUMMARY = 2;
-  PHYSICAL_EVENT = 3;
-  BLOOD_GLUCOSE_BODY_EVENT = 4;
-  BLOOD_PRESSURE_BODY_EVENT = 5;
-  BODY_METRICS_EVENT = 6;
-  HEART_RATE_BODY_EVENT = 7;
-  HEART_RATE_PHYSICAL_EVENT = 8;
-  HYDRATION_BODY_EVENT = 9;
-  NUTRITION_BODY_EVENT = 10;
-  OXYGENATION_BODY_EVENT = 11;
-  OXYGENATION_PHYSICAL_EVENT = 12;
-  TEMPERATURE_BODY_EVENT = 13;
-}
-
 enum SummarySyncTypeProto {
   SLEEP = 0;
   PHYSICAL = 1;
@@ -71,6 +54,12 @@ enum EventSyncTypeProto {
   CALORIES = 10;
 }
 
+enum BackgroundReadStatusProto {
+  UNAVAILABLE = 0;
+  PERMISSION_NOT_GRANTED = 1;
+  PERMISSION_GRANTED = 2;
+}
+
 message RookConfigurationProto {
   string clientUUID = 1;
   string secretKey = 2;
@@ -81,7 +70,7 @@ message RookConfigurationProto {
 message DataSourceProto {
   string name = 1;
   string description = 2;
-  string image = 3;
+  string imageUrl = 3;
   bool connected = 4;
   string authorizationUrl = 5;
   bool authorizationUrlIsNull = 6;
@@ -94,6 +83,7 @@ message DataSourcesProtoListWrapper {
 message HealthConnectPermissionsSummaryProto {
   bool dataTypesGranted = 1;
   bool dataTypesPartiallyGranted = 2;
+  bool backgroundReadGranted = 3;
 }
 
 message AndroidPermissionsSummaryProto {
@@ -201,6 +191,13 @@ message ResultSyncStatusWithDailyCaloriesProto {
 message ResultDataSourceAuthorizerProto {
   oneof result {
     DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message  ResultBackgroundReadStatusProto {
+  oneof result {
+    BackgroundReadStatusProto backgroundReadStatusProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }

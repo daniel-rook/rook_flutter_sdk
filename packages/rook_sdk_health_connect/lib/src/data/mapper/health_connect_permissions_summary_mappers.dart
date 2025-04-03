@@ -7,6 +7,7 @@ extension HealthConnectPermissionsSummaryMappers
     return HealthConnectPermissionsSummary(
       dataTypesGranted: dataTypesGranted,
       dataTypesPartiallyGranted: dataTypesPartiallyGranted,
+      backgroundReadGranted: backgroundReadGranted,
     );
   }
 }

@@ -1,4 +1,4 @@
-package com.rookmotion.rook_sdk_health_connect.permissions
+package com.rookmotion.rook_sdk_health_connect.eventhandler
 
 import android.content.BroadcastReceiver
 import android.content.Context

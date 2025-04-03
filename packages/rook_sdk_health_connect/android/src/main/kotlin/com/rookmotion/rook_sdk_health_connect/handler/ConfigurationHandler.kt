@@ -1,13 +1,10 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
-import android.annotation.SuppressLint
 import com.rookmotion.rook.sdk.RookConfigurationManager
-import com.rookmotion.rook.sdk.RookContinuousUploadManager
-import com.rookmotion.rook.sdk.RookStepsManager
-import com.rookmotion.rook.sdk.RookYesterdaySyncManager
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
 import com.rookmotion.rook.sdk.internal.analytics.RookFramework
+import com.rookmotion.rook_sdk_health_connect.AutoSyncConfiguration
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
@@ -22,13 +19,11 @@ import kotlinx.coroutines.launch
 class ConfigurationHandler(
     private val coroutineScope: CoroutineScope,
     private val rookConfigurationManager: RookConfigurationManager,
-    private val rookContinuousUploadManager: RookContinuousUploadManager,
-    private val rookStepsManager: RookStepsManager,
+    private val onSDKInitialized: suspend (AutoSyncConfiguration) -> Unit,
 ) {
-
-    private var enableNativeLogs: Boolean = false
-    private var enableBackgroundSync: Boolean = false
     private var rookConfiguration: RookConfiguration? = null
+    private var enableBackgroundSync: Boolean = false
+    private var enableNativeLogs: Boolean = false
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
@@ -63,7 +58,12 @@ class ConfigurationHandler(
 
                 rookConfigurationManager.initRook().fold(
                     {
-                        attemptToEnableBackgroundSync()
+                        val autoSyncConfiguration = AutoSyncConfiguration(
+                            enableBackgroundSync = enableBackgroundSync,
+                            enableNativeLogs = enableNativeLogs,
+                        )
+
+                        onSDKInitialized(autoSyncConfiguration)
                         methodResult.booleanSuccess(true)
                     },
                     {
@@ -122,13 +122,5 @@ class ConfigurationHandler(
         }
     }
 
-    @SuppressLint("MissingPermission")
-    private suspend fun attemptToEnableBackgroundSync() {
-        if (!enableBackgroundSync) {
-            return
-        }
 
-        rookContinuousUploadManager.launchInForegroundService(enableNativeLogs)
-        rookStepsManager.enableBackgroundAndroidSteps()
-    }
 }

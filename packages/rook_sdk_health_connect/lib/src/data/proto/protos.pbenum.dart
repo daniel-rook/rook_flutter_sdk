@@ -123,64 +123,6 @@ class SyncStatusProto extends $pb.ProtobufEnum {
   const SyncStatusProto._($core.int v, $core.String n) : super(v, n);
 }
 
-class HealthDataTypeProto extends $pb.ProtobufEnum {
-  static const HealthDataTypeProto SLEEP_SUMMARY =
-      HealthDataTypeProto._(0, _omitEnumNames ? '' : 'SLEEP_SUMMARY');
-  static const HealthDataTypeProto PHYSICAL_SUMMARY =
-      HealthDataTypeProto._(1, _omitEnumNames ? '' : 'PHYSICAL_SUMMARY');
-  static const HealthDataTypeProto BODY_SUMMARY =
-      HealthDataTypeProto._(2, _omitEnumNames ? '' : 'BODY_SUMMARY');
-  static const HealthDataTypeProto PHYSICAL_EVENT =
-      HealthDataTypeProto._(3, _omitEnumNames ? '' : 'PHYSICAL_EVENT');
-  static const HealthDataTypeProto BLOOD_GLUCOSE_BODY_EVENT =
-      HealthDataTypeProto._(
-          4, _omitEnumNames ? '' : 'BLOOD_GLUCOSE_BODY_EVENT');
-  static const HealthDataTypeProto BLOOD_PRESSURE_BODY_EVENT =
-      HealthDataTypeProto._(
-          5, _omitEnumNames ? '' : 'BLOOD_PRESSURE_BODY_EVENT');
-  static const HealthDataTypeProto BODY_METRICS_EVENT =
-      HealthDataTypeProto._(6, _omitEnumNames ? '' : 'BODY_METRICS_EVENT');
-  static const HealthDataTypeProto HEART_RATE_BODY_EVENT =
-      HealthDataTypeProto._(7, _omitEnumNames ? '' : 'HEART_RATE_BODY_EVENT');
-  static const HealthDataTypeProto HEART_RATE_PHYSICAL_EVENT =
-      HealthDataTypeProto._(
-          8, _omitEnumNames ? '' : 'HEART_RATE_PHYSICAL_EVENT');
-  static const HealthDataTypeProto HYDRATION_BODY_EVENT =
-      HealthDataTypeProto._(9, _omitEnumNames ? '' : 'HYDRATION_BODY_EVENT');
-  static const HealthDataTypeProto NUTRITION_BODY_EVENT =
-      HealthDataTypeProto._(10, _omitEnumNames ? '' : 'NUTRITION_BODY_EVENT');
-  static const HealthDataTypeProto OXYGENATION_BODY_EVENT =
-      HealthDataTypeProto._(11, _omitEnumNames ? '' : 'OXYGENATION_BODY_EVENT');
-  static const HealthDataTypeProto OXYGENATION_PHYSICAL_EVENT =
-      HealthDataTypeProto._(
-          12, _omitEnumNames ? '' : 'OXYGENATION_PHYSICAL_EVENT');
-  static const HealthDataTypeProto TEMPERATURE_BODY_EVENT =
-      HealthDataTypeProto._(13, _omitEnumNames ? '' : 'TEMPERATURE_BODY_EVENT');
-
-  static const $core.List<HealthDataTypeProto> values = <HealthDataTypeProto>[
-    SLEEP_SUMMARY,
-    PHYSICAL_SUMMARY,
-    BODY_SUMMARY,
-    PHYSICAL_EVENT,
-    BLOOD_GLUCOSE_BODY_EVENT,
-    BLOOD_PRESSURE_BODY_EVENT,
-    BODY_METRICS_EVENT,
-    HEART_RATE_BODY_EVENT,
-    HEART_RATE_PHYSICAL_EVENT,
-    HYDRATION_BODY_EVENT,
-    NUTRITION_BODY_EVENT,
-    OXYGENATION_BODY_EVENT,
-    OXYGENATION_PHYSICAL_EVENT,
-    TEMPERATURE_BODY_EVENT,
-  ];
-
-  static final $core.Map<$core.int, HealthDataTypeProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static HealthDataTypeProto? valueOf($core.int value) => _byValue[value];
-
-  const HealthDataTypeProto._($core.int v, $core.String n) : super(v, n);
-}
-
 class SummarySyncTypeProto extends $pb.ProtobufEnum {
   static const SummarySyncTypeProto SLEEP =
       SummarySyncTypeProto._(0, _omitEnumNames ? '' : 'SLEEP');
@@ -245,6 +187,30 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
   static EventSyncTypeProto? valueOf($core.int value) => _byValue[value];
 
   const EventSyncTypeProto._($core.int v, $core.String n) : super(v, n);
+}
+
+class BackgroundReadStatusProto extends $pb.ProtobufEnum {
+  static const BackgroundReadStatusProto UNAVAILABLE =
+      BackgroundReadStatusProto._(0, _omitEnumNames ? '' : 'UNAVAILABLE');
+  static const BackgroundReadStatusProto PERMISSION_NOT_GRANTED =
+      BackgroundReadStatusProto._(
+          1, _omitEnumNames ? '' : 'PERMISSION_NOT_GRANTED');
+  static const BackgroundReadStatusProto PERMISSION_GRANTED =
+      BackgroundReadStatusProto._(
+          2, _omitEnumNames ? '' : 'PERMISSION_GRANTED');
+
+  static const $core.List<BackgroundReadStatusProto> values =
+      <BackgroundReadStatusProto>[
+    UNAVAILABLE,
+    PERMISSION_NOT_GRANTED,
+    PERMISSION_GRANTED,
+  ];
+
+  static final $core.Map<$core.int, BackgroundReadStatusProto> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
+  static BackgroundReadStatusProto? valueOf($core.int value) => _byValue[value];
+
+  const BackgroundReadStatusProto._($core.int v, $core.String n) : super(v, n);
 }
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

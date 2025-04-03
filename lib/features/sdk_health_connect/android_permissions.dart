@@ -25,6 +25,7 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
   final ConsoleOutput hcAvailabilityOutput = ConsoleOutput();
   final ConsoleOutput checkHCPermissionsOutput = ConsoleOutput();
   final ConsoleOutput checkHCPermissionsPartiallyOutput = ConsoleOutput();
+  final ConsoleOutput checkBackgroundReadStatusOutput = ConsoleOutput();
   final ConsoleOutput requestHCPermissionsOutput = ConsoleOutput();
   final ConsoleOutput revokeHCPermissionsOutput = ConsoleOutput();
   final ConsoleOutput openHealthConnectOutput = ConsoleOutput();
@@ -43,8 +44,9 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
       if (permissionsSummary.dataTypesGranted) {
         setState(() {
           checkHCPermissionsOutput.append('Permissions granted');
-          checkHCPermissionsPartiallyOutput
-              .append('Permissions partially granted');
+          checkHCPermissionsPartiallyOutput.append(
+            'Permissions partially granted',
+          );
           requestHCPermissionsOutput.append('Permissions granted');
         });
       } else {
@@ -66,9 +68,14 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
         });
       } else {
         setState(() {
-          checkHCPermissionsPartiallyOutput.append(
-            "No permission granted",
-          );
+          checkHCPermissionsPartiallyOutput.append("No permission granted");
+        });
+      }
+
+      if (permissionsSummary.backgroundReadGranted) {
+        setState(() {
+          checkBackgroundReadStatusOutput.append("Background read granted");
+          requestHCPermissionsOutput.append("Background read granted");
         });
       }
     });
@@ -144,6 +151,11 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
           FilledButton(
             onPressed: checkHealthConnectPermissionsPartially,
             child: const Text('checkHealthConnectPermissionsPartially'),
+          ),
+          Text(checkBackgroundReadStatusOutput.current),
+          FilledButton(
+            onPressed: checkBackgroundReadStatus,
+            child: const Text('checkBackgroundReadStatus'),
           ),
           Text(requestHCPermissionsOutput.current),
           FilledButton(
@@ -266,6 +278,31 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
             .append('Error verifying Health Connect permissions: $error');
       });
     });
+  }
+
+  void checkBackgroundReadStatus() async {
+    checkBackgroundReadStatusOutput.clear();
+
+    setState(() {
+      checkBackgroundReadStatusOutput.append("Verifying background status...");
+    });
+
+    try {
+      final backgroundReadStatus =
+          await HCRookHealthPermissionsManager.checkBackgroundReadStatus();
+
+      setState(() {
+        checkBackgroundReadStatusOutput.append(
+          "Background read status: $backgroundReadStatus",
+        );
+      });
+    } catch (error) {
+      setState(() {
+        checkBackgroundReadStatusOutput.append(
+          "Error verifying background status: $error",
+        );
+      });
+    }
   }
 
   void requestHealthConnectPermissions() {

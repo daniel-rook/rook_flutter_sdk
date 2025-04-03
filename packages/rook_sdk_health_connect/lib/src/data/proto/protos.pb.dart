@@ -140,7 +140,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
   factory DataSourceProto({
     $core.String? name,
     $core.String? description,
-    $core.String? image,
+    $core.String? imageUrl,
     $core.bool? connected,
     $core.String? authorizationUrl,
     $core.bool? authorizationUrlIsNull,
@@ -152,8 +152,8 @@ class DataSourceProto extends $pb.GeneratedMessage {
     if (description != null) {
       $result.description = description;
     }
-    if (image != null) {
-      $result.image = image;
+    if (imageUrl != null) {
+      $result.imageUrl = imageUrl;
     }
     if (connected != null) {
       $result.connected = connected;
@@ -179,7 +179,7 @@ class DataSourceProto extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'name')
     ..aOS(2, _omitFieldNames ? '' : 'description')
-    ..aOS(3, _omitFieldNames ? '' : 'image')
+    ..aOS(3, _omitFieldNames ? '' : 'imageUrl', protoName: 'imageUrl')
     ..aOB(4, _omitFieldNames ? '' : 'connected')
     ..aOS(5, _omitFieldNames ? '' : 'authorizationUrl',
         protoName: 'authorizationUrl')
@@ -235,16 +235,16 @@ class DataSourceProto extends $pb.GeneratedMessage {
   void clearDescription() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get image => $_getSZ(2);
+  $core.String get imageUrl => $_getSZ(2);
   @$pb.TagNumber(3)
-  set image($core.String v) {
+  set imageUrl($core.String v) {
     $_setString(2, v);
   }
 
   @$pb.TagNumber(3)
-  $core.bool hasImage() => $_has(2);
+  $core.bool hasImageUrl() => $_has(2);
   @$pb.TagNumber(3)
-  void clearImage() => clearField(3);
+  void clearImageUrl() => clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get connected => $_getBF(3);
@@ -344,6 +344,7 @@ class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
   factory HealthConnectPermissionsSummaryProto({
     $core.bool? dataTypesGranted,
     $core.bool? dataTypesPartiallyGranted,
+    $core.bool? backgroundReadGranted,
   }) {
     final $result = create();
     if (dataTypesGranted != null) {
@@ -351,6 +352,9 @@ class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
     }
     if (dataTypesPartiallyGranted != null) {
       $result.dataTypesPartiallyGranted = dataTypesPartiallyGranted;
+    }
+    if (backgroundReadGranted != null) {
+      $result.backgroundReadGranted = backgroundReadGranted;
     }
     return $result;
   }
@@ -370,6 +374,8 @@ class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
         protoName: 'dataTypesGranted')
     ..aOB(2, _omitFieldNames ? '' : 'dataTypesPartiallyGranted',
         protoName: 'dataTypesPartiallyGranted')
+    ..aOB(3, _omitFieldNames ? '' : 'backgroundReadGranted',
+        protoName: 'backgroundReadGranted')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
@@ -423,6 +429,18 @@ class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
   $core.bool hasDataTypesPartiallyGranted() => $_has(1);
   @$pb.TagNumber(2)
   void clearDataTypesPartiallyGranted() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get backgroundReadGranted => $_getBF(2);
+  @$pb.TagNumber(3)
+  set backgroundReadGranted($core.bool v) {
+    $_setBool(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasBackgroundReadGranted() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearBackgroundReadGranted() => clearField(3);
 }
 
 class AndroidPermissionsSummaryProto extends $pb.GeneratedMessage {
@@ -2128,6 +2146,115 @@ class ResultDataSourceAuthorizerProto extends $pb.GeneratedMessage {
   void clearDataSourceAuthorizerProto() => clearField(1);
   @$pb.TagNumber(1)
   DataSourceAuthorizerProto ensureDataSourceAuthorizerProto() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  PluginExceptionProto get pluginExceptionProto => $_getN(1);
+  @$pb.TagNumber(2)
+  set pluginExceptionProto(PluginExceptionProto v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPluginExceptionProto() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPluginExceptionProto() => clearField(2);
+  @$pb.TagNumber(2)
+  PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
+}
+
+enum ResultBackgroundReadStatusProto_Result {
+  backgroundReadStatusProto,
+  pluginExceptionProto,
+  notSet
+}
+
+class ResultBackgroundReadStatusProto extends $pb.GeneratedMessage {
+  factory ResultBackgroundReadStatusProto({
+    BackgroundReadStatusProto? backgroundReadStatusProto,
+    PluginExceptionProto? pluginExceptionProto,
+  }) {
+    final $result = create();
+    if (backgroundReadStatusProto != null) {
+      $result.backgroundReadStatusProto = backgroundReadStatusProto;
+    }
+    if (pluginExceptionProto != null) {
+      $result.pluginExceptionProto = pluginExceptionProto;
+    }
+    return $result;
+  }
+  ResultBackgroundReadStatusProto._() : super();
+  factory ResultBackgroundReadStatusProto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ResultBackgroundReadStatusProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, ResultBackgroundReadStatusProto_Result>
+      _ResultBackgroundReadStatusProto_ResultByTag = {
+    1: ResultBackgroundReadStatusProto_Result.backgroundReadStatusProto,
+    2: ResultBackgroundReadStatusProto_Result.pluginExceptionProto,
+    0: ResultBackgroundReadStatusProto_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ResultBackgroundReadStatusProto',
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..e<BackgroundReadStatusProto>(1,
+        _omitFieldNames ? '' : 'backgroundReadStatusProto', $pb.PbFieldType.OE,
+        protoName: 'backgroundReadStatusProto',
+        defaultOrMaker: BackgroundReadStatusProto.UNAVAILABLE,
+        valueOf: BackgroundReadStatusProto.valueOf,
+        enumValues: BackgroundReadStatusProto.values)
+    ..aOM<PluginExceptionProto>(
+        2, _omitFieldNames ? '' : 'pluginExceptionProto',
+        protoName: 'pluginExceptionProto',
+        subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ResultBackgroundReadStatusProto clone() =>
+      ResultBackgroundReadStatusProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ResultBackgroundReadStatusProto copyWith(
+          void Function(ResultBackgroundReadStatusProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as ResultBackgroundReadStatusProto))
+          as ResultBackgroundReadStatusProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResultBackgroundReadStatusProto create() =>
+      ResultBackgroundReadStatusProto._();
+  ResultBackgroundReadStatusProto createEmptyInstance() => create();
+  static $pb.PbList<ResultBackgroundReadStatusProto> createRepeated() =>
+      $pb.PbList<ResultBackgroundReadStatusProto>();
+  @$core.pragma('dart2js:noInline')
+  static ResultBackgroundReadStatusProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ResultBackgroundReadStatusProto>(
+          create);
+  static ResultBackgroundReadStatusProto? _defaultInstance;
+
+  ResultBackgroundReadStatusProto_Result whichResult() =>
+      _ResultBackgroundReadStatusProto_ResultByTag[$_whichOneof(0)]!;
+  void clearResult() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  BackgroundReadStatusProto get backgroundReadStatusProto => $_getN(0);
+  @$pb.TagNumber(1)
+  set backgroundReadStatusProto(BackgroundReadStatusProto v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasBackgroundReadStatusProto() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBackgroundReadStatusProto() => clearField(1);
 
   @$pb.TagNumber(2)
   PluginExceptionProto get pluginExceptionProto => $_getN(1);

@@ -20,4 +20,10 @@ public interface HealthConnectPermissionsSummaryProtoOrBuilder extends
    * @return The dataTypesPartiallyGranted.
    */
   boolean getDataTypesPartiallyGranted();
+
+  /**
+   * <code>bool backgroundReadGranted = 3;</code>
+   * @return The backgroundReadGranted.
+   */
+  boolean getBackgroundReadGranted();
 }

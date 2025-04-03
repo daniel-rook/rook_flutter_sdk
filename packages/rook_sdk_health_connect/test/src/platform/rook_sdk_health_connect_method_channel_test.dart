@@ -28,6 +28,7 @@ void main() {
   resultDataSourceAuthorizerTests(platform, channel);
   resultAuthorizedDataSourcesTests(platform, channel);
   resultRequestPermissionsStatusTests(platform, channel);
+  resultBackgroundReadStatusTests(platform, channel);
   stringTests(platform, channel);
   availabilityStatusTests(platform, channel);
 }
@@ -94,18 +95,6 @@ void resultBooleanTests(
       'GIVEN the happy path WHEN checkHealthConnectPermissions THEN complete with expected value',
       () async {
         final future = platform.checkHealthConnectPermissions();
-
-        await expectLater(future, completion(true));
-      },
-    );
-
-    test(
-      'GIVEN the happy path WHEN shouldSyncFor THEN complete with expected value',
-      () async {
-        final future = platform.shouldSyncFor(
-          HCHealthDataType.sleepSummary,
-          DateTime.now(),
-        );
 
         await expectLater(future, completion(true));
       },
@@ -226,6 +215,26 @@ void resultBooleanTests(
 
       await expectLater(future, completes);
     });
+
+    test(
+        'GIVEN the happy path WHEN isScheduled THEN complete with expected value',
+        () async {
+      final future = platform.isScheduled();
+
+      await expectLater(future, completion(true));
+    });
+
+    test('GIVEN the happy path WHEN schedule THEN complete', () async {
+      final future = platform.schedule(true);
+
+      await expectLater(future, completes);
+    });
+
+    test('GIVEN the happy path WHEN cancel THEN complete', () async {
+      final future = platform.cancel();
+
+      await expectLater(future, completes);
+    });
   });
 
   group(
@@ -295,16 +304,6 @@ void resultBooleanTests(
       'GIVEN the unhappy path WHEN checkHealthConnectPermissions THEN throw exception',
       () async {
         final future = platform.checkHealthConnectPermissions();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN the unhappy path WHEN shouldSyncFor THEN throw exception',
-      () async {
-        final future = platform.shouldSyncFor(
-            HCHealthDataType.sleepSummary, DateTime.now());
 
         await expectLater(future, throwsA(isException));
       },
@@ -425,6 +424,25 @@ void resultBooleanTests(
     test('GIVEN the unhappy path WHEN revokeDataSource THEN throw exception',
         () async {
       final future = platform.revokeDataSource("Fitbit");
+
+      await expectLater(future, throwsA(isException));
+    });
+
+    test('GIVEN the unhappy path WHEN isScheduled THEN throw exception',
+        () async {
+      final future = platform.isScheduled();
+
+      await expectLater(future, throwsA(isException));
+    });
+
+    test('GIVEN the unhappy path WHEN schedule THEN throw exception', () async {
+      final future = platform.schedule(true);
+
+      await expectLater(future, throwsA(isException));
+    });
+
+    test('GIVEN the unhappy path WHEN cancel THEN throw exception', () async {
+      final future = platform.cancel();
 
       await expectLater(future, throwsA(isException));
     });
@@ -955,7 +973,7 @@ void resultDataSourceTests(
             DataSourceProto(
               name: 'name',
               description: 'description',
-              image: 'image',
+              imageUrl: 'image',
               connected: true,
               authorizationUrl: 'authorizationUrl',
               authorizationUrlIsNull: false,
@@ -1230,7 +1248,7 @@ void resultRequestPermissionsStatusTests(
           ..message = _exceptionMessage
           ..code = _exceptionCode;
 
-        final proto = ResultDataSourcesProto.create()
+        final proto = ResultRequestPermissionsStatusProto.create()
           ..pluginExceptionProto = pluginExceptionProto;
 
         return proto.writeToBuffer();
@@ -1249,6 +1267,60 @@ void resultRequestPermissionsStatusTests(
         'GIVEN the unhappy path WHEN requestAndroidPermissions THEN throw exception',
         () async {
       final future = platform.requestAndroidPermissions();
+
+      await expectLater(future, throwsA(isException));
+    });
+  });
+}
+
+void resultBackgroundReadStatusTests(
+  MethodChannelRookSdkHealthConnect platform,
+  MethodChannel channel,
+) {
+  group('MethodChannelRookSdkHealthConnect | BackgroundReadStatus Success', () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final proto = ResultBackgroundReadStatusProto.create()
+          ..backgroundReadStatusProto = BackgroundReadStatusProto.UNAVAILABLE;
+
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+        'GIVEN the happy path WHEN checkBackgroundReadStatus THEN complete with expected value',
+        () async {
+      final future = platform.checkBackgroundReadStatus();
+
+      await expectLater(
+        future,
+        completion(HCBackgroundReadStatus.unavailable),
+      );
+    });
+  });
+
+  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
+      () {
+    setUp(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (_) async {
+        final pluginExceptionProto = PluginExceptionProto.create()
+          ..id = -1
+          ..message = _exceptionMessage
+          ..code = _exceptionCode;
+
+        final proto = ResultBackgroundReadStatusProto.create()
+          ..pluginExceptionProto = pluginExceptionProto;
+
+        return proto.writeToBuffer();
+      });
+    });
+
+    test(
+        'GIVEN the unhappy path WHEN checkBackgroundReadStatus THEN throw exception',
+        () async {
+      final future = platform.checkBackgroundReadStatus();
 
       await expectLater(future, throwsA(isException));
     });

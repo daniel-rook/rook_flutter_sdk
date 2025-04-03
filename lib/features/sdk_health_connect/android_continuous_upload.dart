@@ -6,10 +6,10 @@ import 'package:focus_detector/focus_detector.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
+import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const String androidContinuousUploadRoute = '/android/continuous-upload';
 
@@ -24,8 +24,6 @@ class AndroidContinuousUpload extends StatefulWidget {
 class _AndroidContinuousUploadState extends State<AndroidContinuousUpload> {
   final Logger logger = Logger('AndroidContinuousUpload');
 
-  SharedPreferences? sharedPreferences;
-
   bool androidPermissionsChecked = false;
   bool androidPermissionsPreviouslyDenied = false;
   bool healthConnectPermissionsChecked = false;
@@ -39,8 +37,6 @@ class _AndroidContinuousUploadState extends State<AndroidContinuousUpload> {
 
   @override
   void initState() {
-    SharedPreferences.getInstance().then((value) => sharedPreferences = value);
-
     androidPermissionsSubscription = HCRookHealthPermissionsManager
         .requestAndroidPermissionsUpdates
         .listen((permissionsSummary) {
@@ -242,10 +238,9 @@ class _AndroidContinuousUploadState extends State<AndroidContinuousUpload> {
   }
 
   void automaticallyStartContinuousUpload() async {
-    final acceptedContinuous =
-        sharedPreferences?.getBool(acceptedAndroidContinuousKey) ?? false;
+    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
 
-    if (acceptedContinuous) {
+    if (autoSyncAcceptation) {
       continuousUploadOutput.clear();
 
       setState(() {
@@ -268,19 +263,17 @@ class _AndroidContinuousUploadState extends State<AndroidContinuousUpload> {
     }
 
     setState(() {
-      continuousChecked = acceptedContinuous;
+      continuousChecked = autoSyncAcceptation;
     });
   }
 
-  void enableContinuousUpload() {
-    sharedPreferences?.setBool(acceptedAndroidContinuousKey, true);
+  void enableContinuousUpload() async {
+    await AppPreferences().setAutoSyncAcceptation(true);
     automaticallyStartContinuousUpload();
   }
 
-  void disableContinuousUpload() {
-    sharedPreferences?.setBool(acceptedAndroidContinuousKey, false);
+  void disableContinuousUpload() async {
+    await AppPreferences().setAutoSyncAcceptation(false);
     automaticallyStartContinuousUpload();
   }
 }
-
-const acceptedAndroidContinuousKey = "ACCEPTED_ANDROID_CONTINUOUS";

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
+import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const String iosContinuousUploadRoute = '/ios/continuous-upload';
 
@@ -19,15 +19,12 @@ class IOSContinuousUpload extends StatefulWidget {
 class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
   final Logger logger = Logger('IOSContinuousUpload');
 
-  SharedPreferences? sharedPreferences;
   bool continuousChecked = false;
 
   ConsoleOutput continuousUploadOutput = ConsoleOutput();
 
   @override
   void initState() {
-    SharedPreferences.getInstance().then((value) => sharedPreferences = value);
-
     automaticallyStartContinuousUpload();
     super.initState();
   }
@@ -61,10 +58,9 @@ class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
   }
 
   void automaticallyStartContinuousUpload() async {
-    final acceptedContinuous =
-        sharedPreferences?.getBool(acceptedIosContinuousKey) ?? false;
+    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
 
-    if (acceptedContinuous) {
+    if (autoSyncAcceptation) {
       continuousUploadOutput.clear();
 
       setState(() {
@@ -108,19 +104,17 @@ class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
     }
 
     setState(() {
-      continuousChecked = acceptedContinuous;
+      continuousChecked = autoSyncAcceptation;
     });
   }
 
-  void enableContinuousUpload() {
-    sharedPreferences?.setBool(acceptedIosContinuousKey, true);
+  void enableContinuousUpload() async {
+    await AppPreferences().setAutoSyncAcceptation(true);
     automaticallyStartContinuousUpload();
   }
 
-  void disableContinuousUpload() {
-    sharedPreferences?.setBool(acceptedIosContinuousKey, false);
+  void disableContinuousUpload() async {
+    await AppPreferences().setAutoSyncAcceptation(false);
     automaticallyStartContinuousUpload();
   }
 }
-
-const acceptedIosContinuousKey = "ACCEPTED_IOS_CONTINUOUS";

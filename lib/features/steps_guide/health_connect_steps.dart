@@ -73,7 +73,7 @@ class _HealthConnectStepsState extends State<HealthConnectSteps> {
   }
 
   Future<void> checkHealthConnectStatus() async {
-    final status = await HCRookHealthPermissionsManager.checkAvailability();
+    final status = await HCRookHealthPermissionsManager.checkHealthConnectAvailability();
 
     setState(() {
       healthConnectAvailabilityStatus = status;

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_authorized_data_sources_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/extension/result_background_read_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_source_authorizer_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
@@ -15,7 +16,6 @@ import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summ
 import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/event_sync_type_mapper.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_connect_permissions_summary_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/health_data_type_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
@@ -33,6 +33,11 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   @visibleForTesting
   final healthConnectPermissionsEventChannel = const EventChannel(
     "io.tryrook.permissions.healthconnect",
+  );
+
+  @visibleForTesting
+  final isScheduledEventChannel = const EventChannel(
+    "io.tryrook.background.scheduled",
   );
 
   @override
@@ -107,16 +112,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<HCAvailabilityStatus> checkAvailability() async {
-    final int code = await methodChannel.invokeMethod('checkAvailability');
-    final proto = AvailabilityStatusProto.valueOf(code) ??
-        AvailabilityStatusProto.NOT_SUPPORTED;
-
-    return proto.toDomain();
-  }
-
-  @override
   Future<HCAvailabilityStatus> checkHealthConnectAvailability() async {
     final int code = await methodChannel.invokeMethod(
       'checkHealthConnectAvailability',
@@ -155,6 +150,17 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     );
 
     final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<HCBackgroundReadStatus> checkBackgroundReadStatus() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'checkBackgroundReadStatus',
+    );
+
+    final result = ResultBackgroundReadStatusProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -227,48 +233,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         return AndroidPermissionsSummaryProto.fromBuffer(bytes).toDomain();
       },
     );
-  }
-
-  @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<bool> checkPermissions() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'checkPermissions',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<void> requestPermissions() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'requestPermissions',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<bool> shouldSyncFor(
-      HCHealthDataType hcHealthDataType, DateTime date) async {
-    final proto = hcHealthDataType.toProto();
-
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'shouldSyncFor',
-      [
-        proto.value,
-        date.millisecondsSinceEpoch,
-      ],
-    );
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    return result.unwrap();
   }
 
   @override
@@ -603,30 +567,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<bool> hasStepsPermissions() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'hasStepsPermissions',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<void> requestStepsPermissions() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'requestStepsPermissions',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
   Future<void> enableBackgroundAndroidSteps() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableBackgroundAndroidSteps',
@@ -657,54 +597,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final result = ResultInt64Proto.fromBuffer(bytes);
 
     return result.unwrap();
-  }
-
-  @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<bool> hasYesterdaySyncAndroidPermissions() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'hasYesterdaySyncAndroidPermissions',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<void> requestYesterdaySyncAndroidPermissions() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'requestYesterdaySyncAndroidPermissions',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<bool> hasYesterdaySyncHealthConnectPermissions() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'hasYesterdaySyncHealthConnectPermissions',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  @Deprecated("Will be deleted in next VERSION release")
-  Future<void> requestYesterdaySyncHealthConnectPermissions() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'requestYesterdaySyncHealthConnectPermissions',
-    );
-
-    final result = ResultBooleanProto.fromBuffer(bytes);
-
-    result.unwrap();
   }
 
   @override
@@ -786,6 +678,47 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         redirectUrl,
       ],
     );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Future<bool> isScheduled() async {
+    final Uint8List bytes = await methodChannel.invokeMethod('isScheduled');
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Stream<bool> get isScheduledUpdates {
+    return isScheduledEventChannel.receiveBroadcastStream().map(
+      (bytes) {
+        return bytes as bool;
+      },
+    );
+  }
+
+  @override
+  Future<void> schedule(bool enableNativeLogs) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'schedule',
+      [
+        enableNativeLogs,
+      ],
+    );
+
+    final result = ResultBooleanProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Future<void> cancel() async {
+    final Uint8List bytes = await methodChannel.invokeMethod('cancel');
 
     final result = ResultBooleanProto.fromBuffer(bytes);
 

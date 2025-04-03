@@ -34,16 +34,16 @@ public interface DataSourceProtoOrBuilder extends
       getDescriptionBytes();
 
   /**
-   * <code>string image = 3;</code>
-   * @return The image.
+   * <code>string imageUrl = 3;</code>
+   * @return The imageUrl.
    */
-  java.lang.String getImage();
+  java.lang.String getImageUrl();
   /**
-   * <code>string image = 3;</code>
-   * @return The bytes for image.
+   * <code>string imageUrl = 3;</code>
+   * @return The bytes for imageUrl.
    */
   com.google.protobuf.ByteString
-      getImageBytes();
+      getImageUrlBytes();
 
   /**
    * <code>bool connected = 4;</code>

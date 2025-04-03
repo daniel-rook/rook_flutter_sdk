@@ -1,4 +1,4 @@
-package com.rookmotion.rook_sdk_health_connect.permissions
+package com.rookmotion.rook_sdk_health_connect.eventhandler
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -29,9 +29,15 @@ class HealthConnectPermissionsReceiverTransmitter : BroadcastReceiver(), EventCh
             /* defaultValue = */ false
         ) ?: false
 
+        val backgroundReadGranted = intent?.getBooleanExtra(
+            /* name = */ RookPermissionsManager.EXTRA_HEALTH_CONNECT_BACKGROUND_PERMISSION_GRANTED,
+            /* defaultValue = */ false
+        ) ?: false
+
         val bytes = HealthConnectPermissionsSummaryProto.newBuilder()
             .setDataTypesGranted(dataTypesGranted)
             .setDataTypesPartiallyGranted(dataTypesPartiallyGranted)
+            .setBackgroundReadGranted(backgroundReadGranted)
             .build()
             .toByteArray()
 

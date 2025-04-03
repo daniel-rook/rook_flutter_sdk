@@ -7,7 +7,7 @@ fun DataSource.toDataSourceProto(): DataSourceProto {
     val dataSourceProtoBuilder = DataSourceProto.newBuilder()
         .setName(name)
         .setDescription(description)
-        .setImage(image)
+        .setImageUrl(imageUrl)
         .setConnected(connected)
 
     if (authorizationUrl != null) {

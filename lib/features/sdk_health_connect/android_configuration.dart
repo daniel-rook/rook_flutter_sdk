@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
+import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_continuous_upload.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_data_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_permissions.dart';
@@ -13,7 +15,6 @@ import 'package:rook_flutter_sdk/features/sdk_health_connect/android_user_manage
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const String androidConfigurationRoute = '/android/configuration';
 
@@ -121,6 +122,14 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
                 : null,
             child: const Text('Continuous upload'),
           ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(
+              androidBackgroundSyncRoute,
+            )
+                : null,
+            child: const Text('Background sync'),
+          ),
         ],
       ),
     );
@@ -134,17 +143,14 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
   }
 
   void setConfiguration() async {
-    final sharedPreferences = await SharedPreferences.getInstance();
-    final acceptedContinuous = sharedPreferences.getBool(
-      acceptedAndroidContinuousKey,
-    );
+    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
 
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
       secretKey: Secrets.secretKey,
       environment: rookEnvironment,
-      // This should be based on user choice: acceptedContinuous
-      enableBackgroundSync: false,
+      // This should be based on user choice: autoSyncAcceptation
+      enableBackgroundSync: true,
     );
 
     configurationOutput.clear();
