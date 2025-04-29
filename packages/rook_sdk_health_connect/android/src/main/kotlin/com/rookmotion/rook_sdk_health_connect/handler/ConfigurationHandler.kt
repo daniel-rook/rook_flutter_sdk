@@ -1,9 +1,9 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookConfigurationManager
+import com.rookmotion.rook.sdk.domain.analytics.RookAnalytics
+import com.rookmotion.rook.sdk.domain.analytics.RookFramework
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
-import com.rookmotion.rook.sdk.internal.analytics.RookAnalytics
-import com.rookmotion.rook.sdk.internal.analytics.RookFramework
 import com.rookmotion.rook_sdk_health_connect.AutoSyncConfiguration
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
