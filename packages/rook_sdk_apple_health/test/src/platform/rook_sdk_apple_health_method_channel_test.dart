@@ -101,7 +101,7 @@ void resultBooleanTests(
     test(
       'GIVEN a Result.success WHEN requestPermissions THEN complete',
       () async {
-        final future = platform.requestPermissions();
+        final future = platform.requestPermissions([]);
 
         await expectLater(future, completes);
       },
@@ -386,7 +386,7 @@ void resultBooleanTests(
     test(
       'GIVEN a Result.exception WHEN requestPermissions THEN throw exception',
       () async {
-        final future = platform.requestPermissions();
+        final future = platform.requestPermissions([]);
 
         await expectLater(future, throwsA(isException));
       },

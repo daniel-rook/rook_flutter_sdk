@@ -11,3 +11,4 @@ export 'src/ah_rook_summary_manager.dart';
 export 'src/ah_rook_sync_manager.dart';
 export 'src/domain/enums/ah_event_sync_type.dart';
 export 'src/domain/enums/ah_summary_sync_type.dart';
+export 'src/domain/enums/apple_health_permission.dart';

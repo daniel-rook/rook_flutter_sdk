@@ -1,6 +1,7 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
+import 'package:rook_sdk_apple_health/src/domain/enums/apple_health_permission.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_method_channel.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
@@ -35,7 +36,7 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> syncUserTimeZone();
 
-  Future<void> requestPermissions();
+  Future<void> requestPermissions(List<AppleHealthPermission> permissions);
 
   @Deprecated("Use AHRookSyncManager.sync() instead")
   Future<void> syncSleepSummary(DateTime date);
