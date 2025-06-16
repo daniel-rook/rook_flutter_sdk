@@ -196,6 +196,224 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+enum AppleHealthPermissionProto: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case appleExerciseTime // = 0
+  case appleMoveTime // = 1
+  case appleStandTime // = 2
+  case basalEnergyBurned // = 3
+  case activeEnergyBurned // = 4
+  case stepCount // = 5
+  case distanceCycling // = 6
+  case distanceWalkingRunning // = 7
+  case distanceSwimming // = 8
+  case swimmingStrokeCount // = 9
+  case flightsClimbed // = 10
+  case walkingSpeed // = 11
+  case walkingStepLength // = 12
+  case runningPower // = 13
+  case runningSpeed // = 14
+  case height // = 15
+  case bodyMass // = 16
+  case bodyMassIndex // = 17
+  case waistCircumference // = 18
+  case bodyFatPercentage // = 19
+  case bodyTemperature // = 20
+  case basalBodyTemperature // = 21
+  case appleSleepingWristTemperature // = 22
+  case heartRateApple // = 23
+  case restingHeartRate // = 24
+  case walkingHeartRateAverage // = 25
+  case heartRateVariabilitySdnn // = 26
+  case electrocardiogram // = 27
+  case workout // = 28
+  case sleepAnalysis // = 29
+  case sleepApneaEvent // = 30
+  case vo2Max // = 31
+  case oxygenSaturation // = 32
+  case respiratoryRate // = 33
+  case uvExposure // = 34
+  case biologicalSex // = 35
+  case dateOfBirth // = 36
+  case bloodPressureSystolic // = 37
+  case bloodPressureDiastolic // = 38
+  case bloodGlucoseApple // = 39
+  case dietaryEnergyConsumed // = 40
+  case dietaryProtein // = 41
+  case dietarySugar // = 42
+  case dietaryFatTotal // = 43
+  case dietaryCarbohydrates // = 44
+  case dietaryFiber // = 45
+  case dietarySodium // = 46
+  case dietaryCholesterol // = 47
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .appleExerciseTime
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .appleExerciseTime
+    case 1: self = .appleMoveTime
+    case 2: self = .appleStandTime
+    case 3: self = .basalEnergyBurned
+    case 4: self = .activeEnergyBurned
+    case 5: self = .stepCount
+    case 6: self = .distanceCycling
+    case 7: self = .distanceWalkingRunning
+    case 8: self = .distanceSwimming
+    case 9: self = .swimmingStrokeCount
+    case 10: self = .flightsClimbed
+    case 11: self = .walkingSpeed
+    case 12: self = .walkingStepLength
+    case 13: self = .runningPower
+    case 14: self = .runningSpeed
+    case 15: self = .height
+    case 16: self = .bodyMass
+    case 17: self = .bodyMassIndex
+    case 18: self = .waistCircumference
+    case 19: self = .bodyFatPercentage
+    case 20: self = .bodyTemperature
+    case 21: self = .basalBodyTemperature
+    case 22: self = .appleSleepingWristTemperature
+    case 23: self = .heartRateApple
+    case 24: self = .restingHeartRate
+    case 25: self = .walkingHeartRateAverage
+    case 26: self = .heartRateVariabilitySdnn
+    case 27: self = .electrocardiogram
+    case 28: self = .workout
+    case 29: self = .sleepAnalysis
+    case 30: self = .sleepApneaEvent
+    case 31: self = .vo2Max
+    case 32: self = .oxygenSaturation
+    case 33: self = .respiratoryRate
+    case 34: self = .uvExposure
+    case 35: self = .biologicalSex
+    case 36: self = .dateOfBirth
+    case 37: self = .bloodPressureSystolic
+    case 38: self = .bloodPressureDiastolic
+    case 39: self = .bloodGlucoseApple
+    case 40: self = .dietaryEnergyConsumed
+    case 41: self = .dietaryProtein
+    case 42: self = .dietarySugar
+    case 43: self = .dietaryFatTotal
+    case 44: self = .dietaryCarbohydrates
+    case 45: self = .dietaryFiber
+    case 46: self = .dietarySodium
+    case 47: self = .dietaryCholesterol
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .appleExerciseTime: return 0
+    case .appleMoveTime: return 1
+    case .appleStandTime: return 2
+    case .basalEnergyBurned: return 3
+    case .activeEnergyBurned: return 4
+    case .stepCount: return 5
+    case .distanceCycling: return 6
+    case .distanceWalkingRunning: return 7
+    case .distanceSwimming: return 8
+    case .swimmingStrokeCount: return 9
+    case .flightsClimbed: return 10
+    case .walkingSpeed: return 11
+    case .walkingStepLength: return 12
+    case .runningPower: return 13
+    case .runningSpeed: return 14
+    case .height: return 15
+    case .bodyMass: return 16
+    case .bodyMassIndex: return 17
+    case .waistCircumference: return 18
+    case .bodyFatPercentage: return 19
+    case .bodyTemperature: return 20
+    case .basalBodyTemperature: return 21
+    case .appleSleepingWristTemperature: return 22
+    case .heartRateApple: return 23
+    case .restingHeartRate: return 24
+    case .walkingHeartRateAverage: return 25
+    case .heartRateVariabilitySdnn: return 26
+    case .electrocardiogram: return 27
+    case .workout: return 28
+    case .sleepAnalysis: return 29
+    case .sleepApneaEvent: return 30
+    case .vo2Max: return 31
+    case .oxygenSaturation: return 32
+    case .respiratoryRate: return 33
+    case .uvExposure: return 34
+    case .biologicalSex: return 35
+    case .dateOfBirth: return 36
+    case .bloodPressureSystolic: return 37
+    case .bloodPressureDiastolic: return 38
+    case .bloodGlucoseApple: return 39
+    case .dietaryEnergyConsumed: return 40
+    case .dietaryProtein: return 41
+    case .dietarySugar: return 42
+    case .dietaryFatTotal: return 43
+    case .dietaryCarbohydrates: return 44
+    case .dietaryFiber: return 45
+    case .dietarySodium: return 46
+    case .dietaryCholesterol: return 47
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [AppleHealthPermissionProto] = [
+    .appleExerciseTime,
+    .appleMoveTime,
+    .appleStandTime,
+    .basalEnergyBurned,
+    .activeEnergyBurned,
+    .stepCount,
+    .distanceCycling,
+    .distanceWalkingRunning,
+    .distanceSwimming,
+    .swimmingStrokeCount,
+    .flightsClimbed,
+    .walkingSpeed,
+    .walkingStepLength,
+    .runningPower,
+    .runningSpeed,
+    .height,
+    .bodyMass,
+    .bodyMassIndex,
+    .waistCircumference,
+    .bodyFatPercentage,
+    .bodyTemperature,
+    .basalBodyTemperature,
+    .appleSleepingWristTemperature,
+    .heartRateApple,
+    .restingHeartRate,
+    .walkingHeartRateAverage,
+    .heartRateVariabilitySdnn,
+    .electrocardiogram,
+    .workout,
+    .sleepAnalysis,
+    .sleepApneaEvent,
+    .vo2Max,
+    .oxygenSaturation,
+    .respiratoryRate,
+    .uvExposure,
+    .biologicalSex,
+    .dateOfBirth,
+    .bloodPressureSystolic,
+    .bloodPressureDiastolic,
+    .bloodGlucoseApple,
+    .dietaryEnergyConsumed,
+    .dietaryProtein,
+    .dietarySugar,
+    .dietaryFatTotal,
+    .dietaryCarbohydrates,
+    .dietaryFiber,
+    .dietarySodium,
+    .dietaryCholesterol,
+  ]
+
+}
+
 struct RookConfigurationProto: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -567,6 +785,59 @@ extension EventSyncTypeProto: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "HEART_RATE"),
     7: .same(proto: "OXYGENATION"),
     8: .same(proto: "TEMPERATURE"),
+  ]
+}
+
+extension AppleHealthPermissionProto: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "APPLE_EXERCISE_TIME"),
+    1: .same(proto: "APPLE_MOVE_TIME"),
+    2: .same(proto: "APPLE_STAND_TIME"),
+    3: .same(proto: "BASAL_ENERGY_BURNED"),
+    4: .same(proto: "ACTIVE_ENERGY_BURNED"),
+    5: .same(proto: "STEP_COUNT"),
+    6: .same(proto: "DISTANCE_CYCLING"),
+    7: .same(proto: "DISTANCE_WALKING_RUNNING"),
+    8: .same(proto: "DISTANCE_SWIMMING"),
+    9: .same(proto: "SWIMMING_STROKE_COUNT"),
+    10: .same(proto: "FLIGHTS_CLIMBED"),
+    11: .same(proto: "WALKING_SPEED"),
+    12: .same(proto: "WALKING_STEP_LENGTH"),
+    13: .same(proto: "RUNNING_POWER"),
+    14: .same(proto: "RUNNING_SPEED"),
+    15: .same(proto: "HEIGHT"),
+    16: .same(proto: "BODY_MASS"),
+    17: .same(proto: "BODY_MASS_INDEX"),
+    18: .same(proto: "WAIST_CIRCUMFERENCE"),
+    19: .same(proto: "BODY_FAT_PERCENTAGE"),
+    20: .same(proto: "BODY_TEMPERATURE"),
+    21: .same(proto: "BASAL_BODY_TEMPERATURE"),
+    22: .same(proto: "APPLE_SLEEPING_WRIST_TEMPERATURE"),
+    23: .same(proto: "HEART_RATE_APPLE"),
+    24: .same(proto: "RESTING_HEART_RATE"),
+    25: .same(proto: "WALKING_HEART_RATE_AVERAGE"),
+    26: .same(proto: "HEART_RATE_VARIABILITY_SDNN"),
+    27: .same(proto: "ELECTROCARDIOGRAM"),
+    28: .same(proto: "WORKOUT"),
+    29: .same(proto: "SLEEP_ANALYSIS"),
+    30: .same(proto: "SLEEP_APNEA_EVENT"),
+    31: .same(proto: "VO_2_MAX"),
+    32: .same(proto: "OXYGEN_SATURATION"),
+    33: .same(proto: "RESPIRATORY_RATE"),
+    34: .same(proto: "UV_EXPOSURE"),
+    35: .same(proto: "BIOLOGICAL_SEX"),
+    36: .same(proto: "DATE_OF_BIRTH"),
+    37: .same(proto: "BLOOD_PRESSURE_SYSTOLIC"),
+    38: .same(proto: "BLOOD_PRESSURE_DIASTOLIC"),
+    39: .same(proto: "BLOOD_GLUCOSE_APPLE"),
+    40: .same(proto: "DIETARY_ENERGY_CONSUMED"),
+    41: .same(proto: "DIETARY_PROTEIN"),
+    42: .same(proto: "DIETARY_SUGAR"),
+    43: .same(proto: "DIETARY_FAT_TOTAL"),
+    44: .same(proto: "DIETARY_CARBOHYDRATES"),
+    45: .same(proto: "DIETARY_FIBER"),
+    46: .same(proto: "DIETARY_SODIUM"),
+    47: .same(proto: "DIETARY_CHOLESTEROL"),
   ]
 }
 

@@ -6,6 +6,7 @@ import 'package:rook_sdk_apple_health/src/data/extension/result_daily_calories_e
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_source_authorizer_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/apple_health_permission_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/event_sync_type_mapper.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
@@ -14,6 +15,7 @@ import 'package:rook_sdk_apple_health/src/data/mapper/summary_sync_type_mapper.d
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
+import 'package:rook_sdk_apple_health/src/domain/enums/apple_health_permission.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
@@ -94,9 +96,19 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> requestPermissions() async {
-    final Uint8List bytes =
-        await methodChannel.invokeMethod('requestPermissions');
+  Future<void> requestPermissions(
+    List<AppleHealthPermission> permissions,
+  ) async {
+    final permissionsProtoValues = permissions.map((it) {
+      return it.toProto().value;
+    }).toList();
+
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'requestPermissions',
+      [
+        permissionsProtoValues,
+      ],
+    );
     final result = ResultBooleanProto.fromBuffer(bytes);
 
     result.unwrap();

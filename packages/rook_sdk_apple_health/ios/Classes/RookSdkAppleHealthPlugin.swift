@@ -114,12 +114,33 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "requestPermissions":
-            rookConnectPermissionsManager.requestAllPermissions { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
+            let args = call.arguments as? [Any]
+            let permissionsProtoValues = (args?[0] as? [Int]) ?? []
+            var permissions: [HealthDataType] = []
+
+            for protoValue in permissionsProtoValues {
+                if let permission = AppleHealthPermissionProto(rawValue: protoValue)?.toHealthDataType() {
+                    permissions.append(permission)
+                }
+            }
+
+            if permissions.isEmpty {
+                rookConnectPermissionsManager.requestAllPermissions { it in
+                    switch it {
+                    case let Result.success(success):
+                        boolSuccess(flutterResult: result, success: success)
+                    case let Result.failure(error):
+                        boolError(flutterResult: result, error: error)
+                    }
+                }
+            } else {
+                rookConnectPermissionsManager.requestPermissions(permissions) { it in
+                    switch it {
+                    case let Result.success(success):
+                        boolSuccess(flutterResult: result, success: success)
+                    case let Result.failure(error):
+                        boolError(flutterResult: result, error: error)
+                    }
                 }
             }
             break
