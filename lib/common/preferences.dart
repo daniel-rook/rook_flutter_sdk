@@ -43,6 +43,18 @@ class AppPreferences {
     }
   }
 
+  Future<void> setSamsungAutoSyncAcceptation(bool acceptation) async {
+    final preferences = await _getOrCreatePreferences();
+
+    preferences.setBool(_acceptedSamsungAutoSyncKey, acceptation);
+  }
+
+  Future<bool> getSamsungAutoSyncAcceptation() async {
+    final preferences = await _getOrCreatePreferences();
+
+    return preferences.getBool(_acceptedSamsungAutoSyncKey) ?? false;
+  }
+
   static final AppPreferences _instance = AppPreferences._();
 
   factory AppPreferences() {
@@ -50,5 +62,6 @@ class AppPreferences {
   }
 }
 
+const _acceptedSamsungAutoSyncKey = "SAMSUNG_AUTO_SYNC";
 const _acceptedAndroidAutoSyncKey = "ANDROID_AUTO_SYNC";
 const _acceptedIosAutoSyncKey = "IOS_AUTO_SYNC";

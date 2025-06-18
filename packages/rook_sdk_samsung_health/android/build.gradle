@@ -1,18 +1,16 @@
-group = "io.tryrook.rook_sdk_samsung_health"
-version = "1.0-SNAPSHOT"
-
-buildscript {
-    ext.kotlin_version = "1.8.22"
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.1.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-    }
+plugins {
+    id "com.android.library"
+    id "org.jetbrains.kotlin.android"
 }
+
+// ------------------------ Dependencies ------------------------
+String rookSdkSamsungVersion = "1.0.0"
+String protoVersion = "4.28.3"
+String timberVersion = "5.0.1"
+// ------------------------ Dependencies ------------------------
+
+group = "io.tryrook.rook_sdk_samsung_health"
+version = rookSdkSamsungVersion
 
 allprojects {
     repositories {
@@ -21,21 +19,22 @@ allprojects {
     }
 }
 
-apply plugin: "com.android.library"
-apply plugin: "kotlin-android"
-
 android {
     namespace = "io.tryrook.rook_sdk_samsung_health"
-
     compileSdk = 35
 
+    defaultConfig {
+        minSdk = 26
+        targetSdk = 35
+    }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     sourceSets {
@@ -43,11 +42,15 @@ android {
         test.java.srcDirs += "src/test/kotlin"
     }
 
-    defaultConfig {
-        minSdk = 21
-    }
-
     dependencies {
+        implementation("com.jakewharton.timber:timber:$timberVersion")
+        implementation("com.google.protobuf:protobuf-javalite:$protoVersion")
+//        implementation("io.tryrook.android:rook-sdk-samsung") {
+//            version {
+//                strictly rookSdkSamsungVersion
+//            }
+//        }
+
         testImplementation("org.jetbrains.kotlin:kotlin-test")
         testImplementation("org.mockito:mockito-core:5.0.0")
     }
@@ -57,9 +60,9 @@ android {
             useJUnitPlatform()
 
             testLogging {
-               events "passed", "skipped", "failed", "standardOut", "standardError"
-               outputs.upToDateWhen {false}
-               showStandardStreams = true
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen { false }
+                showStandardStreams = true
             }
         }
     }
