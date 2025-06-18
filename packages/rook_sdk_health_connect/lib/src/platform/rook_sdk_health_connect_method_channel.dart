@@ -37,7 +37,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
 
   @visibleForTesting
   final isScheduledEventChannel = const EventChannel(
-    "io.tryrook.background.scheduled",
+    "io.tryrook.background.healthconnect.scheduled",
   );
 
   @override
