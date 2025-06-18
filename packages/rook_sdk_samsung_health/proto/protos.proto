@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+option java_package = "io.tryrook.rook_sdk_samsung_health.proto";
+option java_outer_classname = "ProtobufModels";
+option java_multiple_files = true;
+
+enum RookEnvironmentProto {
+  SANDBOX = 0;
+  PRODUCTION = 1;
+}
+
+enum SamsungHealthAvailabilityProto {
+  INSTALLED = 0;
+  NOT_INSTALLED = 1;
+  OUTDATED = 2;
+  DISABLED = 3;
+  NOT_READY = 4;
+}
+
+enum RequestPermissionsStatusProto {
+  REQUEST_SENT = 0;
+  ALREADY_GRANTED = 1;
+}
+
+enum SyncStatusProto {
+  SYNCED = 0;
+  RECORDS_NOT_FOUND = 1;
+}
+
+enum SummarySyncTypeProto {
+  SLEEP = 0;
+  PHYSICAL = 1;
+  BODY = 2;
+}
+
+enum EventSyncTypeProto {
+  ACTIVITY = 0;
+  BLOOD_GLUCOSE = 1;
+  BLOOD_PRESSURE = 2;
+  BODY_METRICS = 3;
+  HEART_RATE = 4;
+  HYDRATION = 5;
+  NUTRITION = 6;
+  OXYGENATION = 7;
+  STEPS = 8;
+  CALORIES = 9;
+}
+
+enum SamsungHealthPermissionProto {
+  ACTIVITY_SUMMARY_PERMISSION = 0;
+  BLOOD_GLUCOSE_PERMISSION = 1;
+  BLOOD_OXYGEN_PERMISSION = 2;
+  BLOOD_PRESSURE_PERMISSION = 3;
+  BODY_COMPOSITION_PERMISSION = 4;
+  EXERCISE_PERMISSION = 5;
+  EXERCISE_LOCATION_PERMISSION = 6;
+  FLOORS_CLIMBED_PERMISSION = 7;
+  HEART_RATE_PERMISSION = 8;
+  NUTRITION_PERMISSION = 9;
+  SLEEP_PERMISSION = 10;
+  STEPS_PERMISSION = 11;
+  WATER_INTAKE_PERMISSION = 12;
+}
+
+message RookConfigurationProto {
+  string clientUUID = 1;
+  string secretKey = 2;
+  RookEnvironmentProto environment = 3;
+  bool enableBackgroundSync = 4;
+}
+
+message SamsungHealthPermissionsSummaryProto {
+  bool dataTypesGranted = 1;
+  bool dataTypesPartiallyGranted = 2;
+}
+
+message SyncStatusWithIntProto {
+  SyncStatusProto syncStatus = 1;
+  uint32 steps = 2;
+}
+
+message DailyCaloriesProto {
+  double basal = 1;
+  double active = 2;
+}
+
+message SyncStatusWithDailyCaloriesProto {
+  SyncStatusProto syncStatus = 1;
+  DailyCaloriesProto dailyCalories = 2;
+}
+
+message PluginExceptionProto {
+  sint32 id = 1;
+  sint32 code = 2;
+  string message = 3;
+}
+
+message ResultBooleanProto {
+  oneof result {
+    bool success = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultInt64Proto {
+  oneof result {
+    int64 value = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultRequestPermissionsStatusProto {
+  oneof result {
+    RequestPermissionsStatusProto requestPermissionsStatusProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultSyncStatusProto {
+  oneof result {
+    SyncStatusProto syncStatusProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultSyncStatusWithIntProto {
+  oneof result {
+    SyncStatusWithIntProto syncStatusWithIntProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultSyncStatusWithDailyCaloriesProto {
+  oneof result {
+    SyncStatusWithDailyCaloriesProto syncStatusWithDailyCaloriesProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
