@@ -42,6 +42,6 @@ class IsScheduledTransmitter(
     }
 
     companion object {
-        const val EVENT_CHANNEL_NAME = "io.tryrook.background.scheduled"
+        const val EVENT_CHANNEL_NAME = "io.tryrook.background.healthconnect.scheduled"
     }
 }
