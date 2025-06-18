@@ -2,7 +2,7 @@
 ///
 /// * [dataTypesGranted] Whether the user granted permission to read all requested data types.
 /// * [dataTypesPartiallyGranted] Whether the user granted permission to read at least one requested data type.
-/// Note that if [dataTypesGranted] is true, this will wwalso be true.
+/// Note that if [dataTypesGranted] is true, this will also be true.
 /// * [backgroundReadGranted] Whether the user granted background read permission.
 class HealthConnectPermissionsSummary {
   final bool dataTypesGranted;
