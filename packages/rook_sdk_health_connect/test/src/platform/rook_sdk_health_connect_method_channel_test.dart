@@ -101,6 +101,15 @@ void resultBooleanTests(
     );
 
     test(
+      'GIVEN the happy path WHEN checkHealthConnectPermissionsPartially THEN complete with expected value',
+      () async {
+        final future = platform.checkHealthConnectPermissionsPartially();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
       'GIVEN the happy path WHEN syncPendingSummaries THEN complete',
       () async {
         final future = platform.syncPendingSummaries();
@@ -304,6 +313,15 @@ void resultBooleanTests(
       'GIVEN the unhappy path WHEN checkHealthConnectPermissions THEN throw exception',
       () async {
         final future = platform.checkHealthConnectPermissions();
+
+        await expectLater(future, throwsA(isException));
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN checkHealthConnectPermissionsPartially THEN throw exception',
+      () async {
+        final future = platform.checkHealthConnectPermissionsPartially();
 
         await expectLater(future, throwsA(isException));
       },

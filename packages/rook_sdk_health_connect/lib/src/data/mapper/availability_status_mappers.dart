@@ -7,7 +7,9 @@ extension AvailabilityStatusMappers on AvailabilityStatusProto {
       AvailabilityStatusProto.INSTALLED => HCAvailabilityStatus.installed,
       AvailabilityStatusProto.NOT_INSTALLED =>
         HCAvailabilityStatus.notInstalled,
-      _ => HCAvailabilityStatus.notSupported,
+      AvailabilityStatusProto.NOT_SUPPORTED =>
+        HCAvailabilityStatus.notSupported,
+      _ => throw Exception('Unknown availability status: $this'),
     };
   }
 }
