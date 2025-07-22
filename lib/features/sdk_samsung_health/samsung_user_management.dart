@@ -26,9 +26,13 @@ class _SamsungUserManagementState extends State<SamsungUserManagement> {
   @override
   void initState() {
     RookSamsung.getUserID().then((userID) {
-      this.userID = userID;
+      setState(() {
+        this.userID = userID;
+      });
     }).catchError((error) {
-      userID = '$error';
+      setState(() {
+        userID = '$error';
+      });
     });
     super.initState();
   }
