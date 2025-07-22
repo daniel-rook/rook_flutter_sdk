@@ -27,6 +27,6 @@ fun MethodCall.getLongArgAt(index: Int): Long {
 }
 
 @Suppress("UNCHECKED_CAST")
-fun MethodCall.getIntArrayAt(index: Int): Array<Int> {
-    return ((arguments as ArrayList<*>)[index] as Array<Int>)
+fun MethodCall.getIntArrayListAt(index: Int): ArrayList<Int> {
+    return ((arguments as ArrayList<*>)[index] as ArrayList<Int>)
 }

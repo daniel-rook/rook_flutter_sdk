@@ -4,7 +4,7 @@ import io.flutter.plugin.common.MethodCall
 import io.tryrook.rook_sdk_samsung_health.MethodResult
 import io.tryrook.rook_sdk_samsung_health.extension.booleanError
 import io.tryrook.rook_sdk_samsung_health.extension.booleanSuccess
-import io.tryrook.rook_sdk_samsung_health.extension.getIntArrayAt
+import io.tryrook.rook_sdk_samsung_health.extension.getIntArrayListAt
 import io.tryrook.rook_sdk_samsung_health.extension.int
 import io.tryrook.rook_sdk_samsung_health.extension.requestPermissionsStatusError
 import io.tryrook.rook_sdk_samsung_health.extension.requestPermissionsStatusSuccess
@@ -31,7 +31,7 @@ class PermissionsHandler(private val coroutineScope: CoroutineScope, private val
             }
 
             "checkSamsungHealthPermissions" -> coroutineScope.launch {
-                val intValues = methodCall.getIntArrayAt(0)
+                val intValues = methodCall.getIntArrayListAt(0)
                 val permissions = intValues.map {
                     SamsungHealthPermissionProto.forNumber(it).toSHPermission()
                 }.toSet()
@@ -47,7 +47,7 @@ class PermissionsHandler(private val coroutineScope: CoroutineScope, private val
             }
 
             "checkSamsungHealthPermissionsPartially" -> coroutineScope.launch {
-                val intValues = methodCall.getIntArrayAt(0)
+                val intValues = methodCall.getIntArrayListAt(0)
                 val permissions = intValues.map {
                     SamsungHealthPermissionProto.forNumber(it).toSHPermission()
                 }.toSet()
@@ -63,7 +63,7 @@ class PermissionsHandler(private val coroutineScope: CoroutineScope, private val
             }
 
             "requestSamsungHealthPermissions" -> coroutineScope.launch {
-                val intValues = methodCall.getIntArrayAt(0)
+                val intValues = methodCall.getIntArrayListAt(0)
                 val permissions = intValues.map {
                     SamsungHealthPermissionProto.forNumber(it).toSHPermission()
                 }.toSet()
