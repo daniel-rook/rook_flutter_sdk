@@ -268,7 +268,7 @@ packages:
       path: "packages/rook_sdk_health_connect"
       relative: true
     source: path
-    version: "3.0.0"
+    version: "3.1.0"
   rook_sdk_samsung_health:
     dependency: "direct main"
     description:
