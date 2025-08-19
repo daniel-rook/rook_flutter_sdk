@@ -4,7 +4,8 @@ import 'package:rook_sdk_samsung_health/src/data/proto/protos.pbenum.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_availability.dart';
 
 void main() {
-  group('SamsungHealthAvailabilityProto to SamsungHealthAvailability mappers', () {
+  group('SamsungHealthAvailabilityProto to SamsungHealthAvailability mappers',
+      () {
     test(
       'GIVEN SamsungHealthAvailabilityProto.INSTALLED WHEN toDomain THEN return SamsungHealthAvailability.installed',
       () {
@@ -37,7 +38,7 @@ void main() {
 
     test(
       'GIVEN SamsungHealthAvailabilityProto.DISABLED WHEN toDomain THEN return SamsungHealthAvailability.disabled',
-          () {
+      () {
         const proto = SamsungHealthAvailabilityProto.DISABLED;
         final result = proto.toDomain();
 
@@ -47,7 +48,7 @@ void main() {
 
     test(
       'GIVEN SamsungHealthAvailabilityProto.NOT_READY WHEN toDomain THEN return SamsungHealthAvailability.notReady',
-          () {
+      () {
         const proto = SamsungHealthAvailabilityProto.NOT_READY;
         final result = proto.toDomain();
 

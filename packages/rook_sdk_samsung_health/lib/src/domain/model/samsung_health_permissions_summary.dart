@@ -22,8 +22,7 @@ class SamsungHealthPermissionsSummary {
 
   @override
   int get hashCode =>
-      dataTypesGranted.hashCode ^
-      dataTypesPartiallyGranted.hashCode;
+      dataTypesGranted.hashCode ^ dataTypesPartiallyGranted.hashCode;
 
   @override
   String toString() {

@@ -35,13 +35,14 @@ void main() {
         final result = proto.toDartException();
 
         expect(result, isA<SamsungHealthDisabledException>());
-        expect((result as SamsungHealthDisabledException).message, _exceptionMessage);
+        expect((result as SamsungHealthDisabledException).message,
+            _exceptionMessage);
       },
     );
 
     test(
       'GIVEN id = 2 WHEN toDartException THEN return SamsungHealthNotInstalledException',
-          () {
+      () {
         final proto = PluginExceptionProto.create()
           ..id = 2
           ..message = _exceptionMessage
@@ -50,13 +51,14 @@ void main() {
         final result = proto.toDartException();
 
         expect(result, isA<SamsungHealthNotInstalledException>());
-        expect((result as SamsungHealthNotInstalledException).message, _exceptionMessage);
+        expect((result as SamsungHealthNotInstalledException).message,
+            _exceptionMessage);
       },
     );
 
     test(
       'GIVEN id = 3 WHEN toDartException THEN return SamsungHealthNotReadyException',
-          () {
+      () {
         final proto = PluginExceptionProto.create()
           ..id = 3
           ..message = _exceptionMessage
@@ -65,13 +67,14 @@ void main() {
         final result = proto.toDartException();
 
         expect(result, isA<SamsungHealthNotReadyException>());
-        expect((result as SamsungHealthNotReadyException).message, _exceptionMessage);
+        expect((result as SamsungHealthNotReadyException).message,
+            _exceptionMessage);
       },
     );
 
     test(
       'GIVEN id = 4 WHEN toDartException THEN return SamsungHealthOutdatedException',
-          () {
+      () {
         final proto = PluginExceptionProto.create()
           ..id = 4
           ..message = _exceptionMessage
@@ -80,7 +83,8 @@ void main() {
         final result = proto.toDartException();
 
         expect(result, isA<SamsungHealthOutdatedException>());
-        expect((result as SamsungHealthOutdatedException).message, _exceptionMessage);
+        expect((result as SamsungHealthOutdatedException).message,
+            _exceptionMessage);
       },
     );
 

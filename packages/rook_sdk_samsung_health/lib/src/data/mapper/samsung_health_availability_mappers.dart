@@ -4,11 +4,16 @@ import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_availabi
 extension SamsungHealthAvailabilityMappers on SamsungHealthAvailabilityProto {
   SamsungHealthAvailability toDomain() {
     return switch (this) {
-      SamsungHealthAvailabilityProto.INSTALLED => SamsungHealthAvailability.installed,
-      SamsungHealthAvailabilityProto.NOT_INSTALLED => SamsungHealthAvailability.notInstalled,
-      SamsungHealthAvailabilityProto.OUTDATED => SamsungHealthAvailability.outdated,
-      SamsungHealthAvailabilityProto.DISABLED => SamsungHealthAvailability.disabled,
-      SamsungHealthAvailabilityProto.NOT_READY => SamsungHealthAvailability.notReady,
+      SamsungHealthAvailabilityProto.INSTALLED =>
+        SamsungHealthAvailability.installed,
+      SamsungHealthAvailabilityProto.NOT_INSTALLED =>
+        SamsungHealthAvailability.notInstalled,
+      SamsungHealthAvailabilityProto.OUTDATED =>
+        SamsungHealthAvailability.outdated,
+      SamsungHealthAvailabilityProto.DISABLED =>
+        SamsungHealthAvailability.disabled,
+      SamsungHealthAvailabilityProto.NOT_READY =>
+        SamsungHealthAvailability.notReady,
       _ => throw Exception("Unknown availability: $this"),
     };
   }
