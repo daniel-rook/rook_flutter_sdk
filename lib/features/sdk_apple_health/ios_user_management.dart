@@ -26,9 +26,13 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
   @override
   void initState() {
     AHRookConfigurationManager.getUserID().then((userID) {
-      this.userID = userID;
+      setState(() {
+        this.userID = userID;
+      });
     }).catchError((error) {
-      userID = '$error';
+      setState(() {
+        userID = '$error';
+      });
     });
     super.initState();
   }

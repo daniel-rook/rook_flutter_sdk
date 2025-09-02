@@ -2,7 +2,7 @@ name: SDKs CI
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
   workflow_dispatch:
 
 jobs:
@@ -304,4 +304,133 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: rook_sdk_health_connect-pana-report.txt
+          path: reports/pana.txt
+
+  rook_sdk_samsung_health_format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.27.4
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check formatting
+        run: dart format packages/rook_sdk_samsung_health -o none --set-exit-if-changed
+
+  rook_sdk_samsung_health_analyze:
+    needs: [ rook_sdk_samsung_health_format ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.27.4
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run analyzer
+        run: dart analyze packages/rook_sdk_samsung_health --fatal-infos
+
+  rook_sdk_samsung_health_test:
+    needs: [ rook_sdk_samsung_health_analyze ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.27.4
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Create reports directory
+        run: mkdir reports
+
+      - name: Run tests
+        run: cd packages/rook_sdk_samsung_health && flutter test --file-reporter github:reports/test.txt
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: rook_sdk_samsung_health-test-report.txt
+          path: packages/rook_sdk_samsung_health/reports/test.txt
+
+  rook_sdk_samsung_health_build:
+    needs: [ rook_sdk_samsung_health_test ]
+    runs-on: macos-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.27.4
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Create fake secrets.dart file
+        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secretKey = 'secretKey';}" >> lib/secrets.dart
+
+      - name: Build project
+        run: flutter build apk --debug
+
+  rook_sdk_samsung_health_pana:
+    needs: [ rook_sdk_samsung_health_analyze ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.27.4
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Install pana
+        run: dart pub global activate pana
+
+      - name: Create reports directory
+        run: mkdir reports
+
+      - name: Run pana
+        run: pana packages/rook_sdk_samsung_health |& tee reports/pana.txt
+
+      - name: Upload pana report
+        uses: actions/upload-artifact@v4
+        with:
+          name: rook_sdk_samsung_health-pana-report.txt
           path: reports/pana.txt

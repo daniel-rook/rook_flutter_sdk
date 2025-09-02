@@ -13,6 +13,11 @@ import 'package:rook_flutter_sdk/features/sdk_health_connect/android_data_source
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_permissions.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_user_management.dart';
+import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_background_sync.dart';
+import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_configuration.dart';
+import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_permissions.dart';
+import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_sync.dart';
+import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_user_management.dart';
 
 class AppRouter {
   Route<Object?>? onGenerateRoute(RouteSettings settings) {
@@ -48,6 +53,26 @@ class AppRouter {
       case androidBackgroundSyncRoute:
         return MaterialPageRoute(
           builder: (context) => const AndroidBackgroundSync(),
+        );
+      case samsungConfigurationRoute:
+        return MaterialPageRoute(
+          builder: (context) => const SamsungConfiguration(),
+        );
+      case samsungUserManagementRoute:
+        return MaterialPageRoute(
+          builder: (context) => const SamsungUserManagement(),
+        );
+      case samsungPermissionsRoute:
+        return MaterialPageRoute(
+          builder: (context) => const SamsungPermissions(),
+        );
+      case samsungSyncRoute:
+        return MaterialPageRoute(
+          builder: (context) => const SamsungSync(),
+        );
+      case samsungBackgroundSyncRoute:
+        return MaterialPageRoute(
+          builder: (context) => const SamsungBackgroundSync(),
         );
       case iosConfigurationRoute:
         return MaterialPageRoute(

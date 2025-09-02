@@ -1,0 +1,35 @@
+name: rook_sdk_samsung_health CD
+
+on:
+  push:
+    tags:
+      - 'rook_sdk_samsung_health-v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  publish:
+    name: 'Publish to pub.dev'
+    environment: ${{ inputs.environment }}
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.27.4
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: packages/rook_sdk_samsung_health
+
+      - name: Publish to pub.dev
+        run: dart pub publish -f
+        working-directory: packages/rook_sdk_samsung_health
