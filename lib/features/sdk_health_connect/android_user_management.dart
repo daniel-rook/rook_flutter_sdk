@@ -26,9 +26,13 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
   @override
   void initState() {
     HCRookConfigurationManager.getUserID().then((userID) {
-      this.userID = userID;
+      setState(() {
+        this.userID = userID;
+      });
     }).catchError((error) {
-      userID = '$error';
+      setState(() {
+        userID = '$error';
+      });
     });
     super.initState();
   }

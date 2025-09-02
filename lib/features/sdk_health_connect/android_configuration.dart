@@ -150,7 +150,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
       secretKey: Secrets.secretKey,
       environment: rookEnvironment,
       // This should be based on user choice: autoSyncAcceptation
-      enableBackgroundSync: true,
+      enableBackgroundSync: false,
     );
 
     configurationOutput.clear();
