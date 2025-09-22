@@ -7,6 +7,8 @@ import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_method_channel.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
+import '../common/test_utils.dart';
+
 // ignore_for_file: deprecated_member_use_from_same_package
 // ignore_for_file: deprecated_member_use
 
@@ -102,132 +104,6 @@ void resultBooleanTests(
       'GIVEN a Result.success WHEN requestPermissions THEN complete',
       () async {
         final future = platform.requestPermissions([]);
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncSleepSummary THEN complete',
-      () async {
-        final future = platform.syncSleepSummary(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncSleepSummary THEN complete',
-      () async {
-        final future = platform.syncPhysicalSummary(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncBodySummary THEN complete',
-      () async {
-        final future = platform.syncBodySummary(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncPendingSummaries THEN complete',
-      () async {
-        final future = platform.syncPendingSummaries();
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncPhysicalEvents THEN complete',
-      () async {
-        final future = platform.syncPhysicalEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncBloodGlucoseEvents THEN complete',
-      () async {
-        final future = platform.syncBloodGlucoseEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncBloodPressureEvents THEN complete',
-      () async {
-        final future = platform.syncBloodPressureEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncBodyMetricsEvents THEN complete',
-      () async {
-        final future = platform.syncBodyMetricsEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncBodyHeartRateEvents THEN complete',
-      () async {
-        final future = platform.syncBodyHeartRateEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncPhysicalHeartRateEvents THEN complete',
-      () async {
-        final future = platform.syncPhysicalHeartRateEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncBodyOxygenationEvents THEN complete',
-      () async {
-        final future = platform.syncBodyOxygenationEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncPhysicalOxygenationEvents THEN complete',
-      () async {
-        final future = platform.syncPhysicalOxygenationEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncTemperatureEvents THEN complete',
-      () async {
-        final future = platform.syncTemperatureEvents(DateTime.now());
-
-        await expectLater(future, completes);
-      },
-    );
-
-    test(
-      'GIVEN a Result.success WHEN syncPendingEvents THEN complete',
-      () async {
-        final future = platform.syncPendingEvents();
 
         await expectLater(future, completes);
       },
@@ -393,132 +269,6 @@ void resultBooleanTests(
     );
 
     test(
-      'GIVEN a Result.exception WHEN syncSleepSummary THEN throw exception',
-      () async {
-        final future = platform.syncSleepSummary(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncSleepSummary THEN throw exception',
-      () async {
-        final future = platform.syncPhysicalSummary(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncBodySummary THEN throw exception',
-      () async {
-        final future = platform.syncBodySummary(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncPendingSummaries THEN throw exception',
-      () async {
-        final future = platform.syncPendingSummaries();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncPhysicalEvents THEN throw exception',
-      () async {
-        final future = platform.syncPhysicalEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncBloodGlucoseEvents THEN throw exception',
-      () async {
-        final future = platform.syncBloodGlucoseEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncBloodPressureEvents THEN throw exception',
-      () async {
-        final future = platform.syncBloodPressureEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncBodyMetricsEvents THEN throw exception',
-      () async {
-        final future = platform.syncBodyMetricsEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncBodyHeartRateEvents THEN throw exception',
-      () async {
-        final future = platform.syncBodyHeartRateEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncPhysicalHeartRateEvents THEN throw exception',
-      () async {
-        final future = platform.syncPhysicalHeartRateEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncBodyOxygenationEvents THEN throw exception',
-      () async {
-        final future = platform.syncBodyOxygenationEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncPhysicalOxygenationEvents THEN throw exception',
-      () async {
-        final future = platform.syncPhysicalOxygenationEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncTemperatureEvents THEN throw exception',
-      () async {
-        final future = platform.syncTemperatureEvents(DateTime.now());
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
-      'GIVEN a Result.exception WHEN syncPendingEvents THEN throw exception',
-      () async {
-        final future = platform.syncPendingEvents();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-
-    test(
       'GIVEN the unhappy path WHEN syncHistoricSummaries THEN throw exception',
       () async {
         final future = platform.syncHistoricSummaries(true);
@@ -640,14 +390,6 @@ void resultInt64Tests(
     });
 
     test(
-        'GIVEN a Result.value WHEN syncTodayAppleHealthStepsCount THEN complete with expected value',
-        () async {
-      final future = platform.syncTodayAppleHealthStepsCount();
-
-      await expectLater(future, completion(1000));
-    });
-
-    test(
       'GIVEN a Result.syncStatusWithIntProto WHEN getTodayStepsCount THEN complete with expected value',
       () async {
         final future = platform.getTodayStepsCount();
@@ -672,14 +414,6 @@ void resultInt64Tests(
 
         return proto.writeToBuffer();
       });
-    });
-
-    test(
-        'GIVEN a Result.exception WHEN syncTodayAppleHealthStepsCount THEN throw exception',
-        () async {
-      final future = platform.syncTodayAppleHealthStepsCount();
-
-      await expectLater(future, throwsA(isException));
     });
 
     test(
@@ -838,7 +572,7 @@ void resultDataSourceAuthorizerTests(
   MethodChannel channel,
 ) {
   group(
-      'MethodChannelRookSdkHealthConnect | DataSourceAuthorizerProto dataSourceAuthorizerProto unwrap',
+      'MethodChannelRookSdkAppleHealth | DataSourceAuthorizerProto dataSourceAuthorizerProto unwrap',
       () {
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -876,7 +610,7 @@ void resultDataSourceAuthorizerTests(
   });
 
   group(
-      'MethodChannelRookSdkHealthConnect | DataSourceAuthorizerProto exception unwrap',
+      'MethodChannelRookSdkAppleHealth | DataSourceAuthorizerProto exception unwrap',
       () {
     setUp(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -989,6 +723,63 @@ void resultAuthorizedDataSourcesTests(
       await expectLater(future, throwsA(isException));
     });
   });
+}
+
+void authorizedDataSourceV2Tests(
+    MethodChannelRookSdkAppleHealth platform,
+    MethodChannel channel,
+    ) {
+  group(
+      "MethodChannelRookSdkAppleHealth | AuthorizedDataSourceV2ResultProto success unwrap",
+          () {
+        mockMethodCall(channel, (_) async {
+          final dataSource1 = AuthorizedDataSourceV2Proto.create()
+            ..name = "name1"
+            ..authorized = true
+            ..imageUrl = "imageUrl1";
+
+          final success = AuthorizedDataSourceV2ListProto(list: [dataSource1]);
+          final proto = AuthorizedDataSourceV2ResultProto(success: success);
+
+          return proto.writeToBuffer();
+        });
+
+        test(
+          "GIVEN success WHEN getAuthorizedDataSourcesV2 THEN return a list of AuthorizedDataSourceV2",
+              () async {
+            final result = await platform.getAuthorizedDataSourcesV2();
+
+            expect(result.length, 1);
+
+            expect(result[0].name, "name1");
+            expect(result[0].authorized, true);
+            expect(result[0].imageUrl, "imageUrl1");
+          },
+        );
+      });
+
+  group(
+      'MethodChannelRookSdkAppleHealth | AuthorizedDataSourceV2ResultProto failure unwrap',
+          () {
+        mockMethodCall(channel, (_) async {
+          final failure = PluginExceptionProto.create()
+            ..code = 1
+            ..message = "message";
+
+          final proto = AuthorizedDataSourceV2ResultProto(failure: failure);
+
+          return proto.writeToBuffer();
+        });
+
+        test(
+          "GIVEN failure WHEN getAuthorizedDataSourcesV2 THEN throw exception",
+              () async {
+            final future = platform.getAuthorizedDataSourcesV2();
+
+            await expectLater(future, throwsException);
+          },
+        );
+      });
 }
 
 void stringTests(

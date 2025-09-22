@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum RookSdkPluginErrors: Error {
+enum RookSdkAppleHealthPluginError: Error {
     case UnknownDataSourceType
 }

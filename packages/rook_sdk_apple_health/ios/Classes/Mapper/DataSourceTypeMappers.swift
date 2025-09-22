@@ -24,7 +24,7 @@ extension DataSourceTypeProto {
         case DataSourceTypeProto.whoop:
             DataSourceRevoke.Whoop
         case .UNRECOGNIZED:
-            throw RookSdkPluginErrors.UnknownDataSourceType
+            throw RookSdkAppleHealthPluginError.UnknownDataSourceType
         }
     }
 }

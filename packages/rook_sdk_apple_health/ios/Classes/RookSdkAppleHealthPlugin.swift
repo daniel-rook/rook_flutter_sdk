@@ -144,193 +144,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
-        case "syncSleepSummary":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookSummaryManager.syncSleepSummary(from: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncBodySummary":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookSummaryManager.syncBodySummary(from: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncPhysicalSummary":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookSummaryManager.syncPhysicalSummary(from: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncPendingSummaries":
-            rookSummaryManager.syncPendingSummaries { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncPhysicalEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncTrainingEvent(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-
-        case "syncBloodGlucoseEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncBloodGlucoseEvents(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncBloodPressureEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncBloodPressureEvents(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncBodyMetricsEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncBodyMetricsEvents(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncBodyHeartRateEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncBodyHeartRateEvent(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncPhysicalHeartRateEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncPhysicalHeartRateEvent(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncBodyOxygenationEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncBodyOxygenationEvent(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncPhysicalOxygenationEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncPhysicalOxygenationEvent(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncTemperatureEvents":
-            let millis = call.getInt64ArgAt(0)
-            let date = buildDateFromMillis(millis)
-
-            rookEventsManager.syncTemperatureEvents(date: date) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncTodayAppleHealthStepsCount":
-            rookEventsManager.getTodayStepCount { it in
-                switch it {
-                case let Result.success(steps):
-                    int64Success(flutterResult: result, int64: Int64(steps))
-                case let Result.failure(error):
-                    int64Error(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "syncPendingEvents":
-            rookEventsManager.syncPendingEvents { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
         case "syncHistoricSummaries":
             let enableLogs = call.getBoolArgAt(0)
 
@@ -456,6 +269,12 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
             boolSuccess(flutterResult: result, success: true)
             break
+        case "isScheduled":
+            let summariesEnabled = RookBackGroundSync.shared.isBackGroundForSummariesEnable()
+            let eventsEnabled = RookBackGroundSync.shared.isBackGroundForEventsEnable()
+
+            boolSuccess(flutterResult: result, success: summariesEnabled && eventsEnabled)
+            break
         case "enableBackground":
             let enableNativeLogs = call.getBoolArgAt(0)
             let bytes = call.getDataArgAt(1)
@@ -526,6 +345,17 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                     authorizedDataSourcesSuccess(flutterResult: result, statusDataSources: statusDataSources)
                 } catch {
                     authorizedDataSourcesError(flutterResult: result, error: error)
+                }
+            }
+            break
+        case "getAuthorizedDataSourcesV2":
+            Task(priority: .background) {
+                do {
+                    let dataSources: [DataSourceStatus] = try await dataSourcesManager.getAuthorizedDataSources()
+
+                    authorizedDataSourceV2Success(flutterResult: result, dataSources: dataSources)
+                } catch {
+                    authorizedDataSourceV2Error(flutterResult: result, error: error)
                 }
             }
             break
