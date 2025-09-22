@@ -4,11 +4,6 @@ import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_pla
 class HCRookBackgroundSync {
   HCRookBackgroundSync._();
 
-  /// Checks if background sync is already scheduled.
-  static Future<bool> isScheduled() {
-    return RookSdkHealthConnectPlatform.instance.isScheduled();
-  }
-
   /// Listen to this stream to get updates when background sync scheduled state changes.
   ///
   /// Example:
@@ -29,6 +24,11 @@ class HCRookBackgroundSync {
       "This element is not in stable state yet. It may be renamed, changed or even removed in a future version.")
   static Stream<bool> get isScheduledUpdates {
     return RookSdkHealthConnectPlatform.instance.isScheduledUpdates;
+  }
+
+  /// Checks if background sync is already scheduled.
+  static Future<bool> isScheduled() {
+    return RookSdkHealthConnectPlatform.instance.isScheduled();
   }
 
   /// Enables the background upload of summaries and events,

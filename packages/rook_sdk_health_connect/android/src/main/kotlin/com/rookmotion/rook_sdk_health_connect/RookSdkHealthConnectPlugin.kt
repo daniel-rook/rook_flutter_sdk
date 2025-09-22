@@ -7,10 +7,8 @@ import androidx.core.content.ContextCompat
 import com.rookmotion.rook.sdk.RookBackgroundSyncManager
 import com.rookmotion.rook.sdk.RookConfigurationManager
 import com.rookmotion.rook.sdk.RookContinuousUploadManager
-import com.rookmotion.rook.sdk.RookEventManager
 import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook.sdk.RookStepsManager
-import com.rookmotion.rook.sdk.RookSummaryManager
 import com.rookmotion.rook.sdk.RookSyncManager
 import com.rookmotion.rook.sdk.domain.enums.BackgroundReadStatus
 import com.rookmotion.rook_sdk_health_connect.eventhandler.AndroidPermissionsReceiverTransmitter
@@ -20,11 +18,9 @@ import com.rookmotion.rook_sdk_health_connect.handler.BackgroundSyncHandler
 import com.rookmotion.rook_sdk_health_connect.handler.ConfigurationHandler
 import com.rookmotion.rook_sdk_health_connect.handler.ContinuousUploadHandler
 import com.rookmotion.rook_sdk_health_connect.handler.DataSourcesHandler
-import com.rookmotion.rook_sdk_health_connect.handler.EventHandler
 import com.rookmotion.rook_sdk_health_connect.handler.HelperHandler
 import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
-import com.rookmotion.rook_sdk_health_connect.handler.SummaryHandler
 import com.rookmotion.rook_sdk_health_connect.handler.SyncHandler
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -47,14 +43,13 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
     private lateinit var rookConfigurationManager: RookConfigurationManager
     private lateinit var rookPermissionsManager: RookPermissionsManager
+    private lateinit var rookSyncManager: RookSyncManager
     private lateinit var rookStepsManager: RookStepsManager
     private lateinit var rookContinuousUploadManager: RookContinuousUploadManager
     private lateinit var rookBackgroundSyncManager: RookBackgroundSyncManager
 
     private lateinit var configurationHandler: ConfigurationHandler
     private lateinit var permissionsHandler: PermissionsHandler
-    private lateinit var summaryHandler: SummaryHandler
-    private lateinit var eventHandler: EventHandler
     private lateinit var syncHandler: SyncHandler
     private lateinit var helperHandler: HelperHandler
     private lateinit var stepsHandler: StepsHandler
@@ -75,9 +70,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
         rookConfigurationManager = RookConfigurationManager(flutterPluginBinding.applicationContext)
         rookPermissionsManager = RookPermissionsManager(flutterPluginBinding.applicationContext)
-        val rookSummaryManager = RookSummaryManager(rookConfigurationManager)
-        val rookEventManager = RookEventManager(rookConfigurationManager)
-        val rookSyncManager = RookSyncManager(flutterPluginBinding.applicationContext)
+        rookSyncManager = RookSyncManager(flutterPluginBinding.applicationContext)
         rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
         rookContinuousUploadManager = RookContinuousUploadManager(flutterPluginBinding.applicationContext)
         rookBackgroundSyncManager = RookBackgroundSyncManager(flutterPluginBinding.applicationContext)
@@ -88,8 +81,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             onSDKInitialized = { enableAutoSync(it) }
         )
         permissionsHandler = PermissionsHandler(coroutineScope, rookPermissionsManager)
-        summaryHandler = SummaryHandler(coroutineScope, rookSummaryManager)
-        eventHandler = EventHandler(coroutineScope, rookEventManager)
         syncHandler = SyncHandler(coroutineScope, rookSyncManager)
         helperHandler = HelperHandler(coroutineScope)
         stepsHandler = StepsHandler(coroutineScope, rookStepsManager)
@@ -155,25 +146,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "shouldRequestAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)
             "requestAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)
 
-            "syncSleepSummary" -> summaryHandler.onMethodCall(call, result)
-            "syncBodySummary" -> summaryHandler.onMethodCall(call, result)
-            "syncPhysicalSummary" -> summaryHandler.onMethodCall(call, result)
-            "syncPendingSummaries" -> summaryHandler.onMethodCall(call, result)
-
-            "syncPhysicalEvents" -> eventHandler.onMethodCall(call, result)
-            "syncBloodGlucoseEvents" -> eventHandler.onMethodCall(call, result)
-            "syncBloodPressureEvents" -> eventHandler.onMethodCall(call, result)
-            "syncBodyMetricsEvents" -> eventHandler.onMethodCall(call, result)
-            "syncBodyHeartRateEvents" -> eventHandler.onMethodCall(call, result)
-            "syncPhysicalHeartRateEvents" -> eventHandler.onMethodCall(call, result)
-            "syncHydrationEvents" -> eventHandler.onMethodCall(call, result)
-            "syncNutritionEvents" -> eventHandler.onMethodCall(call, result)
-            "syncBodyOxygenationEvents" -> eventHandler.onMethodCall(call, result)
-            "syncPhysicalOxygenationEvents" -> eventHandler.onMethodCall(call, result)
-            "syncTemperatureEvents" -> eventHandler.onMethodCall(call, result)
-            "syncTodayHealthConnectStepsCount" -> eventHandler.onMethodCall(call, result)
-            "syncPendingEvents" -> eventHandler.onMethodCall(call, result)
-
             "syncHistoricSummaries" -> syncHandler.onMethodCall(call, result)
             "syncSummariesByDate" -> syncHandler.onMethodCall(call, result)
             "syncByDateAndSummary" -> syncHandler.onMethodCall(call, result)
@@ -192,6 +164,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "getAvailableDataSources" -> dataSourcesHandler.onMethodCall(call, result)
             "getDataSourceAuthorizer" -> dataSourcesHandler.onMethodCall(call, result)
             "getAuthorizedDataSources" -> dataSourcesHandler.onMethodCall(call, result)
+            "getAuthorizedDataSourcesV2" -> dataSourcesHandler.onMethodCall(call, result)
             "revokeDataSource" -> dataSourcesHandler.onMethodCall(call, result)
             "presentDataSourceView" -> dataSourcesHandler.onMethodCall(call, result)
 

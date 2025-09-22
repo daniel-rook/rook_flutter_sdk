@@ -8,8 +8,8 @@ import 'package:rook_flutter_sdk/app_router.dart';
 import 'package:rook_flutter_sdk/color_schemes.g.dart';
 import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_configuration.dart';
+import 'package:rook_flutter_sdk/features/sdk_health_connect/android_configuration.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/hc_privacy_policy_screen.dart';
-import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_configuration.dart';
 import 'package:rook_sdk_samsung_health/rook_sdk_samsung_health.dart';
 
 import 'common/environments.dart';
@@ -86,7 +86,7 @@ class RookApp extends StatelessWidget {
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       initialRoute: defaultTargetPlatform == TargetPlatform.android
-          ? samsungConfigurationRoute
+          ? androidConfigurationRoute
           : iosConfigurationRoute,
       onGenerateRoute: _router.onGenerateRoute,
     );

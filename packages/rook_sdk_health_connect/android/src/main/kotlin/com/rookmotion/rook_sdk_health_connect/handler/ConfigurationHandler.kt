@@ -1,8 +1,8 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookConfigurationManager
-import com.rookmotion.rook.sdk.domain.analytics.RookAnalytics
-import com.rookmotion.rook.sdk.domain.analytics.RookFramework
+import com.rookmotion.rook.sdk.domain.analytics.HCRookAnalytics
+import com.rookmotion.rook.sdk.domain.analytics.HCRookFramework
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook_sdk_health_connect.AutoSyncConfiguration
 import com.rookmotion.rook_sdk_health_connect.MethodResult
@@ -54,7 +54,7 @@ class ConfigurationHandler(
             }
 
             "initRook" -> coroutineScope.launch {
-                RookAnalytics.setFramework(RookFramework.FLUTTER)
+                HCRookAnalytics.setFramework(HCRookFramework.FLUTTER)
 
                 rookConfigurationManager.initRook().fold(
                     {

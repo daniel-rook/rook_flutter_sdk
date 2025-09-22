@@ -38,7 +38,7 @@ class _HealthConnectStepsState extends State<HealthConnectSteps> {
                   ),
                   FilledButton(
                     onPressed: () {
-                      HCRookEventManager.syncTodayHealthConnectStepsCount()
+                      HCRookSyncManager.getTodayStepsCount()
                           .then((syncStatusWithData) {
                         switch (syncStatusWithData) {
                           case Synced(data: final syncedSteps):

@@ -11,11 +11,10 @@ import com.rookmotion.rook_sdk_health_connect.extension.dataSourceAuthorizerErro
 import com.rookmotion.rook_sdk_health_connect.extension.dataSourceAuthorizerSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesError
 import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringNullableArgAt
-import com.rookmotion.rook_sdk_health_connect.mapper.toDataSourceType
-import com.rookmotion.rook_sdk_health_connect.proto.DataSourceTypeProto
+import com.rookmotion.rook_sdk_health_connect.result.authorizedDataSourceV2Error
+import com.rookmotion.rook_sdk_health_connect.result.authorizedDataSourceV2Success
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -60,6 +59,17 @@ class DataSourcesHandler(context: Context, private val coroutineScope: Coroutine
                     },
                     {
                         methodResult.authorizedDataSourcesError(it)
+                    }
+                )
+            }
+
+            "getAuthorizedDataSourcesV2" -> coroutineScope.launch {
+                rookDataSources.getAuthorizedDataSourcesV2().fold(
+                    {
+                        methodResult.authorizedDataSourceV2Success(it)
+                    },
+                    {
+                        methodResult.authorizedDataSourceV2Error(it)
                     }
                 )
             }
