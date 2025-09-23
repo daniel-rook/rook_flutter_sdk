@@ -221,7 +221,7 @@ void resultBooleanTests(
     });
 
     test('GIVEN the happy path WHEN schedule THEN complete', () async {
-      final future = platform.schedule(true);
+      final future = platform.schedule(true, false);
 
       await expectLater(future, completes);
     });
@@ -423,7 +423,7 @@ void resultBooleanTests(
     });
 
     test('GIVEN the unhappy path WHEN schedule THEN throw exception', () async {
-      final future = platform.schedule(true);
+      final future = platform.schedule(true, false);
 
       await expectLater(future, throwsA(isException));
     });

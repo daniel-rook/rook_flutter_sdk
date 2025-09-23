@@ -29,8 +29,9 @@ class BackgroundSyncHandler(
 
             "schedule" -> {
                 val enableLogs = methodCall.getBooleanArgAt(0)
+                val cancelAndReschedule = methodCall.getBooleanArgAt(1)
 
-                backgroundSyncManager.schedule(enableLogs)
+                backgroundSyncManager.schedule(enableLogs, cancelAndReschedule)
                 methodResult.booleanSuccess(true)
             }
 

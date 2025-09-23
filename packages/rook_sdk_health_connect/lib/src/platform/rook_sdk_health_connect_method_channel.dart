@@ -485,11 +485,12 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<void> schedule(bool enableNativeLogs) async {
+  Future<void> schedule(bool enableNativeLogs, bool cancelAndReschedule) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'schedule',
       [
         enableNativeLogs,
+        cancelAndReschedule,
       ],
     );
 
