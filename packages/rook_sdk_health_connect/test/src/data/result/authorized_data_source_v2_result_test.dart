@@ -61,8 +61,9 @@ void main() {
       "GIVEN failure WHEN unwrap THEN throw exception",
       () {
         final failure = PluginExceptionProto.create()
-          ..code = 1
-          ..message = "message";
+          ..id = -1
+          ..message = "message"
+          ..code = 500;
 
         final proto = AuthorizedDataSourceV2ResultProto(failure: failure);
 

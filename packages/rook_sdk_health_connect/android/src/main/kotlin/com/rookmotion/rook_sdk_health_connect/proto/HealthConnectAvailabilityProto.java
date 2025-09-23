@@ -6,9 +6,9 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code AvailabilityStatusProto}
+ * Protobuf enum {@code HealthConnectAvailabilityProto}
  */
-public enum AvailabilityStatusProto
+public enum HealthConnectAvailabilityProto
     implements com.google.protobuf.Internal.EnumLite {
   /**
    * <code>INSTALLED = 0;</code>
@@ -54,11 +54,11 @@ public enum AvailabilityStatusProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static AvailabilityStatusProto valueOf(int value) {
+  public static HealthConnectAvailabilityProto valueOf(int value) {
     return forNumber(value);
   }
 
-  public static AvailabilityStatusProto forNumber(int value) {
+  public static HealthConnectAvailabilityProto forNumber(int value) {
     switch (value) {
       case 0: return INSTALLED;
       case 1: return NOT_INSTALLED;
@@ -67,39 +67,39 @@ public enum AvailabilityStatusProto
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<AvailabilityStatusProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<HealthConnectAvailabilityProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      AvailabilityStatusProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<AvailabilityStatusProto>() {
+      HealthConnectAvailabilityProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<HealthConnectAvailabilityProto>() {
           @java.lang.Override
-          public AvailabilityStatusProto findValueByNumber(int number) {
-            return AvailabilityStatusProto.forNumber(number);
+          public HealthConnectAvailabilityProto findValueByNumber(int number) {
+            return HealthConnectAvailabilityProto.forNumber(number);
           }
         };
 
   public static com.google.protobuf.Internal.EnumVerifier 
       internalGetVerifier() {
-    return AvailabilityStatusProtoVerifier.INSTANCE;
+    return HealthConnectAvailabilityProtoVerifier.INSTANCE;
   }
 
-  private static final class AvailabilityStatusProtoVerifier implements 
+  private static final class HealthConnectAvailabilityProtoVerifier implements 
        com.google.protobuf.Internal.EnumVerifier { 
-          static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new AvailabilityStatusProtoVerifier();
+          static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new HealthConnectAvailabilityProtoVerifier();
           @java.lang.Override
           public boolean isInRange(int number) {
-            return AvailabilityStatusProto.forNumber(number) != null;
+            return HealthConnectAvailabilityProto.forNumber(number) != null;
           }
         };
 
   private final int value;
 
-  private AvailabilityStatusProto(int value) {
+  private HealthConnectAvailabilityProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:AvailabilityStatusProto)
+  // @@protoc_insertion_point(enum_scope:HealthConnectAvailabilityProto)
 }
 

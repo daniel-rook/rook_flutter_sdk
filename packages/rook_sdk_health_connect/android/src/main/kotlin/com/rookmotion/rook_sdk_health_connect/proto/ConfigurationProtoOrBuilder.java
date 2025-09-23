@@ -5,8 +5,8 @@
 
 package com.rookmotion.rook_sdk_health_connect.proto;
 
-public interface RookConfigurationProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:RookConfigurationProto)
+public interface ConfigurationProtoOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:ConfigurationProto)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
@@ -34,15 +34,15 @@ public interface RookConfigurationProtoOrBuilder extends
       getSecretKeyBytes();
 
   /**
-   * <code>.RookEnvironmentProto environment = 3;</code>
+   * <code>.EnvironmentProto environment = 3;</code>
    * @return The enum numeric value on the wire for environment.
    */
   int getEnvironmentValue();
   /**
-   * <code>.RookEnvironmentProto environment = 3;</code>
+   * <code>.EnvironmentProto environment = 3;</code>
    * @return The environment.
    */
-  com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto getEnvironment();
+  com.rookmotion.rook_sdk_health_connect.proto.EnvironmentProto getEnvironment();
 
   /**
    * <code>bool enableBackgroundSync = 4;</code>

@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void mockMethodCall(
   MethodChannel channel,
-  Future<Uint8List> Function(MethodCall call) handler,
+  Future<Object> Function(MethodCall call) handler,
 ) {
   setUp(() {
     TestDefaultBinaryMessengerBinding

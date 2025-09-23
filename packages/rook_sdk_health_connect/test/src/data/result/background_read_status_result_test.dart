@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/background_read_status_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/proto/protos.pbenum.dart';
+import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_health_connect/src/data/result/background_read_status_result.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_background_read_status.dart';
 
 void main() {
-  group('BackgroundReadStatusProto to HCBackgroundReadStatus mappers', () {
+  group("Mapper", () {
     test(
       'GIVEN BackgroundReadStatusProto.UNAVAILABLE WHEN toDomain THEN return HCBackgroundReadStatus.unavailable',
       () {
@@ -32,6 +32,35 @@ void main() {
         final result = proto.toDomain();
 
         expect(result, HCBackgroundReadStatus.permissionGranted);
+      },
+    );
+  });
+
+  group("Result", () {
+    test(
+      "GIVEN success WHEN unwrap THEN return a HCBackgroundReadStatus",
+      () {
+        final proto = BackgroundReadStatusResultProto.create();
+        proto.success = BackgroundReadStatusProto.PERMISSION_GRANTED;
+
+        final result = proto.unwrap();
+
+        expect(result, HCBackgroundReadStatus.permissionGranted);
+      },
+    );
+
+    test(
+      "GIVEN failure WHEN unwrap THEN throw exception",
+      () {
+        final failure = PluginExceptionProto.create()
+          ..id = -1
+          ..message = "message"
+          ..code = 500;
+
+        final proto = BackgroundReadStatusResultProto.create()
+          ..failure = failure;
+
+        expect(() => proto.unwrap(), throwsException);
       },
     );
   });

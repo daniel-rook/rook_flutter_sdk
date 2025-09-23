@@ -4,12 +4,39 @@ option java_package = "com.rookmotion.rook_sdk_health_connect.proto";
 option java_outer_classname = "ProtobufModels";
 option java_multiple_files = true;
 
-enum RookEnvironmentProto {
+message PluginExceptionProto {
+  sint32 id = 1;
+  sint32 code = 2;
+  string message = 3;
+}
+
+message ResultBooleanProto {
+  oneof result {
+    bool success = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message ResultInt64Proto {
+  oneof result {
+    int64 value = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+enum EnvironmentProto {
   SANDBOX = 0;
   PRODUCTION = 1;
 }
 
-enum AvailabilityStatusProto {
+message ConfigurationProto {
+  string clientUUID = 1;
+  string secretKey = 2;
+  EnvironmentProto environment = 3;
+  bool enableBackgroundSync = 4;
+}
+
+enum HealthConnectAvailabilityProto {
   INSTALLED = 0;
   NOT_INSTALLED = 1;
   NOT_SUPPORTED = 2;
@@ -20,18 +47,35 @@ enum RequestPermissionsStatusProto {
   ALREADY_GRANTED = 1;
 }
 
-enum DataSourceTypeProto {
-  GARMIN = 0;
-  OURA = 1;
-  POLAR = 2;
-  FITBIT = 3;
-  WITHINGS = 4;
-  WHOOP = 5;
+message RequestPermissionsStatusResultProto {
+  oneof result {
+    RequestPermissionsStatusProto success = 1;
+    PluginExceptionProto failure = 2;
+  }
 }
 
-enum SyncStatusProto {
-  SYNCED = 0;
-  RECORDS_NOT_FOUND = 1;
+enum BackgroundReadStatusProto {
+  UNAVAILABLE = 0;
+  PERMISSION_NOT_GRANTED = 1;
+  PERMISSION_GRANTED = 2;
+}
+
+message BackgroundReadStatusResultProto {
+  oneof result {
+    BackgroundReadStatusProto success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+message HealthConnectPermissionsSummaryProto {
+  bool dataTypesGranted = 1;
+  bool dataTypesPartiallyGranted = 2;
+  bool backgroundReadGranted = 3;
+}
+
+message AndroidPermissionsSummaryProto {
+  bool permissionsGranted = 1;
+  bool dialogDisplayed = 2;
 }
 
 enum SummarySyncTypeProto {
@@ -54,41 +98,16 @@ enum EventSyncTypeProto {
   CALORIES = 10;
 }
 
-enum BackgroundReadStatusProto {
-  UNAVAILABLE = 0;
-  PERMISSION_NOT_GRANTED = 1;
-  PERMISSION_GRANTED = 2;
+enum SyncStatusProto {
+  SYNCED = 0;
+  RECORDS_NOT_FOUND = 1;
 }
 
-message RookConfigurationProto {
-  string clientUUID = 1;
-  string secretKey = 2;
-  RookEnvironmentProto environment = 3;
-  bool enableBackgroundSync = 4;
-}
-
-message DataSourceProto {
-  string name = 1;
-  string description = 2;
-  string imageUrl = 3;
-  bool connected = 4;
-  string authorizationUrl = 5;
-  bool authorizationUrlIsNull = 6;
-}
-
-message DataSourcesProtoListWrapper {
-  repeated DataSourceProto dataSources = 1;
-}
-
-message HealthConnectPermissionsSummaryProto {
-  bool dataTypesGranted = 1;
-  bool dataTypesPartiallyGranted = 2;
-  bool backgroundReadGranted = 3;
-}
-
-message AndroidPermissionsSummaryProto {
-  bool permissionsGranted = 1;
-  bool dialogDisplayed = 2;
+message ResultSyncStatusProto {
+  oneof result {
+    SyncStatusProto syncStatusProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
 }
 
 message SyncStatusWithIntProto {
@@ -96,17 +115,11 @@ message SyncStatusWithIntProto {
   uint32 steps = 2;
 }
 
-message AuthorizedDataSourcesProto {
-  uint32 oura = 1;
-  uint32 polar = 2;
-  uint32 whoop = 3;
-  uint32 fitbit = 4;
-  uint32 garmin = 5;
-  uint32 withings = 6;
-  uint32 dexcom = 7;
-  uint32 appleHealth = 8;
-  uint32 healthConnect = 9;
-  uint32 android = 10;
+message ResultSyncStatusWithIntProto {
+  oneof result {
+    SyncStatusWithIntProto syncStatusWithIntProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
 }
 
 message DailyCaloriesProto {
@@ -119,68 +132,6 @@ message SyncStatusWithDailyCaloriesProto {
   DailyCaloriesProto dailyCalories = 2;
 }
 
-message DataSourceAuthorizerProto {
-  string dataSource = 1;
-  bool authorized = 2;
-  string authorizationUrl = 3;
-  bool authorizationUrlIsNull = 6;
-}
-
-message PluginExceptionProto {
-  sint32 id = 1;
-  sint32 code = 2;
-  string message = 3;
-}
-
-message ResultBooleanProto {
-  oneof result {
-    bool success = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultInt64Proto {
-  oneof result {
-    int64 value = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultDataSourcesProto {
-  oneof result {
-    DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultRequestPermissionsStatusProto {
-  oneof result {
-    RequestPermissionsStatusProto requestPermissionsStatusProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultSyncStatusProto {
-  oneof result {
-    SyncStatusProto syncStatusProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultSyncStatusWithIntProto {
-  oneof result {
-    SyncStatusWithIntProto syncStatusWithIntProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultAuthorizedDataSourcesProto {
-  oneof result {
-    AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
 message ResultSyncStatusWithDailyCaloriesProto {
   oneof result {
     SyncStatusWithDailyCaloriesProto syncStatusWithDailyCaloriesProto = 1;
@@ -188,16 +139,25 @@ message ResultSyncStatusWithDailyCaloriesProto {
   }
 }
 
+enum DataSourceTypeProto {
+  GARMIN = 0;
+  OURA = 1;
+  POLAR = 2;
+  FITBIT = 3;
+  WITHINGS = 4;
+  WHOOP = 5;
+}
+
+message DataSourceAuthorizerProto {
+  string dataSource = 1;
+  bool authorized = 2;
+  string authorizationUrl = 3;
+  bool authorizationUrlIsNull = 6;
+}
+
 message ResultDataSourceAuthorizerProto {
   oneof result {
     DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message  ResultBackgroundReadStatusProto {
-  oneof result {
-    BackgroundReadStatusProto backgroundReadStatusProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }
@@ -216,5 +176,47 @@ message AuthorizedDataSourceV2ResultProto {
   oneof result {
     AuthorizedDataSourceV2ListProto success = 1;
     PluginExceptionProto failure = 2;
+  }
+}
+
+// DEPRECATED
+
+message DataSourceProto {
+  string name = 1;
+  string description = 2;
+  string imageUrl = 3;
+  bool connected = 4;
+  string authorizationUrl = 5;
+  bool authorizationUrlIsNull = 6;
+}
+
+message DataSourcesProtoListWrapper {
+  repeated DataSourceProto dataSources = 1;
+}
+
+message ResultDataSourcesProto {
+  oneof result {
+    DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message AuthorizedDataSourcesProto {
+  uint32 oura = 1;
+  uint32 polar = 2;
+  uint32 whoop = 3;
+  uint32 fitbit = 4;
+  uint32 garmin = 5;
+  uint32 withings = 6;
+  uint32 dexcom = 7;
+  uint32 appleHealth = 8;
+  uint32 healthConnect = 9;
+  uint32 android = 10;
+}
+
+message ResultAuthorizedDataSourcesProto {
+  oneof result {
+    AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }

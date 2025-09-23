@@ -6,20 +6,20 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf type {@code ResultBackgroundReadStatusProto}
+ * Protobuf type {@code BackgroundReadStatusResultProto}
  */
-public  final class ResultBackgroundReadStatusProto extends
+public  final class BackgroundReadStatusResultProto extends
     com.google.protobuf.GeneratedMessageLite<
-        ResultBackgroundReadStatusProto, ResultBackgroundReadStatusProto.Builder> implements
-    // @@protoc_insertion_point(message_implements:ResultBackgroundReadStatusProto)
-    ResultBackgroundReadStatusProtoOrBuilder {
-  private ResultBackgroundReadStatusProto() {
+        BackgroundReadStatusResultProto, BackgroundReadStatusResultProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:BackgroundReadStatusResultProto)
+    BackgroundReadStatusResultProtoOrBuilder {
+  private BackgroundReadStatusResultProto() {
   }
   private int resultCase_ = 0;
   private java.lang.Object result_;
   public enum ResultCase {
-    BACKGROUNDREADSTATUSPROTO(1),
-    PLUGINEXCEPTIONPROTO(2),
+    SUCCESS(1),
+    FAILURE(2),
     RESULT_NOT_SET(0);
     private final int value;
     private ResultCase(int value) {
@@ -35,8 +35,8 @@ public  final class ResultBackgroundReadStatusProto extends
 
     public static ResultCase forNumber(int value) {
       switch (value) {
-        case 1: return BACKGROUNDREADSTATUSPROTO;
-        case 2: return PLUGINEXCEPTIONPROTO;
+        case 1: return SUCCESS;
+        case 2: return FAILURE;
         case 0: return RESULT_NOT_SET;
         default: return null;
       }
@@ -58,32 +58,32 @@ public  final class ResultBackgroundReadStatusProto extends
     result_ = null;
   }
 
-  public static final int BACKGROUNDREADSTATUSPROTO_FIELD_NUMBER = 1;
+  public static final int SUCCESS_FIELD_NUMBER = 1;
   /**
-   * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-   * @return Whether the backgroundReadStatusProto field is set.
+   * <code>.BackgroundReadStatusProto success = 1;</code>
+   * @return Whether the success field is set.
    */
   @java.lang.Override
-  public boolean hasBackgroundReadStatusProto() {
+  public boolean hasSuccess() {
     return resultCase_ == 1;
   }
   /**
-   * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-   * @return The enum numeric value on the wire for backgroundReadStatusProto.
+   * <code>.BackgroundReadStatusProto success = 1;</code>
+   * @return The enum numeric value on the wire for success.
    */
   @java.lang.Override
-  public int getBackgroundReadStatusProtoValue() {
+  public int getSuccessValue() {
     if (resultCase_ == 1) {
       return (java.lang.Integer) result_;
     }
     return 0;
   }
   /**
-   * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-   * @return The backgroundReadStatusProto.
+   * <code>.BackgroundReadStatusProto success = 1;</code>
+   * @return The success.
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto getBackgroundReadStatusProto() {
+  public com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto getSuccess() {
     if (resultCase_ == 1) {
       com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto result = com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto.forNumber((java.lang.Integer) result_);
       return result == null ? com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto.UNRECOGNIZED : result;
@@ -91,61 +91,61 @@ public  final class ResultBackgroundReadStatusProto extends
     return com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto.UNAVAILABLE;
   }
   /**
-   * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-   * @param value The enum numeric value on the wire for backgroundReadStatusProto to set.
+   * <code>.BackgroundReadStatusProto success = 1;</code>
+   * @param value The enum numeric value on the wire for success to set.
    */
-  private void setBackgroundReadStatusProtoValue(int value) {
+  private void setSuccessValue(int value) {
     resultCase_ = 1;
     result_ = value;
   }
   /**
-   * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-   * @param value The backgroundReadStatusProto to set.
+   * <code>.BackgroundReadStatusProto success = 1;</code>
+   * @param value The success to set.
    */
-  private void setBackgroundReadStatusProto(com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto value) {
+  private void setSuccess(com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto value) {
     result_ = value.getNumber();
     resultCase_ = 1;
   }
   /**
-   * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
+   * <code>.BackgroundReadStatusProto success = 1;</code>
    */
-  private void clearBackgroundReadStatusProto() {
+  private void clearSuccess() {
     if (resultCase_ == 1) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static final int PLUGINEXCEPTIONPROTO_FIELD_NUMBER = 2;
+  public static final int FAILURE_FIELD_NUMBER = 2;
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public boolean hasPluginExceptionProto() {
+  public boolean hasFailure() {
     return resultCase_ == 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto() {
+  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
     if (resultCase_ == 2) {
        return (com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto) result_;
     }
     return com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
     value.getClass();
   if (resultCase_ == 2 &&
         result_ != com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance()) {
@@ -157,59 +157,59 @@ public  final class ResultBackgroundReadStatusProto extends
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void clearPluginExceptionProto() {
+  private void clearFailure() {
     if (resultCase_ == 2) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -217,24 +217,24 @@ public  final class ResultBackgroundReadStatusProto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -245,19 +245,19 @@ public  final class ResultBackgroundReadStatusProto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code ResultBackgroundReadStatusProto}
+   * Protobuf type {@code BackgroundReadStatusResultProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:ResultBackgroundReadStatusProto)
-      com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProtoOrBuilder {
-    // Construct using com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto.newBuilder()
+        com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:BackgroundReadStatusResultProto)
+      com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProtoOrBuilder {
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -276,108 +276,108 @@ public  final class ResultBackgroundReadStatusProto extends
 
 
     /**
-     * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-     * @return Whether the backgroundReadStatusProto field is set.
+     * <code>.BackgroundReadStatusProto success = 1;</code>
+     * @return Whether the success field is set.
      */
     @java.lang.Override
-    public boolean hasBackgroundReadStatusProto() {
-      return instance.hasBackgroundReadStatusProto();
+    public boolean hasSuccess() {
+      return instance.hasSuccess();
     }
     /**
-     * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-     * @return The enum numeric value on the wire for backgroundReadStatusProto.
+     * <code>.BackgroundReadStatusProto success = 1;</code>
+     * @return The enum numeric value on the wire for success.
      */
     @java.lang.Override
-    public int getBackgroundReadStatusProtoValue() {
-      return instance.getBackgroundReadStatusProtoValue();
+    public int getSuccessValue() {
+      return instance.getSuccessValue();
     }
     /**
-     * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-     * @param value The enum numeric value on the wire for backgroundReadStatusProto to set.
+     * <code>.BackgroundReadStatusProto success = 1;</code>
+     * @param value The enum numeric value on the wire for success to set.
      * @return This builder for chaining.
      */
-    public Builder setBackgroundReadStatusProtoValue(int value) {
+    public Builder setSuccessValue(int value) {
       copyOnWrite();
-      instance.setBackgroundReadStatusProtoValue(value);
+      instance.setSuccessValue(value);
       return this;
     }
     /**
-     * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-     * @return The backgroundReadStatusProto.
+     * <code>.BackgroundReadStatusProto success = 1;</code>
+     * @return The success.
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto getBackgroundReadStatusProto() {
-      return instance.getBackgroundReadStatusProto();
+    public com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto getSuccess() {
+      return instance.getSuccess();
     }
     /**
-     * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
-     * @param value The backgroundReadStatusProto to set.
+     * <code>.BackgroundReadStatusProto success = 1;</code>
+     * @param value The success to set.
      * @return This builder for chaining.
      */
-    public Builder setBackgroundReadStatusProto(com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto value) {
+    public Builder setSuccess(com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusProto value) {
       copyOnWrite();
-      instance.setBackgroundReadStatusProto(value);
+      instance.setSuccess(value);
       return this;
     }
     /**
-     * <code>.BackgroundReadStatusProto backgroundReadStatusProto = 1;</code>
+     * <code>.BackgroundReadStatusProto success = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearBackgroundReadStatusProto() {
+    public Builder clearSuccess() {
       copyOnWrite();
-      instance.clearBackgroundReadStatusProto();
+      instance.clearSuccess();
       return this;
     }
 
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public boolean hasPluginExceptionProto() {
-      return instance.hasPluginExceptionProto();
+    public boolean hasFailure() {
+      return instance.hasFailure();
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto() {
-      return instance.getPluginExceptionProto();
+    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
+      return instance.getFailure();
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
       copyOnWrite();
-      instance.setPluginExceptionProto(value);
+      instance.setFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder setPluginExceptionProto(
+    public Builder setFailure(
         com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.Builder builderForValue) {
       copyOnWrite();
-      instance.setPluginExceptionProto(builderForValue.build());
+      instance.setFailure(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
       copyOnWrite();
-      instance.mergePluginExceptionProto(value);
+      instance.mergeFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder clearPluginExceptionProto() {
+    public Builder clearFailure() {
       copyOnWrite();
-      instance.clearPluginExceptionProto();
+      instance.clearFailure();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:ResultBackgroundReadStatusProto)
+    // @@protoc_insertion_point(builder_scope:BackgroundReadStatusResultProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -386,7 +386,7 @@ public  final class ResultBackgroundReadStatusProto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto();
+        return new com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto();
       }
       case NEW_BUILDER: {
         return new Builder();
@@ -407,13 +407,13 @@ public  final class ResultBackgroundReadStatusProto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto> parser = PARSER;
+        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto> parser = PARSER;
         if (parser == null) {
-          synchronized (com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto.class) {
+          synchronized (com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto>(
+                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -432,24 +432,24 @@ public  final class ResultBackgroundReadStatusProto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:ResultBackgroundReadStatusProto)
-  private static final com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:BackgroundReadStatusResultProto)
+  private static final com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto DEFAULT_INSTANCE;
   static {
-    ResultBackgroundReadStatusProto defaultInstance = new ResultBackgroundReadStatusProto();
+    BackgroundReadStatusResultProto defaultInstance = new BackgroundReadStatusResultProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      ResultBackgroundReadStatusProto.class, defaultInstance);
+      BackgroundReadStatusResultProto.class, defaultInstance);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultBackgroundReadStatusProto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.BackgroundReadStatusResultProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<ResultBackgroundReadStatusProto> PARSER;
+  private static volatile com.google.protobuf.Parser<BackgroundReadStatusResultProto> PARSER;
 
-  public static com.google.protobuf.Parser<ResultBackgroundReadStatusProto> parser() {
+  public static com.google.protobuf.Parser<BackgroundReadStatusResultProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

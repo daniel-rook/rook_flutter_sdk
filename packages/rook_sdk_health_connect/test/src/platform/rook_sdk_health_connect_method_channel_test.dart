@@ -7,6 +7,9 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
 import '../common/test_utils.dart';
+import 'authorized_data_source_v2.dart';
+import 'background_read_status.dart';
+import 'request_permission_status.dart';
 
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package
 
@@ -29,8 +32,8 @@ void main() {
   resultDataSourceAuthorizerTests(platform, channel);
   resultAuthorizedDataSourcesTests(platform, channel);
   authorizedDataSourceV2Tests(platform, channel);
-  resultRequestPermissionsStatusTests(platform, channel);
-  resultBackgroundReadStatusTests(platform, channel);
+  requestPermissionsStatusTests(platform, channel);
+  backgroundReadStatusTests(platform, channel);
   stringTests(platform, channel);
   availabilityStatusTests(platform, channel);
 }
@@ -867,192 +870,6 @@ void resultAuthorizedDataSourcesTests(
   });
 }
 
-void authorizedDataSourceV2Tests(
-  MethodChannelRookSdkHealthConnect platform,
-  MethodChannel channel,
-) {
-  group(
-      "MethodChannelRookSdkHealthConnect | AuthorizedDataSourceV2ResultProto success unwrap",
-      () {
-    mockMethodCall(channel, (_) async {
-      final dataSource1 = AuthorizedDataSourceV2Proto.create()
-        ..name = "name1"
-        ..authorized = true
-        ..imageUrl = "imageUrl1";
-
-      final success = AuthorizedDataSourceV2ListProto(list: [dataSource1]);
-      final proto = AuthorizedDataSourceV2ResultProto(success: success);
-
-      return proto.writeToBuffer();
-    });
-
-    test(
-      "GIVEN success WHEN getAuthorizedDataSourcesV2 THEN return a list of AuthorizedDataSourceV2",
-      () async {
-        final result = await platform.getAuthorizedDataSourcesV2();
-
-        expect(result.length, 1);
-
-        expect(result[0].name, "name1");
-        expect(result[0].authorized, true);
-        expect(result[0].imageUrl, "imageUrl1");
-      },
-    );
-  });
-
-  group(
-      'MethodChannelRookSdkHealthConnect | AuthorizedDataSourceV2ResultProto failure unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..code = 1
-        ..message = "message";
-
-      final proto = AuthorizedDataSourceV2ResultProto(failure: failure);
-
-      return proto.writeToBuffer();
-    });
-
-    test(
-      "GIVEN failure WHEN getAuthorizedDataSourcesV2 THEN throw exception",
-      () async {
-        final future = platform.getAuthorizedDataSourcesV2();
-
-        await expectLater(future, throwsException);
-      },
-    );
-  });
-}
-
-void resultRequestPermissionsStatusTests(
-  MethodChannelRookSdkHealthConnect platform,
-  MethodChannel channel,
-) {
-  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Success',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultRequestPermissionsStatusProto()
-          ..requestPermissionsStatusProto =
-              RequestPermissionsStatusProto.REQUEST_SENT;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-        'GIVEN the happy path WHEN requestHealthConnectPermissions THEN complete with expected value',
-        () async {
-      final future = platform.requestHealthConnectPermissions();
-
-      await expectLater(
-        future,
-        completion(RequestPermissionsStatus.requestSent),
-      );
-    });
-
-    test(
-        'GIVEN the happy path WHEN requestAndroidPermissions THEN complete with expected value',
-        () async {
-      final future = platform.requestAndroidPermissions();
-
-      await expectLater(
-        future,
-        completion(RequestPermissionsStatus.requestSent),
-      );
-    });
-  });
-
-  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final pluginExceptionProto = PluginExceptionProto.create()
-          ..id = -1
-          ..message = _exceptionMessage
-          ..code = _exceptionCode;
-
-        final proto = ResultRequestPermissionsStatusProto.create()
-          ..pluginExceptionProto = pluginExceptionProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-        'GIVEN the unhappy path WHEN requestHealthConnectPermissions THEN throw exception',
-        () async {
-      final future = platform.requestHealthConnectPermissions();
-
-      await expectLater(future, throwsA(isException));
-    });
-
-    test(
-        'GIVEN the unhappy path WHEN requestAndroidPermissions THEN throw exception',
-        () async {
-      final future = platform.requestAndroidPermissions();
-
-      await expectLater(future, throwsA(isException));
-    });
-  });
-}
-
-void resultBackgroundReadStatusTests(
-  MethodChannelRookSdkHealthConnect platform,
-  MethodChannel channel,
-) {
-  group('MethodChannelRookSdkHealthConnect | BackgroundReadStatus Success', () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultBackgroundReadStatusProto.create()
-          ..backgroundReadStatusProto = BackgroundReadStatusProto.UNAVAILABLE;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-        'GIVEN the happy path WHEN checkBackgroundReadStatus THEN complete with expected value',
-        () async {
-      final future = platform.checkBackgroundReadStatus();
-
-      await expectLater(
-        future,
-        completion(HCBackgroundReadStatus.unavailable),
-      );
-    });
-  });
-
-  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final pluginExceptionProto = PluginExceptionProto.create()
-          ..id = -1
-          ..message = _exceptionMessage
-          ..code = _exceptionCode;
-
-        final proto = ResultBackgroundReadStatusProto.create()
-          ..pluginExceptionProto = pluginExceptionProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-        'GIVEN the unhappy path WHEN checkBackgroundReadStatus THEN throw exception',
-        () async {
-      final future = platform.checkBackgroundReadStatus();
-
-      await expectLater(future, throwsA(isException));
-    });
-  });
-}
-
 void stringTests(
   MethodChannelRookSdkHealthConnect platform,
   MethodChannel channel,
@@ -1173,14 +990,8 @@ void availabilityStatusTests(
   group(
       'MethodChannelRookSdkHealthConnect | Health Connect Availability Success',
       () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        channel,
-        (message) async {
-          return AvailabilityStatusProto.INSTALLED.value;
-        },
-      );
+    mockMethodCall(channel, (_) async {
+      return HealthConnectAvailabilityProto.INSTALLED.value;
     });
 
     test(

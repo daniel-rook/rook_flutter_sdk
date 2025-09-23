@@ -11,7 +11,7 @@ import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
-import com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto
+import com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -36,7 +36,7 @@ class ConfigurationHandler(
 
             "setConfiguration" -> {
                 val rookConfigurationProto = methodCall.getByteArrayArgAt(0).let {
-                    RookConfigurationProto.parseFrom(it)
+                    ConfigurationProto.parseFrom(it)
                 }
 
                 enableBackgroundSync = rookConfigurationProto.enableBackgroundSync

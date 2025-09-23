@@ -6,9 +6,9 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf enum {@code RookEnvironmentProto}
+ * Protobuf enum {@code EnvironmentProto}
  */
-public enum RookEnvironmentProto
+public enum EnvironmentProto
     implements com.google.protobuf.Internal.EnumLite {
   /**
    * <code>SANDBOX = 0;</code>
@@ -46,11 +46,11 @@ public enum RookEnvironmentProto
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static RookEnvironmentProto valueOf(int value) {
+  public static EnvironmentProto valueOf(int value) {
     return forNumber(value);
   }
 
-  public static RookEnvironmentProto forNumber(int value) {
+  public static EnvironmentProto forNumber(int value) {
     switch (value) {
       case 0: return SANDBOX;
       case 1: return PRODUCTION;
@@ -58,39 +58,39 @@ public enum RookEnvironmentProto
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<RookEnvironmentProto>
+  public static com.google.protobuf.Internal.EnumLiteMap<EnvironmentProto>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      RookEnvironmentProto> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<RookEnvironmentProto>() {
+      EnvironmentProto> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<EnvironmentProto>() {
           @java.lang.Override
-          public RookEnvironmentProto findValueByNumber(int number) {
-            return RookEnvironmentProto.forNumber(number);
+          public EnvironmentProto findValueByNumber(int number) {
+            return EnvironmentProto.forNumber(number);
           }
         };
 
   public static com.google.protobuf.Internal.EnumVerifier 
       internalGetVerifier() {
-    return RookEnvironmentProtoVerifier.INSTANCE;
+    return EnvironmentProtoVerifier.INSTANCE;
   }
 
-  private static final class RookEnvironmentProtoVerifier implements 
+  private static final class EnvironmentProtoVerifier implements 
        com.google.protobuf.Internal.EnumVerifier { 
-          static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new RookEnvironmentProtoVerifier();
+          static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new EnvironmentProtoVerifier();
           @java.lang.Override
           public boolean isInRange(int number) {
-            return RookEnvironmentProto.forNumber(number) != null;
+            return EnvironmentProto.forNumber(number) != null;
           }
         };
 
   private final int value;
 
-  private RookEnvironmentProto(int value) {
+  private EnvironmentProto(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:RookEnvironmentProto)
+  // @@protoc_insertion_point(enum_scope:EnvironmentProto)
 }
 

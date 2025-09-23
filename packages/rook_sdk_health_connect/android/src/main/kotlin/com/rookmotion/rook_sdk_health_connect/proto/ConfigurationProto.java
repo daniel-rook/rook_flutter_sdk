@@ -6,14 +6,14 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf type {@code RookConfigurationProto}
+ * Protobuf type {@code ConfigurationProto}
  */
-public  final class RookConfigurationProto extends
+public  final class ConfigurationProto extends
     com.google.protobuf.GeneratedMessageLite<
-        RookConfigurationProto, RookConfigurationProto.Builder> implements
-    // @@protoc_insertion_point(message_implements:RookConfigurationProto)
-    RookConfigurationProtoOrBuilder {
-  private RookConfigurationProto() {
+        ConfigurationProto, ConfigurationProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:ConfigurationProto)
+    ConfigurationProtoOrBuilder {
+  private ConfigurationProto() {
     clientUUID_ = "";
     secretKey_ = "";
   }
@@ -114,7 +114,7 @@ public  final class RookConfigurationProto extends
   public static final int ENVIRONMENT_FIELD_NUMBER = 3;
   private int environment_;
   /**
-   * <code>.RookEnvironmentProto environment = 3;</code>
+   * <code>.EnvironmentProto environment = 3;</code>
    * @return The enum numeric value on the wire for environment.
    */
   @java.lang.Override
@@ -122,31 +122,31 @@ public  final class RookConfigurationProto extends
     return environment_;
   }
   /**
-   * <code>.RookEnvironmentProto environment = 3;</code>
+   * <code>.EnvironmentProto environment = 3;</code>
    * @return The environment.
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto getEnvironment() {
-    com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto result = com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto.forNumber(environment_);
-    return result == null ? com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto.UNRECOGNIZED : result;
+  public com.rookmotion.rook_sdk_health_connect.proto.EnvironmentProto getEnvironment() {
+    com.rookmotion.rook_sdk_health_connect.proto.EnvironmentProto result = com.rookmotion.rook_sdk_health_connect.proto.EnvironmentProto.forNumber(environment_);
+    return result == null ? com.rookmotion.rook_sdk_health_connect.proto.EnvironmentProto.UNRECOGNIZED : result;
   }
   /**
-   * <code>.RookEnvironmentProto environment = 3;</code>
+   * <code>.EnvironmentProto environment = 3;</code>
    * @param value The enum numeric value on the wire for environment to set.
    */
   private void setEnvironmentValue(int value) {
       environment_ = value;
   }
   /**
-   * <code>.RookEnvironmentProto environment = 3;</code>
+   * <code>.EnvironmentProto environment = 3;</code>
    * @param value The environment to set.
    */
-  private void setEnvironment(com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto value) {
+  private void setEnvironment(com.rookmotion.rook_sdk_health_connect.proto.EnvironmentProto value) {
     environment_ = value.getNumber();
 
   }
   /**
-   * <code>.RookEnvironmentProto environment = 3;</code>
+   * <code>.EnvironmentProto environment = 3;</code>
    */
   private void clearEnvironment() {
 
@@ -179,50 +179,50 @@ public  final class RookConfigurationProto extends
     enableBackgroundSync_ = false;
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -230,24 +230,24 @@ public  final class RookConfigurationProto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -258,19 +258,19 @@ public  final class RookConfigurationProto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code RookConfigurationProto}
+   * Protobuf type {@code ConfigurationProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:RookConfigurationProto)
-      com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProtoOrBuilder {
-    // Construct using com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.newBuilder()
+        com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:ConfigurationProto)
+      com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProtoOrBuilder {
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -375,7 +375,7 @@ public  final class RookConfigurationProto extends
     }
 
     /**
-     * <code>.RookEnvironmentProto environment = 3;</code>
+     * <code>.EnvironmentProto environment = 3;</code>
      * @return The enum numeric value on the wire for environment.
      */
     @java.lang.Override
@@ -383,7 +383,7 @@ public  final class RookConfigurationProto extends
       return instance.getEnvironmentValue();
     }
     /**
-     * <code>.RookEnvironmentProto environment = 3;</code>
+     * <code>.EnvironmentProto environment = 3;</code>
      * @param value The environment to set.
      * @return This builder for chaining.
      */
@@ -393,25 +393,25 @@ public  final class RookConfigurationProto extends
       return this;
     }
     /**
-     * <code>.RookEnvironmentProto environment = 3;</code>
+     * <code>.EnvironmentProto environment = 3;</code>
      * @return The environment.
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto getEnvironment() {
+    public com.rookmotion.rook_sdk_health_connect.proto.EnvironmentProto getEnvironment() {
       return instance.getEnvironment();
     }
     /**
-     * <code>.RookEnvironmentProto environment = 3;</code>
+     * <code>.EnvironmentProto environment = 3;</code>
      * @param value The enum numeric value on the wire for environment to set.
      * @return This builder for chaining.
      */
-    public Builder setEnvironment(com.rookmotion.rook_sdk_health_connect.proto.RookEnvironmentProto value) {
+    public Builder setEnvironment(com.rookmotion.rook_sdk_health_connect.proto.EnvironmentProto value) {
       copyOnWrite();
       instance.setEnvironment(value);
       return this;
     }
     /**
-     * <code>.RookEnvironmentProto environment = 3;</code>
+     * <code>.EnvironmentProto environment = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearEnvironment() {
@@ -448,7 +448,7 @@ public  final class RookConfigurationProto extends
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:RookConfigurationProto)
+    // @@protoc_insertion_point(builder_scope:ConfigurationProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -457,7 +457,7 @@ public  final class RookConfigurationProto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto();
+        return new com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto();
       }
       case NEW_BUILDER: {
         return new Builder();
@@ -479,13 +479,13 @@ public  final class RookConfigurationProto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto> parser = PARSER;
+        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto> parser = PARSER;
         if (parser == null) {
-          synchronized (com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto.class) {
+          synchronized (com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto>(
+                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -504,24 +504,24 @@ public  final class RookConfigurationProto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:RookConfigurationProto)
-  private static final com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:ConfigurationProto)
+  private static final com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto DEFAULT_INSTANCE;
   static {
-    RookConfigurationProto defaultInstance = new RookConfigurationProto();
+    ConfigurationProto defaultInstance = new ConfigurationProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      RookConfigurationProto.class, defaultInstance);
+      ConfigurationProto.class, defaultInstance);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.RookConfigurationProto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<RookConfigurationProto> PARSER;
+  private static volatile com.google.protobuf.Parser<ConfigurationProto> PARSER;
 
-  public static com.google.protobuf.Parser<RookConfigurationProto> parser() {
+  public static com.google.protobuf.Parser<ConfigurationProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

@@ -3,22 +3,22 @@ import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_authorized_data_sources_extensions.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_background_read_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_source_authorizer_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_request_permissions_status_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_daily_calories_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summary_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/availability_status_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/event_sync_type_mapper.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/health_connect_availability_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/health_connect_permissions_summary_mappers.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/data/result/authorized_data_source_v2_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/background_read_status_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/request_permissions_status_result.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
@@ -47,12 +47,12 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
 
   @override
   Future<void> setConfiguration(RookConfiguration rookConfiguration) async {
-    final rookConfigurationProto = rookConfiguration.toProto();
+    final proto = rookConfiguration.toProto();
 
     await methodChannel.invokeMethod(
       'setConfiguration',
       [
-        rookConfigurationProto.writeToBuffer(),
+        proto.writeToBuffer(),
       ],
     );
   }
@@ -116,8 +116,8 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final int code = await methodChannel.invokeMethod(
       'checkHealthConnectAvailability',
     );
-    final proto = AvailabilityStatusProto.valueOf(code) ??
-        AvailabilityStatusProto.NOT_SUPPORTED;
+    final proto = HealthConnectAvailabilityProto.valueOf(code) ??
+        HealthConnectAvailabilityProto.NOT_SUPPORTED;
 
     return proto.toDomain();
   }
@@ -160,7 +160,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'checkBackgroundReadStatus',
     );
 
-    final result = ResultBackgroundReadStatusProto.fromBuffer(bytes);
+    final result = BackgroundReadStatusResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -171,7 +171,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'requestHealthConnectPermissions',
     );
 
-    final result = ResultRequestPermissionsStatusProto.fromBuffer(bytes);
+    final result = RequestPermissionsStatusResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -221,7 +221,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'requestAndroidPermissions',
     );
 
-    final result = ResultRequestPermissionsStatusProto.fromBuffer(bytes);
+    final result = RequestPermissionsStatusResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

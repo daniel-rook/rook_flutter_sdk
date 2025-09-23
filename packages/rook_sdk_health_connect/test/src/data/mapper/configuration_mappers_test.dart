@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/rook_configuration_mappers.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/configuration_mappers.dart';
 
 void main() {
-  group('RookConfiguration to RookConfigurationProto mappers', () {
+  group('RookConfiguration to ConfigurationProto mappers', () {
     test(
-      'GIVEN a RookConfiguration WHEN toProto THEN return RookConfigurationProto',
+      'GIVEN a RookConfiguration WHEN toProto THEN return ConfigurationProto',
       () {
         final rookConfiguration = RookConfiguration(
           clientUUID: "rookUrl",
@@ -19,8 +19,10 @@ void main() {
         expect(result.clientUUID, rookConfiguration.clientUUID);
         expect(result.secretKey, rookConfiguration.secretKey);
         expect(result.environment.name, "PRODUCTION");
-        expect(result.enableBackgroundSync,
-            rookConfiguration.enableBackgroundSync);
+        expect(
+          result.enableBackgroundSync,
+          rookConfiguration.enableBackgroundSync,
+        );
       },
     );
   });
