@@ -426,7 +426,7 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
         };
 
         setState(() {
-          checkAndroidPermissionsOutput.append(message);
+          requestAndroidPermissionsOutput.append(message);
         });
       } else {
         setState(() {
