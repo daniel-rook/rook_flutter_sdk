@@ -6,9 +6,7 @@ void mockMethodCall(
   Future<Uint8List> Function(MethodCall call) handler,
 ) {
   setUp(() {
-    TestDefaultBinaryMessengerBinding
-        .instance
-        .defaultBinaryMessenger
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(channel, handler);
   });
 }

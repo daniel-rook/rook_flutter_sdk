@@ -124,7 +124,7 @@ class HCRookHealthPermissionsManager {
   /// streamSubscription?.cancel();
   /// ```
   static Stream<HealthConnectPermissionsSummary>
-  get requestHealthConnectPermissionsUpdates {
+      get requestHealthConnectPermissionsUpdates {
     return RookSdkHealthConnectPlatform
         .instance.requestHealthConnectPermissionsUpdates;
   }

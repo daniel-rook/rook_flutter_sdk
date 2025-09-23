@@ -37,9 +37,10 @@ const HealthConnectAvailabilityProto$json = {
 };
 
 /// Descriptor for `HealthConnectAvailabilityProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List healthConnectAvailabilityProtoDescriptor = $convert.base64Decode(
-    'Ch5IZWFsdGhDb25uZWN0QXZhaWxhYmlsaXR5UHJvdG8SDQoJSU5TVEFMTEVEEAASEQoNTk9UX0'
-    'lOU1RBTExFRBABEhEKDU5PVF9TVVBQT1JURUQQAg==');
+final $typed_data.Uint8List healthConnectAvailabilityProtoDescriptor =
+    $convert.base64Decode(
+        'Ch5IZWFsdGhDb25uZWN0QXZhaWxhYmlsaXR5UHJvdG8SDQoJSU5TVEFMTEVEEAASEQoNTk9UX0'
+        'lOU1RBTExFRBABEhEKDU5PVF9TVVBQT1JURUQQAg==');
 
 @$core.Deprecated('Use requestPermissionsStatusProtoDescriptor instead')
 const RequestPermissionsStatusProto$json = {
@@ -51,9 +52,10 @@ const RequestPermissionsStatusProto$json = {
 };
 
 /// Descriptor for `RequestPermissionsStatusProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List requestPermissionsStatusProtoDescriptor = $convert.base64Decode(
-    'Ch1SZXF1ZXN0UGVybWlzc2lvbnNTdGF0dXNQcm90bxIQCgxSRVFVRVNUX1NFTlQQABITCg9BTF'
-    'JFQURZX0dSQU5URUQQAQ==');
+final $typed_data.Uint8List requestPermissionsStatusProtoDescriptor =
+    $convert.base64Decode(
+        'Ch1SZXF1ZXN0UGVybWlzc2lvbnNTdGF0dXNQcm90bxIQCgxSRVFVRVNUX1NFTlQQABITCg9BTF'
+        'JFQURZX0dSQU5URUQQAQ==');
 
 @$core.Deprecated('Use backgroundReadStatusProtoDescriptor instead')
 const BackgroundReadStatusProto$json = {
@@ -66,9 +68,10 @@ const BackgroundReadStatusProto$json = {
 };
 
 /// Descriptor for `BackgroundReadStatusProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List backgroundReadStatusProtoDescriptor = $convert.base64Decode(
-    'ChlCYWNrZ3JvdW5kUmVhZFN0YXR1c1Byb3RvEg8KC1VOQVZBSUxBQkxFEAASGgoWUEVSTUlTU0'
-    'lPTl9OT1RfR1JBTlRFRBABEhYKElBFUk1JU1NJT05fR1JBTlRFRBAC');
+final $typed_data.Uint8List backgroundReadStatusProtoDescriptor =
+    $convert.base64Decode(
+        'ChlCYWNrZ3JvdW5kUmVhZFN0YXR1c1Byb3RvEg8KC1VOQVZBSUxBQkxFEAASGgoWUEVSTUlTU0'
+        'lPTl9OT1RfR1JBTlRFRBABEhYKElBFUk1JU1NJT05fR1JBTlRFRBAC');
 
 @$core.Deprecated('Use summarySyncTypeProtoDescriptor instead')
 const SummarySyncTypeProto$json = {
@@ -161,7 +164,15 @@ const ResultBooleanProto$json = {
   '1': 'ResultBooleanProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'success'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -179,7 +190,15 @@ const ResultInt64Proto$json = {
   '1': 'ResultInt64Proto',
   '2': [
     {'1': 'value', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'value'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -198,8 +217,21 @@ const ConfigurationProto$json = {
   '2': [
     {'1': 'clientUUID', '3': 1, '4': 1, '5': 9, '10': 'clientUUID'},
     {'1': 'secretKey', '3': 2, '4': 1, '5': 9, '10': 'secretKey'},
-    {'1': 'environment', '3': 3, '4': 1, '5': 14, '6': '.EnvironmentProto', '10': 'environment'},
-    {'1': 'enableBackgroundSync', '3': 4, '4': 1, '5': 8, '10': 'enableBackgroundSync'},
+    {
+      '1': 'environment',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.EnvironmentProto',
+      '10': 'environment'
+    },
+    {
+      '1': 'enableBackgroundSync',
+      '3': 4,
+      '4': 1,
+      '5': 8,
+      '10': 'enableBackgroundSync'
+    },
   ],
 };
 
@@ -214,8 +246,24 @@ final $typed_data.Uint8List configurationProtoDescriptor = $convert.base64Decode
 const RequestPermissionsStatusResultProto$json = {
   '1': 'RequestPermissionsStatusResultProto',
   '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 14, '6': '.RequestPermissionsStatusProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.RequestPermissionsStatusProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -223,17 +271,34 @@ const RequestPermissionsStatusResultProto$json = {
 };
 
 /// Descriptor for `RequestPermissionsStatusResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List requestPermissionsStatusResultProtoDescriptor = $convert.base64Decode(
-    'CiNSZXF1ZXN0UGVybWlzc2lvbnNTdGF0dXNSZXN1bHRQcm90bxI6CgdzdWNjZXNzGAEgASgOMh'
-    '4uUmVxdWVzdFBlcm1pc3Npb25zU3RhdHVzUHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIg'
-    'ASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
+final $typed_data.Uint8List requestPermissionsStatusResultProtoDescriptor =
+    $convert.base64Decode(
+        'CiNSZXF1ZXN0UGVybWlzc2lvbnNTdGF0dXNSZXN1bHRQcm90bxI6CgdzdWNjZXNzGAEgASgOMh'
+        '4uUmVxdWVzdFBlcm1pc3Npb25zU3RhdHVzUHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIg'
+        'ASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use backgroundReadStatusResultProtoDescriptor instead')
 const BackgroundReadStatusResultProto$json = {
   '1': 'BackgroundReadStatusResultProto',
   '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 14, '6': '.BackgroundReadStatusProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.BackgroundReadStatusProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -241,49 +306,86 @@ const BackgroundReadStatusResultProto$json = {
 };
 
 /// Descriptor for `BackgroundReadStatusResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List backgroundReadStatusResultProtoDescriptor = $convert.base64Decode(
-    'Ch9CYWNrZ3JvdW5kUmVhZFN0YXR1c1Jlc3VsdFByb3RvEjYKB3N1Y2Nlc3MYASABKA4yGi5CYW'
-    'NrZ3JvdW5kUmVhZFN0YXR1c1Byb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBs'
-    'dWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
+final $typed_data.Uint8List backgroundReadStatusResultProtoDescriptor =
+    $convert.base64Decode(
+        'Ch9CYWNrZ3JvdW5kUmVhZFN0YXR1c1Jlc3VsdFByb3RvEjYKB3N1Y2Nlc3MYASABKA4yGi5CYW'
+        'NrZ3JvdW5kUmVhZFN0YXR1c1Byb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBs'
+        'dWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use healthConnectPermissionsSummaryProtoDescriptor instead')
 const HealthConnectPermissionsSummaryProto$json = {
   '1': 'HealthConnectPermissionsSummaryProto',
   '2': [
     {'1': 'dataTypesGranted', '3': 1, '4': 1, '5': 8, '10': 'dataTypesGranted'},
-    {'1': 'dataTypesPartiallyGranted', '3': 2, '4': 1, '5': 8, '10': 'dataTypesPartiallyGranted'},
-    {'1': 'backgroundReadGranted', '3': 3, '4': 1, '5': 8, '10': 'backgroundReadGranted'},
+    {
+      '1': 'dataTypesPartiallyGranted',
+      '3': 2,
+      '4': 1,
+      '5': 8,
+      '10': 'dataTypesPartiallyGranted'
+    },
+    {
+      '1': 'backgroundReadGranted',
+      '3': 3,
+      '4': 1,
+      '5': 8,
+      '10': 'backgroundReadGranted'
+    },
   ],
 };
 
 /// Descriptor for `HealthConnectPermissionsSummaryProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List healthConnectPermissionsSummaryProtoDescriptor = $convert.base64Decode(
-    'CiRIZWFsdGhDb25uZWN0UGVybWlzc2lvbnNTdW1tYXJ5UHJvdG8SKgoQZGF0YVR5cGVzR3Jhbn'
-    'RlZBgBIAEoCFIQZGF0YVR5cGVzR3JhbnRlZBI8ChlkYXRhVHlwZXNQYXJ0aWFsbHlHcmFudGVk'
-    'GAIgASgIUhlkYXRhVHlwZXNQYXJ0aWFsbHlHcmFudGVkEjQKFWJhY2tncm91bmRSZWFkR3Jhbn'
-    'RlZBgDIAEoCFIVYmFja2dyb3VuZFJlYWRHcmFudGVk');
+final $typed_data.Uint8List healthConnectPermissionsSummaryProtoDescriptor =
+    $convert.base64Decode(
+        'CiRIZWFsdGhDb25uZWN0UGVybWlzc2lvbnNTdW1tYXJ5UHJvdG8SKgoQZGF0YVR5cGVzR3Jhbn'
+        'RlZBgBIAEoCFIQZGF0YVR5cGVzR3JhbnRlZBI8ChlkYXRhVHlwZXNQYXJ0aWFsbHlHcmFudGVk'
+        'GAIgASgIUhlkYXRhVHlwZXNQYXJ0aWFsbHlHcmFudGVkEjQKFWJhY2tncm91bmRSZWFkR3Jhbn'
+        'RlZBgDIAEoCFIVYmFja2dyb3VuZFJlYWRHcmFudGVk');
 
 @$core.Deprecated('Use androidPermissionsSummaryProtoDescriptor instead')
 const AndroidPermissionsSummaryProto$json = {
   '1': 'AndroidPermissionsSummaryProto',
   '2': [
-    {'1': 'permissionsGranted', '3': 1, '4': 1, '5': 8, '10': 'permissionsGranted'},
+    {
+      '1': 'permissionsGranted',
+      '3': 1,
+      '4': 1,
+      '5': 8,
+      '10': 'permissionsGranted'
+    },
     {'1': 'dialogDisplayed', '3': 2, '4': 1, '5': 8, '10': 'dialogDisplayed'},
   ],
 };
 
 /// Descriptor for `AndroidPermissionsSummaryProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List androidPermissionsSummaryProtoDescriptor = $convert.base64Decode(
-    'Ch5BbmRyb2lkUGVybWlzc2lvbnNTdW1tYXJ5UHJvdG8SLgoScGVybWlzc2lvbnNHcmFudGVkGA'
-    'EgASgIUhJwZXJtaXNzaW9uc0dyYW50ZWQSKAoPZGlhbG9nRGlzcGxheWVkGAIgASgIUg9kaWFs'
-    'b2dEaXNwbGF5ZWQ=');
+final $typed_data.Uint8List androidPermissionsSummaryProtoDescriptor =
+    $convert.base64Decode(
+        'Ch5BbmRyb2lkUGVybWlzc2lvbnNTdW1tYXJ5UHJvdG8SLgoScGVybWlzc2lvbnNHcmFudGVkGA'
+        'EgASgIUhJwZXJtaXNzaW9uc0dyYW50ZWQSKAoPZGlhbG9nRGlzcGxheWVkGAIgASgIUg9kaWFs'
+        'b2dEaXNwbGF5ZWQ=');
 
 @$core.Deprecated('Use syncStatusResultProtoDescriptor instead')
 const SyncStatusResultProto$json = {
   '1': 'SyncStatusResultProto',
   '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 14, '6': '.SyncStatusProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.SyncStatusProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -300,22 +402,46 @@ final $typed_data.Uint8List syncStatusResultProtoDescriptor = $convert.base64Dec
 const SyncStatusWithIntProto$json = {
   '1': 'SyncStatusWithIntProto',
   '2': [
-    {'1': 'syncStatus', '3': 1, '4': 1, '5': 14, '6': '.SyncStatusProto', '10': 'syncStatus'},
+    {
+      '1': 'syncStatus',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.SyncStatusProto',
+      '10': 'syncStatus'
+    },
     {'1': 'value', '3': 2, '4': 1, '5': 13, '10': 'value'},
   ],
 };
 
 /// Descriptor for `SyncStatusWithIntProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List syncStatusWithIntProtoDescriptor = $convert.base64Decode(
-    'ChZTeW5jU3RhdHVzV2l0aEludFByb3RvEjAKCnN5bmNTdGF0dXMYASABKA4yEC5TeW5jU3RhdH'
-    'VzUHJvdG9SCnN5bmNTdGF0dXMSFAoFdmFsdWUYAiABKA1SBXZhbHVl');
+final $typed_data.Uint8List syncStatusWithIntProtoDescriptor =
+    $convert.base64Decode(
+        'ChZTeW5jU3RhdHVzV2l0aEludFByb3RvEjAKCnN5bmNTdGF0dXMYASABKA4yEC5TeW5jU3RhdH'
+        'VzUHJvdG9SCnN5bmNTdGF0dXMSFAoFdmFsdWUYAiABKA1SBXZhbHVl');
 
 @$core.Deprecated('Use syncStatusWithIntResultProtoDescriptor instead')
 const SyncStatusWithIntResultProto$json = {
   '1': 'SyncStatusWithIntResultProto',
   '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.SyncStatusWithIntProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.SyncStatusWithIntProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -323,10 +449,11 @@ const SyncStatusWithIntResultProto$json = {
 };
 
 /// Descriptor for `SyncStatusWithIntResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List syncStatusWithIntResultProtoDescriptor = $convert.base64Decode(
-    'ChxTeW5jU3RhdHVzV2l0aEludFJlc3VsdFByb3RvEjMKB3N1Y2Nlc3MYASABKAsyFy5TeW5jU3'
-    'RhdHVzV2l0aEludFByb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBsdWdpbkV4'
-    'Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
+final $typed_data.Uint8List syncStatusWithIntResultProtoDescriptor =
+    $convert.base64Decode(
+        'ChxTeW5jU3RhdHVzV2l0aEludFJlc3VsdFByb3RvEjMKB3N1Y2Nlc3MYASABKAsyFy5TeW5jU3'
+        'RhdHVzV2l0aEludFByb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBsdWdpbkV4'
+        'Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use caloriesProtoDescriptor instead')
 const CaloriesProto$json = {
@@ -346,23 +473,54 @@ final $typed_data.Uint8List caloriesProtoDescriptor = $convert.base64Decode(
 const SyncStatusWithCaloriesProto$json = {
   '1': 'SyncStatusWithCaloriesProto',
   '2': [
-    {'1': 'syncStatus', '3': 1, '4': 1, '5': 14, '6': '.SyncStatusProto', '10': 'syncStatus'},
-    {'1': 'calories', '3': 2, '4': 1, '5': 11, '6': '.CaloriesProto', '10': 'calories'},
+    {
+      '1': 'syncStatus',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.SyncStatusProto',
+      '10': 'syncStatus'
+    },
+    {
+      '1': 'calories',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.CaloriesProto',
+      '10': 'calories'
+    },
   ],
 };
 
 /// Descriptor for `SyncStatusWithCaloriesProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List syncStatusWithCaloriesProtoDescriptor = $convert.base64Decode(
-    'ChtTeW5jU3RhdHVzV2l0aENhbG9yaWVzUHJvdG8SMAoKc3luY1N0YXR1cxgBIAEoDjIQLlN5bm'
-    'NTdGF0dXNQcm90b1IKc3luY1N0YXR1cxIqCghjYWxvcmllcxgCIAEoCzIOLkNhbG9yaWVzUHJv'
-    'dG9SCGNhbG9yaWVz');
+final $typed_data.Uint8List syncStatusWithCaloriesProtoDescriptor =
+    $convert.base64Decode(
+        'ChtTeW5jU3RhdHVzV2l0aENhbG9yaWVzUHJvdG8SMAoKc3luY1N0YXR1cxgBIAEoDjIQLlN5bm'
+        'NTdGF0dXNQcm90b1IKc3luY1N0YXR1cxIqCghjYWxvcmllcxgCIAEoCzIOLkNhbG9yaWVzUHJv'
+        'dG9SCGNhbG9yaWVz');
 
 @$core.Deprecated('Use syncStatusWithCaloriesResultProtoDescriptor instead')
 const SyncStatusWithCaloriesResultProto$json = {
   '1': 'SyncStatusWithCaloriesResultProto',
   '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.SyncStatusWithCaloriesProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.SyncStatusWithCaloriesProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -370,10 +528,11 @@ const SyncStatusWithCaloriesResultProto$json = {
 };
 
 /// Descriptor for `SyncStatusWithCaloriesResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List syncStatusWithCaloriesResultProtoDescriptor = $convert.base64Decode(
-    'CiFTeW5jU3RhdHVzV2l0aENhbG9yaWVzUmVzdWx0UHJvdG8SOAoHc3VjY2VzcxgBIAEoCzIcLl'
-    'N5bmNTdGF0dXNXaXRoQ2Fsb3JpZXNQcm90b0gAUgdzdWNjZXNzEjEKB2ZhaWx1cmUYAiABKAsy'
-    'FS5QbHVnaW5FeGNlcHRpb25Qcm90b0gAUgdmYWlsdXJlQggKBnJlc3VsdA==');
+final $typed_data.Uint8List syncStatusWithCaloriesResultProtoDescriptor =
+    $convert.base64Decode(
+        'CiFTeW5jU3RhdHVzV2l0aENhbG9yaWVzUmVzdWx0UHJvdG8SOAoHc3VjY2VzcxgBIAEoCzIcLl'
+        'N5bmNTdGF0dXNXaXRoQ2Fsb3JpZXNQcm90b0gAUgdzdWNjZXNzEjEKB2ZhaWx1cmUYAiABKAsy'
+        'FS5QbHVnaW5FeGNlcHRpb25Qcm90b0gAUgdmYWlsdXJlQggKBnJlc3VsdA==');
 
 @$core.Deprecated('Use dataSourceAuthorizerProtoDescriptor instead')
 const DataSourceAuthorizerProto$json = {
@@ -382,7 +541,13 @@ const DataSourceAuthorizerProto$json = {
     {'1': 'dataSource', '3': 1, '4': 1, '5': 9, '10': 'dataSource'},
     {'1': 'authorized', '3': 2, '4': 1, '5': 8, '10': 'authorized'},
     {'1': 'authorizationUrl', '3': 3, '4': 1, '5': 9, '10': 'authorizationUrl'},
-    {'1': 'authorizationUrlIsNull', '3': 6, '4': 1, '5': 8, '10': 'authorizationUrlIsNull'},
+    {
+      '1': 'authorizationUrlIsNull',
+      '3': 6,
+      '4': 1,
+      '5': 8,
+      '10': 'authorizationUrlIsNull'
+    },
   ],
 };
 
@@ -397,8 +562,24 @@ final $typed_data.Uint8List dataSourceAuthorizerProtoDescriptor = $convert.base6
 const DataSourceAuthorizerResultProto$json = {
   '1': 'DataSourceAuthorizerResultProto',
   '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.DataSourceAuthorizerProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DataSourceAuthorizerProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -406,10 +587,11 @@ const DataSourceAuthorizerResultProto$json = {
 };
 
 /// Descriptor for `DataSourceAuthorizerResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataSourceAuthorizerResultProtoDescriptor = $convert.base64Decode(
-    'Ch9EYXRhU291cmNlQXV0aG9yaXplclJlc3VsdFByb3RvEjYKB3N1Y2Nlc3MYASABKAsyGi5EYX'
-    'RhU291cmNlQXV0aG9yaXplclByb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBs'
-    'dWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
+final $typed_data.Uint8List dataSourceAuthorizerResultProtoDescriptor =
+    $convert.base64Decode(
+        'Ch9EYXRhU291cmNlQXV0aG9yaXplclJlc3VsdFByb3RvEjYKB3N1Y2Nlc3MYASABKAsyGi5EYX'
+        'RhU291cmNlQXV0aG9yaXplclByb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBs'
+        'dWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use authorizedDataSourcesProtoDescriptor instead')
 const AuthorizedDataSourcesProto$json = {
@@ -441,8 +623,24 @@ final $typed_data.Uint8List authorizedDataSourcesProtoDescriptor = $convert.base
 const AuthorizedDataSourcesResultProto$json = {
   '1': 'AuthorizedDataSourcesResultProto',
   '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.AuthorizedDataSourcesProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.AuthorizedDataSourcesProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -450,10 +648,11 @@ const AuthorizedDataSourcesResultProto$json = {
 };
 
 /// Descriptor for `AuthorizedDataSourcesResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourcesResultProtoDescriptor = $convert.base64Decode(
-    'CiBBdXRob3JpemVkRGF0YVNvdXJjZXNSZXN1bHRQcm90bxI3CgdzdWNjZXNzGAEgASgLMhsuQX'
-    'V0aG9yaXplZERhdGFTb3VyY2VzUHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIgASgLMhUu'
-    'UGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
+final $typed_data.Uint8List authorizedDataSourcesResultProtoDescriptor =
+    $convert.base64Decode(
+        'CiBBdXRob3JpemVkRGF0YVNvdXJjZXNSZXN1bHRQcm90bxI3CgdzdWNjZXNzGAEgASgLMhsuQX'
+        'V0aG9yaXplZERhdGFTb3VyY2VzUHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIgASgLMhUu'
+        'UGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use authorizedDataSourceV2ProtoDescriptor instead')
 const AuthorizedDataSourceV2Proto$json = {
@@ -466,29 +665,54 @@ const AuthorizedDataSourceV2Proto$json = {
 };
 
 /// Descriptor for `AuthorizedDataSourceV2Proto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ProtoDescriptor = $convert.base64Decode(
-    'ChtBdXRob3JpemVkRGF0YVNvdXJjZVYyUHJvdG8SEgoEbmFtZRgBIAEoCVIEbmFtZRIeCgphdX'
-    'Rob3JpemVkGAIgASgIUgphdXRob3JpemVkEhoKCGltYWdlVXJsGAMgASgJUghpbWFnZVVybA==');
+final $typed_data.Uint8List authorizedDataSourceV2ProtoDescriptor =
+    $convert.base64Decode(
+        'ChtBdXRob3JpemVkRGF0YVNvdXJjZVYyUHJvdG8SEgoEbmFtZRgBIAEoCVIEbmFtZRIeCgphdX'
+        'Rob3JpemVkGAIgASgIUgphdXRob3JpemVkEhoKCGltYWdlVXJsGAMgASgJUghpbWFnZVVybA==');
 
 @$core.Deprecated('Use authorizedDataSourceV2ListProtoDescriptor instead')
 const AuthorizedDataSourceV2ListProto$json = {
   '1': 'AuthorizedDataSourceV2ListProto',
   '2': [
-    {'1': 'list', '3': 1, '4': 3, '5': 11, '6': '.AuthorizedDataSourceV2Proto', '10': 'list'},
+    {
+      '1': 'list',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.AuthorizedDataSourceV2Proto',
+      '10': 'list'
+    },
   ],
 };
 
 /// Descriptor for `AuthorizedDataSourceV2ListProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ListProtoDescriptor = $convert.base64Decode(
-    'Ch9BdXRob3JpemVkRGF0YVNvdXJjZVYyTGlzdFByb3RvEjAKBGxpc3QYASADKAsyHC5BdXRob3'
-    'JpemVkRGF0YVNvdXJjZVYyUHJvdG9SBGxpc3Q=');
+final $typed_data.Uint8List authorizedDataSourceV2ListProtoDescriptor =
+    $convert.base64Decode(
+        'Ch9BdXRob3JpemVkRGF0YVNvdXJjZVYyTGlzdFByb3RvEjAKBGxpc3QYASADKAsyHC5BdXRob3'
+        'JpemVkRGF0YVNvdXJjZVYyUHJvdG9SBGxpc3Q=');
 
 @$core.Deprecated('Use authorizedDataSourceV2ResultProtoDescriptor instead')
 const AuthorizedDataSourceV2ResultProto$json = {
   '1': 'AuthorizedDataSourceV2ResultProto',
   '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.AuthorizedDataSourceV2ListProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.AuthorizedDataSourceV2ListProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -496,10 +720,11 @@ const AuthorizedDataSourceV2ResultProto$json = {
 };
 
 /// Descriptor for `AuthorizedDataSourceV2ResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ResultProtoDescriptor = $convert.base64Decode(
-    'CiFBdXRob3JpemVkRGF0YVNvdXJjZVYyUmVzdWx0UHJvdG8SPAoHc3VjY2VzcxgBIAEoCzIgLk'
-    'F1dGhvcml6ZWREYXRhU291cmNlVjJMaXN0UHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIg'
-    'ASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
+final $typed_data.Uint8List authorizedDataSourceV2ResultProtoDescriptor =
+    $convert.base64Decode(
+        'CiFBdXRob3JpemVkRGF0YVNvdXJjZVYyUmVzdWx0UHJvdG8SPAoHc3VjY2VzcxgBIAEoCzIgLk'
+        'F1dGhvcml6ZWREYXRhU291cmNlVjJMaXN0UHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIg'
+        'ASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use dataSourceProtoDescriptor instead')
 const DataSourceProto$json = {
@@ -510,7 +735,13 @@ const DataSourceProto$json = {
     {'1': 'imageUrl', '3': 3, '4': 1, '5': 9, '10': 'imageUrl'},
     {'1': 'connected', '3': 4, '4': 1, '5': 8, '10': 'connected'},
     {'1': 'authorizationUrl', '3': 5, '4': 1, '5': 9, '10': 'authorizationUrl'},
-    {'1': 'authorizationUrlIsNull', '3': 6, '4': 1, '5': 8, '10': 'authorizationUrlIsNull'},
+    {
+      '1': 'authorizationUrlIsNull',
+      '3': 6,
+      '4': 1,
+      '5': 8,
+      '10': 'authorizationUrlIsNull'
+    },
   ],
 };
 
@@ -526,21 +757,45 @@ final $typed_data.Uint8List dataSourceProtoDescriptor = $convert.base64Decode(
 const DataSourcesProtoListWrapper$json = {
   '1': 'DataSourcesProtoListWrapper',
   '2': [
-    {'1': 'dataSources', '3': 1, '4': 3, '5': 11, '6': '.DataSourceProto', '10': 'dataSources'},
+    {
+      '1': 'dataSources',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.DataSourceProto',
+      '10': 'dataSources'
+    },
   ],
 };
 
 /// Descriptor for `DataSourcesProtoListWrapper`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataSourcesProtoListWrapperDescriptor = $convert.base64Decode(
-    'ChtEYXRhU291cmNlc1Byb3RvTGlzdFdyYXBwZXISMgoLZGF0YVNvdXJjZXMYASADKAsyEC5EYX'
-    'RhU291cmNlUHJvdG9SC2RhdGFTb3VyY2Vz');
+final $typed_data.Uint8List dataSourcesProtoListWrapperDescriptor =
+    $convert.base64Decode(
+        'ChtEYXRhU291cmNlc1Byb3RvTGlzdFdyYXBwZXISMgoLZGF0YVNvdXJjZXMYASADKAsyEC5EYX'
+        'RhU291cmNlUHJvdG9SC2RhdGFTb3VyY2Vz');
 
 @$core.Deprecated('Use resultDataSourcesProtoDescriptor instead')
 const ResultDataSourcesProto$json = {
   '1': 'ResultDataSourcesProto',
   '2': [
-    {'1': 'dataSourcesProtoListWrapper', '3': 1, '4': 1, '5': 11, '6': '.DataSourcesProtoListWrapper', '9': 0, '10': 'dataSourcesProtoListWrapper'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {
+      '1': 'dataSourcesProtoListWrapper',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DataSourcesProtoListWrapper',
+      '9': 0,
+      '10': 'dataSourcesProtoListWrapper'
+    },
+    {
+      '1': 'pluginExceptionProto',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.PluginExceptionProto',
+      '9': 0,
+      '10': 'pluginExceptionProto'
+    },
   ],
   '8': [
     {'1': 'result'},
@@ -553,4 +808,3 @@ final $typed_data.Uint8List resultDataSourcesProtoDescriptor = $convert.base64De
     'gBIAEoCzIcLkRhdGFTb3VyY2VzUHJvdG9MaXN0V3JhcHBlckgAUhtkYXRhU291cmNlc1Byb3Rv'
     'TGlzdFdyYXBwZXISSwoUcGx1Z2luRXhjZXB0aW9uUHJvdG8YAiABKAsyFS5QbHVnaW5FeGNlcH'
     'Rpb25Qcm90b0gAUhRwbHVnaW5FeGNlcHRpb25Qcm90b0IICgZyZXN1bHQ=');
-

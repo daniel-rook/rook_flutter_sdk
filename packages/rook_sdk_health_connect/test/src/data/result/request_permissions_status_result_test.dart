@@ -7,7 +7,7 @@ void main() {
   group("Mapper", () {
     test(
       'GIVEN RequestPermissionsStatusProto.REQUEST_SENT WHEN toProto THEN return RequestPermissionsStatus.requestSent',
-          () {
+      () {
         const proto = RequestPermissionsStatusProto.REQUEST_SENT;
         final result = proto.toDomain();
 
@@ -17,7 +17,7 @@ void main() {
 
     test(
       'GIVEN RequestPermissionsStatusProto.ALREADY_GRANTED WHEN toProto THEN return RequestPermissionsStatus.alreadyGranted',
-          () {
+      () {
         const proto = RequestPermissionsStatusProto.ALREADY_GRANTED;
         final result = proto.toDomain();
 
@@ -29,28 +29,28 @@ void main() {
   group("Result", () {
     test(
       "GIVEN success WHEN unwrap THEN return a RequestPermissionsStatus",
-          () {
-            final proto = RequestPermissionsStatusResultProto.create()
-              ..success = RequestPermissionsStatusProto.ALREADY_GRANTED;
+      () {
+        final proto = RequestPermissionsStatusResultProto.create()
+          ..success = RequestPermissionsStatusProto.ALREADY_GRANTED;
 
-            final result = proto.unwrap();
+        final result = proto.unwrap();
 
-            expect(result, RequestPermissionsStatus.alreadyGranted);
+        expect(result, RequestPermissionsStatus.alreadyGranted);
       },
     );
 
     test(
       "GIVEN failure WHEN unwrap THEN throw exception",
-          () {
-            final failure = PluginExceptionProto.create()
-              ..id = -1
-              ..message = "message"
-              ..code = 500;
+      () {
+        final failure = PluginExceptionProto.create()
+          ..id = -1
+          ..message = "message"
+          ..code = 500;
 
-            final proto = RequestPermissionsStatusResultProto.create()
-              ..failure = failure;
+        final proto = RequestPermissionsStatusResultProto.create()
+          ..failure = failure;
 
-            expect(proto.unwrap, throwsException);
+        expect(proto.unwrap, throwsException);
       },
     );
   });
