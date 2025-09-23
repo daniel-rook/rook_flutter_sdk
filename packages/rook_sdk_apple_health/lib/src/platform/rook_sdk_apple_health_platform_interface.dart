@@ -38,51 +38,6 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> requestPermissions(List<AppleHealthPermission> permissions);
 
-  @Deprecated("Use AHRookSyncManager.sync() instead")
-  Future<void> syncSleepSummary(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.sync() instead")
-  Future<void> syncPhysicalSummary(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.sync() instead")
-  Future<void> syncBodySummary(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.sync() instead")
-  Future<void> syncPendingSummaries();
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncPhysicalEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncBloodGlucoseEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncBloodPressureEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncBodyMetricsEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncBodyHeartRateEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncPhysicalHeartRateEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncBodyOxygenationEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncPhysicalOxygenationEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.syncEvents() instead")
-  Future<void> syncTemperatureEvents(DateTime date);
-
-  @Deprecated("Use AHRookSyncManager.getTodayStepsCount() instead")
-  Future<int?> syncTodayAppleHealthStepsCount();
-
-  @Deprecated("Use HCRookSyncManager.syncEvents() instead")
-  Future<void> syncPendingEvents();
-
   Future<bool> syncHistoricSummaries(bool enableLogs);
 
   Future<bool> syncSummariesByDate(DateTime date);
@@ -106,6 +61,8 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> disableContinuousUpload();
 
+  Future<bool> isScheduled();
+
   Future<void> enableBackground(
     bool enableNativeLogs,
     String clientUUID,
@@ -126,6 +83,8 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
   );
 
   Future<AuthorizedDataSources> getAuthorizedDataSources();
+
+  Future<List<AuthorizedDataSourceV2>> getAuthorizedDataSourcesV2();
 
   Future<void> revokeDataSource(String dataSource);
 

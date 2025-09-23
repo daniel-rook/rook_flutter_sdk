@@ -44,6 +44,17 @@ class HCRookDataSources {
     return RookSdkHealthConnectPlatform.instance.getAuthorizedDataSources();
   }
 
+  /// Returns the authorized data sources for the current user.
+  ///
+  /// This is an improved version of [getAuthorizedDataSources] that returns a list of [AuthorizedDataSourceV2]
+  /// with the name, authorization status and image URL of each data source.
+  ///
+  ///  Please note that this only represents the user authorization status,
+  ///  and not whether the data source is currently active (sending data) or not.
+  static Future<List<AuthorizedDataSourceV2>> getAuthorizedDataSourcesV2() {
+    return RookSdkHealthConnectPlatform.instance.getAuthorizedDataSourcesV2();
+  }
+
   /// Unlinks (revoke authorization) from a data source for the current user.
   ///
   /// [dataSource] The data source type. Allowed values: Garmin, Oura, Polar, Fitbit, Withings, Whoop.

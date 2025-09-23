@@ -195,3 +195,37 @@ func authorizedDataSourcesError(flutterResult: FlutterResult, error: Error) {
         debugPrint("Failed to serialize flutter result \(catchedError)")
     }
 }
+
+func authorizedDataSourceV2Success(flutterResult: FlutterResult, dataSources: [DataSourceStatus]) {
+    do {
+        let list = AuthorizedDataSourceV2ListProto.with {
+            $0.list = dataSources.map { it in it.toProto() }
+        }
+        
+        let bytes = try AuthorizedDataSourceV2ResultProto.with {
+            $0.success = list
+        }.serializedData()
+        
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
+    }
+}
+
+func authorizedDataSourceV2Error(flutterResult: FlutterResult, error: Error) {
+    do {
+        let pluginExceptionProto = PluginExceptionProto.with {
+            $0.id = error.getPluginExceptionId()
+            $0.code = error.getPluginExceptionCode()
+            $0.message = error.getPluginExceptionMessage()
+        }
+        
+        let bytes = try AuthorizedDataSourceV2ResultProto.with {
+            $0.failure = pluginExceptionProto
+        }.serializedData()
+        
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
+    }
+}

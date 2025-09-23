@@ -1,0 +1,16 @@
+import 'package:rook_sdk_health_connect/src/data/proto/protos.pbenum.dart';
+import 'package:rook_sdk_health_connect/src/domain/enums/hc_availability_status.dart';
+
+extension HealthConnectAvailabilityMappers on HealthConnectAvailabilityProto {
+  HCAvailabilityStatus toDomain() {
+    return switch (this) {
+      HealthConnectAvailabilityProto.INSTALLED =>
+        HCAvailabilityStatus.installed,
+      HealthConnectAvailabilityProto.NOT_INSTALLED =>
+        HCAvailabilityStatus.notInstalled,
+      HealthConnectAvailabilityProto.NOT_SUPPORTED =>
+        HCAvailabilityStatus.notSupported,
+      _ => throw Exception('Unknown availability status: $this'),
+    };
+  }
+}

@@ -3,16 +3,16 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import android.app.Activity
 import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.backgroundReadStatusError
-import com.rookmotion.rook_sdk_health_connect.extension.backgroundReadStatusSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.boolean
 import com.rookmotion.rook_sdk_health_connect.extension.booleanError
 import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.int
-import com.rookmotion.rook_sdk_health_connect.extension.requestPermissionsStatusError
-import com.rookmotion.rook_sdk_health_connect.extension.requestPermissionsStatusSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.throwable
-import com.rookmotion.rook_sdk_health_connect.mapper.toAvailabilityStatusProto
+import com.rookmotion.rook_sdk_health_connect.mapper.toProto
+import com.rookmotion.rook_sdk_health_connect.result.backgroundReadStatusError
+import com.rookmotion.rook_sdk_health_connect.result.backgroundReadStatusSuccess
+import com.rookmotion.rook_sdk_health_connect.result.requestPermissionsStatusError
+import com.rookmotion.rook_sdk_health_connect.result.requestPermissionsStatusSuccess
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -33,7 +33,7 @@ class PermissionsHandler(
             "checkHealthConnectAvailability" -> {
                 try {
                     val hcAvailabilityStatus = rookPermissionsManager.checkHealthConnectAvailability()
-                    val proto = hcAvailabilityStatus.toAvailabilityStatusProto()
+                    val proto = hcAvailabilityStatus.toProto()
 
                     methodResult.int(proto.number)
                 } catch (exception: NullPointerException) {

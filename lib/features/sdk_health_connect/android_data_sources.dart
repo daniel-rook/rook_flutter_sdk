@@ -21,6 +21,7 @@ class _AndroidDataSourcesState extends State<AndroidDataSources> {
   final Logger logger = Logger('AndroidDataSources');
 
   ConsoleOutput dataSourceAuthorizerOutput = ConsoleOutput();
+  ConsoleOutput authorizedDataSourcesV2Output = ConsoleOutput();
 
   String dataSource = "Fitbit";
 
@@ -81,6 +82,12 @@ class _AndroidDataSourcesState extends State<AndroidDataSources> {
           FilledButton(
             onPressed: loadAuthorizedDataSources,
             child: const Text('getAuthorizedDataSources'),
+          ),
+          const SectionTitle("Authorized data sources V2"),
+          Text(authorizedDataSourcesV2Output.current),
+          FilledButton(
+            onPressed: getAuthorizedDataSourcesV2,
+            child: const Text('getAuthorizedDataSourcesV2'),
           ),
           const SectionTitle("Connections page (pre-built)"),
           FilledButton(
@@ -186,5 +193,28 @@ class _AndroidDataSourcesState extends State<AndroidDataSources> {
         );
       },
     );
+  }
+
+  void getAuthorizedDataSourcesV2() async {
+    authorizedDataSourcesV2Output.clear();
+
+    setState(() {
+      authorizedDataSourcesV2Output
+          .append("Getting authorized data sources v2...");
+    });
+
+    try {
+      final dataSources = await HCRookDataSources.getAuthorizedDataSourcesV2();
+
+      setState(() {
+        authorizedDataSourcesV2Output.appendMultiple(
+          dataSources.map((element) => element.toString()).toList(),
+        );
+      });
+    } catch (exception) {
+      authorizedDataSourcesV2Output.append(
+        "Failed to get authorized data sources v2: $exception",
+      );
+    }
   }
 }

@@ -21,8 +21,8 @@ public interface SyncStatusWithIntProtoOrBuilder extends
   com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto getSyncStatus();
 
   /**
-   * <code>uint32 steps = 2;</code>
-   * @return The steps.
+   * <code>uint32 value = 2;</code>
+   * @return The value.
    */
-  int getSteps();
+  int getValue();
 }

@@ -5,6 +5,11 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 class AHRookBackgroundSync {
   AHRookBackgroundSync._();
 
+  /// Checks if background sync is already scheduled.
+  static Future<bool> isScheduled() {
+    return RookSdkAppleHealthPlatform.instance.isScheduled();
+  }
+
   /// Enables the background upload of summaries and events,
   /// before use this method is necessary to add a user id and request permissions.
   ///

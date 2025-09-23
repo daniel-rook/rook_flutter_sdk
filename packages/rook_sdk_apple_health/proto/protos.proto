@@ -175,3 +175,20 @@ message ResultDataSourceAuthorizerProto {
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }
+
+message AuthorizedDataSourceV2Proto {
+  string name = 1;
+  bool authorized = 2;
+  string imageUrl = 3;
+}
+
+message AuthorizedDataSourceV2ListProto {
+  repeated AuthorizedDataSourceV2Proto list = 1;
+}
+
+message AuthorizedDataSourceV2ResultProto {
+  oneof result {
+    AuthorizedDataSourceV2ListProto success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}

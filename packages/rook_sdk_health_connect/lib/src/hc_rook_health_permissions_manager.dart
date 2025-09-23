@@ -96,15 +96,6 @@ class HCRookHealthPermissionsManager {
         .requestHealthConnectPermissions();
   }
 
-  /// Revoke (reset) all granted health connect permissions.
-  ///
-  /// You may notice that after calling this function the permissions are still granted,
-  /// however they will be revoked the next time the app is closed (process stops).
-  static Future<void> revokeHealthConnectPermissions() {
-    return RookSdkHealthConnectPlatform.instance
-        .revokeHealthConnectPermissions();
-  }
-
   /// Listen to this stream to get updates of a Health Connect permissions request.
   ///
   /// Example:
@@ -136,6 +127,15 @@ class HCRookHealthPermissionsManager {
       get requestHealthConnectPermissionsUpdates {
     return RookSdkHealthConnectPlatform
         .instance.requestHealthConnectPermissionsUpdates;
+  }
+
+  /// Revoke (reset) all granted health connect permissions.
+  ///
+  /// You may notice that after calling this function the permissions are still granted,
+  /// however they will be revoked the next time the app is closed (process stops).
+  static Future<void> revokeHealthConnectPermissions() {
+    return RookSdkHealthConnectPlatform.instance
+        .revokeHealthConnectPermissions();
   }
 
   /// Checks if the following permissions are granted:
