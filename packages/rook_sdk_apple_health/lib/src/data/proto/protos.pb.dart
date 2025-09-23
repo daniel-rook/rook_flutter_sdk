@@ -1465,6 +1465,263 @@ class ResultDataSourceAuthorizerProto extends $pb.GeneratedMessage {
   PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
 }
 
+class AuthorizedDataSourceV2Proto extends $pb.GeneratedMessage {
+  factory AuthorizedDataSourceV2Proto({
+    $core.String? name,
+    $core.bool? authorized,
+    $core.String? imageUrl,
+  }) {
+    final $result = create();
+    if (name != null) {
+      $result.name = name;
+    }
+    if (authorized != null) {
+      $result.authorized = authorized;
+    }
+    if (imageUrl != null) {
+      $result.imageUrl = imageUrl;
+    }
+    return $result;
+  }
+  AuthorizedDataSourceV2Proto._() : super();
+  factory AuthorizedDataSourceV2Proto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AuthorizedDataSourceV2Proto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuthorizedDataSourceV2Proto',
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOB(2, _omitFieldNames ? '' : 'authorized')
+    ..aOS(3, _omitFieldNames ? '' : 'imageUrl', protoName: 'imageUrl')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  AuthorizedDataSourceV2Proto clone() =>
+      AuthorizedDataSourceV2Proto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  AuthorizedDataSourceV2Proto copyWith(
+          void Function(AuthorizedDataSourceV2Proto) updates) =>
+      super.copyWith(
+              (message) => updates(message as AuthorizedDataSourceV2Proto))
+          as AuthorizedDataSourceV2Proto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AuthorizedDataSourceV2Proto create() =>
+      AuthorizedDataSourceV2Proto._();
+  AuthorizedDataSourceV2Proto createEmptyInstance() => create();
+  static $pb.PbList<AuthorizedDataSourceV2Proto> createRepeated() =>
+      $pb.PbList<AuthorizedDataSourceV2Proto>();
+  @$core.pragma('dart2js:noInline')
+  static AuthorizedDataSourceV2Proto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuthorizedDataSourceV2Proto>(create);
+  static AuthorizedDataSourceV2Proto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get name => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set name($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get authorized => $_getBF(1);
+  @$pb.TagNumber(2)
+  set authorized($core.bool v) {
+    $_setBool(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasAuthorized() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAuthorized() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get imageUrl => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set imageUrl($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasImageUrl() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearImageUrl() => clearField(3);
+}
+
+class AuthorizedDataSourceV2ListProto extends $pb.GeneratedMessage {
+  factory AuthorizedDataSourceV2ListProto({
+    $core.Iterable<AuthorizedDataSourceV2Proto>? list,
+  }) {
+    final $result = create();
+    if (list != null) {
+      $result.list.addAll(list);
+    }
+    return $result;
+  }
+  AuthorizedDataSourceV2ListProto._() : super();
+  factory AuthorizedDataSourceV2ListProto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AuthorizedDataSourceV2ListProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuthorizedDataSourceV2ListProto',
+      createEmptyInstance: create)
+    ..pc<AuthorizedDataSourceV2Proto>(
+        1, _omitFieldNames ? '' : 'list', $pb.PbFieldType.PM,
+        subBuilder: AuthorizedDataSourceV2Proto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  AuthorizedDataSourceV2ListProto clone() =>
+      AuthorizedDataSourceV2ListProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  AuthorizedDataSourceV2ListProto copyWith(
+          void Function(AuthorizedDataSourceV2ListProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as AuthorizedDataSourceV2ListProto))
+          as AuthorizedDataSourceV2ListProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AuthorizedDataSourceV2ListProto create() =>
+      AuthorizedDataSourceV2ListProto._();
+  AuthorizedDataSourceV2ListProto createEmptyInstance() => create();
+  static $pb.PbList<AuthorizedDataSourceV2ListProto> createRepeated() =>
+      $pb.PbList<AuthorizedDataSourceV2ListProto>();
+  @$core.pragma('dart2js:noInline')
+  static AuthorizedDataSourceV2ListProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuthorizedDataSourceV2ListProto>(
+          create);
+  static AuthorizedDataSourceV2ListProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<AuthorizedDataSourceV2Proto> get list => $_getList(0);
+}
+
+enum AuthorizedDataSourceV2ResultProto_Result { success, failure, notSet }
+
+class AuthorizedDataSourceV2ResultProto extends $pb.GeneratedMessage {
+  factory AuthorizedDataSourceV2ResultProto({
+    AuthorizedDataSourceV2ListProto? success,
+    PluginExceptionProto? failure,
+  }) {
+    final $result = create();
+    if (success != null) {
+      $result.success = success;
+    }
+    if (failure != null) {
+      $result.failure = failure;
+    }
+    return $result;
+  }
+  AuthorizedDataSourceV2ResultProto._() : super();
+  factory AuthorizedDataSourceV2ResultProto.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AuthorizedDataSourceV2ResultProto.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, AuthorizedDataSourceV2ResultProto_Result>
+      _AuthorizedDataSourceV2ResultProto_ResultByTag = {
+    1: AuthorizedDataSourceV2ResultProto_Result.success,
+    2: AuthorizedDataSourceV2ResultProto_Result.failure,
+    0: AuthorizedDataSourceV2ResultProto_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuthorizedDataSourceV2ResultProto',
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<AuthorizedDataSourceV2ListProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: AuthorizedDataSourceV2ListProto.create)
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: PluginExceptionProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  AuthorizedDataSourceV2ResultProto clone() =>
+      AuthorizedDataSourceV2ResultProto()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  AuthorizedDataSourceV2ResultProto copyWith(
+          void Function(AuthorizedDataSourceV2ResultProto) updates) =>
+      super.copyWith((message) =>
+              updates(message as AuthorizedDataSourceV2ResultProto))
+          as AuthorizedDataSourceV2ResultProto;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AuthorizedDataSourceV2ResultProto create() =>
+      AuthorizedDataSourceV2ResultProto._();
+  AuthorizedDataSourceV2ResultProto createEmptyInstance() => create();
+  static $pb.PbList<AuthorizedDataSourceV2ResultProto> createRepeated() =>
+      $pb.PbList<AuthorizedDataSourceV2ResultProto>();
+  @$core.pragma('dart2js:noInline')
+  static AuthorizedDataSourceV2ResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuthorizedDataSourceV2ResultProto>(
+          create);
+  static AuthorizedDataSourceV2ResultProto? _defaultInstance;
+
+  AuthorizedDataSourceV2ResultProto_Result whichResult() =>
+      _AuthorizedDataSourceV2ResultProto_ResultByTag[$_whichOneof(0)]!;
+  void clearResult() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  AuthorizedDataSourceV2ListProto get success => $_getN(0);
+  @$pb.TagNumber(1)
+  set success(AuthorizedDataSourceV2ListProto v) {
+    setField(1, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasSuccess() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSuccess() => clearField(1);
+  @$pb.TagNumber(1)
+  AuthorizedDataSourceV2ListProto ensureSuccess() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  PluginExceptionProto get failure => $_getN(1);
+  @$pb.TagNumber(2)
+  set failure(PluginExceptionProto v) {
+    setField(2, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasFailure() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFailure() => clearField(2);
+  @$pb.TagNumber(2)
+  PluginExceptionProto ensureFailure() => $_ensure(1);
+}
+
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
 const _omitMessageNames =
     $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -7,6 +7,12 @@ class ConsoleOutput {
     _value += '\n${DateTime.now().toIso8601String()} - $string\n';
   }
 
+  void appendMultiple(List<String> strings) {
+    for (String string in strings) {
+      _value += "${DateTime.now().toIso8601String()} - $string\n\n";
+    }
+  }
+
   void clear() {
     _value = '';
   }

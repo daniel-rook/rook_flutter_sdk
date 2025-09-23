@@ -1,3 +1,7 @@
+## 1.1.0
+
+* Added `AuthorizedDataSourceV2`
+
 ## 1.0.0
 
 * Added `DataSourceAuthorizer`

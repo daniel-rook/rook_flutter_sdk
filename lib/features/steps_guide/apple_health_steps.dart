@@ -29,8 +29,7 @@ class _AppleHealthStepsState extends State<AppleHealthSteps> {
             ),
             CupertinoButton(
               onPressed: () {
-                AHRookEventManager.syncTodayAppleHealthStepsCount()
-                    .then((syncedSteps) {
+                AHRookSyncManager.getTodayStepsCount().then((syncedSteps) {
                   setState(() => steps = syncedSteps ?? 0);
                 }).catchError((error) {
                   logger.severe('Error syncing steps: $error');

@@ -31,6 +31,15 @@ class AHRookConfigurationManager {
     return RookSdkAppleHealthPlatform.instance.updateUserID(userID);
   }
 
+  /// Extract and upload timezone information for the current user.
+  ///
+  /// **IMPORTANT: This function is already called every time `updateUserID` completes successfully,
+  /// in most cases the above behavior is more than enough. Only use this function if you need to update
+  /// the timezone information manually.**
+  static Future<void> syncUserTimeZone() {
+    return RookSdkAppleHealthPlatform.instance.syncUserTimeZone();
+  }
+
   /// Removes the current user for data upload.
   static Future<void> clearUserID() {
     return RookSdkAppleHealthPlatform.instance.clearUserID();
@@ -40,14 +49,5 @@ class AHRookConfigurationManager {
   /// once removed rook servers won't accept any health data from appleHealth.
   static Future<void> deleteUserFromRook() {
     return RookSdkAppleHealthPlatform.instance.deleteUserFromRook();
-  }
-
-  /// Extract and upload timezone information for the current user.
-  ///
-  /// **IMPORTANT: This function is already called every time `updateUserID` completes successfully,
-  /// in most cases the above behavior is more than enough. Only use this function if you need to update
-  /// the timezone information manually.**
-  static Future<void> syncUserTimeZone() {
-    return RookSdkAppleHealthPlatform.instance.syncUserTimeZone();
   }
 }
