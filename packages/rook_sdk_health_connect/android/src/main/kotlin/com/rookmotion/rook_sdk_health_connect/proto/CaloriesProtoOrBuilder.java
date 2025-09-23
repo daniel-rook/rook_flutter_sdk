@@ -5,8 +5,8 @@
 
 package com.rookmotion.rook_sdk_health_connect.proto;
 
-public interface DailyCaloriesProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:DailyCaloriesProto)
+public interface CaloriesProtoOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:CaloriesProto)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**

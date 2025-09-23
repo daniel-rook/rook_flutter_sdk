@@ -6,20 +6,20 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf type {@code ResultSyncStatusProto}
+ * Protobuf type {@code SyncStatusResultProto}
  */
-public  final class ResultSyncStatusProto extends
+public  final class SyncStatusResultProto extends
     com.google.protobuf.GeneratedMessageLite<
-        ResultSyncStatusProto, ResultSyncStatusProto.Builder> implements
-    // @@protoc_insertion_point(message_implements:ResultSyncStatusProto)
-    ResultSyncStatusProtoOrBuilder {
-  private ResultSyncStatusProto() {
+        SyncStatusResultProto, SyncStatusResultProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:SyncStatusResultProto)
+    SyncStatusResultProtoOrBuilder {
+  private SyncStatusResultProto() {
   }
   private int resultCase_ = 0;
   private java.lang.Object result_;
   public enum ResultCase {
-    SYNCSTATUSPROTO(1),
-    PLUGINEXCEPTIONPROTO(2),
+    SUCCESS(1),
+    FAILURE(2),
     RESULT_NOT_SET(0);
     private final int value;
     private ResultCase(int value) {
@@ -35,8 +35,8 @@ public  final class ResultSyncStatusProto extends
 
     public static ResultCase forNumber(int value) {
       switch (value) {
-        case 1: return SYNCSTATUSPROTO;
-        case 2: return PLUGINEXCEPTIONPROTO;
+        case 1: return SUCCESS;
+        case 2: return FAILURE;
         case 0: return RESULT_NOT_SET;
         default: return null;
       }
@@ -58,32 +58,32 @@ public  final class ResultSyncStatusProto extends
     result_ = null;
   }
 
-  public static final int SYNCSTATUSPROTO_FIELD_NUMBER = 1;
+  public static final int SUCCESS_FIELD_NUMBER = 1;
   /**
-   * <code>.SyncStatusProto syncStatusProto = 1;</code>
-   * @return Whether the syncStatusProto field is set.
+   * <code>.SyncStatusProto success = 1;</code>
+   * @return Whether the success field is set.
    */
   @java.lang.Override
-  public boolean hasSyncStatusProto() {
+  public boolean hasSuccess() {
     return resultCase_ == 1;
   }
   /**
-   * <code>.SyncStatusProto syncStatusProto = 1;</code>
-   * @return The enum numeric value on the wire for syncStatusProto.
+   * <code>.SyncStatusProto success = 1;</code>
+   * @return The enum numeric value on the wire for success.
    */
   @java.lang.Override
-  public int getSyncStatusProtoValue() {
+  public int getSuccessValue() {
     if (resultCase_ == 1) {
       return (java.lang.Integer) result_;
     }
     return 0;
   }
   /**
-   * <code>.SyncStatusProto syncStatusProto = 1;</code>
-   * @return The syncStatusProto.
+   * <code>.SyncStatusProto success = 1;</code>
+   * @return The success.
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto getSyncStatusProto() {
+  public com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto getSuccess() {
     if (resultCase_ == 1) {
       com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto result = com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto.forNumber((java.lang.Integer) result_);
       return result == null ? com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto.UNRECOGNIZED : result;
@@ -91,61 +91,61 @@ public  final class ResultSyncStatusProto extends
     return com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto.SYNCED;
   }
   /**
-   * <code>.SyncStatusProto syncStatusProto = 1;</code>
-   * @param value The enum numeric value on the wire for syncStatusProto to set.
+   * <code>.SyncStatusProto success = 1;</code>
+   * @param value The enum numeric value on the wire for success to set.
    */
-  private void setSyncStatusProtoValue(int value) {
+  private void setSuccessValue(int value) {
     resultCase_ = 1;
     result_ = value;
   }
   /**
-   * <code>.SyncStatusProto syncStatusProto = 1;</code>
-   * @param value The syncStatusProto to set.
+   * <code>.SyncStatusProto success = 1;</code>
+   * @param value The success to set.
    */
-  private void setSyncStatusProto(com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto value) {
+  private void setSuccess(com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto value) {
     result_ = value.getNumber();
     resultCase_ = 1;
   }
   /**
-   * <code>.SyncStatusProto syncStatusProto = 1;</code>
+   * <code>.SyncStatusProto success = 1;</code>
    */
-  private void clearSyncStatusProto() {
+  private void clearSuccess() {
     if (resultCase_ == 1) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static final int PLUGINEXCEPTIONPROTO_FIELD_NUMBER = 2;
+  public static final int FAILURE_FIELD_NUMBER = 2;
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public boolean hasPluginExceptionProto() {
+  public boolean hasFailure() {
     return resultCase_ == 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto() {
+  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
     if (resultCase_ == 2) {
        return (com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto) result_;
     }
     return com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
     value.getClass();
   if (resultCase_ == 2 &&
         result_ != com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance()) {
@@ -157,59 +157,59 @@ public  final class ResultSyncStatusProto extends
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void clearPluginExceptionProto() {
+  private void clearFailure() {
     if (resultCase_ == 2) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -217,24 +217,24 @@ public  final class ResultSyncStatusProto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -245,19 +245,19 @@ public  final class ResultSyncStatusProto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code ResultSyncStatusProto}
+   * Protobuf type {@code SyncStatusResultProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:ResultSyncStatusProto)
-      com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProtoOrBuilder {
-    // Construct using com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto.newBuilder()
+        com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:SyncStatusResultProto)
+      com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProtoOrBuilder {
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -276,108 +276,108 @@ public  final class ResultSyncStatusProto extends
 
 
     /**
-     * <code>.SyncStatusProto syncStatusProto = 1;</code>
-     * @return Whether the syncStatusProto field is set.
+     * <code>.SyncStatusProto success = 1;</code>
+     * @return Whether the success field is set.
      */
     @java.lang.Override
-    public boolean hasSyncStatusProto() {
-      return instance.hasSyncStatusProto();
+    public boolean hasSuccess() {
+      return instance.hasSuccess();
     }
     /**
-     * <code>.SyncStatusProto syncStatusProto = 1;</code>
-     * @return The enum numeric value on the wire for syncStatusProto.
+     * <code>.SyncStatusProto success = 1;</code>
+     * @return The enum numeric value on the wire for success.
      */
     @java.lang.Override
-    public int getSyncStatusProtoValue() {
-      return instance.getSyncStatusProtoValue();
+    public int getSuccessValue() {
+      return instance.getSuccessValue();
     }
     /**
-     * <code>.SyncStatusProto syncStatusProto = 1;</code>
-     * @param value The enum numeric value on the wire for syncStatusProto to set.
+     * <code>.SyncStatusProto success = 1;</code>
+     * @param value The enum numeric value on the wire for success to set.
      * @return This builder for chaining.
      */
-    public Builder setSyncStatusProtoValue(int value) {
+    public Builder setSuccessValue(int value) {
       copyOnWrite();
-      instance.setSyncStatusProtoValue(value);
+      instance.setSuccessValue(value);
       return this;
     }
     /**
-     * <code>.SyncStatusProto syncStatusProto = 1;</code>
-     * @return The syncStatusProto.
+     * <code>.SyncStatusProto success = 1;</code>
+     * @return The success.
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto getSyncStatusProto() {
-      return instance.getSyncStatusProto();
+    public com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto getSuccess() {
+      return instance.getSuccess();
     }
     /**
-     * <code>.SyncStatusProto syncStatusProto = 1;</code>
-     * @param value The syncStatusProto to set.
+     * <code>.SyncStatusProto success = 1;</code>
+     * @param value The success to set.
      * @return This builder for chaining.
      */
-    public Builder setSyncStatusProto(com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto value) {
+    public Builder setSuccess(com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto value) {
       copyOnWrite();
-      instance.setSyncStatusProto(value);
+      instance.setSuccess(value);
       return this;
     }
     /**
-     * <code>.SyncStatusProto syncStatusProto = 1;</code>
+     * <code>.SyncStatusProto success = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSyncStatusProto() {
+    public Builder clearSuccess() {
       copyOnWrite();
-      instance.clearSyncStatusProto();
+      instance.clearSuccess();
       return this;
     }
 
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public boolean hasPluginExceptionProto() {
-      return instance.hasPluginExceptionProto();
+    public boolean hasFailure() {
+      return instance.hasFailure();
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto() {
-      return instance.getPluginExceptionProto();
+    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
+      return instance.getFailure();
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
       copyOnWrite();
-      instance.setPluginExceptionProto(value);
+      instance.setFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder setPluginExceptionProto(
+    public Builder setFailure(
         com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.Builder builderForValue) {
       copyOnWrite();
-      instance.setPluginExceptionProto(builderForValue.build());
+      instance.setFailure(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
       copyOnWrite();
-      instance.mergePluginExceptionProto(value);
+      instance.mergeFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder clearPluginExceptionProto() {
+    public Builder clearFailure() {
       copyOnWrite();
-      instance.clearPluginExceptionProto();
+      instance.clearFailure();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:ResultSyncStatusProto)
+    // @@protoc_insertion_point(builder_scope:SyncStatusResultProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -386,7 +386,7 @@ public  final class ResultSyncStatusProto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto();
+        return new com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto();
       }
       case NEW_BUILDER: {
         return new Builder();
@@ -407,13 +407,13 @@ public  final class ResultSyncStatusProto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto> parser = PARSER;
+        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto> parser = PARSER;
         if (parser == null) {
-          synchronized (com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto.class) {
+          synchronized (com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto>(
+                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -432,24 +432,24 @@ public  final class ResultSyncStatusProto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:ResultSyncStatusProto)
-  private static final com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:SyncStatusResultProto)
+  private static final com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto DEFAULT_INSTANCE;
   static {
-    ResultSyncStatusProto defaultInstance = new ResultSyncStatusProto();
+    SyncStatusResultProto defaultInstance = new SyncStatusResultProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      ResultSyncStatusProto.class, defaultInstance);
+      SyncStatusResultProto.class, defaultInstance);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusProto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusResultProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<ResultSyncStatusProto> PARSER;
+  private static volatile com.google.protobuf.Parser<SyncStatusResultProto> PARSER;
 
-  public static com.google.protobuf.Parser<ResultSyncStatusProto> parser() {
+  public static com.google.protobuf.Parser<SyncStatusResultProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

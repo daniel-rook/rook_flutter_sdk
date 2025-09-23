@@ -7,8 +7,6 @@ import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extens
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_source_authorizer_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_daily_calories_extensions.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_sync_status_with_int_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/event_sync_type_mapper.dart';
@@ -19,6 +17,8 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/data/result/authorized_data_source_v2_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/background_read_status_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/request_permissions_status_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/sync_status_with_calories_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/sync_status_with_int_result.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
@@ -299,7 +299,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getTodayStepsCount',
     );
-    final result = ResultSyncStatusWithIntProto.fromBuffer(bytes);
+    final result = SyncStatusWithIntResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -310,7 +310,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'getTodayCaloriesCount',
     );
 
-    final result = ResultSyncStatusWithDailyCaloriesProto.fromBuffer(bytes);
+    final result = SyncStatusWithCaloriesResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

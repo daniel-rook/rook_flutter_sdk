@@ -6,10 +6,12 @@ import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
-import '../common/test_utils.dart';
 import 'authorized_data_source_v2.dart';
 import 'background_read_status.dart';
+import 'health_connect_availability.dart';
 import 'request_permission_status.dart';
+import 'sync_status_with_calories.dart';
+import 'sync_status_with_int.dart';
 
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package
 
@@ -26,8 +28,8 @@ void main() {
 
   resultBooleanTests(platform, channel);
   resultInt64Tests(platform, channel);
-  resultSyncStatusWithIntTest(platform, channel);
-  resultSyncStatusWithDailyCaloriesTest(platform, channel);
+  syncStatusWithIntTest(platform, channel);
+  syncStatusWithCaloriesTest(platform, channel);
   resultDataSourceTests(platform, channel);
   resultDataSourceAuthorizerTests(platform, channel);
   resultAuthorizedDataSourcesTests(platform, channel);
@@ -35,7 +37,7 @@ void main() {
   requestPermissionsStatusTests(platform, channel);
   backgroundReadStatusTests(platform, channel);
   stringTests(platform, channel);
-  availabilityStatusTests(platform, channel);
+  healthConnectAvailabilityTests(platform, channel);
 }
 
 void resultBooleanTests(
@@ -487,149 +489,6 @@ void resultInt64Tests(
   });
 }
 
-void resultSyncStatusWithIntTest(
-  MethodChannelRookSdkHealthConnect platform,
-  MethodChannel channel,
-) {
-  group(
-      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithIntProto value unwrap',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final syncStatusWithIntProto = SyncStatusWithIntProto.create()
-          ..syncStatus = SyncStatusProto.SYNCED
-          ..steps = 1;
-
-        final proto = ResultSyncStatusWithIntProto()
-          ..syncStatusWithIntProto = syncStatusWithIntProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-      'GIVEN a Result.syncStatusWithIntProto WHEN getTodayStepsCount THEN complete with expected value',
-      () async {
-        final future = platform.getTodayStepsCount();
-
-        await expectLater(
-          future,
-          completion(
-            predicate<SyncStatusWithData<int?>>(
-              (value) => (value as Synced<int?>).data == 1,
-            ),
-          ),
-        );
-      },
-    );
-  });
-
-  group(
-      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithIntProto exception unwrap',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final pluginExceptionProto = PluginExceptionProto.create()
-          ..id = -1
-          ..message = _exceptionMessage
-          ..code = _exceptionCode;
-
-        final proto = ResultSyncStatusWithIntProto.create()
-          ..pluginExceptionProto = pluginExceptionProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-      'GIVEN the unhappy path WHEN getTodayStepsCount throw exception',
-      () async {
-        final future = platform.getTodayStepsCount();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-  });
-}
-
-void resultSyncStatusWithDailyCaloriesTest(
-  MethodChannelRookSdkHealthConnect platform,
-  MethodChannel channel,
-) {
-  group(
-      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithDailyCaloriesProto value unwrap',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final dailyCaloriesProto = DailyCaloriesProto.create()
-          ..basal = 12.5
-          ..active = 22.5;
-        final syncStatusWithDailyCaloriesProto =
-            SyncStatusWithDailyCaloriesProto.create()
-              ..syncStatus = SyncStatusProto.SYNCED
-              ..dailyCalories = dailyCaloriesProto;
-
-        final proto = ResultSyncStatusWithDailyCaloriesProto()
-          ..syncStatusWithDailyCaloriesProto = syncStatusWithDailyCaloriesProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-      'GIVEN a Result.syncStatusWithDailyCaloriesProto WHEN getTodayCaloriesCount THEN complete with expected value',
-      () async {
-        final future = platform.getTodayCaloriesCount();
-
-        await expectLater(
-          future,
-          completion(
-            predicate<SyncStatusWithData<DailyCalories>>(
-              (value) {
-                final dailyCalories = (value as Synced<DailyCalories>).data;
-
-                return dailyCalories.basal == 12.5 &&
-                    dailyCalories.active == 22.5;
-              },
-            ),
-          ),
-        );
-      },
-    );
-  });
-
-  group(
-      'MethodChannelRookSdkHealthConnect | ResultSyncStatusWithDailyCaloriesProto exception unwrap',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final pluginExceptionProto = PluginExceptionProto.create()
-          ..id = -1
-          ..message = _exceptionMessage
-          ..code = _exceptionCode;
-
-        final proto = ResultSyncStatusWithDailyCaloriesProto.create()
-          ..pluginExceptionProto = pluginExceptionProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-      'GIVEN the unhappy path WHEN getTodayCaloriesCount throw exception',
-      () async {
-        final future = platform.getTodayCaloriesCount();
-
-        await expectLater(future, throwsA(isException));
-      },
-    );
-  });
-}
-
 void resultDataSourceTests(
   MethodChannelRookSdkHealthConnect platform,
   MethodChannel channel,
@@ -980,49 +839,6 @@ void boolTests(
         await expectLater(future, throwsA(isException));
       },
     );
-  });
-}
-
-void availabilityStatusTests(
-  MethodChannelRookSdkHealthConnect platform,
-  MethodChannel channel,
-) {
-  group(
-      'MethodChannelRookSdkHealthConnect | Health Connect Availability Success',
-      () {
-    mockMethodCall(channel, (_) async {
-      return HealthConnectAvailabilityProto.INSTALLED.value;
-    });
-
-    test(
-        'GIVEN the happy path WHEN checkHealthConnectAvailability THEN complete with expected value',
-        () async {
-      final future = platform.checkHealthConnectAvailability();
-
-      await expectLater(future, completion(HCAvailabilityStatus.installed));
-    });
-  });
-
-  group(
-      'MethodChannelRookSdkHealthConnect | Health Connect Availability Failure',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        channel,
-        (message) async {
-          throw Exception("Unknown error");
-        },
-      );
-    });
-
-    test(
-        'GIVEN the unhappy path WHEN checkHealthConnectAvailability THEN throw exception',
-        () async {
-      final future = platform.checkHealthConnectAvailability();
-
-      await expectLater(future, throwsA(isException));
-    });
   });
 }
 

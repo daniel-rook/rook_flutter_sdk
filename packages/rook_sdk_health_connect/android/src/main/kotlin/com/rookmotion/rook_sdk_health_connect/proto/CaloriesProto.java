@@ -6,14 +6,14 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf type {@code DailyCaloriesProto}
+ * Protobuf type {@code CaloriesProto}
  */
-public  final class DailyCaloriesProto extends
+public  final class CaloriesProto extends
     com.google.protobuf.GeneratedMessageLite<
-        DailyCaloriesProto, DailyCaloriesProto.Builder> implements
-    // @@protoc_insertion_point(message_implements:DailyCaloriesProto)
-    DailyCaloriesProtoOrBuilder {
-  private DailyCaloriesProto() {
+        CaloriesProto, CaloriesProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:CaloriesProto)
+    CaloriesProtoOrBuilder {
+  private CaloriesProto() {
   }
   public static final int BASAL_FIELD_NUMBER = 1;
   private double basal_;
@@ -67,50 +67,50 @@ public  final class DailyCaloriesProto extends
     active_ = 0D;
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -118,24 +118,24 @@ public  final class DailyCaloriesProto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -146,19 +146,19 @@ public  final class DailyCaloriesProto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code DailyCaloriesProto}
+   * Protobuf type {@code CaloriesProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:DailyCaloriesProto)
-      com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProtoOrBuilder {
-    // Construct using com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto.newBuilder()
+        com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:CaloriesProto)
+      com.rookmotion.rook_sdk_health_connect.proto.CaloriesProtoOrBuilder {
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -220,7 +220,7 @@ public  final class DailyCaloriesProto extends
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:DailyCaloriesProto)
+    // @@protoc_insertion_point(builder_scope:CaloriesProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -229,7 +229,7 @@ public  final class DailyCaloriesProto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto();
+        return new com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto();
       }
       case NEW_BUILDER: {
         return new Builder();
@@ -249,13 +249,13 @@ public  final class DailyCaloriesProto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto> parser = PARSER;
+        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto> parser = PARSER;
         if (parser == null) {
-          synchronized (com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto.class) {
+          synchronized (com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto>(
+                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -274,24 +274,24 @@ public  final class DailyCaloriesProto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:DailyCaloriesProto)
-  private static final com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:CaloriesProto)
+  private static final com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto DEFAULT_INSTANCE;
   static {
-    DailyCaloriesProto defaultInstance = new DailyCaloriesProto();
+    CaloriesProto defaultInstance = new CaloriesProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      DailyCaloriesProto.class, defaultInstance);
+      CaloriesProto.class, defaultInstance);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<DailyCaloriesProto> PARSER;
+  private static volatile com.google.protobuf.Parser<CaloriesProto> PARSER;
 
-  public static com.google.protobuf.Parser<DailyCaloriesProto> parser() {
+  public static com.google.protobuf.Parser<CaloriesProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

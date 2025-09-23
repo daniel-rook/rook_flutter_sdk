@@ -5,8 +5,8 @@
 
 package com.rookmotion.rook_sdk_health_connect.proto;
 
-public interface SyncStatusWithDailyCaloriesProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:SyncStatusWithDailyCaloriesProto)
+public interface SyncStatusWithCaloriesProtoOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:SyncStatusWithCaloriesProto)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
@@ -21,13 +21,13 @@ public interface SyncStatusWithDailyCaloriesProtoOrBuilder extends
   com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto getSyncStatus();
 
   /**
-   * <code>.DailyCaloriesProto dailyCalories = 2;</code>
-   * @return Whether the dailyCalories field is set.
+   * <code>.CaloriesProto calories = 2;</code>
+   * @return Whether the calories field is set.
    */
-  boolean hasDailyCalories();
+  boolean hasCalories();
   /**
-   * <code>.DailyCaloriesProto dailyCalories = 2;</code>
-   * @return The dailyCalories.
+   * <code>.CaloriesProto calories = 2;</code>
+   * @return The calories.
    */
-  com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto getDailyCalories();
+  com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto getCalories();
 }

@@ -1,11 +1,13 @@
-package com.rookmotion.rook_sdk_health_connect.extension
+package com.rookmotion.rook_sdk_health_connect.result
 
 import com.rookmotion.rook.sdk.domain.model.SyncStatusWithData
-import com.rookmotion.rook_sdk_health_connect.DEFAULT_INT
+import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionCode
+import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionId
+import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionMessage
 import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
-import com.rookmotion.rook_sdk_health_connect.proto.ResultSyncStatusWithIntProto
 import com.rookmotion.rook_sdk_health_connect.proto.SyncStatusProto
 import com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithIntProto
+import com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithIntResultProto
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.syncStatusWithIntSuccess(syncStatusWithData: SyncStatusWithData<Int>) {
@@ -13,11 +15,10 @@ fun MethodChannel.Result.syncStatusWithIntSuccess(syncStatusWithData: SyncStatus
         SyncStatusWithData.RecordsNotFound -> {
             val syncStatusWithIntProto = SyncStatusWithIntProto.newBuilder()
                 .setSyncStatus(SyncStatusProto.RECORDS_NOT_FOUND)
-                .setSteps(DEFAULT_INT)
                 .build()
 
-            ResultSyncStatusWithIntProto.newBuilder()
-                .setSyncStatusWithIntProto(syncStatusWithIntProto)
+            SyncStatusWithIntResultProto.newBuilder()
+                .setSuccess(syncStatusWithIntProto)
                 .build()
                 .toByteArray()
         }
@@ -25,11 +26,11 @@ fun MethodChannel.Result.syncStatusWithIntSuccess(syncStatusWithData: SyncStatus
         is SyncStatusWithData.Synced -> {
             val syncStatusWithIntProto = SyncStatusWithIntProto.newBuilder()
                 .setSyncStatus(SyncStatusProto.SYNCED)
-                .setSteps(syncStatusWithData.data)
+                .setValue(syncStatusWithData.data)
                 .build()
 
-            ResultSyncStatusWithIntProto.newBuilder()
-                .setSyncStatusWithIntProto(syncStatusWithIntProto)
+            SyncStatusWithIntResultProto.newBuilder()
+                .setSuccess(syncStatusWithIntProto)
                 .build()
                 .toByteArray()
         }
@@ -44,8 +45,8 @@ fun MethodChannel.Result.syncStatusWithIntError(throwable: Throwable) {
         .setCode(throwable.getPluginExceptionCode())
         .setMessage(throwable.getPluginExceptionMessage())
 
-    val bytes = ResultSyncStatusWithIntProto.newBuilder()
-        .setPluginExceptionProto(pluginExceptionProto)
+    val bytes = SyncStatusWithIntResultProto.newBuilder()
+        .setFailure(pluginExceptionProto)
         .build()
         .toByteArray()
 

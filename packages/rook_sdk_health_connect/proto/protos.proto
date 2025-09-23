@@ -103,39 +103,39 @@ enum SyncStatusProto {
   RECORDS_NOT_FOUND = 1;
 }
 
-message ResultSyncStatusProto {
+message SyncStatusResultProto {
   oneof result {
-    SyncStatusProto syncStatusProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    SyncStatusProto success = 1;
+    PluginExceptionProto failure = 2;
   }
 }
 
 message SyncStatusWithIntProto {
   SyncStatusProto syncStatus = 1;
-  uint32 steps = 2;
+  uint32 value = 2;
 }
 
-message ResultSyncStatusWithIntProto {
+message SyncStatusWithIntResultProto {
   oneof result {
-    SyncStatusWithIntProto syncStatusWithIntProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    SyncStatusWithIntProto success = 1;
+    PluginExceptionProto failure = 2;
   }
 }
 
-message DailyCaloriesProto {
+message CaloriesProto {
   double basal = 1;
   double active = 2;
 }
 
-message SyncStatusWithDailyCaloriesProto {
+message SyncStatusWithCaloriesProto {
   SyncStatusProto syncStatus = 1;
-  DailyCaloriesProto dailyCalories = 2;
+  CaloriesProto calories = 2;
 }
 
-message ResultSyncStatusWithDailyCaloriesProto {
+message SyncStatusWithCaloriesResultProto {
   oneof result {
-    SyncStatusWithDailyCaloriesProto syncStatusWithDailyCaloriesProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    SyncStatusWithCaloriesProto success = 1;
+    PluginExceptionProto failure = 2;
   }
 }
 
@@ -158,6 +158,26 @@ message DataSourceAuthorizerProto {
 message ResultDataSourceAuthorizerProto {
   oneof result {
     DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+message AuthorizedDataSourcesProto {
+  uint32 oura = 1;
+  uint32 polar = 2;
+  uint32 whoop = 3;
+  uint32 fitbit = 4;
+  uint32 garmin = 5;
+  uint32 withings = 6;
+  uint32 dexcom = 7;
+  uint32 appleHealth = 8;
+  uint32 healthConnect = 9;
+  uint32 android = 10;
+}
+
+message ResultAuthorizedDataSourcesProto {
+  oneof result {
+    AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }
@@ -197,26 +217,6 @@ message DataSourcesProtoListWrapper {
 message ResultDataSourcesProto {
   oneof result {
     DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message AuthorizedDataSourcesProto {
-  uint32 oura = 1;
-  uint32 polar = 2;
-  uint32 whoop = 3;
-  uint32 fitbit = 4;
-  uint32 garmin = 5;
-  uint32 withings = 6;
-  uint32 dexcom = 7;
-  uint32 appleHealth = 8;
-  uint32 healthConnect = 9;
-  uint32 android = 10;
-}
-
-message ResultAuthorizedDataSourcesProto {
-  oneof result {
-    AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
     PluginExceptionProto pluginExceptionProto = 2;
   }
 }

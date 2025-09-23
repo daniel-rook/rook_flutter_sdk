@@ -6,14 +6,14 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf type {@code SyncStatusWithDailyCaloriesProto}
+ * Protobuf type {@code SyncStatusWithCaloriesProto}
  */
-public  final class SyncStatusWithDailyCaloriesProto extends
+public  final class SyncStatusWithCaloriesProto extends
     com.google.protobuf.GeneratedMessageLite<
-        SyncStatusWithDailyCaloriesProto, SyncStatusWithDailyCaloriesProto.Builder> implements
-    // @@protoc_insertion_point(message_implements:SyncStatusWithDailyCaloriesProto)
-    SyncStatusWithDailyCaloriesProtoOrBuilder {
-  private SyncStatusWithDailyCaloriesProto() {
+        SyncStatusWithCaloriesProto, SyncStatusWithCaloriesProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:SyncStatusWithCaloriesProto)
+    SyncStatusWithCaloriesProtoOrBuilder {
+  private SyncStatusWithCaloriesProto() {
   }
   private int bitField0_;
   public static final int SYNCSTATUS_FIELD_NUMBER = 1;
@@ -58,96 +58,96 @@ public  final class SyncStatusWithDailyCaloriesProto extends
     syncStatus_ = 0;
   }
 
-  public static final int DAILYCALORIES_FIELD_NUMBER = 2;
-  private com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto dailyCalories_;
+  public static final int CALORIES_FIELD_NUMBER = 2;
+  private com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto calories_;
   /**
-   * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+   * <code>.CaloriesProto calories = 2;</code>
    */
   @java.lang.Override
-  public boolean hasDailyCalories() {
+  public boolean hasCalories() {
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+   * <code>.CaloriesProto calories = 2;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto getDailyCalories() {
-    return dailyCalories_ == null ? com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto.getDefaultInstance() : dailyCalories_;
+  public com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto getCalories() {
+    return calories_ == null ? com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto.getDefaultInstance() : calories_;
   }
   /**
-   * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+   * <code>.CaloriesProto calories = 2;</code>
    */
-  private void setDailyCalories(com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto value) {
+  private void setCalories(com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto value) {
     value.getClass();
-  dailyCalories_ = value;
+  calories_ = value;
     bitField0_ |= 0x00000001;
     }
   /**
-   * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+   * <code>.CaloriesProto calories = 2;</code>
    */
   @java.lang.SuppressWarnings({"ReferenceEquality"})
-  private void mergeDailyCalories(com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto value) {
+  private void mergeCalories(com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto value) {
     value.getClass();
-  if (dailyCalories_ != null &&
-        dailyCalories_ != com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto.getDefaultInstance()) {
-      dailyCalories_ =
-        com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto.newBuilder(dailyCalories_).mergeFrom(value).buildPartial();
+  if (calories_ != null &&
+        calories_ != com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto.getDefaultInstance()) {
+      calories_ =
+        com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto.newBuilder(calories_).mergeFrom(value).buildPartial();
     } else {
-      dailyCalories_ = value;
+      calories_ = value;
     }
     bitField0_ |= 0x00000001;
   }
   /**
-   * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+   * <code>.CaloriesProto calories = 2;</code>
    */
-  private void clearDailyCalories() {  dailyCalories_ = null;
+  private void clearCalories() {  calories_ = null;
     bitField0_ = (bitField0_ & ~0x00000001);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -155,24 +155,24 @@ public  final class SyncStatusWithDailyCaloriesProto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -183,19 +183,19 @@ public  final class SyncStatusWithDailyCaloriesProto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code SyncStatusWithDailyCaloriesProto}
+   * Protobuf type {@code SyncStatusWithCaloriesProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:SyncStatusWithDailyCaloriesProto)
-      com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProtoOrBuilder {
-    // Construct using com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto.newBuilder()
+        com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:SyncStatusWithCaloriesProto)
+      com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProtoOrBuilder {
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -248,53 +248,53 @@ public  final class SyncStatusWithDailyCaloriesProto extends
     }
 
     /**
-     * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+     * <code>.CaloriesProto calories = 2;</code>
      */
     @java.lang.Override
-    public boolean hasDailyCalories() {
-      return instance.hasDailyCalories();
+    public boolean hasCalories() {
+      return instance.hasCalories();
     }
     /**
-     * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+     * <code>.CaloriesProto calories = 2;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto getDailyCalories() {
-      return instance.getDailyCalories();
+    public com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto getCalories() {
+      return instance.getCalories();
     }
     /**
-     * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+     * <code>.CaloriesProto calories = 2;</code>
      */
-    public Builder setDailyCalories(com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto value) {
+    public Builder setCalories(com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto value) {
       copyOnWrite();
-      instance.setDailyCalories(value);
+      instance.setCalories(value);
       return this;
       }
     /**
-     * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+     * <code>.CaloriesProto calories = 2;</code>
      */
-    public Builder setDailyCalories(
-        com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto.Builder builderForValue) {
+    public Builder setCalories(
+        com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto.Builder builderForValue) {
       copyOnWrite();
-      instance.setDailyCalories(builderForValue.build());
+      instance.setCalories(builderForValue.build());
       return this;
     }
     /**
-     * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+     * <code>.CaloriesProto calories = 2;</code>
      */
-    public Builder mergeDailyCalories(com.rookmotion.rook_sdk_health_connect.proto.DailyCaloriesProto value) {
+    public Builder mergeCalories(com.rookmotion.rook_sdk_health_connect.proto.CaloriesProto value) {
       copyOnWrite();
-      instance.mergeDailyCalories(value);
+      instance.mergeCalories(value);
       return this;
     }
     /**
-     * <code>.DailyCaloriesProto dailyCalories = 2;</code>
+     * <code>.CaloriesProto calories = 2;</code>
      */
-    public Builder clearDailyCalories() {  copyOnWrite();
-      instance.clearDailyCalories();
+    public Builder clearCalories() {  copyOnWrite();
+      instance.clearCalories();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:SyncStatusWithDailyCaloriesProto)
+    // @@protoc_insertion_point(builder_scope:SyncStatusWithCaloriesProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -303,7 +303,7 @@ public  final class SyncStatusWithDailyCaloriesProto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto();
+        return new com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto();
       }
       case NEW_BUILDER: {
         return new Builder();
@@ -312,7 +312,7 @@ public  final class SyncStatusWithDailyCaloriesProto extends
           java.lang.Object[] objects = new java.lang.Object[] {
             "bitField0_",
             "syncStatus_",
-            "dailyCalories_",
+            "calories_",
           };
           java.lang.String info =
               "\u0000\u0002\u0000\u0001\u0001\u0002\u0002\u0000\u0000\u0000\u0001\f\u0002\u1009" +
@@ -324,13 +324,13 @@ public  final class SyncStatusWithDailyCaloriesProto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto> parser = PARSER;
+        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto> parser = PARSER;
         if (parser == null) {
-          synchronized (com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto.class) {
+          synchronized (com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto>(
+                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -349,24 +349,24 @@ public  final class SyncStatusWithDailyCaloriesProto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:SyncStatusWithDailyCaloriesProto)
-  private static final com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:SyncStatusWithCaloriesProto)
+  private static final com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto DEFAULT_INSTANCE;
   static {
-    SyncStatusWithDailyCaloriesProto defaultInstance = new SyncStatusWithDailyCaloriesProto();
+    SyncStatusWithCaloriesProto defaultInstance = new SyncStatusWithCaloriesProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      SyncStatusWithDailyCaloriesProto.class, defaultInstance);
+      SyncStatusWithCaloriesProto.class, defaultInstance);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithDailyCaloriesProto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.SyncStatusWithCaloriesProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<SyncStatusWithDailyCaloriesProto> PARSER;
+  private static volatile com.google.protobuf.Parser<SyncStatusWithCaloriesProto> PARSER;
 
-  public static com.google.protobuf.Parser<SyncStatusWithDailyCaloriesProto> parser() {
+  public static com.google.protobuf.Parser<SyncStatusWithCaloriesProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

@@ -278,106 +278,102 @@ final $typed_data.Uint8List androidPermissionsSummaryProtoDescriptor = $convert.
     'EgASgIUhJwZXJtaXNzaW9uc0dyYW50ZWQSKAoPZGlhbG9nRGlzcGxheWVkGAIgASgIUg9kaWFs'
     'b2dEaXNwbGF5ZWQ=');
 
-@$core.Deprecated('Use resultSyncStatusProtoDescriptor instead')
-const ResultSyncStatusProto$json = {
-  '1': 'ResultSyncStatusProto',
+@$core.Deprecated('Use syncStatusResultProtoDescriptor instead')
+const SyncStatusResultProto$json = {
+  '1': 'SyncStatusResultProto',
   '2': [
-    {'1': 'syncStatusProto', '3': 1, '4': 1, '5': 14, '6': '.SyncStatusProto', '9': 0, '10': 'syncStatusProto'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {'1': 'success', '3': 1, '4': 1, '5': 14, '6': '.SyncStatusProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
   ],
 };
 
-/// Descriptor for `ResultSyncStatusProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultSyncStatusProtoDescriptor = $convert.base64Decode(
-    'ChVSZXN1bHRTeW5jU3RhdHVzUHJvdG8SPAoPc3luY1N0YXR1c1Byb3RvGAEgASgOMhAuU3luY1'
-    'N0YXR1c1Byb3RvSABSD3N5bmNTdGF0dXNQcm90bxJLChRwbHVnaW5FeGNlcHRpb25Qcm90bxgC'
-    'IAEoCzIVLlBsdWdpbkV4Y2VwdGlvblByb3RvSABSFHBsdWdpbkV4Y2VwdGlvblByb3RvQggKBn'
-    'Jlc3VsdA==');
+/// Descriptor for `SyncStatusResultProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List syncStatusResultProtoDescriptor = $convert.base64Decode(
+    'ChVTeW5jU3RhdHVzUmVzdWx0UHJvdG8SLAoHc3VjY2VzcxgBIAEoDjIQLlN5bmNTdGF0dXNQcm'
+    '90b0gAUgdzdWNjZXNzEjEKB2ZhaWx1cmUYAiABKAsyFS5QbHVnaW5FeGNlcHRpb25Qcm90b0gA'
+    'UgdmYWlsdXJlQggKBnJlc3VsdA==');
 
 @$core.Deprecated('Use syncStatusWithIntProtoDescriptor instead')
 const SyncStatusWithIntProto$json = {
   '1': 'SyncStatusWithIntProto',
   '2': [
     {'1': 'syncStatus', '3': 1, '4': 1, '5': 14, '6': '.SyncStatusProto', '10': 'syncStatus'},
-    {'1': 'steps', '3': 2, '4': 1, '5': 13, '10': 'steps'},
+    {'1': 'value', '3': 2, '4': 1, '5': 13, '10': 'value'},
   ],
 };
 
 /// Descriptor for `SyncStatusWithIntProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List syncStatusWithIntProtoDescriptor = $convert.base64Decode(
     'ChZTeW5jU3RhdHVzV2l0aEludFByb3RvEjAKCnN5bmNTdGF0dXMYASABKA4yEC5TeW5jU3RhdH'
-    'VzUHJvdG9SCnN5bmNTdGF0dXMSFAoFc3RlcHMYAiABKA1SBXN0ZXBz');
+    'VzUHJvdG9SCnN5bmNTdGF0dXMSFAoFdmFsdWUYAiABKA1SBXZhbHVl');
 
-@$core.Deprecated('Use resultSyncStatusWithIntProtoDescriptor instead')
-const ResultSyncStatusWithIntProto$json = {
-  '1': 'ResultSyncStatusWithIntProto',
+@$core.Deprecated('Use syncStatusWithIntResultProtoDescriptor instead')
+const SyncStatusWithIntResultProto$json = {
+  '1': 'SyncStatusWithIntResultProto',
   '2': [
-    {'1': 'syncStatusWithIntProto', '3': 1, '4': 1, '5': 11, '6': '.SyncStatusWithIntProto', '9': 0, '10': 'syncStatusWithIntProto'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.SyncStatusWithIntProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
   ],
 };
 
-/// Descriptor for `ResultSyncStatusWithIntProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultSyncStatusWithIntProtoDescriptor = $convert.base64Decode(
-    'ChxSZXN1bHRTeW5jU3RhdHVzV2l0aEludFByb3RvElEKFnN5bmNTdGF0dXNXaXRoSW50UHJvdG'
-    '8YASABKAsyFy5TeW5jU3RhdHVzV2l0aEludFByb3RvSABSFnN5bmNTdGF0dXNXaXRoSW50UHJv'
-    'dG8SSwoUcGx1Z2luRXhjZXB0aW9uUHJvdG8YAiABKAsyFS5QbHVnaW5FeGNlcHRpb25Qcm90b0'
-    'gAUhRwbHVnaW5FeGNlcHRpb25Qcm90b0IICgZyZXN1bHQ=');
+/// Descriptor for `SyncStatusWithIntResultProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List syncStatusWithIntResultProtoDescriptor = $convert.base64Decode(
+    'ChxTeW5jU3RhdHVzV2l0aEludFJlc3VsdFByb3RvEjMKB3N1Y2Nlc3MYASABKAsyFy5TeW5jU3'
+    'RhdHVzV2l0aEludFByb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBsdWdpbkV4'
+    'Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
 
-@$core.Deprecated('Use dailyCaloriesProtoDescriptor instead')
-const DailyCaloriesProto$json = {
-  '1': 'DailyCaloriesProto',
+@$core.Deprecated('Use caloriesProtoDescriptor instead')
+const CaloriesProto$json = {
+  '1': 'CaloriesProto',
   '2': [
     {'1': 'basal', '3': 1, '4': 1, '5': 1, '10': 'basal'},
     {'1': 'active', '3': 2, '4': 1, '5': 1, '10': 'active'},
   ],
 };
 
-/// Descriptor for `DailyCaloriesProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dailyCaloriesProtoDescriptor = $convert.base64Decode(
-    'ChJEYWlseUNhbG9yaWVzUHJvdG8SFAoFYmFzYWwYASABKAFSBWJhc2FsEhYKBmFjdGl2ZRgCIA'
-    'EoAVIGYWN0aXZl');
+/// Descriptor for `CaloriesProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List caloriesProtoDescriptor = $convert.base64Decode(
+    'Cg1DYWxvcmllc1Byb3RvEhQKBWJhc2FsGAEgASgBUgViYXNhbBIWCgZhY3RpdmUYAiABKAFSBm'
+    'FjdGl2ZQ==');
 
-@$core.Deprecated('Use syncStatusWithDailyCaloriesProtoDescriptor instead')
-const SyncStatusWithDailyCaloriesProto$json = {
-  '1': 'SyncStatusWithDailyCaloriesProto',
+@$core.Deprecated('Use syncStatusWithCaloriesProtoDescriptor instead')
+const SyncStatusWithCaloriesProto$json = {
+  '1': 'SyncStatusWithCaloriesProto',
   '2': [
     {'1': 'syncStatus', '3': 1, '4': 1, '5': 14, '6': '.SyncStatusProto', '10': 'syncStatus'},
-    {'1': 'dailyCalories', '3': 2, '4': 1, '5': 11, '6': '.DailyCaloriesProto', '10': 'dailyCalories'},
+    {'1': 'calories', '3': 2, '4': 1, '5': 11, '6': '.CaloriesProto', '10': 'calories'},
   ],
 };
 
-/// Descriptor for `SyncStatusWithDailyCaloriesProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List syncStatusWithDailyCaloriesProtoDescriptor = $convert.base64Decode(
-    'CiBTeW5jU3RhdHVzV2l0aERhaWx5Q2Fsb3JpZXNQcm90bxIwCgpzeW5jU3RhdHVzGAEgASgOMh'
-    'AuU3luY1N0YXR1c1Byb3RvUgpzeW5jU3RhdHVzEjkKDWRhaWx5Q2Fsb3JpZXMYAiABKAsyEy5E'
-    'YWlseUNhbG9yaWVzUHJvdG9SDWRhaWx5Q2Fsb3JpZXM=');
+/// Descriptor for `SyncStatusWithCaloriesProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List syncStatusWithCaloriesProtoDescriptor = $convert.base64Decode(
+    'ChtTeW5jU3RhdHVzV2l0aENhbG9yaWVzUHJvdG8SMAoKc3luY1N0YXR1cxgBIAEoDjIQLlN5bm'
+    'NTdGF0dXNQcm90b1IKc3luY1N0YXR1cxIqCghjYWxvcmllcxgCIAEoCzIOLkNhbG9yaWVzUHJv'
+    'dG9SCGNhbG9yaWVz');
 
-@$core.Deprecated('Use resultSyncStatusWithDailyCaloriesProtoDescriptor instead')
-const ResultSyncStatusWithDailyCaloriesProto$json = {
-  '1': 'ResultSyncStatusWithDailyCaloriesProto',
+@$core.Deprecated('Use syncStatusWithCaloriesResultProtoDescriptor instead')
+const SyncStatusWithCaloriesResultProto$json = {
+  '1': 'SyncStatusWithCaloriesResultProto',
   '2': [
-    {'1': 'syncStatusWithDailyCaloriesProto', '3': 1, '4': 1, '5': 11, '6': '.SyncStatusWithDailyCaloriesProto', '9': 0, '10': 'syncStatusWithDailyCaloriesProto'},
-    {'1': 'pluginExceptionProto', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'pluginExceptionProto'},
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.SyncStatusWithCaloriesProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
   ],
 };
 
-/// Descriptor for `ResultSyncStatusWithDailyCaloriesProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultSyncStatusWithDailyCaloriesProtoDescriptor = $convert.base64Decode(
-    'CiZSZXN1bHRTeW5jU3RhdHVzV2l0aERhaWx5Q2Fsb3JpZXNQcm90bxJvCiBzeW5jU3RhdHVzV2'
-    'l0aERhaWx5Q2Fsb3JpZXNQcm90bxgBIAEoCzIhLlN5bmNTdGF0dXNXaXRoRGFpbHlDYWxvcmll'
-    'c1Byb3RvSABSIHN5bmNTdGF0dXNXaXRoRGFpbHlDYWxvcmllc1Byb3RvEksKFHBsdWdpbkV4Y2'
-    'VwdGlvblByb3RvGAIgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIUcGx1Z2luRXhjZXB0'
-    'aW9uUHJvdG9CCAoGcmVzdWx0');
+/// Descriptor for `SyncStatusWithCaloriesResultProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List syncStatusWithCaloriesResultProtoDescriptor = $convert.base64Decode(
+    'CiFTeW5jU3RhdHVzV2l0aENhbG9yaWVzUmVzdWx0UHJvdG8SOAoHc3VjY2VzcxgBIAEoCzIcLl'
+    'N5bmNTdGF0dXNXaXRoQ2Fsb3JpZXNQcm90b0gAUgdzdWNjZXNzEjEKB2ZhaWx1cmUYAiABKAsy'
+    'FS5QbHVnaW5FeGNlcHRpb25Qcm90b0gAUgdmYWlsdXJlQggKBnJlc3VsdA==');
 
 @$core.Deprecated('Use dataSourceAuthorizerProtoDescriptor instead')
 const DataSourceAuthorizerProto$json = {
