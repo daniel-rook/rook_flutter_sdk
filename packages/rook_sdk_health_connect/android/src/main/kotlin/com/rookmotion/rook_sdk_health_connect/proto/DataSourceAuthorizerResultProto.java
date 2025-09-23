@@ -6,20 +6,20 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf type {@code ResultDataSourceAuthorizerProto}
+ * Protobuf type {@code DataSourceAuthorizerResultProto}
  */
-public  final class ResultDataSourceAuthorizerProto extends
+public  final class DataSourceAuthorizerResultProto extends
     com.google.protobuf.GeneratedMessageLite<
-        ResultDataSourceAuthorizerProto, ResultDataSourceAuthorizerProto.Builder> implements
-    // @@protoc_insertion_point(message_implements:ResultDataSourceAuthorizerProto)
-    ResultDataSourceAuthorizerProtoOrBuilder {
-  private ResultDataSourceAuthorizerProto() {
+        DataSourceAuthorizerResultProto, DataSourceAuthorizerResultProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:DataSourceAuthorizerResultProto)
+    DataSourceAuthorizerResultProtoOrBuilder {
+  private DataSourceAuthorizerResultProto() {
   }
   private int resultCase_ = 0;
   private java.lang.Object result_;
   public enum ResultCase {
-    DATASOURCEAUTHORIZERPROTO(1),
-    PLUGINEXCEPTIONPROTO(2),
+    SUCCESS(1),
+    FAILURE(2),
     RESULT_NOT_SET(0);
     private final int value;
     private ResultCase(int value) {
@@ -35,8 +35,8 @@ public  final class ResultDataSourceAuthorizerProto extends
 
     public static ResultCase forNumber(int value) {
       switch (value) {
-        case 1: return DATASOURCEAUTHORIZERPROTO;
-        case 2: return PLUGINEXCEPTIONPROTO;
+        case 1: return SUCCESS;
+        case 2: return FAILURE;
         case 0: return RESULT_NOT_SET;
         default: return null;
       }
@@ -58,36 +58,36 @@ public  final class ResultDataSourceAuthorizerProto extends
     result_ = null;
   }
 
-  public static final int DATASOURCEAUTHORIZERPROTO_FIELD_NUMBER = 1;
+  public static final int SUCCESS_FIELD_NUMBER = 1;
   /**
-   * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+   * <code>.DataSourceAuthorizerProto success = 1;</code>
    */
   @java.lang.Override
-  public boolean hasDataSourceAuthorizerProto() {
+  public boolean hasSuccess() {
     return resultCase_ == 1;
   }
   /**
-   * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+   * <code>.DataSourceAuthorizerProto success = 1;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto getDataSourceAuthorizerProto() {
+  public com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto getSuccess() {
     if (resultCase_ == 1) {
        return (com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto) result_;
     }
     return com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto.getDefaultInstance();
   }
   /**
-   * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+   * <code>.DataSourceAuthorizerProto success = 1;</code>
    */
-  private void setDataSourceAuthorizerProto(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto value) {
+  private void setSuccess(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 1;
   }
   /**
-   * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+   * <code>.DataSourceAuthorizerProto success = 1;</code>
    */
-  private void mergeDataSourceAuthorizerProto(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto value) {
+  private void mergeSuccess(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto value) {
     value.getClass();
   if (resultCase_ == 1 &&
         result_ != com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto.getDefaultInstance()) {
@@ -99,45 +99,45 @@ public  final class ResultDataSourceAuthorizerProto extends
     resultCase_ = 1;
   }
   /**
-   * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+   * <code>.DataSourceAuthorizerProto success = 1;</code>
    */
-  private void clearDataSourceAuthorizerProto() {
+  private void clearSuccess() {
     if (resultCase_ == 1) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static final int PLUGINEXCEPTIONPROTO_FIELD_NUMBER = 2;
+  public static final int FAILURE_FIELD_NUMBER = 2;
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public boolean hasPluginExceptionProto() {
+  public boolean hasFailure() {
     return resultCase_ == 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto() {
+  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
     if (resultCase_ == 2) {
        return (com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto) result_;
     }
     return com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
     value.getClass();
   if (resultCase_ == 2 &&
         result_ != com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance()) {
@@ -149,59 +149,59 @@ public  final class ResultDataSourceAuthorizerProto extends
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void clearPluginExceptionProto() {
+  private void clearFailure() {
     if (resultCase_ == 2) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -209,24 +209,24 @@ public  final class ResultDataSourceAuthorizerProto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -237,19 +237,19 @@ public  final class ResultDataSourceAuthorizerProto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code ResultDataSourceAuthorizerProto}
+   * Protobuf type {@code DataSourceAuthorizerResultProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:ResultDataSourceAuthorizerProto)
-      com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProtoOrBuilder {
-    // Construct using com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto.newBuilder()
+        com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:DataSourceAuthorizerResultProto)
+      com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProtoOrBuilder {
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -268,102 +268,102 @@ public  final class ResultDataSourceAuthorizerProto extends
 
 
     /**
-     * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+     * <code>.DataSourceAuthorizerProto success = 1;</code>
      */
     @java.lang.Override
-    public boolean hasDataSourceAuthorizerProto() {
-      return instance.hasDataSourceAuthorizerProto();
+    public boolean hasSuccess() {
+      return instance.hasSuccess();
     }
     /**
-     * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+     * <code>.DataSourceAuthorizerProto success = 1;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto getDataSourceAuthorizerProto() {
-      return instance.getDataSourceAuthorizerProto();
+    public com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto getSuccess() {
+      return instance.getSuccess();
     }
     /**
-     * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+     * <code>.DataSourceAuthorizerProto success = 1;</code>
      */
-    public Builder setDataSourceAuthorizerProto(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto value) {
+    public Builder setSuccess(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto value) {
       copyOnWrite();
-      instance.setDataSourceAuthorizerProto(value);
+      instance.setSuccess(value);
       return this;
     }
     /**
-     * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+     * <code>.DataSourceAuthorizerProto success = 1;</code>
      */
-    public Builder setDataSourceAuthorizerProto(
+    public Builder setSuccess(
         com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto.Builder builderForValue) {
       copyOnWrite();
-      instance.setDataSourceAuthorizerProto(builderForValue.build());
+      instance.setSuccess(builderForValue.build());
       return this;
     }
     /**
-     * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+     * <code>.DataSourceAuthorizerProto success = 1;</code>
      */
-    public Builder mergeDataSourceAuthorizerProto(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto value) {
+    public Builder mergeSuccess(com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerProto value) {
       copyOnWrite();
-      instance.mergeDataSourceAuthorizerProto(value);
+      instance.mergeSuccess(value);
       return this;
     }
     /**
-     * <code>.DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;</code>
+     * <code>.DataSourceAuthorizerProto success = 1;</code>
      */
-    public Builder clearDataSourceAuthorizerProto() {
+    public Builder clearSuccess() {
       copyOnWrite();
-      instance.clearDataSourceAuthorizerProto();
+      instance.clearSuccess();
       return this;
     }
 
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public boolean hasPluginExceptionProto() {
-      return instance.hasPluginExceptionProto();
+    public boolean hasFailure() {
+      return instance.hasFailure();
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto() {
-      return instance.getPluginExceptionProto();
+    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
+      return instance.getFailure();
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
       copyOnWrite();
-      instance.setPluginExceptionProto(value);
+      instance.setFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder setPluginExceptionProto(
+    public Builder setFailure(
         com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.Builder builderForValue) {
       copyOnWrite();
-      instance.setPluginExceptionProto(builderForValue.build());
+      instance.setFailure(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
       copyOnWrite();
-      instance.mergePluginExceptionProto(value);
+      instance.mergeFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder clearPluginExceptionProto() {
+    public Builder clearFailure() {
       copyOnWrite();
-      instance.clearPluginExceptionProto();
+      instance.clearFailure();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:ResultDataSourceAuthorizerProto)
+    // @@protoc_insertion_point(builder_scope:DataSourceAuthorizerResultProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -372,7 +372,7 @@ public  final class ResultDataSourceAuthorizerProto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto();
+        return new com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto();
       }
       case NEW_BUILDER: {
         return new Builder();
@@ -394,13 +394,13 @@ public  final class ResultDataSourceAuthorizerProto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto> parser = PARSER;
+        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto> parser = PARSER;
         if (parser == null) {
-          synchronized (com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto.class) {
+          synchronized (com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto>(
+                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -419,24 +419,24 @@ public  final class ResultDataSourceAuthorizerProto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:ResultDataSourceAuthorizerProto)
-  private static final com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:DataSourceAuthorizerResultProto)
+  private static final com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto DEFAULT_INSTANCE;
   static {
-    ResultDataSourceAuthorizerProto defaultInstance = new ResultDataSourceAuthorizerProto();
+    DataSourceAuthorizerResultProto defaultInstance = new DataSourceAuthorizerResultProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      ResultDataSourceAuthorizerProto.class, defaultInstance);
+      DataSourceAuthorizerResultProto.class, defaultInstance);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultDataSourceAuthorizerProto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.DataSourceAuthorizerResultProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<ResultDataSourceAuthorizerProto> PARSER;
+  private static volatile com.google.protobuf.Parser<DataSourceAuthorizerResultProto> PARSER;
 
-  public static com.google.protobuf.Parser<ResultDataSourceAuthorizerProto> parser() {
+  public static com.google.protobuf.Parser<DataSourceAuthorizerResultProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

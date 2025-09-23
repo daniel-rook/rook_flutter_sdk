@@ -155,10 +155,10 @@ message DataSourceAuthorizerProto {
   bool authorizationUrlIsNull = 6;
 }
 
-message ResultDataSourceAuthorizerProto {
+message DataSourceAuthorizerResultProto {
   oneof result {
-    DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    DataSourceAuthorizerProto success = 1;
+    PluginExceptionProto failure = 2;
   }
 }
 
@@ -175,10 +175,10 @@ message AuthorizedDataSourcesProto {
   uint32 android = 10;
 }
 
-message ResultAuthorizedDataSourcesProto {
+message AuthorizedDataSourcesResultProto {
   oneof result {
-    AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    AuthorizedDataSourcesProto success = 1;
+    PluginExceptionProto failure = 2;
   }
 }
 

@@ -7,7 +7,9 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
 import 'authorized_data_source_v2.dart';
+import 'authorized_data_sources.dart';
 import 'background_read_status.dart';
+import 'data_source_authorizer.dart';
 import 'health_connect_availability.dart';
 import 'request_permission_status.dart';
 import 'sync_status_with_calories.dart';
@@ -31,8 +33,8 @@ void main() {
   syncStatusWithIntTest(platform, channel);
   syncStatusWithCaloriesTest(platform, channel);
   resultDataSourceTests(platform, channel);
-  resultDataSourceAuthorizerTests(platform, channel);
-  resultAuthorizedDataSourcesTests(platform, channel);
+  dataSourceAuthorizerTests(platform, channel);
+  authorizedDataSourcesTests(platform, channel);
   authorizedDataSourceV2Tests(platform, channel);
   requestPermissionsStatusTests(platform, channel);
   backgroundReadStatusTests(platform, channel);
@@ -565,164 +567,6 @@ void resultDataSourceTests(
         'GIVEN the unhappy path WHEN getAvailableDataSources THEN throw exception',
         () async {
       final future = platform.getAvailableDataSources("http://tryrook.io");
-
-      await expectLater(future, throwsA(isException));
-    });
-  });
-}
-
-void resultDataSourceAuthorizerTests(
-  MethodChannelRookSdkHealthConnect platform,
-  MethodChannel channel,
-) {
-  group(
-      'MethodChannelRookSdkHealthConnect | DataSourceAuthorizerProto dataSourceAuthorizerProto unwrap',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final dataSourceAuthorizerProto = DataSourceAuthorizerProto.create()
-          ..dataSource = "Test"
-          ..authorized = false
-          ..authorizationUrlIsNull = false
-          ..authorizationUrl = "Test url";
-
-        final proto = ResultDataSourceAuthorizerProto.create()
-          ..dataSourceAuthorizerProto = dataSourceAuthorizerProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-        'GIVEN a Result.DataSourceAuthorizerProto WHEN getDataSourceAuthorizer THEN complete with expected value',
-        () async {
-      final result = await platform.getDataSourceAuthorizer(
-        "Fitbit",
-        "url",
-      );
-      final expected = DataSourceAuthorizer(
-        dataSource: "Test",
-        authorized: false,
-        authorizationUrl: "Test url",
-      );
-
-      expect(result.dataSource, expected.dataSource);
-      expect(result.authorized, expected.authorized);
-      expect(result.authorizationUrl, expected.authorizationUrl);
-    });
-  });
-
-  group(
-      'MethodChannelRookSdkHealthConnect | DataSourceAuthorizerProto exception unwrap',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final pluginExceptionProto = PluginExceptionProto.create()
-          ..id = -1
-          ..message = _exceptionMessage
-          ..code = _exceptionCode;
-
-        final proto = ResultDataSourceAuthorizerProto.create()
-          ..pluginExceptionProto = pluginExceptionProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-        'GIVEN the unhappy path WHEN getDataSourceAuthorizer THEN throw exception',
-        () async {
-      final future = platform.getDataSourceAuthorizer(
-        "Fitbit",
-        "url",
-      );
-
-      await expectLater(future, throwsA(isException));
-    });
-  });
-}
-
-void resultAuthorizedDataSourcesTests(
-  MethodChannelRookSdkHealthConnect platform,
-  MethodChannel channel,
-) {
-  group(
-      'MethodChannelRookSdkHealthConnect | ResultAuthorizedDataSourcesProto authorizedDataSourcesProto unwrap',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final proto = ResultAuthorizedDataSourcesProto();
-
-        proto.authorizedDataSourcesProto = AuthorizedDataSourcesProto.create()
-          ..oura = 0
-          ..polar = 1
-          ..whoop = 2
-          ..fitbit = 0
-          ..garmin = 1
-          ..withings = 2
-          ..dexcom = 0
-          ..appleHealth = 1
-          ..healthConnect = 2
-          ..android = 0;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-        'GIVEN a Result.authorizedDataSourcesProto WHEN getAuthorizedDataSources THEN complete with expected value',
-        () async {
-      final result = await platform.getAuthorizedDataSources();
-      final expected = AuthorizedDataSources(
-        oura: false,
-        polar: true,
-        whoop: null,
-        fitbit: false,
-        garmin: true,
-        withings: null,
-        dexcom: false,
-        appleHealth: true,
-        healthConnect: null,
-        android: false,
-      );
-
-      expect(result.oura, expected.oura);
-      expect(result.polar, expected.polar);
-      expect(result.whoop, expected.whoop);
-      expect(result.fitbit, expected.fitbit);
-      expect(result.garmin, expected.garmin);
-      expect(result.withings, expected.withings);
-      expect(result.appleHealth, expected.appleHealth);
-      expect(result.healthConnect, expected.healthConnect);
-      expect(result.android, expected.android);
-    });
-  });
-
-  group(
-      'MethodChannelRookSdkHealthConnect | ResultDataSourceProto exception unwrap',
-      () {
-    setUp(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (_) async {
-        final pluginExceptionProto = PluginExceptionProto.create()
-          ..id = -1
-          ..message = _exceptionMessage
-          ..code = _exceptionCode;
-
-        final proto = ResultAuthorizedDataSourcesProto.create()
-          ..pluginExceptionProto = pluginExceptionProto;
-
-        return proto.writeToBuffer();
-      });
-    });
-
-    test(
-        'GIVEN a Result.exception WHEN getAuthorizedDataSources THEN throw exception',
-        () async {
-      final future = platform.getAuthorizedDataSources();
 
       await expectLater(future, throwsA(isException));
     });
