@@ -38,8 +38,8 @@ class HCRookDataSources {
 
   /// Returns the authorized data sources for the current user.
   ///
-  ///  Please note that this only represents the user authorization status,
-  ///  and not whether the data source is currently active (sending data) or not.
+  /// Please note that this only represents the user connection status, and not whether the data source is
+  /// currently active (sending data) or has granted permissions.
   static Future<AuthorizedDataSources> getAuthorizedDataSources() {
     return RookSdkHealthConnectPlatform.instance.getAuthorizedDataSources();
   }
@@ -49,8 +49,8 @@ class HCRookDataSources {
   /// This is an improved version of [getAuthorizedDataSources] that returns a list of [AuthorizedDataSourceV2]
   /// with the name, authorization status and image URL of each data source.
   ///
-  ///  Please note that this only represents the user authorization status,
-  ///  and not whether the data source is currently active (sending data) or not.
+  /// Please note that this only represents the user connection status, and not whether the data source is
+  /// currently active (sending data) or has granted permissions.
   static Future<List<AuthorizedDataSourceV2>> getAuthorizedDataSourcesV2() {
     return RookSdkHealthConnectPlatform.instance.getAuthorizedDataSourcesV2();
   }
