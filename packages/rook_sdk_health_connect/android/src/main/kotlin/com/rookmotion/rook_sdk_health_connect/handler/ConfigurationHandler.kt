@@ -6,12 +6,12 @@ import com.rookmotion.rook.sdk.domain.analytics.HCRookFramework
 import com.rookmotion.rook.sdk.domain.model.RookConfiguration
 import com.rookmotion.rook_sdk_health_connect.AutoSyncConfiguration
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.booleanError
-import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getByteArrayArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
 import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
 import com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto
+import com.rookmotion.rook_sdk_health_connect.result.booleanError
+import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

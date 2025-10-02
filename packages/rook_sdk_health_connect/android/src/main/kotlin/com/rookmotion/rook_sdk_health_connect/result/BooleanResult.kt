@@ -1,11 +1,14 @@
-package com.rookmotion.rook_sdk_health_connect.extension
+package com.rookmotion.rook_sdk_health_connect.result
 
+import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionCode
+import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionId
+import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionMessage
+import com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto
 import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
-import com.rookmotion.rook_sdk_health_connect.proto.ResultBooleanProto
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.booleanSuccess(boolean: Boolean) {
-    val bytes = ResultBooleanProto.newBuilder()
+    val bytes = BooleanResultProto.newBuilder()
         .setSuccess(boolean)
         .build()
         .toByteArray()
@@ -19,8 +22,8 @@ fun MethodChannel.Result.booleanError(throwable: Throwable) {
         .setCode(throwable.getPluginExceptionCode())
         .setMessage(throwable.getPluginExceptionMessage())
 
-    val bytes = ResultBooleanProto.newBuilder()
-        .setPluginExceptionProto(pluginExceptionProto)
+    val bytes = BooleanResultProto.newBuilder()
+        .setFailure(pluginExceptionProto)
         .build()
         .toByteArray()
 

@@ -2,8 +2,6 @@ package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookSyncManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.booleanError
-import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
@@ -11,6 +9,8 @@ import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
 import com.rookmotion.rook_sdk_health_connect.mapper.toSyncType
 import com.rookmotion.rook_sdk_health_connect.proto.EventSyncTypeProto
 import com.rookmotion.rook_sdk_health_connect.proto.SummarySyncTypeProto
+import com.rookmotion.rook_sdk_health_connect.result.booleanError
+import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithDailyCaloriesError
 import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithDailyCaloriesSuccess
 import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithIntError

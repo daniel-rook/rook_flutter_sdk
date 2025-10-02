@@ -40,6 +40,13 @@ class AHRookDataSources {
   ///
   /// Please note that this only represents the user connection status, and not whether the data source is
   /// currently active (sending data) or has granted permissions.
+  ///
+  /// For SDK-based data sources (such as Apple Health and Health Connect), this endpoint will return true if the user
+  /// was created by SDK with the corresponding updateUserId function, means that the user is linked with ROOK via SDK,
+  /// but not indicates if the user granted permissions or not.
+  ///
+  /// For API-based data sources (such as Fitbit, Garmin, and Withings), true indicates that the user has authorized
+  /// ROOK to retrieve data through the respective third-party platform.
   static Future<AuthorizedDataSources> getAuthorizedDataSources() {
     return RookSdkAppleHealthPlatform.instance.getAuthorizedDataSources();
   }
@@ -51,6 +58,13 @@ class AHRookDataSources {
   ///
   /// Please note that this only represents the user connection status, and not whether the data source is
   /// currently active (sending data) or has granted permissions.
+  ///
+  /// For SDK-based data sources (such as Apple Health and Health Connect), this endpoint will return true if the user
+  /// was created by SDK with the corresponding updateUserId function, means that the user is linked with ROOK via SDK,
+  /// but not indicates if the user granted permissions or not.
+  ///
+  /// For API-based data sources (such as Fitbit, Garmin, and Withings), true indicates that the user has authorized
+  /// ROOK to retrieve data through the respective third-party platform.
   static Future<List<AuthorizedDataSourceV2>> getAuthorizedDataSourcesV2() {
     return RookSdkAppleHealthPlatform.instance.getAuthorizedDataSourcesV2();
   }

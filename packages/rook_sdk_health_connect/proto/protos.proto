@@ -10,17 +10,17 @@ message PluginExceptionProto {
   string message = 3;
 }
 
-message ResultBooleanProto {
+message BooleanResultProto {
   oneof result {
     bool success = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    PluginExceptionProto failure = 2;
   }
 }
 
-message ResultInt64Proto {
+message Int64ResultProto {
   oneof result {
-    int64 value = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    int64 success = 1;
+    PluginExceptionProto failure = 2;
   }
 }
 

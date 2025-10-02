@@ -2,10 +2,10 @@ package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.booleanError
-import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
-import com.rookmotion.rook_sdk_health_connect.extension.int64Error
-import com.rookmotion.rook_sdk_health_connect.extension.int64Success
+import com.rookmotion.rook_sdk_health_connect.result.booleanError
+import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
+import com.rookmotion.rook_sdk_health_connect.result.int64Error
+import com.rookmotion.rook_sdk_health_connect.result.int64Success
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

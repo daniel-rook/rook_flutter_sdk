@@ -159,19 +159,19 @@ final $typed_data.Uint8List pluginExceptionProtoDescriptor = $convert.base64Deco
     'ChRQbHVnaW5FeGNlcHRpb25Qcm90bxIOCgJpZBgBIAEoEVICaWQSEgoEY29kZRgCIAEoEVIEY2'
     '9kZRIYCgdtZXNzYWdlGAMgASgJUgdtZXNzYWdl');
 
-@$core.Deprecated('Use resultBooleanProtoDescriptor instead')
-const ResultBooleanProto$json = {
-  '1': 'ResultBooleanProto',
+@$core.Deprecated('Use booleanResultProtoDescriptor instead')
+const BooleanResultProto$json = {
+  '1': 'BooleanResultProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'success'},
     {
-      '1': 'pluginExceptionProto',
+      '1': 'failure',
       '3': 2,
       '4': 1,
       '5': 11,
       '6': '.PluginExceptionProto',
       '9': 0,
-      '10': 'pluginExceptionProto'
+      '10': 'failure'
     },
   ],
   '8': [
@@ -179,25 +179,24 @@ const ResultBooleanProto$json = {
   ],
 };
 
-/// Descriptor for `ResultBooleanProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultBooleanProtoDescriptor = $convert.base64Decode(
-    'ChJSZXN1bHRCb29sZWFuUHJvdG8SGgoHc3VjY2VzcxgBIAEoCEgAUgdzdWNjZXNzEksKFHBsdW'
-    'dpbkV4Y2VwdGlvblByb3RvGAIgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIUcGx1Z2lu'
-    'RXhjZXB0aW9uUHJvdG9CCAoGcmVzdWx0');
+/// Descriptor for `BooleanResultProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List booleanResultProtoDescriptor = $convert.base64Decode(
+    'ChJCb29sZWFuUmVzdWx0UHJvdG8SGgoHc3VjY2VzcxgBIAEoCEgAUgdzdWNjZXNzEjEKB2ZhaW'
+    'x1cmUYAiABKAsyFS5QbHVnaW5FeGNlcHRpb25Qcm90b0gAUgdmYWlsdXJlQggKBnJlc3VsdA==');
 
-@$core.Deprecated('Use resultInt64ProtoDescriptor instead')
-const ResultInt64Proto$json = {
-  '1': 'ResultInt64Proto',
+@$core.Deprecated('Use int64ResultProtoDescriptor instead')
+const Int64ResultProto$json = {
+  '1': 'Int64ResultProto',
   '2': [
-    {'1': 'value', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'value'},
+    {'1': 'success', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'success'},
     {
-      '1': 'pluginExceptionProto',
+      '1': 'failure',
       '3': 2,
       '4': 1,
       '5': 11,
       '6': '.PluginExceptionProto',
       '9': 0,
-      '10': 'pluginExceptionProto'
+      '10': 'failure'
     },
   ],
   '8': [
@@ -205,11 +204,10 @@ const ResultInt64Proto$json = {
   ],
 };
 
-/// Descriptor for `ResultInt64Proto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultInt64ProtoDescriptor = $convert.base64Decode(
-    'ChBSZXN1bHRJbnQ2NFByb3RvEhYKBXZhbHVlGAEgASgDSABSBXZhbHVlEksKFHBsdWdpbkV4Y2'
-    'VwdGlvblByb3RvGAIgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIUcGx1Z2luRXhjZXB0'
-    'aW9uUHJvdG9CCAoGcmVzdWx0');
+/// Descriptor for `Int64ResultProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List int64ResultProtoDescriptor = $convert.base64Decode(
+    'ChBJbnQ2NFJlc3VsdFByb3RvEhoKB3N1Y2Nlc3MYASABKANIAFIHc3VjY2VzcxIxCgdmYWlsdX'
+    'JlGAIgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use configurationProtoDescriptor instead')
 const ConfigurationProto$json = {

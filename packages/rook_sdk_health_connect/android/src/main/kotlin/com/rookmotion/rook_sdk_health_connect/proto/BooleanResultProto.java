@@ -6,20 +6,20 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf type {@code ResultInt64Proto}
+ * Protobuf type {@code BooleanResultProto}
  */
-public  final class ResultInt64Proto extends
+public  final class BooleanResultProto extends
     com.google.protobuf.GeneratedMessageLite<
-        ResultInt64Proto, ResultInt64Proto.Builder> implements
-    // @@protoc_insertion_point(message_implements:ResultInt64Proto)
-    ResultInt64ProtoOrBuilder {
-  private ResultInt64Proto() {
+        BooleanResultProto, BooleanResultProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:BooleanResultProto)
+    BooleanResultProtoOrBuilder {
+  private BooleanResultProto() {
   }
   private int resultCase_ = 0;
   private java.lang.Object result_;
   public enum ResultCase {
-    VALUE(1),
-    PLUGINEXCEPTIONPROTO(2),
+    SUCCESS(1),
+    FAILURE(2),
     RESULT_NOT_SET(0);
     private final int value;
     private ResultCase(int value) {
@@ -35,8 +35,8 @@ public  final class ResultInt64Proto extends
 
     public static ResultCase forNumber(int value) {
       switch (value) {
-        case 1: return VALUE;
-        case 2: return PLUGINEXCEPTIONPROTO;
+        case 1: return SUCCESS;
+        case 2: return FAILURE;
         case 0: return RESULT_NOT_SET;
         default: return null;
       }
@@ -58,74 +58,74 @@ public  final class ResultInt64Proto extends
     result_ = null;
   }
 
-  public static final int VALUE_FIELD_NUMBER = 1;
+  public static final int SUCCESS_FIELD_NUMBER = 1;
   /**
-   * <code>int64 value = 1;</code>
-   * @return Whether the value field is set.
+   * <code>bool success = 1;</code>
+   * @return Whether the success field is set.
    */
   @java.lang.Override
-  public boolean hasValue() {
+  public boolean hasSuccess() {
     return resultCase_ == 1;
   }
   /**
-   * <code>int64 value = 1;</code>
-   * @return The value.
+   * <code>bool success = 1;</code>
+   * @return The success.
    */
   @java.lang.Override
-  public long getValue() {
+  public boolean getSuccess() {
     if (resultCase_ == 1) {
-      return (java.lang.Long) result_;
+      return (java.lang.Boolean) result_;
     }
-    return 0L;
+    return false;
   }
   /**
-   * <code>int64 value = 1;</code>
-   * @param value The value to set.
+   * <code>bool success = 1;</code>
+   * @param value The success to set.
    */
-  private void setValue(long value) {
+  private void setSuccess(boolean value) {
     resultCase_ = 1;
     result_ = value;
   }
   /**
-   * <code>int64 value = 1;</code>
+   * <code>bool success = 1;</code>
    */
-  private void clearValue() {
+  private void clearSuccess() {
     if (resultCase_ == 1) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static final int PLUGINEXCEPTIONPROTO_FIELD_NUMBER = 2;
+  public static final int FAILURE_FIELD_NUMBER = 2;
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public boolean hasPluginExceptionProto() {
+  public boolean hasFailure() {
     return resultCase_ == 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto() {
+  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
     if (resultCase_ == 2) {
        return (com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto) result_;
     }
     return com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
     value.getClass();
   if (resultCase_ == 2 &&
         result_ != com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance()) {
@@ -137,59 +137,59 @@ public  final class ResultInt64Proto extends
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+   * <code>.PluginExceptionProto failure = 2;</code>
    */
-  private void clearPluginExceptionProto() {
+  private void clearFailure() {
     if (resultCase_ == 2) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -197,24 +197,24 @@ public  final class ResultInt64Proto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -225,19 +225,19 @@ public  final class ResultInt64Proto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code ResultInt64Proto}
+   * Protobuf type {@code BooleanResultProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:ResultInt64Proto)
-      com.rookmotion.rook_sdk_health_connect.proto.ResultInt64ProtoOrBuilder {
-    // Construct using com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto.newBuilder()
+        com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:BooleanResultProto)
+      com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProtoOrBuilder {
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -256,90 +256,90 @@ public  final class ResultInt64Proto extends
 
 
     /**
-     * <code>int64 value = 1;</code>
-     * @return Whether the value field is set.
+     * <code>bool success = 1;</code>
+     * @return Whether the success field is set.
      */
     @java.lang.Override
-    public boolean hasValue() {
-      return instance.hasValue();
+    public boolean hasSuccess() {
+      return instance.hasSuccess();
     }
     /**
-     * <code>int64 value = 1;</code>
-     * @return The value.
+     * <code>bool success = 1;</code>
+     * @return The success.
      */
     @java.lang.Override
-    public long getValue() {
-      return instance.getValue();
+    public boolean getSuccess() {
+      return instance.getSuccess();
     }
     /**
-     * <code>int64 value = 1;</code>
-     * @param value The value to set.
+     * <code>bool success = 1;</code>
+     * @param value The success to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(long value) {
+    public Builder setSuccess(boolean value) {
       copyOnWrite();
-      instance.setValue(value);
+      instance.setSuccess(value);
       return this;
     }
     /**
-     * <code>int64 value = 1;</code>
+     * <code>bool success = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValue() {
+    public Builder clearSuccess() {
       copyOnWrite();
-      instance.clearValue();
+      instance.clearSuccess();
       return this;
     }
 
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public boolean hasPluginExceptionProto() {
-      return instance.hasPluginExceptionProto();
+    public boolean hasFailure() {
+      return instance.hasFailure();
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getPluginExceptionProto() {
-      return instance.getPluginExceptionProto();
+    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
+      return instance.getFailure();
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder setPluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
       copyOnWrite();
-      instance.setPluginExceptionProto(value);
+      instance.setFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder setPluginExceptionProto(
+    public Builder setFailure(
         com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.Builder builderForValue) {
       copyOnWrite();
-      instance.setPluginExceptionProto(builderForValue.build());
+      instance.setFailure(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder mergePluginExceptionProto(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
       copyOnWrite();
-      instance.mergePluginExceptionProto(value);
+      instance.mergeFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto pluginExceptionProto = 2;</code>
+     * <code>.PluginExceptionProto failure = 2;</code>
      */
-    public Builder clearPluginExceptionProto() {
+    public Builder clearFailure() {
       copyOnWrite();
-      instance.clearPluginExceptionProto();
+      instance.clearFailure();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:ResultInt64Proto)
+    // @@protoc_insertion_point(builder_scope:BooleanResultProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -348,7 +348,7 @@ public  final class ResultInt64Proto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto();
+        return new com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto();
       }
       case NEW_BUILDER: {
         return new Builder();
@@ -360,7 +360,7 @@ public  final class ResultInt64Proto extends
             com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.class,
           };
           java.lang.String info =
-              "\u0000\u0002\u0001\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u00015\u0000\u0002<" +
+              "\u0000\u0002\u0001\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001:\u0000\u0002<" +
               "\u0000";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
@@ -369,13 +369,13 @@ public  final class ResultInt64Proto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto> parser = PARSER;
+        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto> parser = PARSER;
         if (parser == null) {
-          synchronized (com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto.class) {
+          synchronized (com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto>(
+                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -394,24 +394,24 @@ public  final class ResultInt64Proto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:ResultInt64Proto)
-  private static final com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:BooleanResultProto)
+  private static final com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto DEFAULT_INSTANCE;
   static {
-    ResultInt64Proto defaultInstance = new ResultInt64Proto();
+    BooleanResultProto defaultInstance = new BooleanResultProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      ResultInt64Proto.class, defaultInstance);
+      BooleanResultProto.class, defaultInstance);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.ResultInt64Proto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.BooleanResultProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<ResultInt64Proto> PARSER;
+  private static volatile com.google.protobuf.Parser<BooleanResultProto> PARSER;
 
-  public static com.google.protobuf.Parser<ResultInt64Proto> parser() {
+  public static com.google.protobuf.Parser<BooleanResultProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

@@ -3,8 +3,6 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import android.content.Context
 import com.rookmotion.rook.sdk.RookDataSources
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.booleanError
-import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesError
 import com.rookmotion.rook_sdk_health_connect.extension.dataSourcesSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getStringArgAt
@@ -13,6 +11,8 @@ import com.rookmotion.rook_sdk_health_connect.result.authorizedDataSourceV2Error
 import com.rookmotion.rook_sdk_health_connect.result.authorizedDataSourceV2Success
 import com.rookmotion.rook_sdk_health_connect.result.authorizedDataSourcesError
 import com.rookmotion.rook_sdk_health_connect.result.authorizedDataSourcesSuccess
+import com.rookmotion.rook_sdk_health_connect.result.booleanError
+import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.result.dataSourceAuthorizerError
 import com.rookmotion.rook_sdk_health_connect.result.dataSourceAuthorizerSuccess
 import io.flutter.plugin.common.MethodCall

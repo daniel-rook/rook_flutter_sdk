@@ -113,72 +113,70 @@ class PluginExceptionProto extends $pb.GeneratedMessage {
   void clearMessage() => clearField(3);
 }
 
-enum ResultBooleanProto_Result { success, pluginExceptionProto, notSet }
+enum BooleanResultProto_Result { success, failure, notSet }
 
-class ResultBooleanProto extends $pb.GeneratedMessage {
-  factory ResultBooleanProto({
+class BooleanResultProto extends $pb.GeneratedMessage {
+  factory BooleanResultProto({
     $core.bool? success,
-    PluginExceptionProto? pluginExceptionProto,
+    PluginExceptionProto? failure,
   }) {
     final $result = create();
     if (success != null) {
       $result.success = success;
     }
-    if (pluginExceptionProto != null) {
-      $result.pluginExceptionProto = pluginExceptionProto;
+    if (failure != null) {
+      $result.failure = failure;
     }
     return $result;
   }
-  ResultBooleanProto._() : super();
-  factory ResultBooleanProto.fromBuffer($core.List<$core.int> i,
+  BooleanResultProto._() : super();
+  factory BooleanResultProto.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ResultBooleanProto.fromJson($core.String i,
+  factory BooleanResultProto.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, ResultBooleanProto_Result>
-      _ResultBooleanProto_ResultByTag = {
-    1: ResultBooleanProto_Result.success,
-    2: ResultBooleanProto_Result.pluginExceptionProto,
-    0: ResultBooleanProto_Result.notSet
+  static const $core.Map<$core.int, BooleanResultProto_Result>
+      _BooleanResultProto_ResultByTag = {
+    1: BooleanResultProto_Result.success,
+    2: BooleanResultProto_Result.failure,
+    0: BooleanResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultBooleanProto',
+      _omitMessageNames ? '' : 'BooleanResultProto',
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOB(1, _omitFieldNames ? '' : 'success')
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
         subBuilder: PluginExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
-  ResultBooleanProto clone() => ResultBooleanProto()..mergeFromMessage(this);
+  BooleanResultProto clone() => BooleanResultProto()..mergeFromMessage(this);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
-  ResultBooleanProto copyWith(void Function(ResultBooleanProto) updates) =>
-      super.copyWith((message) => updates(message as ResultBooleanProto))
-          as ResultBooleanProto;
+  BooleanResultProto copyWith(void Function(BooleanResultProto) updates) =>
+      super.copyWith((message) => updates(message as BooleanResultProto))
+          as BooleanResultProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ResultBooleanProto create() => ResultBooleanProto._();
-  ResultBooleanProto createEmptyInstance() => create();
-  static $pb.PbList<ResultBooleanProto> createRepeated() =>
-      $pb.PbList<ResultBooleanProto>();
+  static BooleanResultProto create() => BooleanResultProto._();
+  BooleanResultProto createEmptyInstance() => create();
+  static $pb.PbList<BooleanResultProto> createRepeated() =>
+      $pb.PbList<BooleanResultProto>();
   @$core.pragma('dart2js:noInline')
-  static ResultBooleanProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ResultBooleanProto>(create);
-  static ResultBooleanProto? _defaultInstance;
+  static BooleanResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BooleanResultProto>(create);
+  static BooleanResultProto? _defaultInstance;
 
-  ResultBooleanProto_Result whichResult() =>
-      _ResultBooleanProto_ResultByTag[$_whichOneof(0)]!;
+  BooleanResultProto_Result whichResult() =>
+      _BooleanResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -194,113 +192,111 @@ class ResultBooleanProto extends $pb.GeneratedMessage {
   void clearSuccess() => clearField(1);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get pluginExceptionProto => $_getN(1);
+  PluginExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto v) {
+  set failure(PluginExceptionProto v) {
     setField(2, v);
   }
 
   @$pb.TagNumber(2)
-  $core.bool hasPluginExceptionProto() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPluginExceptionProto() => clearField(2);
+  void clearFailure() => clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
+  PluginExceptionProto ensureFailure() => $_ensure(1);
 }
 
-enum ResultInt64Proto_Result { value, pluginExceptionProto, notSet }
+enum Int64ResultProto_Result { success, failure, notSet }
 
-class ResultInt64Proto extends $pb.GeneratedMessage {
-  factory ResultInt64Proto({
-    $fixnum.Int64? value,
-    PluginExceptionProto? pluginExceptionProto,
+class Int64ResultProto extends $pb.GeneratedMessage {
+  factory Int64ResultProto({
+    $fixnum.Int64? success,
+    PluginExceptionProto? failure,
   }) {
     final $result = create();
-    if (value != null) {
-      $result.value = value;
+    if (success != null) {
+      $result.success = success;
     }
-    if (pluginExceptionProto != null) {
-      $result.pluginExceptionProto = pluginExceptionProto;
+    if (failure != null) {
+      $result.failure = failure;
     }
     return $result;
   }
-  ResultInt64Proto._() : super();
-  factory ResultInt64Proto.fromBuffer($core.List<$core.int> i,
+  Int64ResultProto._() : super();
+  factory Int64ResultProto.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ResultInt64Proto.fromJson($core.String i,
+  factory Int64ResultProto.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, ResultInt64Proto_Result>
-      _ResultInt64Proto_ResultByTag = {
-    1: ResultInt64Proto_Result.value,
-    2: ResultInt64Proto_Result.pluginExceptionProto,
-    0: ResultInt64Proto_Result.notSet
+  static const $core.Map<$core.int, Int64ResultProto_Result>
+      _Int64ResultProto_ResultByTag = {
+    1: Int64ResultProto_Result.success,
+    2: Int64ResultProto_Result.failure,
+    0: Int64ResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultInt64Proto',
+      _omitMessageNames ? '' : 'Int64ResultProto',
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aInt64(1, _omitFieldNames ? '' : 'value')
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
+    ..aInt64(1, _omitFieldNames ? '' : 'success')
+    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
         subBuilder: PluginExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
-  ResultInt64Proto clone() => ResultInt64Proto()..mergeFromMessage(this);
+  Int64ResultProto clone() => Int64ResultProto()..mergeFromMessage(this);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
-  ResultInt64Proto copyWith(void Function(ResultInt64Proto) updates) =>
-      super.copyWith((message) => updates(message as ResultInt64Proto))
-          as ResultInt64Proto;
+  Int64ResultProto copyWith(void Function(Int64ResultProto) updates) =>
+      super.copyWith((message) => updates(message as Int64ResultProto))
+          as Int64ResultProto;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ResultInt64Proto create() => ResultInt64Proto._();
-  ResultInt64Proto createEmptyInstance() => create();
-  static $pb.PbList<ResultInt64Proto> createRepeated() =>
-      $pb.PbList<ResultInt64Proto>();
+  static Int64ResultProto create() => Int64ResultProto._();
+  Int64ResultProto createEmptyInstance() => create();
+  static $pb.PbList<Int64ResultProto> createRepeated() =>
+      $pb.PbList<Int64ResultProto>();
   @$core.pragma('dart2js:noInline')
-  static ResultInt64Proto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ResultInt64Proto>(create);
-  static ResultInt64Proto? _defaultInstance;
+  static Int64ResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Int64ResultProto>(create);
+  static Int64ResultProto? _defaultInstance;
 
-  ResultInt64Proto_Result whichResult() =>
-      _ResultInt64Proto_ResultByTag[$_whichOneof(0)]!;
+  Int64ResultProto_Result whichResult() =>
+      _Int64ResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get value => $_getI64(0);
+  $fixnum.Int64 get success => $_getI64(0);
   @$pb.TagNumber(1)
-  set value($fixnum.Int64 v) {
+  set success($fixnum.Int64 v) {
     $_setInt64(0, v);
   }
 
   @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
+  void clearSuccess() => clearField(1);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get pluginExceptionProto => $_getN(1);
+  PluginExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto v) {
+  set failure(PluginExceptionProto v) {
     setField(2, v);
   }
 
   @$pb.TagNumber(2)
-  $core.bool hasPluginExceptionProto() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPluginExceptionProto() => clearField(2);
+  void clearFailure() => clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
+  PluginExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class ConfigurationProto extends $pb.GeneratedMessage {

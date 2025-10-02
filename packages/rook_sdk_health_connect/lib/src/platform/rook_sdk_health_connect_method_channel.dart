@@ -2,9 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_boolean_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/event_sync_type_mapper.dart';
@@ -15,7 +13,9 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/data/result/authorized_data_source_v2_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/authorized_data_sources_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/background_read_status_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/data_source_authorizer_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/int64_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/request_permissions_status_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/sync_status_with_calories_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/sync_status_with_int_result.dart';
@@ -65,7 +65,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   @override
   Future<void> initRook() async {
     final Uint8List bytes = await methodChannel.invokeMethod('initRook');
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -78,7 +78,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         userID,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -86,7 +86,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   @override
   Future<void> clearUserID() async {
     final Uint8List bytes = await methodChannel.invokeMethod('clearUserID');
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -96,7 +96,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'deleteUserFromRook',
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -106,7 +106,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncUserTimeZone',
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -127,7 +127,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'openHealthConnectSettings',
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -138,7 +138,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'checkHealthConnectPermissions',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -149,7 +149,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'checkHealthConnectPermissionsPartially',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -181,7 +181,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'revokeHealthConnectPermissions',
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -243,7 +243,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         enableLogs,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -256,7 +256,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         date.millisecondsSinceEpoch,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -274,7 +274,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         proto.value,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -289,7 +289,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         proto.value,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -321,7 +321,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'isStepsAvailable',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -332,7 +332,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'isBackgroundAndroidStepsActive',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -343,7 +343,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'enableBackgroundAndroidSteps',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -354,7 +354,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'disableBackgroundAndroidSteps',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -365,7 +365,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'syncTodayAndroidStepsCount',
     );
 
-    final result = ResultInt64Proto.fromBuffer(bytes);
+    final result = Int64ResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -379,7 +379,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -446,7 +446,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -461,7 +461,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -470,7 +470,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   Future<bool> isScheduled() async {
     final Uint8List bytes = await methodChannel.invokeMethod('isScheduled');
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -494,7 +494,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -503,7 +503,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   Future<void> cancel() async {
     final Uint8List bytes = await methodChannel.invokeMethod('cancel');
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
