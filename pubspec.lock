@@ -254,7 +254,7 @@ packages:
       path: "packages/rook_sdk_apple_health"
       relative: true
     source: path
-    version: "1.9.0"
+    version: "1.9.1"
   rook_sdk_core:
     dependency: "direct main"
     description:
@@ -268,7 +268,7 @@ packages:
       path: "packages/rook_sdk_health_connect"
       relative: true
     source: path
-    version: "3.2.0"
+    version: "3.2.1"
   rook_sdk_samsung_health:
     dependency: "direct main"
     description:
