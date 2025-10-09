@@ -2,19 +2,19 @@ package io.tryrook.rook_sdk_samsung_health.handler
 
 import io.flutter.plugin.common.MethodCall
 import io.tryrook.rook_sdk_samsung_health.MethodResult
-import io.tryrook.rook_sdk_samsung_health.extension.booleanError
-import io.tryrook.rook_sdk_samsung_health.extension.booleanSuccess
 import io.tryrook.rook_sdk_samsung_health.extension.getBooleanArgAt
 import io.tryrook.rook_sdk_samsung_health.extension.getIntArgAt
 import io.tryrook.rook_sdk_samsung_health.extension.getLongArgAt
-import io.tryrook.rook_sdk_samsung_health.extension.syncStatusWithDailyCaloriesError
-import io.tryrook.rook_sdk_samsung_health.extension.syncStatusWithDailyCaloriesSuccess
-import io.tryrook.rook_sdk_samsung_health.extension.syncStatusWithIntError
-import io.tryrook.rook_sdk_samsung_health.extension.syncStatusWithIntSuccess
 import io.tryrook.rook_sdk_samsung_health.extension.toLocalDate
 import io.tryrook.rook_sdk_samsung_health.mapper.toSyncType
 import io.tryrook.rook_sdk_samsung_health.proto.EventSyncTypeProto
 import io.tryrook.rook_sdk_samsung_health.proto.SummarySyncTypeProto
+import io.tryrook.rook_sdk_samsung_health.result.booleanError
+import io.tryrook.rook_sdk_samsung_health.result.booleanSuccess
+import io.tryrook.rook_sdk_samsung_health.result.syncStatusWithDailyCaloriesError
+import io.tryrook.rook_sdk_samsung_health.result.syncStatusWithDailyCaloriesSuccess
+import io.tryrook.rook_sdk_samsung_health.result.syncStatusWithIntError
+import io.tryrook.rook_sdk_samsung_health.result.syncStatusWithIntSuccess
 import io.tryrook.sdk.samsung.RookSamsung
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

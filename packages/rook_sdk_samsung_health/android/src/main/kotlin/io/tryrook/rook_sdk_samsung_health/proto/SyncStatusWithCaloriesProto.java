@@ -6,15 +6,16 @@
 package io.tryrook.rook_sdk_samsung_health.proto;
 
 /**
- * Protobuf type {@code SyncStatusWithIntProto}
+ * Protobuf type {@code SyncStatusWithCaloriesProto}
  */
-public  final class SyncStatusWithIntProto extends
+public  final class SyncStatusWithCaloriesProto extends
     com.google.protobuf.GeneratedMessageLite<
-        SyncStatusWithIntProto, SyncStatusWithIntProto.Builder> implements
-    // @@protoc_insertion_point(message_implements:SyncStatusWithIntProto)
-    SyncStatusWithIntProtoOrBuilder {
-  private SyncStatusWithIntProto() {
+        SyncStatusWithCaloriesProto, SyncStatusWithCaloriesProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:SyncStatusWithCaloriesProto)
+    SyncStatusWithCaloriesProtoOrBuilder {
+  private SyncStatusWithCaloriesProto() {
   }
+  private int bitField0_;
   public static final int SYNCSTATUS_FIELD_NUMBER = 1;
   private int syncStatus_;
   /**
@@ -57,76 +58,96 @@ public  final class SyncStatusWithIntProto extends
     syncStatus_ = 0;
   }
 
-  public static final int VALUE_FIELD_NUMBER = 2;
-  private int value_;
+  public static final int CALORIES_FIELD_NUMBER = 2;
+  private io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto calories_;
   /**
-   * <code>uint32 value = 2;</code>
-   * @return The value.
+   * <code>.CaloriesProto calories = 2;</code>
    */
   @java.lang.Override
-  public int getValue() {
-    return value_;
+  public boolean hasCalories() {
+    return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>uint32 value = 2;</code>
-   * @param value The value to set.
+   * <code>.CaloriesProto calories = 2;</code>
    */
-  private void setValue(int value) {
-    
-    value_ = value;
+  @java.lang.Override
+  public io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto getCalories() {
+    return calories_ == null ? io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto.getDefaultInstance() : calories_;
   }
   /**
-   * <code>uint32 value = 2;</code>
+   * <code>.CaloriesProto calories = 2;</code>
    */
-  private void clearValue() {
-
-    value_ = 0;
+  private void setCalories(io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto value) {
+    value.getClass();
+  calories_ = value;
+    bitField0_ |= 0x00000001;
+    }
+  /**
+   * <code>.CaloriesProto calories = 2;</code>
+   */
+  @java.lang.SuppressWarnings({"ReferenceEquality"})
+  private void mergeCalories(io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto value) {
+    value.getClass();
+  if (calories_ != null &&
+        calories_ != io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto.getDefaultInstance()) {
+      calories_ =
+        io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto.newBuilder(calories_).mergeFrom(value).buildPartial();
+    } else {
+      calories_ = value;
+    }
+    bitField0_ |= 0x00000001;
+  }
+  /**
+   * <code>.CaloriesProto calories = 2;</code>
+   */
+  private void clearCalories() {  calories_ = null;
+    bitField0_ = (bitField0_ & ~0x00000001);
   }
 
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(byte[] data)
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(java.io.InputStream input)
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -134,24 +155,24 @@ public  final class SyncStatusWithIntProto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseDelimitedFrom(java.io.InputStream input)
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseDelimitedFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -162,19 +183,19 @@ public  final class SyncStatusWithIntProto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto prototype) {
+  public static Builder newBuilder(io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code SyncStatusWithIntProto}
+   * Protobuf type {@code SyncStatusWithCaloriesProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:SyncStatusWithIntProto)
-      io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProtoOrBuilder {
-    // Construct using io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto.newBuilder()
+        io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:SyncStatusWithCaloriesProto)
+      io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProtoOrBuilder {
+    // Construct using io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -227,34 +248,53 @@ public  final class SyncStatusWithIntProto extends
     }
 
     /**
-     * <code>uint32 value = 2;</code>
-     * @return The value.
+     * <code>.CaloriesProto calories = 2;</code>
      */
     @java.lang.Override
-    public int getValue() {
-      return instance.getValue();
+    public boolean hasCalories() {
+      return instance.hasCalories();
     }
     /**
-     * <code>uint32 value = 2;</code>
-     * @param value The value to set.
-     * @return This builder for chaining.
+     * <code>.CaloriesProto calories = 2;</code>
      */
-    public Builder setValue(int value) {
+    @java.lang.Override
+    public io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto getCalories() {
+      return instance.getCalories();
+    }
+    /**
+     * <code>.CaloriesProto calories = 2;</code>
+     */
+    public Builder setCalories(io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto value) {
       copyOnWrite();
-      instance.setValue(value);
+      instance.setCalories(value);
+      return this;
+      }
+    /**
+     * <code>.CaloriesProto calories = 2;</code>
+     */
+    public Builder setCalories(
+        io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto.Builder builderForValue) {
+      copyOnWrite();
+      instance.setCalories(builderForValue.build());
       return this;
     }
     /**
-     * <code>uint32 value = 2;</code>
-     * @return This builder for chaining.
+     * <code>.CaloriesProto calories = 2;</code>
      */
-    public Builder clearValue() {
+    public Builder mergeCalories(io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto value) {
       copyOnWrite();
-      instance.clearValue();
+      instance.mergeCalories(value);
+      return this;
+    }
+    /**
+     * <code>.CaloriesProto calories = 2;</code>
+     */
+    public Builder clearCalories() {  copyOnWrite();
+      instance.clearCalories();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:SyncStatusWithIntProto)
+    // @@protoc_insertion_point(builder_scope:SyncStatusWithCaloriesProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -263,19 +303,20 @@ public  final class SyncStatusWithIntProto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto();
+        return new io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto();
       }
       case NEW_BUILDER: {
         return new Builder();
       }
       case BUILD_MESSAGE_INFO: {
           java.lang.Object[] objects = new java.lang.Object[] {
+            "bitField0_",
             "syncStatus_",
-            "value_",
+            "calories_",
           };
           java.lang.String info =
-              "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\f\u0002\u000b" +
-              "";
+              "\u0000\u0002\u0000\u0001\u0001\u0002\u0002\u0000\u0000\u0000\u0001\f\u0002\u1009" +
+              "\u0000";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through
@@ -283,13 +324,13 @@ public  final class SyncStatusWithIntProto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto> parser = PARSER;
+        com.google.protobuf.Parser<io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto> parser = PARSER;
         if (parser == null) {
-          synchronized (io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto.class) {
+          synchronized (io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto>(
+                  new DefaultInstanceBasedParser<io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -308,24 +349,24 @@ public  final class SyncStatusWithIntProto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:SyncStatusWithIntProto)
-  private static final io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:SyncStatusWithCaloriesProto)
+  private static final io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto DEFAULT_INSTANCE;
   static {
-    SyncStatusWithIntProto defaultInstance = new SyncStatusWithIntProto();
+    SyncStatusWithCaloriesProto defaultInstance = new SyncStatusWithCaloriesProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      SyncStatusWithIntProto.class, defaultInstance);
+      SyncStatusWithCaloriesProto.class, defaultInstance);
   }
 
-  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto getDefaultInstance() {
+  public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithCaloriesProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<SyncStatusWithIntProto> PARSER;
+  private static volatile com.google.protobuf.Parser<SyncStatusWithCaloriesProto> PARSER;
 
-  public static com.google.protobuf.Parser<SyncStatusWithIntProto> parser() {
+  public static com.google.protobuf.Parser<SyncStatusWithCaloriesProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

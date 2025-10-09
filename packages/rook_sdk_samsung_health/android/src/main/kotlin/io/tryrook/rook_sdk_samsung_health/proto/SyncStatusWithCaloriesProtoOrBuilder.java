@@ -5,8 +5,8 @@
 
 package io.tryrook.rook_sdk_samsung_health.proto;
 
-public interface SyncStatusWithIntProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:SyncStatusWithIntProto)
+public interface SyncStatusWithCaloriesProtoOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:SyncStatusWithCaloriesProto)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
@@ -21,8 +21,13 @@ public interface SyncStatusWithIntProtoOrBuilder extends
   io.tryrook.rook_sdk_samsung_health.proto.SyncStatusProto getSyncStatus();
 
   /**
-   * <code>uint32 value = 2;</code>
-   * @return The value.
+   * <code>.CaloriesProto calories = 2;</code>
+   * @return Whether the calories field is set.
    */
-  int getValue();
+  boolean hasCalories();
+  /**
+   * <code>.CaloriesProto calories = 2;</code>
+   * @return The calories.
+   */
+  io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto getCalories();
 }

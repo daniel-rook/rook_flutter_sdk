@@ -69,7 +69,7 @@ abstract class RookSdkSamsungHealthPlatform extends PlatformInterface {
 
   Stream<bool> get isScheduledUpdates;
 
-  Future<void> schedule(bool enableNativeLogs);
+  Future<void> schedule(bool enableNativeLogs, bool cancelAndReschedule);
 
   Future<void> cancel();
 }
