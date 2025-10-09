@@ -30,6 +30,7 @@ void main() {
   });
 
   booleanResultTests(platform, channel);
+  boolTests(platform, channel);
   int64ResultTests(platform, channel);
   syncStatusWithIntTest(platform, channel);
   syncStatusWithCaloriesTest(platform, channel);
