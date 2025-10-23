@@ -2,10 +2,10 @@ import 'package:rook_sdk_apple_health/src/data/proto/protos.pbenum.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 extension RookEnvironmentMappers on RookEnvironment {
-  RookEnvironmentProto toProto() {
+  EnvironmentProto toProto() {
     return switch (this) {
-      RookEnvironment.sandbox => RookEnvironmentProto.SANDBOX,
-      _ => RookEnvironmentProto.PRODUCTION,
+      RookEnvironment.sandbox => EnvironmentProto.SANDBOX,
+      _ => EnvironmentProto.PRODUCTION,
     };
   }
 }

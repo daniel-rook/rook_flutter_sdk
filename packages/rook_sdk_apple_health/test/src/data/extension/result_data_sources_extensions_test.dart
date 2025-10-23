@@ -15,7 +15,7 @@ void main() {
           DataSourceProto(
             name: 'name',
             description: 'description',
-            image: 'image',
+            imageUrl: 'image',
             connected: true,
             authorizationUrl: 'authorizationUrl',
             authorizationUrlIsNull: false,

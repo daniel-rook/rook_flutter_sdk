@@ -1,35 +1,35 @@
 syntax = "proto3";
 
-enum RookEnvironmentProto {
+message PluginExceptionProto {
+  sint32 id = 1;
+  sint32 code = 2;
+  string message = 3;
+}
+
+message BooleanResultProto {
+  oneof result {
+    bool success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+message Int64ResultProto {
+  oneof result {
+    int64 success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+enum EnvironmentProto {
   SANDBOX = 0;
   PRODUCTION = 1;
 }
 
-enum DataSourceTypeProto {
-  GARMIN = 0;
-  OURA = 1;
-  POLAR = 2;
-  FITBIT = 3;
-  WITHINGS = 4;
-  WHOOP = 5;
-}
-
-enum SummarySyncTypeProto {
-  SLEEP = 0;
-  PHYSICAL = 1;
-  BODY = 2;
-}
-
-enum EventSyncTypeProto {
-  reserved 5, 6, 9, 10;
-
-  ACTIVITY = 0;
-  BLOOD_GLUCOSE = 1;
-  BLOOD_PRESSURE = 2;
-  BODY_METRICS = 3;
-  HEART_RATE = 4;
-  OXYGENATION = 7;
-  TEMPERATURE = 8;
+message ConfigurationProto {
+  string clientUUID = 1;
+  string secretKey = 2;
+  EnvironmentProto environment = 3;
+  bool enableBackgroundSync = 4;
 }
 
 enum AppleHealthPermissionProto {
@@ -83,24 +83,64 @@ enum AppleHealthPermissionProto {
   DIETARY_CHOLESTEROL = 47;
 }
 
-message RookConfigurationProto {
-  string clientUUID = 1;
-  string secretKey = 2;
-  RookEnvironmentProto environment = 3;
-  bool enableBackgroundSync = 4;
+enum SummarySyncTypeProto {
+  SLEEP = 0;
+  PHYSICAL = 1;
+  BODY = 2;
 }
 
-message DataSourceProto {
-  string name = 1;
-  string description = 2;
-  string image = 3;
-  bool connected = 4;
-  string authorizationUrl = 5;
+enum EventSyncTypeProto {
+  reserved 5, 6, 9, 10;
+
+  ACTIVITY = 0;
+  BLOOD_GLUCOSE = 1;
+  BLOOD_PRESSURE = 2;
+  BODY_METRICS = 3;
+  HEART_RATE = 4;
+  OXYGENATION = 7;
+  TEMPERATURE = 8;
+}
+
+message SyncStatusWithIntResultProto {
+  oneof result {
+    uint32 success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+message CaloriesProto {
+  double basal = 1;
+  double active = 2;
+}
+
+message SyncStatusWithCaloriesResultProto {
+  oneof result {
+    CaloriesProto success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+enum DataSourceTypeProto {
+  GARMIN = 0;
+  OURA = 1;
+  POLAR = 2;
+  FITBIT = 3;
+  WITHINGS = 4;
+  WHOOP = 5;
+}
+
+message DataSourceAuthorizerProto {
+  string dataSource = 1;
+  bool authorized = 2;
+  string authorizationUrl = 3;
   bool authorizationUrlIsNull = 6;
 }
 
-message DataSourcesProtoListWrapper {
-  repeated DataSourceProto dataSources = 1;
+message DataSourceAuthorizerResultProto {
+  oneof result {
+    DataSourceAuthorizerProto success = 1;
+    PluginExceptionProto failure = 2;
+  }
 }
 
 message AuthorizedDataSourcesProto {
@@ -116,63 +156,10 @@ message AuthorizedDataSourcesProto {
   uint32 android = 10;
 }
 
-message DailyCaloriesProto {
-  double basal = 1;
-  double active = 2;
-}
-
-message DataSourceAuthorizerProto {
-  string dataSource = 1;
-  bool authorized = 2;
-  string authorizationUrl = 3;
-  bool authorizationUrlIsNull = 6;
-}
-
-message PluginExceptionProto {
-  sint32 id = 1;
-  sint32 code = 2;
-  string message = 3;
-}
-
-message ResultBooleanProto {
+message AuthorizedDataSourcesResultProto {
   oneof result {
-    bool success = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultInt64Proto {
-  oneof result {
-    int64 value = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultDataSourcesProto {
-  oneof result {
-    DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultAuthorizedDataSourcesProto {
-  oneof result {
-    AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultDailyCaloriesProto {
-  oneof result {
-    DailyCaloriesProto dailyCalories = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultDataSourceAuthorizerProto {
-  oneof result {
-    DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    AuthorizedDataSourcesProto success = 1;
+    PluginExceptionProto failure = 2;
   }
 }
 
@@ -190,5 +177,27 @@ message AuthorizedDataSourceV2ResultProto {
   oneof result {
     AuthorizedDataSourceV2ListProto success = 1;
     PluginExceptionProto failure = 2;
+  }
+}
+
+// DEPRECATED
+
+message DataSourceProto {
+  string name = 1;
+  string description = 2;
+  string imageUrl = 3;
+  bool connected = 4;
+  string authorizationUrl = 5;
+  bool authorizationUrlIsNull = 6;
+}
+
+message DataSourcesProtoListWrapper {
+  repeated DataSourceProto dataSources = 1;
+}
+
+message ResultDataSourcesProto {
+  oneof result {
+    DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
   }
 }

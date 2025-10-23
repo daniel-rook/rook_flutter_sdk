@@ -11,7 +11,7 @@ import RookSDK
 
 func boolSuccess(flutterResult: FlutterResult, success: Bool) {
     do {
-        let bytes = try ResultBooleanProto.with {
+        let bytes = try BooleanResultProto.with {
             $0.success = success
         }.serializedData()
 
@@ -29,8 +29,8 @@ func boolError(flutterResult: FlutterResult, error: Error) {
             $0.message = error.getPluginExceptionMessage()
         }
 
-        let bytes = try ResultBooleanProto.with {
-            $0.pluginExceptionProto = pluginExceptionProto
+        let bytes = try BooleanResultProto.with {
+            $0.failure = pluginExceptionProto
         }.serializedData()
 
         flutterResult(bytes)
@@ -41,8 +41,8 @@ func boolError(flutterResult: FlutterResult, error: Error) {
 
 func int64Success(flutterResult: FlutterResult, int64: Int64) {
     do {
-        let bytes = try ResultInt64Proto.with {
-            $0.value = int64
+        let bytes = try Int64ResultProto.with {
+            $0.success = int64
         }.serializedData()
 
         flutterResult(bytes)
@@ -59,8 +59,8 @@ func int64Error(flutterResult: FlutterResult, error: Error) {
             $0.message = error.getPluginExceptionMessage()
         }
 
-        let bytes = try ResultInt64Proto.with {
-            $0.pluginExceptionProto = pluginExceptionProto
+        let bytes = try Int64ResultProto.with {
+            $0.failure = pluginExceptionProto
         }.serializedData()
 
         flutterResult(bytes)
@@ -71,8 +71,8 @@ func int64Error(flutterResult: FlutterResult, error: Error) {
 
 func dailyCaloriesSuccess(flutterResult: FlutterResult, rookCalories: RookCalories) {
     do {
-        let bytes = try ResultDailyCaloriesProto.with {
-            $0.dailyCalories = DailyCaloriesProto.with {
+        let bytes = try SyncStatusWithCaloriesResultProto.with {
+            $0.success = CaloriesProto.with {
                 $0.basal = Double(rookCalories.basalCalories ?? .zero)
                 $0.active = Double(rookCalories.activeCalories ?? .zero)
             }
@@ -92,8 +92,8 @@ func dailyCaloriesError(flutterResult: FlutterResult, error: Error) {
             $0.message = error.getPluginExceptionMessage()
         }
 
-        let bytes = try ResultDailyCaloriesProto.with {
-            $0.pluginExceptionProto = pluginExceptionProto
+        let bytes = try SyncStatusWithCaloriesResultProto.with {
+            $0.failure = pluginExceptionProto
         }.serializedData()
 
         flutterResult(bytes)
@@ -138,8 +138,8 @@ func dataSourcesError(flutterResult: FlutterResult, error: Error) {
 
 func dataSourceAuthorizerSuccess(flutterResult: FlutterResult, dataSourceAuthorizer: DataSourceAuthorizer) {
     do {
-        let bytes = try ResultDataSourceAuthorizerProto.with {
-            $0.dataSourceAuthorizerProto = dataSourceAuthorizer.toProto()
+        let bytes = try DataSourceAuthorizerResultProto.with {
+            $0.success = dataSourceAuthorizer.toProto()
         }.serializedData()
         
         flutterResult(bytes)
@@ -156,8 +156,8 @@ func dataSourceAuthorizerError(flutterResult: FlutterResult, error: Error) {
             $0.message = error.getPluginExceptionMessage()
         }
         
-        let bytes = try ResultDataSourceAuthorizerProto.with {
-            $0.pluginExceptionProto = pluginExceptionProto
+        let bytes = try DataSourceAuthorizerResultProto.with {
+            $0.failure = pluginExceptionProto
         }.serializedData()
         
         flutterResult(bytes)
@@ -168,8 +168,8 @@ func dataSourceAuthorizerError(flutterResult: FlutterResult, error: Error) {
 
 func authorizedDataSourcesSuccess(flutterResult: FlutterResult, statusDataSources: StatusDataSources) {
     do {
-        let bytes = try ResultAuthorizedDataSourcesProto.with {
-            $0.authorizedDataSourcesProto = statusDataSources.toProto()
+        let bytes = try AuthorizedDataSourcesResultProto.with {
+            $0.success = statusDataSources.toProto()
         }.serializedData()
 
         flutterResult(bytes)
@@ -186,8 +186,8 @@ func authorizedDataSourcesError(flutterResult: FlutterResult, error: Error) {
             $0.message = error.getPluginExceptionMessage()
         }
 
-        let bytes = try ResultAuthorizedDataSourcesProto.with {
-            $0.pluginExceptionProto = pluginExceptionProto
+        let bytes = try AuthorizedDataSourcesResultProto.with {
+            $0.failure = pluginExceptionProto
         }.serializedData()
 
         flutterResult(bytes)

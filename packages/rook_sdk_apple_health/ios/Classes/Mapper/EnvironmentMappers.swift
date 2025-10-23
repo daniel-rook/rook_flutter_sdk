@@ -8,10 +8,10 @@
 import Foundation
 import RookSDK
 
-extension RookEnvironmentProto {
+extension EnvironmentProto {
  
     func toDomain() -> RookEnvironment {
-        if self == RookEnvironmentProto.sandbox {
+        if self == EnvironmentProto.sandbox {
             return RookEnvironment.sandbox
         } else {
             return RookEnvironment.production

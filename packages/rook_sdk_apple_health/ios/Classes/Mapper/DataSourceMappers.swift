@@ -15,7 +15,7 @@ extension RookDataSource {
             return DataSourceProto.with { it in
                 it.name = name
                 it.description_p = description
-                it.image = imageUrl
+                it.imageURL = imageUrl
                 it.connected = connected
                 it.authorizationURLIsNull = true
             }
@@ -24,7 +24,7 @@ extension RookDataSource {
         return DataSourceProto.with { it in
             it.name = name
             it.description_p = description
-            it.image = imageUrl
+            it.imageURL = imageUrl
             it.connected = connected
             it.authorizationURL = realAuthorizationURL
             it.authorizationURLIsNull = false

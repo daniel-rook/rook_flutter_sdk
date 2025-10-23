@@ -1,29 +1,29 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rook_sdk_apple_health/src/data/mapper/rook_environment_mappers.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/environment_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pbenum.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 void main() {
-  group('RookEnvironment to RookEnvironmentProto mappers', () {
+  group('RookEnvironment to EnvironmentProto mappers', () {
     test(
-      'GIVEN RookEnvironment.sandbox WHEN toProto THEN return RookEnvironmentProto.SANDBOX',
+      'GIVEN RookEnvironment.sandbox WHEN toProto THEN return EnvironmentProto.SANDBOX',
       () {
         const rookEnvironment = RookEnvironment.sandbox;
 
         final result = rookEnvironment.toProto();
 
-        expect(result, RookEnvironmentProto.SANDBOX);
+        expect(result, EnvironmentProto.SANDBOX);
       },
     );
 
     test(
-      'GIVEN RookEnvironment.production WHEN toProto THEN return RookEnvironmentProto.PRODUCTION',
+      'GIVEN RookEnvironment.production WHEN toProto THEN return EnvironmentProto.PRODUCTION',
       () {
         const rookEnvironment = RookEnvironment.production;
 
         final result = rookEnvironment.toProto();
 
-        expect(result, RookEnvironmentProto.PRODUCTION);
+        expect(result, EnvironmentProto.PRODUCTION);
       },
     );
   });
