@@ -1,13 +1,14 @@
+// This is a generated file - do not edit.
 //
-//  Generated code. Do not modify.
-//  source: protos.proto
-//
-// @dart = 2.12
+// Generated from protos.proto.
+
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
-// ignore_for_file: constant_identifier_names, library_prefixes
-// ignore_for_file: non_constant_identifier_names, prefer_final_fields
-// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: curly_braces_in_flow_control_structures
+// ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
+// ignore_for_file: non_constant_identifier_names
 
 import 'dart:core' as $core;
 
@@ -24,11 +25,12 @@ class EnvironmentProto extends $pb.ProtobufEnum {
     PRODUCTION,
   ];
 
-  static final $core.Map<$core.int, EnvironmentProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static EnvironmentProto? valueOf($core.int value) => _byValue[value];
+  static final $core.List<EnvironmentProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 1);
+  static EnvironmentProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const EnvironmentProto._($core.int v, $core.String n) : super(v, n);
+  const EnvironmentProto._(super.value, super.name);
 }
 
 class HealthConnectAvailabilityProto extends $pb.ProtobufEnum {
@@ -48,13 +50,12 @@ class HealthConnectAvailabilityProto extends $pb.ProtobufEnum {
     NOT_SUPPORTED,
   ];
 
-  static final $core.Map<$core.int, HealthConnectAvailabilityProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.List<HealthConnectAvailabilityProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
   static HealthConnectAvailabilityProto? valueOf($core.int value) =>
-      _byValue[value];
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const HealthConnectAvailabilityProto._($core.int v, $core.String n)
-      : super(v, n);
+  const HealthConnectAvailabilityProto._(super.value, super.name);
 }
 
 class RequestPermissionsStatusProto extends $pb.ProtobufEnum {
@@ -70,13 +71,12 @@ class RequestPermissionsStatusProto extends $pb.ProtobufEnum {
     ALREADY_GRANTED,
   ];
 
-  static final $core.Map<$core.int, RequestPermissionsStatusProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.List<RequestPermissionsStatusProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 1);
   static RequestPermissionsStatusProto? valueOf($core.int value) =>
-      _byValue[value];
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const RequestPermissionsStatusProto._($core.int v, $core.String n)
-      : super(v, n);
+  const RequestPermissionsStatusProto._(super.value, super.name);
 }
 
 class BackgroundReadStatusProto extends $pb.ProtobufEnum {
@@ -96,11 +96,12 @@ class BackgroundReadStatusProto extends $pb.ProtobufEnum {
     PERMISSION_GRANTED,
   ];
 
-  static final $core.Map<$core.int, BackgroundReadStatusProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static BackgroundReadStatusProto? valueOf($core.int value) => _byValue[value];
+  static final $core.List<BackgroundReadStatusProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static BackgroundReadStatusProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const BackgroundReadStatusProto._($core.int v, $core.String n) : super(v, n);
+  const BackgroundReadStatusProto._(super.value, super.name);
 }
 
 class SummarySyncTypeProto extends $pb.ProtobufEnum {
@@ -117,11 +118,12 @@ class SummarySyncTypeProto extends $pb.ProtobufEnum {
     BODY,
   ];
 
-  static final $core.Map<$core.int, SummarySyncTypeProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static SummarySyncTypeProto? valueOf($core.int value) => _byValue[value];
+  static final $core.List<SummarySyncTypeProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static SummarySyncTypeProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const SummarySyncTypeProto._($core.int v, $core.String n) : super(v, n);
+  const SummarySyncTypeProto._(super.value, super.name);
 }
 
 class EventSyncTypeProto extends $pb.ProtobufEnum {
@@ -162,11 +164,12 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
     CALORIES,
   ];
 
-  static final $core.Map<$core.int, EventSyncTypeProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static EventSyncTypeProto? valueOf($core.int value) => _byValue[value];
+  static final $core.List<EventSyncTypeProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 10);
+  static EventSyncTypeProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const EventSyncTypeProto._($core.int v, $core.String n) : super(v, n);
+  const EventSyncTypeProto._(super.value, super.name);
 }
 
 class SyncStatusProto extends $pb.ProtobufEnum {
@@ -180,11 +183,12 @@ class SyncStatusProto extends $pb.ProtobufEnum {
     RECORDS_NOT_FOUND,
   ];
 
-  static final $core.Map<$core.int, SyncStatusProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static SyncStatusProto? valueOf($core.int value) => _byValue[value];
+  static final $core.List<SyncStatusProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 1);
+  static SyncStatusProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const SyncStatusProto._($core.int v, $core.String n) : super(v, n);
+  const SyncStatusProto._(super.value, super.name);
 }
 
 class DataSourceTypeProto extends $pb.ProtobufEnum {
@@ -210,11 +214,13 @@ class DataSourceTypeProto extends $pb.ProtobufEnum {
     WHOOP,
   ];
 
-  static final $core.Map<$core.int, DataSourceTypeProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static DataSourceTypeProto? valueOf($core.int value) => _byValue[value];
+  static final $core.List<DataSourceTypeProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
+  static DataSourceTypeProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const DataSourceTypeProto._($core.int v, $core.String n) : super(v, n);
+  const DataSourceTypeProto._(super.value, super.name);
 }
 
-const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');
+const $core.bool _omitEnumNames =
+    $core.bool.fromEnvironment('protobuf.omit_enum_names');

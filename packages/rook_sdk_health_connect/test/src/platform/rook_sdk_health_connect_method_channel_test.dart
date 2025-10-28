@@ -4,14 +4,18 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
+import 'activity_event.dart';
 import 'authorized_data_source_v2.dart';
 import 'authorized_data_sources.dart';
 import 'background_read_status.dart';
+import 'body_summary.dart';
 import 'boolean.dart';
 import 'data_source_authorizer.dart';
 import 'health_connect_availability.dart';
 import 'int64.dart';
+import 'physical_summary.dart';
 import 'request_permission_status.dart';
+import 'sleep_summary.dart';
 import 'string.dart';
 import 'sync_status_with_calories.dart';
 import 'sync_status_with_int.dart';
@@ -42,6 +46,10 @@ void main() {
   backgroundReadStatusTests(platform, channel);
   stringTests(platform, channel);
   healthConnectAvailabilityTests(platform, channel);
+  sleepSummaryTest(platform, channel);
+  physicalSummaryTest(platform, channel);
+  bodySummaryTest(platform, channel);
+  activityEventTest(platform, channel);
 }
 
 void resultDataSourceTests(
