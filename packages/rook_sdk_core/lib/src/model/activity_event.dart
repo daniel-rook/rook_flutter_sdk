@@ -205,107 +205,107 @@ class ActivityEvent {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is ActivityEvent &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              sourceOfData == other.sourceOfData &&
-              wasTheUserUnderPhysicalActivity ==
-                  other.wasTheUserUnderPhysicalActivity &&
-              activityStartDateTime == other.activityStartDateTime &&
-              activityEndDateTime == other.activityEndDateTime &&
-              activityDurationSeconds == other.activityDurationSeconds &&
-              activityTypeName == other.activityTypeName &&
-              activeSeconds == other.activeSeconds &&
-              restSeconds == other.restSeconds &&
-              lowIntensitySeconds == other.lowIntensitySeconds &&
-              moderateIntensitySeconds == other.moderateIntensitySeconds &&
-              vigorousIntensitySeconds == other.vigorousIntensitySeconds &&
-              inactivitySeconds == other.inactivitySeconds &&
-              activityLevelGranularData == other.activityLevelGranularData &&
-              continuousInactivePeriods == other.continuousInactivePeriods &&
-              activityStrainLevel == other.activityStrainLevel &&
-              activityWorkKilojoules == other.activityWorkKilojoules &&
-              activityEnergyKilojoules == other.activityEnergyKilojoules &&
-              activityEnergyPlannedKilojoules ==
-                  other.activityEnergyPlannedKilojoules &&
-              caloriesNetIntakeKcal == other.caloriesNetIntakeKcal &&
-              caloriesExpenditureKcal == other.caloriesExpenditureKcal &&
-              caloriesNetActiveKcal == other.caloriesNetActiveKcal &&
-              caloriesBasalMetabolicRateKcal ==
-                  other.caloriesBasalMetabolicRateKcal &&
-              fatPercentageOfCalories == other.fatPercentageOfCalories &&
-              carbohydratePercentageOfCalories ==
-                  other.carbohydratePercentageOfCalories &&
-              proteinPercentageOfCalories == other.proteinPercentageOfCalories &&
-              steps == other.steps &&
-              stepsGranularData == other.stepsGranularData &&
-              walkedDistanceMeters == other.walkedDistanceMeters &&
-              traveledDistanceMeters == other.traveledDistanceMeters &&
-              traveledDistanceGranularData == other.traveledDistanceGranularData &&
-              floorsClimbed == other.floorsClimbed &&
-              floorsClimbedGranularData == other.floorsClimbedGranularData &&
-              elevationAvgAltitudeMeters == other.elevationAvgAltitudeMeters &&
-              elevationMinimumAltitudeMeters ==
-                  other.elevationMinimumAltitudeMeters &&
-              elevationMaximumAltitudeMeters ==
-                  other.elevationMaximumAltitudeMeters &&
-              elevationLossActualAltitudeMeters ==
-                  other.elevationLossActualAltitudeMeters &&
-              elevationGainActualAltitudeMeters ==
-                  other.elevationGainActualAltitudeMeters &&
-              elevationPlannedGainMeters == other.elevationPlannedGainMeters &&
-              elevationGranularData == other.elevationGranularData &&
-              swimmingNumStrokes == other.swimmingNumStrokes &&
-              swimmingNumLaps == other.swimmingNumLaps &&
-              swimmingPoolLengthMeters == other.swimmingPoolLengthMeters &&
-              swimmingTotalDistanceMeters == other.swimmingTotalDistanceMeters &&
-              swimmingDistanceGranularData == other.swimmingDistanceGranularData &&
-              hrMaximumBpm == other.hrMaximumBpm &&
-              hrMinimumBpm == other.hrMinimumBpm &&
-              hrAvgBpm == other.hrAvgBpm &&
-              hrRestingBpm == other.hrRestingBpm &&
-              hrGranularData == other.hrGranularData &&
-              hrvAvgRmssd == other.hrvAvgRmssd &&
-              hrvAvgSdnn == other.hrvAvgSdnn &&
-              hrvSdnnGranularData == other.hrvSdnnGranularData &&
-              hrvRmssdGranularData == other.hrvRmssdGranularData &&
-              speedNormalizedMetersPerSecond ==
-                  other.speedNormalizedMetersPerSecond &&
-              speedAvgMetersPerSecond == other.speedAvgMetersPerSecond &&
-              speedMaximumMetersPerSecond == other.speedMaximumMetersPerSecond &&
-              speedGranularData == other.speedGranularData &&
-              velocityAvg == other.velocityAvg &&
-              velocityMaximum == other.velocityMaximum &&
-              paceAvgMinPerKm == other.paceAvgMinPerKm &&
-              paceMaximumMinPerKm == other.paceMaximumMinPerKm &&
-              cadenceAvgRpm == other.cadenceAvgRpm &&
-              cadenceMaximumRpm == other.cadenceMaximumRpm &&
-              cadenceGranularData == other.cadenceGranularData &&
-              torqueAvgNewtonMeters == other.torqueAvgNewtonMeters &&
-              torqueMaximumNewtonMeters == other.torqueMaximumNewtonMeters &&
-              torqueGranularData == other.torqueGranularData &&
-              lapGranularData == other.lapGranularData &&
-              saturationAvgPercentage == other.saturationAvgPercentage &&
-              saturationGranularData == other.saturationGranularData &&
-              vo2MaxMlPerMinPerKg == other.vo2MaxMlPerMinPerKg &&
-              vo2GranularData == other.vo2GranularData &&
-              positionStart == other.positionStart &&
-              positionCentroid == other.positionCentroid &&
-              positionEnd == other.positionEnd &&
-              positionGranularData == other.positionGranularData &&
-              positionPolylineMapDataSummary ==
-                  other.positionPolylineMapDataSummary &&
-              powerAvgWatts == other.powerAvgWatts &&
-              powerMaximumWatts == other.powerMaximumWatts &&
-              powerGranularData == other.powerGranularData &&
-              stressAtRestDurationSeconds == other.stressAtRestDurationSeconds &&
-              stressDurationSeconds == other.stressDurationSeconds &&
-              lowStressDurationSeconds == other.lowStressDurationSeconds &&
-              mediumStressDurationSeconds == other.mediumStressDurationSeconds &&
-              highStressDurationSeconds == other.highStressDurationSeconds &&
-              tssGranularData == other.tssGranularData &&
-              stressAvgLevel == other.stressAvgLevel &&
-              stressMaximumLevel == other.stressMaximumLevel;
+      other is ActivityEvent &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          sourceOfData == other.sourceOfData &&
+          wasTheUserUnderPhysicalActivity ==
+              other.wasTheUserUnderPhysicalActivity &&
+          activityStartDateTime == other.activityStartDateTime &&
+          activityEndDateTime == other.activityEndDateTime &&
+          activityDurationSeconds == other.activityDurationSeconds &&
+          activityTypeName == other.activityTypeName &&
+          activeSeconds == other.activeSeconds &&
+          restSeconds == other.restSeconds &&
+          lowIntensitySeconds == other.lowIntensitySeconds &&
+          moderateIntensitySeconds == other.moderateIntensitySeconds &&
+          vigorousIntensitySeconds == other.vigorousIntensitySeconds &&
+          inactivitySeconds == other.inactivitySeconds &&
+          activityLevelGranularData == other.activityLevelGranularData &&
+          continuousInactivePeriods == other.continuousInactivePeriods &&
+          activityStrainLevel == other.activityStrainLevel &&
+          activityWorkKilojoules == other.activityWorkKilojoules &&
+          activityEnergyKilojoules == other.activityEnergyKilojoules &&
+          activityEnergyPlannedKilojoules ==
+              other.activityEnergyPlannedKilojoules &&
+          caloriesNetIntakeKcal == other.caloriesNetIntakeKcal &&
+          caloriesExpenditureKcal == other.caloriesExpenditureKcal &&
+          caloriesNetActiveKcal == other.caloriesNetActiveKcal &&
+          caloriesBasalMetabolicRateKcal ==
+              other.caloriesBasalMetabolicRateKcal &&
+          fatPercentageOfCalories == other.fatPercentageOfCalories &&
+          carbohydratePercentageOfCalories ==
+              other.carbohydratePercentageOfCalories &&
+          proteinPercentageOfCalories == other.proteinPercentageOfCalories &&
+          steps == other.steps &&
+          stepsGranularData == other.stepsGranularData &&
+          walkedDistanceMeters == other.walkedDistanceMeters &&
+          traveledDistanceMeters == other.traveledDistanceMeters &&
+          traveledDistanceGranularData == other.traveledDistanceGranularData &&
+          floorsClimbed == other.floorsClimbed &&
+          floorsClimbedGranularData == other.floorsClimbedGranularData &&
+          elevationAvgAltitudeMeters == other.elevationAvgAltitudeMeters &&
+          elevationMinimumAltitudeMeters ==
+              other.elevationMinimumAltitudeMeters &&
+          elevationMaximumAltitudeMeters ==
+              other.elevationMaximumAltitudeMeters &&
+          elevationLossActualAltitudeMeters ==
+              other.elevationLossActualAltitudeMeters &&
+          elevationGainActualAltitudeMeters ==
+              other.elevationGainActualAltitudeMeters &&
+          elevationPlannedGainMeters == other.elevationPlannedGainMeters &&
+          elevationGranularData == other.elevationGranularData &&
+          swimmingNumStrokes == other.swimmingNumStrokes &&
+          swimmingNumLaps == other.swimmingNumLaps &&
+          swimmingPoolLengthMeters == other.swimmingPoolLengthMeters &&
+          swimmingTotalDistanceMeters == other.swimmingTotalDistanceMeters &&
+          swimmingDistanceGranularData == other.swimmingDistanceGranularData &&
+          hrMaximumBpm == other.hrMaximumBpm &&
+          hrMinimumBpm == other.hrMinimumBpm &&
+          hrAvgBpm == other.hrAvgBpm &&
+          hrRestingBpm == other.hrRestingBpm &&
+          hrGranularData == other.hrGranularData &&
+          hrvAvgRmssd == other.hrvAvgRmssd &&
+          hrvAvgSdnn == other.hrvAvgSdnn &&
+          hrvSdnnGranularData == other.hrvSdnnGranularData &&
+          hrvRmssdGranularData == other.hrvRmssdGranularData &&
+          speedNormalizedMetersPerSecond ==
+              other.speedNormalizedMetersPerSecond &&
+          speedAvgMetersPerSecond == other.speedAvgMetersPerSecond &&
+          speedMaximumMetersPerSecond == other.speedMaximumMetersPerSecond &&
+          speedGranularData == other.speedGranularData &&
+          velocityAvg == other.velocityAvg &&
+          velocityMaximum == other.velocityMaximum &&
+          paceAvgMinPerKm == other.paceAvgMinPerKm &&
+          paceMaximumMinPerKm == other.paceMaximumMinPerKm &&
+          cadenceAvgRpm == other.cadenceAvgRpm &&
+          cadenceMaximumRpm == other.cadenceMaximumRpm &&
+          cadenceGranularData == other.cadenceGranularData &&
+          torqueAvgNewtonMeters == other.torqueAvgNewtonMeters &&
+          torqueMaximumNewtonMeters == other.torqueMaximumNewtonMeters &&
+          torqueGranularData == other.torqueGranularData &&
+          lapGranularData == other.lapGranularData &&
+          saturationAvgPercentage == other.saturationAvgPercentage &&
+          saturationGranularData == other.saturationGranularData &&
+          vo2MaxMlPerMinPerKg == other.vo2MaxMlPerMinPerKg &&
+          vo2GranularData == other.vo2GranularData &&
+          positionStart == other.positionStart &&
+          positionCentroid == other.positionCentroid &&
+          positionEnd == other.positionEnd &&
+          positionGranularData == other.positionGranularData &&
+          positionPolylineMapDataSummary ==
+              other.positionPolylineMapDataSummary &&
+          powerAvgWatts == other.powerAvgWatts &&
+          powerMaximumWatts == other.powerMaximumWatts &&
+          powerGranularData == other.powerGranularData &&
+          stressAtRestDurationSeconds == other.stressAtRestDurationSeconds &&
+          stressDurationSeconds == other.stressDurationSeconds &&
+          lowStressDurationSeconds == other.lowStressDurationSeconds &&
+          mediumStressDurationSeconds == other.mediumStressDurationSeconds &&
+          highStressDurationSeconds == other.highStressDurationSeconds &&
+          tssGranularData == other.tssGranularData &&
+          stressAvgLevel == other.stressAvgLevel &&
+          stressMaximumLevel == other.stressMaximumLevel;
 
   @override
   int get hashCode =>

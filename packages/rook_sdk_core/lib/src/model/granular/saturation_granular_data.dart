@@ -10,10 +10,10 @@ class SaturationGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is SaturationGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              saturationPercentage == other.saturationPercentage;
+      other is SaturationGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          saturationPercentage == other.saturationPercentage;
 
   @override
   int get hashCode => dateTime.hashCode ^ saturationPercentage.hashCode;

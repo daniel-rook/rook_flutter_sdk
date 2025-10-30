@@ -10,10 +10,10 @@ class PositionObject {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is PositionObject &&
-              runtimeType == other.runtimeType &&
-              latDeg == other.latDeg &&
-              lngDeg == other.lngDeg;
+      other is PositionObject &&
+          runtimeType == other.runtimeType &&
+          latDeg == other.latDeg &&
+          lngDeg == other.lngDeg;
 
   @override
   int get hashCode => latDeg.hashCode ^ lngDeg.hashCode;

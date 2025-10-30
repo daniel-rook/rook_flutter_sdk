@@ -12,11 +12,11 @@ class PowerGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is PowerGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              powerWatts == other.powerWatts;
+      other is PowerGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          powerWatts == other.powerWatts;
 
   @override
   int get hashCode =>

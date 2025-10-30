@@ -14,12 +14,12 @@ class PositionGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is PositionGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              latDeg == other.latDeg &&
-              lngDeg == other.lngDeg;
+      other is PositionGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          latDeg == other.latDeg &&
+          lngDeg == other.lngDeg;
 
   @override
   int get hashCode =>

@@ -12,11 +12,11 @@ class SwimmingDistanceGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is SwimmingDistanceGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              swimmingDistanceMeters == other.swimmingDistanceMeters;
+      other is SwimmingDistanceGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          swimmingDistanceMeters == other.swimmingDistanceMeters;
 
   @override
   int get hashCode =>

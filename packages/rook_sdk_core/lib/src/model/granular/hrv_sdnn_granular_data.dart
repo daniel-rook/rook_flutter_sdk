@@ -10,10 +10,10 @@ class HrvSdnnGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is HrvSdnnGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              hrvSdnn == other.hrvSdnn;
+      other is HrvSdnnGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          hrvSdnn == other.hrvSdnn;
 
   @override
   int get hashCode => dateTime.hashCode ^ hrvSdnn.hashCode;

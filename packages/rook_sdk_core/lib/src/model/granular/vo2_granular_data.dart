@@ -10,10 +10,10 @@ class Vo2GranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is Vo2GranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              vo2MlPerMinPerKg == other.vo2MlPerMinPerKg;
+      other is Vo2GranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          vo2MlPerMinPerKg == other.vo2MlPerMinPerKg;
 
   @override
   int get hashCode => dateTime.hashCode ^ vo2MlPerMinPerKg.hashCode;

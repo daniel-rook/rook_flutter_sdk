@@ -12,11 +12,11 @@ class SpeedGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is SpeedGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              speedMetersPerSecond == other.speedMetersPerSecond;
+      other is SpeedGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          speedMetersPerSecond == other.speedMetersPerSecond;
 
   @override
   int get hashCode =>

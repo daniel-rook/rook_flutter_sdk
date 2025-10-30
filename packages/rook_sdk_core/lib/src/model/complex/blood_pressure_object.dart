@@ -10,10 +10,10 @@ class BloodPressureObject {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is BloodPressureObject &&
-              runtimeType == other.runtimeType &&
-              systolicMmHg == other.systolicMmHg &&
-              diastolicMmHg == other.diastolicMmHg;
+      other is BloodPressureObject &&
+          runtimeType == other.runtimeType &&
+          systolicMmHg == other.systolicMmHg &&
+          diastolicMmHg == other.diastolicMmHg;
 
   @override
   int get hashCode => systolicMmHg.hashCode ^ diastolicMmHg.hashCode;

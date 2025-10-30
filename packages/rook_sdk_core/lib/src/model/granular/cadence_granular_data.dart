@@ -12,11 +12,11 @@ class CadenceGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is CadenceGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              cadenceRpm == other.cadenceRpm;
+      other is CadenceGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          cadenceRpm == other.cadenceRpm;
 
   @override
   int get hashCode =>

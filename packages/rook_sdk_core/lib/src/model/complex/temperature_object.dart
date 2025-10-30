@@ -10,10 +10,10 @@ class TemperatureObject {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is TemperatureObject &&
-              runtimeType == other.runtimeType &&
-              temperatureCelsius == other.temperatureCelsius &&
-              measurementType == other.measurementType;
+      other is TemperatureObject &&
+          runtimeType == other.runtimeType &&
+          temperatureCelsius == other.temperatureCelsius &&
+          measurementType == other.measurementType;
 
   @override
   int get hashCode => temperatureCelsius.hashCode ^ measurementType.hashCode;

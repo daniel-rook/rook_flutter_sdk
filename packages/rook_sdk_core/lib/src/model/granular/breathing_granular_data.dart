@@ -10,10 +10,10 @@ class BreathingGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is BreathingGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              breathsPerMin == other.breathsPerMin;
+      other is BreathingGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          breathsPerMin == other.breathsPerMin;
 
   @override
   int get hashCode => dateTime.hashCode ^ breathsPerMin.hashCode;

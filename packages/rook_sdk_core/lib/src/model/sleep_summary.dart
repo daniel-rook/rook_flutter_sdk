@@ -103,55 +103,55 @@ class SleepSummary {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is SleepSummary &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              sourceOfData == other.sourceOfData &&
-              wasTheUserUnderPhysicalActivity ==
-                  other.wasTheUserUnderPhysicalActivity &&
-              sleepStartDateTime == other.sleepStartDateTime &&
-              sleepEndDateTime == other.sleepEndDateTime &&
-              sleepDate == other.sleepDate &&
-              sleepDurationSeconds == other.sleepDurationSeconds &&
-              timeInBedSeconds == other.timeInBedSeconds &&
-              lightSleepDurationSeconds == other.lightSleepDurationSeconds &&
-              remSleepDurationSeconds == other.remSleepDurationSeconds &&
-              deepSleepDurationSeconds == other.deepSleepDurationSeconds &&
-              timeToFallAsleepSeconds == other.timeToFallAsleepSeconds &&
-              timeAwakeDuringSleepSeconds == other.timeAwakeDuringSleepSeconds &&
-              sleepQualityRating1To5Score == other.sleepQualityRating1To5Score &&
-              sleepEfficiency1To100Score == other.sleepEfficiency1To100Score &&
-              sleepGoalSeconds == other.sleepGoalSeconds &&
-              sleepContinuity1To5Score == other.sleepContinuity1To5Score &&
-              sleepContinuity1To5Rating == other.sleepContinuity1To5Rating &&
-              hrMaximumBpm == other.hrMaximumBpm &&
-              hrMinimumBpm == other.hrMinimumBpm &&
-              hrAvgBpm == other.hrAvgBpm &&
-              hrRestingBpm == other.hrRestingBpm &&
-              hrBasalBpm == other.hrBasalBpm &&
-              // Note: This compares lists by reference.
-              // For deep equality, you'd use foundation.listEquals
-              hrGranularData == other.hrGranularData &&
-              hrvAvgRmssd == other.hrvAvgRmssd &&
-              hrvAvgSdnn == other.hrvAvgSdnn &&
-              hrvSdnnGranularData == other.hrvSdnnGranularData &&
-              hrvRmssdGranularData == other.hrvRmssdGranularData &&
-              temperatureMinimum == other.temperatureMinimum &&
-              temperatureAvg == other.temperatureAvg &&
-              temperatureMaximum == other.temperatureMaximum &&
-              temperatureGranularData == other.temperatureGranularData &&
-              temperatureDelta == other.temperatureDelta &&
-              breathsMinimumPerMin == other.breathsMinimumPerMin &&
-              breathsAvgPerMin == other.breathsAvgPerMin &&
-              breathsMaximumPerMin == other.breathsMaximumPerMin &&
-              breathingGranularData == other.breathingGranularData &&
-              snoringEventsCount == other.snoringEventsCount &&
-              snoringDurationTotalSeconds == other.snoringDurationTotalSeconds &&
-              snoringGranularData == other.snoringGranularData &&
-              saturationAvgPercentage == other.saturationAvgPercentage &&
-              saturationMinimumPercentage == other.saturationMinimumPercentage &&
-              saturationMaximumPercentage == other.saturationMaximumPercentage &&
-              saturationGranularData == other.saturationGranularData;
+      other is SleepSummary &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          sourceOfData == other.sourceOfData &&
+          wasTheUserUnderPhysicalActivity ==
+              other.wasTheUserUnderPhysicalActivity &&
+          sleepStartDateTime == other.sleepStartDateTime &&
+          sleepEndDateTime == other.sleepEndDateTime &&
+          sleepDate == other.sleepDate &&
+          sleepDurationSeconds == other.sleepDurationSeconds &&
+          timeInBedSeconds == other.timeInBedSeconds &&
+          lightSleepDurationSeconds == other.lightSleepDurationSeconds &&
+          remSleepDurationSeconds == other.remSleepDurationSeconds &&
+          deepSleepDurationSeconds == other.deepSleepDurationSeconds &&
+          timeToFallAsleepSeconds == other.timeToFallAsleepSeconds &&
+          timeAwakeDuringSleepSeconds == other.timeAwakeDuringSleepSeconds &&
+          sleepQualityRating1To5Score == other.sleepQualityRating1To5Score &&
+          sleepEfficiency1To100Score == other.sleepEfficiency1To100Score &&
+          sleepGoalSeconds == other.sleepGoalSeconds &&
+          sleepContinuity1To5Score == other.sleepContinuity1To5Score &&
+          sleepContinuity1To5Rating == other.sleepContinuity1To5Rating &&
+          hrMaximumBpm == other.hrMaximumBpm &&
+          hrMinimumBpm == other.hrMinimumBpm &&
+          hrAvgBpm == other.hrAvgBpm &&
+          hrRestingBpm == other.hrRestingBpm &&
+          hrBasalBpm == other.hrBasalBpm &&
+          // Note: This compares lists by reference.
+          // For deep equality, you'd use foundation.listEquals
+          hrGranularData == other.hrGranularData &&
+          hrvAvgRmssd == other.hrvAvgRmssd &&
+          hrvAvgSdnn == other.hrvAvgSdnn &&
+          hrvSdnnGranularData == other.hrvSdnnGranularData &&
+          hrvRmssdGranularData == other.hrvRmssdGranularData &&
+          temperatureMinimum == other.temperatureMinimum &&
+          temperatureAvg == other.temperatureAvg &&
+          temperatureMaximum == other.temperatureMaximum &&
+          temperatureGranularData == other.temperatureGranularData &&
+          temperatureDelta == other.temperatureDelta &&
+          breathsMinimumPerMin == other.breathsMinimumPerMin &&
+          breathsAvgPerMin == other.breathsAvgPerMin &&
+          breathsMaximumPerMin == other.breathsMaximumPerMin &&
+          breathingGranularData == other.breathingGranularData &&
+          snoringEventsCount == other.snoringEventsCount &&
+          snoringDurationTotalSeconds == other.snoringDurationTotalSeconds &&
+          snoringGranularData == other.snoringGranularData &&
+          saturationAvgPercentage == other.saturationAvgPercentage &&
+          saturationMinimumPercentage == other.saturationMinimumPercentage &&
+          saturationMaximumPercentage == other.saturationMaximumPercentage &&
+          saturationGranularData == other.saturationGranularData;
 
   @override
   int get hashCode =>

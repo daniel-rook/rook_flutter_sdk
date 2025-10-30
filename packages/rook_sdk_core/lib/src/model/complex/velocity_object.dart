@@ -10,10 +10,10 @@ class VelocityObject {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is VelocityObject &&
-              runtimeType == other.runtimeType &&
-              speedMetersPerSecond == other.speedMetersPerSecond &&
-              direction == other.direction;
+      other is VelocityObject &&
+          runtimeType == other.runtimeType &&
+          speedMetersPerSecond == other.speedMetersPerSecond &&
+          direction == other.direction;
 
   @override
   int get hashCode => speedMetersPerSecond.hashCode ^ direction.hashCode;

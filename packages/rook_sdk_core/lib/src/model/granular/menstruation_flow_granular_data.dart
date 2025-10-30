@@ -10,10 +10,10 @@ class MenstruationFlowGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is MenstruationFlowGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              flowMl == other.flowMl;
+      other is MenstruationFlowGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          flowMl == other.flowMl;
 
   @override
   int get hashCode => dateTime.hashCode ^ flowMl.hashCode;

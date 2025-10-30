@@ -12,17 +12,15 @@ class TssGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is TssGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              tssScore == other.tssScore;
+      other is TssGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          tssScore == other.tssScore;
 
   @override
   int get hashCode =>
-      dateTime.hashCode ^
-      intervalDurationSeconds.hashCode ^
-      tssScore.hashCode;
+      dateTime.hashCode ^ intervalDurationSeconds.hashCode ^ tssScore.hashCode;
 
   @override
   String toString() {

@@ -10,10 +10,10 @@ class BloodGlucoseGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is BloodGlucoseGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              bloodGlucoseMgPerDl == other.bloodGlucoseMgPerDl;
+      other is BloodGlucoseGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          bloodGlucoseMgPerDl == other.bloodGlucoseMgPerDl;
 
   @override
   int get hashCode => dateTime.hashCode ^ bloodGlucoseMgPerDl.hashCode;

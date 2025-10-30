@@ -12,11 +12,11 @@ class HydrationLevelGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is HydrationLevelGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              hydrationLevelPercentage == other.hydrationLevelPercentage;
+      other is HydrationLevelGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          hydrationLevelPercentage == other.hydrationLevelPercentage;
 
   @override
   int get hashCode =>

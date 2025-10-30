@@ -12,11 +12,11 @@ class LapGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is LapGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              laps == other.laps;
+      other is LapGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          laps == other.laps;
 
   @override
   int get hashCode =>

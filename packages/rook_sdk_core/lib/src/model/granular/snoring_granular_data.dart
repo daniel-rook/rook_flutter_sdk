@@ -12,11 +12,11 @@ class SnoringGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is SnoringGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              snoringEventsCount == other.snoringEventsCount;
+      other is SnoringGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          snoringEventsCount == other.snoringEventsCount;
 
   @override
   int get hashCode =>

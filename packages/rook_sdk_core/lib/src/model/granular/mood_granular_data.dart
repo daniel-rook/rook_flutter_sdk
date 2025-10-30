@@ -12,17 +12,15 @@ class MoodGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is MoodGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              moodScale == other.moodScale;
+      other is MoodGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          moodScale == other.moodScale;
 
   @override
   int get hashCode =>
-      dateTime.hashCode ^
-      intervalDurationSeconds.hashCode ^
-      moodScale.hashCode;
+      dateTime.hashCode ^ intervalDurationSeconds.hashCode ^ moodScale.hashCode;
 
   @override
   String toString() {

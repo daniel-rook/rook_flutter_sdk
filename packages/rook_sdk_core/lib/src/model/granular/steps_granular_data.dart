@@ -12,11 +12,11 @@ class StepsGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is StepsGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              steps == other.steps;
+      other is StepsGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          steps == other.steps;
 
   @override
   int get hashCode =>

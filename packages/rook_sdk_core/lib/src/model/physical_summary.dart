@@ -134,71 +134,71 @@ class PhysicalSummary {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is PhysicalSummary &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              sourceOfData == other.sourceOfData &&
-              wasTheUserUnderPhysicalActivity ==
-                  other.wasTheUserUnderPhysicalActivity &&
-              activeSeconds == other.activeSeconds &&
-              restSeconds == other.restSeconds &&
-              lowIntensitySeconds == other.lowIntensitySeconds &&
-              moderateIntensitySeconds == other.moderateIntensitySeconds &&
-              vigorousIntensitySeconds == other.vigorousIntensitySeconds &&
-              inactivitySeconds == other.inactivitySeconds &&
-              activityLevelGranularData == other.activityLevelGranularData &&
-              continuousInactivePeriods == other.continuousInactivePeriods &&
-              caloriesNetIntakeKcal == other.caloriesNetIntakeKcal &&
-              caloriesExpenditureKcal == other.caloriesExpenditureKcal &&
-              caloriesNetActiveKcal == other.caloriesNetActiveKcal &&
-              caloriesBasalMetabolicRateKcal ==
-                  other.caloriesBasalMetabolicRateKcal &&
-              steps == other.steps &&
-              stepsGranularData == other.stepsGranularData &&
-              activeSteps == other.activeSteps &&
-              activeStepsGranularData == other.activeStepsGranularData &&
-              walkedDistanceMeters == other.walkedDistanceMeters &&
-              traveledDistanceMeters == other.traveledDistanceMeters &&
-              traveledDistanceGranularData == other.traveledDistanceGranularData &&
-              floorsClimbed == other.floorsClimbed &&
-              floorsClimbedGranularData == other.floorsClimbedGranularData &&
-              elevationAvgAltitudeMeters == other.elevationAvgAltitudeMeters &&
-              elevationMinimumAltitudeMeters ==
-                  other.elevationMinimumAltitudeMeters &&
-              elevationMaximumAltitudeMeters ==
-                  other.elevationMaximumAltitudeMeters &&
-              elevationLossActualAltitudeMeters ==
-                  other.elevationLossActualAltitudeMeters &&
-              elevationGainActualAltitudeMeters ==
-                  other.elevationGainActualAltitudeMeters &&
-              elevationPlannedGainMeters == other.elevationPlannedGainMeters &&
-              elevationGranularData == other.elevationGranularData &&
-              swimmingNumStrokes == other.swimmingNumStrokes &&
-              swimmingNumLaps == other.swimmingNumLaps &&
-              swimmingPoolLengthMeters == other.swimmingPoolLengthMeters &&
-              swimmingTotalDistanceMeters == other.swimmingTotalDistanceMeters &&
-              swimmingDistanceGranularData == other.swimmingDistanceGranularData &&
-              hrMaximumBpm == other.hrMaximumBpm &&
-              hrMinimumBpm == other.hrMinimumBpm &&
-              hrAvgBpm == other.hrAvgBpm &&
-              hrRestingBpm == other.hrRestingBpm &&
-              hrGranularData == other.hrGranularData &&
-              hrvAvgRmssd == other.hrvAvgRmssd &&
-              hrvAvgSdnn == other.hrvAvgSdnn &&
-              hrvSdnnGranularData == other.hrvSdnnGranularData &&
-              hrvRmssdGranularData == other.hrvRmssdGranularData &&
-              saturationAvgPercentage == other.saturationAvgPercentage &&
-              saturationGranularData == other.saturationGranularData &&
-              vo2MaxMlPerMinPerKg == other.vo2MaxMlPerMinPerKg &&
-              vo2GranularData == other.vo2GranularData &&
-              stressAtRestDurationSeconds == other.stressAtRestDurationSeconds &&
-              stressDurationSeconds == other.stressDurationSeconds &&
-              lowStressDurationSeconds == other.lowStressDurationSeconds &&
-              mediumStressDurationSeconds == other.mediumStressDurationSeconds &&
-              highStressDurationSeconds == other.highStressDurationSeconds &&
-              stressGranularData == other.stressGranularData &&
-              stressAvgLevel == other.stressAvgLevel &&
-              stressMaximumLevel == other.stressMaximumLevel;
+      other is PhysicalSummary &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          sourceOfData == other.sourceOfData &&
+          wasTheUserUnderPhysicalActivity ==
+              other.wasTheUserUnderPhysicalActivity &&
+          activeSeconds == other.activeSeconds &&
+          restSeconds == other.restSeconds &&
+          lowIntensitySeconds == other.lowIntensitySeconds &&
+          moderateIntensitySeconds == other.moderateIntensitySeconds &&
+          vigorousIntensitySeconds == other.vigorousIntensitySeconds &&
+          inactivitySeconds == other.inactivitySeconds &&
+          activityLevelGranularData == other.activityLevelGranularData &&
+          continuousInactivePeriods == other.continuousInactivePeriods &&
+          caloriesNetIntakeKcal == other.caloriesNetIntakeKcal &&
+          caloriesExpenditureKcal == other.caloriesExpenditureKcal &&
+          caloriesNetActiveKcal == other.caloriesNetActiveKcal &&
+          caloriesBasalMetabolicRateKcal ==
+              other.caloriesBasalMetabolicRateKcal &&
+          steps == other.steps &&
+          stepsGranularData == other.stepsGranularData &&
+          activeSteps == other.activeSteps &&
+          activeStepsGranularData == other.activeStepsGranularData &&
+          walkedDistanceMeters == other.walkedDistanceMeters &&
+          traveledDistanceMeters == other.traveledDistanceMeters &&
+          traveledDistanceGranularData == other.traveledDistanceGranularData &&
+          floorsClimbed == other.floorsClimbed &&
+          floorsClimbedGranularData == other.floorsClimbedGranularData &&
+          elevationAvgAltitudeMeters == other.elevationAvgAltitudeMeters &&
+          elevationMinimumAltitudeMeters ==
+              other.elevationMinimumAltitudeMeters &&
+          elevationMaximumAltitudeMeters ==
+              other.elevationMaximumAltitudeMeters &&
+          elevationLossActualAltitudeMeters ==
+              other.elevationLossActualAltitudeMeters &&
+          elevationGainActualAltitudeMeters ==
+              other.elevationGainActualAltitudeMeters &&
+          elevationPlannedGainMeters == other.elevationPlannedGainMeters &&
+          elevationGranularData == other.elevationGranularData &&
+          swimmingNumStrokes == other.swimmingNumStrokes &&
+          swimmingNumLaps == other.swimmingNumLaps &&
+          swimmingPoolLengthMeters == other.swimmingPoolLengthMeters &&
+          swimmingTotalDistanceMeters == other.swimmingTotalDistanceMeters &&
+          swimmingDistanceGranularData == other.swimmingDistanceGranularData &&
+          hrMaximumBpm == other.hrMaximumBpm &&
+          hrMinimumBpm == other.hrMinimumBpm &&
+          hrAvgBpm == other.hrAvgBpm &&
+          hrRestingBpm == other.hrRestingBpm &&
+          hrGranularData == other.hrGranularData &&
+          hrvAvgRmssd == other.hrvAvgRmssd &&
+          hrvAvgSdnn == other.hrvAvgSdnn &&
+          hrvSdnnGranularData == other.hrvSdnnGranularData &&
+          hrvRmssdGranularData == other.hrvRmssdGranularData &&
+          saturationAvgPercentage == other.saturationAvgPercentage &&
+          saturationGranularData == other.saturationGranularData &&
+          vo2MaxMlPerMinPerKg == other.vo2MaxMlPerMinPerKg &&
+          vo2GranularData == other.vo2GranularData &&
+          stressAtRestDurationSeconds == other.stressAtRestDurationSeconds &&
+          stressDurationSeconds == other.stressDurationSeconds &&
+          lowStressDurationSeconds == other.lowStressDurationSeconds &&
+          mediumStressDurationSeconds == other.mediumStressDurationSeconds &&
+          highStressDurationSeconds == other.highStressDurationSeconds &&
+          stressGranularData == other.stressGranularData &&
+          stressAvgLevel == other.stressAvgLevel &&
+          stressMaximumLevel == other.stressMaximumLevel;
 
   @override
   int get hashCode =>

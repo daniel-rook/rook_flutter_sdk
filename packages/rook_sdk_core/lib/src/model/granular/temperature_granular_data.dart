@@ -12,11 +12,11 @@ class TemperatureGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is TemperatureGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              temperatureCelsius == other.temperatureCelsius &&
-              measurementType == other.measurementType;
+      other is TemperatureGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          temperatureCelsius == other.temperatureCelsius &&
+          measurementType == other.measurementType;
 
   @override
   int get hashCode =>

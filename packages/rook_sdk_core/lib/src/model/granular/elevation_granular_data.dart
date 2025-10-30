@@ -12,11 +12,11 @@ class ElevationGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is ElevationGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              elevationChangeMeters == other.elevationChangeMeters;
+      other is ElevationGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          elevationChangeMeters == other.elevationChangeMeters;
 
   @override
   int get hashCode =>

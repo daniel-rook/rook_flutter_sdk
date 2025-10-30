@@ -12,11 +12,11 @@ class TorqueGranularData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is TorqueGranularData &&
-              runtimeType == other.runtimeType &&
-              dateTime == other.dateTime &&
-              intervalDurationSeconds == other.intervalDurationSeconds &&
-              torqueNewtonMeters == other.torqueNewtonMeters;
+      other is TorqueGranularData &&
+          runtimeType == other.runtimeType &&
+          dateTime == other.dateTime &&
+          intervalDurationSeconds == other.intervalDurationSeconds &&
+          torqueNewtonMeters == other.torqueNewtonMeters;
 
   @override
   int get hashCode =>
