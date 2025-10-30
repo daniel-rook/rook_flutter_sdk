@@ -4,11 +4,15 @@ import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_method_channel.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
+import 'activity_event.dart';
 import 'authorized_data_source_v2.dart';
 import 'authorized_data_sources.dart';
+import 'body_summary.dart';
 import 'boolean.dart';
 import 'data_source_authorizer.dart';
 import 'int64.dart';
+import 'physical_summary.dart';
+import 'sleep_summary.dart';
 import 'string.dart';
 import 'sync_status_with_calories.dart';
 import 'sync_status_with_int.dart';
@@ -36,6 +40,10 @@ void main() {
   authorizedDataSourcesTests(platform, channel);
   authorizedDataSourceV2Tests(platform, channel);
   stringTests(platform, channel);
+  sleepSummaryTest(platform, channel);
+  physicalSummaryTest(platform, channel);
+  bodySummaryTest(platform, channel);
+  activityEventTest(platform, channel);
 }
 
 void resultDataSourceTests(

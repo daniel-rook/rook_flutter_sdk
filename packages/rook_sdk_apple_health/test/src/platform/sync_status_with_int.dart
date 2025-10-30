@@ -14,8 +14,7 @@ void syncStatusWithIntTest(
       'MethodChannelRookSdkAppleHealth | SyncStatusWithIntResultProto value unwrap',
       () {
     mockMethodCall(channel, (_) async {
-      final proto = SyncStatusWithIntResultProto.create()
-        ..success = 1;
+      final proto = SyncStatusWithIntResultProto.create()..success = 1;
 
       return proto.writeToBuffer();
     });

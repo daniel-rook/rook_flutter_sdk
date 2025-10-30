@@ -8,8 +8,7 @@ void main() {
     test(
       "GIVEN success WHEN unwrap THEN return a SyncStatusWithData<int>",
       () {
-        final proto = SyncStatusWithIntResultProto.create()
-          ..success = 1;
+        final proto = SyncStatusWithIntResultProto.create()..success = 1;
 
         final result = proto.unwrap();
 

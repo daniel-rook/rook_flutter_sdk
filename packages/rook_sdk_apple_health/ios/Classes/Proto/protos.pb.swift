@@ -844,6 +844,2039 @@ struct ResultDataSourcesProto: Sendable {
   init() {}
 }
 
+struct SleepSummaryProto: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String {
+    get {return _storage._dateTime}
+    set {_uniqueStorage()._dateTime = newValue}
+  }
+
+  var sourceOfData: String {
+    get {return _storage._sourceOfData}
+    set {_uniqueStorage()._sourceOfData = newValue}
+  }
+
+  var wasTheUserUnderPhysicalActivity: Bool {
+    get {return _storage._wasTheUserUnderPhysicalActivity}
+    set {_uniqueStorage()._wasTheUserUnderPhysicalActivity = newValue}
+  }
+
+  var sleepStartDateTime: String {
+    get {return _storage._sleepStartDateTime}
+    set {_uniqueStorage()._sleepStartDateTime = newValue}
+  }
+
+  var sleepEndDateTime: String {
+    get {return _storage._sleepEndDateTime}
+    set {_uniqueStorage()._sleepEndDateTime = newValue}
+  }
+
+  var sleepDate: String {
+    get {return _storage._sleepDate}
+    set {_uniqueStorage()._sleepDate = newValue}
+  }
+
+  var sleepDurationSeconds: Int32 {
+    get {return _storage._sleepDurationSeconds}
+    set {_uniqueStorage()._sleepDurationSeconds = newValue}
+  }
+
+  var timeInBedSeconds: Int32 {
+    get {return _storage._timeInBedSeconds}
+    set {_uniqueStorage()._timeInBedSeconds = newValue}
+  }
+
+  var lightSleepDurationSeconds: Int32 {
+    get {return _storage._lightSleepDurationSeconds}
+    set {_uniqueStorage()._lightSleepDurationSeconds = newValue}
+  }
+
+  var remSleepDurationSeconds: Int32 {
+    get {return _storage._remSleepDurationSeconds}
+    set {_uniqueStorage()._remSleepDurationSeconds = newValue}
+  }
+
+  var deepSleepDurationSeconds: Int32 {
+    get {return _storage._deepSleepDurationSeconds}
+    set {_uniqueStorage()._deepSleepDurationSeconds = newValue}
+  }
+
+  var timeToFallAsleepSeconds: Int32 {
+    get {return _storage._timeToFallAsleepSeconds}
+    set {_uniqueStorage()._timeToFallAsleepSeconds = newValue}
+  }
+
+  var timeAwakeDuringSleepSeconds: Int32 {
+    get {return _storage._timeAwakeDuringSleepSeconds}
+    set {_uniqueStorage()._timeAwakeDuringSleepSeconds = newValue}
+  }
+
+  var sleepQualityRating1To5Score: Int32 {
+    get {return _storage._sleepQualityRating1To5Score}
+    set {_uniqueStorage()._sleepQualityRating1To5Score = newValue}
+  }
+
+  var sleepEfficiency1To100Score: Int32 {
+    get {return _storage._sleepEfficiency1To100Score}
+    set {_uniqueStorage()._sleepEfficiency1To100Score = newValue}
+  }
+
+  var sleepGoalSeconds: Int32 {
+    get {return _storage._sleepGoalSeconds}
+    set {_uniqueStorage()._sleepGoalSeconds = newValue}
+  }
+
+  var sleepContinuity1To5Score: Int32 {
+    get {return _storage._sleepContinuity1To5Score}
+    set {_uniqueStorage()._sleepContinuity1To5Score = newValue}
+  }
+
+  var sleepContinuity1To5Rating: Int32 {
+    get {return _storage._sleepContinuity1To5Rating}
+    set {_uniqueStorage()._sleepContinuity1To5Rating = newValue}
+  }
+
+  var hrMaximumBpm: Int32 {
+    get {return _storage._hrMaximumBpm}
+    set {_uniqueStorage()._hrMaximumBpm = newValue}
+  }
+
+  var hrMinimumBpm: Int32 {
+    get {return _storage._hrMinimumBpm}
+    set {_uniqueStorage()._hrMinimumBpm = newValue}
+  }
+
+  var hrAvgBpm: Int32 {
+    get {return _storage._hrAvgBpm}
+    set {_uniqueStorage()._hrAvgBpm = newValue}
+  }
+
+  var hrRestingBpm: Int32 {
+    get {return _storage._hrRestingBpm}
+    set {_uniqueStorage()._hrRestingBpm = newValue}
+  }
+
+  var hrBasalBpm: Int32 {
+    get {return _storage._hrBasalBpm}
+    set {_uniqueStorage()._hrBasalBpm = newValue}
+  }
+
+  var hrGranularData: [HrGranularDataProto] {
+    get {return _storage._hrGranularData}
+    set {_uniqueStorage()._hrGranularData = newValue}
+  }
+
+  var hrvAvgRmssd: Double {
+    get {return _storage._hrvAvgRmssd}
+    set {_uniqueStorage()._hrvAvgRmssd = newValue}
+  }
+
+  var hrvAvgSdnn: Double {
+    get {return _storage._hrvAvgSdnn}
+    set {_uniqueStorage()._hrvAvgSdnn = newValue}
+  }
+
+  var hrvSdnnGranularData: [HrvSdnnGranularDataProto] {
+    get {return _storage._hrvSdnnGranularData}
+    set {_uniqueStorage()._hrvSdnnGranularData = newValue}
+  }
+
+  var hrvRmssdGranularData: [HrvRmssdGranularDataProto] {
+    get {return _storage._hrvRmssdGranularData}
+    set {_uniqueStorage()._hrvRmssdGranularData = newValue}
+  }
+
+  var temperatureMinimum: [TemperatureObjectProto] {
+    get {return _storage._temperatureMinimum}
+    set {_uniqueStorage()._temperatureMinimum = newValue}
+  }
+
+  var temperatureAvg: [TemperatureObjectProto] {
+    get {return _storage._temperatureAvg}
+    set {_uniqueStorage()._temperatureAvg = newValue}
+  }
+
+  var temperatureMaximum: [TemperatureObjectProto] {
+    get {return _storage._temperatureMaximum}
+    set {_uniqueStorage()._temperatureMaximum = newValue}
+  }
+
+  var temperatureGranularData: [TemperatureGranularDataProto] {
+    get {return _storage._temperatureGranularData}
+    set {_uniqueStorage()._temperatureGranularData = newValue}
+  }
+
+  var temperatureDelta: [TemperatureObjectProto] {
+    get {return _storage._temperatureDelta}
+    set {_uniqueStorage()._temperatureDelta = newValue}
+  }
+
+  var breathsMinimumPerMin: Double {
+    get {return _storage._breathsMinimumPerMin}
+    set {_uniqueStorage()._breathsMinimumPerMin = newValue}
+  }
+
+  var breathsAvgPerMin: Double {
+    get {return _storage._breathsAvgPerMin}
+    set {_uniqueStorage()._breathsAvgPerMin = newValue}
+  }
+
+  var breathsMaximumPerMin: Double {
+    get {return _storage._breathsMaximumPerMin}
+    set {_uniqueStorage()._breathsMaximumPerMin = newValue}
+  }
+
+  var breathingGranularData: [BreathingGranularDataProto] {
+    get {return _storage._breathingGranularData}
+    set {_uniqueStorage()._breathingGranularData = newValue}
+  }
+
+  var snoringEventsCount: Int32 {
+    get {return _storage._snoringEventsCount}
+    set {_uniqueStorage()._snoringEventsCount = newValue}
+  }
+
+  var snoringDurationTotalSeconds: Int32 {
+    get {return _storage._snoringDurationTotalSeconds}
+    set {_uniqueStorage()._snoringDurationTotalSeconds = newValue}
+  }
+
+  var snoringGranularData: [SnoringGranularDataProto] {
+    get {return _storage._snoringGranularData}
+    set {_uniqueStorage()._snoringGranularData = newValue}
+  }
+
+  var saturationAvgPercentage: Double {
+    get {return _storage._saturationAvgPercentage}
+    set {_uniqueStorage()._saturationAvgPercentage = newValue}
+  }
+
+  var saturationMinimumPercentage: Double {
+    get {return _storage._saturationMinimumPercentage}
+    set {_uniqueStorage()._saturationMinimumPercentage = newValue}
+  }
+
+  var saturationMaximumPercentage: Double {
+    get {return _storage._saturationMaximumPercentage}
+    set {_uniqueStorage()._saturationMaximumPercentage = newValue}
+  }
+
+  var saturationGranularData: [SaturationGranularDataProto] {
+    get {return _storage._saturationGranularData}
+    set {_uniqueStorage()._saturationGranularData = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+struct SleepSummariesProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var elements: [SleepSummaryProto] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct SleepSummaryResultProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: SleepSummaryResultProto.OneOf_Result? = nil
+
+  var synced: SleepSummariesProto {
+    get {
+      if case .synced(let v)? = result {return v}
+      return SleepSummariesProto()
+    }
+    set {result = .synced(newValue)}
+  }
+
+  var recordsNotFound: Bool {
+    get {
+      if case .recordsNotFound(let v)? = result {return v}
+      return false
+    }
+    set {result = .recordsNotFound(newValue)}
+  }
+
+  var failure: PluginExceptionProto {
+    get {
+      if case .failure(let v)? = result {return v}
+      return PluginExceptionProto()
+    }
+    set {result = .failure(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable, Sendable {
+    case synced(SleepSummariesProto)
+    case recordsNotFound(Bool)
+    case failure(PluginExceptionProto)
+
+  }
+
+  init() {}
+}
+
+struct PhysicalSummaryProto: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String {
+    get {return _storage._dateTime}
+    set {_uniqueStorage()._dateTime = newValue}
+  }
+
+  var sourceOfData: String {
+    get {return _storage._sourceOfData}
+    set {_uniqueStorage()._sourceOfData = newValue}
+  }
+
+  var wasTheUserUnderPhysicalActivity: Bool {
+    get {return _storage._wasTheUserUnderPhysicalActivity}
+    set {_uniqueStorage()._wasTheUserUnderPhysicalActivity = newValue}
+  }
+
+  var activeSeconds: Int32 {
+    get {return _storage._activeSeconds}
+    set {_uniqueStorage()._activeSeconds = newValue}
+  }
+
+  var restSeconds: Int32 {
+    get {return _storage._restSeconds}
+    set {_uniqueStorage()._restSeconds = newValue}
+  }
+
+  var lowIntensitySeconds: Int32 {
+    get {return _storage._lowIntensitySeconds}
+    set {_uniqueStorage()._lowIntensitySeconds = newValue}
+  }
+
+  var moderateIntensitySeconds: Int32 {
+    get {return _storage._moderateIntensitySeconds}
+    set {_uniqueStorage()._moderateIntensitySeconds = newValue}
+  }
+
+  var vigorousIntensitySeconds: Int32 {
+    get {return _storage._vigorousIntensitySeconds}
+    set {_uniqueStorage()._vigorousIntensitySeconds = newValue}
+  }
+
+  var inactivitySeconds: Int32 {
+    get {return _storage._inactivitySeconds}
+    set {_uniqueStorage()._inactivitySeconds = newValue}
+  }
+
+  var activityLevelGranularData: [ActivityLevelGranularDataProto] {
+    get {return _storage._activityLevelGranularData}
+    set {_uniqueStorage()._activityLevelGranularData = newValue}
+  }
+
+  var continuousInactivePeriods: Int32 {
+    get {return _storage._continuousInactivePeriods}
+    set {_uniqueStorage()._continuousInactivePeriods = newValue}
+  }
+
+  var caloriesNetIntakeKcal: Double {
+    get {return _storage._caloriesNetIntakeKcal}
+    set {_uniqueStorage()._caloriesNetIntakeKcal = newValue}
+  }
+
+  var caloriesExpenditureKcal: Double {
+    get {return _storage._caloriesExpenditureKcal}
+    set {_uniqueStorage()._caloriesExpenditureKcal = newValue}
+  }
+
+  var caloriesNetActiveKcal: Double {
+    get {return _storage._caloriesNetActiveKcal}
+    set {_uniqueStorage()._caloriesNetActiveKcal = newValue}
+  }
+
+  var caloriesBasalMetabolicRateKcal: Double {
+    get {return _storage._caloriesBasalMetabolicRateKcal}
+    set {_uniqueStorage()._caloriesBasalMetabolicRateKcal = newValue}
+  }
+
+  var steps: Int32 {
+    get {return _storage._steps}
+    set {_uniqueStorage()._steps = newValue}
+  }
+
+  var stepsGranularData: [StepsGranularDataProto] {
+    get {return _storage._stepsGranularData}
+    set {_uniqueStorage()._stepsGranularData = newValue}
+  }
+
+  var activeSteps: Int32 {
+    get {return _storage._activeSteps}
+    set {_uniqueStorage()._activeSteps = newValue}
+  }
+
+  var activeStepsGranularData: [ActiveStepsGranularDataProto] {
+    get {return _storage._activeStepsGranularData}
+    set {_uniqueStorage()._activeStepsGranularData = newValue}
+  }
+
+  var walkedDistanceMeters: Double {
+    get {return _storage._walkedDistanceMeters}
+    set {_uniqueStorage()._walkedDistanceMeters = newValue}
+  }
+
+  var traveledDistanceMeters: Double {
+    get {return _storage._traveledDistanceMeters}
+    set {_uniqueStorage()._traveledDistanceMeters = newValue}
+  }
+
+  var traveledDistanceGranularData: [TraveledDistanceGranularDataProto] {
+    get {return _storage._traveledDistanceGranularData}
+    set {_uniqueStorage()._traveledDistanceGranularData = newValue}
+  }
+
+  var floorsClimbed: Double {
+    get {return _storage._floorsClimbed}
+    set {_uniqueStorage()._floorsClimbed = newValue}
+  }
+
+  var floorsClimbedGranularData: [FloorsClimbedGranularDataProto] {
+    get {return _storage._floorsClimbedGranularData}
+    set {_uniqueStorage()._floorsClimbedGranularData = newValue}
+  }
+
+  var elevationAvgAltitudeMeters: Double {
+    get {return _storage._elevationAvgAltitudeMeters}
+    set {_uniqueStorage()._elevationAvgAltitudeMeters = newValue}
+  }
+
+  var elevationMinimumAltitudeMeters: Double {
+    get {return _storage._elevationMinimumAltitudeMeters}
+    set {_uniqueStorage()._elevationMinimumAltitudeMeters = newValue}
+  }
+
+  var elevationMaximumAltitudeMeters: Double {
+    get {return _storage._elevationMaximumAltitudeMeters}
+    set {_uniqueStorage()._elevationMaximumAltitudeMeters = newValue}
+  }
+
+  var elevationLossActualAltitudeMeters: Double {
+    get {return _storage._elevationLossActualAltitudeMeters}
+    set {_uniqueStorage()._elevationLossActualAltitudeMeters = newValue}
+  }
+
+  var elevationGainActualAltitudeMeters: Double {
+    get {return _storage._elevationGainActualAltitudeMeters}
+    set {_uniqueStorage()._elevationGainActualAltitudeMeters = newValue}
+  }
+
+  var elevationPlannedGainMeters: Double {
+    get {return _storage._elevationPlannedGainMeters}
+    set {_uniqueStorage()._elevationPlannedGainMeters = newValue}
+  }
+
+  var elevationGranularData: [ElevationGranularDataProto] {
+    get {return _storage._elevationGranularData}
+    set {_uniqueStorage()._elevationGranularData = newValue}
+  }
+
+  var swimmingNumStrokes: Int32 {
+    get {return _storage._swimmingNumStrokes}
+    set {_uniqueStorage()._swimmingNumStrokes = newValue}
+  }
+
+  var swimmingNumLaps: Int32 {
+    get {return _storage._swimmingNumLaps}
+    set {_uniqueStorage()._swimmingNumLaps = newValue}
+  }
+
+  var swimmingPoolLengthMeters: Double {
+    get {return _storage._swimmingPoolLengthMeters}
+    set {_uniqueStorage()._swimmingPoolLengthMeters = newValue}
+  }
+
+  var swimmingTotalDistanceMeters: Double {
+    get {return _storage._swimmingTotalDistanceMeters}
+    set {_uniqueStorage()._swimmingTotalDistanceMeters = newValue}
+  }
+
+  var swimmingDistanceGranularData: [SwimmingDistanceGranularDataProto] {
+    get {return _storage._swimmingDistanceGranularData}
+    set {_uniqueStorage()._swimmingDistanceGranularData = newValue}
+  }
+
+  var hrMaximumBpm: Int32 {
+    get {return _storage._hrMaximumBpm}
+    set {_uniqueStorage()._hrMaximumBpm = newValue}
+  }
+
+  var hrMinimumBpm: Int32 {
+    get {return _storage._hrMinimumBpm}
+    set {_uniqueStorage()._hrMinimumBpm = newValue}
+  }
+
+  var hrAvgBpm: Int32 {
+    get {return _storage._hrAvgBpm}
+    set {_uniqueStorage()._hrAvgBpm = newValue}
+  }
+
+  var hrRestingBpm: Int32 {
+    get {return _storage._hrRestingBpm}
+    set {_uniqueStorage()._hrRestingBpm = newValue}
+  }
+
+  var hrGranularData: [HrGranularDataProto] {
+    get {return _storage._hrGranularData}
+    set {_uniqueStorage()._hrGranularData = newValue}
+  }
+
+  var hrvAvgRmssd: Double {
+    get {return _storage._hrvAvgRmssd}
+    set {_uniqueStorage()._hrvAvgRmssd = newValue}
+  }
+
+  var hrvAvgSdnn: Double {
+    get {return _storage._hrvAvgSdnn}
+    set {_uniqueStorage()._hrvAvgSdnn = newValue}
+  }
+
+  var hrvSdnnGranularData: [HrvSdnnGranularDataProto] {
+    get {return _storage._hrvSdnnGranularData}
+    set {_uniqueStorage()._hrvSdnnGranularData = newValue}
+  }
+
+  var hrvRmssdGranularData: [HrvRmssdGranularDataProto] {
+    get {return _storage._hrvRmssdGranularData}
+    set {_uniqueStorage()._hrvRmssdGranularData = newValue}
+  }
+
+  var saturationAvgPercentage: Double {
+    get {return _storage._saturationAvgPercentage}
+    set {_uniqueStorage()._saturationAvgPercentage = newValue}
+  }
+
+  var saturationGranularData: [SaturationGranularDataProto] {
+    get {return _storage._saturationGranularData}
+    set {_uniqueStorage()._saturationGranularData = newValue}
+  }
+
+  var vo2MaxMlPerMinPerKg: Double {
+    get {return _storage._vo2MaxMlPerMinPerKg}
+    set {_uniqueStorage()._vo2MaxMlPerMinPerKg = newValue}
+  }
+
+  var vo2GranularData: [Vo2GranularDataProto] {
+    get {return _storage._vo2GranularData}
+    set {_uniqueStorage()._vo2GranularData = newValue}
+  }
+
+  var stressAtRestDurationSeconds: Int32 {
+    get {return _storage._stressAtRestDurationSeconds}
+    set {_uniqueStorage()._stressAtRestDurationSeconds = newValue}
+  }
+
+  var stressDurationSeconds: Int32 {
+    get {return _storage._stressDurationSeconds}
+    set {_uniqueStorage()._stressDurationSeconds = newValue}
+  }
+
+  var lowStressDurationSeconds: Int32 {
+    get {return _storage._lowStressDurationSeconds}
+    set {_uniqueStorage()._lowStressDurationSeconds = newValue}
+  }
+
+  var mediumStressDurationSeconds: Int32 {
+    get {return _storage._mediumStressDurationSeconds}
+    set {_uniqueStorage()._mediumStressDurationSeconds = newValue}
+  }
+
+  var highStressDurationSeconds: Int32 {
+    get {return _storage._highStressDurationSeconds}
+    set {_uniqueStorage()._highStressDurationSeconds = newValue}
+  }
+
+  var stressGranularData: [StressGranularDataProto] {
+    get {return _storage._stressGranularData}
+    set {_uniqueStorage()._stressGranularData = newValue}
+  }
+
+  var stressAvgLevel: Int32 {
+    get {return _storage._stressAvgLevel}
+    set {_uniqueStorage()._stressAvgLevel = newValue}
+  }
+
+  var stressMaximumLevel: Int32 {
+    get {return _storage._stressMaximumLevel}
+    set {_uniqueStorage()._stressMaximumLevel = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+struct PhysicalSummaryResultProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: PhysicalSummaryResultProto.OneOf_Result? = nil
+
+  var synced: PhysicalSummaryProto {
+    get {
+      if case .synced(let v)? = result {return v}
+      return PhysicalSummaryProto()
+    }
+    set {result = .synced(newValue)}
+  }
+
+  var recordsNotFound: Bool {
+    get {
+      if case .recordsNotFound(let v)? = result {return v}
+      return false
+    }
+    set {result = .recordsNotFound(newValue)}
+  }
+
+  var failure: PluginExceptionProto {
+    get {
+      if case .failure(let v)? = result {return v}
+      return PluginExceptionProto()
+    }
+    set {result = .failure(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable, Sendable {
+    case synced(PhysicalSummaryProto)
+    case recordsNotFound(Bool)
+    case failure(PluginExceptionProto)
+
+  }
+
+  init() {}
+}
+
+struct BodySummaryProto: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String {
+    get {return _storage._dateTime}
+    set {_uniqueStorage()._dateTime = newValue}
+  }
+
+  var sourceOfData: String {
+    get {return _storage._sourceOfData}
+    set {_uniqueStorage()._sourceOfData = newValue}
+  }
+
+  var wasTheUserUnderPhysicalActivity: Bool {
+    get {return _storage._wasTheUserUnderPhysicalActivity}
+    set {_uniqueStorage()._wasTheUserUnderPhysicalActivity = newValue}
+  }
+
+  var waistCircumferenceCm: Double {
+    get {return _storage._waistCircumferenceCm}
+    set {_uniqueStorage()._waistCircumferenceCm = newValue}
+  }
+
+  var hipCircumferenceCm: Double {
+    get {return _storage._hipCircumferenceCm}
+    set {_uniqueStorage()._hipCircumferenceCm = newValue}
+  }
+
+  var chestCircumferenceCm: Double {
+    get {return _storage._chestCircumferenceCm}
+    set {_uniqueStorage()._chestCircumferenceCm = newValue}
+  }
+
+  var boneCompositionPercentage: Double {
+    get {return _storage._boneCompositionPercentage}
+    set {_uniqueStorage()._boneCompositionPercentage = newValue}
+  }
+
+  var muscleCompositionPercentage: Double {
+    get {return _storage._muscleCompositionPercentage}
+    set {_uniqueStorage()._muscleCompositionPercentage = newValue}
+  }
+
+  var waterCompositionPercentage: Double {
+    get {return _storage._waterCompositionPercentage}
+    set {_uniqueStorage()._waterCompositionPercentage = newValue}
+  }
+
+  var weightKg: Double {
+    get {return _storage._weightKg}
+    set {_uniqueStorage()._weightKg = newValue}
+  }
+
+  var heightCm: Double {
+    get {return _storage._heightCm}
+    set {_uniqueStorage()._heightCm = newValue}
+  }
+
+  var bmi: Double {
+    get {return _storage._bmi}
+    set {_uniqueStorage()._bmi = newValue}
+  }
+
+  var bloodGlucoseAvgMgPerDl: Double {
+    get {return _storage._bloodGlucoseAvgMgPerDl}
+    set {_uniqueStorage()._bloodGlucoseAvgMgPerDl = newValue}
+  }
+
+  var bloodGlucoseGranularData: [BloodGlucoseGranularDataProto] {
+    get {return _storage._bloodGlucoseGranularData}
+    set {_uniqueStorage()._bloodGlucoseGranularData = newValue}
+  }
+
+  var bloodPressureAvg: [BloodPressureObjectProto] {
+    get {return _storage._bloodPressureAvg}
+    set {_uniqueStorage()._bloodPressureAvg = newValue}
+  }
+
+  var bloodPressureGranularData: [BloodPressureGranularDataProto] {
+    get {return _storage._bloodPressureGranularData}
+    set {_uniqueStorage()._bloodPressureGranularData = newValue}
+  }
+
+  var waterTotalConsumptionMl: Double {
+    get {return _storage._waterTotalConsumptionMl}
+    set {_uniqueStorage()._waterTotalConsumptionMl = newValue}
+  }
+
+  var hydrationAmountGranularData: [HydrationAmountGranularDataProto] {
+    get {return _storage._hydrationAmountGranularData}
+    set {_uniqueStorage()._hydrationAmountGranularData = newValue}
+  }
+
+  var hydrationLevelGranularData: [HydrationLevelGranularDataProto] {
+    get {return _storage._hydrationLevelGranularData}
+    set {_uniqueStorage()._hydrationLevelGranularData = newValue}
+  }
+
+  var hrMaximumBpm: Int32 {
+    get {return _storage._hrMaximumBpm}
+    set {_uniqueStorage()._hrMaximumBpm = newValue}
+  }
+
+  var hrMinimumBpm: Int32 {
+    get {return _storage._hrMinimumBpm}
+    set {_uniqueStorage()._hrMinimumBpm = newValue}
+  }
+
+  var hrAvgBpm: Int32 {
+    get {return _storage._hrAvgBpm}
+    set {_uniqueStorage()._hrAvgBpm = newValue}
+  }
+
+  var hrRestingBpm: Int32 {
+    get {return _storage._hrRestingBpm}
+    set {_uniqueStorage()._hrRestingBpm = newValue}
+  }
+
+  var hrGranularData: [HrGranularDataProto] {
+    get {return _storage._hrGranularData}
+    set {_uniqueStorage()._hrGranularData = newValue}
+  }
+
+  var hrvAvgRmssd: Double {
+    get {return _storage._hrvAvgRmssd}
+    set {_uniqueStorage()._hrvAvgRmssd = newValue}
+  }
+
+  var hrvAvgSdnn: Double {
+    get {return _storage._hrvAvgSdnn}
+    set {_uniqueStorage()._hrvAvgSdnn = newValue}
+  }
+
+  var hrvSdnnGranularData: [HrvSdnnGranularDataProto] {
+    get {return _storage._hrvSdnnGranularData}
+    set {_uniqueStorage()._hrvSdnnGranularData = newValue}
+  }
+
+  var hrvRmssdGranularData: [HrvRmssdGranularDataProto] {
+    get {return _storage._hrvRmssdGranularData}
+    set {_uniqueStorage()._hrvRmssdGranularData = newValue}
+  }
+
+  var moodMinimumScale: Double {
+    get {return _storage._moodMinimumScale}
+    set {_uniqueStorage()._moodMinimumScale = newValue}
+  }
+
+  var moodAvgScale: Double {
+    get {return _storage._moodAvgScale}
+    set {_uniqueStorage()._moodAvgScale = newValue}
+  }
+
+  var moodMaximumScale: Double {
+    get {return _storage._moodMaximumScale}
+    set {_uniqueStorage()._moodMaximumScale = newValue}
+  }
+
+  var moodGranularData: [MoodGranularDataProto] {
+    get {return _storage._moodGranularData}
+    set {_uniqueStorage()._moodGranularData = newValue}
+  }
+
+  var moodDeltaScale: Double {
+    get {return _storage._moodDeltaScale}
+    set {_uniqueStorage()._moodDeltaScale = newValue}
+  }
+
+  var foodIntake: Double {
+    get {return _storage._foodIntake}
+    set {_uniqueStorage()._foodIntake = newValue}
+  }
+
+  var caloriesIntakeKcal: Double {
+    get {return _storage._caloriesIntakeKcal}
+    set {_uniqueStorage()._caloriesIntakeKcal = newValue}
+  }
+
+  var proteinIntakeG: Double {
+    get {return _storage._proteinIntakeG}
+    set {_uniqueStorage()._proteinIntakeG = newValue}
+  }
+
+  var sugarIntakeG: Double {
+    get {return _storage._sugarIntakeG}
+    set {_uniqueStorage()._sugarIntakeG = newValue}
+  }
+
+  var fatIntakeG: Double {
+    get {return _storage._fatIntakeG}
+    set {_uniqueStorage()._fatIntakeG = newValue}
+  }
+
+  var transFatIntakeG: Double {
+    get {return _storage._transFatIntakeG}
+    set {_uniqueStorage()._transFatIntakeG = newValue}
+  }
+
+  var carbohydratesIntakeG: Double {
+    get {return _storage._carbohydratesIntakeG}
+    set {_uniqueStorage()._carbohydratesIntakeG = newValue}
+  }
+
+  var fiberIntakeG: Double {
+    get {return _storage._fiberIntakeG}
+    set {_uniqueStorage()._fiberIntakeG = newValue}
+  }
+
+  var alcoholIntakeG: Double {
+    get {return _storage._alcoholIntakeG}
+    set {_uniqueStorage()._alcoholIntakeG = newValue}
+  }
+
+  var sodiumIntakeMg: Double {
+    get {return _storage._sodiumIntakeMg}
+    set {_uniqueStorage()._sodiumIntakeMg = newValue}
+  }
+
+  var cholesterolIntakeMg: Double {
+    get {return _storage._cholesterolIntakeMg}
+    set {_uniqueStorage()._cholesterolIntakeMg = newValue}
+  }
+
+  var saturationAvgPercentage: Double {
+    get {return _storage._saturationAvgPercentage}
+    set {_uniqueStorage()._saturationAvgPercentage = newValue}
+  }
+
+  var saturationGranularData: [SaturationGranularDataProto] {
+    get {return _storage._saturationGranularData}
+    set {_uniqueStorage()._saturationGranularData = newValue}
+  }
+
+  var vo2MaxMlPerMinPerKg: Double {
+    get {return _storage._vo2MaxMlPerMinPerKg}
+    set {_uniqueStorage()._vo2MaxMlPerMinPerKg = newValue}
+  }
+
+  var vo2GranularData: [Vo2GranularDataProto] {
+    get {return _storage._vo2GranularData}
+    set {_uniqueStorage()._vo2GranularData = newValue}
+  }
+
+  var temperatureMinimum: [TemperatureObjectProto] {
+    get {return _storage._temperatureMinimum}
+    set {_uniqueStorage()._temperatureMinimum = newValue}
+  }
+
+  var temperatureAvg: [TemperatureObjectProto] {
+    get {return _storage._temperatureAvg}
+    set {_uniqueStorage()._temperatureAvg = newValue}
+  }
+
+  var temperatureMaximum: [TemperatureObjectProto] {
+    get {return _storage._temperatureMaximum}
+    set {_uniqueStorage()._temperatureMaximum = newValue}
+  }
+
+  var temperatureGranularData: [TemperatureGranularDataProto] {
+    get {return _storage._temperatureGranularData}
+    set {_uniqueStorage()._temperatureGranularData = newValue}
+  }
+
+  var temperatureDelta: [TemperatureObjectProto] {
+    get {return _storage._temperatureDelta}
+    set {_uniqueStorage()._temperatureDelta = newValue}
+  }
+
+  var lastUpdatedDatetime: String {
+    get {return _storage._lastUpdatedDatetime}
+    set {_uniqueStorage()._lastUpdatedDatetime = newValue}
+  }
+
+  var periodStartDate: String {
+    get {return _storage._periodStartDate}
+    set {_uniqueStorage()._periodStartDate = newValue}
+  }
+
+  var cycleDay: Int32 {
+    get {return _storage._cycleDay}
+    set {_uniqueStorage()._cycleDay = newValue}
+  }
+
+  var cycleLengthDays: Int32 {
+    get {return _storage._cycleLengthDays}
+    set {_uniqueStorage()._cycleLengthDays = newValue}
+  }
+
+  var predictedCycleLengthDays: Int32 {
+    get {return _storage._predictedCycleLengthDays}
+    set {_uniqueStorage()._predictedCycleLengthDays = newValue}
+  }
+
+  var currentPhase: String {
+    get {return _storage._currentPhase}
+    set {_uniqueStorage()._currentPhase = newValue}
+  }
+
+  var lengthOfCurrentPhaseDays: Int32 {
+    get {return _storage._lengthOfCurrentPhaseDays}
+    set {_uniqueStorage()._lengthOfCurrentPhaseDays = newValue}
+  }
+
+  var daysUntilNextPhase: Int32 {
+    get {return _storage._daysUntilNextPhase}
+    set {_uniqueStorage()._daysUntilNextPhase = newValue}
+  }
+
+  var isApredictedCycle: OneOf_IsApredictedCycle? {
+    get {return _storage._isApredictedCycle}
+    set {_uniqueStorage()._isApredictedCycle = newValue}
+  }
+
+  var isApredictedCycleValue: Bool {
+    get {
+      if case .isApredictedCycleValue(let v)? = _storage._isApredictedCycle {return v}
+      return false
+    }
+    set {_uniqueStorage()._isApredictedCycle = .isApredictedCycleValue(newValue)}
+  }
+
+  var isApredictedCycleUnknown: Bool {
+    get {
+      if case .isApredictedCycleUnknown(let v)? = _storage._isApredictedCycle {return v}
+      return false
+    }
+    set {_uniqueStorage()._isApredictedCycle = .isApredictedCycleUnknown(newValue)}
+  }
+
+  var menstruationFlowGranularData: [MenstruationFlowGranularDataProto] {
+    get {return _storage._menstruationFlowGranularData}
+    set {_uniqueStorage()._menstruationFlowGranularData = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_IsApredictedCycle: Equatable, Sendable {
+    case isApredictedCycleValue(Bool)
+    case isApredictedCycleUnknown(Bool)
+
+  }
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+struct BodySummaryResultProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: BodySummaryResultProto.OneOf_Result? = nil
+
+  var synced: BodySummaryProto {
+    get {
+      if case .synced(let v)? = result {return v}
+      return BodySummaryProto()
+    }
+    set {result = .synced(newValue)}
+  }
+
+  var recordsNotFound: Bool {
+    get {
+      if case .recordsNotFound(let v)? = result {return v}
+      return false
+    }
+    set {result = .recordsNotFound(newValue)}
+  }
+
+  var failure: PluginExceptionProto {
+    get {
+      if case .failure(let v)? = result {return v}
+      return PluginExceptionProto()
+    }
+    set {result = .failure(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable, Sendable {
+    case synced(BodySummaryProto)
+    case recordsNotFound(Bool)
+    case failure(PluginExceptionProto)
+
+  }
+
+  init() {}
+}
+
+struct ActivityEventProto: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String {
+    get {return _storage._dateTime}
+    set {_uniqueStorage()._dateTime = newValue}
+  }
+
+  var sourceOfData: String {
+    get {return _storage._sourceOfData}
+    set {_uniqueStorage()._sourceOfData = newValue}
+  }
+
+  var wasTheUserUnderPhysicalActivity: Bool {
+    get {return _storage._wasTheUserUnderPhysicalActivity}
+    set {_uniqueStorage()._wasTheUserUnderPhysicalActivity = newValue}
+  }
+
+  var activityStartDateTime: String {
+    get {return _storage._activityStartDateTime}
+    set {_uniqueStorage()._activityStartDateTime = newValue}
+  }
+
+  var activityEndDateTime: String {
+    get {return _storage._activityEndDateTime}
+    set {_uniqueStorage()._activityEndDateTime = newValue}
+  }
+
+  var activityDurationSeconds: Int32 {
+    get {return _storage._activityDurationSeconds}
+    set {_uniqueStorage()._activityDurationSeconds = newValue}
+  }
+
+  var activityTypeName: String {
+    get {return _storage._activityTypeName}
+    set {_uniqueStorage()._activityTypeName = newValue}
+  }
+
+  var activeSeconds: Int32 {
+    get {return _storage._activeSeconds}
+    set {_uniqueStorage()._activeSeconds = newValue}
+  }
+
+  var restSeconds: Int32 {
+    get {return _storage._restSeconds}
+    set {_uniqueStorage()._restSeconds = newValue}
+  }
+
+  var lowIntensitySeconds: Int32 {
+    get {return _storage._lowIntensitySeconds}
+    set {_uniqueStorage()._lowIntensitySeconds = newValue}
+  }
+
+  var moderateIntensitySeconds: Int32 {
+    get {return _storage._moderateIntensitySeconds}
+    set {_uniqueStorage()._moderateIntensitySeconds = newValue}
+  }
+
+  var vigorousIntensitySeconds: Int32 {
+    get {return _storage._vigorousIntensitySeconds}
+    set {_uniqueStorage()._vigorousIntensitySeconds = newValue}
+  }
+
+  var inactivitySeconds: Int32 {
+    get {return _storage._inactivitySeconds}
+    set {_uniqueStorage()._inactivitySeconds = newValue}
+  }
+
+  var activityLevelGranularData: [ActivityLevelGranularDataProto] {
+    get {return _storage._activityLevelGranularData}
+    set {_uniqueStorage()._activityLevelGranularData = newValue}
+  }
+
+  var continuousInactivePeriods: Int32 {
+    get {return _storage._continuousInactivePeriods}
+    set {_uniqueStorage()._continuousInactivePeriods = newValue}
+  }
+
+  var activityStrainLevel: Int32 {
+    get {return _storage._activityStrainLevel}
+    set {_uniqueStorage()._activityStrainLevel = newValue}
+  }
+
+  var activityWorkKilojoules: Double {
+    get {return _storage._activityWorkKilojoules}
+    set {_uniqueStorage()._activityWorkKilojoules = newValue}
+  }
+
+  var activityEnergyKilojoules: Double {
+    get {return _storage._activityEnergyKilojoules}
+    set {_uniqueStorage()._activityEnergyKilojoules = newValue}
+  }
+
+  var activityEnergyPlannedKilojoules: Double {
+    get {return _storage._activityEnergyPlannedKilojoules}
+    set {_uniqueStorage()._activityEnergyPlannedKilojoules = newValue}
+  }
+
+  var caloriesNetIntakeKcal: Double {
+    get {return _storage._caloriesNetIntakeKcal}
+    set {_uniqueStorage()._caloriesNetIntakeKcal = newValue}
+  }
+
+  var caloriesExpenditureKcal: Double {
+    get {return _storage._caloriesExpenditureKcal}
+    set {_uniqueStorage()._caloriesExpenditureKcal = newValue}
+  }
+
+  var caloriesNetActiveKcal: Double {
+    get {return _storage._caloriesNetActiveKcal}
+    set {_uniqueStorage()._caloriesNetActiveKcal = newValue}
+  }
+
+  var caloriesBasalMetabolicRateKcal: Double {
+    get {return _storage._caloriesBasalMetabolicRateKcal}
+    set {_uniqueStorage()._caloriesBasalMetabolicRateKcal = newValue}
+  }
+
+  var fatPercentageOfCalories: Double {
+    get {return _storage._fatPercentageOfCalories}
+    set {_uniqueStorage()._fatPercentageOfCalories = newValue}
+  }
+
+  var carbohydratePercentageOfCalories: Double {
+    get {return _storage._carbohydratePercentageOfCalories}
+    set {_uniqueStorage()._carbohydratePercentageOfCalories = newValue}
+  }
+
+  var proteinPercentageOfCalories: Double {
+    get {return _storage._proteinPercentageOfCalories}
+    set {_uniqueStorage()._proteinPercentageOfCalories = newValue}
+  }
+
+  var steps: Int32 {
+    get {return _storage._steps}
+    set {_uniqueStorage()._steps = newValue}
+  }
+
+  var stepsGranularData: [StepsGranularDataProto] {
+    get {return _storage._stepsGranularData}
+    set {_uniqueStorage()._stepsGranularData = newValue}
+  }
+
+  var walkedDistanceMeters: Double {
+    get {return _storage._walkedDistanceMeters}
+    set {_uniqueStorage()._walkedDistanceMeters = newValue}
+  }
+
+  var traveledDistanceMeters: Double {
+    get {return _storage._traveledDistanceMeters}
+    set {_uniqueStorage()._traveledDistanceMeters = newValue}
+  }
+
+  var traveledDistanceGranularData: [TraveledDistanceGranularDataProto] {
+    get {return _storage._traveledDistanceGranularData}
+    set {_uniqueStorage()._traveledDistanceGranularData = newValue}
+  }
+
+  var floorsClimbed: Double {
+    get {return _storage._floorsClimbed}
+    set {_uniqueStorage()._floorsClimbed = newValue}
+  }
+
+  var floorsClimbedGranularData: [FloorsClimbedGranularDataProto] {
+    get {return _storage._floorsClimbedGranularData}
+    set {_uniqueStorage()._floorsClimbedGranularData = newValue}
+  }
+
+  var elevationAvgAltitudeMeters: Double {
+    get {return _storage._elevationAvgAltitudeMeters}
+    set {_uniqueStorage()._elevationAvgAltitudeMeters = newValue}
+  }
+
+  var elevationMinimumAltitudeMeters: Double {
+    get {return _storage._elevationMinimumAltitudeMeters}
+    set {_uniqueStorage()._elevationMinimumAltitudeMeters = newValue}
+  }
+
+  var elevationMaximumAltitudeMeters: Double {
+    get {return _storage._elevationMaximumAltitudeMeters}
+    set {_uniqueStorage()._elevationMaximumAltitudeMeters = newValue}
+  }
+
+  var elevationLossActualAltitudeMeters: Double {
+    get {return _storage._elevationLossActualAltitudeMeters}
+    set {_uniqueStorage()._elevationLossActualAltitudeMeters = newValue}
+  }
+
+  var elevationGainActualAltitudeMeters: Double {
+    get {return _storage._elevationGainActualAltitudeMeters}
+    set {_uniqueStorage()._elevationGainActualAltitudeMeters = newValue}
+  }
+
+  var elevationPlannedGainMeters: Double {
+    get {return _storage._elevationPlannedGainMeters}
+    set {_uniqueStorage()._elevationPlannedGainMeters = newValue}
+  }
+
+  var elevationGranularData: [ElevationGranularDataProto] {
+    get {return _storage._elevationGranularData}
+    set {_uniqueStorage()._elevationGranularData = newValue}
+  }
+
+  var swimmingNumStrokes: Int32 {
+    get {return _storage._swimmingNumStrokes}
+    set {_uniqueStorage()._swimmingNumStrokes = newValue}
+  }
+
+  var swimmingNumLaps: Int32 {
+    get {return _storage._swimmingNumLaps}
+    set {_uniqueStorage()._swimmingNumLaps = newValue}
+  }
+
+  var swimmingPoolLengthMeters: Double {
+    get {return _storage._swimmingPoolLengthMeters}
+    set {_uniqueStorage()._swimmingPoolLengthMeters = newValue}
+  }
+
+  var swimmingTotalDistanceMeters: Double {
+    get {return _storage._swimmingTotalDistanceMeters}
+    set {_uniqueStorage()._swimmingTotalDistanceMeters = newValue}
+  }
+
+  var swimmingDistanceGranularData: [SwimmingDistanceGranularDataProto] {
+    get {return _storage._swimmingDistanceGranularData}
+    set {_uniqueStorage()._swimmingDistanceGranularData = newValue}
+  }
+
+  var hrMaximumBpm: Int32 {
+    get {return _storage._hrMaximumBpm}
+    set {_uniqueStorage()._hrMaximumBpm = newValue}
+  }
+
+  var hrMinimumBpm: Int32 {
+    get {return _storage._hrMinimumBpm}
+    set {_uniqueStorage()._hrMinimumBpm = newValue}
+  }
+
+  var hrAvgBpm: Int32 {
+    get {return _storage._hrAvgBpm}
+    set {_uniqueStorage()._hrAvgBpm = newValue}
+  }
+
+  var hrRestingBpm: Int32 {
+    get {return _storage._hrRestingBpm}
+    set {_uniqueStorage()._hrRestingBpm = newValue}
+  }
+
+  var hrGranularData: [HrGranularDataProto] {
+    get {return _storage._hrGranularData}
+    set {_uniqueStorage()._hrGranularData = newValue}
+  }
+
+  var hrvAvgRmssd: Double {
+    get {return _storage._hrvAvgRmssd}
+    set {_uniqueStorage()._hrvAvgRmssd = newValue}
+  }
+
+  var hrvAvgSdnn: Double {
+    get {return _storage._hrvAvgSdnn}
+    set {_uniqueStorage()._hrvAvgSdnn = newValue}
+  }
+
+  var hrvSdnnGranularData: [HrvSdnnGranularDataProto] {
+    get {return _storage._hrvSdnnGranularData}
+    set {_uniqueStorage()._hrvSdnnGranularData = newValue}
+  }
+
+  var hrvRmssdGranularData: [HrvRmssdGranularDataProto] {
+    get {return _storage._hrvRmssdGranularData}
+    set {_uniqueStorage()._hrvRmssdGranularData = newValue}
+  }
+
+  var speedNormalizedMetersPerSecond: Double {
+    get {return _storage._speedNormalizedMetersPerSecond}
+    set {_uniqueStorage()._speedNormalizedMetersPerSecond = newValue}
+  }
+
+  var speedAvgMetersPerSecond: Double {
+    get {return _storage._speedAvgMetersPerSecond}
+    set {_uniqueStorage()._speedAvgMetersPerSecond = newValue}
+  }
+
+  var speedMaximumMetersPerSecond: Double {
+    get {return _storage._speedMaximumMetersPerSecond}
+    set {_uniqueStorage()._speedMaximumMetersPerSecond = newValue}
+  }
+
+  var speedGranularData: [SpeedGranularDataProto] {
+    get {return _storage._speedGranularData}
+    set {_uniqueStorage()._speedGranularData = newValue}
+  }
+
+  var velocityAvg: [VelocityObjectProto] {
+    get {return _storage._velocityAvg}
+    set {_uniqueStorage()._velocityAvg = newValue}
+  }
+
+  var velocityMaximum: [VelocityObjectProto] {
+    get {return _storage._velocityMaximum}
+    set {_uniqueStorage()._velocityMaximum = newValue}
+  }
+
+  var paceAvgMinPerKm: Double {
+    get {return _storage._paceAvgMinPerKm}
+    set {_uniqueStorage()._paceAvgMinPerKm = newValue}
+  }
+
+  var paceMaximumMinPerKm: Double {
+    get {return _storage._paceMaximumMinPerKm}
+    set {_uniqueStorage()._paceMaximumMinPerKm = newValue}
+  }
+
+  var cadenceAvgRpm: Double {
+    get {return _storage._cadenceAvgRpm}
+    set {_uniqueStorage()._cadenceAvgRpm = newValue}
+  }
+
+  var cadenceMaximumRpm: Double {
+    get {return _storage._cadenceMaximumRpm}
+    set {_uniqueStorage()._cadenceMaximumRpm = newValue}
+  }
+
+  var cadenceGranularData: [CadenceGranularDataProto] {
+    get {return _storage._cadenceGranularData}
+    set {_uniqueStorage()._cadenceGranularData = newValue}
+  }
+
+  var torqueAvgNewtonMeters: Double {
+    get {return _storage._torqueAvgNewtonMeters}
+    set {_uniqueStorage()._torqueAvgNewtonMeters = newValue}
+  }
+
+  var torqueMaximumNewtonMeters: Double {
+    get {return _storage._torqueMaximumNewtonMeters}
+    set {_uniqueStorage()._torqueMaximumNewtonMeters = newValue}
+  }
+
+  var torqueGranularData: [TorqueGranularDataProto] {
+    get {return _storage._torqueGranularData}
+    set {_uniqueStorage()._torqueGranularData = newValue}
+  }
+
+  var lapGranularData: [LapGranularDataProto] {
+    get {return _storage._lapGranularData}
+    set {_uniqueStorage()._lapGranularData = newValue}
+  }
+
+  var saturationAvgPercentage: Double {
+    get {return _storage._saturationAvgPercentage}
+    set {_uniqueStorage()._saturationAvgPercentage = newValue}
+  }
+
+  var saturationGranularData: [SaturationGranularDataProto] {
+    get {return _storage._saturationGranularData}
+    set {_uniqueStorage()._saturationGranularData = newValue}
+  }
+
+  var vo2MaxMlPerMinPerKg: Double {
+    get {return _storage._vo2MaxMlPerMinPerKg}
+    set {_uniqueStorage()._vo2MaxMlPerMinPerKg = newValue}
+  }
+
+  var vo2GranularData: [Vo2GranularDataProto] {
+    get {return _storage._vo2GranularData}
+    set {_uniqueStorage()._vo2GranularData = newValue}
+  }
+
+  var positionStart: [PositionObjectProto] {
+    get {return _storage._positionStart}
+    set {_uniqueStorage()._positionStart = newValue}
+  }
+
+  var positionCentroid: [PositionObjectProto] {
+    get {return _storage._positionCentroid}
+    set {_uniqueStorage()._positionCentroid = newValue}
+  }
+
+  var positionEnd: [PositionObjectProto] {
+    get {return _storage._positionEnd}
+    set {_uniqueStorage()._positionEnd = newValue}
+  }
+
+  var positionGranularData: [PositionGranularDataProto] {
+    get {return _storage._positionGranularData}
+    set {_uniqueStorage()._positionGranularData = newValue}
+  }
+
+  var positionPolylineMapDataSummary: String {
+    get {return _storage._positionPolylineMapDataSummary}
+    set {_uniqueStorage()._positionPolylineMapDataSummary = newValue}
+  }
+
+  var powerAvgWatts: Double {
+    get {return _storage._powerAvgWatts}
+    set {_uniqueStorage()._powerAvgWatts = newValue}
+  }
+
+  var powerMaximumWatts: Double {
+    get {return _storage._powerMaximumWatts}
+    set {_uniqueStorage()._powerMaximumWatts = newValue}
+  }
+
+  var powerGranularData: [PowerGranularDataProto] {
+    get {return _storage._powerGranularData}
+    set {_uniqueStorage()._powerGranularData = newValue}
+  }
+
+  var stressAtRestDurationSeconds: Int32 {
+    get {return _storage._stressAtRestDurationSeconds}
+    set {_uniqueStorage()._stressAtRestDurationSeconds = newValue}
+  }
+
+  var stressDurationSeconds: Int32 {
+    get {return _storage._stressDurationSeconds}
+    set {_uniqueStorage()._stressDurationSeconds = newValue}
+  }
+
+  var lowStressDurationSeconds: Int32 {
+    get {return _storage._lowStressDurationSeconds}
+    set {_uniqueStorage()._lowStressDurationSeconds = newValue}
+  }
+
+  var mediumStressDurationSeconds: Int32 {
+    get {return _storage._mediumStressDurationSeconds}
+    set {_uniqueStorage()._mediumStressDurationSeconds = newValue}
+  }
+
+  var highStressDurationSeconds: Int32 {
+    get {return _storage._highStressDurationSeconds}
+    set {_uniqueStorage()._highStressDurationSeconds = newValue}
+  }
+
+  var tssGranularData: [TssGranularDataProto] {
+    get {return _storage._tssGranularData}
+    set {_uniqueStorage()._tssGranularData = newValue}
+  }
+
+  var stressAvgLevel: Int32 {
+    get {return _storage._stressAvgLevel}
+    set {_uniqueStorage()._stressAvgLevel = newValue}
+  }
+
+  var stressMaximumLevel: Int32 {
+    get {return _storage._stressMaximumLevel}
+    set {_uniqueStorage()._stressMaximumLevel = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+struct ActivityEventsProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var elements: [ActivityEventProto] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct ActivityEventResultProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: ActivityEventResultProto.OneOf_Result? = nil
+
+  var synced: ActivityEventsProto {
+    get {
+      if case .synced(let v)? = result {return v}
+      return ActivityEventsProto()
+    }
+    set {result = .synced(newValue)}
+  }
+
+  var recordsNotFound: Bool {
+    get {
+      if case .recordsNotFound(let v)? = result {return v}
+      return false
+    }
+    set {result = .recordsNotFound(newValue)}
+  }
+
+  var failure: PluginExceptionProto {
+    get {
+      if case .failure(let v)? = result {return v}
+      return PluginExceptionProto()
+    }
+    set {result = .failure(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable, Sendable {
+    case synced(ActivityEventsProto)
+    case recordsNotFound(Bool)
+    case failure(PluginExceptionProto)
+
+  }
+
+  init() {}
+}
+
+struct ActiveStepsGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var activeSteps: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct ActivityLevelGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var activityLevel: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct BloodGlucoseGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var bloodGlucoseMgPerDl: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct BloodPressureGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var systolicMmHg: Double = 0
+
+  var diastolicMmHg: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct BreathingGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var breathsPerMin: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct CadenceGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var cadenceRpm: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct ElevationGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var elevationChangeMeters: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct FloorsClimbedGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var floorsClimbed: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct HrGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var hrBpm: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct HrvSdnnGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var hrvSdnn: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct MenstruationFlowGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var flowMl: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct MoodGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var moodScale: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct LapGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var laps: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct PowerGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var powerWatts: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct PositionGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var latDeg: Double = 0
+
+  var lngDeg: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct HydrationAmountGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var hydrationAmountMl: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct SaturationGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var saturationPercentage: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct HydrationLevelGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var hydrationLevelPercentage: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct HrvRmssdGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var hrvRmssd: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct SnoringGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var snoringEventsCount: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct SpeedGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var speedMetersPerSecond: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct StepsGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var steps: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct StressGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var stressScore: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct SwimmingDistanceGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var swimmingDistanceMeters: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct TemperatureGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var temperatureCelsius: Double = 0
+
+  var measurementType: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct TorqueGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var torqueNewtonMeters: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct TraveledDistanceGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var traveledDistanceMeters: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct TssGranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var intervalDurationSeconds: Int32 = 0
+
+  var tssScore: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct Vo2GranularDataProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var dateTime: String = String()
+
+  var vo2MlPerMinPerKg: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct BloodPressureObjectProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var systolicMmHg: Double = 0
+
+  var diastolicMmHg: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct PositionObjectProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var latDeg: Double = 0
+
+  var lngDeg: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct TemperatureObjectProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var temperatureCelsius: Double = 0
+
+  var measurementType: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct VelocityObjectProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var speedMetersPerSecond: Double = 0
+
+  var direction: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension EnvironmentProto: SwiftProtobuf._ProtoNameProviding {
@@ -1915,6 +3948,4084 @@ extension ResultDataSourcesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   static func ==(lhs: ResultDataSourcesProto, rhs: ResultDataSourcesProto) -> Bool {
     if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SleepSummaryProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "SleepSummaryProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "sourceOfData"),
+    3: .same(proto: "wasTheUserUnderPhysicalActivity"),
+    4: .same(proto: "sleepStartDateTime"),
+    5: .same(proto: "sleepEndDateTime"),
+    6: .same(proto: "sleepDate"),
+    7: .same(proto: "sleepDurationSeconds"),
+    8: .same(proto: "timeInBedSeconds"),
+    9: .same(proto: "lightSleepDurationSeconds"),
+    10: .same(proto: "remSleepDurationSeconds"),
+    11: .same(proto: "deepSleepDurationSeconds"),
+    12: .same(proto: "timeToFallAsleepSeconds"),
+    13: .same(proto: "timeAwakeDuringSleepSeconds"),
+    14: .same(proto: "sleepQualityRating1To5Score"),
+    15: .same(proto: "sleepEfficiency1To100Score"),
+    16: .same(proto: "sleepGoalSeconds"),
+    17: .same(proto: "sleepContinuity1To5Score"),
+    18: .same(proto: "sleepContinuity1To5Rating"),
+    19: .same(proto: "hrMaximumBpm"),
+    20: .same(proto: "hrMinimumBpm"),
+    21: .same(proto: "hrAvgBpm"),
+    22: .same(proto: "hrRestingBpm"),
+    23: .same(proto: "hrBasalBpm"),
+    24: .same(proto: "hrGranularData"),
+    25: .same(proto: "hrvAvgRmssd"),
+    26: .same(proto: "hrvAvgSdnn"),
+    27: .same(proto: "hrvSdnnGranularData"),
+    28: .same(proto: "hrvRmssdGranularData"),
+    29: .same(proto: "temperatureMinimum"),
+    30: .same(proto: "temperatureAvg"),
+    31: .same(proto: "temperatureMaximum"),
+    32: .same(proto: "temperatureGranularData"),
+    33: .same(proto: "temperatureDelta"),
+    34: .same(proto: "breathsMinimumPerMin"),
+    35: .same(proto: "breathsAvgPerMin"),
+    36: .same(proto: "breathsMaximumPerMin"),
+    37: .same(proto: "breathingGranularData"),
+    38: .same(proto: "snoringEventsCount"),
+    39: .same(proto: "snoringDurationTotalSeconds"),
+    40: .same(proto: "snoringGranularData"),
+    41: .same(proto: "saturationAvgPercentage"),
+    42: .same(proto: "saturationMinimumPercentage"),
+    43: .same(proto: "saturationMaximumPercentage"),
+    44: .same(proto: "saturationGranularData"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _dateTime: String = String()
+    var _sourceOfData: String = String()
+    var _wasTheUserUnderPhysicalActivity: Bool = false
+    var _sleepStartDateTime: String = String()
+    var _sleepEndDateTime: String = String()
+    var _sleepDate: String = String()
+    var _sleepDurationSeconds: Int32 = 0
+    var _timeInBedSeconds: Int32 = 0
+    var _lightSleepDurationSeconds: Int32 = 0
+    var _remSleepDurationSeconds: Int32 = 0
+    var _deepSleepDurationSeconds: Int32 = 0
+    var _timeToFallAsleepSeconds: Int32 = 0
+    var _timeAwakeDuringSleepSeconds: Int32 = 0
+    var _sleepQualityRating1To5Score: Int32 = 0
+    var _sleepEfficiency1To100Score: Int32 = 0
+    var _sleepGoalSeconds: Int32 = 0
+    var _sleepContinuity1To5Score: Int32 = 0
+    var _sleepContinuity1To5Rating: Int32 = 0
+    var _hrMaximumBpm: Int32 = 0
+    var _hrMinimumBpm: Int32 = 0
+    var _hrAvgBpm: Int32 = 0
+    var _hrRestingBpm: Int32 = 0
+    var _hrBasalBpm: Int32 = 0
+    var _hrGranularData: [HrGranularDataProto] = []
+    var _hrvAvgRmssd: Double = 0
+    var _hrvAvgSdnn: Double = 0
+    var _hrvSdnnGranularData: [HrvSdnnGranularDataProto] = []
+    var _hrvRmssdGranularData: [HrvRmssdGranularDataProto] = []
+    var _temperatureMinimum: [TemperatureObjectProto] = []
+    var _temperatureAvg: [TemperatureObjectProto] = []
+    var _temperatureMaximum: [TemperatureObjectProto] = []
+    var _temperatureGranularData: [TemperatureGranularDataProto] = []
+    var _temperatureDelta: [TemperatureObjectProto] = []
+    var _breathsMinimumPerMin: Double = 0
+    var _breathsAvgPerMin: Double = 0
+    var _breathsMaximumPerMin: Double = 0
+    var _breathingGranularData: [BreathingGranularDataProto] = []
+    var _snoringEventsCount: Int32 = 0
+    var _snoringDurationTotalSeconds: Int32 = 0
+    var _snoringGranularData: [SnoringGranularDataProto] = []
+    var _saturationAvgPercentage: Double = 0
+    var _saturationMinimumPercentage: Double = 0
+    var _saturationMaximumPercentage: Double = 0
+    var _saturationGranularData: [SaturationGranularDataProto] = []
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _dateTime = source._dateTime
+      _sourceOfData = source._sourceOfData
+      _wasTheUserUnderPhysicalActivity = source._wasTheUserUnderPhysicalActivity
+      _sleepStartDateTime = source._sleepStartDateTime
+      _sleepEndDateTime = source._sleepEndDateTime
+      _sleepDate = source._sleepDate
+      _sleepDurationSeconds = source._sleepDurationSeconds
+      _timeInBedSeconds = source._timeInBedSeconds
+      _lightSleepDurationSeconds = source._lightSleepDurationSeconds
+      _remSleepDurationSeconds = source._remSleepDurationSeconds
+      _deepSleepDurationSeconds = source._deepSleepDurationSeconds
+      _timeToFallAsleepSeconds = source._timeToFallAsleepSeconds
+      _timeAwakeDuringSleepSeconds = source._timeAwakeDuringSleepSeconds
+      _sleepQualityRating1To5Score = source._sleepQualityRating1To5Score
+      _sleepEfficiency1To100Score = source._sleepEfficiency1To100Score
+      _sleepGoalSeconds = source._sleepGoalSeconds
+      _sleepContinuity1To5Score = source._sleepContinuity1To5Score
+      _sleepContinuity1To5Rating = source._sleepContinuity1To5Rating
+      _hrMaximumBpm = source._hrMaximumBpm
+      _hrMinimumBpm = source._hrMinimumBpm
+      _hrAvgBpm = source._hrAvgBpm
+      _hrRestingBpm = source._hrRestingBpm
+      _hrBasalBpm = source._hrBasalBpm
+      _hrGranularData = source._hrGranularData
+      _hrvAvgRmssd = source._hrvAvgRmssd
+      _hrvAvgSdnn = source._hrvAvgSdnn
+      _hrvSdnnGranularData = source._hrvSdnnGranularData
+      _hrvRmssdGranularData = source._hrvRmssdGranularData
+      _temperatureMinimum = source._temperatureMinimum
+      _temperatureAvg = source._temperatureAvg
+      _temperatureMaximum = source._temperatureMaximum
+      _temperatureGranularData = source._temperatureGranularData
+      _temperatureDelta = source._temperatureDelta
+      _breathsMinimumPerMin = source._breathsMinimumPerMin
+      _breathsAvgPerMin = source._breathsAvgPerMin
+      _breathsMaximumPerMin = source._breathsMaximumPerMin
+      _breathingGranularData = source._breathingGranularData
+      _snoringEventsCount = source._snoringEventsCount
+      _snoringDurationTotalSeconds = source._snoringDurationTotalSeconds
+      _snoringGranularData = source._snoringGranularData
+      _saturationAvgPercentage = source._saturationAvgPercentage
+      _saturationMinimumPercentage = source._saturationMinimumPercentage
+      _saturationMaximumPercentage = source._saturationMaximumPercentage
+      _saturationGranularData = source._saturationGranularData
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._dateTime) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._sourceOfData) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._wasTheUserUnderPhysicalActivity) }()
+        case 4: try { try decoder.decodeSingularStringField(value: &_storage._sleepStartDateTime) }()
+        case 5: try { try decoder.decodeSingularStringField(value: &_storage._sleepEndDateTime) }()
+        case 6: try { try decoder.decodeSingularStringField(value: &_storage._sleepDate) }()
+        case 7: try { try decoder.decodeSingularSInt32Field(value: &_storage._sleepDurationSeconds) }()
+        case 8: try { try decoder.decodeSingularSInt32Field(value: &_storage._timeInBedSeconds) }()
+        case 9: try { try decoder.decodeSingularSInt32Field(value: &_storage._lightSleepDurationSeconds) }()
+        case 10: try { try decoder.decodeSingularSInt32Field(value: &_storage._remSleepDurationSeconds) }()
+        case 11: try { try decoder.decodeSingularSInt32Field(value: &_storage._deepSleepDurationSeconds) }()
+        case 12: try { try decoder.decodeSingularSInt32Field(value: &_storage._timeToFallAsleepSeconds) }()
+        case 13: try { try decoder.decodeSingularSInt32Field(value: &_storage._timeAwakeDuringSleepSeconds) }()
+        case 14: try { try decoder.decodeSingularSInt32Field(value: &_storage._sleepQualityRating1To5Score) }()
+        case 15: try { try decoder.decodeSingularSInt32Field(value: &_storage._sleepEfficiency1To100Score) }()
+        case 16: try { try decoder.decodeSingularSInt32Field(value: &_storage._sleepGoalSeconds) }()
+        case 17: try { try decoder.decodeSingularSInt32Field(value: &_storage._sleepContinuity1To5Score) }()
+        case 18: try { try decoder.decodeSingularSInt32Field(value: &_storage._sleepContinuity1To5Rating) }()
+        case 19: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrMaximumBpm) }()
+        case 20: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrMinimumBpm) }()
+        case 21: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrAvgBpm) }()
+        case 22: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrRestingBpm) }()
+        case 23: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrBasalBpm) }()
+        case 24: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrGranularData) }()
+        case 25: try { try decoder.decodeSingularDoubleField(value: &_storage._hrvAvgRmssd) }()
+        case 26: try { try decoder.decodeSingularDoubleField(value: &_storage._hrvAvgSdnn) }()
+        case 27: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrvSdnnGranularData) }()
+        case 28: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrvRmssdGranularData) }()
+        case 29: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureMinimum) }()
+        case 30: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureAvg) }()
+        case 31: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureMaximum) }()
+        case 32: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureGranularData) }()
+        case 33: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureDelta) }()
+        case 34: try { try decoder.decodeSingularDoubleField(value: &_storage._breathsMinimumPerMin) }()
+        case 35: try { try decoder.decodeSingularDoubleField(value: &_storage._breathsAvgPerMin) }()
+        case 36: try { try decoder.decodeSingularDoubleField(value: &_storage._breathsMaximumPerMin) }()
+        case 37: try { try decoder.decodeRepeatedMessageField(value: &_storage._breathingGranularData) }()
+        case 38: try { try decoder.decodeSingularSInt32Field(value: &_storage._snoringEventsCount) }()
+        case 39: try { try decoder.decodeSingularSInt32Field(value: &_storage._snoringDurationTotalSeconds) }()
+        case 40: try { try decoder.decodeRepeatedMessageField(value: &_storage._snoringGranularData) }()
+        case 41: try { try decoder.decodeSingularDoubleField(value: &_storage._saturationAvgPercentage) }()
+        case 42: try { try decoder.decodeSingularDoubleField(value: &_storage._saturationMinimumPercentage) }()
+        case 43: try { try decoder.decodeSingularDoubleField(value: &_storage._saturationMaximumPercentage) }()
+        case 44: try { try decoder.decodeRepeatedMessageField(value: &_storage._saturationGranularData) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._dateTime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._dateTime, fieldNumber: 1)
+      }
+      if !_storage._sourceOfData.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._sourceOfData, fieldNumber: 2)
+      }
+      if _storage._wasTheUserUnderPhysicalActivity != false {
+        try visitor.visitSingularBoolField(value: _storage._wasTheUserUnderPhysicalActivity, fieldNumber: 3)
+      }
+      if !_storage._sleepStartDateTime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._sleepStartDateTime, fieldNumber: 4)
+      }
+      if !_storage._sleepEndDateTime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._sleepEndDateTime, fieldNumber: 5)
+      }
+      if !_storage._sleepDate.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._sleepDate, fieldNumber: 6)
+      }
+      if _storage._sleepDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._sleepDurationSeconds, fieldNumber: 7)
+      }
+      if _storage._timeInBedSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._timeInBedSeconds, fieldNumber: 8)
+      }
+      if _storage._lightSleepDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._lightSleepDurationSeconds, fieldNumber: 9)
+      }
+      if _storage._remSleepDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._remSleepDurationSeconds, fieldNumber: 10)
+      }
+      if _storage._deepSleepDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._deepSleepDurationSeconds, fieldNumber: 11)
+      }
+      if _storage._timeToFallAsleepSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._timeToFallAsleepSeconds, fieldNumber: 12)
+      }
+      if _storage._timeAwakeDuringSleepSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._timeAwakeDuringSleepSeconds, fieldNumber: 13)
+      }
+      if _storage._sleepQualityRating1To5Score != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._sleepQualityRating1To5Score, fieldNumber: 14)
+      }
+      if _storage._sleepEfficiency1To100Score != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._sleepEfficiency1To100Score, fieldNumber: 15)
+      }
+      if _storage._sleepGoalSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._sleepGoalSeconds, fieldNumber: 16)
+      }
+      if _storage._sleepContinuity1To5Score != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._sleepContinuity1To5Score, fieldNumber: 17)
+      }
+      if _storage._sleepContinuity1To5Rating != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._sleepContinuity1To5Rating, fieldNumber: 18)
+      }
+      if _storage._hrMaximumBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrMaximumBpm, fieldNumber: 19)
+      }
+      if _storage._hrMinimumBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrMinimumBpm, fieldNumber: 20)
+      }
+      if _storage._hrAvgBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrAvgBpm, fieldNumber: 21)
+      }
+      if _storage._hrRestingBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrRestingBpm, fieldNumber: 22)
+      }
+      if _storage._hrBasalBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrBasalBpm, fieldNumber: 23)
+      }
+      if !_storage._hrGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrGranularData, fieldNumber: 24)
+      }
+      if _storage._hrvAvgRmssd.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hrvAvgRmssd, fieldNumber: 25)
+      }
+      if _storage._hrvAvgSdnn.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hrvAvgSdnn, fieldNumber: 26)
+      }
+      if !_storage._hrvSdnnGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrvSdnnGranularData, fieldNumber: 27)
+      }
+      if !_storage._hrvRmssdGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrvRmssdGranularData, fieldNumber: 28)
+      }
+      if !_storage._temperatureMinimum.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureMinimum, fieldNumber: 29)
+      }
+      if !_storage._temperatureAvg.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureAvg, fieldNumber: 30)
+      }
+      if !_storage._temperatureMaximum.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureMaximum, fieldNumber: 31)
+      }
+      if !_storage._temperatureGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureGranularData, fieldNumber: 32)
+      }
+      if !_storage._temperatureDelta.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureDelta, fieldNumber: 33)
+      }
+      if _storage._breathsMinimumPerMin.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._breathsMinimumPerMin, fieldNumber: 34)
+      }
+      if _storage._breathsAvgPerMin.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._breathsAvgPerMin, fieldNumber: 35)
+      }
+      if _storage._breathsMaximumPerMin.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._breathsMaximumPerMin, fieldNumber: 36)
+      }
+      if !_storage._breathingGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._breathingGranularData, fieldNumber: 37)
+      }
+      if _storage._snoringEventsCount != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._snoringEventsCount, fieldNumber: 38)
+      }
+      if _storage._snoringDurationTotalSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._snoringDurationTotalSeconds, fieldNumber: 39)
+      }
+      if !_storage._snoringGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._snoringGranularData, fieldNumber: 40)
+      }
+      if _storage._saturationAvgPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._saturationAvgPercentage, fieldNumber: 41)
+      }
+      if _storage._saturationMinimumPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._saturationMinimumPercentage, fieldNumber: 42)
+      }
+      if _storage._saturationMaximumPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._saturationMaximumPercentage, fieldNumber: 43)
+      }
+      if !_storage._saturationGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._saturationGranularData, fieldNumber: 44)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SleepSummaryProto, rhs: SleepSummaryProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._dateTime != rhs_storage._dateTime {return false}
+        if _storage._sourceOfData != rhs_storage._sourceOfData {return false}
+        if _storage._wasTheUserUnderPhysicalActivity != rhs_storage._wasTheUserUnderPhysicalActivity {return false}
+        if _storage._sleepStartDateTime != rhs_storage._sleepStartDateTime {return false}
+        if _storage._sleepEndDateTime != rhs_storage._sleepEndDateTime {return false}
+        if _storage._sleepDate != rhs_storage._sleepDate {return false}
+        if _storage._sleepDurationSeconds != rhs_storage._sleepDurationSeconds {return false}
+        if _storage._timeInBedSeconds != rhs_storage._timeInBedSeconds {return false}
+        if _storage._lightSleepDurationSeconds != rhs_storage._lightSleepDurationSeconds {return false}
+        if _storage._remSleepDurationSeconds != rhs_storage._remSleepDurationSeconds {return false}
+        if _storage._deepSleepDurationSeconds != rhs_storage._deepSleepDurationSeconds {return false}
+        if _storage._timeToFallAsleepSeconds != rhs_storage._timeToFallAsleepSeconds {return false}
+        if _storage._timeAwakeDuringSleepSeconds != rhs_storage._timeAwakeDuringSleepSeconds {return false}
+        if _storage._sleepQualityRating1To5Score != rhs_storage._sleepQualityRating1To5Score {return false}
+        if _storage._sleepEfficiency1To100Score != rhs_storage._sleepEfficiency1To100Score {return false}
+        if _storage._sleepGoalSeconds != rhs_storage._sleepGoalSeconds {return false}
+        if _storage._sleepContinuity1To5Score != rhs_storage._sleepContinuity1To5Score {return false}
+        if _storage._sleepContinuity1To5Rating != rhs_storage._sleepContinuity1To5Rating {return false}
+        if _storage._hrMaximumBpm != rhs_storage._hrMaximumBpm {return false}
+        if _storage._hrMinimumBpm != rhs_storage._hrMinimumBpm {return false}
+        if _storage._hrAvgBpm != rhs_storage._hrAvgBpm {return false}
+        if _storage._hrRestingBpm != rhs_storage._hrRestingBpm {return false}
+        if _storage._hrBasalBpm != rhs_storage._hrBasalBpm {return false}
+        if _storage._hrGranularData != rhs_storage._hrGranularData {return false}
+        if _storage._hrvAvgRmssd != rhs_storage._hrvAvgRmssd {return false}
+        if _storage._hrvAvgSdnn != rhs_storage._hrvAvgSdnn {return false}
+        if _storage._hrvSdnnGranularData != rhs_storage._hrvSdnnGranularData {return false}
+        if _storage._hrvRmssdGranularData != rhs_storage._hrvRmssdGranularData {return false}
+        if _storage._temperatureMinimum != rhs_storage._temperatureMinimum {return false}
+        if _storage._temperatureAvg != rhs_storage._temperatureAvg {return false}
+        if _storage._temperatureMaximum != rhs_storage._temperatureMaximum {return false}
+        if _storage._temperatureGranularData != rhs_storage._temperatureGranularData {return false}
+        if _storage._temperatureDelta != rhs_storage._temperatureDelta {return false}
+        if _storage._breathsMinimumPerMin != rhs_storage._breathsMinimumPerMin {return false}
+        if _storage._breathsAvgPerMin != rhs_storage._breathsAvgPerMin {return false}
+        if _storage._breathsMaximumPerMin != rhs_storage._breathsMaximumPerMin {return false}
+        if _storage._breathingGranularData != rhs_storage._breathingGranularData {return false}
+        if _storage._snoringEventsCount != rhs_storage._snoringEventsCount {return false}
+        if _storage._snoringDurationTotalSeconds != rhs_storage._snoringDurationTotalSeconds {return false}
+        if _storage._snoringGranularData != rhs_storage._snoringGranularData {return false}
+        if _storage._saturationAvgPercentage != rhs_storage._saturationAvgPercentage {return false}
+        if _storage._saturationMinimumPercentage != rhs_storage._saturationMinimumPercentage {return false}
+        if _storage._saturationMaximumPercentage != rhs_storage._saturationMaximumPercentage {return false}
+        if _storage._saturationGranularData != rhs_storage._saturationGranularData {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SleepSummariesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "SleepSummariesProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "elements"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.elements) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.elements.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.elements, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SleepSummariesProto, rhs: SleepSummariesProto) -> Bool {
+    if lhs.elements != rhs.elements {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SleepSummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "SleepSummaryResultProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "synced"),
+    2: .same(proto: "recordsNotFound"),
+    3: .same(proto: "failure"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: SleepSummariesProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .synced(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .synced(v)
+        }
+      }()
+      case 2: try {
+        var v: Bool?
+        try decoder.decodeSingularBoolField(value: &v)
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .recordsNotFound(v)
+        }
+      }()
+      case 3: try {
+        var v: PluginExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .failure(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .failure(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .synced?: try {
+      guard case .synced(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .recordsNotFound?: try {
+      guard case .recordsNotFound(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
+    }()
+    case .failure?: try {
+      guard case .failure(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SleepSummaryResultProto, rhs: SleepSummaryResultProto) -> Bool {
+    if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension PhysicalSummaryProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "PhysicalSummaryProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "sourceOfData"),
+    3: .same(proto: "wasTheUserUnderPhysicalActivity"),
+    4: .same(proto: "activeSeconds"),
+    5: .same(proto: "restSeconds"),
+    6: .same(proto: "lowIntensitySeconds"),
+    7: .same(proto: "moderateIntensitySeconds"),
+    8: .same(proto: "vigorousIntensitySeconds"),
+    9: .same(proto: "inactivitySeconds"),
+    10: .same(proto: "activityLevelGranularData"),
+    11: .same(proto: "continuousInactivePeriods"),
+    12: .same(proto: "caloriesNetIntakeKcal"),
+    13: .same(proto: "caloriesExpenditureKcal"),
+    14: .same(proto: "caloriesNetActiveKcal"),
+    15: .same(proto: "caloriesBasalMetabolicRateKcal"),
+    16: .same(proto: "steps"),
+    17: .same(proto: "stepsGranularData"),
+    18: .same(proto: "activeSteps"),
+    19: .same(proto: "activeStepsGranularData"),
+    20: .same(proto: "walkedDistanceMeters"),
+    21: .same(proto: "traveledDistanceMeters"),
+    22: .same(proto: "traveledDistanceGranularData"),
+    23: .same(proto: "floorsClimbed"),
+    24: .same(proto: "floorsClimbedGranularData"),
+    25: .same(proto: "elevationAvgAltitudeMeters"),
+    26: .same(proto: "elevationMinimumAltitudeMeters"),
+    27: .same(proto: "elevationMaximumAltitudeMeters"),
+    28: .same(proto: "elevationLossActualAltitudeMeters"),
+    29: .same(proto: "elevationGainActualAltitudeMeters"),
+    30: .same(proto: "elevationPlannedGainMeters"),
+    31: .same(proto: "elevationGranularData"),
+    32: .same(proto: "swimmingNumStrokes"),
+    33: .same(proto: "swimmingNumLaps"),
+    34: .same(proto: "swimmingPoolLengthMeters"),
+    35: .same(proto: "swimmingTotalDistanceMeters"),
+    36: .same(proto: "swimmingDistanceGranularData"),
+    37: .same(proto: "hrMaximumBpm"),
+    38: .same(proto: "hrMinimumBpm"),
+    39: .same(proto: "hrAvgBpm"),
+    40: .same(proto: "hrRestingBpm"),
+    41: .same(proto: "hrGranularData"),
+    42: .same(proto: "hrvAvgRmssd"),
+    43: .same(proto: "hrvAvgSdnn"),
+    44: .same(proto: "hrvSdnnGranularData"),
+    45: .same(proto: "hrvRmssdGranularData"),
+    46: .same(proto: "saturationAvgPercentage"),
+    47: .same(proto: "saturationGranularData"),
+    48: .same(proto: "vo2MaxMlPerMinPerKg"),
+    49: .same(proto: "vo2GranularData"),
+    50: .same(proto: "stressAtRestDurationSeconds"),
+    51: .same(proto: "stressDurationSeconds"),
+    52: .same(proto: "lowStressDurationSeconds"),
+    53: .same(proto: "mediumStressDurationSeconds"),
+    54: .same(proto: "highStressDurationSeconds"),
+    55: .same(proto: "stressGranularData"),
+    56: .same(proto: "stressAvgLevel"),
+    57: .same(proto: "stressMaximumLevel"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _dateTime: String = String()
+    var _sourceOfData: String = String()
+    var _wasTheUserUnderPhysicalActivity: Bool = false
+    var _activeSeconds: Int32 = 0
+    var _restSeconds: Int32 = 0
+    var _lowIntensitySeconds: Int32 = 0
+    var _moderateIntensitySeconds: Int32 = 0
+    var _vigorousIntensitySeconds: Int32 = 0
+    var _inactivitySeconds: Int32 = 0
+    var _activityLevelGranularData: [ActivityLevelGranularDataProto] = []
+    var _continuousInactivePeriods: Int32 = 0
+    var _caloriesNetIntakeKcal: Double = 0
+    var _caloriesExpenditureKcal: Double = 0
+    var _caloriesNetActiveKcal: Double = 0
+    var _caloriesBasalMetabolicRateKcal: Double = 0
+    var _steps: Int32 = 0
+    var _stepsGranularData: [StepsGranularDataProto] = []
+    var _activeSteps: Int32 = 0
+    var _activeStepsGranularData: [ActiveStepsGranularDataProto] = []
+    var _walkedDistanceMeters: Double = 0
+    var _traveledDistanceMeters: Double = 0
+    var _traveledDistanceGranularData: [TraveledDistanceGranularDataProto] = []
+    var _floorsClimbed: Double = 0
+    var _floorsClimbedGranularData: [FloorsClimbedGranularDataProto] = []
+    var _elevationAvgAltitudeMeters: Double = 0
+    var _elevationMinimumAltitudeMeters: Double = 0
+    var _elevationMaximumAltitudeMeters: Double = 0
+    var _elevationLossActualAltitudeMeters: Double = 0
+    var _elevationGainActualAltitudeMeters: Double = 0
+    var _elevationPlannedGainMeters: Double = 0
+    var _elevationGranularData: [ElevationGranularDataProto] = []
+    var _swimmingNumStrokes: Int32 = 0
+    var _swimmingNumLaps: Int32 = 0
+    var _swimmingPoolLengthMeters: Double = 0
+    var _swimmingTotalDistanceMeters: Double = 0
+    var _swimmingDistanceGranularData: [SwimmingDistanceGranularDataProto] = []
+    var _hrMaximumBpm: Int32 = 0
+    var _hrMinimumBpm: Int32 = 0
+    var _hrAvgBpm: Int32 = 0
+    var _hrRestingBpm: Int32 = 0
+    var _hrGranularData: [HrGranularDataProto] = []
+    var _hrvAvgRmssd: Double = 0
+    var _hrvAvgSdnn: Double = 0
+    var _hrvSdnnGranularData: [HrvSdnnGranularDataProto] = []
+    var _hrvRmssdGranularData: [HrvRmssdGranularDataProto] = []
+    var _saturationAvgPercentage: Double = 0
+    var _saturationGranularData: [SaturationGranularDataProto] = []
+    var _vo2MaxMlPerMinPerKg: Double = 0
+    var _vo2GranularData: [Vo2GranularDataProto] = []
+    var _stressAtRestDurationSeconds: Int32 = 0
+    var _stressDurationSeconds: Int32 = 0
+    var _lowStressDurationSeconds: Int32 = 0
+    var _mediumStressDurationSeconds: Int32 = 0
+    var _highStressDurationSeconds: Int32 = 0
+    var _stressGranularData: [StressGranularDataProto] = []
+    var _stressAvgLevel: Int32 = 0
+    var _stressMaximumLevel: Int32 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _dateTime = source._dateTime
+      _sourceOfData = source._sourceOfData
+      _wasTheUserUnderPhysicalActivity = source._wasTheUserUnderPhysicalActivity
+      _activeSeconds = source._activeSeconds
+      _restSeconds = source._restSeconds
+      _lowIntensitySeconds = source._lowIntensitySeconds
+      _moderateIntensitySeconds = source._moderateIntensitySeconds
+      _vigorousIntensitySeconds = source._vigorousIntensitySeconds
+      _inactivitySeconds = source._inactivitySeconds
+      _activityLevelGranularData = source._activityLevelGranularData
+      _continuousInactivePeriods = source._continuousInactivePeriods
+      _caloriesNetIntakeKcal = source._caloriesNetIntakeKcal
+      _caloriesExpenditureKcal = source._caloriesExpenditureKcal
+      _caloriesNetActiveKcal = source._caloriesNetActiveKcal
+      _caloriesBasalMetabolicRateKcal = source._caloriesBasalMetabolicRateKcal
+      _steps = source._steps
+      _stepsGranularData = source._stepsGranularData
+      _activeSteps = source._activeSteps
+      _activeStepsGranularData = source._activeStepsGranularData
+      _walkedDistanceMeters = source._walkedDistanceMeters
+      _traveledDistanceMeters = source._traveledDistanceMeters
+      _traveledDistanceGranularData = source._traveledDistanceGranularData
+      _floorsClimbed = source._floorsClimbed
+      _floorsClimbedGranularData = source._floorsClimbedGranularData
+      _elevationAvgAltitudeMeters = source._elevationAvgAltitudeMeters
+      _elevationMinimumAltitudeMeters = source._elevationMinimumAltitudeMeters
+      _elevationMaximumAltitudeMeters = source._elevationMaximumAltitudeMeters
+      _elevationLossActualAltitudeMeters = source._elevationLossActualAltitudeMeters
+      _elevationGainActualAltitudeMeters = source._elevationGainActualAltitudeMeters
+      _elevationPlannedGainMeters = source._elevationPlannedGainMeters
+      _elevationGranularData = source._elevationGranularData
+      _swimmingNumStrokes = source._swimmingNumStrokes
+      _swimmingNumLaps = source._swimmingNumLaps
+      _swimmingPoolLengthMeters = source._swimmingPoolLengthMeters
+      _swimmingTotalDistanceMeters = source._swimmingTotalDistanceMeters
+      _swimmingDistanceGranularData = source._swimmingDistanceGranularData
+      _hrMaximumBpm = source._hrMaximumBpm
+      _hrMinimumBpm = source._hrMinimumBpm
+      _hrAvgBpm = source._hrAvgBpm
+      _hrRestingBpm = source._hrRestingBpm
+      _hrGranularData = source._hrGranularData
+      _hrvAvgRmssd = source._hrvAvgRmssd
+      _hrvAvgSdnn = source._hrvAvgSdnn
+      _hrvSdnnGranularData = source._hrvSdnnGranularData
+      _hrvRmssdGranularData = source._hrvRmssdGranularData
+      _saturationAvgPercentage = source._saturationAvgPercentage
+      _saturationGranularData = source._saturationGranularData
+      _vo2MaxMlPerMinPerKg = source._vo2MaxMlPerMinPerKg
+      _vo2GranularData = source._vo2GranularData
+      _stressAtRestDurationSeconds = source._stressAtRestDurationSeconds
+      _stressDurationSeconds = source._stressDurationSeconds
+      _lowStressDurationSeconds = source._lowStressDurationSeconds
+      _mediumStressDurationSeconds = source._mediumStressDurationSeconds
+      _highStressDurationSeconds = source._highStressDurationSeconds
+      _stressGranularData = source._stressGranularData
+      _stressAvgLevel = source._stressAvgLevel
+      _stressMaximumLevel = source._stressMaximumLevel
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._dateTime) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._sourceOfData) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._wasTheUserUnderPhysicalActivity) }()
+        case 4: try { try decoder.decodeSingularSInt32Field(value: &_storage._activeSeconds) }()
+        case 5: try { try decoder.decodeSingularSInt32Field(value: &_storage._restSeconds) }()
+        case 6: try { try decoder.decodeSingularSInt32Field(value: &_storage._lowIntensitySeconds) }()
+        case 7: try { try decoder.decodeSingularSInt32Field(value: &_storage._moderateIntensitySeconds) }()
+        case 8: try { try decoder.decodeSingularSInt32Field(value: &_storage._vigorousIntensitySeconds) }()
+        case 9: try { try decoder.decodeSingularSInt32Field(value: &_storage._inactivitySeconds) }()
+        case 10: try { try decoder.decodeRepeatedMessageField(value: &_storage._activityLevelGranularData) }()
+        case 11: try { try decoder.decodeSingularSInt32Field(value: &_storage._continuousInactivePeriods) }()
+        case 12: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesNetIntakeKcal) }()
+        case 13: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesExpenditureKcal) }()
+        case 14: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesNetActiveKcal) }()
+        case 15: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesBasalMetabolicRateKcal) }()
+        case 16: try { try decoder.decodeSingularSInt32Field(value: &_storage._steps) }()
+        case 17: try { try decoder.decodeRepeatedMessageField(value: &_storage._stepsGranularData) }()
+        case 18: try { try decoder.decodeSingularSInt32Field(value: &_storage._activeSteps) }()
+        case 19: try { try decoder.decodeRepeatedMessageField(value: &_storage._activeStepsGranularData) }()
+        case 20: try { try decoder.decodeSingularDoubleField(value: &_storage._walkedDistanceMeters) }()
+        case 21: try { try decoder.decodeSingularDoubleField(value: &_storage._traveledDistanceMeters) }()
+        case 22: try { try decoder.decodeRepeatedMessageField(value: &_storage._traveledDistanceGranularData) }()
+        case 23: try { try decoder.decodeSingularDoubleField(value: &_storage._floorsClimbed) }()
+        case 24: try { try decoder.decodeRepeatedMessageField(value: &_storage._floorsClimbedGranularData) }()
+        case 25: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationAvgAltitudeMeters) }()
+        case 26: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationMinimumAltitudeMeters) }()
+        case 27: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationMaximumAltitudeMeters) }()
+        case 28: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationLossActualAltitudeMeters) }()
+        case 29: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationGainActualAltitudeMeters) }()
+        case 30: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationPlannedGainMeters) }()
+        case 31: try { try decoder.decodeRepeatedMessageField(value: &_storage._elevationGranularData) }()
+        case 32: try { try decoder.decodeSingularSInt32Field(value: &_storage._swimmingNumStrokes) }()
+        case 33: try { try decoder.decodeSingularSInt32Field(value: &_storage._swimmingNumLaps) }()
+        case 34: try { try decoder.decodeSingularDoubleField(value: &_storage._swimmingPoolLengthMeters) }()
+        case 35: try { try decoder.decodeSingularDoubleField(value: &_storage._swimmingTotalDistanceMeters) }()
+        case 36: try { try decoder.decodeRepeatedMessageField(value: &_storage._swimmingDistanceGranularData) }()
+        case 37: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrMaximumBpm) }()
+        case 38: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrMinimumBpm) }()
+        case 39: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrAvgBpm) }()
+        case 40: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrRestingBpm) }()
+        case 41: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrGranularData) }()
+        case 42: try { try decoder.decodeSingularDoubleField(value: &_storage._hrvAvgRmssd) }()
+        case 43: try { try decoder.decodeSingularDoubleField(value: &_storage._hrvAvgSdnn) }()
+        case 44: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrvSdnnGranularData) }()
+        case 45: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrvRmssdGranularData) }()
+        case 46: try { try decoder.decodeSingularDoubleField(value: &_storage._saturationAvgPercentage) }()
+        case 47: try { try decoder.decodeRepeatedMessageField(value: &_storage._saturationGranularData) }()
+        case 48: try { try decoder.decodeSingularDoubleField(value: &_storage._vo2MaxMlPerMinPerKg) }()
+        case 49: try { try decoder.decodeRepeatedMessageField(value: &_storage._vo2GranularData) }()
+        case 50: try { try decoder.decodeSingularSInt32Field(value: &_storage._stressAtRestDurationSeconds) }()
+        case 51: try { try decoder.decodeSingularSInt32Field(value: &_storage._stressDurationSeconds) }()
+        case 52: try { try decoder.decodeSingularSInt32Field(value: &_storage._lowStressDurationSeconds) }()
+        case 53: try { try decoder.decodeSingularSInt32Field(value: &_storage._mediumStressDurationSeconds) }()
+        case 54: try { try decoder.decodeSingularSInt32Field(value: &_storage._highStressDurationSeconds) }()
+        case 55: try { try decoder.decodeRepeatedMessageField(value: &_storage._stressGranularData) }()
+        case 56: try { try decoder.decodeSingularSInt32Field(value: &_storage._stressAvgLevel) }()
+        case 57: try { try decoder.decodeSingularSInt32Field(value: &_storage._stressMaximumLevel) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._dateTime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._dateTime, fieldNumber: 1)
+      }
+      if !_storage._sourceOfData.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._sourceOfData, fieldNumber: 2)
+      }
+      if _storage._wasTheUserUnderPhysicalActivity != false {
+        try visitor.visitSingularBoolField(value: _storage._wasTheUserUnderPhysicalActivity, fieldNumber: 3)
+      }
+      if _storage._activeSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._activeSeconds, fieldNumber: 4)
+      }
+      if _storage._restSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._restSeconds, fieldNumber: 5)
+      }
+      if _storage._lowIntensitySeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._lowIntensitySeconds, fieldNumber: 6)
+      }
+      if _storage._moderateIntensitySeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._moderateIntensitySeconds, fieldNumber: 7)
+      }
+      if _storage._vigorousIntensitySeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._vigorousIntensitySeconds, fieldNumber: 8)
+      }
+      if _storage._inactivitySeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._inactivitySeconds, fieldNumber: 9)
+      }
+      if !_storage._activityLevelGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._activityLevelGranularData, fieldNumber: 10)
+      }
+      if _storage._continuousInactivePeriods != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._continuousInactivePeriods, fieldNumber: 11)
+      }
+      if _storage._caloriesNetIntakeKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesNetIntakeKcal, fieldNumber: 12)
+      }
+      if _storage._caloriesExpenditureKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesExpenditureKcal, fieldNumber: 13)
+      }
+      if _storage._caloriesNetActiveKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesNetActiveKcal, fieldNumber: 14)
+      }
+      if _storage._caloriesBasalMetabolicRateKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesBasalMetabolicRateKcal, fieldNumber: 15)
+      }
+      if _storage._steps != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._steps, fieldNumber: 16)
+      }
+      if !_storage._stepsGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._stepsGranularData, fieldNumber: 17)
+      }
+      if _storage._activeSteps != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._activeSteps, fieldNumber: 18)
+      }
+      if !_storage._activeStepsGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._activeStepsGranularData, fieldNumber: 19)
+      }
+      if _storage._walkedDistanceMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._walkedDistanceMeters, fieldNumber: 20)
+      }
+      if _storage._traveledDistanceMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._traveledDistanceMeters, fieldNumber: 21)
+      }
+      if !_storage._traveledDistanceGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._traveledDistanceGranularData, fieldNumber: 22)
+      }
+      if _storage._floorsClimbed.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._floorsClimbed, fieldNumber: 23)
+      }
+      if !_storage._floorsClimbedGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._floorsClimbedGranularData, fieldNumber: 24)
+      }
+      if _storage._elevationAvgAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationAvgAltitudeMeters, fieldNumber: 25)
+      }
+      if _storage._elevationMinimumAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationMinimumAltitudeMeters, fieldNumber: 26)
+      }
+      if _storage._elevationMaximumAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationMaximumAltitudeMeters, fieldNumber: 27)
+      }
+      if _storage._elevationLossActualAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationLossActualAltitudeMeters, fieldNumber: 28)
+      }
+      if _storage._elevationGainActualAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationGainActualAltitudeMeters, fieldNumber: 29)
+      }
+      if _storage._elevationPlannedGainMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationPlannedGainMeters, fieldNumber: 30)
+      }
+      if !_storage._elevationGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._elevationGranularData, fieldNumber: 31)
+      }
+      if _storage._swimmingNumStrokes != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._swimmingNumStrokes, fieldNumber: 32)
+      }
+      if _storage._swimmingNumLaps != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._swimmingNumLaps, fieldNumber: 33)
+      }
+      if _storage._swimmingPoolLengthMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._swimmingPoolLengthMeters, fieldNumber: 34)
+      }
+      if _storage._swimmingTotalDistanceMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._swimmingTotalDistanceMeters, fieldNumber: 35)
+      }
+      if !_storage._swimmingDistanceGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._swimmingDistanceGranularData, fieldNumber: 36)
+      }
+      if _storage._hrMaximumBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrMaximumBpm, fieldNumber: 37)
+      }
+      if _storage._hrMinimumBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrMinimumBpm, fieldNumber: 38)
+      }
+      if _storage._hrAvgBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrAvgBpm, fieldNumber: 39)
+      }
+      if _storage._hrRestingBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrRestingBpm, fieldNumber: 40)
+      }
+      if !_storage._hrGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrGranularData, fieldNumber: 41)
+      }
+      if _storage._hrvAvgRmssd.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hrvAvgRmssd, fieldNumber: 42)
+      }
+      if _storage._hrvAvgSdnn.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hrvAvgSdnn, fieldNumber: 43)
+      }
+      if !_storage._hrvSdnnGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrvSdnnGranularData, fieldNumber: 44)
+      }
+      if !_storage._hrvRmssdGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrvRmssdGranularData, fieldNumber: 45)
+      }
+      if _storage._saturationAvgPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._saturationAvgPercentage, fieldNumber: 46)
+      }
+      if !_storage._saturationGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._saturationGranularData, fieldNumber: 47)
+      }
+      if _storage._vo2MaxMlPerMinPerKg.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._vo2MaxMlPerMinPerKg, fieldNumber: 48)
+      }
+      if !_storage._vo2GranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._vo2GranularData, fieldNumber: 49)
+      }
+      if _storage._stressAtRestDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._stressAtRestDurationSeconds, fieldNumber: 50)
+      }
+      if _storage._stressDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._stressDurationSeconds, fieldNumber: 51)
+      }
+      if _storage._lowStressDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._lowStressDurationSeconds, fieldNumber: 52)
+      }
+      if _storage._mediumStressDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._mediumStressDurationSeconds, fieldNumber: 53)
+      }
+      if _storage._highStressDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._highStressDurationSeconds, fieldNumber: 54)
+      }
+      if !_storage._stressGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._stressGranularData, fieldNumber: 55)
+      }
+      if _storage._stressAvgLevel != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._stressAvgLevel, fieldNumber: 56)
+      }
+      if _storage._stressMaximumLevel != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._stressMaximumLevel, fieldNumber: 57)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: PhysicalSummaryProto, rhs: PhysicalSummaryProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._dateTime != rhs_storage._dateTime {return false}
+        if _storage._sourceOfData != rhs_storage._sourceOfData {return false}
+        if _storage._wasTheUserUnderPhysicalActivity != rhs_storage._wasTheUserUnderPhysicalActivity {return false}
+        if _storage._activeSeconds != rhs_storage._activeSeconds {return false}
+        if _storage._restSeconds != rhs_storage._restSeconds {return false}
+        if _storage._lowIntensitySeconds != rhs_storage._lowIntensitySeconds {return false}
+        if _storage._moderateIntensitySeconds != rhs_storage._moderateIntensitySeconds {return false}
+        if _storage._vigorousIntensitySeconds != rhs_storage._vigorousIntensitySeconds {return false}
+        if _storage._inactivitySeconds != rhs_storage._inactivitySeconds {return false}
+        if _storage._activityLevelGranularData != rhs_storage._activityLevelGranularData {return false}
+        if _storage._continuousInactivePeriods != rhs_storage._continuousInactivePeriods {return false}
+        if _storage._caloriesNetIntakeKcal != rhs_storage._caloriesNetIntakeKcal {return false}
+        if _storage._caloriesExpenditureKcal != rhs_storage._caloriesExpenditureKcal {return false}
+        if _storage._caloriesNetActiveKcal != rhs_storage._caloriesNetActiveKcal {return false}
+        if _storage._caloriesBasalMetabolicRateKcal != rhs_storage._caloriesBasalMetabolicRateKcal {return false}
+        if _storage._steps != rhs_storage._steps {return false}
+        if _storage._stepsGranularData != rhs_storage._stepsGranularData {return false}
+        if _storage._activeSteps != rhs_storage._activeSteps {return false}
+        if _storage._activeStepsGranularData != rhs_storage._activeStepsGranularData {return false}
+        if _storage._walkedDistanceMeters != rhs_storage._walkedDistanceMeters {return false}
+        if _storage._traveledDistanceMeters != rhs_storage._traveledDistanceMeters {return false}
+        if _storage._traveledDistanceGranularData != rhs_storage._traveledDistanceGranularData {return false}
+        if _storage._floorsClimbed != rhs_storage._floorsClimbed {return false}
+        if _storage._floorsClimbedGranularData != rhs_storage._floorsClimbedGranularData {return false}
+        if _storage._elevationAvgAltitudeMeters != rhs_storage._elevationAvgAltitudeMeters {return false}
+        if _storage._elevationMinimumAltitudeMeters != rhs_storage._elevationMinimumAltitudeMeters {return false}
+        if _storage._elevationMaximumAltitudeMeters != rhs_storage._elevationMaximumAltitudeMeters {return false}
+        if _storage._elevationLossActualAltitudeMeters != rhs_storage._elevationLossActualAltitudeMeters {return false}
+        if _storage._elevationGainActualAltitudeMeters != rhs_storage._elevationGainActualAltitudeMeters {return false}
+        if _storage._elevationPlannedGainMeters != rhs_storage._elevationPlannedGainMeters {return false}
+        if _storage._elevationGranularData != rhs_storage._elevationGranularData {return false}
+        if _storage._swimmingNumStrokes != rhs_storage._swimmingNumStrokes {return false}
+        if _storage._swimmingNumLaps != rhs_storage._swimmingNumLaps {return false}
+        if _storage._swimmingPoolLengthMeters != rhs_storage._swimmingPoolLengthMeters {return false}
+        if _storage._swimmingTotalDistanceMeters != rhs_storage._swimmingTotalDistanceMeters {return false}
+        if _storage._swimmingDistanceGranularData != rhs_storage._swimmingDistanceGranularData {return false}
+        if _storage._hrMaximumBpm != rhs_storage._hrMaximumBpm {return false}
+        if _storage._hrMinimumBpm != rhs_storage._hrMinimumBpm {return false}
+        if _storage._hrAvgBpm != rhs_storage._hrAvgBpm {return false}
+        if _storage._hrRestingBpm != rhs_storage._hrRestingBpm {return false}
+        if _storage._hrGranularData != rhs_storage._hrGranularData {return false}
+        if _storage._hrvAvgRmssd != rhs_storage._hrvAvgRmssd {return false}
+        if _storage._hrvAvgSdnn != rhs_storage._hrvAvgSdnn {return false}
+        if _storage._hrvSdnnGranularData != rhs_storage._hrvSdnnGranularData {return false}
+        if _storage._hrvRmssdGranularData != rhs_storage._hrvRmssdGranularData {return false}
+        if _storage._saturationAvgPercentage != rhs_storage._saturationAvgPercentage {return false}
+        if _storage._saturationGranularData != rhs_storage._saturationGranularData {return false}
+        if _storage._vo2MaxMlPerMinPerKg != rhs_storage._vo2MaxMlPerMinPerKg {return false}
+        if _storage._vo2GranularData != rhs_storage._vo2GranularData {return false}
+        if _storage._stressAtRestDurationSeconds != rhs_storage._stressAtRestDurationSeconds {return false}
+        if _storage._stressDurationSeconds != rhs_storage._stressDurationSeconds {return false}
+        if _storage._lowStressDurationSeconds != rhs_storage._lowStressDurationSeconds {return false}
+        if _storage._mediumStressDurationSeconds != rhs_storage._mediumStressDurationSeconds {return false}
+        if _storage._highStressDurationSeconds != rhs_storage._highStressDurationSeconds {return false}
+        if _storage._stressGranularData != rhs_storage._stressGranularData {return false}
+        if _storage._stressAvgLevel != rhs_storage._stressAvgLevel {return false}
+        if _storage._stressMaximumLevel != rhs_storage._stressMaximumLevel {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension PhysicalSummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "PhysicalSummaryResultProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "synced"),
+    2: .same(proto: "recordsNotFound"),
+    3: .same(proto: "failure"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: PhysicalSummaryProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .synced(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .synced(v)
+        }
+      }()
+      case 2: try {
+        var v: Bool?
+        try decoder.decodeSingularBoolField(value: &v)
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .recordsNotFound(v)
+        }
+      }()
+      case 3: try {
+        var v: PluginExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .failure(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .failure(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .synced?: try {
+      guard case .synced(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .recordsNotFound?: try {
+      guard case .recordsNotFound(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
+    }()
+    case .failure?: try {
+      guard case .failure(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: PhysicalSummaryResultProto, rhs: PhysicalSummaryResultProto) -> Bool {
+    if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension BodySummaryProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "BodySummaryProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "sourceOfData"),
+    3: .same(proto: "wasTheUserUnderPhysicalActivity"),
+    4: .same(proto: "waistCircumferenceCm"),
+    5: .same(proto: "hipCircumferenceCm"),
+    6: .same(proto: "chestCircumferenceCm"),
+    7: .same(proto: "boneCompositionPercentage"),
+    8: .same(proto: "muscleCompositionPercentage"),
+    9: .same(proto: "waterCompositionPercentage"),
+    10: .same(proto: "weightKg"),
+    11: .same(proto: "heightCm"),
+    12: .same(proto: "bmi"),
+    13: .same(proto: "bloodGlucoseAvgMgPerDl"),
+    14: .same(proto: "bloodGlucoseGranularData"),
+    15: .same(proto: "bloodPressureAvg"),
+    16: .same(proto: "bloodPressureGranularData"),
+    17: .same(proto: "waterTotalConsumptionMl"),
+    18: .same(proto: "hydrationAmountGranularData"),
+    19: .same(proto: "hydrationLevelGranularData"),
+    20: .same(proto: "hrMaximumBpm"),
+    21: .same(proto: "hrMinimumBpm"),
+    22: .same(proto: "hrAvgBpm"),
+    23: .same(proto: "hrRestingBpm"),
+    24: .same(proto: "hrGranularData"),
+    25: .same(proto: "hrvAvgRmssd"),
+    26: .same(proto: "hrvAvgSdnn"),
+    27: .same(proto: "hrvSdnnGranularData"),
+    28: .same(proto: "hrvRmssdGranularData"),
+    29: .same(proto: "moodMinimumScale"),
+    30: .same(proto: "moodAvgScale"),
+    31: .same(proto: "moodMaximumScale"),
+    32: .same(proto: "moodGranularData"),
+    33: .same(proto: "moodDeltaScale"),
+    34: .same(proto: "foodIntake"),
+    35: .same(proto: "caloriesIntakeKcal"),
+    36: .same(proto: "proteinIntakeG"),
+    37: .same(proto: "sugarIntakeG"),
+    38: .same(proto: "fatIntakeG"),
+    39: .same(proto: "transFatIntakeG"),
+    40: .same(proto: "carbohydratesIntakeG"),
+    41: .same(proto: "fiberIntakeG"),
+    42: .same(proto: "alcoholIntakeG"),
+    43: .same(proto: "sodiumIntakeMg"),
+    44: .same(proto: "cholesterolIntakeMg"),
+    45: .same(proto: "saturationAvgPercentage"),
+    46: .same(proto: "saturationGranularData"),
+    47: .same(proto: "vo2MaxMlPerMinPerKg"),
+    48: .same(proto: "vo2GranularData"),
+    49: .same(proto: "temperatureMinimum"),
+    50: .same(proto: "temperatureAvg"),
+    51: .same(proto: "temperatureMaximum"),
+    52: .same(proto: "temperatureGranularData"),
+    53: .same(proto: "temperatureDelta"),
+    54: .same(proto: "lastUpdatedDatetime"),
+    55: .same(proto: "periodStartDate"),
+    56: .same(proto: "cycleDay"),
+    57: .same(proto: "cycleLengthDays"),
+    58: .same(proto: "predictedCycleLengthDays"),
+    59: .same(proto: "currentPhase"),
+    60: .same(proto: "lengthOfCurrentPhaseDays"),
+    61: .same(proto: "daysUntilNextPhase"),
+    62: .same(proto: "isAPredictedCycleValue"),
+    63: .same(proto: "isAPredictedCycleUnknown"),
+    64: .same(proto: "menstruationFlowGranularData"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _dateTime: String = String()
+    var _sourceOfData: String = String()
+    var _wasTheUserUnderPhysicalActivity: Bool = false
+    var _waistCircumferenceCm: Double = 0
+    var _hipCircumferenceCm: Double = 0
+    var _chestCircumferenceCm: Double = 0
+    var _boneCompositionPercentage: Double = 0
+    var _muscleCompositionPercentage: Double = 0
+    var _waterCompositionPercentage: Double = 0
+    var _weightKg: Double = 0
+    var _heightCm: Double = 0
+    var _bmi: Double = 0
+    var _bloodGlucoseAvgMgPerDl: Double = 0
+    var _bloodGlucoseGranularData: [BloodGlucoseGranularDataProto] = []
+    var _bloodPressureAvg: [BloodPressureObjectProto] = []
+    var _bloodPressureGranularData: [BloodPressureGranularDataProto] = []
+    var _waterTotalConsumptionMl: Double = 0
+    var _hydrationAmountGranularData: [HydrationAmountGranularDataProto] = []
+    var _hydrationLevelGranularData: [HydrationLevelGranularDataProto] = []
+    var _hrMaximumBpm: Int32 = 0
+    var _hrMinimumBpm: Int32 = 0
+    var _hrAvgBpm: Int32 = 0
+    var _hrRestingBpm: Int32 = 0
+    var _hrGranularData: [HrGranularDataProto] = []
+    var _hrvAvgRmssd: Double = 0
+    var _hrvAvgSdnn: Double = 0
+    var _hrvSdnnGranularData: [HrvSdnnGranularDataProto] = []
+    var _hrvRmssdGranularData: [HrvRmssdGranularDataProto] = []
+    var _moodMinimumScale: Double = 0
+    var _moodAvgScale: Double = 0
+    var _moodMaximumScale: Double = 0
+    var _moodGranularData: [MoodGranularDataProto] = []
+    var _moodDeltaScale: Double = 0
+    var _foodIntake: Double = 0
+    var _caloriesIntakeKcal: Double = 0
+    var _proteinIntakeG: Double = 0
+    var _sugarIntakeG: Double = 0
+    var _fatIntakeG: Double = 0
+    var _transFatIntakeG: Double = 0
+    var _carbohydratesIntakeG: Double = 0
+    var _fiberIntakeG: Double = 0
+    var _alcoholIntakeG: Double = 0
+    var _sodiumIntakeMg: Double = 0
+    var _cholesterolIntakeMg: Double = 0
+    var _saturationAvgPercentage: Double = 0
+    var _saturationGranularData: [SaturationGranularDataProto] = []
+    var _vo2MaxMlPerMinPerKg: Double = 0
+    var _vo2GranularData: [Vo2GranularDataProto] = []
+    var _temperatureMinimum: [TemperatureObjectProto] = []
+    var _temperatureAvg: [TemperatureObjectProto] = []
+    var _temperatureMaximum: [TemperatureObjectProto] = []
+    var _temperatureGranularData: [TemperatureGranularDataProto] = []
+    var _temperatureDelta: [TemperatureObjectProto] = []
+    var _lastUpdatedDatetime: String = String()
+    var _periodStartDate: String = String()
+    var _cycleDay: Int32 = 0
+    var _cycleLengthDays: Int32 = 0
+    var _predictedCycleLengthDays: Int32 = 0
+    var _currentPhase: String = String()
+    var _lengthOfCurrentPhaseDays: Int32 = 0
+    var _daysUntilNextPhase: Int32 = 0
+    var _isApredictedCycle: BodySummaryProto.OneOf_IsApredictedCycle?
+    var _menstruationFlowGranularData: [MenstruationFlowGranularDataProto] = []
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _dateTime = source._dateTime
+      _sourceOfData = source._sourceOfData
+      _wasTheUserUnderPhysicalActivity = source._wasTheUserUnderPhysicalActivity
+      _waistCircumferenceCm = source._waistCircumferenceCm
+      _hipCircumferenceCm = source._hipCircumferenceCm
+      _chestCircumferenceCm = source._chestCircumferenceCm
+      _boneCompositionPercentage = source._boneCompositionPercentage
+      _muscleCompositionPercentage = source._muscleCompositionPercentage
+      _waterCompositionPercentage = source._waterCompositionPercentage
+      _weightKg = source._weightKg
+      _heightCm = source._heightCm
+      _bmi = source._bmi
+      _bloodGlucoseAvgMgPerDl = source._bloodGlucoseAvgMgPerDl
+      _bloodGlucoseGranularData = source._bloodGlucoseGranularData
+      _bloodPressureAvg = source._bloodPressureAvg
+      _bloodPressureGranularData = source._bloodPressureGranularData
+      _waterTotalConsumptionMl = source._waterTotalConsumptionMl
+      _hydrationAmountGranularData = source._hydrationAmountGranularData
+      _hydrationLevelGranularData = source._hydrationLevelGranularData
+      _hrMaximumBpm = source._hrMaximumBpm
+      _hrMinimumBpm = source._hrMinimumBpm
+      _hrAvgBpm = source._hrAvgBpm
+      _hrRestingBpm = source._hrRestingBpm
+      _hrGranularData = source._hrGranularData
+      _hrvAvgRmssd = source._hrvAvgRmssd
+      _hrvAvgSdnn = source._hrvAvgSdnn
+      _hrvSdnnGranularData = source._hrvSdnnGranularData
+      _hrvRmssdGranularData = source._hrvRmssdGranularData
+      _moodMinimumScale = source._moodMinimumScale
+      _moodAvgScale = source._moodAvgScale
+      _moodMaximumScale = source._moodMaximumScale
+      _moodGranularData = source._moodGranularData
+      _moodDeltaScale = source._moodDeltaScale
+      _foodIntake = source._foodIntake
+      _caloriesIntakeKcal = source._caloriesIntakeKcal
+      _proteinIntakeG = source._proteinIntakeG
+      _sugarIntakeG = source._sugarIntakeG
+      _fatIntakeG = source._fatIntakeG
+      _transFatIntakeG = source._transFatIntakeG
+      _carbohydratesIntakeG = source._carbohydratesIntakeG
+      _fiberIntakeG = source._fiberIntakeG
+      _alcoholIntakeG = source._alcoholIntakeG
+      _sodiumIntakeMg = source._sodiumIntakeMg
+      _cholesterolIntakeMg = source._cholesterolIntakeMg
+      _saturationAvgPercentage = source._saturationAvgPercentage
+      _saturationGranularData = source._saturationGranularData
+      _vo2MaxMlPerMinPerKg = source._vo2MaxMlPerMinPerKg
+      _vo2GranularData = source._vo2GranularData
+      _temperatureMinimum = source._temperatureMinimum
+      _temperatureAvg = source._temperatureAvg
+      _temperatureMaximum = source._temperatureMaximum
+      _temperatureGranularData = source._temperatureGranularData
+      _temperatureDelta = source._temperatureDelta
+      _lastUpdatedDatetime = source._lastUpdatedDatetime
+      _periodStartDate = source._periodStartDate
+      _cycleDay = source._cycleDay
+      _cycleLengthDays = source._cycleLengthDays
+      _predictedCycleLengthDays = source._predictedCycleLengthDays
+      _currentPhase = source._currentPhase
+      _lengthOfCurrentPhaseDays = source._lengthOfCurrentPhaseDays
+      _daysUntilNextPhase = source._daysUntilNextPhase
+      _isApredictedCycle = source._isApredictedCycle
+      _menstruationFlowGranularData = source._menstruationFlowGranularData
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._dateTime) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._sourceOfData) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._wasTheUserUnderPhysicalActivity) }()
+        case 4: try { try decoder.decodeSingularDoubleField(value: &_storage._waistCircumferenceCm) }()
+        case 5: try { try decoder.decodeSingularDoubleField(value: &_storage._hipCircumferenceCm) }()
+        case 6: try { try decoder.decodeSingularDoubleField(value: &_storage._chestCircumferenceCm) }()
+        case 7: try { try decoder.decodeSingularDoubleField(value: &_storage._boneCompositionPercentage) }()
+        case 8: try { try decoder.decodeSingularDoubleField(value: &_storage._muscleCompositionPercentage) }()
+        case 9: try { try decoder.decodeSingularDoubleField(value: &_storage._waterCompositionPercentage) }()
+        case 10: try { try decoder.decodeSingularDoubleField(value: &_storage._weightKg) }()
+        case 11: try { try decoder.decodeSingularDoubleField(value: &_storage._heightCm) }()
+        case 12: try { try decoder.decodeSingularDoubleField(value: &_storage._bmi) }()
+        case 13: try { try decoder.decodeSingularDoubleField(value: &_storage._bloodGlucoseAvgMgPerDl) }()
+        case 14: try { try decoder.decodeRepeatedMessageField(value: &_storage._bloodGlucoseGranularData) }()
+        case 15: try { try decoder.decodeRepeatedMessageField(value: &_storage._bloodPressureAvg) }()
+        case 16: try { try decoder.decodeRepeatedMessageField(value: &_storage._bloodPressureGranularData) }()
+        case 17: try { try decoder.decodeSingularDoubleField(value: &_storage._waterTotalConsumptionMl) }()
+        case 18: try { try decoder.decodeRepeatedMessageField(value: &_storage._hydrationAmountGranularData) }()
+        case 19: try { try decoder.decodeRepeatedMessageField(value: &_storage._hydrationLevelGranularData) }()
+        case 20: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrMaximumBpm) }()
+        case 21: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrMinimumBpm) }()
+        case 22: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrAvgBpm) }()
+        case 23: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrRestingBpm) }()
+        case 24: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrGranularData) }()
+        case 25: try { try decoder.decodeSingularDoubleField(value: &_storage._hrvAvgRmssd) }()
+        case 26: try { try decoder.decodeSingularDoubleField(value: &_storage._hrvAvgSdnn) }()
+        case 27: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrvSdnnGranularData) }()
+        case 28: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrvRmssdGranularData) }()
+        case 29: try { try decoder.decodeSingularDoubleField(value: &_storage._moodMinimumScale) }()
+        case 30: try { try decoder.decodeSingularDoubleField(value: &_storage._moodAvgScale) }()
+        case 31: try { try decoder.decodeSingularDoubleField(value: &_storage._moodMaximumScale) }()
+        case 32: try { try decoder.decodeRepeatedMessageField(value: &_storage._moodGranularData) }()
+        case 33: try { try decoder.decodeSingularDoubleField(value: &_storage._moodDeltaScale) }()
+        case 34: try { try decoder.decodeSingularDoubleField(value: &_storage._foodIntake) }()
+        case 35: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesIntakeKcal) }()
+        case 36: try { try decoder.decodeSingularDoubleField(value: &_storage._proteinIntakeG) }()
+        case 37: try { try decoder.decodeSingularDoubleField(value: &_storage._sugarIntakeG) }()
+        case 38: try { try decoder.decodeSingularDoubleField(value: &_storage._fatIntakeG) }()
+        case 39: try { try decoder.decodeSingularDoubleField(value: &_storage._transFatIntakeG) }()
+        case 40: try { try decoder.decodeSingularDoubleField(value: &_storage._carbohydratesIntakeG) }()
+        case 41: try { try decoder.decodeSingularDoubleField(value: &_storage._fiberIntakeG) }()
+        case 42: try { try decoder.decodeSingularDoubleField(value: &_storage._alcoholIntakeG) }()
+        case 43: try { try decoder.decodeSingularDoubleField(value: &_storage._sodiumIntakeMg) }()
+        case 44: try { try decoder.decodeSingularDoubleField(value: &_storage._cholesterolIntakeMg) }()
+        case 45: try { try decoder.decodeSingularDoubleField(value: &_storage._saturationAvgPercentage) }()
+        case 46: try { try decoder.decodeRepeatedMessageField(value: &_storage._saturationGranularData) }()
+        case 47: try { try decoder.decodeSingularDoubleField(value: &_storage._vo2MaxMlPerMinPerKg) }()
+        case 48: try { try decoder.decodeRepeatedMessageField(value: &_storage._vo2GranularData) }()
+        case 49: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureMinimum) }()
+        case 50: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureAvg) }()
+        case 51: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureMaximum) }()
+        case 52: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureGranularData) }()
+        case 53: try { try decoder.decodeRepeatedMessageField(value: &_storage._temperatureDelta) }()
+        case 54: try { try decoder.decodeSingularStringField(value: &_storage._lastUpdatedDatetime) }()
+        case 55: try { try decoder.decodeSingularStringField(value: &_storage._periodStartDate) }()
+        case 56: try { try decoder.decodeSingularSInt32Field(value: &_storage._cycleDay) }()
+        case 57: try { try decoder.decodeSingularSInt32Field(value: &_storage._cycleLengthDays) }()
+        case 58: try { try decoder.decodeSingularSInt32Field(value: &_storage._predictedCycleLengthDays) }()
+        case 59: try { try decoder.decodeSingularStringField(value: &_storage._currentPhase) }()
+        case 60: try { try decoder.decodeSingularSInt32Field(value: &_storage._lengthOfCurrentPhaseDays) }()
+        case 61: try { try decoder.decodeSingularSInt32Field(value: &_storage._daysUntilNextPhase) }()
+        case 62: try {
+          var v: Bool?
+          try decoder.decodeSingularBoolField(value: &v)
+          if let v = v {
+            if _storage._isApredictedCycle != nil {try decoder.handleConflictingOneOf()}
+            _storage._isApredictedCycle = .isApredictedCycleValue(v)
+          }
+        }()
+        case 63: try {
+          var v: Bool?
+          try decoder.decodeSingularBoolField(value: &v)
+          if let v = v {
+            if _storage._isApredictedCycle != nil {try decoder.handleConflictingOneOf()}
+            _storage._isApredictedCycle = .isApredictedCycleUnknown(v)
+          }
+        }()
+        case 64: try { try decoder.decodeRepeatedMessageField(value: &_storage._menstruationFlowGranularData) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._dateTime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._dateTime, fieldNumber: 1)
+      }
+      if !_storage._sourceOfData.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._sourceOfData, fieldNumber: 2)
+      }
+      if _storage._wasTheUserUnderPhysicalActivity != false {
+        try visitor.visitSingularBoolField(value: _storage._wasTheUserUnderPhysicalActivity, fieldNumber: 3)
+      }
+      if _storage._waistCircumferenceCm.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._waistCircumferenceCm, fieldNumber: 4)
+      }
+      if _storage._hipCircumferenceCm.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hipCircumferenceCm, fieldNumber: 5)
+      }
+      if _storage._chestCircumferenceCm.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._chestCircumferenceCm, fieldNumber: 6)
+      }
+      if _storage._boneCompositionPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._boneCompositionPercentage, fieldNumber: 7)
+      }
+      if _storage._muscleCompositionPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._muscleCompositionPercentage, fieldNumber: 8)
+      }
+      if _storage._waterCompositionPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._waterCompositionPercentage, fieldNumber: 9)
+      }
+      if _storage._weightKg.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._weightKg, fieldNumber: 10)
+      }
+      if _storage._heightCm.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._heightCm, fieldNumber: 11)
+      }
+      if _storage._bmi.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._bmi, fieldNumber: 12)
+      }
+      if _storage._bloodGlucoseAvgMgPerDl.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._bloodGlucoseAvgMgPerDl, fieldNumber: 13)
+      }
+      if !_storage._bloodGlucoseGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._bloodGlucoseGranularData, fieldNumber: 14)
+      }
+      if !_storage._bloodPressureAvg.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._bloodPressureAvg, fieldNumber: 15)
+      }
+      if !_storage._bloodPressureGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._bloodPressureGranularData, fieldNumber: 16)
+      }
+      if _storage._waterTotalConsumptionMl.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._waterTotalConsumptionMl, fieldNumber: 17)
+      }
+      if !_storage._hydrationAmountGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hydrationAmountGranularData, fieldNumber: 18)
+      }
+      if !_storage._hydrationLevelGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hydrationLevelGranularData, fieldNumber: 19)
+      }
+      if _storage._hrMaximumBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrMaximumBpm, fieldNumber: 20)
+      }
+      if _storage._hrMinimumBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrMinimumBpm, fieldNumber: 21)
+      }
+      if _storage._hrAvgBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrAvgBpm, fieldNumber: 22)
+      }
+      if _storage._hrRestingBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrRestingBpm, fieldNumber: 23)
+      }
+      if !_storage._hrGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrGranularData, fieldNumber: 24)
+      }
+      if _storage._hrvAvgRmssd.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hrvAvgRmssd, fieldNumber: 25)
+      }
+      if _storage._hrvAvgSdnn.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hrvAvgSdnn, fieldNumber: 26)
+      }
+      if !_storage._hrvSdnnGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrvSdnnGranularData, fieldNumber: 27)
+      }
+      if !_storage._hrvRmssdGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrvRmssdGranularData, fieldNumber: 28)
+      }
+      if _storage._moodMinimumScale.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._moodMinimumScale, fieldNumber: 29)
+      }
+      if _storage._moodAvgScale.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._moodAvgScale, fieldNumber: 30)
+      }
+      if _storage._moodMaximumScale.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._moodMaximumScale, fieldNumber: 31)
+      }
+      if !_storage._moodGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._moodGranularData, fieldNumber: 32)
+      }
+      if _storage._moodDeltaScale.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._moodDeltaScale, fieldNumber: 33)
+      }
+      if _storage._foodIntake.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._foodIntake, fieldNumber: 34)
+      }
+      if _storage._caloriesIntakeKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesIntakeKcal, fieldNumber: 35)
+      }
+      if _storage._proteinIntakeG.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._proteinIntakeG, fieldNumber: 36)
+      }
+      if _storage._sugarIntakeG.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._sugarIntakeG, fieldNumber: 37)
+      }
+      if _storage._fatIntakeG.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._fatIntakeG, fieldNumber: 38)
+      }
+      if _storage._transFatIntakeG.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._transFatIntakeG, fieldNumber: 39)
+      }
+      if _storage._carbohydratesIntakeG.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._carbohydratesIntakeG, fieldNumber: 40)
+      }
+      if _storage._fiberIntakeG.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._fiberIntakeG, fieldNumber: 41)
+      }
+      if _storage._alcoholIntakeG.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._alcoholIntakeG, fieldNumber: 42)
+      }
+      if _storage._sodiumIntakeMg.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._sodiumIntakeMg, fieldNumber: 43)
+      }
+      if _storage._cholesterolIntakeMg.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._cholesterolIntakeMg, fieldNumber: 44)
+      }
+      if _storage._saturationAvgPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._saturationAvgPercentage, fieldNumber: 45)
+      }
+      if !_storage._saturationGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._saturationGranularData, fieldNumber: 46)
+      }
+      if _storage._vo2MaxMlPerMinPerKg.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._vo2MaxMlPerMinPerKg, fieldNumber: 47)
+      }
+      if !_storage._vo2GranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._vo2GranularData, fieldNumber: 48)
+      }
+      if !_storage._temperatureMinimum.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureMinimum, fieldNumber: 49)
+      }
+      if !_storage._temperatureAvg.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureAvg, fieldNumber: 50)
+      }
+      if !_storage._temperatureMaximum.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureMaximum, fieldNumber: 51)
+      }
+      if !_storage._temperatureGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureGranularData, fieldNumber: 52)
+      }
+      if !_storage._temperatureDelta.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._temperatureDelta, fieldNumber: 53)
+      }
+      if !_storage._lastUpdatedDatetime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._lastUpdatedDatetime, fieldNumber: 54)
+      }
+      if !_storage._periodStartDate.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._periodStartDate, fieldNumber: 55)
+      }
+      if _storage._cycleDay != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._cycleDay, fieldNumber: 56)
+      }
+      if _storage._cycleLengthDays != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._cycleLengthDays, fieldNumber: 57)
+      }
+      if _storage._predictedCycleLengthDays != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._predictedCycleLengthDays, fieldNumber: 58)
+      }
+      if !_storage._currentPhase.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._currentPhase, fieldNumber: 59)
+      }
+      if _storage._lengthOfCurrentPhaseDays != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._lengthOfCurrentPhaseDays, fieldNumber: 60)
+      }
+      if _storage._daysUntilNextPhase != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._daysUntilNextPhase, fieldNumber: 61)
+      }
+      switch _storage._isApredictedCycle {
+      case .isApredictedCycleValue?: try {
+        guard case .isApredictedCycleValue(let v)? = _storage._isApredictedCycle else { preconditionFailure() }
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 62)
+      }()
+      case .isApredictedCycleUnknown?: try {
+        guard case .isApredictedCycleUnknown(let v)? = _storage._isApredictedCycle else { preconditionFailure() }
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 63)
+      }()
+      case nil: break
+      }
+      if !_storage._menstruationFlowGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._menstruationFlowGranularData, fieldNumber: 64)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: BodySummaryProto, rhs: BodySummaryProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._dateTime != rhs_storage._dateTime {return false}
+        if _storage._sourceOfData != rhs_storage._sourceOfData {return false}
+        if _storage._wasTheUserUnderPhysicalActivity != rhs_storage._wasTheUserUnderPhysicalActivity {return false}
+        if _storage._waistCircumferenceCm != rhs_storage._waistCircumferenceCm {return false}
+        if _storage._hipCircumferenceCm != rhs_storage._hipCircumferenceCm {return false}
+        if _storage._chestCircumferenceCm != rhs_storage._chestCircumferenceCm {return false}
+        if _storage._boneCompositionPercentage != rhs_storage._boneCompositionPercentage {return false}
+        if _storage._muscleCompositionPercentage != rhs_storage._muscleCompositionPercentage {return false}
+        if _storage._waterCompositionPercentage != rhs_storage._waterCompositionPercentage {return false}
+        if _storage._weightKg != rhs_storage._weightKg {return false}
+        if _storage._heightCm != rhs_storage._heightCm {return false}
+        if _storage._bmi != rhs_storage._bmi {return false}
+        if _storage._bloodGlucoseAvgMgPerDl != rhs_storage._bloodGlucoseAvgMgPerDl {return false}
+        if _storage._bloodGlucoseGranularData != rhs_storage._bloodGlucoseGranularData {return false}
+        if _storage._bloodPressureAvg != rhs_storage._bloodPressureAvg {return false}
+        if _storage._bloodPressureGranularData != rhs_storage._bloodPressureGranularData {return false}
+        if _storage._waterTotalConsumptionMl != rhs_storage._waterTotalConsumptionMl {return false}
+        if _storage._hydrationAmountGranularData != rhs_storage._hydrationAmountGranularData {return false}
+        if _storage._hydrationLevelGranularData != rhs_storage._hydrationLevelGranularData {return false}
+        if _storage._hrMaximumBpm != rhs_storage._hrMaximumBpm {return false}
+        if _storage._hrMinimumBpm != rhs_storage._hrMinimumBpm {return false}
+        if _storage._hrAvgBpm != rhs_storage._hrAvgBpm {return false}
+        if _storage._hrRestingBpm != rhs_storage._hrRestingBpm {return false}
+        if _storage._hrGranularData != rhs_storage._hrGranularData {return false}
+        if _storage._hrvAvgRmssd != rhs_storage._hrvAvgRmssd {return false}
+        if _storage._hrvAvgSdnn != rhs_storage._hrvAvgSdnn {return false}
+        if _storage._hrvSdnnGranularData != rhs_storage._hrvSdnnGranularData {return false}
+        if _storage._hrvRmssdGranularData != rhs_storage._hrvRmssdGranularData {return false}
+        if _storage._moodMinimumScale != rhs_storage._moodMinimumScale {return false}
+        if _storage._moodAvgScale != rhs_storage._moodAvgScale {return false}
+        if _storage._moodMaximumScale != rhs_storage._moodMaximumScale {return false}
+        if _storage._moodGranularData != rhs_storage._moodGranularData {return false}
+        if _storage._moodDeltaScale != rhs_storage._moodDeltaScale {return false}
+        if _storage._foodIntake != rhs_storage._foodIntake {return false}
+        if _storage._caloriesIntakeKcal != rhs_storage._caloriesIntakeKcal {return false}
+        if _storage._proteinIntakeG != rhs_storage._proteinIntakeG {return false}
+        if _storage._sugarIntakeG != rhs_storage._sugarIntakeG {return false}
+        if _storage._fatIntakeG != rhs_storage._fatIntakeG {return false}
+        if _storage._transFatIntakeG != rhs_storage._transFatIntakeG {return false}
+        if _storage._carbohydratesIntakeG != rhs_storage._carbohydratesIntakeG {return false}
+        if _storage._fiberIntakeG != rhs_storage._fiberIntakeG {return false}
+        if _storage._alcoholIntakeG != rhs_storage._alcoholIntakeG {return false}
+        if _storage._sodiumIntakeMg != rhs_storage._sodiumIntakeMg {return false}
+        if _storage._cholesterolIntakeMg != rhs_storage._cholesterolIntakeMg {return false}
+        if _storage._saturationAvgPercentage != rhs_storage._saturationAvgPercentage {return false}
+        if _storage._saturationGranularData != rhs_storage._saturationGranularData {return false}
+        if _storage._vo2MaxMlPerMinPerKg != rhs_storage._vo2MaxMlPerMinPerKg {return false}
+        if _storage._vo2GranularData != rhs_storage._vo2GranularData {return false}
+        if _storage._temperatureMinimum != rhs_storage._temperatureMinimum {return false}
+        if _storage._temperatureAvg != rhs_storage._temperatureAvg {return false}
+        if _storage._temperatureMaximum != rhs_storage._temperatureMaximum {return false}
+        if _storage._temperatureGranularData != rhs_storage._temperatureGranularData {return false}
+        if _storage._temperatureDelta != rhs_storage._temperatureDelta {return false}
+        if _storage._lastUpdatedDatetime != rhs_storage._lastUpdatedDatetime {return false}
+        if _storage._periodStartDate != rhs_storage._periodStartDate {return false}
+        if _storage._cycleDay != rhs_storage._cycleDay {return false}
+        if _storage._cycleLengthDays != rhs_storage._cycleLengthDays {return false}
+        if _storage._predictedCycleLengthDays != rhs_storage._predictedCycleLengthDays {return false}
+        if _storage._currentPhase != rhs_storage._currentPhase {return false}
+        if _storage._lengthOfCurrentPhaseDays != rhs_storage._lengthOfCurrentPhaseDays {return false}
+        if _storage._daysUntilNextPhase != rhs_storage._daysUntilNextPhase {return false}
+        if _storage._isApredictedCycle != rhs_storage._isApredictedCycle {return false}
+        if _storage._menstruationFlowGranularData != rhs_storage._menstruationFlowGranularData {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension BodySummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "BodySummaryResultProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "synced"),
+    2: .same(proto: "recordsNotFound"),
+    3: .same(proto: "failure"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: BodySummaryProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .synced(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .synced(v)
+        }
+      }()
+      case 2: try {
+        var v: Bool?
+        try decoder.decodeSingularBoolField(value: &v)
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .recordsNotFound(v)
+        }
+      }()
+      case 3: try {
+        var v: PluginExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .failure(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .failure(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .synced?: try {
+      guard case .synced(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .recordsNotFound?: try {
+      guard case .recordsNotFound(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
+    }()
+    case .failure?: try {
+      guard case .failure(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: BodySummaryResultProto, rhs: BodySummaryResultProto) -> Bool {
+    if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ActivityEventProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ActivityEventProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "sourceOfData"),
+    3: .same(proto: "wasTheUserUnderPhysicalActivity"),
+    4: .same(proto: "activityStartDateTime"),
+    5: .same(proto: "activityEndDateTime"),
+    6: .same(proto: "activityDurationSeconds"),
+    7: .same(proto: "activityTypeName"),
+    8: .same(proto: "activeSeconds"),
+    9: .same(proto: "restSeconds"),
+    10: .same(proto: "lowIntensitySeconds"),
+    11: .same(proto: "moderateIntensitySeconds"),
+    12: .same(proto: "vigorousIntensitySeconds"),
+    13: .same(proto: "inactivitySeconds"),
+    14: .same(proto: "activityLevelGranularData"),
+    15: .same(proto: "continuousInactivePeriods"),
+    16: .same(proto: "activityStrainLevel"),
+    17: .same(proto: "activityWorkKilojoules"),
+    18: .same(proto: "activityEnergyKilojoules"),
+    19: .same(proto: "activityEnergyPlannedKilojoules"),
+    20: .same(proto: "caloriesNetIntakeKcal"),
+    21: .same(proto: "caloriesExpenditureKcal"),
+    22: .same(proto: "caloriesNetActiveKcal"),
+    23: .same(proto: "caloriesBasalMetabolicRateKcal"),
+    24: .same(proto: "fatPercentageOfCalories"),
+    25: .same(proto: "carbohydratePercentageOfCalories"),
+    26: .same(proto: "proteinPercentageOfCalories"),
+    27: .same(proto: "steps"),
+    28: .same(proto: "stepsGranularData"),
+    29: .same(proto: "walkedDistanceMeters"),
+    30: .same(proto: "traveledDistanceMeters"),
+    31: .same(proto: "traveledDistanceGranularData"),
+    32: .same(proto: "floorsClimbed"),
+    33: .same(proto: "floorsClimbedGranularData"),
+    34: .same(proto: "elevationAvgAltitudeMeters"),
+    35: .same(proto: "elevationMinimumAltitudeMeters"),
+    36: .same(proto: "elevationMaximumAltitudeMeters"),
+    37: .same(proto: "elevationLossActualAltitudeMeters"),
+    38: .same(proto: "elevationGainActualAltitudeMeters"),
+    39: .same(proto: "elevationPlannedGainMeters"),
+    40: .same(proto: "elevationGranularData"),
+    41: .same(proto: "swimmingNumStrokes"),
+    42: .same(proto: "swimmingNumLaps"),
+    43: .same(proto: "swimmingPoolLengthMeters"),
+    44: .same(proto: "swimmingTotalDistanceMeters"),
+    45: .same(proto: "swimmingDistanceGranularData"),
+    46: .same(proto: "hrMaximumBpm"),
+    47: .same(proto: "hrMinimumBpm"),
+    48: .same(proto: "hrAvgBpm"),
+    49: .same(proto: "hrRestingBpm"),
+    50: .same(proto: "hrGranularData"),
+    51: .same(proto: "hrvAvgRmssd"),
+    52: .same(proto: "hrvAvgSdnn"),
+    53: .same(proto: "hrvSdnnGranularData"),
+    54: .same(proto: "hrvRmssdGranularData"),
+    55: .same(proto: "speedNormalizedMetersPerSecond"),
+    56: .same(proto: "speedAvgMetersPerSecond"),
+    57: .same(proto: "speedMaximumMetersPerSecond"),
+    58: .same(proto: "speedGranularData"),
+    59: .same(proto: "velocityAvg"),
+    60: .same(proto: "velocityMaximum"),
+    61: .same(proto: "paceAvgMinPerKm"),
+    62: .same(proto: "paceMaximumMinPerKm"),
+    63: .same(proto: "cadenceAvgRpm"),
+    64: .same(proto: "cadenceMaximumRpm"),
+    65: .same(proto: "cadenceGranularData"),
+    66: .same(proto: "torqueAvgNewtonMeters"),
+    67: .same(proto: "torqueMaximumNewtonMeters"),
+    68: .same(proto: "torqueGranularData"),
+    69: .same(proto: "lapGranularData"),
+    70: .same(proto: "saturationAvgPercentage"),
+    71: .same(proto: "saturationGranularData"),
+    72: .same(proto: "vo2MaxMlPerMinPerKg"),
+    73: .same(proto: "vo2GranularData"),
+    74: .same(proto: "positionStart"),
+    75: .same(proto: "positionCentroid"),
+    76: .same(proto: "positionEnd"),
+    77: .same(proto: "positionGranularData"),
+    78: .same(proto: "positionPolylineMapDataSummary"),
+    79: .same(proto: "powerAvgWatts"),
+    80: .same(proto: "powerMaximumWatts"),
+    81: .same(proto: "powerGranularData"),
+    82: .same(proto: "stressAtRestDurationSeconds"),
+    83: .same(proto: "stressDurationSeconds"),
+    84: .same(proto: "lowStressDurationSeconds"),
+    85: .same(proto: "mediumStressDurationSeconds"),
+    86: .same(proto: "highStressDurationSeconds"),
+    87: .same(proto: "tssGranularData"),
+    88: .same(proto: "stressAvgLevel"),
+    89: .same(proto: "stressMaximumLevel"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _dateTime: String = String()
+    var _sourceOfData: String = String()
+    var _wasTheUserUnderPhysicalActivity: Bool = false
+    var _activityStartDateTime: String = String()
+    var _activityEndDateTime: String = String()
+    var _activityDurationSeconds: Int32 = 0
+    var _activityTypeName: String = String()
+    var _activeSeconds: Int32 = 0
+    var _restSeconds: Int32 = 0
+    var _lowIntensitySeconds: Int32 = 0
+    var _moderateIntensitySeconds: Int32 = 0
+    var _vigorousIntensitySeconds: Int32 = 0
+    var _inactivitySeconds: Int32 = 0
+    var _activityLevelGranularData: [ActivityLevelGranularDataProto] = []
+    var _continuousInactivePeriods: Int32 = 0
+    var _activityStrainLevel: Int32 = 0
+    var _activityWorkKilojoules: Double = 0
+    var _activityEnergyKilojoules: Double = 0
+    var _activityEnergyPlannedKilojoules: Double = 0
+    var _caloriesNetIntakeKcal: Double = 0
+    var _caloriesExpenditureKcal: Double = 0
+    var _caloriesNetActiveKcal: Double = 0
+    var _caloriesBasalMetabolicRateKcal: Double = 0
+    var _fatPercentageOfCalories: Double = 0
+    var _carbohydratePercentageOfCalories: Double = 0
+    var _proteinPercentageOfCalories: Double = 0
+    var _steps: Int32 = 0
+    var _stepsGranularData: [StepsGranularDataProto] = []
+    var _walkedDistanceMeters: Double = 0
+    var _traveledDistanceMeters: Double = 0
+    var _traveledDistanceGranularData: [TraveledDistanceGranularDataProto] = []
+    var _floorsClimbed: Double = 0
+    var _floorsClimbedGranularData: [FloorsClimbedGranularDataProto] = []
+    var _elevationAvgAltitudeMeters: Double = 0
+    var _elevationMinimumAltitudeMeters: Double = 0
+    var _elevationMaximumAltitudeMeters: Double = 0
+    var _elevationLossActualAltitudeMeters: Double = 0
+    var _elevationGainActualAltitudeMeters: Double = 0
+    var _elevationPlannedGainMeters: Double = 0
+    var _elevationGranularData: [ElevationGranularDataProto] = []
+    var _swimmingNumStrokes: Int32 = 0
+    var _swimmingNumLaps: Int32 = 0
+    var _swimmingPoolLengthMeters: Double = 0
+    var _swimmingTotalDistanceMeters: Double = 0
+    var _swimmingDistanceGranularData: [SwimmingDistanceGranularDataProto] = []
+    var _hrMaximumBpm: Int32 = 0
+    var _hrMinimumBpm: Int32 = 0
+    var _hrAvgBpm: Int32 = 0
+    var _hrRestingBpm: Int32 = 0
+    var _hrGranularData: [HrGranularDataProto] = []
+    var _hrvAvgRmssd: Double = 0
+    var _hrvAvgSdnn: Double = 0
+    var _hrvSdnnGranularData: [HrvSdnnGranularDataProto] = []
+    var _hrvRmssdGranularData: [HrvRmssdGranularDataProto] = []
+    var _speedNormalizedMetersPerSecond: Double = 0
+    var _speedAvgMetersPerSecond: Double = 0
+    var _speedMaximumMetersPerSecond: Double = 0
+    var _speedGranularData: [SpeedGranularDataProto] = []
+    var _velocityAvg: [VelocityObjectProto] = []
+    var _velocityMaximum: [VelocityObjectProto] = []
+    var _paceAvgMinPerKm: Double = 0
+    var _paceMaximumMinPerKm: Double = 0
+    var _cadenceAvgRpm: Double = 0
+    var _cadenceMaximumRpm: Double = 0
+    var _cadenceGranularData: [CadenceGranularDataProto] = []
+    var _torqueAvgNewtonMeters: Double = 0
+    var _torqueMaximumNewtonMeters: Double = 0
+    var _torqueGranularData: [TorqueGranularDataProto] = []
+    var _lapGranularData: [LapGranularDataProto] = []
+    var _saturationAvgPercentage: Double = 0
+    var _saturationGranularData: [SaturationGranularDataProto] = []
+    var _vo2MaxMlPerMinPerKg: Double = 0
+    var _vo2GranularData: [Vo2GranularDataProto] = []
+    var _positionStart: [PositionObjectProto] = []
+    var _positionCentroid: [PositionObjectProto] = []
+    var _positionEnd: [PositionObjectProto] = []
+    var _positionGranularData: [PositionGranularDataProto] = []
+    var _positionPolylineMapDataSummary: String = String()
+    var _powerAvgWatts: Double = 0
+    var _powerMaximumWatts: Double = 0
+    var _powerGranularData: [PowerGranularDataProto] = []
+    var _stressAtRestDurationSeconds: Int32 = 0
+    var _stressDurationSeconds: Int32 = 0
+    var _lowStressDurationSeconds: Int32 = 0
+    var _mediumStressDurationSeconds: Int32 = 0
+    var _highStressDurationSeconds: Int32 = 0
+    var _tssGranularData: [TssGranularDataProto] = []
+    var _stressAvgLevel: Int32 = 0
+    var _stressMaximumLevel: Int32 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _dateTime = source._dateTime
+      _sourceOfData = source._sourceOfData
+      _wasTheUserUnderPhysicalActivity = source._wasTheUserUnderPhysicalActivity
+      _activityStartDateTime = source._activityStartDateTime
+      _activityEndDateTime = source._activityEndDateTime
+      _activityDurationSeconds = source._activityDurationSeconds
+      _activityTypeName = source._activityTypeName
+      _activeSeconds = source._activeSeconds
+      _restSeconds = source._restSeconds
+      _lowIntensitySeconds = source._lowIntensitySeconds
+      _moderateIntensitySeconds = source._moderateIntensitySeconds
+      _vigorousIntensitySeconds = source._vigorousIntensitySeconds
+      _inactivitySeconds = source._inactivitySeconds
+      _activityLevelGranularData = source._activityLevelGranularData
+      _continuousInactivePeriods = source._continuousInactivePeriods
+      _activityStrainLevel = source._activityStrainLevel
+      _activityWorkKilojoules = source._activityWorkKilojoules
+      _activityEnergyKilojoules = source._activityEnergyKilojoules
+      _activityEnergyPlannedKilojoules = source._activityEnergyPlannedKilojoules
+      _caloriesNetIntakeKcal = source._caloriesNetIntakeKcal
+      _caloriesExpenditureKcal = source._caloriesExpenditureKcal
+      _caloriesNetActiveKcal = source._caloriesNetActiveKcal
+      _caloriesBasalMetabolicRateKcal = source._caloriesBasalMetabolicRateKcal
+      _fatPercentageOfCalories = source._fatPercentageOfCalories
+      _carbohydratePercentageOfCalories = source._carbohydratePercentageOfCalories
+      _proteinPercentageOfCalories = source._proteinPercentageOfCalories
+      _steps = source._steps
+      _stepsGranularData = source._stepsGranularData
+      _walkedDistanceMeters = source._walkedDistanceMeters
+      _traveledDistanceMeters = source._traveledDistanceMeters
+      _traveledDistanceGranularData = source._traveledDistanceGranularData
+      _floorsClimbed = source._floorsClimbed
+      _floorsClimbedGranularData = source._floorsClimbedGranularData
+      _elevationAvgAltitudeMeters = source._elevationAvgAltitudeMeters
+      _elevationMinimumAltitudeMeters = source._elevationMinimumAltitudeMeters
+      _elevationMaximumAltitudeMeters = source._elevationMaximumAltitudeMeters
+      _elevationLossActualAltitudeMeters = source._elevationLossActualAltitudeMeters
+      _elevationGainActualAltitudeMeters = source._elevationGainActualAltitudeMeters
+      _elevationPlannedGainMeters = source._elevationPlannedGainMeters
+      _elevationGranularData = source._elevationGranularData
+      _swimmingNumStrokes = source._swimmingNumStrokes
+      _swimmingNumLaps = source._swimmingNumLaps
+      _swimmingPoolLengthMeters = source._swimmingPoolLengthMeters
+      _swimmingTotalDistanceMeters = source._swimmingTotalDistanceMeters
+      _swimmingDistanceGranularData = source._swimmingDistanceGranularData
+      _hrMaximumBpm = source._hrMaximumBpm
+      _hrMinimumBpm = source._hrMinimumBpm
+      _hrAvgBpm = source._hrAvgBpm
+      _hrRestingBpm = source._hrRestingBpm
+      _hrGranularData = source._hrGranularData
+      _hrvAvgRmssd = source._hrvAvgRmssd
+      _hrvAvgSdnn = source._hrvAvgSdnn
+      _hrvSdnnGranularData = source._hrvSdnnGranularData
+      _hrvRmssdGranularData = source._hrvRmssdGranularData
+      _speedNormalizedMetersPerSecond = source._speedNormalizedMetersPerSecond
+      _speedAvgMetersPerSecond = source._speedAvgMetersPerSecond
+      _speedMaximumMetersPerSecond = source._speedMaximumMetersPerSecond
+      _speedGranularData = source._speedGranularData
+      _velocityAvg = source._velocityAvg
+      _velocityMaximum = source._velocityMaximum
+      _paceAvgMinPerKm = source._paceAvgMinPerKm
+      _paceMaximumMinPerKm = source._paceMaximumMinPerKm
+      _cadenceAvgRpm = source._cadenceAvgRpm
+      _cadenceMaximumRpm = source._cadenceMaximumRpm
+      _cadenceGranularData = source._cadenceGranularData
+      _torqueAvgNewtonMeters = source._torqueAvgNewtonMeters
+      _torqueMaximumNewtonMeters = source._torqueMaximumNewtonMeters
+      _torqueGranularData = source._torqueGranularData
+      _lapGranularData = source._lapGranularData
+      _saturationAvgPercentage = source._saturationAvgPercentage
+      _saturationGranularData = source._saturationGranularData
+      _vo2MaxMlPerMinPerKg = source._vo2MaxMlPerMinPerKg
+      _vo2GranularData = source._vo2GranularData
+      _positionStart = source._positionStart
+      _positionCentroid = source._positionCentroid
+      _positionEnd = source._positionEnd
+      _positionGranularData = source._positionGranularData
+      _positionPolylineMapDataSummary = source._positionPolylineMapDataSummary
+      _powerAvgWatts = source._powerAvgWatts
+      _powerMaximumWatts = source._powerMaximumWatts
+      _powerGranularData = source._powerGranularData
+      _stressAtRestDurationSeconds = source._stressAtRestDurationSeconds
+      _stressDurationSeconds = source._stressDurationSeconds
+      _lowStressDurationSeconds = source._lowStressDurationSeconds
+      _mediumStressDurationSeconds = source._mediumStressDurationSeconds
+      _highStressDurationSeconds = source._highStressDurationSeconds
+      _tssGranularData = source._tssGranularData
+      _stressAvgLevel = source._stressAvgLevel
+      _stressMaximumLevel = source._stressMaximumLevel
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._dateTime) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._sourceOfData) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._wasTheUserUnderPhysicalActivity) }()
+        case 4: try { try decoder.decodeSingularStringField(value: &_storage._activityStartDateTime) }()
+        case 5: try { try decoder.decodeSingularStringField(value: &_storage._activityEndDateTime) }()
+        case 6: try { try decoder.decodeSingularSInt32Field(value: &_storage._activityDurationSeconds) }()
+        case 7: try { try decoder.decodeSingularStringField(value: &_storage._activityTypeName) }()
+        case 8: try { try decoder.decodeSingularSInt32Field(value: &_storage._activeSeconds) }()
+        case 9: try { try decoder.decodeSingularSInt32Field(value: &_storage._restSeconds) }()
+        case 10: try { try decoder.decodeSingularSInt32Field(value: &_storage._lowIntensitySeconds) }()
+        case 11: try { try decoder.decodeSingularSInt32Field(value: &_storage._moderateIntensitySeconds) }()
+        case 12: try { try decoder.decodeSingularSInt32Field(value: &_storage._vigorousIntensitySeconds) }()
+        case 13: try { try decoder.decodeSingularSInt32Field(value: &_storage._inactivitySeconds) }()
+        case 14: try { try decoder.decodeRepeatedMessageField(value: &_storage._activityLevelGranularData) }()
+        case 15: try { try decoder.decodeSingularSInt32Field(value: &_storage._continuousInactivePeriods) }()
+        case 16: try { try decoder.decodeSingularSInt32Field(value: &_storage._activityStrainLevel) }()
+        case 17: try { try decoder.decodeSingularDoubleField(value: &_storage._activityWorkKilojoules) }()
+        case 18: try { try decoder.decodeSingularDoubleField(value: &_storage._activityEnergyKilojoules) }()
+        case 19: try { try decoder.decodeSingularDoubleField(value: &_storage._activityEnergyPlannedKilojoules) }()
+        case 20: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesNetIntakeKcal) }()
+        case 21: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesExpenditureKcal) }()
+        case 22: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesNetActiveKcal) }()
+        case 23: try { try decoder.decodeSingularDoubleField(value: &_storage._caloriesBasalMetabolicRateKcal) }()
+        case 24: try { try decoder.decodeSingularDoubleField(value: &_storage._fatPercentageOfCalories) }()
+        case 25: try { try decoder.decodeSingularDoubleField(value: &_storage._carbohydratePercentageOfCalories) }()
+        case 26: try { try decoder.decodeSingularDoubleField(value: &_storage._proteinPercentageOfCalories) }()
+        case 27: try { try decoder.decodeSingularSInt32Field(value: &_storage._steps) }()
+        case 28: try { try decoder.decodeRepeatedMessageField(value: &_storage._stepsGranularData) }()
+        case 29: try { try decoder.decodeSingularDoubleField(value: &_storage._walkedDistanceMeters) }()
+        case 30: try { try decoder.decodeSingularDoubleField(value: &_storage._traveledDistanceMeters) }()
+        case 31: try { try decoder.decodeRepeatedMessageField(value: &_storage._traveledDistanceGranularData) }()
+        case 32: try { try decoder.decodeSingularDoubleField(value: &_storage._floorsClimbed) }()
+        case 33: try { try decoder.decodeRepeatedMessageField(value: &_storage._floorsClimbedGranularData) }()
+        case 34: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationAvgAltitudeMeters) }()
+        case 35: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationMinimumAltitudeMeters) }()
+        case 36: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationMaximumAltitudeMeters) }()
+        case 37: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationLossActualAltitudeMeters) }()
+        case 38: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationGainActualAltitudeMeters) }()
+        case 39: try { try decoder.decodeSingularDoubleField(value: &_storage._elevationPlannedGainMeters) }()
+        case 40: try { try decoder.decodeRepeatedMessageField(value: &_storage._elevationGranularData) }()
+        case 41: try { try decoder.decodeSingularSInt32Field(value: &_storage._swimmingNumStrokes) }()
+        case 42: try { try decoder.decodeSingularSInt32Field(value: &_storage._swimmingNumLaps) }()
+        case 43: try { try decoder.decodeSingularDoubleField(value: &_storage._swimmingPoolLengthMeters) }()
+        case 44: try { try decoder.decodeSingularDoubleField(value: &_storage._swimmingTotalDistanceMeters) }()
+        case 45: try { try decoder.decodeRepeatedMessageField(value: &_storage._swimmingDistanceGranularData) }()
+        case 46: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrMaximumBpm) }()
+        case 47: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrMinimumBpm) }()
+        case 48: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrAvgBpm) }()
+        case 49: try { try decoder.decodeSingularSInt32Field(value: &_storage._hrRestingBpm) }()
+        case 50: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrGranularData) }()
+        case 51: try { try decoder.decodeSingularDoubleField(value: &_storage._hrvAvgRmssd) }()
+        case 52: try { try decoder.decodeSingularDoubleField(value: &_storage._hrvAvgSdnn) }()
+        case 53: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrvSdnnGranularData) }()
+        case 54: try { try decoder.decodeRepeatedMessageField(value: &_storage._hrvRmssdGranularData) }()
+        case 55: try { try decoder.decodeSingularDoubleField(value: &_storage._speedNormalizedMetersPerSecond) }()
+        case 56: try { try decoder.decodeSingularDoubleField(value: &_storage._speedAvgMetersPerSecond) }()
+        case 57: try { try decoder.decodeSingularDoubleField(value: &_storage._speedMaximumMetersPerSecond) }()
+        case 58: try { try decoder.decodeRepeatedMessageField(value: &_storage._speedGranularData) }()
+        case 59: try { try decoder.decodeRepeatedMessageField(value: &_storage._velocityAvg) }()
+        case 60: try { try decoder.decodeRepeatedMessageField(value: &_storage._velocityMaximum) }()
+        case 61: try { try decoder.decodeSingularDoubleField(value: &_storage._paceAvgMinPerKm) }()
+        case 62: try { try decoder.decodeSingularDoubleField(value: &_storage._paceMaximumMinPerKm) }()
+        case 63: try { try decoder.decodeSingularDoubleField(value: &_storage._cadenceAvgRpm) }()
+        case 64: try { try decoder.decodeSingularDoubleField(value: &_storage._cadenceMaximumRpm) }()
+        case 65: try { try decoder.decodeRepeatedMessageField(value: &_storage._cadenceGranularData) }()
+        case 66: try { try decoder.decodeSingularDoubleField(value: &_storage._torqueAvgNewtonMeters) }()
+        case 67: try { try decoder.decodeSingularDoubleField(value: &_storage._torqueMaximumNewtonMeters) }()
+        case 68: try { try decoder.decodeRepeatedMessageField(value: &_storage._torqueGranularData) }()
+        case 69: try { try decoder.decodeRepeatedMessageField(value: &_storage._lapGranularData) }()
+        case 70: try { try decoder.decodeSingularDoubleField(value: &_storage._saturationAvgPercentage) }()
+        case 71: try { try decoder.decodeRepeatedMessageField(value: &_storage._saturationGranularData) }()
+        case 72: try { try decoder.decodeSingularDoubleField(value: &_storage._vo2MaxMlPerMinPerKg) }()
+        case 73: try { try decoder.decodeRepeatedMessageField(value: &_storage._vo2GranularData) }()
+        case 74: try { try decoder.decodeRepeatedMessageField(value: &_storage._positionStart) }()
+        case 75: try { try decoder.decodeRepeatedMessageField(value: &_storage._positionCentroid) }()
+        case 76: try { try decoder.decodeRepeatedMessageField(value: &_storage._positionEnd) }()
+        case 77: try { try decoder.decodeRepeatedMessageField(value: &_storage._positionGranularData) }()
+        case 78: try { try decoder.decodeSingularStringField(value: &_storage._positionPolylineMapDataSummary) }()
+        case 79: try { try decoder.decodeSingularDoubleField(value: &_storage._powerAvgWatts) }()
+        case 80: try { try decoder.decodeSingularDoubleField(value: &_storage._powerMaximumWatts) }()
+        case 81: try { try decoder.decodeRepeatedMessageField(value: &_storage._powerGranularData) }()
+        case 82: try { try decoder.decodeSingularSInt32Field(value: &_storage._stressAtRestDurationSeconds) }()
+        case 83: try { try decoder.decodeSingularSInt32Field(value: &_storage._stressDurationSeconds) }()
+        case 84: try { try decoder.decodeSingularSInt32Field(value: &_storage._lowStressDurationSeconds) }()
+        case 85: try { try decoder.decodeSingularSInt32Field(value: &_storage._mediumStressDurationSeconds) }()
+        case 86: try { try decoder.decodeSingularSInt32Field(value: &_storage._highStressDurationSeconds) }()
+        case 87: try { try decoder.decodeRepeatedMessageField(value: &_storage._tssGranularData) }()
+        case 88: try { try decoder.decodeSingularSInt32Field(value: &_storage._stressAvgLevel) }()
+        case 89: try { try decoder.decodeSingularSInt32Field(value: &_storage._stressMaximumLevel) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._dateTime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._dateTime, fieldNumber: 1)
+      }
+      if !_storage._sourceOfData.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._sourceOfData, fieldNumber: 2)
+      }
+      if _storage._wasTheUserUnderPhysicalActivity != false {
+        try visitor.visitSingularBoolField(value: _storage._wasTheUserUnderPhysicalActivity, fieldNumber: 3)
+      }
+      if !_storage._activityStartDateTime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._activityStartDateTime, fieldNumber: 4)
+      }
+      if !_storage._activityEndDateTime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._activityEndDateTime, fieldNumber: 5)
+      }
+      if _storage._activityDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._activityDurationSeconds, fieldNumber: 6)
+      }
+      if !_storage._activityTypeName.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._activityTypeName, fieldNumber: 7)
+      }
+      if _storage._activeSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._activeSeconds, fieldNumber: 8)
+      }
+      if _storage._restSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._restSeconds, fieldNumber: 9)
+      }
+      if _storage._lowIntensitySeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._lowIntensitySeconds, fieldNumber: 10)
+      }
+      if _storage._moderateIntensitySeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._moderateIntensitySeconds, fieldNumber: 11)
+      }
+      if _storage._vigorousIntensitySeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._vigorousIntensitySeconds, fieldNumber: 12)
+      }
+      if _storage._inactivitySeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._inactivitySeconds, fieldNumber: 13)
+      }
+      if !_storage._activityLevelGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._activityLevelGranularData, fieldNumber: 14)
+      }
+      if _storage._continuousInactivePeriods != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._continuousInactivePeriods, fieldNumber: 15)
+      }
+      if _storage._activityStrainLevel != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._activityStrainLevel, fieldNumber: 16)
+      }
+      if _storage._activityWorkKilojoules.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._activityWorkKilojoules, fieldNumber: 17)
+      }
+      if _storage._activityEnergyKilojoules.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._activityEnergyKilojoules, fieldNumber: 18)
+      }
+      if _storage._activityEnergyPlannedKilojoules.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._activityEnergyPlannedKilojoules, fieldNumber: 19)
+      }
+      if _storage._caloriesNetIntakeKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesNetIntakeKcal, fieldNumber: 20)
+      }
+      if _storage._caloriesExpenditureKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesExpenditureKcal, fieldNumber: 21)
+      }
+      if _storage._caloriesNetActiveKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesNetActiveKcal, fieldNumber: 22)
+      }
+      if _storage._caloriesBasalMetabolicRateKcal.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._caloriesBasalMetabolicRateKcal, fieldNumber: 23)
+      }
+      if _storage._fatPercentageOfCalories.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._fatPercentageOfCalories, fieldNumber: 24)
+      }
+      if _storage._carbohydratePercentageOfCalories.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._carbohydratePercentageOfCalories, fieldNumber: 25)
+      }
+      if _storage._proteinPercentageOfCalories.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._proteinPercentageOfCalories, fieldNumber: 26)
+      }
+      if _storage._steps != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._steps, fieldNumber: 27)
+      }
+      if !_storage._stepsGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._stepsGranularData, fieldNumber: 28)
+      }
+      if _storage._walkedDistanceMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._walkedDistanceMeters, fieldNumber: 29)
+      }
+      if _storage._traveledDistanceMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._traveledDistanceMeters, fieldNumber: 30)
+      }
+      if !_storage._traveledDistanceGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._traveledDistanceGranularData, fieldNumber: 31)
+      }
+      if _storage._floorsClimbed.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._floorsClimbed, fieldNumber: 32)
+      }
+      if !_storage._floorsClimbedGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._floorsClimbedGranularData, fieldNumber: 33)
+      }
+      if _storage._elevationAvgAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationAvgAltitudeMeters, fieldNumber: 34)
+      }
+      if _storage._elevationMinimumAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationMinimumAltitudeMeters, fieldNumber: 35)
+      }
+      if _storage._elevationMaximumAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationMaximumAltitudeMeters, fieldNumber: 36)
+      }
+      if _storage._elevationLossActualAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationLossActualAltitudeMeters, fieldNumber: 37)
+      }
+      if _storage._elevationGainActualAltitudeMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationGainActualAltitudeMeters, fieldNumber: 38)
+      }
+      if _storage._elevationPlannedGainMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._elevationPlannedGainMeters, fieldNumber: 39)
+      }
+      if !_storage._elevationGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._elevationGranularData, fieldNumber: 40)
+      }
+      if _storage._swimmingNumStrokes != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._swimmingNumStrokes, fieldNumber: 41)
+      }
+      if _storage._swimmingNumLaps != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._swimmingNumLaps, fieldNumber: 42)
+      }
+      if _storage._swimmingPoolLengthMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._swimmingPoolLengthMeters, fieldNumber: 43)
+      }
+      if _storage._swimmingTotalDistanceMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._swimmingTotalDistanceMeters, fieldNumber: 44)
+      }
+      if !_storage._swimmingDistanceGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._swimmingDistanceGranularData, fieldNumber: 45)
+      }
+      if _storage._hrMaximumBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrMaximumBpm, fieldNumber: 46)
+      }
+      if _storage._hrMinimumBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrMinimumBpm, fieldNumber: 47)
+      }
+      if _storage._hrAvgBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrAvgBpm, fieldNumber: 48)
+      }
+      if _storage._hrRestingBpm != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._hrRestingBpm, fieldNumber: 49)
+      }
+      if !_storage._hrGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrGranularData, fieldNumber: 50)
+      }
+      if _storage._hrvAvgRmssd.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hrvAvgRmssd, fieldNumber: 51)
+      }
+      if _storage._hrvAvgSdnn.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._hrvAvgSdnn, fieldNumber: 52)
+      }
+      if !_storage._hrvSdnnGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrvSdnnGranularData, fieldNumber: 53)
+      }
+      if !_storage._hrvRmssdGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._hrvRmssdGranularData, fieldNumber: 54)
+      }
+      if _storage._speedNormalizedMetersPerSecond.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._speedNormalizedMetersPerSecond, fieldNumber: 55)
+      }
+      if _storage._speedAvgMetersPerSecond.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._speedAvgMetersPerSecond, fieldNumber: 56)
+      }
+      if _storage._speedMaximumMetersPerSecond.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._speedMaximumMetersPerSecond, fieldNumber: 57)
+      }
+      if !_storage._speedGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._speedGranularData, fieldNumber: 58)
+      }
+      if !_storage._velocityAvg.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._velocityAvg, fieldNumber: 59)
+      }
+      if !_storage._velocityMaximum.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._velocityMaximum, fieldNumber: 60)
+      }
+      if _storage._paceAvgMinPerKm.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._paceAvgMinPerKm, fieldNumber: 61)
+      }
+      if _storage._paceMaximumMinPerKm.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._paceMaximumMinPerKm, fieldNumber: 62)
+      }
+      if _storage._cadenceAvgRpm.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._cadenceAvgRpm, fieldNumber: 63)
+      }
+      if _storage._cadenceMaximumRpm.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._cadenceMaximumRpm, fieldNumber: 64)
+      }
+      if !_storage._cadenceGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._cadenceGranularData, fieldNumber: 65)
+      }
+      if _storage._torqueAvgNewtonMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._torqueAvgNewtonMeters, fieldNumber: 66)
+      }
+      if _storage._torqueMaximumNewtonMeters.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._torqueMaximumNewtonMeters, fieldNumber: 67)
+      }
+      if !_storage._torqueGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._torqueGranularData, fieldNumber: 68)
+      }
+      if !_storage._lapGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._lapGranularData, fieldNumber: 69)
+      }
+      if _storage._saturationAvgPercentage.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._saturationAvgPercentage, fieldNumber: 70)
+      }
+      if !_storage._saturationGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._saturationGranularData, fieldNumber: 71)
+      }
+      if _storage._vo2MaxMlPerMinPerKg.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._vo2MaxMlPerMinPerKg, fieldNumber: 72)
+      }
+      if !_storage._vo2GranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._vo2GranularData, fieldNumber: 73)
+      }
+      if !_storage._positionStart.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._positionStart, fieldNumber: 74)
+      }
+      if !_storage._positionCentroid.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._positionCentroid, fieldNumber: 75)
+      }
+      if !_storage._positionEnd.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._positionEnd, fieldNumber: 76)
+      }
+      if !_storage._positionGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._positionGranularData, fieldNumber: 77)
+      }
+      if !_storage._positionPolylineMapDataSummary.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._positionPolylineMapDataSummary, fieldNumber: 78)
+      }
+      if _storage._powerAvgWatts.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._powerAvgWatts, fieldNumber: 79)
+      }
+      if _storage._powerMaximumWatts.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._powerMaximumWatts, fieldNumber: 80)
+      }
+      if !_storage._powerGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._powerGranularData, fieldNumber: 81)
+      }
+      if _storage._stressAtRestDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._stressAtRestDurationSeconds, fieldNumber: 82)
+      }
+      if _storage._stressDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._stressDurationSeconds, fieldNumber: 83)
+      }
+      if _storage._lowStressDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._lowStressDurationSeconds, fieldNumber: 84)
+      }
+      if _storage._mediumStressDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._mediumStressDurationSeconds, fieldNumber: 85)
+      }
+      if _storage._highStressDurationSeconds != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._highStressDurationSeconds, fieldNumber: 86)
+      }
+      if !_storage._tssGranularData.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._tssGranularData, fieldNumber: 87)
+      }
+      if _storage._stressAvgLevel != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._stressAvgLevel, fieldNumber: 88)
+      }
+      if _storage._stressMaximumLevel != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._stressMaximumLevel, fieldNumber: 89)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ActivityEventProto, rhs: ActivityEventProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._dateTime != rhs_storage._dateTime {return false}
+        if _storage._sourceOfData != rhs_storage._sourceOfData {return false}
+        if _storage._wasTheUserUnderPhysicalActivity != rhs_storage._wasTheUserUnderPhysicalActivity {return false}
+        if _storage._activityStartDateTime != rhs_storage._activityStartDateTime {return false}
+        if _storage._activityEndDateTime != rhs_storage._activityEndDateTime {return false}
+        if _storage._activityDurationSeconds != rhs_storage._activityDurationSeconds {return false}
+        if _storage._activityTypeName != rhs_storage._activityTypeName {return false}
+        if _storage._activeSeconds != rhs_storage._activeSeconds {return false}
+        if _storage._restSeconds != rhs_storage._restSeconds {return false}
+        if _storage._lowIntensitySeconds != rhs_storage._lowIntensitySeconds {return false}
+        if _storage._moderateIntensitySeconds != rhs_storage._moderateIntensitySeconds {return false}
+        if _storage._vigorousIntensitySeconds != rhs_storage._vigorousIntensitySeconds {return false}
+        if _storage._inactivitySeconds != rhs_storage._inactivitySeconds {return false}
+        if _storage._activityLevelGranularData != rhs_storage._activityLevelGranularData {return false}
+        if _storage._continuousInactivePeriods != rhs_storage._continuousInactivePeriods {return false}
+        if _storage._activityStrainLevel != rhs_storage._activityStrainLevel {return false}
+        if _storage._activityWorkKilojoules != rhs_storage._activityWorkKilojoules {return false}
+        if _storage._activityEnergyKilojoules != rhs_storage._activityEnergyKilojoules {return false}
+        if _storage._activityEnergyPlannedKilojoules != rhs_storage._activityEnergyPlannedKilojoules {return false}
+        if _storage._caloriesNetIntakeKcal != rhs_storage._caloriesNetIntakeKcal {return false}
+        if _storage._caloriesExpenditureKcal != rhs_storage._caloriesExpenditureKcal {return false}
+        if _storage._caloriesNetActiveKcal != rhs_storage._caloriesNetActiveKcal {return false}
+        if _storage._caloriesBasalMetabolicRateKcal != rhs_storage._caloriesBasalMetabolicRateKcal {return false}
+        if _storage._fatPercentageOfCalories != rhs_storage._fatPercentageOfCalories {return false}
+        if _storage._carbohydratePercentageOfCalories != rhs_storage._carbohydratePercentageOfCalories {return false}
+        if _storage._proteinPercentageOfCalories != rhs_storage._proteinPercentageOfCalories {return false}
+        if _storage._steps != rhs_storage._steps {return false}
+        if _storage._stepsGranularData != rhs_storage._stepsGranularData {return false}
+        if _storage._walkedDistanceMeters != rhs_storage._walkedDistanceMeters {return false}
+        if _storage._traveledDistanceMeters != rhs_storage._traveledDistanceMeters {return false}
+        if _storage._traveledDistanceGranularData != rhs_storage._traveledDistanceGranularData {return false}
+        if _storage._floorsClimbed != rhs_storage._floorsClimbed {return false}
+        if _storage._floorsClimbedGranularData != rhs_storage._floorsClimbedGranularData {return false}
+        if _storage._elevationAvgAltitudeMeters != rhs_storage._elevationAvgAltitudeMeters {return false}
+        if _storage._elevationMinimumAltitudeMeters != rhs_storage._elevationMinimumAltitudeMeters {return false}
+        if _storage._elevationMaximumAltitudeMeters != rhs_storage._elevationMaximumAltitudeMeters {return false}
+        if _storage._elevationLossActualAltitudeMeters != rhs_storage._elevationLossActualAltitudeMeters {return false}
+        if _storage._elevationGainActualAltitudeMeters != rhs_storage._elevationGainActualAltitudeMeters {return false}
+        if _storage._elevationPlannedGainMeters != rhs_storage._elevationPlannedGainMeters {return false}
+        if _storage._elevationGranularData != rhs_storage._elevationGranularData {return false}
+        if _storage._swimmingNumStrokes != rhs_storage._swimmingNumStrokes {return false}
+        if _storage._swimmingNumLaps != rhs_storage._swimmingNumLaps {return false}
+        if _storage._swimmingPoolLengthMeters != rhs_storage._swimmingPoolLengthMeters {return false}
+        if _storage._swimmingTotalDistanceMeters != rhs_storage._swimmingTotalDistanceMeters {return false}
+        if _storage._swimmingDistanceGranularData != rhs_storage._swimmingDistanceGranularData {return false}
+        if _storage._hrMaximumBpm != rhs_storage._hrMaximumBpm {return false}
+        if _storage._hrMinimumBpm != rhs_storage._hrMinimumBpm {return false}
+        if _storage._hrAvgBpm != rhs_storage._hrAvgBpm {return false}
+        if _storage._hrRestingBpm != rhs_storage._hrRestingBpm {return false}
+        if _storage._hrGranularData != rhs_storage._hrGranularData {return false}
+        if _storage._hrvAvgRmssd != rhs_storage._hrvAvgRmssd {return false}
+        if _storage._hrvAvgSdnn != rhs_storage._hrvAvgSdnn {return false}
+        if _storage._hrvSdnnGranularData != rhs_storage._hrvSdnnGranularData {return false}
+        if _storage._hrvRmssdGranularData != rhs_storage._hrvRmssdGranularData {return false}
+        if _storage._speedNormalizedMetersPerSecond != rhs_storage._speedNormalizedMetersPerSecond {return false}
+        if _storage._speedAvgMetersPerSecond != rhs_storage._speedAvgMetersPerSecond {return false}
+        if _storage._speedMaximumMetersPerSecond != rhs_storage._speedMaximumMetersPerSecond {return false}
+        if _storage._speedGranularData != rhs_storage._speedGranularData {return false}
+        if _storage._velocityAvg != rhs_storage._velocityAvg {return false}
+        if _storage._velocityMaximum != rhs_storage._velocityMaximum {return false}
+        if _storage._paceAvgMinPerKm != rhs_storage._paceAvgMinPerKm {return false}
+        if _storage._paceMaximumMinPerKm != rhs_storage._paceMaximumMinPerKm {return false}
+        if _storage._cadenceAvgRpm != rhs_storage._cadenceAvgRpm {return false}
+        if _storage._cadenceMaximumRpm != rhs_storage._cadenceMaximumRpm {return false}
+        if _storage._cadenceGranularData != rhs_storage._cadenceGranularData {return false}
+        if _storage._torqueAvgNewtonMeters != rhs_storage._torqueAvgNewtonMeters {return false}
+        if _storage._torqueMaximumNewtonMeters != rhs_storage._torqueMaximumNewtonMeters {return false}
+        if _storage._torqueGranularData != rhs_storage._torqueGranularData {return false}
+        if _storage._lapGranularData != rhs_storage._lapGranularData {return false}
+        if _storage._saturationAvgPercentage != rhs_storage._saturationAvgPercentage {return false}
+        if _storage._saturationGranularData != rhs_storage._saturationGranularData {return false}
+        if _storage._vo2MaxMlPerMinPerKg != rhs_storage._vo2MaxMlPerMinPerKg {return false}
+        if _storage._vo2GranularData != rhs_storage._vo2GranularData {return false}
+        if _storage._positionStart != rhs_storage._positionStart {return false}
+        if _storage._positionCentroid != rhs_storage._positionCentroid {return false}
+        if _storage._positionEnd != rhs_storage._positionEnd {return false}
+        if _storage._positionGranularData != rhs_storage._positionGranularData {return false}
+        if _storage._positionPolylineMapDataSummary != rhs_storage._positionPolylineMapDataSummary {return false}
+        if _storage._powerAvgWatts != rhs_storage._powerAvgWatts {return false}
+        if _storage._powerMaximumWatts != rhs_storage._powerMaximumWatts {return false}
+        if _storage._powerGranularData != rhs_storage._powerGranularData {return false}
+        if _storage._stressAtRestDurationSeconds != rhs_storage._stressAtRestDurationSeconds {return false}
+        if _storage._stressDurationSeconds != rhs_storage._stressDurationSeconds {return false}
+        if _storage._lowStressDurationSeconds != rhs_storage._lowStressDurationSeconds {return false}
+        if _storage._mediumStressDurationSeconds != rhs_storage._mediumStressDurationSeconds {return false}
+        if _storage._highStressDurationSeconds != rhs_storage._highStressDurationSeconds {return false}
+        if _storage._tssGranularData != rhs_storage._tssGranularData {return false}
+        if _storage._stressAvgLevel != rhs_storage._stressAvgLevel {return false}
+        if _storage._stressMaximumLevel != rhs_storage._stressMaximumLevel {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ActivityEventsProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ActivityEventsProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "elements"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.elements) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.elements.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.elements, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ActivityEventsProto, rhs: ActivityEventsProto) -> Bool {
+    if lhs.elements != rhs.elements {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ActivityEventResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ActivityEventResultProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "synced"),
+    2: .same(proto: "recordsNotFound"),
+    3: .same(proto: "failure"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: ActivityEventsProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .synced(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .synced(v)
+        }
+      }()
+      case 2: try {
+        var v: Bool?
+        try decoder.decodeSingularBoolField(value: &v)
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .recordsNotFound(v)
+        }
+      }()
+      case 3: try {
+        var v: PluginExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .failure(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .failure(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .synced?: try {
+      guard case .synced(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .recordsNotFound?: try {
+      guard case .recordsNotFound(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
+    }()
+    case .failure?: try {
+      guard case .failure(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ActivityEventResultProto, rhs: ActivityEventResultProto) -> Bool {
+    if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ActiveStepsGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ActiveStepsGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "activeSteps"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularSInt32Field(value: &self.activeSteps) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.activeSteps != 0 {
+      try visitor.visitSingularSInt32Field(value: self.activeSteps, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ActiveStepsGranularDataProto, rhs: ActiveStepsGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.activeSteps != rhs.activeSteps {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ActivityLevelGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ActivityLevelGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "activityLevel"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.activityLevel) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.activityLevel != 0 {
+      try visitor.visitSingularSInt32Field(value: self.activityLevel, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ActivityLevelGranularDataProto, rhs: ActivityLevelGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.activityLevel != rhs.activityLevel {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension BloodGlucoseGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "BloodGlucoseGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "bloodGlucoseMgPerDl"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.bloodGlucoseMgPerDl) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.bloodGlucoseMgPerDl.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.bloodGlucoseMgPerDl, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: BloodGlucoseGranularDataProto, rhs: BloodGlucoseGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.bloodGlucoseMgPerDl != rhs.bloodGlucoseMgPerDl {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension BloodPressureGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "BloodPressureGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "systolicMmHg"),
+    3: .same(proto: "diastolicMmHg"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.systolicMmHg) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.diastolicMmHg) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.systolicMmHg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.systolicMmHg, fieldNumber: 2)
+    }
+    if self.diastolicMmHg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.diastolicMmHg, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: BloodPressureGranularDataProto, rhs: BloodPressureGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.systolicMmHg != rhs.systolicMmHg {return false}
+    if lhs.diastolicMmHg != rhs.diastolicMmHg {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension BreathingGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "BreathingGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "breathsPerMin"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.breathsPerMin) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.breathsPerMin.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.breathsPerMin, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: BreathingGranularDataProto, rhs: BreathingGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.breathsPerMin != rhs.breathsPerMin {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension CadenceGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "CadenceGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "cadenceRpm"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.cadenceRpm) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.cadenceRpm.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.cadenceRpm, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: CadenceGranularDataProto, rhs: CadenceGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.cadenceRpm != rhs.cadenceRpm {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ElevationGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "ElevationGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "elevationChangeMeters"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.elevationChangeMeters) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.elevationChangeMeters.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.elevationChangeMeters, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ElevationGranularDataProto, rhs: ElevationGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.elevationChangeMeters != rhs.elevationChangeMeters {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension FloorsClimbedGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "FloorsClimbedGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "floorsClimbed"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.floorsClimbed) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.floorsClimbed.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.floorsClimbed, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: FloorsClimbedGranularDataProto, rhs: FloorsClimbedGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.floorsClimbed != rhs.floorsClimbed {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension HrGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "HrGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "hrBpm"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.hrBpm) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.hrBpm != 0 {
+      try visitor.visitSingularSInt32Field(value: self.hrBpm, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: HrGranularDataProto, rhs: HrGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.hrBpm != rhs.hrBpm {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension HrvSdnnGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "HrvSdnnGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "hrvSdnn"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.hrvSdnn) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.hrvSdnn.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.hrvSdnn, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: HrvSdnnGranularDataProto, rhs: HrvSdnnGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.hrvSdnn != rhs.hrvSdnn {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension MenstruationFlowGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "MenstruationFlowGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "flowMl"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.flowMl) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.flowMl.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.flowMl, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: MenstruationFlowGranularDataProto, rhs: MenstruationFlowGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.flowMl != rhs.flowMl {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension MoodGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "MoodGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "moodScale"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.moodScale) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.moodScale.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.moodScale, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: MoodGranularDataProto, rhs: MoodGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.moodScale != rhs.moodScale {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension LapGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "LapGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "laps"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularSInt32Field(value: &self.laps) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.laps != 0 {
+      try visitor.visitSingularSInt32Field(value: self.laps, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: LapGranularDataProto, rhs: LapGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.laps != rhs.laps {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension PowerGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "PowerGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "powerWatts"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.powerWatts) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.powerWatts.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.powerWatts, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: PowerGranularDataProto, rhs: PowerGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.powerWatts != rhs.powerWatts {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension PositionGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "PositionGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "latDeg"),
+    4: .same(proto: "lngDeg"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.latDeg) }()
+      case 4: try { try decoder.decodeSingularDoubleField(value: &self.lngDeg) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.latDeg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.latDeg, fieldNumber: 3)
+    }
+    if self.lngDeg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.lngDeg, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: PositionGranularDataProto, rhs: PositionGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.latDeg != rhs.latDeg {return false}
+    if lhs.lngDeg != rhs.lngDeg {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension HydrationAmountGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "HydrationAmountGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "hydrationAmountMl"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.hydrationAmountMl) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.hydrationAmountMl.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.hydrationAmountMl, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: HydrationAmountGranularDataProto, rhs: HydrationAmountGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.hydrationAmountMl != rhs.hydrationAmountMl {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SaturationGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "SaturationGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "saturationPercentage"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.saturationPercentage) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.saturationPercentage.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.saturationPercentage, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SaturationGranularDataProto, rhs: SaturationGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.saturationPercentage != rhs.saturationPercentage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension HydrationLevelGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "HydrationLevelGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "hydrationLevelPercentage"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.hydrationLevelPercentage) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.hydrationLevelPercentage.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.hydrationLevelPercentage, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: HydrationLevelGranularDataProto, rhs: HydrationLevelGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.hydrationLevelPercentage != rhs.hydrationLevelPercentage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension HrvRmssdGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "HrvRmssdGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "hrvRmssd"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.hrvRmssd) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.hrvRmssd.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.hrvRmssd, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: HrvRmssdGranularDataProto, rhs: HrvRmssdGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.hrvRmssd != rhs.hrvRmssd {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SnoringGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "SnoringGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "snoringEventsCount"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularSInt32Field(value: &self.snoringEventsCount) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.snoringEventsCount != 0 {
+      try visitor.visitSingularSInt32Field(value: self.snoringEventsCount, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SnoringGranularDataProto, rhs: SnoringGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.snoringEventsCount != rhs.snoringEventsCount {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SpeedGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "SpeedGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "speedMetersPerSecond"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.speedMetersPerSecond) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.speedMetersPerSecond.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.speedMetersPerSecond, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SpeedGranularDataProto, rhs: SpeedGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.speedMetersPerSecond != rhs.speedMetersPerSecond {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension StepsGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "StepsGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "steps"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularSInt32Field(value: &self.steps) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.steps != 0 {
+      try visitor.visitSingularSInt32Field(value: self.steps, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: StepsGranularDataProto, rhs: StepsGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.steps != rhs.steps {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension StressGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "StressGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "stressScore"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.stressScore) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.stressScore != 0 {
+      try visitor.visitSingularSInt32Field(value: self.stressScore, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: StressGranularDataProto, rhs: StressGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.stressScore != rhs.stressScore {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwimmingDistanceGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "SwimmingDistanceGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "swimmingDistanceMeters"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.swimmingDistanceMeters) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.swimmingDistanceMeters.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.swimmingDistanceMeters, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwimmingDistanceGranularDataProto, rhs: SwimmingDistanceGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.swimmingDistanceMeters != rhs.swimmingDistanceMeters {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension TemperatureGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "TemperatureGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "temperatureCelsius"),
+    3: .same(proto: "measurementType"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.temperatureCelsius) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.measurementType) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.temperatureCelsius.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.temperatureCelsius, fieldNumber: 2)
+    }
+    if !self.measurementType.isEmpty {
+      try visitor.visitSingularStringField(value: self.measurementType, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: TemperatureGranularDataProto, rhs: TemperatureGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.temperatureCelsius != rhs.temperatureCelsius {return false}
+    if lhs.measurementType != rhs.measurementType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension TorqueGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "TorqueGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "torqueNewtonMeters"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.torqueNewtonMeters) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.torqueNewtonMeters.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.torqueNewtonMeters, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: TorqueGranularDataProto, rhs: TorqueGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.torqueNewtonMeters != rhs.torqueNewtonMeters {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension TraveledDistanceGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "TraveledDistanceGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "traveledDistanceMeters"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.traveledDistanceMeters) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.traveledDistanceMeters.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.traveledDistanceMeters, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: TraveledDistanceGranularDataProto, rhs: TraveledDistanceGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.traveledDistanceMeters != rhs.traveledDistanceMeters {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension TssGranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "TssGranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "intervalDurationSeconds"),
+    3: .same(proto: "tssScore"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.intervalDurationSeconds) }()
+      case 3: try { try decoder.decodeSingularSInt32Field(value: &self.tssScore) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.intervalDurationSeconds != 0 {
+      try visitor.visitSingularSInt32Field(value: self.intervalDurationSeconds, fieldNumber: 2)
+    }
+    if self.tssScore != 0 {
+      try visitor.visitSingularSInt32Field(value: self.tssScore, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: TssGranularDataProto, rhs: TssGranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.intervalDurationSeconds != rhs.intervalDurationSeconds {return false}
+    if lhs.tssScore != rhs.tssScore {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Vo2GranularDataProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "Vo2GranularDataProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dateTime"),
+    2: .same(proto: "vo2MlPerMinPerKg"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.dateTime) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.vo2MlPerMinPerKg) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.dateTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.dateTime, fieldNumber: 1)
+    }
+    if self.vo2MlPerMinPerKg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.vo2MlPerMinPerKg, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Vo2GranularDataProto, rhs: Vo2GranularDataProto) -> Bool {
+    if lhs.dateTime != rhs.dateTime {return false}
+    if lhs.vo2MlPerMinPerKg != rhs.vo2MlPerMinPerKg {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension BloodPressureObjectProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "BloodPressureObjectProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "systolicMmHg"),
+    2: .same(proto: "diastolicMmHg"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularDoubleField(value: &self.systolicMmHg) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.diastolicMmHg) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.systolicMmHg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.systolicMmHg, fieldNumber: 1)
+    }
+    if self.diastolicMmHg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.diastolicMmHg, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: BloodPressureObjectProto, rhs: BloodPressureObjectProto) -> Bool {
+    if lhs.systolicMmHg != rhs.systolicMmHg {return false}
+    if lhs.diastolicMmHg != rhs.diastolicMmHg {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension PositionObjectProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "PositionObjectProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "latDeg"),
+    2: .same(proto: "lngDeg"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularDoubleField(value: &self.latDeg) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.lngDeg) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.latDeg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.latDeg, fieldNumber: 1)
+    }
+    if self.lngDeg.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.lngDeg, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: PositionObjectProto, rhs: PositionObjectProto) -> Bool {
+    if lhs.latDeg != rhs.latDeg {return false}
+    if lhs.lngDeg != rhs.lngDeg {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension TemperatureObjectProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "TemperatureObjectProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "temperatureCelsius"),
+    2: .same(proto: "measurementType"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularDoubleField(value: &self.temperatureCelsius) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.measurementType) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.temperatureCelsius.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.temperatureCelsius, fieldNumber: 1)
+    }
+    if !self.measurementType.isEmpty {
+      try visitor.visitSingularStringField(value: self.measurementType, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: TemperatureObjectProto, rhs: TemperatureObjectProto) -> Bool {
+    if lhs.temperatureCelsius != rhs.temperatureCelsius {return false}
+    if lhs.measurementType != rhs.measurementType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension VelocityObjectProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "VelocityObjectProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "speedMetersPerSecond"),
+    2: .same(proto: "direction"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularDoubleField(value: &self.speedMetersPerSecond) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.direction) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.speedMetersPerSecond.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.speedMetersPerSecond, fieldNumber: 1)
+    }
+    if !self.direction.isEmpty {
+      try visitor.visitSingularStringField(value: self.direction, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: VelocityObjectProto, rhs: VelocityObjectProto) -> Bool {
+    if lhs.speedMetersPerSecond != rhs.speedMetersPerSecond {return false}
+    if lhs.direction != rhs.direction {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

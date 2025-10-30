@@ -178,8 +178,7 @@ void booleanResultTests(
     });
   });
 
-  group(
-      'MethodChannelRookSdkAppleHealth | ResultBooleanProto exception unwrap',
+  group('MethodChannelRookSdkAppleHealth | ResultBooleanProto exception unwrap',
       () {
     mockMethodCall(channel, (_) async {
       final failure = PluginExceptionProto.create()

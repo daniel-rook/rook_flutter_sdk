@@ -8,11 +8,15 @@ import 'package:rook_sdk_apple_health/src/data/mapper/event_sync_type_mapper.dar
 import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_apple_health/src/data/result/activity_event_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/authorized_data_source_v2_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/authorized_data_sources_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/data_source_authorizer_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/int64_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/physical_summary_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/sleep_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/sync_status_with_calories_result.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
@@ -170,6 +174,58 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       ],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<List<SleepSummary>> getSleepSummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getSleepSummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = SleepSummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<PhysicalSummary?> getPhysicalSummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getPhysicalSummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = PhysicalSummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<BodySummary?> getBodySummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getBodySummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = BodySummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<List<ActivityEvent>> getActivityEvents(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getActivityEvents',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = ActivityEventResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

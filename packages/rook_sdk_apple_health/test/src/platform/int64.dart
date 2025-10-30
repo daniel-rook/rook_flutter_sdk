@@ -10,8 +10,7 @@ void int64ResultTests(
   MethodChannelRookSdkAppleHealth platform,
   MethodChannel channel,
 ) {
-  group('MethodChannelRookSdkAppleHealth | ResultInt64Proto value unwrap',
-      () {
+  group('MethodChannelRookSdkAppleHealth | ResultInt64Proto value unwrap', () {
     mockMethodCall(channel, (_) async {
       final proto = Int64ResultProto.create();
       proto.success = Int64(1000);
