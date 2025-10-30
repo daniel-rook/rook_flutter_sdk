@@ -1,4 +1,4 @@
-import 'package:rook_sdk_apple_health/src/data/mapper/body_summary.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/body_summary_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';

@@ -1,5 +1,5 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_samsung_health/src/data/mapper/activity_event.dart';
+import 'package:rook_sdk_samsung_health/src/data/mapper/activity_event_mappers.dart';
 import 'package:rook_sdk_samsung_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pb.dart';
 

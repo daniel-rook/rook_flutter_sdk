@@ -1,6 +1,6 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/extension/datetime_extensions.dart';
-import 'package:rook_sdk_health_connect/src/data/mapper/complex_extensions.dart';
+import 'package:rook_sdk_health_connect/src/data/mapper/complex_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/granular_data_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/util/check_non_default.dart';
