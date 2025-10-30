@@ -13,11 +13,11 @@ import 'package:rook_sdk_apple_health/src/data/result/authorized_data_source_v2_
 import 'package:rook_sdk_apple_health/src/data/result/authorized_data_sources_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/boolean_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/calories_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/data_source_authorizer_result.dart';
-import 'package:rook_sdk_apple_health/src/data/result/int64_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/int_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/sleep_summary_result.dart';
-import 'package:rook_sdk_apple_health/src/data/result/sync_status_with_calories_result.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/apple_health_permission.dart';
@@ -78,7 +78,10 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> clearUserID() async {
-    await methodChannel.invokeMethod('clearUserID');
+    final Uint8List bytes = await methodChannel.invokeMethod('clearUserID');
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    result.unwrap();
   }
 
   @override
@@ -236,7 +239,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       'getTodayStepsCount',
     );
 
-    final result = Int64ResultProto.fromBuffer(bytes);
+    final result = IntResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -247,7 +250,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       'getTodayCaloriesCount',
     );
 
-    final result = SyncStatusWithCaloriesResultProto.fromBuffer(bytes);
+    final result = CaloriesResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

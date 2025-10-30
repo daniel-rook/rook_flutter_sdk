@@ -6,7 +6,7 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 import '../common/test_utils.dart';
 
-void syncStatusWithCaloriesTest(
+void caloriesTests(
   MethodChannelRookSdkAppleHealth platform,
   MethodChannel channel,
 ) {
@@ -17,8 +17,7 @@ void syncStatusWithCaloriesTest(
       final caloriesProto = CaloriesProto.create()
         ..basal = 12.5
         ..active = 22.5;
-      final proto = SyncStatusWithCaloriesResultProto.create()
-        ..success = caloriesProto;
+      final proto = CaloriesResultProto.create()..success = caloriesProto;
 
       return proto.writeToBuffer();
     });
@@ -31,12 +30,11 @@ void syncStatusWithCaloriesTest(
         await expectLater(
           future,
           completion(
-            predicate<SyncStatusWithData<DailyCalories>>(
+            predicate<DailyCalories?>(
               (value) {
-                final dailyCalories = (value as Synced<DailyCalories>).data;
-
-                return dailyCalories.basal == 12.5 &&
-                    dailyCalories.active == 22.5;
+                return value != null &&
+                    value.basal == 12.5 &&
+                    value.active == 22.5;
               },
             ),
           ),
@@ -54,8 +52,7 @@ void syncStatusWithCaloriesTest(
         ..message = "message"
         ..code = 500;
 
-      final proto = SyncStatusWithCaloriesResultProto.create()
-        ..failure = failure;
+      final proto = CaloriesResultProto.create()..failure = failure;
 
       return proto.writeToBuffer();
     });

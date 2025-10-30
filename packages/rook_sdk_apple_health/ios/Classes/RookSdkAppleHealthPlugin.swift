@@ -281,9 +281,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             rookEventsManager.getTodayStepCount { it in
                 switch it {
                 case let Result.success(steps):
-                    int64Success(flutterResult: result, int64: Int64(steps))
+                    intSuccess(flutterResult: result, int: steps)
                 case let Result.failure(error):
-                    int64Error(flutterResult: result, error: error)
+                    intError(flutterResult: result, error: error)
                 }
             }
             break

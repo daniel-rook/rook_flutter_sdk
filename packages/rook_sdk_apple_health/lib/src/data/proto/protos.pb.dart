@@ -364,10 +364,10 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   void clearEnableBackgroundSync() => $_clearField(4);
 }
 
-enum SyncStatusWithIntResultProto_Result { success, failure, notSet }
+enum IntResultProto_Result { success, failure, notSet }
 
-class SyncStatusWithIntResultProto extends $pb.GeneratedMessage {
-  factory SyncStatusWithIntResultProto({
+class IntResultProto extends $pb.GeneratedMessage {
+  factory IntResultProto({
     $core.int? success,
     PluginExceptionProto? failure,
   }) {
@@ -377,23 +377,23 @@ class SyncStatusWithIntResultProto extends $pb.GeneratedMessage {
     return result;
   }
 
-  SyncStatusWithIntResultProto._();
+  IntResultProto._();
 
-  factory SyncStatusWithIntResultProto.fromBuffer($core.List<$core.int> data,
+  factory IntResultProto.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory SyncStatusWithIntResultProto.fromJson($core.String json,
+  factory IntResultProto.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, SyncStatusWithIntResultProto_Result>
-      _SyncStatusWithIntResultProto_ResultByTag = {
-    1: SyncStatusWithIntResultProto_Result.success,
-    2: SyncStatusWithIntResultProto_Result.failure,
-    0: SyncStatusWithIntResultProto_Result.notSet
+  static const $core.Map<$core.int, IntResultProto_Result>
+      _IntResultProto_ResultByTag = {
+    1: IntResultProto_Result.success,
+    2: IntResultProto_Result.failure,
+    0: IntResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SyncStatusWithIntResultProto',
+      _omitMessageNames ? '' : 'IntResultProto',
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..a<$core.int>(1, _omitFieldNames ? '' : 'success', $pb.PbFieldType.OU3)
@@ -402,32 +402,28 @@ class SyncStatusWithIntResultProto extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SyncStatusWithIntResultProto clone() =>
-      SyncStatusWithIntResultProto()..mergeFromMessage(this);
+  IntResultProto clone() => IntResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SyncStatusWithIntResultProto copyWith(
-          void Function(SyncStatusWithIntResultProto) updates) =>
-      super.copyWith(
-              (message) => updates(message as SyncStatusWithIntResultProto))
-          as SyncStatusWithIntResultProto;
+  IntResultProto copyWith(void Function(IntResultProto) updates) =>
+      super.copyWith((message) => updates(message as IntResultProto))
+          as IntResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SyncStatusWithIntResultProto create() =>
-      SyncStatusWithIntResultProto._();
+  static IntResultProto create() => IntResultProto._();
   @$core.override
-  SyncStatusWithIntResultProto createEmptyInstance() => create();
-  static $pb.PbList<SyncStatusWithIntResultProto> createRepeated() =>
-      $pb.PbList<SyncStatusWithIntResultProto>();
+  IntResultProto createEmptyInstance() => create();
+  static $pb.PbList<IntResultProto> createRepeated() =>
+      $pb.PbList<IntResultProto>();
   @$core.pragma('dart2js:noInline')
-  static SyncStatusWithIntResultProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SyncStatusWithIntResultProto>(create);
-  static SyncStatusWithIntResultProto? _defaultInstance;
+  static IntResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<IntResultProto>(create);
+  static IntResultProto? _defaultInstance;
 
-  SyncStatusWithIntResultProto_Result whichResult() =>
-      _SyncStatusWithIntResultProto_ResultByTag[$_whichOneof(0)]!;
+  IntResultProto_Result whichResult() =>
+      _IntResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -518,10 +514,10 @@ class CaloriesProto extends $pb.GeneratedMessage {
   void clearActive() => $_clearField(2);
 }
 
-enum SyncStatusWithCaloriesResultProto_Result { success, failure, notSet }
+enum CaloriesResultProto_Result { success, failure, notSet }
 
-class SyncStatusWithCaloriesResultProto extends $pb.GeneratedMessage {
-  factory SyncStatusWithCaloriesResultProto({
+class CaloriesResultProto extends $pb.GeneratedMessage {
+  factory CaloriesResultProto({
     CaloriesProto? success,
     PluginExceptionProto? failure,
   }) {
@@ -531,24 +527,23 @@ class SyncStatusWithCaloriesResultProto extends $pb.GeneratedMessage {
     return result;
   }
 
-  SyncStatusWithCaloriesResultProto._();
+  CaloriesResultProto._();
 
-  factory SyncStatusWithCaloriesResultProto.fromBuffer(
-          $core.List<$core.int> data,
+  factory CaloriesResultProto.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory SyncStatusWithCaloriesResultProto.fromJson($core.String json,
+  factory CaloriesResultProto.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, SyncStatusWithCaloriesResultProto_Result>
-      _SyncStatusWithCaloriesResultProto_ResultByTag = {
-    1: SyncStatusWithCaloriesResultProto_Result.success,
-    2: SyncStatusWithCaloriesResultProto_Result.failure,
-    0: SyncStatusWithCaloriesResultProto_Result.notSet
+  static const $core.Map<$core.int, CaloriesResultProto_Result>
+      _CaloriesResultProto_ResultByTag = {
+    1: CaloriesResultProto_Result.success,
+    2: CaloriesResultProto_Result.failure,
+    0: CaloriesResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'SyncStatusWithCaloriesResultProto',
+      _omitMessageNames ? '' : 'CaloriesResultProto',
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOM<CaloriesProto>(1, _omitFieldNames ? '' : 'success',
@@ -558,33 +553,28 @@ class SyncStatusWithCaloriesResultProto extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SyncStatusWithCaloriesResultProto clone() =>
-      SyncStatusWithCaloriesResultProto()..mergeFromMessage(this);
+  CaloriesResultProto clone() => CaloriesResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SyncStatusWithCaloriesResultProto copyWith(
-          void Function(SyncStatusWithCaloriesResultProto) updates) =>
-      super.copyWith((message) =>
-              updates(message as SyncStatusWithCaloriesResultProto))
-          as SyncStatusWithCaloriesResultProto;
+  CaloriesResultProto copyWith(void Function(CaloriesResultProto) updates) =>
+      super.copyWith((message) => updates(message as CaloriesResultProto))
+          as CaloriesResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SyncStatusWithCaloriesResultProto create() =>
-      SyncStatusWithCaloriesResultProto._();
+  static CaloriesResultProto create() => CaloriesResultProto._();
   @$core.override
-  SyncStatusWithCaloriesResultProto createEmptyInstance() => create();
-  static $pb.PbList<SyncStatusWithCaloriesResultProto> createRepeated() =>
-      $pb.PbList<SyncStatusWithCaloriesResultProto>();
+  CaloriesResultProto createEmptyInstance() => create();
+  static $pb.PbList<CaloriesResultProto> createRepeated() =>
+      $pb.PbList<CaloriesResultProto>();
   @$core.pragma('dart2js:noInline')
-  static SyncStatusWithCaloriesResultProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<SyncStatusWithCaloriesResultProto>(
-          create);
-  static SyncStatusWithCaloriesResultProto? _defaultInstance;
+  static CaloriesResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CaloriesResultProto>(create);
+  static CaloriesResultProto? _defaultInstance;
 
-  SyncStatusWithCaloriesResultProto_Result whichResult() =>
-      _SyncStatusWithCaloriesResultProto_ResultByTag[$_whichOneof(0)]!;
+  CaloriesResultProto_Result whichResult() =>
+      _CaloriesResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)

@@ -516,12 +516,12 @@ struct ConfigurationProto: Sendable {
   init() {}
 }
 
-struct SyncStatusWithIntResultProto: Sendable {
+struct IntResultProto: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var result: SyncStatusWithIntResultProto.OneOf_Result? = nil
+  var result: IntResultProto.OneOf_Result? = nil
 
   var success: UInt32 {
     get {
@@ -564,12 +564,12 @@ struct CaloriesProto: Sendable {
   init() {}
 }
 
-struct SyncStatusWithCaloriesResultProto: Sendable {
+struct CaloriesResultProto: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var result: SyncStatusWithCaloriesResultProto.OneOf_Result? = nil
+  var result: CaloriesResultProto.OneOf_Result? = nil
 
   var success: CaloriesProto {
     get {
@@ -3194,8 +3194,8 @@ extension ConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension SyncStatusWithIntResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SyncStatusWithIntResultProto"
+extension IntResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "IntResultProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "success"),
     2: .same(proto: "failure"),
@@ -3252,7 +3252,7 @@ extension SyncStatusWithIntResultProto: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SyncStatusWithIntResultProto, rhs: SyncStatusWithIntResultProto) -> Bool {
+  static func ==(lhs: IntResultProto, rhs: IntResultProto) -> Bool {
     if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3297,8 +3297,8 @@ extension CaloriesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SyncStatusWithCaloriesResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SyncStatusWithCaloriesResultProto"
+extension CaloriesResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "CaloriesResultProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "success"),
     2: .same(proto: "failure"),
@@ -3360,7 +3360,7 @@ extension SyncStatusWithCaloriesResultProto: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SyncStatusWithCaloriesResultProto, rhs: SyncStatusWithCaloriesResultProto) -> Bool {
+  static func ==(lhs: CaloriesResultProto, rhs: CaloriesResultProto) -> Bool {
     if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

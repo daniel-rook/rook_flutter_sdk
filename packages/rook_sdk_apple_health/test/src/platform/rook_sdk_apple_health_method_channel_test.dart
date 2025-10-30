@@ -9,13 +9,13 @@ import 'authorized_data_source_v2.dart';
 import 'authorized_data_sources.dart';
 import 'body_summary.dart';
 import 'boolean.dart';
+import 'calories.dart';
 import 'data_source_authorizer.dart';
+import 'int.dart';
 import 'int64.dart';
 import 'physical_summary.dart';
 import 'sleep_summary.dart';
 import 'string.dart';
-import 'sync_status_with_calories.dart';
-import 'sync_status_with_int.dart';
 
 // ignore_for_file: deprecated_member_use_from_same_package
 // ignore_for_file: deprecated_member_use
@@ -33,8 +33,8 @@ void main() {
 
   booleanResultTests(platform, channel);
   int64ResultTests(platform, channel);
-  syncStatusWithIntTest(platform, channel);
-  syncStatusWithCaloriesTest(platform, channel);
+  intTests(platform, channel);
+  caloriesTests(platform, channel);
   resultDataSourceTests(platform, channel);
   dataSourceAuthorizerTests(platform, channel);
   authorizedDataSourcesTests(platform, channel);

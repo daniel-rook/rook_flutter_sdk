@@ -101,7 +101,7 @@ enum EventSyncTypeProto {
   TEMPERATURE = 8;
 }
 
-message SyncStatusWithIntResultProto {
+message IntResultProto {
   oneof result {
     uint32 success = 1;
     PluginExceptionProto failure = 2;
@@ -113,7 +113,7 @@ message CaloriesProto {
   double active = 2;
 }
 
-message SyncStatusWithCaloriesResultProto {
+message CaloriesResultProto {
   oneof result {
     CaloriesProto success = 1;
     PluginExceptionProto failure = 2;

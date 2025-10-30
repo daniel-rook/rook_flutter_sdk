@@ -39,10 +39,10 @@ func boolError(flutterResult: FlutterResult, error: Error) {
     }
 }
 
-func int64Success(flutterResult: FlutterResult, int64: Int64) {
+func intSuccess(flutterResult: FlutterResult, int: Int) {
     do {
-        let bytes = try Int64ResultProto.with {
-            $0.success = int64
+        let bytes = try IntResultProto.with {
+            $0.success = UInt32(int)
         }.serializedData()
 
         flutterResult(bytes)
@@ -51,7 +51,7 @@ func int64Success(flutterResult: FlutterResult, int64: Int64) {
     }
 }
 
-func int64Error(flutterResult: FlutterResult, error: Error) {
+func intError(flutterResult: FlutterResult, error: Error) {
     do {
         let pluginExceptionProto = PluginExceptionProto.with {
             $0.id = error.getPluginExceptionId()
@@ -59,7 +59,7 @@ func int64Error(flutterResult: FlutterResult, error: Error) {
             $0.message = error.getPluginExceptionMessage()
         }
 
-        let bytes = try Int64ResultProto.with {
+        let bytes = try IntResultProto.with {
             $0.failure = pluginExceptionProto
         }.serializedData()
 
@@ -71,7 +71,7 @@ func int64Error(flutterResult: FlutterResult, error: Error) {
 
 func dailyCaloriesSuccess(flutterResult: FlutterResult, rookCalories: RookCalories) {
     do {
-        let bytes = try SyncStatusWithCaloriesResultProto.with {
+        let bytes = try CaloriesResultProto.with {
             $0.success = CaloriesProto.with {
                 $0.basal = Double(rookCalories.basalCalories ?? .zero)
                 $0.active = Double(rookCalories.activeCalories ?? .zero)
@@ -92,7 +92,7 @@ func dailyCaloriesError(flutterResult: FlutterResult, error: Error) {
             $0.message = error.getPluginExceptionMessage()
         }
 
-        let bytes = try SyncStatusWithCaloriesResultProto.with {
+        let bytes = try CaloriesResultProto.with {
             $0.failure = pluginExceptionProto
         }.serializedData()
 

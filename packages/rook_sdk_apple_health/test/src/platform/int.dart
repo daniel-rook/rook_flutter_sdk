@@ -2,11 +2,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_method_channel.dart';
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 import '../common/test_utils.dart';
 
-void syncStatusWithIntTest(
+void intTests(
   MethodChannelRookSdkAppleHealth platform,
   MethodChannel channel,
 ) {
@@ -14,7 +13,7 @@ void syncStatusWithIntTest(
       'MethodChannelRookSdkAppleHealth | SyncStatusWithIntResultProto value unwrap',
       () {
     mockMethodCall(channel, (_) async {
-      final proto = SyncStatusWithIntResultProto.create()..success = 1;
+      final proto = IntResultProto.create()..success = 1;
 
       return proto.writeToBuffer();
     });
@@ -27,8 +26,10 @@ void syncStatusWithIntTest(
         await expectLater(
           future,
           completion(
-            predicate<SyncStatusWithData<int?>>(
-              (value) => (value as Synced<int?>).data == 1,
+            predicate<int?>(
+              (value) {
+                return value != null && value == 1;
+              },
             ),
           ),
         );
@@ -45,7 +46,7 @@ void syncStatusWithIntTest(
         ..message = "message"
         ..code = 500;
 
-      final proto = SyncStatusWithIntResultProto.create()..failure = failure;
+      final proto = IntResultProto.create()..failure = failure;
 
       return proto.writeToBuffer();
     });

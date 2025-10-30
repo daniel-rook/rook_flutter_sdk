@@ -2,15 +2,14 @@ import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.d
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
-extension ResultSyncStatusWithCaloriesResult
-    on SyncStatusWithCaloriesResultProto {
+extension CaloriesResult on CaloriesResultProto {
   DailyCalories unwrap() {
     final resultType = whichResult();
 
     switch (resultType) {
-      case SyncStatusWithCaloriesResultProto_Result.success:
+      case CaloriesResultProto_Result.success:
         return success.toDomain();
-      case SyncStatusWithCaloriesResultProto_Result.failure:
+      case CaloriesResultProto_Result.failure:
         throw failure.toDartException();
       default:
         throw Exception("Unknown error");
