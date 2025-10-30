@@ -22,7 +22,8 @@ void samsungHealthAvailabilityTests(
       () async {
         final future = platform.checkSamsungHealthAvailability();
 
-        await expectLater(future, completion(SamsungHealthAvailability.installed));
+        await expectLater(
+            future, completion(SamsungHealthAvailability.installed));
       },
     );
   });

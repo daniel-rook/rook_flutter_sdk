@@ -8,8 +8,12 @@ import 'package:rook_sdk_samsung_health/src/data/mapper/samsung_health_permissio
 import 'package:rook_sdk_samsung_health/src/data/mapper/samsung_health_permissions_summary_mappers.dart';
 import 'package:rook_sdk_samsung_health/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/activity_event_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/boolean_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/request_permissions_status_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/sleep_summary_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/sync_status_with_calories_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/sync_status_with_int_result.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_availability.dart';
@@ -231,6 +235,58 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
       ],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<List<SleepSummary>> getSleepSummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getSleepSummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = SleepSummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<PhysicalSummary?> getPhysicalSummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getPhysicalSummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = PhysicalSummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<BodySummary?> getBodySummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getBodySummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = BodySummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<List<ActivityEvent>> getActivityEvents(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getActivityEvents',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = ActivityEventResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

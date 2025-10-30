@@ -161,6 +161,34 @@ class RookSamsung {
     );
   }
 
+  /// Retrieve and upload current day sleep summary of Health Connect.
+  ///
+  /// Returns the current day sleep summaries or an empty list if none are available.
+  static Future<List<SleepSummary>> getSleepSummary(DateTime date) {
+    return RookSdkSamsungHealthPlatform.instance.getSleepSummary(date);
+  }
+
+  /// Retrieve and upload current day physical summary of Health Connect.
+  ///
+  /// Returns the current day physical summary or null if none are available.
+  static Future<PhysicalSummary?> getPhysicalSummary(DateTime date) {
+    return RookSdkSamsungHealthPlatform.instance.getPhysicalSummary(date);
+  }
+
+  /// Retrieve and upload current day body summary of Health Connect.
+  ///
+  /// Returns the current day body summary or null if none are available.
+  static Future<BodySummary?> getBodySummary(DateTime date) {
+    return RookSdkSamsungHealthPlatform.instance.getBodySummary(date);
+  }
+
+  /// Retrieve and upload current day activity events of Health Connect.
+  ///
+  /// Returns the current day activity events or an empty list if none are available.
+  static Future<List<ActivityEvent>> getActivityEvents(DateTime date) {
+    return RookSdkSamsungHealthPlatform.instance.getActivityEvents(date);
+  }
+
   /// Retrieve and upload current day steps count of Health Connect.
   ///
   /// Returns a [SHSyncStatusWithData] with the current day steps count (if available).

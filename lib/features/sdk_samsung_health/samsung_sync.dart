@@ -26,7 +26,9 @@ class _SamsungSyncState extends State<SamsungSync> {
   final ConsoleOutput syncSummariesHistoricOutput = ConsoleOutput();
   final ConsoleOutput syncSummariesOutput = ConsoleOutput();
   final ConsoleOutput syncSingleSummaryOutput = ConsoleOutput();
+  final ConsoleOutput getSingleSummaryOutput = ConsoleOutput();
   final ConsoleOutput syncSingleEventOutput = ConsoleOutput();
+  final ConsoleOutput getSingleEventOutput = ConsoleOutput();
   final ConsoleOutput getTodayStepsOutput = ConsoleOutput();
   final ConsoleOutput getTodayCaloriesOutput = ConsoleOutput();
 
@@ -102,6 +104,38 @@ class _SamsungSyncState extends State<SamsungSync> {
             onPressed: syncSingleSummary,
             child: const Text('Sync single summary'),
           ),
+          const SectionTitle('Get single summary'),
+          TextField(
+            controller: syncSingleSummaryDate,
+            decoration: const InputDecoration(
+              helperText: 'YYYY-MM-DD',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          DropdownMenu(
+            onSelected: (selection) {
+              summarySyncType = selection ?? SHSummarySyncType.sleep;
+            },
+            dropdownMenuEntries: const [
+              DropdownMenuEntry(
+                value: SHSummarySyncType.sleep,
+                label: "Sleep",
+              ),
+              DropdownMenuEntry(
+                value: SHSummarySyncType.physical,
+                label: "Physical",
+              ),
+              DropdownMenuEntry(
+                value: SHSummarySyncType.body,
+                label: "Body",
+              ),
+            ],
+          ),
+          Text(getSingleSummaryOutput.current),
+          FilledButton(
+            onPressed: getSingleSummary,
+            child: const Text('Get single summary'),
+          ),
           const SectionTitle('Sync single event'),
           TextField(
             controller: syncSingleEventDate,
@@ -161,6 +195,30 @@ class _SamsungSyncState extends State<SamsungSync> {
           FilledButton(
             onPressed: syncSingleEvent,
             child: const Text('Sync single event'),
+          ),
+          const SectionTitle('Get single event'),
+          TextField(
+            controller: syncSingleEventDate,
+            decoration: const InputDecoration(
+              helperText: 'YYYY-MM-DD',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          DropdownMenu(
+            onSelected: (selection) {
+              eventSyncType = selection ?? SHEventSyncType.activity;
+            },
+            dropdownMenuEntries: const [
+              DropdownMenuEntry(
+                value: SHEventSyncType.activity,
+                label: "Activity",
+              ),
+            ],
+          ),
+          Text(getSingleEventOutput.current),
+          FilledButton(
+            onPressed: getSingleEvent,
+            child: const Text('Get single event'),
           ),
           const SectionTitle('Get today steps'),
           Text(getTodayStepsOutput.current),
@@ -251,6 +309,44 @@ class _SamsungSyncState extends State<SamsungSync> {
     }
   }
 
+  void getSingleSummary() async {
+    getSingleSummaryOutput.clear();
+
+    final dateString = syncSingleSummaryDate.text;
+    final date = DateTime.parse(dateString);
+
+    setState(() {
+      getSingleSummaryOutput.append("Syncing $date $summarySyncType...");
+    });
+
+    try {
+      String data = "";
+
+      switch (summarySyncType) {
+        case SHSummarySyncType.sleep:
+          data = (await RookSamsung.getSleepSummary(date)).toString();
+        case SHSummarySyncType.physical:
+          data = (await RookSamsung.getPhysicalSummary(date)).toString();
+        case SHSummarySyncType.body:
+          data = (await RookSamsung.getBodySummary(date)).toString();
+      }
+
+      getSingleSummaryOutput.append(
+        "$date $summarySyncType synced successfully",
+      );
+
+      setState(() {
+        getSingleSummaryOutput.append(data);
+      });
+    } catch (error) {
+      setState(() {
+        getSingleSummaryOutput.append(
+          "Error syncing $date $summarySyncType: $error",
+        );
+      });
+    }
+  }
+
   void syncSingleEvent() async {
     syncSingleEventOutput.clear();
 
@@ -272,6 +368,42 @@ class _SamsungSyncState extends State<SamsungSync> {
     } catch (error) {
       setState(() {
         syncSingleEventOutput.append(
+          "Error syncing $date $eventSyncType: $error",
+        );
+      });
+    }
+  }
+
+  void getSingleEvent() async {
+    getSingleEventOutput.clear();
+
+    final dateString = syncSingleEventDate.text;
+    final date = DateTime.parse(dateString);
+
+    setState(() {
+      getSingleEventOutput.append("Syncing $date $eventSyncType...");
+    });
+
+    try {
+      String data = "";
+
+      switch (eventSyncType) {
+        case SHEventSyncType.activity:
+          data = (await RookSamsung.getActivityEvents(date)).toString();
+        default:
+          data = "Not implemented yet.";
+      }
+
+      getSingleEventOutput.append(
+        "$date $eventSyncType synced successfully",
+      );
+
+      setState(() {
+        getSingleEventOutput.append(data);
+      });
+    } catch (error) {
+      setState(() {
+        getSingleEventOutput.append(
           "Error syncing $date $eventSyncType: $error",
         );
       });
