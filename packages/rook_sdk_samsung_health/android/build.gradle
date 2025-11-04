@@ -4,7 +4,7 @@ plugins {
 }
 
 // ------------------------ Dependencies ------------------------
-String rookSdkSamsungVersion = "1.0.0"
+String rookSdkSamsungVersion = "1.1.0"
 String protoVersion = "4.28.3"
 String timberVersion = "5.0.1"
 // ------------------------ Dependencies ------------------------
