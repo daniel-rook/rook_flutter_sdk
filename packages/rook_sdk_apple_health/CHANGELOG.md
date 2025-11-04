@@ -1,3 +1,3 @@
-## 1.9.1
+## 1.10.0
 
 This changelog was moved to our official documentation [page](https://docs.tryrook.io/docs/category/sdks)
