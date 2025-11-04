@@ -12,7 +12,7 @@ void main() {
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(channel, (_) async {
-      final proto = ResultBooleanProto()..success = true;
+      final proto = BooleanResultProto()..success = true;
 
       return proto.writeToBuffer();
     });

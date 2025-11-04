@@ -37,7 +37,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
             runWithValue(
                 flutterResult: result,
-                builder: { try RookConfigurationProto(serializedBytes: bytes.data) },
+                builder: { try ConfigurationProto(serializedBytes: bytes.data) },
                 block: { it in
                     RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
                     RookConnectConfigurationManager.shared.setConfiguration(
@@ -209,13 +209,81 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
+        case "getSleepSummary":
+            Task(priority: .background) {
+                do {
+                    let millis = call.getInt64ArgAt(0)
+                    let date = buildDateFromMillis(millis)
+
+                    let sleepSummaries = try await rookSummaryManager.getSleepSummary(date: date)
+
+                    sleepSummarySuccess(flutterResult: result, sleepSummary: sleepSummaries)
+                } catch {
+                    if error.isRecordsNotFound() {
+                        sleepSummarySuccess(flutterResult: result, sleepSummary: [])
+                    } else {
+                        sleepSummaryError(flutterResult: result, error: error)
+                    }
+                }
+            }
+        case "getPhysicalSummary":
+            Task(priority: .background) {
+                do {
+                    let millis = call.getInt64ArgAt(0)
+                    let date = buildDateFromMillis(millis)
+                    
+                    let physicalSummary = try await rookSummaryManager.getPhysicalSummary(date: date)
+                    
+                    physicalSummarySuccess(flutterResult: result, physicalSummary: physicalSummary)
+                } catch {
+                    if error.isRecordsNotFound() {
+                        physicalSummarySuccess(flutterResult: result, physicalSummary: nil)
+                    } else {
+                        physicalSummaryError(flutterResult: result, error: error)
+                    }
+                }
+            }
+        case "getBodySummary":
+            Task(priority: .background) {
+                do {
+                    let millis = call.getInt64ArgAt(0)
+                    let date = buildDateFromMillis(millis)
+                    
+                    let bodySummary = try await rookSummaryManager.getBodySummary(date: date)
+                    
+                    bodySummarySuccess(flutterResult: result, bodySummary: bodySummary)
+                } catch {
+                    if error.isRecordsNotFound() {
+                        bodySummarySuccess(flutterResult: result, bodySummary: nil)
+                    } else {
+                        bodySummaryError(flutterResult: result, error: error)
+                    }
+                }
+            }
+        case "getActivityEvents":
+            Task(priority: .background) {
+                do {
+                    let millis = call.getInt64ArgAt(0)
+                    let date = buildDateFromMillis(millis)
+                    
+                    let activityEvents = try await rookEventsManager.getActivityEvents(date: date)
+                    
+                    activityEventSuccess(flutterResult: result, activityEvent: activityEvents)
+                } catch {
+                    if error.isRecordsNotFound() {
+                        activityEventSuccess(flutterResult: result, activityEvent: [])
+                    } else {
+                        activityEventError(flutterResult: result, error: error)
+                    }
+                }
+            }
         case "getTodayStepsCount":
             rookEventsManager.getTodayStepCount { it in
                 switch it {
                 case let Result.success(steps):
-                    int64Success(flutterResult: result, int64: Int64(steps))
+                    intSuccess(flutterResult: result, int: steps)
                 case let Result.failure(error):
-                    int64Error(flutterResult: result, error: error)
+                    intError(flutterResult: result, error: error)
                 }
             }
             break
@@ -240,7 +308,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
             runWithValue(
                 flutterResult: result,
-                builder: { try RookConfigurationProto(serializedBytes: bytes.data) },
+                builder: { try ConfigurationProto(serializedBytes: bytes.data) },
                 block: { it in
                     RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
                     RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
@@ -281,7 +349,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
             runWithValue(
                 flutterResult: result,
-                builder: { try RookConfigurationProto(serializedBytes: bytes.data) },
+                builder: { try ConfigurationProto(serializedBytes: bytes.data) },
                 block: { it in
                     RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
                     RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())

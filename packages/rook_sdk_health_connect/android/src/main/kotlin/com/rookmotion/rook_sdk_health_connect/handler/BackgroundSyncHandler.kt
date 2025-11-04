@@ -2,9 +2,9 @@ package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookBackgroundSyncManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.booleanError
-import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
+import com.rookmotion.rook_sdk_health_connect.result.booleanError
+import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

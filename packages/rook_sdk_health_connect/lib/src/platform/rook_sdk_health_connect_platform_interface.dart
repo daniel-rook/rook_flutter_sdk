@@ -67,6 +67,14 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<bool> syncByDateAndEvent(DateTime date, HCEventSyncType event);
 
+  Future<List<SleepSummary>> getSleepSummary(DateTime date);
+
+  Future<PhysicalSummary?> getPhysicalSummary(DateTime date);
+
+  Future<BodySummary?> getBodySummary(DateTime date);
+
+  Future<List<ActivityEvent>> getActivityEvents(DateTime date);
+
   Future<SyncStatusWithData<int>> getTodayStepsCount();
 
   Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount();

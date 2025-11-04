@@ -21,8 +21,8 @@ public interface SyncStatusWithIntProtoOrBuilder extends
   io.tryrook.rook_sdk_samsung_health.proto.SyncStatusProto getSyncStatus();
 
   /**
-   * <code>uint32 steps = 2;</code>
-   * @return The steps.
+   * <code>uint32 value = 2;</code>
+   * @return The value.
    */
-  int getSteps();
+  int getValue();
 }

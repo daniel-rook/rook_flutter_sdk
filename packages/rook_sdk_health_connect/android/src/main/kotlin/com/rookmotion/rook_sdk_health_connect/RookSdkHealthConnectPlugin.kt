@@ -150,6 +150,10 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "syncSummariesByDate" -> syncHandler.onMethodCall(call, result)
             "syncByDateAndSummary" -> syncHandler.onMethodCall(call, result)
             "syncByDateAndEvent" -> syncHandler.onMethodCall(call, result)
+            "getSleepSummary" -> syncHandler.onMethodCall(call, result)
+            "getPhysicalSummary" -> syncHandler.onMethodCall(call, result)
+            "getBodySummary" -> syncHandler.onMethodCall(call, result)
+            "getActivityEvents" -> syncHandler.onMethodCall(call, result)
             "getTodayStepsCount" -> syncHandler.onMethodCall(call, result)
             "getTodayCaloriesCount" -> syncHandler.onMethodCall(call, result)
 

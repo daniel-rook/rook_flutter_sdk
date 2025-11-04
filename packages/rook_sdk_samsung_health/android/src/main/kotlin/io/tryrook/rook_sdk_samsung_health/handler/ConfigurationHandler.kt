@@ -3,12 +3,12 @@ package io.tryrook.rook_sdk_samsung_health.handler
 import io.flutter.plugin.common.MethodCall
 import io.tryrook.rook_sdk_samsung_health.AutoSyncConfiguration
 import io.tryrook.rook_sdk_samsung_health.MethodResult
-import io.tryrook.rook_sdk_samsung_health.extension.booleanError
-import io.tryrook.rook_sdk_samsung_health.extension.booleanSuccess
 import io.tryrook.rook_sdk_samsung_health.extension.getByteArrayArgAt
 import io.tryrook.rook_sdk_samsung_health.extension.getStringArgAt
 import io.tryrook.rook_sdk_samsung_health.mapper.toSHConfiguration
-import io.tryrook.rook_sdk_samsung_health.proto.RookConfigurationProto
+import io.tryrook.rook_sdk_samsung_health.proto.ConfigurationProto
+import io.tryrook.rook_sdk_samsung_health.result.booleanError
+import io.tryrook.rook_sdk_samsung_health.result.booleanSuccess
 import io.tryrook.sdk.samsung.RookSamsung
 import io.tryrook.sdk.samsung.domain.analytics.SHRookAnalytics
 import io.tryrook.sdk.samsung.domain.analytics.SHRookFramework
@@ -39,7 +39,7 @@ class ConfigurationHandler(
 
             "initRook" -> coroutineScope.launch {
                 val rookConfigurationProto = methodCall.getByteArrayArgAt(0).let {
-                    RookConfigurationProto.parseFrom(it)
+                    ConfigurationProto.parseFrom(it)
                 }
 
                 val enableBackgroundSync = rookConfigurationProto.enableBackgroundSync

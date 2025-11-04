@@ -57,30 +57,30 @@ public  final class SyncStatusWithIntProto extends
     syncStatus_ = 0;
   }
 
-  public static final int STEPS_FIELD_NUMBER = 2;
-  private int steps_;
+  public static final int VALUE_FIELD_NUMBER = 2;
+  private int value_;
   /**
-   * <code>uint32 steps = 2;</code>
-   * @return The steps.
+   * <code>uint32 value = 2;</code>
+   * @return The value.
    */
   @java.lang.Override
-  public int getSteps() {
-    return steps_;
+  public int getValue() {
+    return value_;
   }
   /**
-   * <code>uint32 steps = 2;</code>
-   * @param value The steps to set.
+   * <code>uint32 value = 2;</code>
+   * @param value The value to set.
    */
-  private void setSteps(int value) {
+  private void setValue(int value) {
     
-    steps_ = value;
+    value_ = value;
   }
   /**
-   * <code>uint32 steps = 2;</code>
+   * <code>uint32 value = 2;</code>
    */
-  private void clearSteps() {
+  private void clearValue() {
 
-    steps_ = 0;
+    value_ = 0;
   }
 
   public static io.tryrook.rook_sdk_samsung_health.proto.SyncStatusWithIntProto parseFrom(
@@ -227,30 +227,30 @@ public  final class SyncStatusWithIntProto extends
     }
 
     /**
-     * <code>uint32 steps = 2;</code>
-     * @return The steps.
+     * <code>uint32 value = 2;</code>
+     * @return The value.
      */
     @java.lang.Override
-    public int getSteps() {
-      return instance.getSteps();
+    public int getValue() {
+      return instance.getValue();
     }
     /**
-     * <code>uint32 steps = 2;</code>
-     * @param value The steps to set.
+     * <code>uint32 value = 2;</code>
+     * @param value The value to set.
      * @return This builder for chaining.
      */
-    public Builder setSteps(int value) {
+    public Builder setValue(int value) {
       copyOnWrite();
-      instance.setSteps(value);
+      instance.setValue(value);
       return this;
     }
     /**
-     * <code>uint32 steps = 2;</code>
+     * <code>uint32 value = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSteps() {
+    public Builder clearValue() {
       copyOnWrite();
-      instance.clearSteps();
+      instance.clearValue();
       return this;
     }
 
@@ -271,7 +271,7 @@ public  final class SyncStatusWithIntProto extends
       case BUILD_MESSAGE_INFO: {
           java.lang.Object[] objects = new java.lang.Object[] {
             "syncStatus_",
-            "steps_",
+            "value_",
           };
           java.lang.String info =
               "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\f\u0002\u000b" +

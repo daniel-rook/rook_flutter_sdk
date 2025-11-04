@@ -2,8 +2,6 @@ package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookSyncManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
-import com.rookmotion.rook_sdk_health_connect.extension.booleanError
-import com.rookmotion.rook_sdk_health_connect.extension.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getLongArgAt
@@ -11,6 +9,16 @@ import com.rookmotion.rook_sdk_health_connect.extension.toLocalDate
 import com.rookmotion.rook_sdk_health_connect.mapper.toSyncType
 import com.rookmotion.rook_sdk_health_connect.proto.EventSyncTypeProto
 import com.rookmotion.rook_sdk_health_connect.proto.SummarySyncTypeProto
+import com.rookmotion.rook_sdk_health_connect.result.activityEventError
+import com.rookmotion.rook_sdk_health_connect.result.activityEventSuccess
+import com.rookmotion.rook_sdk_health_connect.result.bodySummaryError
+import com.rookmotion.rook_sdk_health_connect.result.bodySummarySuccess
+import com.rookmotion.rook_sdk_health_connect.result.booleanError
+import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
+import com.rookmotion.rook_sdk_health_connect.result.physicalSummaryError
+import com.rookmotion.rook_sdk_health_connect.result.physicalSummarySuccess
+import com.rookmotion.rook_sdk_health_connect.result.sleepSummaryError
+import com.rookmotion.rook_sdk_health_connect.result.sleepSummarySuccess
 import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithDailyCaloriesError
 import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithDailyCaloriesSuccess
 import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithIntError
@@ -81,6 +89,62 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                     },
                     {
                         methodResult.booleanError(it)
+                    },
+                )
+            }
+
+            "getSleepSummary" -> coroutineScope.launch {
+                val millis = methodCall.getLongArgAt(0)
+                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
+
+                rookSyncManager.getSleepSummary(localDate).fold(
+                    {
+                        methodResult.sleepSummarySuccess(it)
+                    },
+                    {
+                        methodResult.sleepSummaryError(it)
+                    },
+                )
+            }
+
+            "getPhysicalSummary" -> coroutineScope.launch {
+                val millis = methodCall.getLongArgAt(0)
+                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
+
+                rookSyncManager.getPhysicalSummary(localDate).fold(
+                    {
+                        methodResult.physicalSummarySuccess(it)
+                    },
+                    {
+                        methodResult.physicalSummaryError(it)
+                    },
+                )
+            }
+
+            "getBodySummary" -> coroutineScope.launch {
+                val millis = methodCall.getLongArgAt(0)
+                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
+
+                rookSyncManager.getBodySummary(localDate).fold(
+                    {
+                        methodResult.bodySummarySuccess(it)
+                    },
+                    {
+                        methodResult.bodySummaryError(it)
+                    },
+                )
+            }
+
+            "getActivityEvents" -> coroutineScope.launch {
+                val millis = methodCall.getLongArgAt(0)
+                val localDate = Instant.ofEpochMilli(millis).toLocalDate()
+
+                rookSyncManager.getActivityEvents(localDate).fold(
+                    {
+                        methodResult.activityEventSuccess(it)
+                    },
+                    {
+                        methodResult.activityEventError(it)
                     },
                 )
             }

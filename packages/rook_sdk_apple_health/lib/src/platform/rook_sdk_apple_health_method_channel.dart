@@ -1,19 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:rook_sdk_apple_health/src/data/extension/result_authorized_data_sources_extensions.dart';
-import 'package:rook_sdk_apple_health/src/data/extension/result_boolean_extensions.dart';
-import 'package:rook_sdk_apple_health/src/data/extension/result_daily_calories_extensions.dart';
-import 'package:rook_sdk_apple_health/src/data/extension/result_data_source_authorizer_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/extension/result_data_sources_extensions.dart';
-import 'package:rook_sdk_apple_health/src/data/extension/result_int64_extensions.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/apple_health_permission_mappers.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/configuration_mappers.dart';
+import 'package:rook_sdk_apple_health/src/data/mapper/environment_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/event_sync_type_mapper.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
-import 'package:rook_sdk_apple_health/src/data/mapper/rook_configuration_mappers.dart';
-import 'package:rook_sdk_apple_health/src/data/mapper/rook_environment_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_apple_health/src/data/result/activity_event_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/authorized_data_source_v2_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/authorized_data_sources_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/body_summary_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/boolean_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/calories_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/data_source_authorizer_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/int_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/physical_summary_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/sleep_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/apple_health_permission.dart';
@@ -54,7 +58,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   @override
   Future<void> initRook() async {
     final Uint8List bytes = await methodChannel.invokeMethod('initRook');
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -67,14 +71,17 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
         userID,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
 
   @override
   Future<void> clearUserID() async {
-    await methodChannel.invokeMethod('clearUserID');
+    final Uint8List bytes = await methodChannel.invokeMethod('clearUserID');
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    result.unwrap();
   }
 
   @override
@@ -82,7 +89,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'deleteUserFromRook',
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -91,7 +98,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<void> syncUserTimeZone() async {
     final Uint8List bytes =
         await methodChannel.invokeMethod('syncUserTimeZone');
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -110,7 +117,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
         permissionsProtoValues,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -123,7 +130,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
         enableLogs,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -136,7 +143,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
         date.millisecondsSinceEpoch,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -154,7 +161,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
         proto.value,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -169,7 +176,59 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
         proto.value,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<List<SleepSummary>> getSleepSummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getSleepSummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = SleepSummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<PhysicalSummary?> getPhysicalSummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getPhysicalSummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = PhysicalSummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<BodySummary?> getBodySummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getBodySummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = BodySummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<List<ActivityEvent>> getActivityEvents(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getActivityEvents',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = ActivityEventResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -180,7 +239,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       'getTodayStepsCount',
     );
 
-    final result = ResultInt64Proto.fromBuffer(bytes);
+    final result = IntResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -191,7 +250,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       'getTodayCaloriesCount',
     );
 
-    final result = ResultDailyCaloriesProto.fromBuffer(bytes);
+    final result = CaloriesResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -204,7 +263,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       'isContinuousUploadEnabled',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -216,7 +275,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     String secretKey,
     RookEnvironment environment,
   ) async {
-    final rookConfigurationProto = RookConfigurationProto(
+    final rookConfigurationProto = ConfigurationProto(
       clientUUID: clientUUID,
       secretKey: secretKey,
       environment: environment.toProto(),
@@ -231,7 +290,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -242,7 +301,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       'disableContinuousUpload',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -253,7 +312,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
     final Uint8List bytes = await methodChannel.invokeMethod('isScheduled');
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -265,7 +324,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     String secretKey,
     RookEnvironment environment,
   ) async {
-    final rookConfigurationProto = RookConfigurationProto(
+    final rookConfigurationProto = ConfigurationProto(
       clientUUID: clientUUID,
       secretKey: secretKey,
       environment: environment.toProto(),
@@ -280,7 +339,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -291,7 +350,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       'disableBackground',
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -333,7 +392,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       redirectUrl,
     ]);
 
-    final result = ResultDataSourceAuthorizerProto.fromBuffer(bytes);
+    final result = DataSourceAuthorizerResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -344,7 +403,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       'getAuthorizedDataSources',
     );
 
-    final result = ResultAuthorizedDataSourcesProto.fromBuffer(bytes);
+    final result = AuthorizedDataSourcesResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -369,7 +428,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -384,7 +443,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }

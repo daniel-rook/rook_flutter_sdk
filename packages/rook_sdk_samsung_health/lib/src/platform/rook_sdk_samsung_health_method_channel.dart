@@ -1,17 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_samsung_health/src/data/extension/result_boolean_extensions.dart';
-import 'package:rook_sdk_samsung_health/src/data/extension/result_request_permissions_status_extensions.dart';
-import 'package:rook_sdk_samsung_health/src/data/extension/result_sync_status_with_daily_calories_extensions.dart';
-import 'package:rook_sdk_samsung_health/src/data/extension/result_sync_status_with_int_extensions.dart';
+import 'package:rook_sdk_samsung_health/src/data/mapper/configuration_mappers.dart';
 import 'package:rook_sdk_samsung_health/src/data/mapper/event_sync_type_mapper.dart';
-import 'package:rook_sdk_samsung_health/src/data/mapper/rook_configuration_mappers.dart';
 import 'package:rook_sdk_samsung_health/src/data/mapper/samsung_health_availability_mappers.dart';
 import 'package:rook_sdk_samsung_health/src/data/mapper/samsung_health_permission_mapper.dart';
 import 'package:rook_sdk_samsung_health/src/data/mapper/samsung_health_permissions_summary_mappers.dart';
 import 'package:rook_sdk_samsung_health/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/activity_event_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/body_summary_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/boolean_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/physical_summary_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/request_permissions_status_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/sleep_summary_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/sync_status_with_calories_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/sync_status_with_int_result.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_availability.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_permission.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/sh_event_sync_type.dart';
@@ -51,7 +55,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
         configuration.toProto().writeToBuffer(),
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -64,7 +68,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
         userID,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -74,7 +78,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncUserTimeZone',
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -82,7 +86,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   @override
   Future<void> clearUserID() async {
     final Uint8List bytes = await methodChannel.invokeMethod('clearUserID');
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -92,7 +96,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'deleteUserFromRook',
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -122,7 +126,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -141,7 +145,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -160,7 +164,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
       ],
     );
 
-    final result = ResultRequestPermissionsStatusProto.fromBuffer(bytes);
+    final result = RequestPermissionsStatusResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -184,7 +188,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
         enableLogs,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -197,7 +201,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
         date.millisecondsSinceEpoch,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -215,7 +219,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
         proto.value,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -230,7 +234,59 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
         proto.value,
       ],
     );
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<List<SleepSummary>> getSleepSummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getSleepSummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = SleepSummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<PhysicalSummary?> getPhysicalSummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getPhysicalSummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = PhysicalSummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<BodySummary?> getBodySummary(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getBodySummary',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = BodySummaryResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<List<ActivityEvent>> getActivityEvents(DateTime date) async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getActivityEvents',
+      [
+        date.millisecondsSinceEpoch,
+      ],
+    );
+    final result = ActivityEventResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -240,7 +296,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getTodayStepsCount',
     );
-    final result = ResultSyncStatusWithIntProto.fromBuffer(bytes);
+    final result = SyncStatusWithIntResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -251,7 +307,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
       'getTodayCaloriesCount',
     );
 
-    final result = ResultSyncStatusWithDailyCaloriesProto.fromBuffer(bytes);
+    final result = SyncStatusWithCaloriesResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -260,7 +316,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   Future<bool> isScheduled() async {
     final Uint8List bytes = await methodChannel.invokeMethod('isScheduled');
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -275,15 +331,16 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   }
 
   @override
-  Future<void> schedule(bool enableNativeLogs) async {
+  Future<void> schedule(bool enableNativeLogs, bool cancelAndReschedule) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'schedule',
       [
         enableNativeLogs,
+        cancelAndReschedule,
       ],
     );
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }
@@ -292,7 +349,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   Future<void> cancel() async {
     final Uint8List bytes = await methodChannel.invokeMethod('cancel');
 
-    final result = ResultBooleanProto.fromBuffer(bytes);
+    final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
   }

@@ -1,35 +1,35 @@
 syntax = "proto3";
 
-enum RookEnvironmentProto {
+message PluginExceptionProto {
+  sint32 id = 1;
+  sint32 code = 2;
+  string message = 3;
+}
+
+message BooleanResultProto {
+  oneof result {
+    bool success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+message Int64ResultProto {
+  oneof result {
+    int64 success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+enum EnvironmentProto {
   SANDBOX = 0;
   PRODUCTION = 1;
 }
 
-enum DataSourceTypeProto {
-  GARMIN = 0;
-  OURA = 1;
-  POLAR = 2;
-  FITBIT = 3;
-  WITHINGS = 4;
-  WHOOP = 5;
-}
-
-enum SummarySyncTypeProto {
-  SLEEP = 0;
-  PHYSICAL = 1;
-  BODY = 2;
-}
-
-enum EventSyncTypeProto {
-  reserved 5, 6, 9, 10;
-
-  ACTIVITY = 0;
-  BLOOD_GLUCOSE = 1;
-  BLOOD_PRESSURE = 2;
-  BODY_METRICS = 3;
-  HEART_RATE = 4;
-  OXYGENATION = 7;
-  TEMPERATURE = 8;
+message ConfigurationProto {
+  string clientUUID = 1;
+  string secretKey = 2;
+  EnvironmentProto environment = 3;
+  bool enableBackgroundSync = 4;
 }
 
 enum AppleHealthPermissionProto {
@@ -83,24 +83,64 @@ enum AppleHealthPermissionProto {
   DIETARY_CHOLESTEROL = 47;
 }
 
-message RookConfigurationProto {
-  string clientUUID = 1;
-  string secretKey = 2;
-  RookEnvironmentProto environment = 3;
-  bool enableBackgroundSync = 4;
+enum SummarySyncTypeProto {
+  SLEEP = 0;
+  PHYSICAL = 1;
+  BODY = 2;
 }
 
-message DataSourceProto {
-  string name = 1;
-  string description = 2;
-  string image = 3;
-  bool connected = 4;
-  string authorizationUrl = 5;
+enum EventSyncTypeProto {
+  reserved 5, 6, 9, 10;
+
+  ACTIVITY = 0;
+  BLOOD_GLUCOSE = 1;
+  BLOOD_PRESSURE = 2;
+  BODY_METRICS = 3;
+  HEART_RATE = 4;
+  OXYGENATION = 7;
+  TEMPERATURE = 8;
+}
+
+message IntResultProto {
+  oneof result {
+    uint32 success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+message CaloriesProto {
+  double basal = 1;
+  double active = 2;
+}
+
+message CaloriesResultProto {
+  oneof result {
+    CaloriesProto success = 1;
+    PluginExceptionProto failure = 2;
+  }
+}
+
+enum DataSourceTypeProto {
+  GARMIN = 0;
+  OURA = 1;
+  POLAR = 2;
+  FITBIT = 3;
+  WITHINGS = 4;
+  WHOOP = 5;
+}
+
+message DataSourceAuthorizerProto {
+  string dataSource = 1;
+  bool authorized = 2;
+  string authorizationUrl = 3;
   bool authorizationUrlIsNull = 6;
 }
 
-message DataSourcesProtoListWrapper {
-  repeated DataSourceProto dataSources = 1;
+message DataSourceAuthorizerResultProto {
+  oneof result {
+    DataSourceAuthorizerProto success = 1;
+    PluginExceptionProto failure = 2;
+  }
 }
 
 message AuthorizedDataSourcesProto {
@@ -116,63 +156,10 @@ message AuthorizedDataSourcesProto {
   uint32 android = 10;
 }
 
-message DailyCaloriesProto {
-  double basal = 1;
-  double active = 2;
-}
-
-message DataSourceAuthorizerProto {
-  string dataSource = 1;
-  bool authorized = 2;
-  string authorizationUrl = 3;
-  bool authorizationUrlIsNull = 6;
-}
-
-message PluginExceptionProto {
-  sint32 id = 1;
-  sint32 code = 2;
-  string message = 3;
-}
-
-message ResultBooleanProto {
+message AuthorizedDataSourcesResultProto {
   oneof result {
-    bool success = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultInt64Proto {
-  oneof result {
-    int64 value = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultDataSourcesProto {
-  oneof result {
-    DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultAuthorizedDataSourcesProto {
-  oneof result {
-    AuthorizedDataSourcesProto authorizedDataSourcesProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultDailyCaloriesProto {
-  oneof result {
-    DailyCaloriesProto dailyCalories = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
-  }
-}
-
-message ResultDataSourceAuthorizerProto {
-  oneof result {
-    DataSourceAuthorizerProto dataSourceAuthorizerProto = 1;
-    PluginExceptionProto pluginExceptionProto = 2;
+    AuthorizedDataSourcesProto success = 1;
+    PluginExceptionProto failure = 2;
   }
 }
 
@@ -191,4 +178,521 @@ message AuthorizedDataSourceV2ResultProto {
     AuthorizedDataSourceV2ListProto success = 1;
     PluginExceptionProto failure = 2;
   }
+}
+
+// DEPRECATED
+
+message DataSourceProto {
+  string name = 1;
+  string description = 2;
+  string imageUrl = 3;
+  bool connected = 4;
+  string authorizationUrl = 5;
+  bool authorizationUrlIsNull = 6;
+}
+
+message DataSourcesProtoListWrapper {
+  repeated DataSourceProto dataSources = 1;
+}
+
+message ResultDataSourcesProto {
+  oneof result {
+    DataSourcesProtoListWrapper dataSourcesProtoListWrapper = 1;
+    PluginExceptionProto pluginExceptionProto = 2;
+  }
+}
+
+// DATA STRUCTURES
+
+message SleepSummaryProto {
+  string dateTime = 1;
+  string sourceOfData = 2;
+  bool wasTheUserUnderPhysicalActivity = 3;
+  string sleepStartDateTime = 4;
+  string sleepEndDateTime = 5;
+  string sleepDate = 6;
+  sint32 sleepDurationSeconds = 7;
+  sint32 timeInBedSeconds = 8;
+  sint32 lightSleepDurationSeconds = 9;
+  sint32 remSleepDurationSeconds = 10;
+  sint32 deepSleepDurationSeconds = 11;
+  sint32 timeToFallAsleepSeconds = 12;
+  sint32 timeAwakeDuringSleepSeconds = 13;
+  sint32 sleepQualityRating1To5Score = 14;
+  sint32 sleepEfficiency1To100Score = 15;
+  sint32 sleepGoalSeconds = 16;
+  sint32 sleepContinuity1To5Score = 17;
+  sint32 sleepContinuity1To5Rating = 18;
+  sint32 hrMaximumBpm = 19;
+  sint32 hrMinimumBpm = 20;
+  sint32 hrAvgBpm = 21;
+  sint32 hrRestingBpm = 22;
+  sint32 hrBasalBpm = 23;
+  repeated HrGranularDataProto hrGranularData = 24;
+  double hrvAvgRmssd = 25;
+  double hrvAvgSdnn = 26;
+  repeated HrvSdnnGranularDataProto hrvSdnnGranularData = 27;
+  repeated HrvRmssdGranularDataProto hrvRmssdGranularData = 28;
+  repeated TemperatureObjectProto temperatureMinimum = 29;
+  repeated TemperatureObjectProto temperatureAvg = 30;
+  repeated TemperatureObjectProto temperatureMaximum = 31;
+  repeated TemperatureGranularDataProto temperatureGranularData = 32;
+  repeated TemperatureObjectProto temperatureDelta = 33;
+  double breathsMinimumPerMin = 34;
+  double breathsAvgPerMin = 35;
+  double breathsMaximumPerMin = 36;
+  repeated BreathingGranularDataProto breathingGranularData = 37;
+  sint32 snoringEventsCount = 38;
+  sint32 snoringDurationTotalSeconds = 39;
+  repeated SnoringGranularDataProto snoringGranularData = 40;
+  double saturationAvgPercentage = 41;
+  double saturationMinimumPercentage = 42;
+  double saturationMaximumPercentage = 43;
+  repeated SaturationGranularDataProto saturationGranularData = 44;
+}
+
+message SleepSummariesProto {
+  repeated SleepSummaryProto elements = 1;
+}
+
+message SleepSummaryResultProto {
+  oneof result {
+    SleepSummariesProto synced = 1;
+    bool recordsNotFound = 2;
+    PluginExceptionProto failure = 3;
+  }
+}
+
+message PhysicalSummaryProto {
+  string dateTime = 1;
+  string sourceOfData = 2;
+  bool wasTheUserUnderPhysicalActivity = 3;
+  sint32 activeSeconds = 4;
+  sint32 restSeconds = 5;
+  sint32 lowIntensitySeconds = 6;
+  sint32 moderateIntensitySeconds = 7;
+  sint32 vigorousIntensitySeconds = 8;
+  sint32 inactivitySeconds = 9;
+  repeated ActivityLevelGranularDataProto activityLevelGranularData = 10;
+  sint32 continuousInactivePeriods = 11;
+  double caloriesNetIntakeKcal = 12;
+  double caloriesExpenditureKcal = 13;
+  double caloriesNetActiveKcal = 14;
+  double caloriesBasalMetabolicRateKcal = 15;
+  sint32 steps = 16;
+  repeated StepsGranularDataProto stepsGranularData = 17;
+  sint32 activeSteps = 18;
+  repeated ActiveStepsGranularDataProto activeStepsGranularData = 19;
+  double walkedDistanceMeters = 20;
+  double traveledDistanceMeters = 21;
+  repeated TraveledDistanceGranularDataProto traveledDistanceGranularData = 22;
+  double floorsClimbed = 23;
+  repeated FloorsClimbedGranularDataProto floorsClimbedGranularData = 24;
+  double elevationAvgAltitudeMeters = 25;
+  double elevationMinimumAltitudeMeters = 26;
+  double elevationMaximumAltitudeMeters = 27;
+  double elevationLossActualAltitudeMeters = 28;
+  double elevationGainActualAltitudeMeters = 29;
+  double elevationPlannedGainMeters = 30;
+  repeated ElevationGranularDataProto elevationGranularData = 31;
+  sint32 swimmingNumStrokes = 32;
+  sint32 swimmingNumLaps = 33;
+  double swimmingPoolLengthMeters = 34;
+  double swimmingTotalDistanceMeters = 35;
+  repeated SwimmingDistanceGranularDataProto swimmingDistanceGranularData = 36;
+  sint32 hrMaximumBpm = 37;
+  sint32 hrMinimumBpm = 38;
+  sint32 hrAvgBpm = 39;
+  sint32 hrRestingBpm = 40;
+  repeated HrGranularDataProto hrGranularData = 41;
+  double hrvAvgRmssd = 42;
+  double hrvAvgSdnn = 43;
+  repeated HrvSdnnGranularDataProto hrvSdnnGranularData = 44;
+  repeated HrvRmssdGranularDataProto hrvRmssdGranularData = 45;
+  double saturationAvgPercentage = 46;
+  repeated SaturationGranularDataProto saturationGranularData = 47;
+  double vo2MaxMlPerMinPerKg = 48;
+  repeated Vo2GranularDataProto vo2GranularData = 49;
+  sint32 stressAtRestDurationSeconds = 50;
+  sint32 stressDurationSeconds = 51;
+  sint32 lowStressDurationSeconds = 52;
+  sint32 mediumStressDurationSeconds = 53;
+  sint32 highStressDurationSeconds = 54;
+  repeated StressGranularDataProto stressGranularData = 55;
+  sint32 stressAvgLevel = 56;
+  sint32 stressMaximumLevel = 57;
+}
+
+message PhysicalSummaryResultProto {
+  oneof result {
+    PhysicalSummaryProto synced = 1;
+    bool recordsNotFound = 2;
+    PluginExceptionProto failure = 3;
+  }
+}
+
+message BodySummaryProto {
+  string dateTime = 1;
+  string sourceOfData = 2;
+  bool wasTheUserUnderPhysicalActivity = 3;
+  double waistCircumferenceCm = 4;
+  double hipCircumferenceCm = 5;
+  double chestCircumferenceCm = 6;
+  double boneCompositionPercentage = 7;
+  double muscleCompositionPercentage = 8;
+  double waterCompositionPercentage = 9;
+  double weightKg = 10;
+  double heightCm = 11;
+  double bmi = 12;
+  double bloodGlucoseAvgMgPerDl = 13;
+  repeated BloodGlucoseGranularDataProto bloodGlucoseGranularData = 14;
+  repeated BloodPressureObjectProto bloodPressureAvg = 15;
+  repeated BloodPressureGranularDataProto bloodPressureGranularData = 16;
+  double waterTotalConsumptionMl = 17;
+  repeated HydrationAmountGranularDataProto hydrationAmountGranularData = 18;
+  repeated HydrationLevelGranularDataProto hydrationLevelGranularData = 19;
+  sint32 hrMaximumBpm = 20;
+  sint32 hrMinimumBpm = 21;
+  sint32 hrAvgBpm = 22;
+  sint32 hrRestingBpm = 23;
+  repeated HrGranularDataProto hrGranularData = 24;
+  double hrvAvgRmssd = 25;
+  double hrvAvgSdnn = 26;
+  repeated HrvSdnnGranularDataProto hrvSdnnGranularData = 27;
+  repeated HrvRmssdGranularDataProto hrvRmssdGranularData = 28;
+  double moodMinimumScale = 29;
+  double moodAvgScale = 30;
+  double moodMaximumScale = 31;
+  repeated MoodGranularDataProto moodGranularData = 32;
+  double moodDeltaScale = 33;
+  double foodIntake = 34;
+  double caloriesIntakeKcal = 35;
+  double proteinIntakeG = 36;
+  double sugarIntakeG = 37;
+  double fatIntakeG = 38;
+  double transFatIntakeG = 39;
+  double carbohydratesIntakeG = 40;
+  double fiberIntakeG = 41;
+  double alcoholIntakeG = 42;
+  double sodiumIntakeMg = 43;
+  double cholesterolIntakeMg = 44;
+  double saturationAvgPercentage = 45;
+  repeated SaturationGranularDataProto saturationGranularData = 46;
+  double vo2MaxMlPerMinPerKg = 47;
+  repeated Vo2GranularDataProto vo2GranularData = 48;
+  repeated TemperatureObjectProto temperatureMinimum = 49;
+  repeated TemperatureObjectProto temperatureAvg = 50;
+  repeated TemperatureObjectProto temperatureMaximum = 51;
+  repeated TemperatureGranularDataProto temperatureGranularData = 52;
+  repeated TemperatureObjectProto temperatureDelta = 53;
+  string lastUpdatedDatetime = 54;
+  string periodStartDate = 55;
+  sint32 cycleDay = 56;
+  sint32 cycleLengthDays = 57;
+  sint32 predictedCycleLengthDays = 58;
+  string currentPhase = 59;
+  sint32 lengthOfCurrentPhaseDays = 60;
+  sint32 daysUntilNextPhase = 61;
+  oneof isAPredictedCycle {
+    bool isAPredictedCycleValue = 62;
+    bool isAPredictedCycleUnknown = 63;
+  };
+  repeated MenstruationFlowGranularDataProto menstruationFlowGranularData = 64;
+}
+
+message BodySummaryResultProto {
+  oneof result {
+    BodySummaryProto synced = 1;
+    bool recordsNotFound = 2;
+    PluginExceptionProto failure = 3;
+  }
+}
+
+message ActivityEventProto {
+  string dateTime = 1;
+  string sourceOfData = 2;
+  bool wasTheUserUnderPhysicalActivity = 3;
+  string activityStartDateTime = 4;
+  string activityEndDateTime = 5;
+  sint32 activityDurationSeconds = 6;
+  string activityTypeName = 7;
+  sint32 activeSeconds = 8;
+  sint32 restSeconds = 9;
+  sint32 lowIntensitySeconds = 10;
+  sint32 moderateIntensitySeconds = 11;
+  sint32 vigorousIntensitySeconds = 12;
+  sint32 inactivitySeconds = 13;
+  repeated ActivityLevelGranularDataProto activityLevelGranularData = 14;
+  sint32 continuousInactivePeriods = 15;
+  sint32 activityStrainLevel = 16;
+  double activityWorkKilojoules = 17;
+  double activityEnergyKilojoules = 18;
+  double activityEnergyPlannedKilojoules = 19;
+  double caloriesNetIntakeKcal = 20;
+  double caloriesExpenditureKcal = 21;
+  double caloriesNetActiveKcal = 22;
+  double caloriesBasalMetabolicRateKcal = 23;
+  double fatPercentageOfCalories = 24;
+  double carbohydratePercentageOfCalories = 25;
+  double proteinPercentageOfCalories = 26;
+  sint32 steps = 27;
+  repeated StepsGranularDataProto stepsGranularData = 28;
+  double walkedDistanceMeters = 29;
+  double traveledDistanceMeters = 30;
+  repeated TraveledDistanceGranularDataProto traveledDistanceGranularData = 31;
+  double floorsClimbed = 32;
+  repeated FloorsClimbedGranularDataProto floorsClimbedGranularData = 33;
+  double elevationAvgAltitudeMeters = 34;
+  double elevationMinimumAltitudeMeters = 35;
+  double elevationMaximumAltitudeMeters = 36;
+  double elevationLossActualAltitudeMeters = 37;
+  double elevationGainActualAltitudeMeters = 38;
+  double elevationPlannedGainMeters = 39;
+  repeated ElevationGranularDataProto elevationGranularData = 40;
+  sint32 swimmingNumStrokes = 41;
+  sint32 swimmingNumLaps = 42;
+  double swimmingPoolLengthMeters = 43;
+  double swimmingTotalDistanceMeters = 44;
+  repeated SwimmingDistanceGranularDataProto swimmingDistanceGranularData = 45;
+  sint32 hrMaximumBpm = 46;
+  sint32 hrMinimumBpm = 47;
+  sint32 hrAvgBpm = 48;
+  sint32 hrRestingBpm = 49;
+  repeated HrGranularDataProto hrGranularData = 50;
+  double hrvAvgRmssd = 51;
+  double hrvAvgSdnn = 52;
+  repeated HrvSdnnGranularDataProto hrvSdnnGranularData = 53;
+  repeated HrvRmssdGranularDataProto hrvRmssdGranularData = 54;
+  double speedNormalizedMetersPerSecond = 55;
+  double speedAvgMetersPerSecond = 56;
+  double speedMaximumMetersPerSecond = 57;
+  repeated SpeedGranularDataProto speedGranularData = 58;
+  repeated VelocityObjectProto velocityAvg = 59;
+  repeated VelocityObjectProto velocityMaximum = 60;
+  double paceAvgMinPerKm = 61;
+  double paceMaximumMinPerKm = 62;
+  double cadenceAvgRpm = 63;
+  double cadenceMaximumRpm = 64;
+  repeated CadenceGranularDataProto cadenceGranularData = 65;
+  double torqueAvgNewtonMeters = 66;
+  double torqueMaximumNewtonMeters = 67;
+  repeated TorqueGranularDataProto torqueGranularData = 68;
+  repeated LapGranularDataProto lapGranularData = 69;
+  double saturationAvgPercentage = 70;
+  repeated SaturationGranularDataProto saturationGranularData = 71;
+  double vo2MaxMlPerMinPerKg = 72;
+  repeated Vo2GranularDataProto vo2GranularData = 73;
+  repeated PositionObjectProto positionStart = 74;
+  repeated PositionObjectProto positionCentroid = 75;
+  repeated PositionObjectProto positionEnd = 76;
+  repeated PositionGranularDataProto positionGranularData = 77;
+  string positionPolylineMapDataSummary = 78;
+  double powerAvgWatts = 79;
+  double powerMaximumWatts = 80;
+  repeated PowerGranularDataProto powerGranularData = 81;
+  sint32 stressAtRestDurationSeconds = 82;
+  sint32 stressDurationSeconds = 83;
+  sint32 lowStressDurationSeconds = 84;
+  sint32 mediumStressDurationSeconds = 85;
+  sint32 highStressDurationSeconds = 86;
+  repeated TssGranularDataProto tssGranularData = 87;
+  sint32 stressAvgLevel = 88;
+  sint32 stressMaximumLevel = 89;
+}
+
+message ActivityEventsProto {
+  repeated ActivityEventProto elements = 1;
+}
+
+message ActivityEventResultProto {
+  oneof result {
+    ActivityEventsProto synced = 1;
+    bool recordsNotFound = 2;
+    PluginExceptionProto failure = 3;
+  }
+}
+
+message ActiveStepsGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  sint32 activeSteps = 3;
+}
+
+message ActivityLevelGranularDataProto {
+  string dateTime = 1;
+  sint32 activityLevel = 2;
+}
+
+message BloodGlucoseGranularDataProto {
+  string dateTime = 1;
+  double bloodGlucoseMgPerDl = 2;
+}
+
+message BloodPressureGranularDataProto {
+  string dateTime = 1;
+  double systolicMmHg = 2;
+  double diastolicMmHg = 3;
+}
+
+message BreathingGranularDataProto {
+  string dateTime = 1;
+  double breathsPerMin = 2;
+}
+
+message CadenceGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double cadenceRpm = 3;
+}
+
+message ElevationGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double elevationChangeMeters = 3;
+}
+
+message FloorsClimbedGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double floorsClimbed = 3;
+}
+
+message HrGranularDataProto {
+  string dateTime = 1;
+  sint32 hrBpm = 2;
+}
+
+message HrvSdnnGranularDataProto {
+  string dateTime = 1;
+  double hrvSdnn = 2;
+}
+
+message MenstruationFlowGranularDataProto {
+  string dateTime = 1;
+  double flowMl = 2;
+}
+
+message MoodGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double moodScale = 3;
+}
+
+message LapGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  sint32 laps = 3;
+}
+
+message PowerGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double powerWatts = 3;
+}
+
+message PositionGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double latDeg = 3;
+  double lngDeg = 4;
+}
+
+message HydrationAmountGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double hydrationAmountMl = 3;
+}
+
+message SaturationGranularDataProto {
+  string dateTime = 1;
+  double saturationPercentage = 2;
+}
+
+message HydrationLevelGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double hydrationLevelPercentage = 3;
+}
+
+message HrvRmssdGranularDataProto {
+  string dateTime = 1;
+  double hrvRmssd = 2;
+}
+
+message SnoringGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  sint32 snoringEventsCount = 3;
+}
+
+message SpeedGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double speedMetersPerSecond = 3;
+}
+
+message StepsGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  sint32 steps = 3;
+}
+
+message StressGranularDataProto {
+  string dateTime = 1;
+  sint32 stressScore = 2;
+}
+
+message SwimmingDistanceGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double swimmingDistanceMeters = 3;
+}
+
+message TemperatureGranularDataProto {
+  string dateTime = 1;
+  double temperatureCelsius = 2;
+  string measurementType = 3;
+}
+
+message TorqueGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double torqueNewtonMeters = 3;
+}
+
+message TraveledDistanceGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  double traveledDistanceMeters = 3;
+}
+
+message TssGranularDataProto {
+  string dateTime = 1;
+  sint32 intervalDurationSeconds = 2;
+  sint32 tssScore = 3;
+}
+
+message Vo2GranularDataProto {
+  string dateTime = 1;
+  double vo2MlPerMinPerKg = 2;
+}
+
+message BloodPressureObjectProto {
+  double systolicMmHg = 1;
+  double diastolicMmHg = 2;
+}
+
+message PositionObjectProto {
+  double latDeg = 1;
+  double lngDeg = 2;
+}
+
+message TemperatureObjectProto {
+  double temperatureCelsius = 1;
+  string measurementType = 2;
+}
+
+message VelocityObjectProto {
+  double speedMetersPerSecond = 1;
+  string direction = 2;
 }

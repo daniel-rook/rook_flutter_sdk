@@ -1,3 +1,10 @@
+## 1.2.0
+
+* Added `SleepSummary`
+* Added `PhysicalSummary`
+* Added `BodySummary`
+* Added `ActivityEvent`
+
 ## 1.1.0
 
 * Added `AuthorizedDataSourceV2`

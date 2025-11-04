@@ -25,7 +25,9 @@ class _IOSSyncState extends State<IOSSync> {
   final ConsoleOutput syncSummariesHistoricOutput = ConsoleOutput();
   final ConsoleOutput syncSummariesOutput = ConsoleOutput();
   final ConsoleOutput syncSingleSummaryOutput = ConsoleOutput();
+  final ConsoleOutput getSingleSummaryOutput = ConsoleOutput();
   final ConsoleOutput syncSingleEventOutput = ConsoleOutput();
+  final ConsoleOutput getSingleEventOutput = ConsoleOutput();
   final ConsoleOutput getTodayStepsOutput = ConsoleOutput();
   final ConsoleOutput getTodayCaloriesOutput = ConsoleOutput();
 
@@ -101,6 +103,38 @@ class _IOSSyncState extends State<IOSSync> {
             onPressed: syncSingleSummary,
             child: const Text('Sync single summary'),
           ),
+          const SectionTitle('Get single summary'),
+          TextField(
+            controller: syncSingleSummaryDate,
+            decoration: const InputDecoration(
+              helperText: 'YYYY-MM-DD',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          DropdownMenu(
+            onSelected: (selection) {
+              summarySyncType = selection ?? AHSummarySyncType.sleep;
+            },
+            dropdownMenuEntries: const [
+              DropdownMenuEntry(
+                value: AHSummarySyncType.sleep,
+                label: "Sleep",
+              ),
+              DropdownMenuEntry(
+                value: AHSummarySyncType.physical,
+                label: "Physical",
+              ),
+              DropdownMenuEntry(
+                value: AHSummarySyncType.body,
+                label: "Body",
+              ),
+            ],
+          ),
+          Text(getSingleSummaryOutput.current),
+          FilledButton(
+            onPressed: getSingleSummary,
+            child: const Text('Get single summary'),
+          ),
           const SectionTitle('Sync single event'),
           TextField(
             controller: syncSingleEventDate,
@@ -148,6 +182,30 @@ class _IOSSyncState extends State<IOSSync> {
           FilledButton(
             onPressed: syncSingleEvent,
             child: const Text('Sync single event'),
+          ),
+          const SectionTitle('Get single event'),
+          TextField(
+            controller: syncSingleEventDate,
+            decoration: const InputDecoration(
+              helperText: 'YYYY-MM-DD',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          DropdownMenu(
+            onSelected: (selection) {
+              eventSyncType = selection ?? AHEventSyncType.activity;
+            },
+            dropdownMenuEntries: const [
+              DropdownMenuEntry(
+                value: AHEventSyncType.activity,
+                label: "Activity",
+              ),
+            ],
+          ),
+          Text(getSingleEventOutput.current),
+          FilledButton(
+            onPressed: getSingleEvent,
+            child: const Text('Get single event'),
           ),
           const SectionTitle('Get today steps'),
           Text(getTodayStepsOutput.current),
@@ -238,6 +296,44 @@ class _IOSSyncState extends State<IOSSync> {
     }
   }
 
+  void getSingleSummary() async {
+    getSingleSummaryOutput.clear();
+
+    final dateString = syncSingleSummaryDate.text;
+    final date = DateTime.parse(dateString);
+
+    setState(() {
+      getSingleSummaryOutput.append("Syncing $date $summarySyncType...");
+    });
+
+    try {
+      String data = "";
+
+      switch (summarySyncType) {
+        case AHSummarySyncType.sleep:
+          data = (await AHRookSyncManager.getSleepSummary(date)).toString();
+        case AHSummarySyncType.physical:
+          data = (await AHRookSyncManager.getPhysicalSummary(date)).toString();
+        case AHSummarySyncType.body:
+          data = (await AHRookSyncManager.getBodySummary(date)).toString();
+      }
+
+      getSingleSummaryOutput.append(
+        "$date $summarySyncType synced successfully",
+      );
+
+      setState(() {
+        getSingleSummaryOutput.append(data);
+      });
+    } catch (error) {
+      setState(() {
+        getSingleSummaryOutput.append(
+          "Error syncing $date $summarySyncType: $error",
+        );
+      });
+    }
+  }
+
   void syncSingleEvent() async {
     syncSingleEventOutput.clear();
 
@@ -259,6 +355,42 @@ class _IOSSyncState extends State<IOSSync> {
     } catch (error) {
       setState(() {
         syncSingleEventOutput.append(
+          "Error syncing $date $eventSyncType: $error",
+        );
+      });
+    }
+  }
+
+  void getSingleEvent() async {
+    getSingleEventOutput.clear();
+
+    final dateString = syncSingleEventDate.text;
+    final date = DateTime.parse(dateString);
+
+    setState(() {
+      getSingleEventOutput.append("Syncing $date $eventSyncType...");
+    });
+
+    try {
+      String data = "";
+
+      switch (eventSyncType) {
+        case AHEventSyncType.activity:
+          data = (await AHRookSyncManager.getActivityEvents(date)).toString();
+        default:
+          data = "Not implemented yet.";
+      }
+
+      getSingleEventOutput.append(
+        "$date $eventSyncType synced successfully",
+      );
+
+      setState(() {
+        getSingleEventOutput.append(data);
+      });
+    } catch (error) {
+      setState(() {
+        getSingleEventOutput.append(
           "Error syncing $date $eventSyncType: $error",
         );
       });

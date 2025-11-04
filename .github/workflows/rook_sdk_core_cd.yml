@@ -6,7 +6,41 @@ on:
       - 'rook_sdk_core-v[0-9]+.[0-9]+.[0-9]+*'
 
 jobs:
+  checks:
+    name: 'Version checks'
+    environment: ${{ inputs.environment }}
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Check versions match
+        run: |
+          # Extract version from tag (e.g., rook_sdk_core-v1.2.3 -> 1.2.3)
+          # GITHUB_REF_NAME holds the tag name that triggered the workflow
+          TAG_VERSION=$(echo $GITHUB_REF_NAME | sed 's/rook_sdk_core-v//')
+
+          # Define the path to the pubspec.yaml file
+          PUBSPEC_PATH="packages/rook_sdk_core/pubspec.yaml"
+
+          # Extract version from pubspec.yaml (finds the line starting with 'version: ')
+          PUBSPEC_VERSION=$(grep '^version: ' $PUBSPEC_PATH | awk '{print $2}')
+
+          echo "Git Tag Version: $TAG_VERSION"
+          echo "Pubspec Version: $PUBSPEC_VERSION"
+
+          # Compare the two versions and fail the job if they don't match
+          if [ "$TAG_VERSION" != "$PUBSPEC_VERSION" ]; then
+            echo "Error: Git tag version ($TAG_VERSION) does not match pubspec.yaml version ($PUBSPEC_VERSION)."
+            exit 1
+          fi
+
+          echo "Versions match! Proceeding with publish."
+  
   publish:
+    needs: checks
     permissions:
       id-token: write
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1

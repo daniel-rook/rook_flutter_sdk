@@ -1,34 +1,36 @@
+// This is a generated file - do not edit.
 //
-//  Generated code. Do not modify.
-//  source: protos.proto
-//
-// @dart = 2.12
+// Generated from protos.proto.
+
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
-// ignore_for_file: constant_identifier_names, library_prefixes
-// ignore_for_file: non_constant_identifier_names, prefer_final_fields
-// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: curly_braces_in_flow_control_structures
+// ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
+// ignore_for_file: non_constant_identifier_names
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class RookEnvironmentProto extends $pb.ProtobufEnum {
-  static const RookEnvironmentProto SANDBOX =
-      RookEnvironmentProto._(0, _omitEnumNames ? '' : 'SANDBOX');
-  static const RookEnvironmentProto PRODUCTION =
-      RookEnvironmentProto._(1, _omitEnumNames ? '' : 'PRODUCTION');
+class EnvironmentProto extends $pb.ProtobufEnum {
+  static const EnvironmentProto SANDBOX =
+      EnvironmentProto._(0, _omitEnumNames ? '' : 'SANDBOX');
+  static const EnvironmentProto PRODUCTION =
+      EnvironmentProto._(1, _omitEnumNames ? '' : 'PRODUCTION');
 
-  static const $core.List<RookEnvironmentProto> values = <RookEnvironmentProto>[
+  static const $core.List<EnvironmentProto> values = <EnvironmentProto>[
     SANDBOX,
     PRODUCTION,
   ];
 
-  static final $core.Map<$core.int, RookEnvironmentProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static RookEnvironmentProto? valueOf($core.int value) => _byValue[value];
+  static final $core.List<EnvironmentProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 1);
+  static EnvironmentProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const RookEnvironmentProto._($core.int v, $core.String n) : super(v, n);
+  const EnvironmentProto._(super.value, super.name);
 }
 
 class SamsungHealthAvailabilityProto extends $pb.ProtobufEnum {
@@ -53,13 +55,12 @@ class SamsungHealthAvailabilityProto extends $pb.ProtobufEnum {
     NOT_READY,
   ];
 
-  static final $core.Map<$core.int, SamsungHealthAvailabilityProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.List<SamsungHealthAvailabilityProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
   static SamsungHealthAvailabilityProto? valueOf($core.int value) =>
-      _byValue[value];
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const SamsungHealthAvailabilityProto._($core.int v, $core.String n)
-      : super(v, n);
+  const SamsungHealthAvailabilityProto._(super.value, super.name);
 }
 
 class RequestPermissionsStatusProto extends $pb.ProtobufEnum {
@@ -75,94 +76,12 @@ class RequestPermissionsStatusProto extends $pb.ProtobufEnum {
     ALREADY_GRANTED,
   ];
 
-  static final $core.Map<$core.int, RequestPermissionsStatusProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.List<RequestPermissionsStatusProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 1);
   static RequestPermissionsStatusProto? valueOf($core.int value) =>
-      _byValue[value];
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const RequestPermissionsStatusProto._($core.int v, $core.String n)
-      : super(v, n);
-}
-
-class SyncStatusProto extends $pb.ProtobufEnum {
-  static const SyncStatusProto SYNCED =
-      SyncStatusProto._(0, _omitEnumNames ? '' : 'SYNCED');
-  static const SyncStatusProto RECORDS_NOT_FOUND =
-      SyncStatusProto._(1, _omitEnumNames ? '' : 'RECORDS_NOT_FOUND');
-
-  static const $core.List<SyncStatusProto> values = <SyncStatusProto>[
-    SYNCED,
-    RECORDS_NOT_FOUND,
-  ];
-
-  static final $core.Map<$core.int, SyncStatusProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static SyncStatusProto? valueOf($core.int value) => _byValue[value];
-
-  const SyncStatusProto._($core.int v, $core.String n) : super(v, n);
-}
-
-class SummarySyncTypeProto extends $pb.ProtobufEnum {
-  static const SummarySyncTypeProto SLEEP =
-      SummarySyncTypeProto._(0, _omitEnumNames ? '' : 'SLEEP');
-  static const SummarySyncTypeProto PHYSICAL =
-      SummarySyncTypeProto._(1, _omitEnumNames ? '' : 'PHYSICAL');
-  static const SummarySyncTypeProto BODY =
-      SummarySyncTypeProto._(2, _omitEnumNames ? '' : 'BODY');
-
-  static const $core.List<SummarySyncTypeProto> values = <SummarySyncTypeProto>[
-    SLEEP,
-    PHYSICAL,
-    BODY,
-  ];
-
-  static final $core.Map<$core.int, SummarySyncTypeProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static SummarySyncTypeProto? valueOf($core.int value) => _byValue[value];
-
-  const SummarySyncTypeProto._($core.int v, $core.String n) : super(v, n);
-}
-
-class EventSyncTypeProto extends $pb.ProtobufEnum {
-  static const EventSyncTypeProto ACTIVITY =
-      EventSyncTypeProto._(0, _omitEnumNames ? '' : 'ACTIVITY');
-  static const EventSyncTypeProto BLOOD_GLUCOSE =
-      EventSyncTypeProto._(1, _omitEnumNames ? '' : 'BLOOD_GLUCOSE');
-  static const EventSyncTypeProto BLOOD_PRESSURE =
-      EventSyncTypeProto._(2, _omitEnumNames ? '' : 'BLOOD_PRESSURE');
-  static const EventSyncTypeProto BODY_METRICS =
-      EventSyncTypeProto._(3, _omitEnumNames ? '' : 'BODY_METRICS');
-  static const EventSyncTypeProto HEART_RATE =
-      EventSyncTypeProto._(4, _omitEnumNames ? '' : 'HEART_RATE');
-  static const EventSyncTypeProto HYDRATION =
-      EventSyncTypeProto._(5, _omitEnumNames ? '' : 'HYDRATION');
-  static const EventSyncTypeProto NUTRITION =
-      EventSyncTypeProto._(6, _omitEnumNames ? '' : 'NUTRITION');
-  static const EventSyncTypeProto OXYGENATION =
-      EventSyncTypeProto._(7, _omitEnumNames ? '' : 'OXYGENATION');
-  static const EventSyncTypeProto STEPS =
-      EventSyncTypeProto._(8, _omitEnumNames ? '' : 'STEPS');
-  static const EventSyncTypeProto CALORIES =
-      EventSyncTypeProto._(9, _omitEnumNames ? '' : 'CALORIES');
-
-  static const $core.List<EventSyncTypeProto> values = <EventSyncTypeProto>[
-    ACTIVITY,
-    BLOOD_GLUCOSE,
-    BLOOD_PRESSURE,
-    BODY_METRICS,
-    HEART_RATE,
-    HYDRATION,
-    NUTRITION,
-    OXYGENATION,
-    STEPS,
-    CALORIES,
-  ];
-
-  static final $core.Map<$core.int, EventSyncTypeProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
-  static EventSyncTypeProto? valueOf($core.int value) => _byValue[value];
-
-  const EventSyncTypeProto._($core.int v, $core.String n) : super(v, n);
+  const RequestPermissionsStatusProto._(super.value, super.name);
 }
 
 class SamsungHealthPermissionProto extends $pb.ProtobufEnum {
@@ -223,13 +142,97 @@ class SamsungHealthPermissionProto extends $pb.ProtobufEnum {
     WATER_INTAKE_PERMISSION,
   ];
 
-  static final $core.Map<$core.int, SamsungHealthPermissionProto> _byValue =
-      $pb.ProtobufEnum.initByValue(values);
+  static final $core.List<SamsungHealthPermissionProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 12);
   static SamsungHealthPermissionProto? valueOf($core.int value) =>
-      _byValue[value];
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const SamsungHealthPermissionProto._($core.int v, $core.String n)
-      : super(v, n);
+  const SamsungHealthPermissionProto._(super.value, super.name);
 }
 
-const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');
+class SummarySyncTypeProto extends $pb.ProtobufEnum {
+  static const SummarySyncTypeProto SLEEP =
+      SummarySyncTypeProto._(0, _omitEnumNames ? '' : 'SLEEP');
+  static const SummarySyncTypeProto PHYSICAL =
+      SummarySyncTypeProto._(1, _omitEnumNames ? '' : 'PHYSICAL');
+  static const SummarySyncTypeProto BODY =
+      SummarySyncTypeProto._(2, _omitEnumNames ? '' : 'BODY');
+
+  static const $core.List<SummarySyncTypeProto> values = <SummarySyncTypeProto>[
+    SLEEP,
+    PHYSICAL,
+    BODY,
+  ];
+
+  static final $core.List<SummarySyncTypeProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static SummarySyncTypeProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const SummarySyncTypeProto._(super.value, super.name);
+}
+
+class EventSyncTypeProto extends $pb.ProtobufEnum {
+  static const EventSyncTypeProto ACTIVITY =
+      EventSyncTypeProto._(0, _omitEnumNames ? '' : 'ACTIVITY');
+  static const EventSyncTypeProto BLOOD_GLUCOSE =
+      EventSyncTypeProto._(1, _omitEnumNames ? '' : 'BLOOD_GLUCOSE');
+  static const EventSyncTypeProto BLOOD_PRESSURE =
+      EventSyncTypeProto._(2, _omitEnumNames ? '' : 'BLOOD_PRESSURE');
+  static const EventSyncTypeProto BODY_METRICS =
+      EventSyncTypeProto._(3, _omitEnumNames ? '' : 'BODY_METRICS');
+  static const EventSyncTypeProto HEART_RATE =
+      EventSyncTypeProto._(4, _omitEnumNames ? '' : 'HEART_RATE');
+  static const EventSyncTypeProto HYDRATION =
+      EventSyncTypeProto._(5, _omitEnumNames ? '' : 'HYDRATION');
+  static const EventSyncTypeProto NUTRITION =
+      EventSyncTypeProto._(6, _omitEnumNames ? '' : 'NUTRITION');
+  static const EventSyncTypeProto OXYGENATION =
+      EventSyncTypeProto._(7, _omitEnumNames ? '' : 'OXYGENATION');
+  static const EventSyncTypeProto STEPS =
+      EventSyncTypeProto._(8, _omitEnumNames ? '' : 'STEPS');
+  static const EventSyncTypeProto CALORIES =
+      EventSyncTypeProto._(9, _omitEnumNames ? '' : 'CALORIES');
+
+  static const $core.List<EventSyncTypeProto> values = <EventSyncTypeProto>[
+    ACTIVITY,
+    BLOOD_GLUCOSE,
+    BLOOD_PRESSURE,
+    BODY_METRICS,
+    HEART_RATE,
+    HYDRATION,
+    NUTRITION,
+    OXYGENATION,
+    STEPS,
+    CALORIES,
+  ];
+
+  static final $core.List<EventSyncTypeProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 9);
+  static EventSyncTypeProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const EventSyncTypeProto._(super.value, super.name);
+}
+
+class SyncStatusProto extends $pb.ProtobufEnum {
+  static const SyncStatusProto SYNCED =
+      SyncStatusProto._(0, _omitEnumNames ? '' : 'SYNCED');
+  static const SyncStatusProto RECORDS_NOT_FOUND =
+      SyncStatusProto._(1, _omitEnumNames ? '' : 'RECORDS_NOT_FOUND');
+
+  static const $core.List<SyncStatusProto> values = <SyncStatusProto>[
+    SYNCED,
+    RECORDS_NOT_FOUND,
+  ];
+
+  static final $core.List<SyncStatusProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 1);
+  static SyncStatusProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const SyncStatusProto._(super.value, super.name);
+}
+
+const $core.bool _omitEnumNames =
+    $core.bool.fromEnvironment('protobuf.omit_enum_names');
