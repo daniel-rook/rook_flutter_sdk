@@ -32,6 +32,8 @@ extension EventSyncTypeProto {
             return .bloodGlucose
         case .bloodPressure:
             return .bloodPressure
+        case .bodyMetrics:
+            return .bodyMetrics
         case .heartRate:
             return .heartRate
         case .oxygenation:
