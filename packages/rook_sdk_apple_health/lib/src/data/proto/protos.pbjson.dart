@@ -185,15 +185,7 @@ const BooleanResultProto$json = {
   '1': 'BooleanResultProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'success'},
-    {
-      '1': 'failure',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -210,15 +202,7 @@ const Int64ResultProto$json = {
   '1': 'Int64ResultProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'success'},
-    {
-      '1': 'failure',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -236,21 +220,8 @@ const ConfigurationProto$json = {
   '2': [
     {'1': 'clientUUID', '3': 1, '4': 1, '5': 9, '10': 'clientUUID'},
     {'1': 'secretKey', '3': 2, '4': 1, '5': 9, '10': 'secretKey'},
-    {
-      '1': 'environment',
-      '3': 3,
-      '4': 1,
-      '5': 14,
-      '6': '.EnvironmentProto',
-      '10': 'environment'
-    },
-    {
-      '1': 'enableBackgroundSync',
-      '3': 4,
-      '4': 1,
-      '5': 8,
-      '10': 'enableBackgroundSync'
-    },
+    {'1': 'environment', '3': 3, '4': 1, '5': 14, '6': '.EnvironmentProto', '10': 'environment'},
+    {'1': 'enableBackgroundSync', '3': 4, '4': 1, '5': 8, '10': 'enableBackgroundSync'},
   ],
 };
 
@@ -266,15 +237,7 @@ const IntResultProto$json = {
   '1': 'IntResultProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 13, '9': 0, '10': 'success'},
-    {
-      '1': 'failure',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -304,24 +267,8 @@ final $typed_data.Uint8List caloriesProtoDescriptor = $convert.base64Decode(
 const CaloriesResultProto$json = {
   '1': 'CaloriesResultProto',
   '2': [
-    {
-      '1': 'success',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.CaloriesProto',
-      '9': 0,
-      '10': 'success'
-    },
-    {
-      '1': 'failure',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.CaloriesProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -341,13 +288,7 @@ const DataSourceAuthorizerProto$json = {
     {'1': 'dataSource', '3': 1, '4': 1, '5': 9, '10': 'dataSource'},
     {'1': 'authorized', '3': 2, '4': 1, '5': 8, '10': 'authorized'},
     {'1': 'authorizationUrl', '3': 3, '4': 1, '5': 9, '10': 'authorizationUrl'},
-    {
-      '1': 'authorizationUrlIsNull',
-      '3': 6,
-      '4': 1,
-      '5': 8,
-      '10': 'authorizationUrlIsNull'
-    },
+    {'1': 'authorizationUrlIsNull', '3': 6, '4': 1, '5': 8, '10': 'authorizationUrlIsNull'},
   ],
 };
 
@@ -362,24 +303,8 @@ final $typed_data.Uint8List dataSourceAuthorizerProtoDescriptor = $convert.base6
 const DataSourceAuthorizerResultProto$json = {
   '1': 'DataSourceAuthorizerResultProto',
   '2': [
-    {
-      '1': 'success',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.DataSourceAuthorizerProto',
-      '9': 0,
-      '10': 'success'
-    },
-    {
-      '1': 'failure',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.DataSourceAuthorizerProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -387,72 +312,10 @@ const DataSourceAuthorizerResultProto$json = {
 };
 
 /// Descriptor for `DataSourceAuthorizerResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataSourceAuthorizerResultProtoDescriptor =
-    $convert.base64Decode(
-        'Ch9EYXRhU291cmNlQXV0aG9yaXplclJlc3VsdFByb3RvEjYKB3N1Y2Nlc3MYASABKAsyGi5EYX'
-        'RhU291cmNlQXV0aG9yaXplclByb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBs'
-        'dWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
-
-@$core.Deprecated('Use authorizedDataSourcesProtoDescriptor instead')
-const AuthorizedDataSourcesProto$json = {
-  '1': 'AuthorizedDataSourcesProto',
-  '2': [
-    {'1': 'oura', '3': 1, '4': 1, '5': 13, '10': 'oura'},
-    {'1': 'polar', '3': 2, '4': 1, '5': 13, '10': 'polar'},
-    {'1': 'whoop', '3': 3, '4': 1, '5': 13, '10': 'whoop'},
-    {'1': 'fitbit', '3': 4, '4': 1, '5': 13, '10': 'fitbit'},
-    {'1': 'garmin', '3': 5, '4': 1, '5': 13, '10': 'garmin'},
-    {'1': 'withings', '3': 6, '4': 1, '5': 13, '10': 'withings'},
-    {'1': 'dexcom', '3': 7, '4': 1, '5': 13, '10': 'dexcom'},
-    {'1': 'appleHealth', '3': 8, '4': 1, '5': 13, '10': 'appleHealth'},
-    {'1': 'healthConnect', '3': 9, '4': 1, '5': 13, '10': 'healthConnect'},
-    {'1': 'android', '3': 10, '4': 1, '5': 13, '10': 'android'},
-  ],
-};
-
-/// Descriptor for `AuthorizedDataSourcesProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourcesProtoDescriptor = $convert.base64Decode(
-    'ChpBdXRob3JpemVkRGF0YVNvdXJjZXNQcm90bxISCgRvdXJhGAEgASgNUgRvdXJhEhQKBXBvbG'
-    'FyGAIgASgNUgVwb2xhchIUCgV3aG9vcBgDIAEoDVIFd2hvb3ASFgoGZml0Yml0GAQgASgNUgZm'
-    'aXRiaXQSFgoGZ2FybWluGAUgASgNUgZnYXJtaW4SGgoId2l0aGluZ3MYBiABKA1SCHdpdGhpbm'
-    'dzEhYKBmRleGNvbRgHIAEoDVIGZGV4Y29tEiAKC2FwcGxlSGVhbHRoGAggASgNUgthcHBsZUhl'
-    'YWx0aBIkCg1oZWFsdGhDb25uZWN0GAkgASgNUg1oZWFsdGhDb25uZWN0EhgKB2FuZHJvaWQYCi'
-    'ABKA1SB2FuZHJvaWQ=');
-
-@$core.Deprecated('Use authorizedDataSourcesResultProtoDescriptor instead')
-const AuthorizedDataSourcesResultProto$json = {
-  '1': 'AuthorizedDataSourcesResultProto',
-  '2': [
-    {
-      '1': 'success',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.AuthorizedDataSourcesProto',
-      '9': 0,
-      '10': 'success'
-    },
-    {
-      '1': 'failure',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
-  ],
-  '8': [
-    {'1': 'result'},
-  ],
-};
-
-/// Descriptor for `AuthorizedDataSourcesResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourcesResultProtoDescriptor =
-    $convert.base64Decode(
-        'CiBBdXRob3JpemVkRGF0YVNvdXJjZXNSZXN1bHRQcm90bxI3CgdzdWNjZXNzGAEgASgLMhsuQX'
-        'V0aG9yaXplZERhdGFTb3VyY2VzUHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIgASgLMhUu'
-        'UGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
+final $typed_data.Uint8List dataSourceAuthorizerResultProtoDescriptor = $convert.base64Decode(
+    'Ch9EYXRhU291cmNlQXV0aG9yaXplclJlc3VsdFByb3RvEjYKB3N1Y2Nlc3MYASABKAsyGi5EYX'
+    'RhU291cmNlQXV0aG9yaXplclByb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBs'
+    'dWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use authorizedDataSourceV2ProtoDescriptor instead')
 const AuthorizedDataSourceV2Proto$json = {
@@ -465,54 +328,29 @@ const AuthorizedDataSourceV2Proto$json = {
 };
 
 /// Descriptor for `AuthorizedDataSourceV2Proto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ProtoDescriptor =
-    $convert.base64Decode(
-        'ChtBdXRob3JpemVkRGF0YVNvdXJjZVYyUHJvdG8SEgoEbmFtZRgBIAEoCVIEbmFtZRIeCgphdX'
-        'Rob3JpemVkGAIgASgIUgphdXRob3JpemVkEhoKCGltYWdlVXJsGAMgASgJUghpbWFnZVVybA==');
+final $typed_data.Uint8List authorizedDataSourceV2ProtoDescriptor = $convert.base64Decode(
+    'ChtBdXRob3JpemVkRGF0YVNvdXJjZVYyUHJvdG8SEgoEbmFtZRgBIAEoCVIEbmFtZRIeCgphdX'
+    'Rob3JpemVkGAIgASgIUgphdXRob3JpemVkEhoKCGltYWdlVXJsGAMgASgJUghpbWFnZVVybA==');
 
 @$core.Deprecated('Use authorizedDataSourceV2ListProtoDescriptor instead')
 const AuthorizedDataSourceV2ListProto$json = {
   '1': 'AuthorizedDataSourceV2ListProto',
   '2': [
-    {
-      '1': 'list',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.AuthorizedDataSourceV2Proto',
-      '10': 'list'
-    },
+    {'1': 'list', '3': 1, '4': 3, '5': 11, '6': '.AuthorizedDataSourceV2Proto', '10': 'list'},
   ],
 };
 
 /// Descriptor for `AuthorizedDataSourceV2ListProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ListProtoDescriptor =
-    $convert.base64Decode(
-        'Ch9BdXRob3JpemVkRGF0YVNvdXJjZVYyTGlzdFByb3RvEjAKBGxpc3QYASADKAsyHC5BdXRob3'
-        'JpemVkRGF0YVNvdXJjZVYyUHJvdG9SBGxpc3Q=');
+final $typed_data.Uint8List authorizedDataSourceV2ListProtoDescriptor = $convert.base64Decode(
+    'Ch9BdXRob3JpemVkRGF0YVNvdXJjZVYyTGlzdFByb3RvEjAKBGxpc3QYASADKAsyHC5BdXRob3'
+    'JpemVkRGF0YVNvdXJjZVYyUHJvdG9SBGxpc3Q=');
 
 @$core.Deprecated('Use authorizedDataSourceV2ResultProtoDescriptor instead')
 const AuthorizedDataSourceV2ResultProto$json = {
   '1': 'AuthorizedDataSourceV2ResultProto',
   '2': [
-    {
-      '1': 'success',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.AuthorizedDataSourceV2ListProto',
-      '9': 0,
-      '10': 'success'
-    },
-    {
-      '1': 'failure',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.AuthorizedDataSourceV2ListProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -520,94 +358,10 @@ const AuthorizedDataSourceV2ResultProto$json = {
 };
 
 /// Descriptor for `AuthorizedDataSourceV2ResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ResultProtoDescriptor =
-    $convert.base64Decode(
-        'CiFBdXRob3JpemVkRGF0YVNvdXJjZVYyUmVzdWx0UHJvdG8SPAoHc3VjY2VzcxgBIAEoCzIgLk'
-        'F1dGhvcml6ZWREYXRhU291cmNlVjJMaXN0UHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIg'
-        'ASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
-
-@$core.Deprecated('Use dataSourceProtoDescriptor instead')
-const DataSourceProto$json = {
-  '1': 'DataSourceProto',
-  '2': [
-    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
-    {'1': 'imageUrl', '3': 3, '4': 1, '5': 9, '10': 'imageUrl'},
-    {'1': 'connected', '3': 4, '4': 1, '5': 8, '10': 'connected'},
-    {'1': 'authorizationUrl', '3': 5, '4': 1, '5': 9, '10': 'authorizationUrl'},
-    {
-      '1': 'authorizationUrlIsNull',
-      '3': 6,
-      '4': 1,
-      '5': 8,
-      '10': 'authorizationUrlIsNull'
-    },
-  ],
-};
-
-/// Descriptor for `DataSourceProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataSourceProtoDescriptor = $convert.base64Decode(
-    'Cg9EYXRhU291cmNlUHJvdG8SEgoEbmFtZRgBIAEoCVIEbmFtZRIgCgtkZXNjcmlwdGlvbhgCIA'
-    'EoCVILZGVzY3JpcHRpb24SGgoIaW1hZ2VVcmwYAyABKAlSCGltYWdlVXJsEhwKCWNvbm5lY3Rl'
-    'ZBgEIAEoCFIJY29ubmVjdGVkEioKEGF1dGhvcml6YXRpb25VcmwYBSABKAlSEGF1dGhvcml6YX'
-    'Rpb25VcmwSNgoWYXV0aG9yaXphdGlvblVybElzTnVsbBgGIAEoCFIWYXV0aG9yaXphdGlvblVy'
-    'bElzTnVsbA==');
-
-@$core.Deprecated('Use dataSourcesProtoListWrapperDescriptor instead')
-const DataSourcesProtoListWrapper$json = {
-  '1': 'DataSourcesProtoListWrapper',
-  '2': [
-    {
-      '1': 'dataSources',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.DataSourceProto',
-      '10': 'dataSources'
-    },
-  ],
-};
-
-/// Descriptor for `DataSourcesProtoListWrapper`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataSourcesProtoListWrapperDescriptor =
-    $convert.base64Decode(
-        'ChtEYXRhU291cmNlc1Byb3RvTGlzdFdyYXBwZXISMgoLZGF0YVNvdXJjZXMYASADKAsyEC5EYX'
-        'RhU291cmNlUHJvdG9SC2RhdGFTb3VyY2Vz');
-
-@$core.Deprecated('Use resultDataSourcesProtoDescriptor instead')
-const ResultDataSourcesProto$json = {
-  '1': 'ResultDataSourcesProto',
-  '2': [
-    {
-      '1': 'dataSourcesProtoListWrapper',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.DataSourcesProtoListWrapper',
-      '9': 0,
-      '10': 'dataSourcesProtoListWrapper'
-    },
-    {
-      '1': 'pluginExceptionProto',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'pluginExceptionProto'
-    },
-  ],
-  '8': [
-    {'1': 'result'},
-  ],
-};
-
-/// Descriptor for `ResultDataSourcesProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultDataSourcesProtoDescriptor = $convert.base64Decode(
-    'ChZSZXN1bHREYXRhU291cmNlc1Byb3RvEmAKG2RhdGFTb3VyY2VzUHJvdG9MaXN0V3JhcHBlch'
-    'gBIAEoCzIcLkRhdGFTb3VyY2VzUHJvdG9MaXN0V3JhcHBlckgAUhtkYXRhU291cmNlc1Byb3Rv'
-    'TGlzdFdyYXBwZXISSwoUcGx1Z2luRXhjZXB0aW9uUHJvdG8YAiABKAsyFS5QbHVnaW5FeGNlcH'
-    'Rpb25Qcm90b0gAUhRwbHVnaW5FeGNlcHRpb25Qcm90b0IICgZyZXN1bHQ=');
+final $typed_data.Uint8List authorizedDataSourceV2ResultProtoDescriptor = $convert.base64Decode(
+    'CiFBdXRob3JpemVkRGF0YVNvdXJjZVYyUmVzdWx0UHJvdG8SPAoHc3VjY2VzcxgBIAEoCzIgLk'
+    'F1dGhvcml6ZWREYXRhU291cmNlVjJMaXN0UHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIg'
+    'ASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use sleepSummaryProtoDescriptor instead')
 const SleepSummaryProto$json = {
@@ -615,257 +369,48 @@ const SleepSummaryProto$json = {
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
     {'1': 'sourceOfData', '3': 2, '4': 1, '5': 9, '10': 'sourceOfData'},
-    {
-      '1': 'wasTheUserUnderPhysicalActivity',
-      '3': 3,
-      '4': 1,
-      '5': 8,
-      '10': 'wasTheUserUnderPhysicalActivity'
-    },
-    {
-      '1': 'sleepStartDateTime',
-      '3': 4,
-      '4': 1,
-      '5': 9,
-      '10': 'sleepStartDateTime'
-    },
+    {'1': 'wasTheUserUnderPhysicalActivity', '3': 3, '4': 1, '5': 8, '10': 'wasTheUserUnderPhysicalActivity'},
+    {'1': 'sleepStartDateTime', '3': 4, '4': 1, '5': 9, '10': 'sleepStartDateTime'},
     {'1': 'sleepEndDateTime', '3': 5, '4': 1, '5': 9, '10': 'sleepEndDateTime'},
     {'1': 'sleepDate', '3': 6, '4': 1, '5': 9, '10': 'sleepDate'},
-    {
-      '1': 'sleepDurationSeconds',
-      '3': 7,
-      '4': 1,
-      '5': 17,
-      '10': 'sleepDurationSeconds'
-    },
-    {
-      '1': 'timeInBedSeconds',
-      '3': 8,
-      '4': 1,
-      '5': 17,
-      '10': 'timeInBedSeconds'
-    },
-    {
-      '1': 'lightSleepDurationSeconds',
-      '3': 9,
-      '4': 1,
-      '5': 17,
-      '10': 'lightSleepDurationSeconds'
-    },
-    {
-      '1': 'remSleepDurationSeconds',
-      '3': 10,
-      '4': 1,
-      '5': 17,
-      '10': 'remSleepDurationSeconds'
-    },
-    {
-      '1': 'deepSleepDurationSeconds',
-      '3': 11,
-      '4': 1,
-      '5': 17,
-      '10': 'deepSleepDurationSeconds'
-    },
-    {
-      '1': 'timeToFallAsleepSeconds',
-      '3': 12,
-      '4': 1,
-      '5': 17,
-      '10': 'timeToFallAsleepSeconds'
-    },
-    {
-      '1': 'timeAwakeDuringSleepSeconds',
-      '3': 13,
-      '4': 1,
-      '5': 17,
-      '10': 'timeAwakeDuringSleepSeconds'
-    },
-    {
-      '1': 'sleepQualityRating1To5Score',
-      '3': 14,
-      '4': 1,
-      '5': 17,
-      '10': 'sleepQualityRating1To5Score'
-    },
-    {
-      '1': 'sleepEfficiency1To100Score',
-      '3': 15,
-      '4': 1,
-      '5': 17,
-      '10': 'sleepEfficiency1To100Score'
-    },
-    {
-      '1': 'sleepGoalSeconds',
-      '3': 16,
-      '4': 1,
-      '5': 17,
-      '10': 'sleepGoalSeconds'
-    },
-    {
-      '1': 'sleepContinuity1To5Score',
-      '3': 17,
-      '4': 1,
-      '5': 17,
-      '10': 'sleepContinuity1To5Score'
-    },
-    {
-      '1': 'sleepContinuity1To5Rating',
-      '3': 18,
-      '4': 1,
-      '5': 17,
-      '10': 'sleepContinuity1To5Rating'
-    },
+    {'1': 'sleepDurationSeconds', '3': 7, '4': 1, '5': 17, '10': 'sleepDurationSeconds'},
+    {'1': 'timeInBedSeconds', '3': 8, '4': 1, '5': 17, '10': 'timeInBedSeconds'},
+    {'1': 'lightSleepDurationSeconds', '3': 9, '4': 1, '5': 17, '10': 'lightSleepDurationSeconds'},
+    {'1': 'remSleepDurationSeconds', '3': 10, '4': 1, '5': 17, '10': 'remSleepDurationSeconds'},
+    {'1': 'deepSleepDurationSeconds', '3': 11, '4': 1, '5': 17, '10': 'deepSleepDurationSeconds'},
+    {'1': 'timeToFallAsleepSeconds', '3': 12, '4': 1, '5': 17, '10': 'timeToFallAsleepSeconds'},
+    {'1': 'timeAwakeDuringSleepSeconds', '3': 13, '4': 1, '5': 17, '10': 'timeAwakeDuringSleepSeconds'},
+    {'1': 'sleepQualityRating1To5Score', '3': 14, '4': 1, '5': 17, '10': 'sleepQualityRating1To5Score'},
+    {'1': 'sleepEfficiency1To100Score', '3': 15, '4': 1, '5': 17, '10': 'sleepEfficiency1To100Score'},
+    {'1': 'sleepGoalSeconds', '3': 16, '4': 1, '5': 17, '10': 'sleepGoalSeconds'},
+    {'1': 'sleepContinuity1To5Score', '3': 17, '4': 1, '5': 17, '10': 'sleepContinuity1To5Score'},
+    {'1': 'sleepContinuity1To5Rating', '3': 18, '4': 1, '5': 17, '10': 'sleepContinuity1To5Rating'},
     {'1': 'hrMaximumBpm', '3': 19, '4': 1, '5': 17, '10': 'hrMaximumBpm'},
     {'1': 'hrMinimumBpm', '3': 20, '4': 1, '5': 17, '10': 'hrMinimumBpm'},
     {'1': 'hrAvgBpm', '3': 21, '4': 1, '5': 17, '10': 'hrAvgBpm'},
     {'1': 'hrRestingBpm', '3': 22, '4': 1, '5': 17, '10': 'hrRestingBpm'},
     {'1': 'hrBasalBpm', '3': 23, '4': 1, '5': 17, '10': 'hrBasalBpm'},
-    {
-      '1': 'hrGranularData',
-      '3': 24,
-      '4': 3,
-      '5': 11,
-      '6': '.HrGranularDataProto',
-      '10': 'hrGranularData'
-    },
+    {'1': 'hrGranularData', '3': 24, '4': 3, '5': 11, '6': '.HrGranularDataProto', '10': 'hrGranularData'},
     {'1': 'hrvAvgRmssd', '3': 25, '4': 1, '5': 1, '10': 'hrvAvgRmssd'},
     {'1': 'hrvAvgSdnn', '3': 26, '4': 1, '5': 1, '10': 'hrvAvgSdnn'},
-    {
-      '1': 'hrvSdnnGranularData',
-      '3': 27,
-      '4': 3,
-      '5': 11,
-      '6': '.HrvSdnnGranularDataProto',
-      '10': 'hrvSdnnGranularData'
-    },
-    {
-      '1': 'hrvRmssdGranularData',
-      '3': 28,
-      '4': 3,
-      '5': 11,
-      '6': '.HrvRmssdGranularDataProto',
-      '10': 'hrvRmssdGranularData'
-    },
-    {
-      '1': 'temperatureMinimum',
-      '3': 29,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureObjectProto',
-      '10': 'temperatureMinimum'
-    },
-    {
-      '1': 'temperatureAvg',
-      '3': 30,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureObjectProto',
-      '10': 'temperatureAvg'
-    },
-    {
-      '1': 'temperatureMaximum',
-      '3': 31,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureObjectProto',
-      '10': 'temperatureMaximum'
-    },
-    {
-      '1': 'temperatureGranularData',
-      '3': 32,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureGranularDataProto',
-      '10': 'temperatureGranularData'
-    },
-    {
-      '1': 'temperatureDelta',
-      '3': 33,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureObjectProto',
-      '10': 'temperatureDelta'
-    },
-    {
-      '1': 'breathsMinimumPerMin',
-      '3': 34,
-      '4': 1,
-      '5': 1,
-      '10': 'breathsMinimumPerMin'
-    },
-    {
-      '1': 'breathsAvgPerMin',
-      '3': 35,
-      '4': 1,
-      '5': 1,
-      '10': 'breathsAvgPerMin'
-    },
-    {
-      '1': 'breathsMaximumPerMin',
-      '3': 36,
-      '4': 1,
-      '5': 1,
-      '10': 'breathsMaximumPerMin'
-    },
-    {
-      '1': 'breathingGranularData',
-      '3': 37,
-      '4': 3,
-      '5': 11,
-      '6': '.BreathingGranularDataProto',
-      '10': 'breathingGranularData'
-    },
-    {
-      '1': 'snoringEventsCount',
-      '3': 38,
-      '4': 1,
-      '5': 17,
-      '10': 'snoringEventsCount'
-    },
-    {
-      '1': 'snoringDurationTotalSeconds',
-      '3': 39,
-      '4': 1,
-      '5': 17,
-      '10': 'snoringDurationTotalSeconds'
-    },
-    {
-      '1': 'snoringGranularData',
-      '3': 40,
-      '4': 3,
-      '5': 11,
-      '6': '.SnoringGranularDataProto',
-      '10': 'snoringGranularData'
-    },
-    {
-      '1': 'saturationAvgPercentage',
-      '3': 41,
-      '4': 1,
-      '5': 1,
-      '10': 'saturationAvgPercentage'
-    },
-    {
-      '1': 'saturationMinimumPercentage',
-      '3': 42,
-      '4': 1,
-      '5': 1,
-      '10': 'saturationMinimumPercentage'
-    },
-    {
-      '1': 'saturationMaximumPercentage',
-      '3': 43,
-      '4': 1,
-      '5': 1,
-      '10': 'saturationMaximumPercentage'
-    },
-    {
-      '1': 'saturationGranularData',
-      '3': 44,
-      '4': 3,
-      '5': 11,
-      '6': '.SaturationGranularDataProto',
-      '10': 'saturationGranularData'
-    },
+    {'1': 'hrvSdnnGranularData', '3': 27, '4': 3, '5': 11, '6': '.HrvSdnnGranularDataProto', '10': 'hrvSdnnGranularData'},
+    {'1': 'hrvRmssdGranularData', '3': 28, '4': 3, '5': 11, '6': '.HrvRmssdGranularDataProto', '10': 'hrvRmssdGranularData'},
+    {'1': 'temperatureMinimum', '3': 29, '4': 3, '5': 11, '6': '.TemperatureObjectProto', '10': 'temperatureMinimum'},
+    {'1': 'temperatureAvg', '3': 30, '4': 3, '5': 11, '6': '.TemperatureObjectProto', '10': 'temperatureAvg'},
+    {'1': 'temperatureMaximum', '3': 31, '4': 3, '5': 11, '6': '.TemperatureObjectProto', '10': 'temperatureMaximum'},
+    {'1': 'temperatureGranularData', '3': 32, '4': 3, '5': 11, '6': '.TemperatureGranularDataProto', '10': 'temperatureGranularData'},
+    {'1': 'temperatureDelta', '3': 33, '4': 3, '5': 11, '6': '.TemperatureObjectProto', '10': 'temperatureDelta'},
+    {'1': 'breathsMinimumPerMin', '3': 34, '4': 1, '5': 1, '10': 'breathsMinimumPerMin'},
+    {'1': 'breathsAvgPerMin', '3': 35, '4': 1, '5': 1, '10': 'breathsAvgPerMin'},
+    {'1': 'breathsMaximumPerMin', '3': 36, '4': 1, '5': 1, '10': 'breathsMaximumPerMin'},
+    {'1': 'breathingGranularData', '3': 37, '4': 3, '5': 11, '6': '.BreathingGranularDataProto', '10': 'breathingGranularData'},
+    {'1': 'snoringEventsCount', '3': 38, '4': 1, '5': 17, '10': 'snoringEventsCount'},
+    {'1': 'snoringDurationTotalSeconds', '3': 39, '4': 1, '5': 17, '10': 'snoringDurationTotalSeconds'},
+    {'1': 'snoringGranularData', '3': 40, '4': 3, '5': 11, '6': '.SnoringGranularDataProto', '10': 'snoringGranularData'},
+    {'1': 'saturationAvgPercentage', '3': 41, '4': 1, '5': 1, '10': 'saturationAvgPercentage'},
+    {'1': 'saturationMinimumPercentage', '3': 42, '4': 1, '5': 1, '10': 'saturationMinimumPercentage'},
+    {'1': 'saturationMaximumPercentage', '3': 43, '4': 1, '5': 1, '10': 'saturationMaximumPercentage'},
+    {'1': 'saturationGranularData', '3': 44, '4': 3, '5': 11, '6': '.SaturationGranularDataProto', '10': 'saturationGranularData'},
   ],
 };
 
@@ -921,14 +466,7 @@ final $typed_data.Uint8List sleepSummaryProtoDescriptor = $convert.base64Decode(
 const SleepSummariesProto$json = {
   '1': 'SleepSummariesProto',
   '2': [
-    {
-      '1': 'elements',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.SleepSummaryProto',
-      '10': 'elements'
-    },
+    {'1': 'elements', '3': 1, '4': 3, '5': 11, '6': '.SleepSummaryProto', '10': 'elements'},
   ],
 };
 
@@ -941,32 +479,9 @@ final $typed_data.Uint8List sleepSummariesProtoDescriptor = $convert.base64Decod
 const SleepSummaryResultProto$json = {
   '1': 'SleepSummaryResultProto',
   '2': [
-    {
-      '1': 'synced',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.SleepSummariesProto',
-      '9': 0,
-      '10': 'synced'
-    },
-    {
-      '1': 'recordsNotFound',
-      '3': 2,
-      '4': 1,
-      '5': 8,
-      '9': 0,
-      '10': 'recordsNotFound'
-    },
-    {
-      '1': 'failure',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'synced', '3': 1, '4': 1, '5': 11, '6': '.SleepSummariesProto', '9': 0, '10': 'synced'},
+    {'1': 'recordsNotFound', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'recordsNotFound'},
+    {'1': 'failure', '3': 3, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -986,326 +501,61 @@ const PhysicalSummaryProto$json = {
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
     {'1': 'sourceOfData', '3': 2, '4': 1, '5': 9, '10': 'sourceOfData'},
-    {
-      '1': 'wasTheUserUnderPhysicalActivity',
-      '3': 3,
-      '4': 1,
-      '5': 8,
-      '10': 'wasTheUserUnderPhysicalActivity'
-    },
+    {'1': 'wasTheUserUnderPhysicalActivity', '3': 3, '4': 1, '5': 8, '10': 'wasTheUserUnderPhysicalActivity'},
     {'1': 'activeSeconds', '3': 4, '4': 1, '5': 17, '10': 'activeSeconds'},
     {'1': 'restSeconds', '3': 5, '4': 1, '5': 17, '10': 'restSeconds'},
-    {
-      '1': 'lowIntensitySeconds',
-      '3': 6,
-      '4': 1,
-      '5': 17,
-      '10': 'lowIntensitySeconds'
-    },
-    {
-      '1': 'moderateIntensitySeconds',
-      '3': 7,
-      '4': 1,
-      '5': 17,
-      '10': 'moderateIntensitySeconds'
-    },
-    {
-      '1': 'vigorousIntensitySeconds',
-      '3': 8,
-      '4': 1,
-      '5': 17,
-      '10': 'vigorousIntensitySeconds'
-    },
-    {
-      '1': 'inactivitySeconds',
-      '3': 9,
-      '4': 1,
-      '5': 17,
-      '10': 'inactivitySeconds'
-    },
-    {
-      '1': 'activityLevelGranularData',
-      '3': 10,
-      '4': 3,
-      '5': 11,
-      '6': '.ActivityLevelGranularDataProto',
-      '10': 'activityLevelGranularData'
-    },
-    {
-      '1': 'continuousInactivePeriods',
-      '3': 11,
-      '4': 1,
-      '5': 17,
-      '10': 'continuousInactivePeriods'
-    },
-    {
-      '1': 'caloriesNetIntakeKcal',
-      '3': 12,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesNetIntakeKcal'
-    },
-    {
-      '1': 'caloriesExpenditureKcal',
-      '3': 13,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesExpenditureKcal'
-    },
-    {
-      '1': 'caloriesNetActiveKcal',
-      '3': 14,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesNetActiveKcal'
-    },
-    {
-      '1': 'caloriesBasalMetabolicRateKcal',
-      '3': 15,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesBasalMetabolicRateKcal'
-    },
+    {'1': 'lowIntensitySeconds', '3': 6, '4': 1, '5': 17, '10': 'lowIntensitySeconds'},
+    {'1': 'moderateIntensitySeconds', '3': 7, '4': 1, '5': 17, '10': 'moderateIntensitySeconds'},
+    {'1': 'vigorousIntensitySeconds', '3': 8, '4': 1, '5': 17, '10': 'vigorousIntensitySeconds'},
+    {'1': 'inactivitySeconds', '3': 9, '4': 1, '5': 17, '10': 'inactivitySeconds'},
+    {'1': 'activityLevelGranularData', '3': 10, '4': 3, '5': 11, '6': '.ActivityLevelGranularDataProto', '10': 'activityLevelGranularData'},
+    {'1': 'continuousInactivePeriods', '3': 11, '4': 1, '5': 17, '10': 'continuousInactivePeriods'},
+    {'1': 'caloriesNetIntakeKcal', '3': 12, '4': 1, '5': 1, '10': 'caloriesNetIntakeKcal'},
+    {'1': 'caloriesExpenditureKcal', '3': 13, '4': 1, '5': 1, '10': 'caloriesExpenditureKcal'},
+    {'1': 'caloriesNetActiveKcal', '3': 14, '4': 1, '5': 1, '10': 'caloriesNetActiveKcal'},
+    {'1': 'caloriesBasalMetabolicRateKcal', '3': 15, '4': 1, '5': 1, '10': 'caloriesBasalMetabolicRateKcal'},
     {'1': 'steps', '3': 16, '4': 1, '5': 17, '10': 'steps'},
-    {
-      '1': 'stepsGranularData',
-      '3': 17,
-      '4': 3,
-      '5': 11,
-      '6': '.StepsGranularDataProto',
-      '10': 'stepsGranularData'
-    },
+    {'1': 'stepsGranularData', '3': 17, '4': 3, '5': 11, '6': '.StepsGranularDataProto', '10': 'stepsGranularData'},
     {'1': 'activeSteps', '3': 18, '4': 1, '5': 17, '10': 'activeSteps'},
-    {
-      '1': 'activeStepsGranularData',
-      '3': 19,
-      '4': 3,
-      '5': 11,
-      '6': '.ActiveStepsGranularDataProto',
-      '10': 'activeStepsGranularData'
-    },
-    {
-      '1': 'walkedDistanceMeters',
-      '3': 20,
-      '4': 1,
-      '5': 1,
-      '10': 'walkedDistanceMeters'
-    },
-    {
-      '1': 'traveledDistanceMeters',
-      '3': 21,
-      '4': 1,
-      '5': 1,
-      '10': 'traveledDistanceMeters'
-    },
-    {
-      '1': 'traveledDistanceGranularData',
-      '3': 22,
-      '4': 3,
-      '5': 11,
-      '6': '.TraveledDistanceGranularDataProto',
-      '10': 'traveledDistanceGranularData'
-    },
+    {'1': 'activeStepsGranularData', '3': 19, '4': 3, '5': 11, '6': '.ActiveStepsGranularDataProto', '10': 'activeStepsGranularData'},
+    {'1': 'walkedDistanceMeters', '3': 20, '4': 1, '5': 1, '10': 'walkedDistanceMeters'},
+    {'1': 'traveledDistanceMeters', '3': 21, '4': 1, '5': 1, '10': 'traveledDistanceMeters'},
+    {'1': 'traveledDistanceGranularData', '3': 22, '4': 3, '5': 11, '6': '.TraveledDistanceGranularDataProto', '10': 'traveledDistanceGranularData'},
     {'1': 'floorsClimbed', '3': 23, '4': 1, '5': 1, '10': 'floorsClimbed'},
-    {
-      '1': 'floorsClimbedGranularData',
-      '3': 24,
-      '4': 3,
-      '5': 11,
-      '6': '.FloorsClimbedGranularDataProto',
-      '10': 'floorsClimbedGranularData'
-    },
-    {
-      '1': 'elevationAvgAltitudeMeters',
-      '3': 25,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationAvgAltitudeMeters'
-    },
-    {
-      '1': 'elevationMinimumAltitudeMeters',
-      '3': 26,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationMinimumAltitudeMeters'
-    },
-    {
-      '1': 'elevationMaximumAltitudeMeters',
-      '3': 27,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationMaximumAltitudeMeters'
-    },
-    {
-      '1': 'elevationLossActualAltitudeMeters',
-      '3': 28,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationLossActualAltitudeMeters'
-    },
-    {
-      '1': 'elevationGainActualAltitudeMeters',
-      '3': 29,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationGainActualAltitudeMeters'
-    },
-    {
-      '1': 'elevationPlannedGainMeters',
-      '3': 30,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationPlannedGainMeters'
-    },
-    {
-      '1': 'elevationGranularData',
-      '3': 31,
-      '4': 3,
-      '5': 11,
-      '6': '.ElevationGranularDataProto',
-      '10': 'elevationGranularData'
-    },
-    {
-      '1': 'swimmingNumStrokes',
-      '3': 32,
-      '4': 1,
-      '5': 17,
-      '10': 'swimmingNumStrokes'
-    },
+    {'1': 'floorsClimbedGranularData', '3': 24, '4': 3, '5': 11, '6': '.FloorsClimbedGranularDataProto', '10': 'floorsClimbedGranularData'},
+    {'1': 'elevationAvgAltitudeMeters', '3': 25, '4': 1, '5': 1, '10': 'elevationAvgAltitudeMeters'},
+    {'1': 'elevationMinimumAltitudeMeters', '3': 26, '4': 1, '5': 1, '10': 'elevationMinimumAltitudeMeters'},
+    {'1': 'elevationMaximumAltitudeMeters', '3': 27, '4': 1, '5': 1, '10': 'elevationMaximumAltitudeMeters'},
+    {'1': 'elevationLossActualAltitudeMeters', '3': 28, '4': 1, '5': 1, '10': 'elevationLossActualAltitudeMeters'},
+    {'1': 'elevationGainActualAltitudeMeters', '3': 29, '4': 1, '5': 1, '10': 'elevationGainActualAltitudeMeters'},
+    {'1': 'elevationPlannedGainMeters', '3': 30, '4': 1, '5': 1, '10': 'elevationPlannedGainMeters'},
+    {'1': 'elevationGranularData', '3': 31, '4': 3, '5': 11, '6': '.ElevationGranularDataProto', '10': 'elevationGranularData'},
+    {'1': 'swimmingNumStrokes', '3': 32, '4': 1, '5': 17, '10': 'swimmingNumStrokes'},
     {'1': 'swimmingNumLaps', '3': 33, '4': 1, '5': 17, '10': 'swimmingNumLaps'},
-    {
-      '1': 'swimmingPoolLengthMeters',
-      '3': 34,
-      '4': 1,
-      '5': 1,
-      '10': 'swimmingPoolLengthMeters'
-    },
-    {
-      '1': 'swimmingTotalDistanceMeters',
-      '3': 35,
-      '4': 1,
-      '5': 1,
-      '10': 'swimmingTotalDistanceMeters'
-    },
-    {
-      '1': 'swimmingDistanceGranularData',
-      '3': 36,
-      '4': 3,
-      '5': 11,
-      '6': '.SwimmingDistanceGranularDataProto',
-      '10': 'swimmingDistanceGranularData'
-    },
+    {'1': 'swimmingPoolLengthMeters', '3': 34, '4': 1, '5': 1, '10': 'swimmingPoolLengthMeters'},
+    {'1': 'swimmingTotalDistanceMeters', '3': 35, '4': 1, '5': 1, '10': 'swimmingTotalDistanceMeters'},
+    {'1': 'swimmingDistanceGranularData', '3': 36, '4': 3, '5': 11, '6': '.SwimmingDistanceGranularDataProto', '10': 'swimmingDistanceGranularData'},
     {'1': 'hrMaximumBpm', '3': 37, '4': 1, '5': 17, '10': 'hrMaximumBpm'},
     {'1': 'hrMinimumBpm', '3': 38, '4': 1, '5': 17, '10': 'hrMinimumBpm'},
     {'1': 'hrAvgBpm', '3': 39, '4': 1, '5': 17, '10': 'hrAvgBpm'},
     {'1': 'hrRestingBpm', '3': 40, '4': 1, '5': 17, '10': 'hrRestingBpm'},
-    {
-      '1': 'hrGranularData',
-      '3': 41,
-      '4': 3,
-      '5': 11,
-      '6': '.HrGranularDataProto',
-      '10': 'hrGranularData'
-    },
+    {'1': 'hrGranularData', '3': 41, '4': 3, '5': 11, '6': '.HrGranularDataProto', '10': 'hrGranularData'},
     {'1': 'hrvAvgRmssd', '3': 42, '4': 1, '5': 1, '10': 'hrvAvgRmssd'},
     {'1': 'hrvAvgSdnn', '3': 43, '4': 1, '5': 1, '10': 'hrvAvgSdnn'},
-    {
-      '1': 'hrvSdnnGranularData',
-      '3': 44,
-      '4': 3,
-      '5': 11,
-      '6': '.HrvSdnnGranularDataProto',
-      '10': 'hrvSdnnGranularData'
-    },
-    {
-      '1': 'hrvRmssdGranularData',
-      '3': 45,
-      '4': 3,
-      '5': 11,
-      '6': '.HrvRmssdGranularDataProto',
-      '10': 'hrvRmssdGranularData'
-    },
-    {
-      '1': 'saturationAvgPercentage',
-      '3': 46,
-      '4': 1,
-      '5': 1,
-      '10': 'saturationAvgPercentage'
-    },
-    {
-      '1': 'saturationGranularData',
-      '3': 47,
-      '4': 3,
-      '5': 11,
-      '6': '.SaturationGranularDataProto',
-      '10': 'saturationGranularData'
-    },
-    {
-      '1': 'vo2MaxMlPerMinPerKg',
-      '3': 48,
-      '4': 1,
-      '5': 1,
-      '10': 'vo2MaxMlPerMinPerKg'
-    },
-    {
-      '1': 'vo2GranularData',
-      '3': 49,
-      '4': 3,
-      '5': 11,
-      '6': '.Vo2GranularDataProto',
-      '10': 'vo2GranularData'
-    },
-    {
-      '1': 'stressAtRestDurationSeconds',
-      '3': 50,
-      '4': 1,
-      '5': 17,
-      '10': 'stressAtRestDurationSeconds'
-    },
-    {
-      '1': 'stressDurationSeconds',
-      '3': 51,
-      '4': 1,
-      '5': 17,
-      '10': 'stressDurationSeconds'
-    },
-    {
-      '1': 'lowStressDurationSeconds',
-      '3': 52,
-      '4': 1,
-      '5': 17,
-      '10': 'lowStressDurationSeconds'
-    },
-    {
-      '1': 'mediumStressDurationSeconds',
-      '3': 53,
-      '4': 1,
-      '5': 17,
-      '10': 'mediumStressDurationSeconds'
-    },
-    {
-      '1': 'highStressDurationSeconds',
-      '3': 54,
-      '4': 1,
-      '5': 17,
-      '10': 'highStressDurationSeconds'
-    },
-    {
-      '1': 'stressGranularData',
-      '3': 55,
-      '4': 3,
-      '5': 11,
-      '6': '.StressGranularDataProto',
-      '10': 'stressGranularData'
-    },
+    {'1': 'hrvSdnnGranularData', '3': 44, '4': 3, '5': 11, '6': '.HrvSdnnGranularDataProto', '10': 'hrvSdnnGranularData'},
+    {'1': 'hrvRmssdGranularData', '3': 45, '4': 3, '5': 11, '6': '.HrvRmssdGranularDataProto', '10': 'hrvRmssdGranularData'},
+    {'1': 'saturationAvgPercentage', '3': 46, '4': 1, '5': 1, '10': 'saturationAvgPercentage'},
+    {'1': 'saturationGranularData', '3': 47, '4': 3, '5': 11, '6': '.SaturationGranularDataProto', '10': 'saturationGranularData'},
+    {'1': 'vo2MaxMlPerMinPerKg', '3': 48, '4': 1, '5': 1, '10': 'vo2MaxMlPerMinPerKg'},
+    {'1': 'vo2GranularData', '3': 49, '4': 3, '5': 11, '6': '.Vo2GranularDataProto', '10': 'vo2GranularData'},
+    {'1': 'stressAtRestDurationSeconds', '3': 50, '4': 1, '5': 17, '10': 'stressAtRestDurationSeconds'},
+    {'1': 'stressDurationSeconds', '3': 51, '4': 1, '5': 17, '10': 'stressDurationSeconds'},
+    {'1': 'lowStressDurationSeconds', '3': 52, '4': 1, '5': 17, '10': 'lowStressDurationSeconds'},
+    {'1': 'mediumStressDurationSeconds', '3': 53, '4': 1, '5': 17, '10': 'mediumStressDurationSeconds'},
+    {'1': 'highStressDurationSeconds', '3': 54, '4': 1, '5': 17, '10': 'highStressDurationSeconds'},
+    {'1': 'stressGranularData', '3': 55, '4': 3, '5': 11, '6': '.StressGranularDataProto', '10': 'stressGranularData'},
     {'1': 'stressAvgLevel', '3': 56, '4': 1, '5': 17, '10': 'stressAvgLevel'},
-    {
-      '1': 'stressMaximumLevel',
-      '3': 57,
-      '4': 1,
-      '5': 17,
-      '10': 'stressMaximumLevel'
-    },
+    {'1': 'stressMaximumLevel', '3': 57, '4': 1, '5': 17, '10': 'stressMaximumLevel'},
   ],
 };
 
@@ -1378,32 +628,9 @@ final $typed_data.Uint8List physicalSummaryProtoDescriptor = $convert.base64Deco
 const PhysicalSummaryResultProto$json = {
   '1': 'PhysicalSummaryResultProto',
   '2': [
-    {
-      '1': 'synced',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.PhysicalSummaryProto',
-      '9': 0,
-      '10': 'synced'
-    },
-    {
-      '1': 'recordsNotFound',
-      '3': 2,
-      '4': 1,
-      '5': 8,
-      '9': 0,
-      '10': 'recordsNotFound'
-    },
-    {
-      '1': 'failure',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'synced', '3': 1, '4': 1, '5': 11, '6': '.PhysicalSummaryProto', '9': 0, '10': 'synced'},
+    {'1': 'recordsNotFound', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'recordsNotFound'},
+    {'1': 'failure', '3': 3, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -1423,321 +650,68 @@ const BodySummaryProto$json = {
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
     {'1': 'sourceOfData', '3': 2, '4': 1, '5': 9, '10': 'sourceOfData'},
-    {
-      '1': 'wasTheUserUnderPhysicalActivity',
-      '3': 3,
-      '4': 1,
-      '5': 8,
-      '10': 'wasTheUserUnderPhysicalActivity'
-    },
-    {
-      '1': 'waistCircumferenceCm',
-      '3': 4,
-      '4': 1,
-      '5': 1,
-      '10': 'waistCircumferenceCm'
-    },
-    {
-      '1': 'hipCircumferenceCm',
-      '3': 5,
-      '4': 1,
-      '5': 1,
-      '10': 'hipCircumferenceCm'
-    },
-    {
-      '1': 'chestCircumferenceCm',
-      '3': 6,
-      '4': 1,
-      '5': 1,
-      '10': 'chestCircumferenceCm'
-    },
-    {
-      '1': 'boneCompositionPercentage',
-      '3': 7,
-      '4': 1,
-      '5': 1,
-      '10': 'boneCompositionPercentage'
-    },
-    {
-      '1': 'muscleCompositionPercentage',
-      '3': 8,
-      '4': 1,
-      '5': 1,
-      '10': 'muscleCompositionPercentage'
-    },
-    {
-      '1': 'waterCompositionPercentage',
-      '3': 9,
-      '4': 1,
-      '5': 1,
-      '10': 'waterCompositionPercentage'
-    },
+    {'1': 'wasTheUserUnderPhysicalActivity', '3': 3, '4': 1, '5': 8, '10': 'wasTheUserUnderPhysicalActivity'},
+    {'1': 'waistCircumferenceCm', '3': 4, '4': 1, '5': 1, '10': 'waistCircumferenceCm'},
+    {'1': 'hipCircumferenceCm', '3': 5, '4': 1, '5': 1, '10': 'hipCircumferenceCm'},
+    {'1': 'chestCircumferenceCm', '3': 6, '4': 1, '5': 1, '10': 'chestCircumferenceCm'},
+    {'1': 'boneCompositionPercentage', '3': 7, '4': 1, '5': 1, '10': 'boneCompositionPercentage'},
+    {'1': 'muscleCompositionPercentage', '3': 8, '4': 1, '5': 1, '10': 'muscleCompositionPercentage'},
+    {'1': 'waterCompositionPercentage', '3': 9, '4': 1, '5': 1, '10': 'waterCompositionPercentage'},
     {'1': 'weightKg', '3': 10, '4': 1, '5': 1, '10': 'weightKg'},
     {'1': 'heightCm', '3': 11, '4': 1, '5': 1, '10': 'heightCm'},
     {'1': 'bmi', '3': 12, '4': 1, '5': 1, '10': 'bmi'},
-    {
-      '1': 'bloodGlucoseAvgMgPerDl',
-      '3': 13,
-      '4': 1,
-      '5': 1,
-      '10': 'bloodGlucoseAvgMgPerDl'
-    },
-    {
-      '1': 'bloodGlucoseGranularData',
-      '3': 14,
-      '4': 3,
-      '5': 11,
-      '6': '.BloodGlucoseGranularDataProto',
-      '10': 'bloodGlucoseGranularData'
-    },
-    {
-      '1': 'bloodPressureAvg',
-      '3': 15,
-      '4': 3,
-      '5': 11,
-      '6': '.BloodPressureObjectProto',
-      '10': 'bloodPressureAvg'
-    },
-    {
-      '1': 'bloodPressureGranularData',
-      '3': 16,
-      '4': 3,
-      '5': 11,
-      '6': '.BloodPressureGranularDataProto',
-      '10': 'bloodPressureGranularData'
-    },
-    {
-      '1': 'waterTotalConsumptionMl',
-      '3': 17,
-      '4': 1,
-      '5': 1,
-      '10': 'waterTotalConsumptionMl'
-    },
-    {
-      '1': 'hydrationAmountGranularData',
-      '3': 18,
-      '4': 3,
-      '5': 11,
-      '6': '.HydrationAmountGranularDataProto',
-      '10': 'hydrationAmountGranularData'
-    },
-    {
-      '1': 'hydrationLevelGranularData',
-      '3': 19,
-      '4': 3,
-      '5': 11,
-      '6': '.HydrationLevelGranularDataProto',
-      '10': 'hydrationLevelGranularData'
-    },
+    {'1': 'bloodGlucoseAvgMgPerDl', '3': 13, '4': 1, '5': 1, '10': 'bloodGlucoseAvgMgPerDl'},
+    {'1': 'bloodGlucoseGranularData', '3': 14, '4': 3, '5': 11, '6': '.BloodGlucoseGranularDataProto', '10': 'bloodGlucoseGranularData'},
+    {'1': 'bloodPressureAvg', '3': 15, '4': 3, '5': 11, '6': '.BloodPressureObjectProto', '10': 'bloodPressureAvg'},
+    {'1': 'bloodPressureGranularData', '3': 16, '4': 3, '5': 11, '6': '.BloodPressureGranularDataProto', '10': 'bloodPressureGranularData'},
+    {'1': 'waterTotalConsumptionMl', '3': 17, '4': 1, '5': 1, '10': 'waterTotalConsumptionMl'},
+    {'1': 'hydrationAmountGranularData', '3': 18, '4': 3, '5': 11, '6': '.HydrationAmountGranularDataProto', '10': 'hydrationAmountGranularData'},
+    {'1': 'hydrationLevelGranularData', '3': 19, '4': 3, '5': 11, '6': '.HydrationLevelGranularDataProto', '10': 'hydrationLevelGranularData'},
     {'1': 'hrMaximumBpm', '3': 20, '4': 1, '5': 17, '10': 'hrMaximumBpm'},
     {'1': 'hrMinimumBpm', '3': 21, '4': 1, '5': 17, '10': 'hrMinimumBpm'},
     {'1': 'hrAvgBpm', '3': 22, '4': 1, '5': 17, '10': 'hrAvgBpm'},
     {'1': 'hrRestingBpm', '3': 23, '4': 1, '5': 17, '10': 'hrRestingBpm'},
-    {
-      '1': 'hrGranularData',
-      '3': 24,
-      '4': 3,
-      '5': 11,
-      '6': '.HrGranularDataProto',
-      '10': 'hrGranularData'
-    },
+    {'1': 'hrGranularData', '3': 24, '4': 3, '5': 11, '6': '.HrGranularDataProto', '10': 'hrGranularData'},
     {'1': 'hrvAvgRmssd', '3': 25, '4': 1, '5': 1, '10': 'hrvAvgRmssd'},
     {'1': 'hrvAvgSdnn', '3': 26, '4': 1, '5': 1, '10': 'hrvAvgSdnn'},
-    {
-      '1': 'hrvSdnnGranularData',
-      '3': 27,
-      '4': 3,
-      '5': 11,
-      '6': '.HrvSdnnGranularDataProto',
-      '10': 'hrvSdnnGranularData'
-    },
-    {
-      '1': 'hrvRmssdGranularData',
-      '3': 28,
-      '4': 3,
-      '5': 11,
-      '6': '.HrvRmssdGranularDataProto',
-      '10': 'hrvRmssdGranularData'
-    },
-    {
-      '1': 'moodMinimumScale',
-      '3': 29,
-      '4': 1,
-      '5': 1,
-      '10': 'moodMinimumScale'
-    },
+    {'1': 'hrvSdnnGranularData', '3': 27, '4': 3, '5': 11, '6': '.HrvSdnnGranularDataProto', '10': 'hrvSdnnGranularData'},
+    {'1': 'hrvRmssdGranularData', '3': 28, '4': 3, '5': 11, '6': '.HrvRmssdGranularDataProto', '10': 'hrvRmssdGranularData'},
+    {'1': 'moodMinimumScale', '3': 29, '4': 1, '5': 1, '10': 'moodMinimumScale'},
     {'1': 'moodAvgScale', '3': 30, '4': 1, '5': 1, '10': 'moodAvgScale'},
-    {
-      '1': 'moodMaximumScale',
-      '3': 31,
-      '4': 1,
-      '5': 1,
-      '10': 'moodMaximumScale'
-    },
-    {
-      '1': 'moodGranularData',
-      '3': 32,
-      '4': 3,
-      '5': 11,
-      '6': '.MoodGranularDataProto',
-      '10': 'moodGranularData'
-    },
+    {'1': 'moodMaximumScale', '3': 31, '4': 1, '5': 1, '10': 'moodMaximumScale'},
+    {'1': 'moodGranularData', '3': 32, '4': 3, '5': 11, '6': '.MoodGranularDataProto', '10': 'moodGranularData'},
     {'1': 'moodDeltaScale', '3': 33, '4': 1, '5': 1, '10': 'moodDeltaScale'},
     {'1': 'foodIntake', '3': 34, '4': 1, '5': 1, '10': 'foodIntake'},
-    {
-      '1': 'caloriesIntakeKcal',
-      '3': 35,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesIntakeKcal'
-    },
+    {'1': 'caloriesIntakeKcal', '3': 35, '4': 1, '5': 1, '10': 'caloriesIntakeKcal'},
     {'1': 'proteinIntakeG', '3': 36, '4': 1, '5': 1, '10': 'proteinIntakeG'},
     {'1': 'sugarIntakeG', '3': 37, '4': 1, '5': 1, '10': 'sugarIntakeG'},
     {'1': 'fatIntakeG', '3': 38, '4': 1, '5': 1, '10': 'fatIntakeG'},
     {'1': 'transFatIntakeG', '3': 39, '4': 1, '5': 1, '10': 'transFatIntakeG'},
-    {
-      '1': 'carbohydratesIntakeG',
-      '3': 40,
-      '4': 1,
-      '5': 1,
-      '10': 'carbohydratesIntakeG'
-    },
+    {'1': 'carbohydratesIntakeG', '3': 40, '4': 1, '5': 1, '10': 'carbohydratesIntakeG'},
     {'1': 'fiberIntakeG', '3': 41, '4': 1, '5': 1, '10': 'fiberIntakeG'},
     {'1': 'alcoholIntakeG', '3': 42, '4': 1, '5': 1, '10': 'alcoholIntakeG'},
     {'1': 'sodiumIntakeMg', '3': 43, '4': 1, '5': 1, '10': 'sodiumIntakeMg'},
-    {
-      '1': 'cholesterolIntakeMg',
-      '3': 44,
-      '4': 1,
-      '5': 1,
-      '10': 'cholesterolIntakeMg'
-    },
-    {
-      '1': 'saturationAvgPercentage',
-      '3': 45,
-      '4': 1,
-      '5': 1,
-      '10': 'saturationAvgPercentage'
-    },
-    {
-      '1': 'saturationGranularData',
-      '3': 46,
-      '4': 3,
-      '5': 11,
-      '6': '.SaturationGranularDataProto',
-      '10': 'saturationGranularData'
-    },
-    {
-      '1': 'vo2MaxMlPerMinPerKg',
-      '3': 47,
-      '4': 1,
-      '5': 1,
-      '10': 'vo2MaxMlPerMinPerKg'
-    },
-    {
-      '1': 'vo2GranularData',
-      '3': 48,
-      '4': 3,
-      '5': 11,
-      '6': '.Vo2GranularDataProto',
-      '10': 'vo2GranularData'
-    },
-    {
-      '1': 'temperatureMinimum',
-      '3': 49,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureObjectProto',
-      '10': 'temperatureMinimum'
-    },
-    {
-      '1': 'temperatureAvg',
-      '3': 50,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureObjectProto',
-      '10': 'temperatureAvg'
-    },
-    {
-      '1': 'temperatureMaximum',
-      '3': 51,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureObjectProto',
-      '10': 'temperatureMaximum'
-    },
-    {
-      '1': 'temperatureGranularData',
-      '3': 52,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureGranularDataProto',
-      '10': 'temperatureGranularData'
-    },
-    {
-      '1': 'temperatureDelta',
-      '3': 53,
-      '4': 3,
-      '5': 11,
-      '6': '.TemperatureObjectProto',
-      '10': 'temperatureDelta'
-    },
-    {
-      '1': 'lastUpdatedDatetime',
-      '3': 54,
-      '4': 1,
-      '5': 9,
-      '10': 'lastUpdatedDatetime'
-    },
+    {'1': 'cholesterolIntakeMg', '3': 44, '4': 1, '5': 1, '10': 'cholesterolIntakeMg'},
+    {'1': 'saturationAvgPercentage', '3': 45, '4': 1, '5': 1, '10': 'saturationAvgPercentage'},
+    {'1': 'saturationGranularData', '3': 46, '4': 3, '5': 11, '6': '.SaturationGranularDataProto', '10': 'saturationGranularData'},
+    {'1': 'vo2MaxMlPerMinPerKg', '3': 47, '4': 1, '5': 1, '10': 'vo2MaxMlPerMinPerKg'},
+    {'1': 'vo2GranularData', '3': 48, '4': 3, '5': 11, '6': '.Vo2GranularDataProto', '10': 'vo2GranularData'},
+    {'1': 'temperatureMinimum', '3': 49, '4': 3, '5': 11, '6': '.TemperatureObjectProto', '10': 'temperatureMinimum'},
+    {'1': 'temperatureAvg', '3': 50, '4': 3, '5': 11, '6': '.TemperatureObjectProto', '10': 'temperatureAvg'},
+    {'1': 'temperatureMaximum', '3': 51, '4': 3, '5': 11, '6': '.TemperatureObjectProto', '10': 'temperatureMaximum'},
+    {'1': 'temperatureGranularData', '3': 52, '4': 3, '5': 11, '6': '.TemperatureGranularDataProto', '10': 'temperatureGranularData'},
+    {'1': 'temperatureDelta', '3': 53, '4': 3, '5': 11, '6': '.TemperatureObjectProto', '10': 'temperatureDelta'},
+    {'1': 'lastUpdatedDatetime', '3': 54, '4': 1, '5': 9, '10': 'lastUpdatedDatetime'},
     {'1': 'periodStartDate', '3': 55, '4': 1, '5': 9, '10': 'periodStartDate'},
     {'1': 'cycleDay', '3': 56, '4': 1, '5': 17, '10': 'cycleDay'},
     {'1': 'cycleLengthDays', '3': 57, '4': 1, '5': 17, '10': 'cycleLengthDays'},
-    {
-      '1': 'predictedCycleLengthDays',
-      '3': 58,
-      '4': 1,
-      '5': 17,
-      '10': 'predictedCycleLengthDays'
-    },
+    {'1': 'predictedCycleLengthDays', '3': 58, '4': 1, '5': 17, '10': 'predictedCycleLengthDays'},
     {'1': 'currentPhase', '3': 59, '4': 1, '5': 9, '10': 'currentPhase'},
-    {
-      '1': 'lengthOfCurrentPhaseDays',
-      '3': 60,
-      '4': 1,
-      '5': 17,
-      '10': 'lengthOfCurrentPhaseDays'
-    },
-    {
-      '1': 'daysUntilNextPhase',
-      '3': 61,
-      '4': 1,
-      '5': 17,
-      '10': 'daysUntilNextPhase'
-    },
-    {
-      '1': 'isAPredictedCycleValue',
-      '3': 62,
-      '4': 1,
-      '5': 8,
-      '9': 0,
-      '10': 'isAPredictedCycleValue'
-    },
-    {
-      '1': 'isAPredictedCycleUnknown',
-      '3': 63,
-      '4': 1,
-      '5': 8,
-      '9': 0,
-      '10': 'isAPredictedCycleUnknown'
-    },
-    {
-      '1': 'menstruationFlowGranularData',
-      '3': 64,
-      '4': 3,
-      '5': 11,
-      '6': '.MenstruationFlowGranularDataProto',
-      '10': 'menstruationFlowGranularData'
-    },
+    {'1': 'lengthOfCurrentPhaseDays', '3': 60, '4': 1, '5': 17, '10': 'lengthOfCurrentPhaseDays'},
+    {'1': 'daysUntilNextPhase', '3': 61, '4': 1, '5': 17, '10': 'daysUntilNextPhase'},
+    {'1': 'isAPredictedCycleValue', '3': 62, '4': 1, '5': 8, '9': 0, '10': 'isAPredictedCycleValue'},
+    {'1': 'isAPredictedCycleUnknown', '3': 63, '4': 1, '5': 8, '9': 0, '10': 'isAPredictedCycleUnknown'},
+    {'1': 'menstruationFlowGranularData', '3': 64, '4': 3, '5': 11, '6': '.MenstruationFlowGranularDataProto', '10': 'menstruationFlowGranularData'},
   ],
   '8': [
     {'1': 'isAPredictedCycle'},
@@ -1814,32 +788,9 @@ final $typed_data.Uint8List bodySummaryProtoDescriptor = $convert.base64Decode(
 const BodySummaryResultProto$json = {
   '1': 'BodySummaryResultProto',
   '2': [
-    {
-      '1': 'synced',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.BodySummaryProto',
-      '9': 0,
-      '10': 'synced'
-    },
-    {
-      '1': 'recordsNotFound',
-      '3': 2,
-      '4': 1,
-      '5': 8,
-      '9': 0,
-      '10': 'recordsNotFound'
-    },
-    {
-      '1': 'failure',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'synced', '3': 1, '4': 1, '5': 11, '6': '.BodySummaryProto', '9': 0, '10': 'synced'},
+    {'1': 'recordsNotFound', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'recordsNotFound'},
+    {'1': 'failure', '3': 3, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -1859,542 +810,93 @@ const ActivityEventProto$json = {
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
     {'1': 'sourceOfData', '3': 2, '4': 1, '5': 9, '10': 'sourceOfData'},
-    {
-      '1': 'wasTheUserUnderPhysicalActivity',
-      '3': 3,
-      '4': 1,
-      '5': 8,
-      '10': 'wasTheUserUnderPhysicalActivity'
-    },
-    {
-      '1': 'activityStartDateTime',
-      '3': 4,
-      '4': 1,
-      '5': 9,
-      '10': 'activityStartDateTime'
-    },
-    {
-      '1': 'activityEndDateTime',
-      '3': 5,
-      '4': 1,
-      '5': 9,
-      '10': 'activityEndDateTime'
-    },
-    {
-      '1': 'activityDurationSeconds',
-      '3': 6,
-      '4': 1,
-      '5': 17,
-      '10': 'activityDurationSeconds'
-    },
+    {'1': 'wasTheUserUnderPhysicalActivity', '3': 3, '4': 1, '5': 8, '10': 'wasTheUserUnderPhysicalActivity'},
+    {'1': 'activityStartDateTime', '3': 4, '4': 1, '5': 9, '10': 'activityStartDateTime'},
+    {'1': 'activityEndDateTime', '3': 5, '4': 1, '5': 9, '10': 'activityEndDateTime'},
+    {'1': 'activityDurationSeconds', '3': 6, '4': 1, '5': 17, '10': 'activityDurationSeconds'},
     {'1': 'activityTypeName', '3': 7, '4': 1, '5': 9, '10': 'activityTypeName'},
     {'1': 'activeSeconds', '3': 8, '4': 1, '5': 17, '10': 'activeSeconds'},
     {'1': 'restSeconds', '3': 9, '4': 1, '5': 17, '10': 'restSeconds'},
-    {
-      '1': 'lowIntensitySeconds',
-      '3': 10,
-      '4': 1,
-      '5': 17,
-      '10': 'lowIntensitySeconds'
-    },
-    {
-      '1': 'moderateIntensitySeconds',
-      '3': 11,
-      '4': 1,
-      '5': 17,
-      '10': 'moderateIntensitySeconds'
-    },
-    {
-      '1': 'vigorousIntensitySeconds',
-      '3': 12,
-      '4': 1,
-      '5': 17,
-      '10': 'vigorousIntensitySeconds'
-    },
-    {
-      '1': 'inactivitySeconds',
-      '3': 13,
-      '4': 1,
-      '5': 17,
-      '10': 'inactivitySeconds'
-    },
-    {
-      '1': 'activityLevelGranularData',
-      '3': 14,
-      '4': 3,
-      '5': 11,
-      '6': '.ActivityLevelGranularDataProto',
-      '10': 'activityLevelGranularData'
-    },
-    {
-      '1': 'continuousInactivePeriods',
-      '3': 15,
-      '4': 1,
-      '5': 17,
-      '10': 'continuousInactivePeriods'
-    },
-    {
-      '1': 'activityStrainLevel',
-      '3': 16,
-      '4': 1,
-      '5': 17,
-      '10': 'activityStrainLevel'
-    },
-    {
-      '1': 'activityWorkKilojoules',
-      '3': 17,
-      '4': 1,
-      '5': 1,
-      '10': 'activityWorkKilojoules'
-    },
-    {
-      '1': 'activityEnergyKilojoules',
-      '3': 18,
-      '4': 1,
-      '5': 1,
-      '10': 'activityEnergyKilojoules'
-    },
-    {
-      '1': 'activityEnergyPlannedKilojoules',
-      '3': 19,
-      '4': 1,
-      '5': 1,
-      '10': 'activityEnergyPlannedKilojoules'
-    },
-    {
-      '1': 'caloriesNetIntakeKcal',
-      '3': 20,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesNetIntakeKcal'
-    },
-    {
-      '1': 'caloriesExpenditureKcal',
-      '3': 21,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesExpenditureKcal'
-    },
-    {
-      '1': 'caloriesNetActiveKcal',
-      '3': 22,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesNetActiveKcal'
-    },
-    {
-      '1': 'caloriesBasalMetabolicRateKcal',
-      '3': 23,
-      '4': 1,
-      '5': 1,
-      '10': 'caloriesBasalMetabolicRateKcal'
-    },
-    {
-      '1': 'fatPercentageOfCalories',
-      '3': 24,
-      '4': 1,
-      '5': 1,
-      '10': 'fatPercentageOfCalories'
-    },
-    {
-      '1': 'carbohydratePercentageOfCalories',
-      '3': 25,
-      '4': 1,
-      '5': 1,
-      '10': 'carbohydratePercentageOfCalories'
-    },
-    {
-      '1': 'proteinPercentageOfCalories',
-      '3': 26,
-      '4': 1,
-      '5': 1,
-      '10': 'proteinPercentageOfCalories'
-    },
+    {'1': 'lowIntensitySeconds', '3': 10, '4': 1, '5': 17, '10': 'lowIntensitySeconds'},
+    {'1': 'moderateIntensitySeconds', '3': 11, '4': 1, '5': 17, '10': 'moderateIntensitySeconds'},
+    {'1': 'vigorousIntensitySeconds', '3': 12, '4': 1, '5': 17, '10': 'vigorousIntensitySeconds'},
+    {'1': 'inactivitySeconds', '3': 13, '4': 1, '5': 17, '10': 'inactivitySeconds'},
+    {'1': 'activityLevelGranularData', '3': 14, '4': 3, '5': 11, '6': '.ActivityLevelGranularDataProto', '10': 'activityLevelGranularData'},
+    {'1': 'continuousInactivePeriods', '3': 15, '4': 1, '5': 17, '10': 'continuousInactivePeriods'},
+    {'1': 'activityStrainLevel', '3': 16, '4': 1, '5': 17, '10': 'activityStrainLevel'},
+    {'1': 'activityWorkKilojoules', '3': 17, '4': 1, '5': 1, '10': 'activityWorkKilojoules'},
+    {'1': 'activityEnergyKilojoules', '3': 18, '4': 1, '5': 1, '10': 'activityEnergyKilojoules'},
+    {'1': 'activityEnergyPlannedKilojoules', '3': 19, '4': 1, '5': 1, '10': 'activityEnergyPlannedKilojoules'},
+    {'1': 'caloriesNetIntakeKcal', '3': 20, '4': 1, '5': 1, '10': 'caloriesNetIntakeKcal'},
+    {'1': 'caloriesExpenditureKcal', '3': 21, '4': 1, '5': 1, '10': 'caloriesExpenditureKcal'},
+    {'1': 'caloriesNetActiveKcal', '3': 22, '4': 1, '5': 1, '10': 'caloriesNetActiveKcal'},
+    {'1': 'caloriesBasalMetabolicRateKcal', '3': 23, '4': 1, '5': 1, '10': 'caloriesBasalMetabolicRateKcal'},
+    {'1': 'fatPercentageOfCalories', '3': 24, '4': 1, '5': 1, '10': 'fatPercentageOfCalories'},
+    {'1': 'carbohydratePercentageOfCalories', '3': 25, '4': 1, '5': 1, '10': 'carbohydratePercentageOfCalories'},
+    {'1': 'proteinPercentageOfCalories', '3': 26, '4': 1, '5': 1, '10': 'proteinPercentageOfCalories'},
     {'1': 'steps', '3': 27, '4': 1, '5': 17, '10': 'steps'},
-    {
-      '1': 'stepsGranularData',
-      '3': 28,
-      '4': 3,
-      '5': 11,
-      '6': '.StepsGranularDataProto',
-      '10': 'stepsGranularData'
-    },
-    {
-      '1': 'walkedDistanceMeters',
-      '3': 29,
-      '4': 1,
-      '5': 1,
-      '10': 'walkedDistanceMeters'
-    },
-    {
-      '1': 'traveledDistanceMeters',
-      '3': 30,
-      '4': 1,
-      '5': 1,
-      '10': 'traveledDistanceMeters'
-    },
-    {
-      '1': 'traveledDistanceGranularData',
-      '3': 31,
-      '4': 3,
-      '5': 11,
-      '6': '.TraveledDistanceGranularDataProto',
-      '10': 'traveledDistanceGranularData'
-    },
+    {'1': 'stepsGranularData', '3': 28, '4': 3, '5': 11, '6': '.StepsGranularDataProto', '10': 'stepsGranularData'},
+    {'1': 'walkedDistanceMeters', '3': 29, '4': 1, '5': 1, '10': 'walkedDistanceMeters'},
+    {'1': 'traveledDistanceMeters', '3': 30, '4': 1, '5': 1, '10': 'traveledDistanceMeters'},
+    {'1': 'traveledDistanceGranularData', '3': 31, '4': 3, '5': 11, '6': '.TraveledDistanceGranularDataProto', '10': 'traveledDistanceGranularData'},
     {'1': 'floorsClimbed', '3': 32, '4': 1, '5': 1, '10': 'floorsClimbed'},
-    {
-      '1': 'floorsClimbedGranularData',
-      '3': 33,
-      '4': 3,
-      '5': 11,
-      '6': '.FloorsClimbedGranularDataProto',
-      '10': 'floorsClimbedGranularData'
-    },
-    {
-      '1': 'elevationAvgAltitudeMeters',
-      '3': 34,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationAvgAltitudeMeters'
-    },
-    {
-      '1': 'elevationMinimumAltitudeMeters',
-      '3': 35,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationMinimumAltitudeMeters'
-    },
-    {
-      '1': 'elevationMaximumAltitudeMeters',
-      '3': 36,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationMaximumAltitudeMeters'
-    },
-    {
-      '1': 'elevationLossActualAltitudeMeters',
-      '3': 37,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationLossActualAltitudeMeters'
-    },
-    {
-      '1': 'elevationGainActualAltitudeMeters',
-      '3': 38,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationGainActualAltitudeMeters'
-    },
-    {
-      '1': 'elevationPlannedGainMeters',
-      '3': 39,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationPlannedGainMeters'
-    },
-    {
-      '1': 'elevationGranularData',
-      '3': 40,
-      '4': 3,
-      '5': 11,
-      '6': '.ElevationGranularDataProto',
-      '10': 'elevationGranularData'
-    },
-    {
-      '1': 'swimmingNumStrokes',
-      '3': 41,
-      '4': 1,
-      '5': 17,
-      '10': 'swimmingNumStrokes'
-    },
+    {'1': 'floorsClimbedGranularData', '3': 33, '4': 3, '5': 11, '6': '.FloorsClimbedGranularDataProto', '10': 'floorsClimbedGranularData'},
+    {'1': 'elevationAvgAltitudeMeters', '3': 34, '4': 1, '5': 1, '10': 'elevationAvgAltitudeMeters'},
+    {'1': 'elevationMinimumAltitudeMeters', '3': 35, '4': 1, '5': 1, '10': 'elevationMinimumAltitudeMeters'},
+    {'1': 'elevationMaximumAltitudeMeters', '3': 36, '4': 1, '5': 1, '10': 'elevationMaximumAltitudeMeters'},
+    {'1': 'elevationLossActualAltitudeMeters', '3': 37, '4': 1, '5': 1, '10': 'elevationLossActualAltitudeMeters'},
+    {'1': 'elevationGainActualAltitudeMeters', '3': 38, '4': 1, '5': 1, '10': 'elevationGainActualAltitudeMeters'},
+    {'1': 'elevationPlannedGainMeters', '3': 39, '4': 1, '5': 1, '10': 'elevationPlannedGainMeters'},
+    {'1': 'elevationGranularData', '3': 40, '4': 3, '5': 11, '6': '.ElevationGranularDataProto', '10': 'elevationGranularData'},
+    {'1': 'swimmingNumStrokes', '3': 41, '4': 1, '5': 17, '10': 'swimmingNumStrokes'},
     {'1': 'swimmingNumLaps', '3': 42, '4': 1, '5': 17, '10': 'swimmingNumLaps'},
-    {
-      '1': 'swimmingPoolLengthMeters',
-      '3': 43,
-      '4': 1,
-      '5': 1,
-      '10': 'swimmingPoolLengthMeters'
-    },
-    {
-      '1': 'swimmingTotalDistanceMeters',
-      '3': 44,
-      '4': 1,
-      '5': 1,
-      '10': 'swimmingTotalDistanceMeters'
-    },
-    {
-      '1': 'swimmingDistanceGranularData',
-      '3': 45,
-      '4': 3,
-      '5': 11,
-      '6': '.SwimmingDistanceGranularDataProto',
-      '10': 'swimmingDistanceGranularData'
-    },
+    {'1': 'swimmingPoolLengthMeters', '3': 43, '4': 1, '5': 1, '10': 'swimmingPoolLengthMeters'},
+    {'1': 'swimmingTotalDistanceMeters', '3': 44, '4': 1, '5': 1, '10': 'swimmingTotalDistanceMeters'},
+    {'1': 'swimmingDistanceGranularData', '3': 45, '4': 3, '5': 11, '6': '.SwimmingDistanceGranularDataProto', '10': 'swimmingDistanceGranularData'},
     {'1': 'hrMaximumBpm', '3': 46, '4': 1, '5': 17, '10': 'hrMaximumBpm'},
     {'1': 'hrMinimumBpm', '3': 47, '4': 1, '5': 17, '10': 'hrMinimumBpm'},
     {'1': 'hrAvgBpm', '3': 48, '4': 1, '5': 17, '10': 'hrAvgBpm'},
     {'1': 'hrRestingBpm', '3': 49, '4': 1, '5': 17, '10': 'hrRestingBpm'},
-    {
-      '1': 'hrGranularData',
-      '3': 50,
-      '4': 3,
-      '5': 11,
-      '6': '.HrGranularDataProto',
-      '10': 'hrGranularData'
-    },
+    {'1': 'hrGranularData', '3': 50, '4': 3, '5': 11, '6': '.HrGranularDataProto', '10': 'hrGranularData'},
     {'1': 'hrvAvgRmssd', '3': 51, '4': 1, '5': 1, '10': 'hrvAvgRmssd'},
     {'1': 'hrvAvgSdnn', '3': 52, '4': 1, '5': 1, '10': 'hrvAvgSdnn'},
-    {
-      '1': 'hrvSdnnGranularData',
-      '3': 53,
-      '4': 3,
-      '5': 11,
-      '6': '.HrvSdnnGranularDataProto',
-      '10': 'hrvSdnnGranularData'
-    },
-    {
-      '1': 'hrvRmssdGranularData',
-      '3': 54,
-      '4': 3,
-      '5': 11,
-      '6': '.HrvRmssdGranularDataProto',
-      '10': 'hrvRmssdGranularData'
-    },
-    {
-      '1': 'speedNormalizedMetersPerSecond',
-      '3': 55,
-      '4': 1,
-      '5': 1,
-      '10': 'speedNormalizedMetersPerSecond'
-    },
-    {
-      '1': 'speedAvgMetersPerSecond',
-      '3': 56,
-      '4': 1,
-      '5': 1,
-      '10': 'speedAvgMetersPerSecond'
-    },
-    {
-      '1': 'speedMaximumMetersPerSecond',
-      '3': 57,
-      '4': 1,
-      '5': 1,
-      '10': 'speedMaximumMetersPerSecond'
-    },
-    {
-      '1': 'speedGranularData',
-      '3': 58,
-      '4': 3,
-      '5': 11,
-      '6': '.SpeedGranularDataProto',
-      '10': 'speedGranularData'
-    },
-    {
-      '1': 'velocityAvg',
-      '3': 59,
-      '4': 3,
-      '5': 11,
-      '6': '.VelocityObjectProto',
-      '10': 'velocityAvg'
-    },
-    {
-      '1': 'velocityMaximum',
-      '3': 60,
-      '4': 3,
-      '5': 11,
-      '6': '.VelocityObjectProto',
-      '10': 'velocityMaximum'
-    },
+    {'1': 'hrvSdnnGranularData', '3': 53, '4': 3, '5': 11, '6': '.HrvSdnnGranularDataProto', '10': 'hrvSdnnGranularData'},
+    {'1': 'hrvRmssdGranularData', '3': 54, '4': 3, '5': 11, '6': '.HrvRmssdGranularDataProto', '10': 'hrvRmssdGranularData'},
+    {'1': 'speedNormalizedMetersPerSecond', '3': 55, '4': 1, '5': 1, '10': 'speedNormalizedMetersPerSecond'},
+    {'1': 'speedAvgMetersPerSecond', '3': 56, '4': 1, '5': 1, '10': 'speedAvgMetersPerSecond'},
+    {'1': 'speedMaximumMetersPerSecond', '3': 57, '4': 1, '5': 1, '10': 'speedMaximumMetersPerSecond'},
+    {'1': 'speedGranularData', '3': 58, '4': 3, '5': 11, '6': '.SpeedGranularDataProto', '10': 'speedGranularData'},
+    {'1': 'velocityAvg', '3': 59, '4': 3, '5': 11, '6': '.VelocityObjectProto', '10': 'velocityAvg'},
+    {'1': 'velocityMaximum', '3': 60, '4': 3, '5': 11, '6': '.VelocityObjectProto', '10': 'velocityMaximum'},
     {'1': 'paceAvgMinPerKm', '3': 61, '4': 1, '5': 1, '10': 'paceAvgMinPerKm'},
-    {
-      '1': 'paceMaximumMinPerKm',
-      '3': 62,
-      '4': 1,
-      '5': 1,
-      '10': 'paceMaximumMinPerKm'
-    },
+    {'1': 'paceMaximumMinPerKm', '3': 62, '4': 1, '5': 1, '10': 'paceMaximumMinPerKm'},
     {'1': 'cadenceAvgRpm', '3': 63, '4': 1, '5': 1, '10': 'cadenceAvgRpm'},
-    {
-      '1': 'cadenceMaximumRpm',
-      '3': 64,
-      '4': 1,
-      '5': 1,
-      '10': 'cadenceMaximumRpm'
-    },
-    {
-      '1': 'cadenceGranularData',
-      '3': 65,
-      '4': 3,
-      '5': 11,
-      '6': '.CadenceGranularDataProto',
-      '10': 'cadenceGranularData'
-    },
-    {
-      '1': 'torqueAvgNewtonMeters',
-      '3': 66,
-      '4': 1,
-      '5': 1,
-      '10': 'torqueAvgNewtonMeters'
-    },
-    {
-      '1': 'torqueMaximumNewtonMeters',
-      '3': 67,
-      '4': 1,
-      '5': 1,
-      '10': 'torqueMaximumNewtonMeters'
-    },
-    {
-      '1': 'torqueGranularData',
-      '3': 68,
-      '4': 3,
-      '5': 11,
-      '6': '.TorqueGranularDataProto',
-      '10': 'torqueGranularData'
-    },
-    {
-      '1': 'lapGranularData',
-      '3': 69,
-      '4': 3,
-      '5': 11,
-      '6': '.LapGranularDataProto',
-      '10': 'lapGranularData'
-    },
-    {
-      '1': 'saturationAvgPercentage',
-      '3': 70,
-      '4': 1,
-      '5': 1,
-      '10': 'saturationAvgPercentage'
-    },
-    {
-      '1': 'saturationGranularData',
-      '3': 71,
-      '4': 3,
-      '5': 11,
-      '6': '.SaturationGranularDataProto',
-      '10': 'saturationGranularData'
-    },
-    {
-      '1': 'vo2MaxMlPerMinPerKg',
-      '3': 72,
-      '4': 1,
-      '5': 1,
-      '10': 'vo2MaxMlPerMinPerKg'
-    },
-    {
-      '1': 'vo2GranularData',
-      '3': 73,
-      '4': 3,
-      '5': 11,
-      '6': '.Vo2GranularDataProto',
-      '10': 'vo2GranularData'
-    },
-    {
-      '1': 'positionStart',
-      '3': 74,
-      '4': 3,
-      '5': 11,
-      '6': '.PositionObjectProto',
-      '10': 'positionStart'
-    },
-    {
-      '1': 'positionCentroid',
-      '3': 75,
-      '4': 3,
-      '5': 11,
-      '6': '.PositionObjectProto',
-      '10': 'positionCentroid'
-    },
-    {
-      '1': 'positionEnd',
-      '3': 76,
-      '4': 3,
-      '5': 11,
-      '6': '.PositionObjectProto',
-      '10': 'positionEnd'
-    },
-    {
-      '1': 'positionGranularData',
-      '3': 77,
-      '4': 3,
-      '5': 11,
-      '6': '.PositionGranularDataProto',
-      '10': 'positionGranularData'
-    },
-    {
-      '1': 'positionPolylineMapDataSummary',
-      '3': 78,
-      '4': 1,
-      '5': 9,
-      '10': 'positionPolylineMapDataSummary'
-    },
+    {'1': 'cadenceMaximumRpm', '3': 64, '4': 1, '5': 1, '10': 'cadenceMaximumRpm'},
+    {'1': 'cadenceGranularData', '3': 65, '4': 3, '5': 11, '6': '.CadenceGranularDataProto', '10': 'cadenceGranularData'},
+    {'1': 'torqueAvgNewtonMeters', '3': 66, '4': 1, '5': 1, '10': 'torqueAvgNewtonMeters'},
+    {'1': 'torqueMaximumNewtonMeters', '3': 67, '4': 1, '5': 1, '10': 'torqueMaximumNewtonMeters'},
+    {'1': 'torqueGranularData', '3': 68, '4': 3, '5': 11, '6': '.TorqueGranularDataProto', '10': 'torqueGranularData'},
+    {'1': 'lapGranularData', '3': 69, '4': 3, '5': 11, '6': '.LapGranularDataProto', '10': 'lapGranularData'},
+    {'1': 'saturationAvgPercentage', '3': 70, '4': 1, '5': 1, '10': 'saturationAvgPercentage'},
+    {'1': 'saturationGranularData', '3': 71, '4': 3, '5': 11, '6': '.SaturationGranularDataProto', '10': 'saturationGranularData'},
+    {'1': 'vo2MaxMlPerMinPerKg', '3': 72, '4': 1, '5': 1, '10': 'vo2MaxMlPerMinPerKg'},
+    {'1': 'vo2GranularData', '3': 73, '4': 3, '5': 11, '6': '.Vo2GranularDataProto', '10': 'vo2GranularData'},
+    {'1': 'positionStart', '3': 74, '4': 3, '5': 11, '6': '.PositionObjectProto', '10': 'positionStart'},
+    {'1': 'positionCentroid', '3': 75, '4': 3, '5': 11, '6': '.PositionObjectProto', '10': 'positionCentroid'},
+    {'1': 'positionEnd', '3': 76, '4': 3, '5': 11, '6': '.PositionObjectProto', '10': 'positionEnd'},
+    {'1': 'positionGranularData', '3': 77, '4': 3, '5': 11, '6': '.PositionGranularDataProto', '10': 'positionGranularData'},
+    {'1': 'positionPolylineMapDataSummary', '3': 78, '4': 1, '5': 9, '10': 'positionPolylineMapDataSummary'},
     {'1': 'powerAvgWatts', '3': 79, '4': 1, '5': 1, '10': 'powerAvgWatts'},
-    {
-      '1': 'powerMaximumWatts',
-      '3': 80,
-      '4': 1,
-      '5': 1,
-      '10': 'powerMaximumWatts'
-    },
-    {
-      '1': 'powerGranularData',
-      '3': 81,
-      '4': 3,
-      '5': 11,
-      '6': '.PowerGranularDataProto',
-      '10': 'powerGranularData'
-    },
-    {
-      '1': 'stressAtRestDurationSeconds',
-      '3': 82,
-      '4': 1,
-      '5': 17,
-      '10': 'stressAtRestDurationSeconds'
-    },
-    {
-      '1': 'stressDurationSeconds',
-      '3': 83,
-      '4': 1,
-      '5': 17,
-      '10': 'stressDurationSeconds'
-    },
-    {
-      '1': 'lowStressDurationSeconds',
-      '3': 84,
-      '4': 1,
-      '5': 17,
-      '10': 'lowStressDurationSeconds'
-    },
-    {
-      '1': 'mediumStressDurationSeconds',
-      '3': 85,
-      '4': 1,
-      '5': 17,
-      '10': 'mediumStressDurationSeconds'
-    },
-    {
-      '1': 'highStressDurationSeconds',
-      '3': 86,
-      '4': 1,
-      '5': 17,
-      '10': 'highStressDurationSeconds'
-    },
-    {
-      '1': 'tssGranularData',
-      '3': 87,
-      '4': 3,
-      '5': 11,
-      '6': '.TssGranularDataProto',
-      '10': 'tssGranularData'
-    },
+    {'1': 'powerMaximumWatts', '3': 80, '4': 1, '5': 1, '10': 'powerMaximumWatts'},
+    {'1': 'powerGranularData', '3': 81, '4': 3, '5': 11, '6': '.PowerGranularDataProto', '10': 'powerGranularData'},
+    {'1': 'stressAtRestDurationSeconds', '3': 82, '4': 1, '5': 17, '10': 'stressAtRestDurationSeconds'},
+    {'1': 'stressDurationSeconds', '3': 83, '4': 1, '5': 17, '10': 'stressDurationSeconds'},
+    {'1': 'lowStressDurationSeconds', '3': 84, '4': 1, '5': 17, '10': 'lowStressDurationSeconds'},
+    {'1': 'mediumStressDurationSeconds', '3': 85, '4': 1, '5': 17, '10': 'mediumStressDurationSeconds'},
+    {'1': 'highStressDurationSeconds', '3': 86, '4': 1, '5': 17, '10': 'highStressDurationSeconds'},
+    {'1': 'tssGranularData', '3': 87, '4': 3, '5': 11, '6': '.TssGranularDataProto', '10': 'tssGranularData'},
     {'1': 'stressAvgLevel', '3': 88, '4': 1, '5': 17, '10': 'stressAvgLevel'},
-    {
-      '1': 'stressMaximumLevel',
-      '3': 89,
-      '4': 1,
-      '5': 17,
-      '10': 'stressMaximumLevel'
-    },
+    {'1': 'stressMaximumLevel', '3': 89, '4': 1, '5': 17, '10': 'stressMaximumLevel'},
   ],
 };
 
@@ -2501,14 +1003,7 @@ final $typed_data.Uint8List activityEventProtoDescriptor = $convert.base64Decode
 const ActivityEventsProto$json = {
   '1': 'ActivityEventsProto',
   '2': [
-    {
-      '1': 'elements',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.ActivityEventProto',
-      '10': 'elements'
-    },
+    {'1': 'elements', '3': 1, '4': 3, '5': 11, '6': '.ActivityEventProto', '10': 'elements'},
   ],
 };
 
@@ -2521,32 +1016,9 @@ final $typed_data.Uint8List activityEventsProtoDescriptor = $convert.base64Decod
 const ActivityEventResultProto$json = {
   '1': 'ActivityEventResultProto',
   '2': [
-    {
-      '1': 'synced',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.ActivityEventsProto',
-      '9': 0,
-      '10': 'synced'
-    },
-    {
-      '1': 'recordsNotFound',
-      '3': 2,
-      '4': 1,
-      '5': 8,
-      '9': 0,
-      '10': 'recordsNotFound'
-    },
-    {
-      '1': 'failure',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.PluginExceptionProto',
-      '9': 0,
-      '10': 'failure'
-    },
+    {'1': 'synced', '3': 1, '4': 1, '5': 11, '6': '.ActivityEventsProto', '9': 0, '10': 'synced'},
+    {'1': 'recordsNotFound', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'recordsNotFound'},
+    {'1': 'failure', '3': 3, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -2565,23 +1037,16 @@ const ActiveStepsGranularDataProto$json = {
   '1': 'ActiveStepsGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'activeSteps', '3': 3, '4': 1, '5': 17, '10': 'activeSteps'},
   ],
 };
 
 /// Descriptor for `ActiveStepsGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List activeStepsGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'ChxBY3RpdmVTdGVwc0dyYW51bGFyRGF0YVByb3RvEhoKCGRhdGVUaW1lGAEgASgJUghkYXRlVG'
-        'ltZRI4ChdpbnRlcnZhbER1cmF0aW9uU2Vjb25kcxgCIAEoEVIXaW50ZXJ2YWxEdXJhdGlvblNl'
-        'Y29uZHMSIAoLYWN0aXZlU3RlcHMYAyABKBFSC2FjdGl2ZVN0ZXBz');
+final $typed_data.Uint8List activeStepsGranularDataProtoDescriptor = $convert.base64Decode(
+    'ChxBY3RpdmVTdGVwc0dyYW51bGFyRGF0YVByb3RvEhoKCGRhdGVUaW1lGAEgASgJUghkYXRlVG'
+    'ltZRI4ChdpbnRlcnZhbER1cmF0aW9uU2Vjb25kcxgCIAEoEVIXaW50ZXJ2YWxEdXJhdGlvblNl'
+    'Y29uZHMSIAoLYWN0aXZlU3RlcHMYAyABKBFSC2FjdGl2ZVN0ZXBz');
 
 @$core.Deprecated('Use activityLevelGranularDataProtoDescriptor instead')
 const ActivityLevelGranularDataProto$json = {
@@ -2593,31 +1058,23 @@ const ActivityLevelGranularDataProto$json = {
 };
 
 /// Descriptor for `ActivityLevelGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List activityLevelGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'Ch5BY3Rpdml0eUxldmVsR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdG'
-        'VUaW1lEiQKDWFjdGl2aXR5TGV2ZWwYAiABKBFSDWFjdGl2aXR5TGV2ZWw=');
+final $typed_data.Uint8List activityLevelGranularDataProtoDescriptor = $convert.base64Decode(
+    'Ch5BY3Rpdml0eUxldmVsR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdG'
+    'VUaW1lEiQKDWFjdGl2aXR5TGV2ZWwYAiABKBFSDWFjdGl2aXR5TGV2ZWw=');
 
 @$core.Deprecated('Use bloodGlucoseGranularDataProtoDescriptor instead')
 const BloodGlucoseGranularDataProto$json = {
   '1': 'BloodGlucoseGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'bloodGlucoseMgPerDl',
-      '3': 2,
-      '4': 1,
-      '5': 1,
-      '10': 'bloodGlucoseMgPerDl'
-    },
+    {'1': 'bloodGlucoseMgPerDl', '3': 2, '4': 1, '5': 1, '10': 'bloodGlucoseMgPerDl'},
   ],
 };
 
 /// Descriptor for `BloodGlucoseGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List bloodGlucoseGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'Ch1CbG9vZEdsdWNvc2VHcmFudWxhckRhdGFQcm90bxIaCghkYXRlVGltZRgBIAEoCVIIZGF0ZV'
-        'RpbWUSMAoTYmxvb2RHbHVjb3NlTWdQZXJEbBgCIAEoAVITYmxvb2RHbHVjb3NlTWdQZXJEbA==');
+final $typed_data.Uint8List bloodGlucoseGranularDataProtoDescriptor = $convert.base64Decode(
+    'Ch1CbG9vZEdsdWNvc2VHcmFudWxhckRhdGFQcm90bxIaCghkYXRlVGltZRgBIAEoCVIIZGF0ZV'
+    'RpbWUSMAoTYmxvb2RHbHVjb3NlTWdQZXJEbBgCIAEoAVITYmxvb2RHbHVjb3NlTWdQZXJEbA==');
 
 @$core.Deprecated('Use bloodPressureGranularDataProtoDescriptor instead')
 const BloodPressureGranularDataProto$json = {
@@ -2630,11 +1087,10 @@ const BloodPressureGranularDataProto$json = {
 };
 
 /// Descriptor for `BloodPressureGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List bloodPressureGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'Ch5CbG9vZFByZXNzdXJlR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdG'
-        'VUaW1lEiIKDHN5c3RvbGljTW1IZxgCIAEoAVIMc3lzdG9saWNNbUhnEiQKDWRpYXN0b2xpY01t'
-        'SGcYAyABKAFSDWRpYXN0b2xpY01tSGc=');
+final $typed_data.Uint8List bloodPressureGranularDataProtoDescriptor = $convert.base64Decode(
+    'Ch5CbG9vZFByZXNzdXJlR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdG'
+    'VUaW1lEiIKDHN5c3RvbGljTW1IZxgCIAEoAVIMc3lzdG9saWNNbUhnEiQKDWRpYXN0b2xpY01t'
+    'SGcYAyABKAFSDWRpYXN0b2xpY01tSGc=');
 
 @$core.Deprecated('Use breathingGranularDataProtoDescriptor instead')
 const BreathingGranularDataProto$json = {
@@ -2646,23 +1102,16 @@ const BreathingGranularDataProto$json = {
 };
 
 /// Descriptor for `BreathingGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List breathingGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'ChpCcmVhdGhpbmdHcmFudWxhckRhdGFQcm90bxIaCghkYXRlVGltZRgBIAEoCVIIZGF0ZVRpbW'
-        'USJAoNYnJlYXRoc1Blck1pbhgCIAEoAVINYnJlYXRoc1Blck1pbg==');
+final $typed_data.Uint8List breathingGranularDataProtoDescriptor = $convert.base64Decode(
+    'ChpCcmVhdGhpbmdHcmFudWxhckRhdGFQcm90bxIaCghkYXRlVGltZRgBIAEoCVIIZGF0ZVRpbW'
+    'USJAoNYnJlYXRoc1Blck1pbhgCIAEoAVINYnJlYXRoc1Blck1pbg==');
 
 @$core.Deprecated('Use cadenceGranularDataProtoDescriptor instead')
 const CadenceGranularDataProto$json = {
   '1': 'CadenceGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'cadenceRpm', '3': 3, '4': 1, '5': 1, '10': 'cadenceRpm'},
   ],
 };
@@ -2678,20 +1127,8 @@ const ElevationGranularDataProto$json = {
   '1': 'ElevationGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
-    {
-      '1': 'elevationChangeMeters',
-      '3': 3,
-      '4': 1,
-      '5': 1,
-      '10': 'elevationChangeMeters'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
+    {'1': 'elevationChangeMeters', '3': 3, '4': 1, '5': 1, '10': 'elevationChangeMeters'},
   ],
 };
 
@@ -2707,23 +1144,16 @@ const FloorsClimbedGranularDataProto$json = {
   '1': 'FloorsClimbedGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'floorsClimbed', '3': 3, '4': 1, '5': 1, '10': 'floorsClimbed'},
   ],
 };
 
 /// Descriptor for `FloorsClimbedGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List floorsClimbedGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'Ch5GbG9vcnNDbGltYmVkR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdG'
-        'VUaW1lEjgKF2ludGVydmFsRHVyYXRpb25TZWNvbmRzGAIgASgRUhdpbnRlcnZhbER1cmF0aW9u'
-        'U2Vjb25kcxIkCg1mbG9vcnNDbGltYmVkGAMgASgBUg1mbG9vcnNDbGltYmVk');
+final $typed_data.Uint8List floorsClimbedGranularDataProtoDescriptor = $convert.base64Decode(
+    'Ch5GbG9vcnNDbGltYmVkR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdG'
+    'VUaW1lEjgKF2ludGVydmFsRHVyYXRpb25TZWNvbmRzGAIgASgRUhdpbnRlcnZhbER1cmF0aW9u'
+    'U2Vjb25kcxIkCg1mbG9vcnNDbGltYmVkGAMgASgBUg1mbG9vcnNDbGltYmVk');
 
 @$core.Deprecated('Use hrGranularDataProtoDescriptor instead')
 const HrGranularDataProto$json = {
@@ -2749,10 +1179,9 @@ const HrvSdnnGranularDataProto$json = {
 };
 
 /// Descriptor for `HrvSdnnGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List hrvSdnnGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'ChhIcnZTZG5uR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdGVUaW1lEh'
-        'gKB2hydlNkbm4YAiABKAFSB2hydlNkbm4=');
+final $typed_data.Uint8List hrvSdnnGranularDataProtoDescriptor = $convert.base64Decode(
+    'ChhIcnZTZG5uR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdGVUaW1lEh'
+    'gKB2hydlNkbm4YAiABKAFSB2hydlNkbm4=');
 
 @$core.Deprecated('Use menstruationFlowGranularDataProtoDescriptor instead')
 const MenstruationFlowGranularDataProto$json = {
@@ -2764,23 +1193,16 @@ const MenstruationFlowGranularDataProto$json = {
 };
 
 /// Descriptor for `MenstruationFlowGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List menstruationFlowGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'CiFNZW5zdHJ1YXRpb25GbG93R3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCG'
-        'RhdGVUaW1lEhYKBmZsb3dNbBgCIAEoAVIGZmxvd01s');
+final $typed_data.Uint8List menstruationFlowGranularDataProtoDescriptor = $convert.base64Decode(
+    'CiFNZW5zdHJ1YXRpb25GbG93R3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCG'
+    'RhdGVUaW1lEhYKBmZsb3dNbBgCIAEoAVIGZmxvd01s');
 
 @$core.Deprecated('Use moodGranularDataProtoDescriptor instead')
 const MoodGranularDataProto$json = {
   '1': 'MoodGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'moodScale', '3': 3, '4': 1, '5': 1, '10': 'moodScale'},
   ],
 };
@@ -2796,13 +1218,7 @@ const LapGranularDataProto$json = {
   '1': 'LapGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'laps', '3': 3, '4': 1, '5': 17, '10': 'laps'},
   ],
 };
@@ -2818,13 +1234,7 @@ const PowerGranularDataProto$json = {
   '1': 'PowerGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'powerWatts', '3': 3, '4': 1, '5': 1, '10': 'powerWatts'},
   ],
 };
@@ -2840,13 +1250,7 @@ const PositionGranularDataProto$json = {
   '1': 'PositionGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'latDeg', '3': 3, '4': 1, '5': 1, '10': 'latDeg'},
     {'1': 'lngDeg', '3': 4, '4': 1, '5': 1, '10': 'lngDeg'},
   ],
@@ -2863,81 +1267,48 @@ const HydrationAmountGranularDataProto$json = {
   '1': 'HydrationAmountGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
-    {
-      '1': 'hydrationAmountMl',
-      '3': 3,
-      '4': 1,
-      '5': 1,
-      '10': 'hydrationAmountMl'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
+    {'1': 'hydrationAmountMl', '3': 3, '4': 1, '5': 1, '10': 'hydrationAmountMl'},
   ],
 };
 
 /// Descriptor for `HydrationAmountGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List hydrationAmountGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'CiBIeWRyYXRpb25BbW91bnRHcmFudWxhckRhdGFQcm90bxIaCghkYXRlVGltZRgBIAEoCVIIZG'
-        'F0ZVRpbWUSOAoXaW50ZXJ2YWxEdXJhdGlvblNlY29uZHMYAiABKBFSF2ludGVydmFsRHVyYXRp'
-        'b25TZWNvbmRzEiwKEWh5ZHJhdGlvbkFtb3VudE1sGAMgASgBUhFoeWRyYXRpb25BbW91bnRNbA'
-        '==');
+final $typed_data.Uint8List hydrationAmountGranularDataProtoDescriptor = $convert.base64Decode(
+    'CiBIeWRyYXRpb25BbW91bnRHcmFudWxhckRhdGFQcm90bxIaCghkYXRlVGltZRgBIAEoCVIIZG'
+    'F0ZVRpbWUSOAoXaW50ZXJ2YWxEdXJhdGlvblNlY29uZHMYAiABKBFSF2ludGVydmFsRHVyYXRp'
+    'b25TZWNvbmRzEiwKEWh5ZHJhdGlvbkFtb3VudE1sGAMgASgBUhFoeWRyYXRpb25BbW91bnRNbA'
+    '==');
 
 @$core.Deprecated('Use saturationGranularDataProtoDescriptor instead')
 const SaturationGranularDataProto$json = {
   '1': 'SaturationGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'saturationPercentage',
-      '3': 2,
-      '4': 1,
-      '5': 1,
-      '10': 'saturationPercentage'
-    },
+    {'1': 'saturationPercentage', '3': 2, '4': 1, '5': 1, '10': 'saturationPercentage'},
   ],
 };
 
 /// Descriptor for `SaturationGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List saturationGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'ChtTYXR1cmF0aW9uR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdGVUaW'
-        '1lEjIKFHNhdHVyYXRpb25QZXJjZW50YWdlGAIgASgBUhRzYXR1cmF0aW9uUGVyY2VudGFnZQ==');
+final $typed_data.Uint8List saturationGranularDataProtoDescriptor = $convert.base64Decode(
+    'ChtTYXR1cmF0aW9uR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCGRhdGVUaW'
+    '1lEjIKFHNhdHVyYXRpb25QZXJjZW50YWdlGAIgASgBUhRzYXR1cmF0aW9uUGVyY2VudGFnZQ==');
 
 @$core.Deprecated('Use hydrationLevelGranularDataProtoDescriptor instead')
 const HydrationLevelGranularDataProto$json = {
   '1': 'HydrationLevelGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
-    {
-      '1': 'hydrationLevelPercentage',
-      '3': 3,
-      '4': 1,
-      '5': 1,
-      '10': 'hydrationLevelPercentage'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
+    {'1': 'hydrationLevelPercentage', '3': 3, '4': 1, '5': 1, '10': 'hydrationLevelPercentage'},
   ],
 };
 
 /// Descriptor for `HydrationLevelGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List hydrationLevelGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'Ch9IeWRyYXRpb25MZXZlbEdyYW51bGFyRGF0YVByb3RvEhoKCGRhdGVUaW1lGAEgASgJUghkYX'
-        'RlVGltZRI4ChdpbnRlcnZhbER1cmF0aW9uU2Vjb25kcxgCIAEoEVIXaW50ZXJ2YWxEdXJhdGlv'
-        'blNlY29uZHMSOgoYaHlkcmF0aW9uTGV2ZWxQZXJjZW50YWdlGAMgASgBUhhoeWRyYXRpb25MZX'
-        'ZlbFBlcmNlbnRhZ2U=');
+final $typed_data.Uint8List hydrationLevelGranularDataProtoDescriptor = $convert.base64Decode(
+    'Ch9IeWRyYXRpb25MZXZlbEdyYW51bGFyRGF0YVByb3RvEhoKCGRhdGVUaW1lGAEgASgJUghkYX'
+    'RlVGltZRI4ChdpbnRlcnZhbER1cmF0aW9uU2Vjb25kcxgCIAEoEVIXaW50ZXJ2YWxEdXJhdGlv'
+    'blNlY29uZHMSOgoYaHlkcmF0aW9uTGV2ZWxQZXJjZW50YWdlGAMgASgBUhhoeWRyYXRpb25MZX'
+    'ZlbFBlcmNlbnRhZ2U=');
 
 @$core.Deprecated('Use hrvRmssdGranularDataProtoDescriptor instead')
 const HrvRmssdGranularDataProto$json = {
@@ -2949,30 +1320,17 @@ const HrvRmssdGranularDataProto$json = {
 };
 
 /// Descriptor for `HrvRmssdGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List hrvRmssdGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'ChlIcnZSbXNzZEdyYW51bGFyRGF0YVByb3RvEhoKCGRhdGVUaW1lGAEgASgJUghkYXRlVGltZR'
-        'IaCghocnZSbXNzZBgCIAEoAVIIaHJ2Um1zc2Q=');
+final $typed_data.Uint8List hrvRmssdGranularDataProtoDescriptor = $convert.base64Decode(
+    'ChlIcnZSbXNzZEdyYW51bGFyRGF0YVByb3RvEhoKCGRhdGVUaW1lGAEgASgJUghkYXRlVGltZR'
+    'IaCghocnZSbXNzZBgCIAEoAVIIaHJ2Um1zc2Q=');
 
 @$core.Deprecated('Use snoringGranularDataProtoDescriptor instead')
 const SnoringGranularDataProto$json = {
   '1': 'SnoringGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
-    {
-      '1': 'snoringEventsCount',
-      '3': 3,
-      '4': 1,
-      '5': 17,
-      '10': 'snoringEventsCount'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
+    {'1': 'snoringEventsCount', '3': 3, '4': 1, '5': 17, '10': 'snoringEventsCount'},
   ],
 };
 
@@ -2987,20 +1345,8 @@ const SpeedGranularDataProto$json = {
   '1': 'SpeedGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
-    {
-      '1': 'speedMetersPerSecond',
-      '3': 3,
-      '4': 1,
-      '5': 1,
-      '10': 'speedMetersPerSecond'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
+    {'1': 'speedMetersPerSecond', '3': 3, '4': 1, '5': 1, '10': 'speedMetersPerSecond'},
   ],
 };
 
@@ -3015,13 +1361,7 @@ const StepsGranularDataProto$json = {
   '1': 'StepsGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'steps', '3': 3, '4': 1, '5': 17, '10': 'steps'},
   ],
 };
@@ -3042,83 +1382,50 @@ const StressGranularDataProto$json = {
 };
 
 /// Descriptor for `StressGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List stressGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'ChdTdHJlc3NHcmFudWxhckRhdGFQcm90bxIaCghkYXRlVGltZRgBIAEoCVIIZGF0ZVRpbWUSIA'
-        'oLc3RyZXNzU2NvcmUYAiABKBFSC3N0cmVzc1Njb3Jl');
+final $typed_data.Uint8List stressGranularDataProtoDescriptor = $convert.base64Decode(
+    'ChdTdHJlc3NHcmFudWxhckRhdGFQcm90bxIaCghkYXRlVGltZRgBIAEoCVIIZGF0ZVRpbWUSIA'
+    'oLc3RyZXNzU2NvcmUYAiABKBFSC3N0cmVzc1Njb3Jl');
 
 @$core.Deprecated('Use swimmingDistanceGranularDataProtoDescriptor instead')
 const SwimmingDistanceGranularDataProto$json = {
   '1': 'SwimmingDistanceGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
-    {
-      '1': 'swimmingDistanceMeters',
-      '3': 3,
-      '4': 1,
-      '5': 1,
-      '10': 'swimmingDistanceMeters'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
+    {'1': 'swimmingDistanceMeters', '3': 3, '4': 1, '5': 1, '10': 'swimmingDistanceMeters'},
   ],
 };
 
 /// Descriptor for `SwimmingDistanceGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List swimmingDistanceGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'CiFTd2ltbWluZ0Rpc3RhbmNlR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCG'
-        'RhdGVUaW1lEjgKF2ludGVydmFsRHVyYXRpb25TZWNvbmRzGAIgASgRUhdpbnRlcnZhbER1cmF0'
-        'aW9uU2Vjb25kcxI2ChZzd2ltbWluZ0Rpc3RhbmNlTWV0ZXJzGAMgASgBUhZzd2ltbWluZ0Rpc3'
-        'RhbmNlTWV0ZXJz');
+final $typed_data.Uint8List swimmingDistanceGranularDataProtoDescriptor = $convert.base64Decode(
+    'CiFTd2ltbWluZ0Rpc3RhbmNlR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCG'
+    'RhdGVUaW1lEjgKF2ludGVydmFsRHVyYXRpb25TZWNvbmRzGAIgASgRUhdpbnRlcnZhbER1cmF0'
+    'aW9uU2Vjb25kcxI2ChZzd2ltbWluZ0Rpc3RhbmNlTWV0ZXJzGAMgASgBUhZzd2ltbWluZ0Rpc3'
+    'RhbmNlTWV0ZXJz');
 
 @$core.Deprecated('Use temperatureGranularDataProtoDescriptor instead')
 const TemperatureGranularDataProto$json = {
   '1': 'TemperatureGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'temperatureCelsius',
-      '3': 2,
-      '4': 1,
-      '5': 1,
-      '10': 'temperatureCelsius'
-    },
+    {'1': 'temperatureCelsius', '3': 2, '4': 1, '5': 1, '10': 'temperatureCelsius'},
     {'1': 'measurementType', '3': 3, '4': 1, '5': 9, '10': 'measurementType'},
   ],
 };
 
 /// Descriptor for `TemperatureGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List temperatureGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'ChxUZW1wZXJhdHVyZUdyYW51bGFyRGF0YVByb3RvEhoKCGRhdGVUaW1lGAEgASgJUghkYXRlVG'
-        'ltZRIuChJ0ZW1wZXJhdHVyZUNlbHNpdXMYAiABKAFSEnRlbXBlcmF0dXJlQ2Vsc2l1cxIoCg9t'
-        'ZWFzdXJlbWVudFR5cGUYAyABKAlSD21lYXN1cmVtZW50VHlwZQ==');
+final $typed_data.Uint8List temperatureGranularDataProtoDescriptor = $convert.base64Decode(
+    'ChxUZW1wZXJhdHVyZUdyYW51bGFyRGF0YVByb3RvEhoKCGRhdGVUaW1lGAEgASgJUghkYXRlVG'
+    'ltZRIuChJ0ZW1wZXJhdHVyZUNlbHNpdXMYAiABKAFSEnRlbXBlcmF0dXJlQ2Vsc2l1cxIoCg9t'
+    'ZWFzdXJlbWVudFR5cGUYAyABKAlSD21lYXN1cmVtZW50VHlwZQ==');
 
 @$core.Deprecated('Use torqueGranularDataProtoDescriptor instead')
 const TorqueGranularDataProto$json = {
   '1': 'TorqueGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
-    {
-      '1': 'torqueNewtonMeters',
-      '3': 3,
-      '4': 1,
-      '5': 1,
-      '10': 'torqueNewtonMeters'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
+    {'1': 'torqueNewtonMeters', '3': 3, '4': 1, '5': 1, '10': 'torqueNewtonMeters'},
   ],
 };
 
@@ -3133,43 +1440,24 @@ const TraveledDistanceGranularDataProto$json = {
   '1': 'TraveledDistanceGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
-    {
-      '1': 'traveledDistanceMeters',
-      '3': 3,
-      '4': 1,
-      '5': 1,
-      '10': 'traveledDistanceMeters'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
+    {'1': 'traveledDistanceMeters', '3': 3, '4': 1, '5': 1, '10': 'traveledDistanceMeters'},
   ],
 };
 
 /// Descriptor for `TraveledDistanceGranularDataProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List traveledDistanceGranularDataProtoDescriptor =
-    $convert.base64Decode(
-        'CiFUcmF2ZWxlZERpc3RhbmNlR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCG'
-        'RhdGVUaW1lEjgKF2ludGVydmFsRHVyYXRpb25TZWNvbmRzGAIgASgRUhdpbnRlcnZhbER1cmF0'
-        'aW9uU2Vjb25kcxI2ChZ0cmF2ZWxlZERpc3RhbmNlTWV0ZXJzGAMgASgBUhZ0cmF2ZWxlZERpc3'
-        'RhbmNlTWV0ZXJz');
+final $typed_data.Uint8List traveledDistanceGranularDataProtoDescriptor = $convert.base64Decode(
+    'CiFUcmF2ZWxlZERpc3RhbmNlR3JhbnVsYXJEYXRhUHJvdG8SGgoIZGF0ZVRpbWUYASABKAlSCG'
+    'RhdGVUaW1lEjgKF2ludGVydmFsRHVyYXRpb25TZWNvbmRzGAIgASgRUhdpbnRlcnZhbER1cmF0'
+    'aW9uU2Vjb25kcxI2ChZ0cmF2ZWxlZERpc3RhbmNlTWV0ZXJzGAMgASgBUhZ0cmF2ZWxlZERpc3'
+    'RhbmNlTWV0ZXJz');
 
 @$core.Deprecated('Use tssGranularDataProtoDescriptor instead')
 const TssGranularDataProto$json = {
   '1': 'TssGranularDataProto',
   '2': [
     {'1': 'dateTime', '3': 1, '4': 1, '5': 9, '10': 'dateTime'},
-    {
-      '1': 'intervalDurationSeconds',
-      '3': 2,
-      '4': 1,
-      '5': 17,
-      '10': 'intervalDurationSeconds'
-    },
+    {'1': 'intervalDurationSeconds', '3': 2, '4': 1, '5': 17, '10': 'intervalDurationSeconds'},
     {'1': 'tssScore', '3': 3, '4': 1, '5': 17, '10': 'tssScore'},
   ],
 };
@@ -3204,10 +1492,9 @@ const BloodPressureObjectProto$json = {
 };
 
 /// Descriptor for `BloodPressureObjectProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List bloodPressureObjectProtoDescriptor =
-    $convert.base64Decode(
-        'ChhCbG9vZFByZXNzdXJlT2JqZWN0UHJvdG8SIgoMc3lzdG9saWNNbUhnGAEgASgBUgxzeXN0b2'
-        'xpY01tSGcSJAoNZGlhc3RvbGljTW1IZxgCIAEoAVINZGlhc3RvbGljTW1IZw==');
+final $typed_data.Uint8List bloodPressureObjectProtoDescriptor = $convert.base64Decode(
+    'ChhCbG9vZFByZXNzdXJlT2JqZWN0UHJvdG8SIgoMc3lzdG9saWNNbUhnGAEgASgBUgxzeXN0b2'
+    'xpY01tSGcSJAoNZGlhc3RvbGljTW1IZxgCIAEoAVINZGlhc3RvbGljTW1IZw==');
 
 @$core.Deprecated('Use positionObjectProtoDescriptor instead')
 const PositionObjectProto$json = {
@@ -3227,13 +1514,7 @@ final $typed_data.Uint8List positionObjectProtoDescriptor = $convert.base64Decod
 const TemperatureObjectProto$json = {
   '1': 'TemperatureObjectProto',
   '2': [
-    {
-      '1': 'temperatureCelsius',
-      '3': 1,
-      '4': 1,
-      '5': 1,
-      '10': 'temperatureCelsius'
-    },
+    {'1': 'temperatureCelsius', '3': 1, '4': 1, '5': 1, '10': 'temperatureCelsius'},
     {'1': 'measurementType', '3': 2, '4': 1, '5': 9, '10': 'measurementType'},
   ],
 };
@@ -3248,13 +1529,7 @@ final $typed_data.Uint8List temperatureObjectProtoDescriptor = $convert.base64De
 const VelocityObjectProto$json = {
   '1': 'VelocityObjectProto',
   '2': [
-    {
-      '1': 'speedMetersPerSecond',
-      '3': 1,
-      '4': 1,
-      '5': 1,
-      '10': 'speedMetersPerSecond'
-    },
+    {'1': 'speedMetersPerSecond', '3': 1, '4': 1, '5': 1, '10': 'speedMetersPerSecond'},
     {'1': 'direction', '3': 2, '4': 1, '5': 9, '10': 'direction'},
   ],
 };
@@ -3263,3 +1538,4 @@ const VelocityObjectProto$json = {
 final $typed_data.Uint8List velocityObjectProtoDescriptor = $convert.base64Decode(
     'ChNWZWxvY2l0eU9iamVjdFByb3RvEjIKFHNwZWVkTWV0ZXJzUGVyU2Vjb25kGAEgASgBUhRzcG'
     'VlZE1ldGVyc1BlclNlY29uZBIcCglkaXJlY3Rpb24YAiABKAlSCWRpcmVjdGlvbg==');
+
