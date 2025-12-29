@@ -1,3 +1,10 @@
+## 1.3.0
+
+* Added `RookApiSources`, use this class to:
+  * Get authorization URLs for various health data sources. 
+  * Check which data sources a user has already authorized. 
+  * Revoke authorization for a specific data source.
+
 ## 1.2.0
 
 * Added `SleepSummary`
