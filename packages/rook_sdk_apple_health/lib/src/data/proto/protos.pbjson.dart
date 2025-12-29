@@ -147,24 +147,6 @@ final $typed_data.Uint8List eventSyncTypeProtoDescriptor = $convert.base64Decode
     'oOQkxPT0RfUFJFU1NVUkUQAhIQCgxCT0RZX01FVFJJQ1MQAxIOCgpIRUFSVF9SQVRFEAQSDwoL'
     'T1hZR0VOQVRJT04QBxIPCgtURU1QRVJBVFVSRRAIIgQIBRAFIgQIBhAGIgQICRAJIgQIChAK');
 
-@$core.Deprecated('Use dataSourceTypeProtoDescriptor instead')
-const DataSourceTypeProto$json = {
-  '1': 'DataSourceTypeProto',
-  '2': [
-    {'1': 'GARMIN', '2': 0},
-    {'1': 'OURA', '2': 1},
-    {'1': 'POLAR', '2': 2},
-    {'1': 'FITBIT', '2': 3},
-    {'1': 'WITHINGS', '2': 4},
-    {'1': 'WHOOP', '2': 5},
-  ],
-};
-
-/// Descriptor for `DataSourceTypeProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List dataSourceTypeProtoDescriptor = $convert.base64Decode(
-    'ChNEYXRhU291cmNlVHlwZVByb3RvEgoKBkdBUk1JThAAEggKBE9VUkEQARIJCgVQT0xBUhACEg'
-    'oKBkZJVEJJVBADEgwKCFdJVEhJTkdTEAQSCQoFV0hPT1AQBQ==');
-
 @$core.Deprecated('Use pluginExceptionProtoDescriptor instead')
 const PluginExceptionProto$json = {
   '1': 'PluginExceptionProto',
@@ -280,88 +262,6 @@ final $typed_data.Uint8List caloriesResultProtoDescriptor = $convert.base64Decod
     'ChNDYWxvcmllc1Jlc3VsdFByb3RvEioKB3N1Y2Nlc3MYASABKAsyDi5DYWxvcmllc1Byb3RvSA'
     'BSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBsdWdpbkV4Y2VwdGlvblByb3RvSABSB2Zh'
     'aWx1cmVCCAoGcmVzdWx0');
-
-@$core.Deprecated('Use dataSourceAuthorizerProtoDescriptor instead')
-const DataSourceAuthorizerProto$json = {
-  '1': 'DataSourceAuthorizerProto',
-  '2': [
-    {'1': 'dataSource', '3': 1, '4': 1, '5': 9, '10': 'dataSource'},
-    {'1': 'authorized', '3': 2, '4': 1, '5': 8, '10': 'authorized'},
-    {'1': 'authorizationUrl', '3': 3, '4': 1, '5': 9, '10': 'authorizationUrl'},
-    {'1': 'authorizationUrlIsNull', '3': 6, '4': 1, '5': 8, '10': 'authorizationUrlIsNull'},
-  ],
-};
-
-/// Descriptor for `DataSourceAuthorizerProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataSourceAuthorizerProtoDescriptor = $convert.base64Decode(
-    'ChlEYXRhU291cmNlQXV0aG9yaXplclByb3RvEh4KCmRhdGFTb3VyY2UYASABKAlSCmRhdGFTb3'
-    'VyY2USHgoKYXV0aG9yaXplZBgCIAEoCFIKYXV0aG9yaXplZBIqChBhdXRob3JpemF0aW9uVXJs'
-    'GAMgASgJUhBhdXRob3JpemF0aW9uVXJsEjYKFmF1dGhvcml6YXRpb25VcmxJc051bGwYBiABKA'
-    'hSFmF1dGhvcml6YXRpb25VcmxJc051bGw=');
-
-@$core.Deprecated('Use dataSourceAuthorizerResultProtoDescriptor instead')
-const DataSourceAuthorizerResultProto$json = {
-  '1': 'DataSourceAuthorizerResultProto',
-  '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.DataSourceAuthorizerProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
-  ],
-  '8': [
-    {'1': 'result'},
-  ],
-};
-
-/// Descriptor for `DataSourceAuthorizerResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataSourceAuthorizerResultProtoDescriptor = $convert.base64Decode(
-    'Ch9EYXRhU291cmNlQXV0aG9yaXplclJlc3VsdFByb3RvEjYKB3N1Y2Nlc3MYASABKAsyGi5EYX'
-    'RhU291cmNlQXV0aG9yaXplclByb3RvSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBs'
-    'dWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
-
-@$core.Deprecated('Use authorizedDataSourceV2ProtoDescriptor instead')
-const AuthorizedDataSourceV2Proto$json = {
-  '1': 'AuthorizedDataSourceV2Proto',
-  '2': [
-    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'authorized', '3': 2, '4': 1, '5': 8, '10': 'authorized'},
-    {'1': 'imageUrl', '3': 3, '4': 1, '5': 9, '10': 'imageUrl'},
-  ],
-};
-
-/// Descriptor for `AuthorizedDataSourceV2Proto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ProtoDescriptor = $convert.base64Decode(
-    'ChtBdXRob3JpemVkRGF0YVNvdXJjZVYyUHJvdG8SEgoEbmFtZRgBIAEoCVIEbmFtZRIeCgphdX'
-    'Rob3JpemVkGAIgASgIUgphdXRob3JpemVkEhoKCGltYWdlVXJsGAMgASgJUghpbWFnZVVybA==');
-
-@$core.Deprecated('Use authorizedDataSourceV2ListProtoDescriptor instead')
-const AuthorizedDataSourceV2ListProto$json = {
-  '1': 'AuthorizedDataSourceV2ListProto',
-  '2': [
-    {'1': 'list', '3': 1, '4': 3, '5': 11, '6': '.AuthorizedDataSourceV2Proto', '10': 'list'},
-  ],
-};
-
-/// Descriptor for `AuthorizedDataSourceV2ListProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ListProtoDescriptor = $convert.base64Decode(
-    'Ch9BdXRob3JpemVkRGF0YVNvdXJjZVYyTGlzdFByb3RvEjAKBGxpc3QYASADKAsyHC5BdXRob3'
-    'JpemVkRGF0YVNvdXJjZVYyUHJvdG9SBGxpc3Q=');
-
-@$core.Deprecated('Use authorizedDataSourceV2ResultProtoDescriptor instead')
-const AuthorizedDataSourceV2ResultProto$json = {
-  '1': 'AuthorizedDataSourceV2ResultProto',
-  '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.AuthorizedDataSourceV2ListProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
-  ],
-  '8': [
-    {'1': 'result'},
-  ],
-};
-
-/// Descriptor for `AuthorizedDataSourceV2ResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List authorizedDataSourceV2ResultProtoDescriptor = $convert.base64Decode(
-    'CiFBdXRob3JpemVkRGF0YVNvdXJjZVYyUmVzdWx0UHJvdG8SPAoHc3VjY2VzcxgBIAEoCzIgLk'
-    'F1dGhvcml6ZWREYXRhU291cmNlVjJMaXN0UHJvdG9IAFIHc3VjY2VzcxIxCgdmYWlsdXJlGAIg'
-    'ASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use sleepSummaryProtoDescriptor instead')
 const SleepSummaryProto$json = {
