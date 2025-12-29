@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:rook_flutter_sdk/common/build_api_sources.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/widget/authorized_data_sources_list.dart';
-import 'package:rook_flutter_sdk/common/widget/data_sources_bottom_sheet.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
@@ -20,10 +19,13 @@ class IOSDataSources extends StatefulWidget {
 class _IOSDataSourcesState extends State<IOSDataSources> {
   final Logger logger = Logger('IOSDataSources');
 
+  late final RookApiSources rookApiSources = buildApiSources();
+
   ConsoleOutput dataSourceAuthorizerOutput = ConsoleOutput();
   ConsoleOutput authorizedDataSourcesV2Output = ConsoleOutput();
+  ConsoleOutput revokeDataSourceOutput = ConsoleOutput();
 
-  String dataSource = "Fitbit";
+  DataSourceType dataSourceType = DataSourceType.fitbit;
 
   @override
   Widget build(BuildContext context) {
@@ -32,44 +34,36 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
       alignment: Alignment.topCenter,
       child: Column(
         children: [
-          const SectionTitle("Connections page"),
-          FilledButton(
-            onPressed: loadDataSources,
-            child: const Text('Connections page (data sources list)'),
-          ),
           const SectionTitle('Data source authorizer'),
           DropdownMenu(
+            initialSelection: DataSourceType.fitbit,
             onSelected: (selection) {
-              dataSource = selection ?? "Fitbit";
+              dataSourceType = selection!;
             },
             dropdownMenuEntries: const [
               DropdownMenuEntry(
-                value: "Garmin",
+                value: DataSourceType.garmin,
                 label: "Garmin",
               ),
               DropdownMenuEntry(
-                value: "Oura",
+                value: DataSourceType.oura,
                 label: "Oura",
               ),
               DropdownMenuEntry(
-                value: "Polar",
+                value: DataSourceType.polar,
                 label: "Polar",
               ),
               DropdownMenuEntry(
-                value: "Fitbit",
+                value: DataSourceType.fitbit,
                 label: "Fitbit",
               ),
               DropdownMenuEntry(
-                value: "Withings",
+                value: DataSourceType.withings,
                 label: "Withings",
               ),
               DropdownMenuEntry(
-                value: "Whoop",
+                value: DataSourceType.whoop,
                 label: "Whoop",
-              ),
-              DropdownMenuEntry(
-                value: "Dexcom",
-                label: "Dexcom",
               ),
             ],
           ),
@@ -78,61 +72,52 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
             onPressed: getDataSourceAuthorizer,
             child: const Text('getDataSourceAuthorizer'),
           ),
-          const SectionTitle("Authorized data sources"),
-          FilledButton(
-            onPressed: loadAuthorizedDataSources,
-            child: const Text('getAuthorizedDataSources'),
-          ),
           const SectionTitle("Authorized data sources V2"),
           Text(authorizedDataSourcesV2Output.current),
           FilledButton(
             onPressed: getAuthorizedDataSourcesV2,
             child: const Text('getAuthorizedDataSourcesV2'),
           ),
-          const SectionTitle("Connections page (pre-built)"),
-          FilledButton(
-            onPressed: () {
-              AHRookDataSources.presentDataSourceView(
-                redirectUrl: "https://tryrook.io",
-              );
+          const SectionTitle('Revoke data source'),
+          DropdownMenu(
+            initialSelection: DataSourceType.fitbit,
+            onSelected: (selection) {
+              dataSourceType = selection!;
             },
-            child: const Text('presentDataSourceView'),
+            dropdownMenuEntries: const [
+              DropdownMenuEntry(
+                value: DataSourceType.garmin,
+                label: "Garmin",
+              ),
+              DropdownMenuEntry(
+                value: DataSourceType.oura,
+                label: "Oura",
+              ),
+              DropdownMenuEntry(
+                value: DataSourceType.polar,
+                label: "Polar",
+              ),
+              DropdownMenuEntry(
+                value: DataSourceType.fitbit,
+                label: "Fitbit",
+              ),
+              DropdownMenuEntry(
+                value: DataSourceType.withings,
+                label: "Withings",
+              ),
+              DropdownMenuEntry(
+                value: DataSourceType.whoop,
+                label: "Whoop",
+              ),
+            ],
+          ),
+          Text(revokeDataSourceOutput.current),
+          FilledButton(
+            onPressed: revokeDataSource,
+            child: const Text('Revoke data source'),
           ),
         ],
       ),
-    );
-  }
-
-  void loadDataSources() {
-    showModalBottomSheet<void>(
-      context: context,
-      enableDrag: false,
-      builder: (BuildContext context) {
-        return FutureBuilder(
-          future: AHRookDataSources.getAvailableDataSources(
-            redirectUrl: null,
-          ),
-          builder: (
-            BuildContext ctx,
-            AsyncSnapshot<List<DataSource>> snapshot,
-          ) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text('Error: ${snapshot.error}'),
-              );
-            } else {
-              return dataSourcesBottomSheet(
-                ctx,
-                snapshot.data!,
-              );
-            }
-          },
-        );
-      },
     );
   }
 
@@ -144,8 +129,11 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
     });
 
     try {
-      final authorizer = await AHRookDataSources.getDataSourceAuthorizer(
-        dataSource,
+      final userID = await AHRookConfigurationManager.getUserID();
+
+      final authorizer = await rookApiSources.getDataSourceAuthorizer(
+        userID: userID!,
+        dataSource: dataSourceType.identifier,
         redirectUrl: null,
       );
 
@@ -169,32 +157,6 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
     }
   }
 
-  void loadAuthorizedDataSources() {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return FutureBuilder(
-          future: AHRookDataSources.getAuthorizedDataSources(),
-          builder: (ctx, AsyncSnapshot<AuthorizedDataSources> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text('Error: ${snapshot.error}'),
-              );
-            } else {
-              return AuthorizedDataSourcesList(
-                authorizedDataSources: snapshot.data!,
-              );
-            }
-          },
-        );
-      },
-    );
-  }
-
   void getAuthorizedDataSourcesV2() async {
     authorizedDataSourcesV2Output.clear();
 
@@ -204,7 +166,11 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
     });
 
     try {
-      final dataSources = await AHRookDataSources.getAuthorizedDataSourcesV2();
+      final userID = await AHRookConfigurationManager.getUserID();
+
+      final dataSources = await rookApiSources.getAuthorizedDataSourcesV2(
+        userID: userID!,
+      );
 
       setState(() {
         authorizedDataSourcesV2Output.appendMultiple(
@@ -215,6 +181,33 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
       authorizedDataSourcesV2Output.append(
         "Failed to get authorized data sources v2: $exception",
       );
+    }
+  }
+
+  void revokeDataSource() async {
+    revokeDataSourceOutput.clear();
+
+    setState(() {
+      revokeDataSourceOutput.append("Revoking data source...");
+    });
+
+    try {
+      final userID = await AHRookConfigurationManager.getUserID();
+
+      await rookApiSources.revokeDataSource(
+        userID: userID!,
+        dataSource: dataSourceType,
+      );
+
+      setState(() {
+        revokeDataSourceOutput.append("Data source revoked successfully");
+      });
+    } catch (error) {
+      setState(() {
+        revokeDataSourceOutput.append(
+          "Error revoking data source $error",
+        );
+      });
     }
   }
 }

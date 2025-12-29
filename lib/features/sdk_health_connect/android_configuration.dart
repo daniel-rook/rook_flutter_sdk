@@ -125,8 +125,8 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
           FilledButton(
             onPressed: enableNavigation
                 ? () => Navigator.of(context).pushNamed(
-              androidBackgroundSyncRoute,
-            )
+                      androidBackgroundSyncRoute,
+                    )
                 : null,
             child: const Text('Background sync'),
           ),

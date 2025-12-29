@@ -116,13 +116,13 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
   void requestPermissions() async {
     try {
       final requestPermissionsStatus =
-          await RookSamsung.requestSamsungHealthPermissions(_samsungPermissions);
+          await RookSamsung.requestSamsungHealthPermissions(
+              _samsungPermissions);
 
       String message = switch (requestPermissionsStatus) {
         RequestPermissionsStatus.alreadyGranted =>
           'Permissions already granted',
-        RequestPermissionsStatus.requestSent =>
-          'Permissions request sent',
+        RequestPermissionsStatus.requestSent => 'Permissions request sent',
       };
 
       logger.info(message);
@@ -132,7 +132,8 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final autoSyncAcceptation = await AppPreferences().getSamsungAutoSyncAcceptation();
+    final autoSyncAcceptation =
+        await AppPreferences().getSamsungAutoSyncAcceptation();
 
     backgroundSyncOutput.clear();
 
