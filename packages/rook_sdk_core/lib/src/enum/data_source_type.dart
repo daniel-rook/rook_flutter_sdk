@@ -8,7 +8,7 @@ enum DataSourceType {
   whoop;
 
   String get identifier {
-    return switch(this) {
+    return switch (this) {
       DataSourceType.garmin => "Garmin",
       DataSourceType.oura => "Oura",
       DataSourceType.polar => "Polar",
