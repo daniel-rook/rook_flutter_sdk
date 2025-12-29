@@ -64,3 +64,4 @@ export 'src/model/physical_summary.dart';
 export 'src/model/rook_configuration.dart';
 export 'src/model/sleep_summary.dart';
 export 'src/model/sync_status_with_data.dart';
+export 'src/rook_api_sources.dart';
