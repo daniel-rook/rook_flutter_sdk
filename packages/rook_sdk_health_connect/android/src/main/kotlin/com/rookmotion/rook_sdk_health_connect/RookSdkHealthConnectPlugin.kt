@@ -17,7 +17,6 @@ import com.rookmotion.rook_sdk_health_connect.eventhandler.IsScheduledTransmitte
 import com.rookmotion.rook_sdk_health_connect.handler.BackgroundSyncHandler
 import com.rookmotion.rook_sdk_health_connect.handler.ConfigurationHandler
 import com.rookmotion.rook_sdk_health_connect.handler.ContinuousUploadHandler
-import com.rookmotion.rook_sdk_health_connect.handler.DataSourcesHandler
 import com.rookmotion.rook_sdk_health_connect.handler.HelperHandler
 import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
@@ -54,7 +53,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var helperHandler: HelperHandler
     private lateinit var stepsHandler: StepsHandler
     private lateinit var continuousUploadHandler: ContinuousUploadHandler
-    private lateinit var dataSourcesHandler: DataSourcesHandler
     private lateinit var backgroundSyncHandler: BackgroundSyncHandler
 
     private lateinit var androidPermissionsEventChannel: EventChannel
@@ -85,7 +83,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         helperHandler = HelperHandler(coroutineScope)
         stepsHandler = StepsHandler(coroutineScope, rookStepsManager)
         continuousUploadHandler = ContinuousUploadHandler(coroutineScope, rookContinuousUploadManager)
-        dataSourcesHandler = DataSourcesHandler(flutterPluginBinding.applicationContext, coroutineScope)
         backgroundSyncHandler = BackgroundSyncHandler(coroutineScope, rookBackgroundSyncManager)
 
         isScheduled = IsScheduledTransmitter(coroutineScope, rookBackgroundSyncManager)
@@ -164,13 +161,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "syncTodayAndroidStepsCount" -> stepsHandler.onMethodCall(call, result)
 
             "scheduleYesterdaySync" -> continuousUploadHandler.onMethodCall(call, result)
-
-            "getAvailableDataSources" -> dataSourcesHandler.onMethodCall(call, result)
-            "getDataSourceAuthorizer" -> dataSourcesHandler.onMethodCall(call, result)
-            "getAuthorizedDataSources" -> dataSourcesHandler.onMethodCall(call, result)
-            "getAuthorizedDataSourcesV2" -> dataSourcesHandler.onMethodCall(call, result)
-            "revokeDataSource" -> dataSourcesHandler.onMethodCall(call, result)
-            "presentDataSourceView" -> dataSourcesHandler.onMethodCall(call, result)
 
             "isScheduled" -> backgroundSyncHandler.onMethodCall(call, result)
             "schedule" -> backgroundSyncHandler.onMethodCall(call, result)

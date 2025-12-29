@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
-import 'package:rook_sdk_health_connect/src/data/extension/result_data_sources_extensions.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/android_permissions_summary_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/configuration_mappers.dart';
 import 'package:rook_sdk_health_connect/src/data/mapper/event_sync_type_mapper.dart';
@@ -11,12 +10,9 @@ import 'package:rook_sdk_health_connect/src/data/mapper/health_connect_permissio
 import 'package:rook_sdk_health_connect/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/data/result/activity_event_result.dart';
-import 'package:rook_sdk_health_connect/src/data/result/authorized_data_source_v2_result.dart';
-import 'package:rook_sdk_health_connect/src/data/result/authorized_data_sources_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/background_read_status_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/boolean_result.dart';
-import 'package:rook_sdk_health_connect/src/data/result/data_source_authorizer_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/int64_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/request_permissions_status_result.dart';
@@ -432,88 +428,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
       'scheduleYesterdaySync',
       [
         enableNativeLogs,
-      ],
-    );
-
-    final result = BooleanResultProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  @Deprecated("Use getDataSourceAuthorizer instead")
-  Future<List<DataSource>> getAvailableDataSources(String? redirectUrl) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getAvailableDataSources',
-      [
-        redirectUrl,
-      ],
-    );
-
-    final result = ResultDataSourcesProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  Future<DataSourceAuthorizer> getDataSourceAuthorizer(
-    String dataSource,
-    String? redirectUrl,
-  ) async {
-    final Uint8List bytes =
-        await methodChannel.invokeMethod('getDataSourceAuthorizer', [
-      dataSource,
-      redirectUrl,
-    ]);
-
-    final result = DataSourceAuthorizerResultProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  Future<AuthorizedDataSources> getAuthorizedDataSources() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getAuthorizedDataSources',
-    );
-
-    final result = AuthorizedDataSourcesResultProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  Future<List<AuthorizedDataSourceV2>> getAuthorizedDataSourcesV2() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getAuthorizedDataSourcesV2',
-    );
-
-    final result = AuthorizedDataSourceV2ResultProto.fromBuffer(bytes);
-
-    return result.unwrap();
-  }
-
-  @override
-  Future<void> revokeDataSource(String dataSource) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'revokeDataSource',
-      [
-        dataSource,
-      ],
-    );
-
-    final result = BooleanResultProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  @Deprecated("Use getDataSourceAuthorizer instead")
-  Future<void> presentDataSourceView(String? redirectUrl) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'presentDataSourceView',
-      [
-        redirectUrl,
       ],
     );
 

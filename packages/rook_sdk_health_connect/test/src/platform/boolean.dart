@@ -167,19 +167,6 @@ void booleanResultTests(
       await expectLater(future, completes);
     });
 
-    test('GIVEN the happy path WHEN presentDataSourceView THEN complete',
-        () async {
-      final future = platform.presentDataSourceView("http://tryrook.io");
-
-      await expectLater(future, completes);
-    });
-
-    test('GIVEN the happy path WHEN revokeDataSource THEN complete', () async {
-      final future = platform.revokeDataSource("Garmin");
-
-      await expectLater(future, completes);
-    });
-
     test(
         'GIVEN the happy path WHEN isScheduled THEN complete with expected value',
         () async {
@@ -360,24 +347,6 @@ void booleanResultTests(
       'GIVEN the unhappy path WHEN scheduleYesterdaySync THEN throw exception',
       () async {
         final future = platform.scheduleYesterdaySync(true);
-
-        await expectLater(future, throwsException);
-      },
-    );
-
-    test(
-      'GIVEN the unhappy path WHEN presentDataSourceView THEN throw exception',
-      () async {
-        final future = platform.presentDataSourceView("http://tryrook.io");
-
-        await expectLater(future, throwsException);
-      },
-    );
-
-    test(
-      'GIVEN the unhappy path WHEN revokeDataSource THEN throw exception',
-      () async {
-        final future = platform.revokeDataSource("Fitbit");
 
         await expectLater(future, throwsException);
       },

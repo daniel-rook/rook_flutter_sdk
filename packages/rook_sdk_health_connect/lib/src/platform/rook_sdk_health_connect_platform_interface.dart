@@ -91,23 +91,6 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<void> scheduleYesterdaySync(bool enableNativeLogs);
 
-  @Deprecated("Use getDataSourceAuthorizer instead")
-  Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
-
-  Future<DataSourceAuthorizer> getDataSourceAuthorizer(
-    String dataSource,
-    String? redirectUrl,
-  );
-
-  Future<AuthorizedDataSources> getAuthorizedDataSources();
-
-  Future<List<AuthorizedDataSourceV2>> getAuthorizedDataSourcesV2();
-
-  Future<void> revokeDataSource(String dataSource);
-
-  @Deprecated("Use getDataSourceAuthorizer instead")
-  Future<void> presentDataSourceView(String? redirectUrl);
-
   Future<bool> isScheduled();
 
   Stream<bool> get isScheduledUpdates;
