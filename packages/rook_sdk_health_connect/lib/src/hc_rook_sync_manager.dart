@@ -11,7 +11,11 @@ class HCRookSyncManager {
   /// If [enableLogs] is not null: Syncs the last 29 days of SLEEP_SUMMARY, PHYSICAL_SUMMARY and BODY_SUMMARY (not including today).
   /// If [date] is not null: Syncs SLEEP_SUMMARY, PHYSICAL_SUMMARY and BODY_SUMMARY for the provided [date].
   /// if [summary] and [date] are not null: Syncs the [summary] of choice for the provided [date].
-  static Future<bool> sync({
+  ///
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  ///
+  /// Returns [RecordsNotFoundException] if no data is available.
+  static Future<void> sync({
     bool? enableLogs,
     DateTime? date,
     HCSummarySyncType? summary,
@@ -39,7 +43,11 @@ class HCRookSyncManager {
   }
 
   /// Syncs the [event] of choice for the provided [date].
-  static Future<bool> syncEvents(DateTime date, HCEventSyncType event) {
+  ///
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  ///
+  /// Returns [RecordsNotFoundException] if no data is available.
+  static Future<void> syncEvents(DateTime date, HCEventSyncType event) {
     return RookSdkHealthConnectPlatform.instance.syncByDateAndEvent(
       date,
       event,
@@ -50,7 +58,7 @@ class HCRookSyncManager {
   ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   ///
-  /// Returns the current day sleep summaries or an empty list if none are available.
+  /// Returns the current day sleep summaries. Or [RecordsNotFoundException] if no data is available.
   static Future<List<SleepSummary>> getSleepSummary(DateTime date) {
     return RookSdkHealthConnectPlatform.instance.getSleepSummary(date);
   }
@@ -59,8 +67,8 @@ class HCRookSyncManager {
   ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   ///
-  /// Returns the current day physical summary or null if none are available.
-  static Future<PhysicalSummary?> getPhysicalSummary(DateTime date) {
+  /// Returns the current day physical summary. Or [RecordsNotFoundException] if no data is available.
+  static Future<PhysicalSummary> getPhysicalSummary(DateTime date) {
     return RookSdkHealthConnectPlatform.instance.getPhysicalSummary(date);
   }
 
@@ -68,8 +76,8 @@ class HCRookSyncManager {
   ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   ///
-  /// Returns the current day body summary or null if none are available.
-  static Future<BodySummary?> getBodySummary(DateTime date) {
+  /// Returns the current day body summary. Or [RecordsNotFoundException] if no data is available.
+  static Future<BodySummary> getBodySummary(DateTime date) {
     return RookSdkHealthConnectPlatform.instance.getBodySummary(date);
   }
 
@@ -77,7 +85,7 @@ class HCRookSyncManager {
   ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   ///
-  /// Returns the current day activity events or an empty list if none are available.
+  /// Returns the current day activity events. Or [RecordsNotFoundException] if no data is available.
   static Future<List<ActivityEvent>> getActivityEvents(DateTime date) {
     return RookSdkHealthConnectPlatform.instance.getActivityEvents(date);
   }
@@ -86,8 +94,8 @@ class HCRookSyncManager {
   ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   ///
-  /// Returns a [SyncStatusWithData] with the current day steps count (if available).
-  static Future<SyncStatusWithData<int>> getTodayStepsCount() {
+  /// Returns the current day steps count. Or [RecordsNotFoundException] if no data is available.
+  static Future<int> getTodayStepsCount() {
     return RookSdkHealthConnectPlatform.instance.getTodayStepsCount();
   }
 
@@ -95,8 +103,8 @@ class HCRookSyncManager {
   ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   ///
-  /// Returns a [SyncStatusWithData] with the current day calories count (if available).
-  static Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount() {
+  /// Returns the current day calories count. Or [RecordsNotFoundException] if no data is available.
+  static Future<DailyCalories> getTodayCaloriesCount() {
     return RookSdkHealthConnectPlatform.instance.getTodayCaloriesCount();
   }
 }

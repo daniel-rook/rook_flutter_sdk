@@ -98,38 +98,38 @@ public  final class BooleanResultProto extends
 
   public static final int FAILURE_FIELD_NUMBER = 2;
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   @java.lang.Override
   public boolean hasFailure() {
     return resultCase_ == 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
+  public com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto getFailure() {
     if (resultCase_ == 2) {
-       return (com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto) result_;
+       return (com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto) result_;
     }
-    return com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance();
+    return com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
-  private void setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void setFailure(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
-  private void mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto value) {
     value.getClass();
   if (resultCase_ == 2 &&
-        result_ != com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance()) {
-      result_ = com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto) result_)
+        result_ != com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.getDefaultInstance()) {
+      result_ = com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto) result_)
           .mergeFrom(value).buildPartial();
     } else {
       result_ = value;
@@ -137,7 +137,7 @@ public  final class BooleanResultProto extends
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   private void clearFailure() {
     if (resultCase_ == 2) {
@@ -292,46 +292,46 @@ public  final class BooleanResultProto extends
     }
 
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     @java.lang.Override
     public boolean hasFailure() {
       return instance.hasFailure();
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
+    public com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto getFailure() {
       return instance.getFailure();
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
-    public Builder setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder setFailure(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto value) {
       copyOnWrite();
       instance.setFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     public Builder setFailure(
-        com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.Builder builderForValue) {
+        com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.Builder builderForValue) {
       copyOnWrite();
       instance.setFailure(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
-    public Builder mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto value) {
       copyOnWrite();
       instance.mergeFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     public Builder clearFailure() {
       copyOnWrite();
@@ -357,7 +357,7 @@ public  final class BooleanResultProto extends
           java.lang.Object[] objects = new java.lang.Object[] {
             "result_",
             "resultCase_",
-            com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.class,
+            com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.class,
           };
           java.lang.String info =
               "\u0000\u0002\u0001\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001:\u0000\u0002<" +

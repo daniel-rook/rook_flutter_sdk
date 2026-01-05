@@ -1,11 +1,18 @@
-/// Exception thrown when the provided date is not valid for events extraction.
-class DateNotValidForEventsException implements Exception {
-  final String message;
+import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 
-  DateNotValidForEventsException(this.message);
+/// Thrown by:
+///
+/// * Apple Health SDK
+/// * Samsung Health SDK
+/// * Health Connect SDK
+final class DateNotValidForEventsException extends SDKException {
+  const DateNotValidForEventsException({
+    required int code,
+    required String message,
+  }) : super(code: code, message: message);
 
   @override
   String toString() {
-    return 'DateNotValidForEventsException{message: $message}';
+    return 'DateNotValidForEventsException{code: $code, message: $message}';
   }
 }

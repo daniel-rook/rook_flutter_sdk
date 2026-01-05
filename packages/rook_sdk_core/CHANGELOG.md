@@ -1,9 +1,39 @@
-## 1.3.0
+## 4.0.0
 
 * Added `RookApiSources`, use this class to:
-  * Get authorization URLs for various health data sources. 
-  * Check which data sources a user has already authorized. 
-  * Revoke authorization for a specific data source.
+    * Get authorization URLs for various health data sources.
+    * Check which data sources a user has already authorized.
+    * Revoke authorization for a specific data source.
+* Added `SDKException` with `code` and `message` properties.
+    * Available odes are available in `SDKExceptionCode`.
+* Added `HealthKitOutdatedException`.
+* Added `HealthKitDisabledException`.
+* Added `HealthKitNotInstalledException`.
+* Added `HealthKitNotReadyException`.
+* Added `HealthKitNotSupportedException`.
+* Added `HealthKitOutdatedException`.
+* Added `MissingPermissionsException`.
+* Added `RecordsNotFoundException`.
+* Added `UnknownException`.
+* Changed `ConnectTimeoutException` declaration to final, and parent class to `SDKException`.
+* Changed `DateNotValidForEventsException` declaration to final, and parent class to `SDKException`.
+* Changed `DateNotValidForSummariesException` declaration to final, and parent class to `SDKException`.
+* Changed `HttpRequestException` declaration to final, and parent class to `SDKException`.
+    * `code` property now refers to `SDKExceptionCode`.
+    * `error` property was removed.
+    * http error and message are included in the `message` property.
+* Changed `MissingConfigurationException` declaration to final, and parent class to `SDKException`.
+* Changed `SDKNotAuthorizedException` declaration to final, and parent class to `SDKException`.
+* Changed `SDKNotInitializedException` declaration to final, and parent class to `SDKException`.
+* Changed `UserNotInitializedException` declaration to final, and parent class to `SDKException`.
+* Removed `BadUserTimeZoneException`.
+* Removed `DeviceNotSupportedException`.
+* Removed `HealthConnectNotInstalledException`.
+* Removed `MissingAndroidPermissionsException`.
+* Removed `MissingHealthConnectPermissionsException`.
+* Removed `RequestQuotaExceededException`.
+* Removed `UserNotDeletedException`.
+* Removed `UserNotRegisteredException`.
 
 ## 1.2.0
 
@@ -25,7 +55,7 @@
 ## 0.4.5
 
 * Added `DailyCalories`
-* Added equals and hashCode implementation to `data_source`, `rook_configuration` and `authorized_data_sources`. 
+* Added equals and hashCode implementation to `data_source`, `rook_configuration` and `authorized_data_sources`.
 
 ## 0.4.4
 
@@ -43,7 +73,7 @@
 
 * Added BadUserTimeZoneException.
 * Added DateNotValidForEventsException.
-* Added DateNotValidForSummariesException. 
+* Added DateNotValidForSummariesException.
 * Added UserNotDeletedException.
 * Added UserNotRegisteredException.
 * MissingPermissionsException was renamed to MissingHealthConnectPermissionsException.

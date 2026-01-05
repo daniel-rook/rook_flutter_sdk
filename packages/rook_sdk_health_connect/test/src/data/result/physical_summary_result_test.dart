@@ -13,7 +13,7 @@ void main() {
           ..wasTheUserUnderPhysicalActivity = false;
 
         final proto = PhysicalSummaryResultProto.create()
-          ..synced = physicalSummary;
+          ..success = physicalSummary;
 
         final result = proto.unwrap();
 
@@ -22,22 +22,9 @@ void main() {
     );
 
     test(
-      "GIVEN recordsNotFound WHEN unwrap THEN return an empty list",
-      () {
-        final proto = PhysicalSummaryResultProto.create()
-          ..recordsNotFound = true;
-
-        final result = proto.unwrap();
-
-        expect(result, isNull);
-      },
-    );
-
-    test(
       "GIVEN failure WHEN unwrap THEN throw exception",
       () {
-        final failure = PluginExceptionProto.create()
-          ..id = -1
+        final failure = SDKExceptionProto.create()
           ..message = "message"
           ..code = 500;
 

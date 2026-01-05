@@ -1,11 +1,18 @@
-/// Exception thrown when the user is not initialized.
-class UserNotInitializedException implements Exception {
-  final String message;
+import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 
-  UserNotInitializedException(this.message);
+/// Thrown by:
+///
+/// * Apple Health SDK
+/// * Samsung Health SDK
+/// * Health Connect SDK
+final class UserNotInitializedException extends SDKException {
+  const UserNotInitializedException({
+    required int code,
+    required String message,
+  }) : super(code: code, message: message);
 
   @override
   String toString() {
-    return 'UserNotInitializedException{message: $message}';
+    return 'UserNotInitializedException{code: $code, message: $message}';
   }
 }

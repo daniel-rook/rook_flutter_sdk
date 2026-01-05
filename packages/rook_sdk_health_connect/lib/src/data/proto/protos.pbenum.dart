@@ -128,20 +128,5 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
   const EventSyncTypeProto._(super.value, super.name);
 }
 
-class SyncStatusProto extends $pb.ProtobufEnum {
-  static const SyncStatusProto SYNCED = SyncStatusProto._(0, _omitEnumNames ? '' : 'SYNCED');
-  static const SyncStatusProto RECORDS_NOT_FOUND = SyncStatusProto._(1, _omitEnumNames ? '' : 'RECORDS_NOT_FOUND');
-
-  static const $core.List<SyncStatusProto> values = <SyncStatusProto> [
-    SYNCED,
-    RECORDS_NOT_FOUND,
-  ];
-
-  static final $core.List<SyncStatusProto?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 1);
-  static SyncStatusProto? valueOf($core.int value) =>  value < 0 || value >= _byValue.length ? null : _byValue[value];
-
-  const SyncStatusProto._(super.value, super.name);
-}
-
 
 const $core.bool _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

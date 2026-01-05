@@ -26,15 +26,15 @@ public interface RequestPermissionsStatusResultProtoOrBuilder extends
   com.rookmotion.rook_sdk_health_connect.proto.RequestPermissionsStatusProto getSuccess();
 
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    * @return Whether the failure field is set.
    */
   boolean hasFailure();
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    * @return The failure.
    */
-  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure();
+  com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto getFailure();
 
   public com.rookmotion.rook_sdk_health_connect.proto.RequestPermissionsStatusResultProto.ResultCase getResultCase();
 }

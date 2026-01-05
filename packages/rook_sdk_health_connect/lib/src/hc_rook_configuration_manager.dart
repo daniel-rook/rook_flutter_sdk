@@ -40,11 +40,6 @@ class HCRookConfigurationManager {
     return RookSdkHealthConnectPlatform.instance.syncUserTimeZone();
   }
 
-  /// Removes the current user for data upload.
-  static Future<void> clearUserID() {
-    return RookSdkHealthConnectPlatform.instance.clearUserID();
-  }
-
   /// Removes the current user from healthConnect data source,
   /// once removed rook servers won't accept any health data from healthConnect.
   static Future<void> deleteUserFromRook() {

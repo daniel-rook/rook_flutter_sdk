@@ -5,29 +5,23 @@
 
 package com.rookmotion.rook_sdk_health_connect.proto;
 
-public interface PluginExceptionProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:PluginExceptionProto)
+public interface SDKExceptionProtoOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:SDKExceptionProto)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>sint32 id = 1;</code>
-   * @return The id.
-   */
-  int getId();
-
-  /**
-   * <code>sint32 code = 2;</code>
+   * <code>sint32 code = 1;</code>
    * @return The code.
    */
   int getCode();
 
   /**
-   * <code>string message = 3;</code>
+   * <code>string message = 2;</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
-   * <code>string message = 3;</code>
+   * <code>string message = 2;</code>
    * @return The bytes for message.
    */
   com.google.protobuf.ByteString

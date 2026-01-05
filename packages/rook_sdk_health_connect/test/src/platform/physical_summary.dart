@@ -11,7 +11,7 @@ void physicalSummaryTest(
   MethodChannel channel,
 ) {
   group(
-      'MethodChannelRookSdkHealthConnect | PhysicalSummaryResultProto synced unwrap',
+      'MethodChannelRookSdkHealthConnect | PhysicalSummaryResultProto success unwrap',
       () {
     mockMethodCall(channel, (_) async {
       final physicalSummary = PhysicalSummaryProto.create()
@@ -20,7 +20,7 @@ void physicalSummaryTest(
         ..wasTheUserUnderPhysicalActivity = false;
 
       final proto = PhysicalSummaryResultProto.create()
-        ..synced = physicalSummary;
+        ..success = physicalSummary;
 
       return proto.writeToBuffer();
     });
@@ -41,35 +41,10 @@ void physicalSummaryTest(
   });
 
   group(
-      'MethodChannelRookSdkHealthConnect | PhysicalSummaryResultProto recordsNotFound unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final proto = PhysicalSummaryResultProto.create()..recordsNotFound = true;
-
-      return proto.writeToBuffer();
-    });
-
-    test(
-      "GIVEN recordsNotFound WHEN getPhysicalSummary THEN return null",
-      () async {
-        final future = platform.getPhysicalSummary(DateTime.now());
-
-        await expectLater(
-          future,
-          completion(
-            predicate<PhysicalSummary?>((value) => value == null),
-          ),
-        );
-      },
-    );
-  });
-
-  group(
       'MethodChannelRookSdkHealthConnect | PhysicalSummaryResultProto exception unwrap',
       () {
     mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
+      final failure = SDKExceptionProto.create()
         ..message = "message"
         ..code = 500;
 

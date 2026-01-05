@@ -10,8 +10,7 @@ void int64ResultTests(
   MethodChannelRookSdkHealthConnect platform,
   MethodChannel channel,
 ) {
-  group('MethodChannelRookSdkHealthConnect | ResultInt64Proto value unwrap',
-      () {
+  group('MethodChannelRookSdkHealthConnect | ResultInt64Proto value unwrap', () {
     mockMethodCall(channel, (_) async {
       final proto = Int64ResultProto.create();
       proto.success = Int64(1000);
@@ -27,28 +26,50 @@ void int64ResultTests(
         await expectLater(future, completion(1000));
       },
     );
-  });
-
-  group('MethodChannelRookSdkHealthConnect | ResultInt64Proto exception unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
-        ..message = "message"
-        ..code = 500;
-
-      final proto = Int64ResultProto.create()..failure = failure;
-
-      return proto.writeToBuffer();
-    });
 
     test(
-      'GIVEN the unhappy path WHEN syncTodayAndroidStepsCount THEN throw exception',
+      "GIVEN success WHEN getTodayStepsCount THEN return a SyncStatusWithData<int>",
       () async {
-        final future = platform.syncTodayAndroidStepsCount();
+        final future = platform.getTodayStepsCount();
 
-        await expectLater(future, throwsException);
+        await expectLater(
+          future,
+          completion(predicate<int>((steps) => steps == 1)),
+        );
       },
     );
   });
+
+  group(
+    'MethodChannelRookSdkHealthConnect | ResultInt64Proto exception unwrap',
+    () {
+      mockMethodCall(channel, (_) async {
+        final failure = SDKExceptionProto.create()
+          ..message = "message"
+          ..code = 500;
+
+        final proto = Int64ResultProto.create()..failure = failure;
+
+        return proto.writeToBuffer();
+      });
+
+      test(
+        'GIVEN the unhappy path WHEN syncTodayAndroidStepsCount THEN throw exception',
+        () async {
+          final future = platform.syncTodayAndroidStepsCount();
+
+          await expectLater(future, throwsException);
+        },
+      );
+
+      test(
+        "GIVEN failure WHEN getTodayStepsCount THEN throw exception",
+        () async {
+          final future = platform.getTodayStepsCount();
+
+          await expectLater(future, throwsException);
+        },
+      );
+    },
+  );
 }

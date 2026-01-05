@@ -1,48 +1,34 @@
 package com.rookmotion.rook_sdk_health_connect.result
 
 import com.rookmotion.rook.sdk.domain.model.HCActivityEvent
-import com.rookmotion.rook.sdk.domain.model.SyncStatusWithData
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionCode
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionId
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionMessage
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionCode
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionMessage
 import com.rookmotion.rook_sdk_health_connect.mapper.toProto
 import com.rookmotion.rook_sdk_health_connect.proto.ActivityEventResultProto
 import com.rookmotion.rook_sdk_health_connect.proto.ActivityEventsProto
-import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
+import com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto
 import io.flutter.plugin.common.MethodChannel
 
-fun MethodChannel.Result.activityEventSuccess(syncStatusWithData: SyncStatusWithData<List<HCActivityEvent>>) {
-    val bytes = when (syncStatusWithData) {
-        SyncStatusWithData.RecordsNotFound -> {
-            ActivityEventResultProto.newBuilder()
-                .setRecordsNotFound(true)
-                .build()
-                .toByteArray()
-        }
+fun MethodChannel.Result.activityEventSuccess(events: List<HCActivityEvent>) {
+    val activityEvents = ActivityEventsProto.newBuilder()
+        .addAllElements(events.map { it.toProto() })
+        .build()
 
-        is SyncStatusWithData.Synced -> {
-            val activityEvents = ActivityEventsProto.newBuilder()
-                .addAllElements(syncStatusWithData.data.map { it.toProto() })
-                .build()
-
-            ActivityEventResultProto.newBuilder()
-                .setSynced(activityEvents)
-                .build()
-                .toByteArray()
-        }
-    }
+    val bytes = ActivityEventResultProto.newBuilder()
+        .setSuccess(activityEvents)
+        .build()
+        .toByteArray()
 
     success(bytes)
 }
 
 fun MethodChannel.Result.activityEventError(throwable: Throwable) {
-    val pluginExceptionProto = PluginExceptionProto.newBuilder()
-        .setId(throwable.getPluginExceptionId())
-        .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getPluginExceptionMessage())
+    val exception = SDKExceptionProto.newBuilder()
+        .setCode(throwable.getSDKExceptionCode())
+        .setMessage(throwable.getSDKExceptionMessage())
 
     val bytes = ActivityEventResultProto.newBuilder()
-        .setFailure(pluginExceptionProto)
+        .setFailure(exception)
         .build()
         .toByteArray()
 

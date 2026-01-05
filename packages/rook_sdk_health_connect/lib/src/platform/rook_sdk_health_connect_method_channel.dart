@@ -13,12 +13,11 @@ import 'package:rook_sdk_health_connect/src/data/result/activity_event_result.da
 import 'package:rook_sdk_health_connect/src/data/result/background_read_status_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/boolean_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/calories_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/int64_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/request_permissions_status_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/sleep_summary_result.dart';
-import 'package:rook_sdk_health_connect/src/data/result/sync_status_with_calories_result.dart';
-import 'package:rook_sdk_health_connect/src/data/result/sync_status_with_int_result.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
@@ -78,14 +77,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
         userID,
       ],
     );
-    final result = BooleanResultProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
-  Future<void> clearUserID() async {
-    final Uint8List bytes = await methodChannel.invokeMethod('clearUserID');
     final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
@@ -236,7 +227,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<bool> syncHistoricSummaries(bool enableLogs) async {
+  Future<void> syncHistoricSummaries(bool enableLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncHistoricSummaries',
       [
@@ -245,11 +236,11 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
-    return result.unwrap();
+    result.unwrap();
   }
 
   @override
-  Future<bool> syncSummariesByDate(DateTime date) async {
+  Future<void> syncSummariesByDate(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncSummariesByDate',
       [
@@ -258,11 +249,11 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
-    return result.unwrap();
+    result.unwrap();
   }
 
   @override
-  Future<bool> syncByDateAndSummary(
+  Future<void> syncByDateAndSummary(
     DateTime date,
     HCSummarySyncType summary,
   ) async {
@@ -276,11 +267,11 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
-    return result.unwrap();
+    result.unwrap();
   }
 
   @override
-  Future<bool> syncByDateAndEvent(DateTime date, HCEventSyncType event) async {
+  Future<void> syncByDateAndEvent(DateTime date, HCEventSyncType event) async {
     final proto = event.toProto();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncByDateAndEvent',
@@ -291,7 +282,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
-    return result.unwrap();
+    result.unwrap();
   }
 
   @override
@@ -308,7 +299,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<PhysicalSummary?> getPhysicalSummary(DateTime date) async {
+  Future<PhysicalSummary> getPhysicalSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getPhysicalSummary',
       [
@@ -321,7 +312,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<BodySummary?> getBodySummary(DateTime date) async {
+  Future<BodySummary> getBodySummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getBodySummary',
       [
@@ -347,22 +338,22 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
-  Future<SyncStatusWithData<int>> getTodayStepsCount() async {
+  Future<int> getTodayStepsCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getTodayStepsCount',
     );
-    final result = SyncStatusWithIntResultProto.fromBuffer(bytes);
+    final result = Int64ResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
 
   @override
-  Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount() async {
+  Future<DailyCalories> getTodayCaloriesCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getTodayCaloriesCount',
     );
 
-    final result = SyncStatusWithCaloriesResultProto.fromBuffer(bytes);
+    final result = CaloriesResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
@@ -420,20 +411,6 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     final result = Int64ResultProto.fromBuffer(bytes);
 
     return result.unwrap();
-  }
-
-  @override
-  Future<void> scheduleYesterdaySync(bool enableNativeLogs) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'scheduleYesterdaySync',
-      [
-        enableNativeLogs,
-      ],
-    );
-
-    final result = BooleanResultProto.fromBuffer(bytes);
-
-    result.unwrap();
   }
 
   @override

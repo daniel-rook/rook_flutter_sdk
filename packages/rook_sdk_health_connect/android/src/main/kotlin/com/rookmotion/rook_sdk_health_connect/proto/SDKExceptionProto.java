@@ -6,46 +6,20 @@
 package com.rookmotion.rook_sdk_health_connect.proto;
 
 /**
- * Protobuf type {@code PluginExceptionProto}
+ * Protobuf type {@code SDKExceptionProto}
  */
-public  final class PluginExceptionProto extends
+public  final class SDKExceptionProto extends
     com.google.protobuf.GeneratedMessageLite<
-        PluginExceptionProto, PluginExceptionProto.Builder> implements
-    // @@protoc_insertion_point(message_implements:PluginExceptionProto)
-    PluginExceptionProtoOrBuilder {
-  private PluginExceptionProto() {
+        SDKExceptionProto, SDKExceptionProto.Builder> implements
+    // @@protoc_insertion_point(message_implements:SDKExceptionProto)
+    SDKExceptionProtoOrBuilder {
+  private SDKExceptionProto() {
     message_ = "";
   }
-  public static final int ID_FIELD_NUMBER = 1;
-  private int id_;
-  /**
-   * <code>sint32 id = 1;</code>
-   * @return The id.
-   */
-  @java.lang.Override
-  public int getId() {
-    return id_;
-  }
-  /**
-   * <code>sint32 id = 1;</code>
-   * @param value The id to set.
-   */
-  private void setId(int value) {
-    
-    id_ = value;
-  }
-  /**
-   * <code>sint32 id = 1;</code>
-   */
-  private void clearId() {
-
-    id_ = 0;
-  }
-
-  public static final int CODE_FIELD_NUMBER = 2;
+  public static final int CODE_FIELD_NUMBER = 1;
   private int code_;
   /**
-   * <code>sint32 code = 2;</code>
+   * <code>sint32 code = 1;</code>
    * @return The code.
    */
   @java.lang.Override
@@ -53,7 +27,7 @@ public  final class PluginExceptionProto extends
     return code_;
   }
   /**
-   * <code>sint32 code = 2;</code>
+   * <code>sint32 code = 1;</code>
    * @param value The code to set.
    */
   private void setCode(int value) {
@@ -61,17 +35,17 @@ public  final class PluginExceptionProto extends
     code_ = value;
   }
   /**
-   * <code>sint32 code = 2;</code>
+   * <code>sint32 code = 1;</code>
    */
   private void clearCode() {
 
     code_ = 0;
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 3;
+  public static final int MESSAGE_FIELD_NUMBER = 2;
   private java.lang.String message_;
   /**
-   * <code>string message = 3;</code>
+   * <code>string message = 2;</code>
    * @return The message.
    */
   @java.lang.Override
@@ -79,7 +53,7 @@ public  final class PluginExceptionProto extends
     return message_;
   }
   /**
-   * <code>string message = 3;</code>
+   * <code>string message = 2;</code>
    * @return The bytes for message.
    */
   @java.lang.Override
@@ -88,7 +62,7 @@ public  final class PluginExceptionProto extends
     return com.google.protobuf.ByteString.copyFromUtf8(message_);
   }
   /**
-   * <code>string message = 3;</code>
+   * <code>string message = 2;</code>
    * @param value The message to set.
    */
   private void setMessage(
@@ -98,14 +72,14 @@ public  final class PluginExceptionProto extends
     message_ = value;
   }
   /**
-   * <code>string message = 3;</code>
+   * <code>string message = 2;</code>
    */
   private void clearMessage() {
 
     message_ = getDefaultInstance().getMessage();
   }
   /**
-   * <code>string message = 3;</code>
+   * <code>string message = 2;</code>
    * @param value The bytes for message to set.
    */
   private void setMessageBytes(
@@ -115,50 +89,50 @@ public  final class PluginExceptionProto extends
 
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(byte[] data)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -166,24 +140,24 @@ public  final class PluginExceptionProto extends
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseDelimitedFrom(java.io.InputStream input)
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseDelimitedFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto parseFrom(
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -194,54 +168,26 @@ public  final class PluginExceptionProto extends
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto prototype) {
+  public static Builder newBuilder(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto prototype) {
     return DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   * Protobuf type {@code PluginExceptionProto}
+   * Protobuf type {@code SDKExceptionProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto, Builder> implements
-      // @@protoc_insertion_point(builder_implements:PluginExceptionProto)
-      com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProtoOrBuilder {
-    // Construct using com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.newBuilder()
+        com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto, Builder> implements
+      // @@protoc_insertion_point(builder_implements:SDKExceptionProto)
+      com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProtoOrBuilder {
+    // Construct using com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
 
 
     /**
-     * <code>sint32 id = 1;</code>
-     * @return The id.
-     */
-    @java.lang.Override
-    public int getId() {
-      return instance.getId();
-    }
-    /**
-     * <code>sint32 id = 1;</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setId(int value) {
-      copyOnWrite();
-      instance.setId(value);
-      return this;
-    }
-    /**
-     * <code>sint32 id = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearId() {
-      copyOnWrite();
-      instance.clearId();
-      return this;
-    }
-
-    /**
-     * <code>sint32 code = 2;</code>
+     * <code>sint32 code = 1;</code>
      * @return The code.
      */
     @java.lang.Override
@@ -249,7 +195,7 @@ public  final class PluginExceptionProto extends
       return instance.getCode();
     }
     /**
-     * <code>sint32 code = 2;</code>
+     * <code>sint32 code = 1;</code>
      * @param value The code to set.
      * @return This builder for chaining.
      */
@@ -259,7 +205,7 @@ public  final class PluginExceptionProto extends
       return this;
     }
     /**
-     * <code>sint32 code = 2;</code>
+     * <code>sint32 code = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearCode() {
@@ -269,7 +215,7 @@ public  final class PluginExceptionProto extends
     }
 
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 2;</code>
      * @return The message.
      */
     @java.lang.Override
@@ -277,7 +223,7 @@ public  final class PluginExceptionProto extends
       return instance.getMessage();
     }
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 2;</code>
      * @return The bytes for message.
      */
     @java.lang.Override
@@ -286,7 +232,7 @@ public  final class PluginExceptionProto extends
       return instance.getMessageBytes();
     }
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 2;</code>
      * @param value The message to set.
      * @return This builder for chaining.
      */
@@ -297,7 +243,7 @@ public  final class PluginExceptionProto extends
       return this;
     }
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
@@ -306,7 +252,7 @@ public  final class PluginExceptionProto extends
       return this;
     }
     /**
-     * <code>string message = 3;</code>
+     * <code>string message = 2;</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
      */
@@ -317,7 +263,7 @@ public  final class PluginExceptionProto extends
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:PluginExceptionProto)
+    // @@protoc_insertion_point(builder_scope:SDKExceptionProto)
   }
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -326,20 +272,19 @@ public  final class PluginExceptionProto extends
       java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto();
+        return new com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto();
       }
       case NEW_BUILDER: {
         return new Builder();
       }
       case BUILD_MESSAGE_INFO: {
           java.lang.Object[] objects = new java.lang.Object[] {
-            "id_",
             "code_",
             "message_",
           };
           java.lang.String info =
-              "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u000f\u0002\u000f" +
-              "\u0003\u0208";
+              "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u000f\u0002\u0208" +
+              "";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through
@@ -347,13 +292,13 @@ public  final class PluginExceptionProto extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto> parser = PARSER;
+        com.google.protobuf.Parser<com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto> parser = PARSER;
         if (parser == null) {
-          synchronized (com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.class) {
+          synchronized (com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.class) {
             parser = PARSER;
             if (parser == null) {
               parser =
-                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto>(
+                  new DefaultInstanceBasedParser<com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto>(
                       DEFAULT_INSTANCE);
               PARSER = parser;
             }
@@ -372,24 +317,24 @@ public  final class PluginExceptionProto extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:PluginExceptionProto)
-  private static final com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:SDKExceptionProto)
+  private static final com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto DEFAULT_INSTANCE;
   static {
-    PluginExceptionProto defaultInstance = new PluginExceptionProto();
+    SDKExceptionProto defaultInstance = new SDKExceptionProto();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-      PluginExceptionProto.class, defaultInstance);
+      SDKExceptionProto.class, defaultInstance);
   }
 
-  public static com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getDefaultInstance() {
+  public static com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<PluginExceptionProto> PARSER;
+  private static volatile com.google.protobuf.Parser<SDKExceptionProto> PARSER;
 
-  public static com.google.protobuf.Parser<PluginExceptionProto> parser() {
+  public static com.google.protobuf.Parser<SDKExceptionProto> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

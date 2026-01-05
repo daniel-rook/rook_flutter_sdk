@@ -1,11 +1,16 @@
-/// Exception thrown when the SDK is not initialized.
-class SDKNotInitializedException implements Exception {
-  final String message;
+import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 
-  SDKNotInitializedException(this.message);
+/// Thrown by:
+///
+/// * Apple Health SDK
+/// * Samsung Health SDK
+/// * Health Connect SDK
+final class SDKNotInitializedException extends SDKException {
+  const SDKNotInitializedException({required int code, required String message})
+    : super(code: code, message: message);
 
   @override
   String toString() {
-    return 'SDKNotInitializedException{message: $message}';
+    return 'MissingConfigurationException{code: $code, message: $message}';
   }
 }

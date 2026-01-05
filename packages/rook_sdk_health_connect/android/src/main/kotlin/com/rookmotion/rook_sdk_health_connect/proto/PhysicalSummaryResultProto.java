@@ -18,9 +18,8 @@ public  final class PhysicalSummaryResultProto extends
   private int resultCase_ = 0;
   private java.lang.Object result_;
   public enum ResultCase {
-    SYNCED(1),
-    RECORDSNOTFOUND(2),
-    FAILURE(3),
+    SUCCESS(1),
+    FAILURE(2),
     RESULT_NOT_SET(0);
     private final int value;
     private ResultCase(int value) {
@@ -36,9 +35,8 @@ public  final class PhysicalSummaryResultProto extends
 
     public static ResultCase forNumber(int value) {
       switch (value) {
-        case 1: return SYNCED;
-        case 2: return RECORDSNOTFOUND;
-        case 3: return FAILURE;
+        case 1: return SUCCESS;
+        case 2: return FAILURE;
         case 0: return RESULT_NOT_SET;
         default: return null;
       }
@@ -60,36 +58,36 @@ public  final class PhysicalSummaryResultProto extends
     result_ = null;
   }
 
-  public static final int SYNCED_FIELD_NUMBER = 1;
+  public static final int SUCCESS_FIELD_NUMBER = 1;
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
   @java.lang.Override
-  public boolean hasSynced() {
+  public boolean hasSuccess() {
     return resultCase_ == 1;
   }
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto getSynced() {
+  public com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto getSuccess() {
     if (resultCase_ == 1) {
        return (com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto) result_;
     }
     return com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto.getDefaultInstance();
   }
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
-  private void setSynced(com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto value) {
+  private void setSuccess(com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 1;
   }
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
-  private void mergeSynced(com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto value) {
+  private void mergeSuccess(com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto value) {
     value.getClass();
   if (resultCase_ == 1 &&
         result_ != com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto.getDefaultInstance()) {
@@ -101,98 +99,60 @@ public  final class PhysicalSummaryResultProto extends
     resultCase_ = 1;
   }
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
-  private void clearSynced() {
+  private void clearSuccess() {
     if (resultCase_ == 1) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static final int RECORDSNOTFOUND_FIELD_NUMBER = 2;
+  public static final int FAILURE_FIELD_NUMBER = 2;
   /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @return Whether the recordsNotFound field is set.
-   */
-  @java.lang.Override
-  public boolean hasRecordsNotFound() {
-    return resultCase_ == 2;
-  }
-  /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @return The recordsNotFound.
-   */
-  @java.lang.Override
-  public boolean getRecordsNotFound() {
-    if (resultCase_ == 2) {
-      return (java.lang.Boolean) result_;
-    }
-    return false;
-  }
-  /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @param value The recordsNotFound to set.
-   */
-  private void setRecordsNotFound(boolean value) {
-    resultCase_ = 2;
-    result_ = value;
-  }
-  /**
-   * <code>bool recordsNotFound = 2;</code>
-   */
-  private void clearRecordsNotFound() {
-    if (resultCase_ == 2) {
-      resultCase_ = 0;
-      result_ = null;
-    }
-  }
-
-  public static final int FAILURE_FIELD_NUMBER = 3;
-  /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   @java.lang.Override
   public boolean hasFailure() {
-    return resultCase_ == 3;
+    return resultCase_ == 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
-    if (resultCase_ == 3) {
-       return (com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto) result_;
+  public com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto getFailure() {
+    if (resultCase_ == 2) {
+       return (com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto) result_;
     }
-    return com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance();
+    return com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
-  private void setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void setFailure(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto value) {
     value.getClass();
   result_ = value;
-    resultCase_ = 3;
+    resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
-  private void mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+  private void mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto value) {
     value.getClass();
-  if (resultCase_ == 3 &&
-        result_ != com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.getDefaultInstance()) {
-      result_ = com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto) result_)
+  if (resultCase_ == 2 &&
+        result_ != com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.getDefaultInstance()) {
+      result_ = com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.newBuilder((com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto) result_)
           .mergeFrom(value).buildPartial();
     } else {
       result_ = value;
     }
-    resultCase_ = 3;
+    resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   private void clearFailure() {
-    if (resultCase_ == 3) {
+    if (resultCase_ == 2) {
       resultCase_ = 0;
       result_ = null;
     }
@@ -308,130 +268,94 @@ public  final class PhysicalSummaryResultProto extends
 
 
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
     @java.lang.Override
-    public boolean hasSynced() {
-      return instance.hasSynced();
+    public boolean hasSuccess() {
+      return instance.hasSuccess();
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto getSynced() {
-      return instance.getSynced();
+    public com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto getSuccess() {
+      return instance.getSuccess();
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
-    public Builder setSynced(com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto value) {
+    public Builder setSuccess(com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto value) {
       copyOnWrite();
-      instance.setSynced(value);
+      instance.setSuccess(value);
       return this;
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
-    public Builder setSynced(
+    public Builder setSuccess(
         com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto.Builder builderForValue) {
       copyOnWrite();
-      instance.setSynced(builderForValue.build());
+      instance.setSuccess(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
-    public Builder mergeSynced(com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto value) {
+    public Builder mergeSuccess(com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto value) {
       copyOnWrite();
-      instance.mergeSynced(value);
+      instance.mergeSuccess(value);
       return this;
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
-    public Builder clearSynced() {
+    public Builder clearSuccess() {
       copyOnWrite();
-      instance.clearSynced();
+      instance.clearSuccess();
       return this;
     }
 
     /**
-     * <code>bool recordsNotFound = 2;</code>
-     * @return Whether the recordsNotFound field is set.
-     */
-    @java.lang.Override
-    public boolean hasRecordsNotFound() {
-      return instance.hasRecordsNotFound();
-    }
-    /**
-     * <code>bool recordsNotFound = 2;</code>
-     * @return The recordsNotFound.
-     */
-    @java.lang.Override
-    public boolean getRecordsNotFound() {
-      return instance.getRecordsNotFound();
-    }
-    /**
-     * <code>bool recordsNotFound = 2;</code>
-     * @param value The recordsNotFound to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRecordsNotFound(boolean value) {
-      copyOnWrite();
-      instance.setRecordsNotFound(value);
-      return this;
-    }
-    /**
-     * <code>bool recordsNotFound = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRecordsNotFound() {
-      copyOnWrite();
-      instance.clearRecordsNotFound();
-      return this;
-    }
-
-    /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     @java.lang.Override
     public boolean hasFailure() {
       return instance.hasFailure();
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure() {
+    public com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto getFailure() {
       return instance.getFailure();
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
-    public Builder setFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder setFailure(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto value) {
       copyOnWrite();
       instance.setFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     public Builder setFailure(
-        com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.Builder builderForValue) {
+        com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.Builder builderForValue) {
       copyOnWrite();
       instance.setFailure(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
-    public Builder mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto value) {
+    public Builder mergeFailure(com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto value) {
       copyOnWrite();
       instance.mergeFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     public Builder clearFailure() {
       copyOnWrite();
@@ -458,11 +382,11 @@ public  final class PhysicalSummaryResultProto extends
             "result_",
             "resultCase_",
             com.rookmotion.rook_sdk_health_connect.proto.PhysicalSummaryProto.class,
-            com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto.class,
+            com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto.class,
           };
           java.lang.String info =
-              "\u0000\u0003\u0001\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001<\u0000\u0002:" +
-              "\u0000\u0003<\u0000";
+              "\u0000\u0002\u0001\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001<\u0000\u0002<" +
+              "\u0000";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through

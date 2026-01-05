@@ -1,12 +1,11 @@
 package com.rookmotion.rook_sdk_health_connect.result
 
 import com.rookmotion.rook.sdk.domain.enums.RequestPermissionsStatus
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionCode
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionId
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionMessage
-import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionCode
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionMessage
 import com.rookmotion.rook_sdk_health_connect.proto.RequestPermissionsStatusProto
 import com.rookmotion.rook_sdk_health_connect.proto.RequestPermissionsStatusResultProto
+import com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.requestPermissionsStatusSuccess(requestPermissionsStatus: RequestPermissionsStatus) {
@@ -19,13 +18,12 @@ fun MethodChannel.Result.requestPermissionsStatusSuccess(requestPermissionsStatu
 }
 
 fun MethodChannel.Result.requestPermissionsStatusError(throwable: Throwable) {
-    val pluginExceptionProto = PluginExceptionProto.newBuilder()
-        .setId(throwable.getPluginExceptionId())
-        .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getPluginExceptionMessage())
+    val exception = SDKExceptionProto.newBuilder()
+        .setCode(throwable.getSDKExceptionCode())
+        .setMessage(throwable.getSDKExceptionMessage())
 
     val bytes = RequestPermissionsStatusResultProto.newBuilder()
-        .setFailure(pluginExceptionProto)
+        .setFailure(exception)
         .build()
         .toByteArray()
 

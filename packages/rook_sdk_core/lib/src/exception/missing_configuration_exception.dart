@@ -1,13 +1,17 @@
-import 'package:rook_sdk_core/src/model/rook_configuration.dart';
+import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 
-/// Exception thrown when no [RookConfiguration] is found.
-class MissingConfigurationException implements Exception {
-  final String message;
-
-  MissingConfigurationException(this.message);
+/// Thrown by:
+///
+/// * Apple Health SDK
+/// * Health Connect SDK
+final class MissingConfigurationException extends SDKException {
+  const MissingConfigurationException({
+    required int code,
+    required String message,
+  }) : super(code: code, message: message);
 
   @override
   String toString() {
-    return 'MissingConfigurationException{message: $message}';
+    return 'MissingConfigurationException{code: $code, message: $message}';
   }
 }

@@ -1,43 +1,29 @@
 package com.rookmotion.rook_sdk_health_connect.result
 
 import com.rookmotion.rook.sdk.domain.model.HCBodySummary
-import com.rookmotion.rook.sdk.domain.model.SyncStatusWithData
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionCode
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionId
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionMessage
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionCode
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionMessage
 import com.rookmotion.rook_sdk_health_connect.mapper.toProto
 import com.rookmotion.rook_sdk_health_connect.proto.BodySummaryResultProto
-import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
+import com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto
 import io.flutter.plugin.common.MethodChannel
 
-fun MethodChannel.Result.bodySummarySuccess(syncStatusWithData: SyncStatusWithData<HCBodySummary>) {
-    val bytes = when (syncStatusWithData) {
-        SyncStatusWithData.RecordsNotFound -> {
-            BodySummaryResultProto.newBuilder()
-                .setRecordsNotFound(true)
-                .build()
-                .toByteArray()
-        }
-
-        is SyncStatusWithData.Synced -> {
-            BodySummaryResultProto.newBuilder()
-                .setSynced(syncStatusWithData.data.toProto())
-                .build()
-                .toByteArray()
-        }
-    }
+fun MethodChannel.Result.bodySummarySuccess(summary: HCBodySummary) {
+    val bytes = BodySummaryResultProto.newBuilder()
+        .setSuccess(summary.toProto())
+        .build()
+        .toByteArray()
 
     success(bytes)
 }
 
 fun MethodChannel.Result.bodySummaryError(throwable: Throwable) {
-    val pluginExceptionProto = PluginExceptionProto.newBuilder()
-        .setId(throwable.getPluginExceptionId())
-        .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getPluginExceptionMessage())
+    val exception = SDKExceptionProto.newBuilder()
+        .setCode(throwable.getSDKExceptionCode())
+        .setMessage(throwable.getSDKExceptionMessage())
 
     val bytes = BodySummaryResultProto.newBuilder()
-        .setFailure(pluginExceptionProto)
+        .setFailure(exception)
         .build()
         .toByteArray()
 

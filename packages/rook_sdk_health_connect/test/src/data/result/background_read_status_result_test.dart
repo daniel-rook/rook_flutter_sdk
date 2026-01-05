@@ -52,8 +52,7 @@ void main() {
     test(
       "GIVEN failure WHEN unwrap THEN throw exception",
       () {
-        final failure = PluginExceptionProto.create()
-          ..id = -1
+        final failure = SDKExceptionProto.create()
           ..message = "message"
           ..code = 500;
 

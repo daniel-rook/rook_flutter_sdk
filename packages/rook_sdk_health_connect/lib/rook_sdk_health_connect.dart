@@ -12,4 +12,3 @@ export 'src/hc_rook_configuration_manager.dart';
 export 'src/hc_rook_health_permissions_manager.dart';
 export 'src/hc_rook_helpers.dart';
 export 'src/hc_rook_sync_manager.dart';
-export 'src/hc_rook_yesterday_sync_manager.dart';

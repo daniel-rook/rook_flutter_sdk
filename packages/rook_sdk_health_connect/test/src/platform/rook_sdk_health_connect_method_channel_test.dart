@@ -6,14 +6,13 @@ import 'activity_event.dart';
 import 'background_read_status.dart';
 import 'body_summary.dart';
 import 'boolean.dart';
+import 'calories.dart';
 import 'health_connect_availability.dart';
 import 'int64.dart';
 import 'physical_summary.dart';
 import 'request_permission_status.dart';
 import 'sleep_summary.dart';
 import 'string.dart';
-import 'sync_status_with_calories.dart';
-import 'sync_status_with_int.dart';
 
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package
 
@@ -31,8 +30,7 @@ void main() {
   booleanResultTests(platform, channel);
   boolTests(platform, channel);
   int64ResultTests(platform, channel);
-  syncStatusWithIntTest(platform, channel);
-  syncStatusWithCaloriesTest(platform, channel);
+  caloriesTest(platform, channel);
   requestPermissionsStatusTests(platform, channel);
   backgroundReadStatusTests(platform, channel);
   stringTests(platform, channel);

@@ -10,37 +10,26 @@ public interface BodySummaryResultProtoOrBuilder extends
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>.BodySummaryProto synced = 1;</code>
-   * @return Whether the synced field is set.
+   * <code>.BodySummaryProto success = 1;</code>
+   * @return Whether the success field is set.
    */
-  boolean hasSynced();
+  boolean hasSuccess();
   /**
-   * <code>.BodySummaryProto synced = 1;</code>
-   * @return The synced.
+   * <code>.BodySummaryProto success = 1;</code>
+   * @return The success.
    */
-  com.rookmotion.rook_sdk_health_connect.proto.BodySummaryProto getSynced();
+  com.rookmotion.rook_sdk_health_connect.proto.BodySummaryProto getSuccess();
 
   /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @return Whether the recordsNotFound field is set.
-   */
-  boolean hasRecordsNotFound();
-  /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @return The recordsNotFound.
-   */
-  boolean getRecordsNotFound();
-
-  /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    * @return Whether the failure field is set.
    */
   boolean hasFailure();
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    * @return The failure.
    */
-  com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto getFailure();
+  com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto getFailure();
 
   public com.rookmotion.rook_sdk_health_connect.proto.BodySummaryResultProto.ResultCase getResultCase();
 }

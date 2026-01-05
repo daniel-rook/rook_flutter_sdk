@@ -33,12 +33,6 @@ void booleanResultTests(
       await expectLater(future, completes);
     });
 
-    test('GIVEN the happy path WHEN clearUserID THEN complete', () async {
-      final future = platform.clearUserID();
-
-      await expectLater(future, completes);
-    });
-
     test('GIVEN the happy path WHEN deleteUserFromRook THEN complete',
         () async {
       final future = platform.deleteUserFromRook();
@@ -160,13 +154,6 @@ void booleanResultTests(
       },
     );
 
-    test('GIVEN the happy path WHEN scheduleYesterdaySync THEN complete',
-        () async {
-      final future = platform.scheduleYesterdaySync(true);
-
-      await expectLater(future, completes);
-    });
-
     test(
         'GIVEN the happy path WHEN isScheduled THEN complete with expected value',
         () async {
@@ -192,8 +179,7 @@ void booleanResultTests(
       'MethodChannelRookSdkHealthConnect | ResultBooleanProto exception unwrap',
       () {
     mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
+      final failure = SDKExceptionProto.create()
         ..message = "message"
         ..code = 500;
 
@@ -211,13 +197,6 @@ void booleanResultTests(
     test('GIVEN the unhappy path WHEN updateUserID THEN throw exception',
         () async {
       final future = platform.updateUserID('userID');
-
-      await expectLater(future, throwsException);
-    });
-
-    test('GIVEN the unhappy path WHEN clearUserID THEN throw exception',
-        () async {
-      final future = platform.clearUserID();
 
       await expectLater(future, throwsException);
     });
@@ -338,15 +317,6 @@ void booleanResultTests(
       'GIVEN the unhappy path WHEN disableBackgroundAndroidSteps THEN throw exception',
       () async {
         final future = platform.disableBackgroundAndroidSteps();
-
-        await expectLater(future, throwsException);
-      },
-    );
-
-    test(
-      'GIVEN the unhappy path WHEN scheduleYesterdaySync THEN throw exception',
-      () async {
-        final future = platform.scheduleYesterdaySync(true);
 
         await expectLater(future, throwsException);
       },

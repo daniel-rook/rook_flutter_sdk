@@ -1,4 +1,4 @@
-import 'package:rook_sdk_health_connect/src/data/mapper/plugin_exception_mappers.dart';
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_background_read_status.dart';
 
@@ -10,7 +10,12 @@ extension BackgroundReadStatusResult on BackgroundReadStatusResultProto {
       case BackgroundReadStatusResultProto_Result.success:
         return success.toDomain();
       case BackgroundReadStatusResultProto_Result.failure:
-        throw failure.toDartException();
+        final exception = SDKException.fromCode(
+          code: failure.code,
+          message: failure.message,
+        );
+
+        throw exception;
       default:
         throw Exception("Unknown error");
     }

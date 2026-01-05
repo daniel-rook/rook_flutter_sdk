@@ -47,8 +47,7 @@ void requestPermissionsStatusTests(
   group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
       () {
     mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
+      final failure = SDKExceptionProto.create()
         ..message = "message"
         ..code = 500;
 

@@ -28,8 +28,6 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<void> updateUserID(String userID);
 
-  Future<void> clearUserID();
-
   Future<void> deleteUserFromRook();
 
   Future<void> syncUserTimeZone();
@@ -59,25 +57,25 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Stream<AndroidPermissionsSummary> get requestAndroidPermissionsUpdates;
 
-  Future<bool> syncHistoricSummaries(bool enableLogs);
+  Future<void> syncHistoricSummaries(bool enableLogs);
 
-  Future<bool> syncSummariesByDate(DateTime date);
+  Future<void> syncSummariesByDate(DateTime date);
 
-  Future<bool> syncByDateAndSummary(DateTime date, HCSummarySyncType summary);
+  Future<void> syncByDateAndSummary(DateTime date, HCSummarySyncType summary);
 
-  Future<bool> syncByDateAndEvent(DateTime date, HCEventSyncType event);
+  Future<void> syncByDateAndEvent(DateTime date, HCEventSyncType event);
 
   Future<List<SleepSummary>> getSleepSummary(DateTime date);
 
-  Future<PhysicalSummary?> getPhysicalSummary(DateTime date);
+  Future<PhysicalSummary> getPhysicalSummary(DateTime date);
 
-  Future<BodySummary?> getBodySummary(DateTime date);
+  Future<BodySummary> getBodySummary(DateTime date);
 
   Future<List<ActivityEvent>> getActivityEvents(DateTime date);
 
-  Future<SyncStatusWithData<int>> getTodayStepsCount();
+  Future<int> getTodayStepsCount();
 
-  Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount();
+  Future<DailyCalories> getTodayCaloriesCount();
 
   Future<bool> isStepsAvailable();
 
@@ -88,8 +86,6 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<void> disableBackgroundAndroidSteps();
 
   Future<int> syncTodayAndroidStepsCount();
-
-  Future<void> scheduleYesterdaySync(bool enableNativeLogs);
 
   Future<bool> isScheduled();
 
