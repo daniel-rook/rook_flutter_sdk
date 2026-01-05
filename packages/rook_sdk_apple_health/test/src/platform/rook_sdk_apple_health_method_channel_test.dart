@@ -6,7 +6,6 @@ import 'activity_event.dart';
 import 'body_summary.dart';
 import 'boolean.dart';
 import 'calories.dart';
-import 'int.dart';
 import 'int64.dart';
 import 'physical_summary.dart';
 import 'sleep_summary.dart';
@@ -28,8 +27,7 @@ void main() {
 
   booleanResultTests(platform, channel);
   int64ResultTests(platform, channel);
-  intTests(platform, channel);
-  caloriesTests(platform, channel);
+  caloriesTest(platform, channel);
   stringTests(platform, channel);
   sleepSummaryTest(platform, channel);
   physicalSummaryTest(platform, channel);

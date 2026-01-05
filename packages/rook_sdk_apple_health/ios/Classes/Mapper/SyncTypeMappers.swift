@@ -26,20 +26,20 @@ extension SummarySyncTypeProto {
 extension EventSyncTypeProto {
     func toSyncType() -> EventTypeToUpload {
         switch self {
-        case .activity:
-            return .activityEvent
-        case .bloodGlucose:
-            return .bloodGlucose
-        case .bloodPressure:
-            return .bloodPressure
-        case .bodyMetrics:
-            return .bodyMetrics
-        case .heartRate:
-            return .heartRate
-        case .oxygenation:
-            return .oxygenation
-        case .temperature:
-            return .temperature
+        case EventSyncTypeProto.activity:
+            return EventTypeToUpload.activityEvent
+        case EventSyncTypeProto.bloodGlucose:
+            return EventTypeToUpload.bloodGlucose
+        case EventSyncTypeProto.bloodPressure:
+            return EventTypeToUpload.bloodPressure
+        case EventSyncTypeProto.bodyMetrics:
+            return EventTypeToUpload.bodyMetrics
+        case EventSyncTypeProto.heartRate:
+            return EventTypeToUpload.heartRate
+        case EventSyncTypeProto.oxygenation:
+            return EventTypeToUpload.oxygenation
+        case EventSyncTypeProto.temperature:
+            return EventTypeToUpload.temperature
         default:
             fatalError("Unsupported event type")
         }

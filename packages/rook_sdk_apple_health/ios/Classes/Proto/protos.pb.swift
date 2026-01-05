@@ -364,7 +364,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-struct PluginExceptionProto: Sendable {
+struct SDKExceptionProto: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -395,10 +395,10 @@ struct BooleanResultProto: Sendable {
     set {result = .success(newValue)}
   }
 
-  var failure: PluginExceptionProto {
+  var failure: SDKExceptionProto {
     get {
       if case .failure(let v)? = result {return v}
-      return PluginExceptionProto()
+      return SDKExceptionProto()
     }
     set {result = .failure(newValue)}
   }
@@ -407,7 +407,7 @@ struct BooleanResultProto: Sendable {
 
   enum OneOf_Result: Equatable, Sendable {
     case success(Bool)
-    case failure(PluginExceptionProto)
+    case failure(SDKExceptionProto)
 
   }
 
@@ -429,10 +429,10 @@ struct Int64ResultProto: Sendable {
     set {result = .success(newValue)}
   }
 
-  var failure: PluginExceptionProto {
+  var failure: SDKExceptionProto {
     get {
       if case .failure(let v)? = result {return v}
-      return PluginExceptionProto()
+      return SDKExceptionProto()
     }
     set {result = .failure(newValue)}
   }
@@ -441,7 +441,7 @@ struct Int64ResultProto: Sendable {
 
   enum OneOf_Result: Equatable, Sendable {
     case success(Int64)
-    case failure(PluginExceptionProto)
+    case failure(SDKExceptionProto)
 
   }
 
@@ -462,40 +462,6 @@ struct ConfigurationProto: Sendable {
   var enableBackgroundSync: Bool = false
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-}
-
-struct IntResultProto: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var result: IntResultProto.OneOf_Result? = nil
-
-  var success: UInt32 {
-    get {
-      if case .success(let v)? = result {return v}
-      return 0
-    }
-    set {result = .success(newValue)}
-  }
-
-  var failure: PluginExceptionProto {
-    get {
-      if case .failure(let v)? = result {return v}
-      return PluginExceptionProto()
-    }
-    set {result = .failure(newValue)}
-  }
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  enum OneOf_Result: Equatable, Sendable {
-    case success(UInt32)
-    case failure(PluginExceptionProto)
-
-  }
 
   init() {}
 }
@@ -529,10 +495,10 @@ struct CaloriesResultProto: Sendable {
     set {result = .success(newValue)}
   }
 
-  var failure: PluginExceptionProto {
+  var failure: SDKExceptionProto {
     get {
       if case .failure(let v)? = result {return v}
-      return PluginExceptionProto()
+      return SDKExceptionProto()
     }
     set {result = .failure(newValue)}
   }
@@ -541,7 +507,7 @@ struct CaloriesResultProto: Sendable {
 
   enum OneOf_Result: Equatable, Sendable {
     case success(CaloriesProto)
-    case failure(PluginExceptionProto)
+    case failure(SDKExceptionProto)
 
   }
 
@@ -799,26 +765,18 @@ struct SleepSummaryResultProto: Sendable {
 
   var result: SleepSummaryResultProto.OneOf_Result? = nil
 
-  var synced: SleepSummariesProto {
+  var success: SleepSummariesProto {
     get {
-      if case .synced(let v)? = result {return v}
+      if case .success(let v)? = result {return v}
       return SleepSummariesProto()
     }
-    set {result = .synced(newValue)}
+    set {result = .success(newValue)}
   }
 
-  var recordsNotFound: Bool {
-    get {
-      if case .recordsNotFound(let v)? = result {return v}
-      return false
-    }
-    set {result = .recordsNotFound(newValue)}
-  }
-
-  var failure: PluginExceptionProto {
+  var failure: SDKExceptionProto {
     get {
       if case .failure(let v)? = result {return v}
-      return PluginExceptionProto()
+      return SDKExceptionProto()
     }
     set {result = .failure(newValue)}
   }
@@ -826,9 +784,8 @@ struct SleepSummaryResultProto: Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable, Sendable {
-    case synced(SleepSummariesProto)
-    case recordsNotFound(Bool)
-    case failure(PluginExceptionProto)
+    case success(SleepSummariesProto)
+    case failure(SDKExceptionProto)
 
   }
 
@@ -1139,26 +1096,18 @@ struct PhysicalSummaryResultProto: Sendable {
 
   var result: PhysicalSummaryResultProto.OneOf_Result? = nil
 
-  var synced: PhysicalSummaryProto {
+  var success: PhysicalSummaryProto {
     get {
-      if case .synced(let v)? = result {return v}
+      if case .success(let v)? = result {return v}
       return PhysicalSummaryProto()
     }
-    set {result = .synced(newValue)}
+    set {result = .success(newValue)}
   }
 
-  var recordsNotFound: Bool {
-    get {
-      if case .recordsNotFound(let v)? = result {return v}
-      return false
-    }
-    set {result = .recordsNotFound(newValue)}
-  }
-
-  var failure: PluginExceptionProto {
+  var failure: SDKExceptionProto {
     get {
       if case .failure(let v)? = result {return v}
-      return PluginExceptionProto()
+      return SDKExceptionProto()
     }
     set {result = .failure(newValue)}
   }
@@ -1166,9 +1115,8 @@ struct PhysicalSummaryResultProto: Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable, Sendable {
-    case synced(PhysicalSummaryProto)
-    case recordsNotFound(Bool)
-    case failure(PluginExceptionProto)
+    case success(PhysicalSummaryProto)
+    case failure(SDKExceptionProto)
 
   }
 
@@ -1531,26 +1479,18 @@ struct BodySummaryResultProto: Sendable {
 
   var result: BodySummaryResultProto.OneOf_Result? = nil
 
-  var synced: BodySummaryProto {
+  var success: BodySummaryProto {
     get {
-      if case .synced(let v)? = result {return v}
+      if case .success(let v)? = result {return v}
       return BodySummaryProto()
     }
-    set {result = .synced(newValue)}
+    set {result = .success(newValue)}
   }
 
-  var recordsNotFound: Bool {
-    get {
-      if case .recordsNotFound(let v)? = result {return v}
-      return false
-    }
-    set {result = .recordsNotFound(newValue)}
-  }
-
-  var failure: PluginExceptionProto {
+  var failure: SDKExceptionProto {
     get {
       if case .failure(let v)? = result {return v}
-      return PluginExceptionProto()
+      return SDKExceptionProto()
     }
     set {result = .failure(newValue)}
   }
@@ -1558,9 +1498,8 @@ struct BodySummaryResultProto: Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable, Sendable {
-    case synced(BodySummaryProto)
-    case recordsNotFound(Bool)
-    case failure(PluginExceptionProto)
+    case success(BodySummaryProto)
+    case failure(SDKExceptionProto)
 
   }
 
@@ -2043,26 +1982,18 @@ struct ActivityEventResultProto: Sendable {
 
   var result: ActivityEventResultProto.OneOf_Result? = nil
 
-  var synced: ActivityEventsProto {
+  var success: ActivityEventsProto {
     get {
-      if case .synced(let v)? = result {return v}
+      if case .success(let v)? = result {return v}
       return ActivityEventsProto()
     }
-    set {result = .synced(newValue)}
+    set {result = .success(newValue)}
   }
 
-  var recordsNotFound: Bool {
-    get {
-      if case .recordsNotFound(let v)? = result {return v}
-      return false
-    }
-    set {result = .recordsNotFound(newValue)}
-  }
-
-  var failure: PluginExceptionProto {
+  var failure: SDKExceptionProto {
     get {
       if case .failure(let v)? = result {return v}
-      return PluginExceptionProto()
+      return SDKExceptionProto()
     }
     set {result = .failure(newValue)}
   }
@@ -2070,9 +2001,8 @@ struct ActivityEventResultProto: Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable, Sendable {
-    case synced(ActivityEventsProto)
-    case recordsNotFound(Bool)
-    case failure(PluginExceptionProto)
+    case success(ActivityEventsProto)
+    case failure(SDKExceptionProto)
 
   }
 
@@ -2663,8 +2593,8 @@ extension EventSyncTypeProto: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension PluginExceptionProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "PluginExceptionProto"
+extension SDKExceptionProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "SDKExceptionProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "code"),
@@ -2698,7 +2628,7 @@ extension PluginExceptionProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: PluginExceptionProto, rhs: PluginExceptionProto) -> Bool {
+  static func ==(lhs: SDKExceptionProto, rhs: SDKExceptionProto) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
@@ -2729,7 +2659,7 @@ extension BooleanResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
         }
       }()
       case 2: try {
-        var v: PluginExceptionProto?
+        var v: SDKExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
@@ -2794,7 +2724,7 @@ extension Int64ResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         }
       }()
       case 2: try {
-        var v: PluginExceptionProto?
+        var v: SDKExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
@@ -2887,71 +2817,6 @@ extension ConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension IntResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "IntResultProto"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "success"),
-    2: .same(proto: "failure"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try {
-        var v: UInt32?
-        try decoder.decodeSingularUInt32Field(value: &v)
-        if let v = v {
-          if self.result != nil {try decoder.handleConflictingOneOf()}
-          self.result = .success(v)
-        }
-      }()
-      case 2: try {
-        var v: PluginExceptionProto?
-        var hadOneofValue = false
-        if let current = self.result {
-          hadOneofValue = true
-          if case .failure(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .failure(v)
-        }
-      }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.result {
-    case .success?: try {
-      guard case .success(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1)
-    }()
-    case .failure?: try {
-      guard case .failure(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }()
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: IntResultProto, rhs: IntResultProto) -> Bool {
-    if lhs.result != rhs.result {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension CaloriesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CaloriesProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3017,7 +2882,7 @@ extension CaloriesResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
         }
       }()
       case 2: try {
-        var v: PluginExceptionProto?
+        var v: SDKExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
@@ -3511,9 +3376,8 @@ extension SleepSummariesProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 extension SleepSummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SleepSummaryResultProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "synced"),
-    2: .same(proto: "recordsNotFound"),
-    3: .same(proto: "failure"),
+    1: .same(proto: "success"),
+    2: .same(proto: "failure"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3527,24 +3391,16 @@ extension SleepSummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._Message
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
-          if case .synced(let m) = current {v = m}
+          if case .success(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .synced(v)
+          self.result = .success(v)
         }
       }()
       case 2: try {
-        var v: Bool?
-        try decoder.decodeSingularBoolField(value: &v)
-        if let v = v {
-          if self.result != nil {try decoder.handleConflictingOneOf()}
-          self.result = .recordsNotFound(v)
-        }
-      }()
-      case 3: try {
-        var v: PluginExceptionProto?
+        var v: SDKExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
@@ -3567,17 +3423,13 @@ extension SleepSummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._Message
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
     switch self.result {
-    case .synced?: try {
-      guard case .synced(let v)? = self.result else { preconditionFailure() }
+    case .success?: try {
+      guard case .success(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .recordsNotFound?: try {
-      guard case .recordsNotFound(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
     }()
     case .failure?: try {
       guard case .failure(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }()
     case nil: break
     }
@@ -4114,9 +3966,8 @@ extension PhysicalSummaryProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 extension PhysicalSummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "PhysicalSummaryResultProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "synced"),
-    2: .same(proto: "recordsNotFound"),
-    3: .same(proto: "failure"),
+    1: .same(proto: "success"),
+    2: .same(proto: "failure"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4130,24 +3981,16 @@ extension PhysicalSummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._Mess
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
-          if case .synced(let m) = current {v = m}
+          if case .success(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .synced(v)
+          self.result = .success(v)
         }
       }()
       case 2: try {
-        var v: Bool?
-        try decoder.decodeSingularBoolField(value: &v)
-        if let v = v {
-          if self.result != nil {try decoder.handleConflictingOneOf()}
-          self.result = .recordsNotFound(v)
-        }
-      }()
-      case 3: try {
-        var v: PluginExceptionProto?
+        var v: SDKExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
@@ -4170,17 +4013,13 @@ extension PhysicalSummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._Mess
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
     switch self.result {
-    case .synced?: try {
-      guard case .synced(let v)? = self.result else { preconditionFailure() }
+    case .success?: try {
+      guard case .success(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .recordsNotFound?: try {
-      guard case .recordsNotFound(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
     }()
     case .failure?: try {
       guard case .failure(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }()
     case nil: break
     }
@@ -4793,9 +4632,8 @@ extension BodySummaryProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 extension BodySummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "BodySummaryResultProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "synced"),
-    2: .same(proto: "recordsNotFound"),
-    3: .same(proto: "failure"),
+    1: .same(proto: "success"),
+    2: .same(proto: "failure"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4809,24 +4647,16 @@ extension BodySummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageI
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
-          if case .synced(let m) = current {v = m}
+          if case .success(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .synced(v)
+          self.result = .success(v)
         }
       }()
       case 2: try {
-        var v: Bool?
-        try decoder.decodeSingularBoolField(value: &v)
-        if let v = v {
-          if self.result != nil {try decoder.handleConflictingOneOf()}
-          self.result = .recordsNotFound(v)
-        }
-      }()
-      case 3: try {
-        var v: PluginExceptionProto?
+        var v: SDKExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
@@ -4849,17 +4679,13 @@ extension BodySummaryResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
     switch self.result {
-    case .synced?: try {
-      guard case .synced(let v)? = self.result else { preconditionFailure() }
+    case .success?: try {
+      guard case .success(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .recordsNotFound?: try {
-      guard case .recordsNotFound(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
     }()
     case .failure?: try {
       guard case .failure(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }()
     case nil: break
     }
@@ -5684,9 +5510,8 @@ extension ActivityEventsProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 extension ActivityEventResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ActivityEventResultProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "synced"),
-    2: .same(proto: "recordsNotFound"),
-    3: .same(proto: "failure"),
+    1: .same(proto: "success"),
+    2: .same(proto: "failure"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5700,24 +5525,16 @@ extension ActivityEventResultProto: SwiftProtobuf.Message, SwiftProtobuf._Messag
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
-          if case .synced(let m) = current {v = m}
+          if case .success(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.result = .synced(v)
+          self.result = .success(v)
         }
       }()
       case 2: try {
-        var v: Bool?
-        try decoder.decodeSingularBoolField(value: &v)
-        if let v = v {
-          if self.result != nil {try decoder.handleConflictingOneOf()}
-          self.result = .recordsNotFound(v)
-        }
-      }()
-      case 3: try {
-        var v: PluginExceptionProto?
+        var v: SDKExceptionProto?
         var hadOneofValue = false
         if let current = self.result {
           hadOneofValue = true
@@ -5740,17 +5557,13 @@ extension ActivityEventResultProto: SwiftProtobuf.Message, SwiftProtobuf._Messag
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
     switch self.result {
-    case .synced?: try {
-      guard case .synced(let v)? = self.result else { preconditionFailure() }
+    case .success?: try {
+      guard case .success(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .recordsNotFound?: try {
-      guard case .recordsNotFound(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
     }()
     case .failure?: try {
       guard case .failure(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }()
     case nil: break
     }

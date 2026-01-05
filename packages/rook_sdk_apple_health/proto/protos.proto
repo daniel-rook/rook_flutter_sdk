@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-message PluginExceptionProto {
+message SDKExceptionProto {
   sint32 id = 1;
   sint32 code = 2;
   string message = 3;
@@ -9,14 +9,14 @@ message PluginExceptionProto {
 message BooleanResultProto {
   oneof result {
     bool success = 1;
-    PluginExceptionProto failure = 2;
+    SDKExceptionProto failure = 2;
   }
 }
 
 message Int64ResultProto {
   oneof result {
     int64 success = 1;
-    PluginExceptionProto failure = 2;
+    SDKExceptionProto failure = 2;
   }
 }
 
@@ -101,13 +101,6 @@ enum EventSyncTypeProto {
   TEMPERATURE = 8;
 }
 
-message IntResultProto {
-  oneof result {
-    uint32 success = 1;
-    PluginExceptionProto failure = 2;
-  }
-}
-
 message CaloriesProto {
   double basal = 1;
   double active = 2;
@@ -116,7 +109,7 @@ message CaloriesProto {
 message CaloriesResultProto {
   oneof result {
     CaloriesProto success = 1;
-    PluginExceptionProto failure = 2;
+    SDKExceptionProto failure = 2;
   }
 }
 
@@ -175,9 +168,8 @@ message SleepSummariesProto {
 
 message SleepSummaryResultProto {
   oneof result {
-    SleepSummariesProto synced = 1;
-    bool recordsNotFound = 2;
-    PluginExceptionProto failure = 3;
+    SleepSummariesProto success = 1;
+    SDKExceptionProto failure = 2;
   }
 }
 
@@ -243,9 +235,8 @@ message PhysicalSummaryProto {
 
 message PhysicalSummaryResultProto {
   oneof result {
-    PhysicalSummaryProto synced = 1;
-    bool recordsNotFound = 2;
-    PluginExceptionProto failure = 3;
+    PhysicalSummaryProto success = 1;
+    SDKExceptionProto failure = 2;
   }
 }
 
@@ -320,9 +311,8 @@ message BodySummaryProto {
 
 message BodySummaryResultProto {
   oneof result {
-    BodySummaryProto synced = 1;
-    bool recordsNotFound = 2;
-    PluginExceptionProto failure = 3;
+    BodySummaryProto success = 1;
+    SDKExceptionProto failure = 2;
   }
 }
 
@@ -424,9 +414,8 @@ message ActivityEventsProto {
 
 message ActivityEventResultProto {
   oneof result {
-    ActivityEventsProto synced = 1;
-    bool recordsNotFound = 2;
-    PluginExceptionProto failure = 3;
+    ActivityEventsProto success = 1;
+    SDKExceptionProto failure = 2;
   }
 }
 

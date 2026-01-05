@@ -18,7 +18,7 @@ void main() {
         final sleepSummaries = SleepSummariesProto.create()
           ..elements.add(sleepSummary);
 
-        final proto = SleepSummaryResultProto.create()..synced = sleepSummaries;
+        final proto = SleepSummaryResultProto.create()..success = sleepSummaries;
 
         final result = proto.unwrap();
 
@@ -27,21 +27,9 @@ void main() {
     );
 
     test(
-      "GIVEN recordsNotFound WHEN unwrap THEN return an empty list",
-      () {
-        final proto = SleepSummaryResultProto.create()..recordsNotFound = true;
-
-        final result = proto.unwrap();
-
-        expect(result.length, 0);
-      },
-    );
-
-    test(
       "GIVEN failure WHEN unwrap THEN throw exception",
       () {
-        final failure = PluginExceptionProto.create()
-          ..id = -1
+        final failure = SDKExceptionProto.create()
           ..message = "message"
           ..code = 500;
 

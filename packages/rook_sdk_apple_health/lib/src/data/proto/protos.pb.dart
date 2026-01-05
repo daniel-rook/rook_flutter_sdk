@@ -21,8 +21,8 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'protos.pbenum.dart';
 
-class PluginExceptionProto extends $pb.GeneratedMessage {
-  factory PluginExceptionProto({
+class SDKExceptionProto extends $pb.GeneratedMessage {
+  factory SDKExceptionProto({
     $core.int? id,
     $core.int? code,
     $core.String? message,
@@ -34,12 +34,12 @@ class PluginExceptionProto extends $pb.GeneratedMessage {
     return result;
   }
 
-  PluginExceptionProto._();
+  SDKExceptionProto._();
 
-  factory PluginExceptionProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory PluginExceptionProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SDKExceptionProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory SDKExceptionProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PluginExceptionProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SDKExceptionProto', createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OS3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OS3)
     ..aOS(3, _omitFieldNames ? '' : 'message')
@@ -47,21 +47,21 @@ class PluginExceptionProto extends $pb.GeneratedMessage {
   ;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PluginExceptionProto clone() => PluginExceptionProto()..mergeFromMessage(this);
+  SDKExceptionProto clone() => SDKExceptionProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PluginExceptionProto copyWith(void Function(PluginExceptionProto) updates) => super.copyWith((message) => updates(message as PluginExceptionProto)) as PluginExceptionProto;
+  SDKExceptionProto copyWith(void Function(SDKExceptionProto) updates) => super.copyWith((message) => updates(message as SDKExceptionProto)) as SDKExceptionProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static PluginExceptionProto create() => PluginExceptionProto._();
+  static SDKExceptionProto create() => SDKExceptionProto._();
   @$core.override
-  PluginExceptionProto createEmptyInstance() => create();
-  static $pb.PbList<PluginExceptionProto> createRepeated() => $pb.PbList<PluginExceptionProto>();
+  SDKExceptionProto createEmptyInstance() => create();
+  static $pb.PbList<SDKExceptionProto> createRepeated() => $pb.PbList<SDKExceptionProto>();
   @$core.pragma('dart2js:noInline')
-  static PluginExceptionProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PluginExceptionProto>(create);
-  static PluginExceptionProto? _defaultInstance;
+  static SDKExceptionProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SDKExceptionProto>(create);
+  static SDKExceptionProto? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.int get id => $_getIZ(0);
@@ -100,7 +100,7 @@ enum BooleanResultProto_Result {
 class BooleanResultProto extends $pb.GeneratedMessage {
   factory BooleanResultProto({
     $core.bool? success,
-    PluginExceptionProto? failure,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
     if (success != null) result.success = success;
@@ -121,7 +121,7 @@ class BooleanResultProto extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BooleanResultProto', createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOB(1, _omitFieldNames ? '' : 'success')
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false
   ;
 
@@ -155,15 +155,15 @@ class BooleanResultProto extends $pb.GeneratedMessage {
   void clearSuccess() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
   void clearFailure() => $_clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 enum Int64ResultProto_Result {
@@ -175,7 +175,7 @@ enum Int64ResultProto_Result {
 class Int64ResultProto extends $pb.GeneratedMessage {
   factory Int64ResultProto({
     $fixnum.Int64? success,
-    PluginExceptionProto? failure,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
     if (success != null) result.success = success;
@@ -196,7 +196,7 @@ class Int64ResultProto extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Int64ResultProto', createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aInt64(1, _omitFieldNames ? '' : 'success')
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false
   ;
 
@@ -230,15 +230,15 @@ class Int64ResultProto extends $pb.GeneratedMessage {
   void clearSuccess() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
   void clearFailure() => $_clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class ConfigurationProto extends $pb.GeneratedMessage {
@@ -323,81 +323,6 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   void clearEnableBackgroundSync() => $_clearField(4);
 }
 
-enum IntResultProto_Result {
-  success, 
-  failure, 
-  notSet
-}
-
-class IntResultProto extends $pb.GeneratedMessage {
-  factory IntResultProto({
-    $core.int? success,
-    PluginExceptionProto? failure,
-  }) {
-    final result = create();
-    if (success != null) result.success = success;
-    if (failure != null) result.failure = failure;
-    return result;
-  }
-
-  IntResultProto._();
-
-  factory IntResultProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory IntResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
-
-  static const $core.Map<$core.int, IntResultProto_Result> _IntResultProto_ResultByTag = {
-    1 : IntResultProto_Result.success,
-    2 : IntResultProto_Result.failure,
-    0 : IntResultProto_Result.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'IntResultProto', createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'success', $pb.PbFieldType.OU3)
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IntResultProto clone() => IntResultProto()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IntResultProto copyWith(void Function(IntResultProto) updates) => super.copyWith((message) => updates(message as IntResultProto)) as IntResultProto;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static IntResultProto create() => IntResultProto._();
-  @$core.override
-  IntResultProto createEmptyInstance() => create();
-  static $pb.PbList<IntResultProto> createRepeated() => $pb.PbList<IntResultProto>();
-  @$core.pragma('dart2js:noInline')
-  static IntResultProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<IntResultProto>(create);
-  static IntResultProto? _defaultInstance;
-
-  IntResultProto_Result whichResult() => _IntResultProto_ResultByTag[$_whichOneof(0)]!;
-  void clearResult() => $_clearField($_whichOneof(0));
-
-  @$pb.TagNumber(1)
-  $core.int get success => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set success($core.int value) => $_setUnsignedInt32(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasSuccess() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearSuccess() => $_clearField(1);
-
-  @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
-  @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasFailure() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearFailure() => $_clearField(2);
-  @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
-}
-
 class CaloriesProto extends $pb.GeneratedMessage {
   factory CaloriesProto({
     $core.double? basal,
@@ -465,7 +390,7 @@ enum CaloriesResultProto_Result {
 class CaloriesResultProto extends $pb.GeneratedMessage {
   factory CaloriesResultProto({
     CaloriesProto? success,
-    PluginExceptionProto? failure,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
     if (success != null) result.success = success;
@@ -486,7 +411,7 @@ class CaloriesResultProto extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CaloriesResultProto', createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOM<CaloriesProto>(1, _omitFieldNames ? '' : 'success', subBuilder: CaloriesProto.create)
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false
   ;
 
@@ -522,15 +447,15 @@ class CaloriesResultProto extends $pb.GeneratedMessage {
   CaloriesProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
   void clearFailure() => $_clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class SleepSummaryProto extends $pb.GeneratedMessage {
@@ -1070,21 +995,18 @@ class SleepSummariesProto extends $pb.GeneratedMessage {
 }
 
 enum SleepSummaryResultProto_Result {
-  synced, 
-  recordsNotFound, 
+  success, 
   failure, 
   notSet
 }
 
 class SleepSummaryResultProto extends $pb.GeneratedMessage {
   factory SleepSummaryResultProto({
-    SleepSummariesProto? synced,
-    $core.bool? recordsNotFound,
-    PluginExceptionProto? failure,
+    SleepSummariesProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
-    if (synced != null) result.synced = synced;
-    if (recordsNotFound != null) result.recordsNotFound = recordsNotFound;
+    if (success != null) result.success = success;
     if (failure != null) result.failure = failure;
     return result;
   }
@@ -1095,16 +1017,14 @@ class SleepSummaryResultProto extends $pb.GeneratedMessage {
   factory SleepSummaryResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, SleepSummaryResultProto_Result> _SleepSummaryResultProto_ResultByTag = {
-    1 : SleepSummaryResultProto_Result.synced,
-    2 : SleepSummaryResultProto_Result.recordsNotFound,
-    3 : SleepSummaryResultProto_Result.failure,
+    1 : SleepSummaryResultProto_Result.success,
+    2 : SleepSummaryResultProto_Result.failure,
     0 : SleepSummaryResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SleepSummaryResultProto', createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
-    ..aOM<SleepSummariesProto>(1, _omitFieldNames ? '' : 'synced', subBuilder: SleepSummariesProto.create)
-    ..aOB(2, _omitFieldNames ? '' : 'recordsNotFound', protoName: 'recordsNotFound')
-    ..aOM<PluginExceptionProto>(3, _omitFieldNames ? '' : 'failure', subBuilder: PluginExceptionProto.create)
+    ..oo(0, [1, 2])
+    ..aOM<SleepSummariesProto>(1, _omitFieldNames ? '' : 'success', subBuilder: SleepSummariesProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false
   ;
 
@@ -1129,35 +1049,26 @@ class SleepSummaryResultProto extends $pb.GeneratedMessage {
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  SleepSummariesProto get synced => $_getN(0);
+  SleepSummariesProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set synced(SleepSummariesProto value) => $_setField(1, value);
+  set success(SleepSummariesProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasSynced() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSynced() => $_clearField(1);
+  void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  SleepSummariesProto ensureSynced() => $_ensure(0);
+  SleepSummariesProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get recordsNotFound => $_getBF(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set recordsNotFound($core.bool value) => $_setBool(1, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasRecordsNotFound() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRecordsNotFound() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  PluginExceptionProto get failure => $_getN(2);
-  @$pb.TagNumber(3)
-  set failure(PluginExceptionProto value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasFailure() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFailure() => $_clearField(3);
-  @$pb.TagNumber(3)
-  PluginExceptionProto ensureFailure() => $_ensure(2);
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class PhysicalSummaryProto extends $pb.GeneratedMessage {
@@ -1801,21 +1712,18 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
 }
 
 enum PhysicalSummaryResultProto_Result {
-  synced, 
-  recordsNotFound, 
+  success, 
   failure, 
   notSet
 }
 
 class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
   factory PhysicalSummaryResultProto({
-    PhysicalSummaryProto? synced,
-    $core.bool? recordsNotFound,
-    PluginExceptionProto? failure,
+    PhysicalSummaryProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
-    if (synced != null) result.synced = synced;
-    if (recordsNotFound != null) result.recordsNotFound = recordsNotFound;
+    if (success != null) result.success = success;
     if (failure != null) result.failure = failure;
     return result;
   }
@@ -1826,16 +1734,14 @@ class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
   factory PhysicalSummaryResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, PhysicalSummaryResultProto_Result> _PhysicalSummaryResultProto_ResultByTag = {
-    1 : PhysicalSummaryResultProto_Result.synced,
-    2 : PhysicalSummaryResultProto_Result.recordsNotFound,
-    3 : PhysicalSummaryResultProto_Result.failure,
+    1 : PhysicalSummaryResultProto_Result.success,
+    2 : PhysicalSummaryResultProto_Result.failure,
     0 : PhysicalSummaryResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PhysicalSummaryResultProto', createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
-    ..aOM<PhysicalSummaryProto>(1, _omitFieldNames ? '' : 'synced', subBuilder: PhysicalSummaryProto.create)
-    ..aOB(2, _omitFieldNames ? '' : 'recordsNotFound', protoName: 'recordsNotFound')
-    ..aOM<PluginExceptionProto>(3, _omitFieldNames ? '' : 'failure', subBuilder: PluginExceptionProto.create)
+    ..oo(0, [1, 2])
+    ..aOM<PhysicalSummaryProto>(1, _omitFieldNames ? '' : 'success', subBuilder: PhysicalSummaryProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false
   ;
 
@@ -1860,35 +1766,26 @@ class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  PhysicalSummaryProto get synced => $_getN(0);
+  PhysicalSummaryProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set synced(PhysicalSummaryProto value) => $_setField(1, value);
+  set success(PhysicalSummaryProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasSynced() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSynced() => $_clearField(1);
+  void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  PhysicalSummaryProto ensureSynced() => $_ensure(0);
+  PhysicalSummaryProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get recordsNotFound => $_getBF(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set recordsNotFound($core.bool value) => $_setBool(1, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasRecordsNotFound() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRecordsNotFound() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  PluginExceptionProto get failure => $_getN(2);
-  @$pb.TagNumber(3)
-  set failure(PluginExceptionProto value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasFailure() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFailure() => $_clearField(3);
-  @$pb.TagNumber(3)
-  PluginExceptionProto ensureFailure() => $_ensure(2);
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 enum BodySummaryProto_IsAPredictedCycle {
@@ -2607,21 +2504,18 @@ class BodySummaryProto extends $pb.GeneratedMessage {
 }
 
 enum BodySummaryResultProto_Result {
-  synced, 
-  recordsNotFound, 
+  success, 
   failure, 
   notSet
 }
 
 class BodySummaryResultProto extends $pb.GeneratedMessage {
   factory BodySummaryResultProto({
-    BodySummaryProto? synced,
-    $core.bool? recordsNotFound,
-    PluginExceptionProto? failure,
+    BodySummaryProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
-    if (synced != null) result.synced = synced;
-    if (recordsNotFound != null) result.recordsNotFound = recordsNotFound;
+    if (success != null) result.success = success;
     if (failure != null) result.failure = failure;
     return result;
   }
@@ -2632,16 +2526,14 @@ class BodySummaryResultProto extends $pb.GeneratedMessage {
   factory BodySummaryResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, BodySummaryResultProto_Result> _BodySummaryResultProto_ResultByTag = {
-    1 : BodySummaryResultProto_Result.synced,
-    2 : BodySummaryResultProto_Result.recordsNotFound,
-    3 : BodySummaryResultProto_Result.failure,
+    1 : BodySummaryResultProto_Result.success,
+    2 : BodySummaryResultProto_Result.failure,
     0 : BodySummaryResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BodySummaryResultProto', createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
-    ..aOM<BodySummaryProto>(1, _omitFieldNames ? '' : 'synced', subBuilder: BodySummaryProto.create)
-    ..aOB(2, _omitFieldNames ? '' : 'recordsNotFound', protoName: 'recordsNotFound')
-    ..aOM<PluginExceptionProto>(3, _omitFieldNames ? '' : 'failure', subBuilder: PluginExceptionProto.create)
+    ..oo(0, [1, 2])
+    ..aOM<BodySummaryProto>(1, _omitFieldNames ? '' : 'success', subBuilder: BodySummaryProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false
   ;
 
@@ -2666,35 +2558,26 @@ class BodySummaryResultProto extends $pb.GeneratedMessage {
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  BodySummaryProto get synced => $_getN(0);
+  BodySummaryProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set synced(BodySummaryProto value) => $_setField(1, value);
+  set success(BodySummaryProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasSynced() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSynced() => $_clearField(1);
+  void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  BodySummaryProto ensureSynced() => $_ensure(0);
+  BodySummaryProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get recordsNotFound => $_getBF(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set recordsNotFound($core.bool value) => $_setBool(1, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasRecordsNotFound() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRecordsNotFound() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  PluginExceptionProto get failure => $_getN(2);
-  @$pb.TagNumber(3)
-  set failure(PluginExceptionProto value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasFailure() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFailure() => $_clearField(3);
-  @$pb.TagNumber(3)
-  PluginExceptionProto ensureFailure() => $_ensure(2);
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class ActivityEventProto extends $pb.GeneratedMessage {
@@ -3702,21 +3585,18 @@ class ActivityEventsProto extends $pb.GeneratedMessage {
 }
 
 enum ActivityEventResultProto_Result {
-  synced, 
-  recordsNotFound, 
+  success, 
   failure, 
   notSet
 }
 
 class ActivityEventResultProto extends $pb.GeneratedMessage {
   factory ActivityEventResultProto({
-    ActivityEventsProto? synced,
-    $core.bool? recordsNotFound,
-    PluginExceptionProto? failure,
+    ActivityEventsProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
-    if (synced != null) result.synced = synced;
-    if (recordsNotFound != null) result.recordsNotFound = recordsNotFound;
+    if (success != null) result.success = success;
     if (failure != null) result.failure = failure;
     return result;
   }
@@ -3727,16 +3607,14 @@ class ActivityEventResultProto extends $pb.GeneratedMessage {
   factory ActivityEventResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, ActivityEventResultProto_Result> _ActivityEventResultProto_ResultByTag = {
-    1 : ActivityEventResultProto_Result.synced,
-    2 : ActivityEventResultProto_Result.recordsNotFound,
-    3 : ActivityEventResultProto_Result.failure,
+    1 : ActivityEventResultProto_Result.success,
+    2 : ActivityEventResultProto_Result.failure,
     0 : ActivityEventResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ActivityEventResultProto', createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
-    ..aOM<ActivityEventsProto>(1, _omitFieldNames ? '' : 'synced', subBuilder: ActivityEventsProto.create)
-    ..aOB(2, _omitFieldNames ? '' : 'recordsNotFound', protoName: 'recordsNotFound')
-    ..aOM<PluginExceptionProto>(3, _omitFieldNames ? '' : 'failure', subBuilder: PluginExceptionProto.create)
+    ..oo(0, [1, 2])
+    ..aOM<ActivityEventsProto>(1, _omitFieldNames ? '' : 'success', subBuilder: ActivityEventsProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false
   ;
 
@@ -3761,35 +3639,26 @@ class ActivityEventResultProto extends $pb.GeneratedMessage {
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  ActivityEventsProto get synced => $_getN(0);
+  ActivityEventsProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set synced(ActivityEventsProto value) => $_setField(1, value);
+  set success(ActivityEventsProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasSynced() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSynced() => $_clearField(1);
+  void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  ActivityEventsProto ensureSynced() => $_ensure(0);
+  ActivityEventsProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get recordsNotFound => $_getBF(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set recordsNotFound($core.bool value) => $_setBool(1, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasRecordsNotFound() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRecordsNotFound() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  PluginExceptionProto get failure => $_getN(2);
-  @$pb.TagNumber(3)
-  set failure(PluginExceptionProto value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasFailure() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFailure() => $_clearField(3);
-  @$pb.TagNumber(3)
-  PluginExceptionProto ensureFailure() => $_ensure(2);
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class ActiveStepsGranularDataProto extends $pb.GeneratedMessage {

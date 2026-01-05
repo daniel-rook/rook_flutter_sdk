@@ -40,11 +40,6 @@ class AHRookConfigurationManager {
     return RookSdkAppleHealthPlatform.instance.syncUserTimeZone();
   }
 
-  /// Removes the current user for data upload.
-  static Future<void> clearUserID() {
-    return RookSdkAppleHealthPlatform.instance.clearUserID();
-  }
-
   /// Removes the current user from appleHealth data source,
   /// once removed rook servers won't accept any health data from appleHealth.
   static Future<void> deleteUserFromRook() {

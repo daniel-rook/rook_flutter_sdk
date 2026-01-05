@@ -2,16 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/apple_health_permission_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/configuration_mappers.dart';
-import 'package:rook_sdk_apple_health/src/data/mapper/environment_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/event_sync_type_mapper.dart';
-import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/mapper/summary_sync_type_mapper.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_apple_health/src/data/result/activity_event_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/calories_result.dart';
-import 'package:rook_sdk_apple_health/src/data/result/int_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/int64_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/sleep_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
@@ -73,14 +71,6 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> clearUserID() async {
-    final Uint8List bytes = await methodChannel.invokeMethod('clearUserID');
-    final result = BooleanResultProto.fromBuffer(bytes);
-
-    result.unwrap();
-  }
-
-  @override
   Future<void> deleteUserFromRook() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'deleteUserFromRook',
@@ -119,7 +109,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<bool> syncHistoricSummaries(bool enableLogs) async {
+  Future<void> syncHistoricSummaries(bool enableLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncHistoricSummaries',
       [
@@ -128,11 +118,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
-    return result.unwrap();
+    result.unwrap();
   }
 
   @override
-  Future<bool> syncSummariesByDate(DateTime date) async {
+  Future<void> syncSummariesByDate(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncSummariesByDate',
       [
@@ -141,11 +131,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
-    return result.unwrap();
+    result.unwrap();
   }
 
   @override
-  Future<bool> syncByDateAndSummary(
+  Future<void> syncByDateAndSummary(
     DateTime date,
     AHSummarySyncType summary,
   ) async {
@@ -159,11 +149,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
-    return result.unwrap();
+    result.unwrap();
   }
 
   @override
-  Future<bool> syncByDateAndEvent(DateTime date, AHEventSyncType event) async {
+  Future<void> syncByDateAndEvent(DateTime date, AHEventSyncType event) async {
     final proto = event.toProto();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncByDateAndEvent',
@@ -174,7 +164,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
-    return result.unwrap();
+    result.unwrap();
   }
 
   @override
@@ -191,7 +181,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<PhysicalSummary?> getPhysicalSummary(DateTime date) async {
+  Future<PhysicalSummary> getPhysicalSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getPhysicalSummary',
       [
@@ -204,7 +194,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<BodySummary?> getBodySummary(DateTime date) async {
+  Future<BodySummary> getBodySummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getBodySummary',
       [
@@ -230,18 +220,18 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<int?> getTodayStepsCount() async {
+  Future<int> getTodayStepsCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getTodayStepsCount',
     );
 
-    final result = IntResultProto.fromBuffer(bytes);
+    final result = Int64ResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }
 
   @override
-  Future<DailyCalories?> getTodayCaloriesCount() async {
+  Future<DailyCalories> getTodayCaloriesCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getTodayCaloriesCount',
     );
@@ -265,24 +255,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> enableContinuousUpload(
-    bool enableNativeLogs,
-    String clientUUID,
-    String secretKey,
-    RookEnvironment environment,
-  ) async {
-    final rookConfigurationProto = ConfigurationProto(
-      clientUUID: clientUUID,
-      secretKey: secretKey,
-      environment: environment.toProto(),
-      enableBackgroundSync: false,
-    );
-
+  Future<void> enableContinuousUpload(bool enableNativeLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableContinuousUpload',
       [
         enableNativeLogs,
-        rookConfigurationProto.writeToBuffer(),
       ],
     );
 
@@ -314,24 +291,11 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> enableBackground(
-    bool enableNativeLogs,
-    String clientUUID,
-    String secretKey,
-    RookEnvironment environment,
-  ) async {
-    final rookConfigurationProto = ConfigurationProto(
-      clientUUID: clientUUID,
-      secretKey: secretKey,
-      environment: environment.toProto(),
-      enableBackgroundSync: false,
-    );
-
+  Future<void> schedule(bool enableNativeLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'enableBackground',
+      'schedule',
       [
         enableNativeLogs,
-        rookConfigurationProto.writeToBuffer(),
       ],
     );
 
@@ -341,9 +305,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
-  Future<void> disableBackground() async {
+  Future<void> cancel() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
-      'disableBackground',
+      'cancel',
     );
 
     final result = BooleanResultProto.fromBuffer(bytes);
@@ -355,9 +319,13 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Stream<Exception> get backgroundErrorsUpdates {
     return backgroundErrorsEventChannel.receiveBroadcastStream().map(
       (bytes) {
-        final proto = PluginExceptionProto.fromBuffer(bytes);
+        final proto = SDKExceptionProto.fromBuffer(bytes);
+        final exception = SDKException.fromCode(
+          code: proto.code,
+          message: proto.message,
+        );
 
-        return proto.toDartException();
+        return exception;
       },
     );
   }

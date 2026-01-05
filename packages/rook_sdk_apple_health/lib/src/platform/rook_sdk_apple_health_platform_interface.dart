@@ -30,55 +30,43 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<void> updateUserID(String userID);
 
-  Future<void> clearUserID();
-
   Future<void> deleteUserFromRook();
 
   Future<void> syncUserTimeZone();
 
   Future<void> requestPermissions(List<AppleHealthPermission> permissions);
 
-  Future<bool> syncHistoricSummaries(bool enableLogs);
+  Future<void> syncHistoricSummaries(bool enableLogs);
 
-  Future<bool> syncSummariesByDate(DateTime date);
+  Future<void> syncSummariesByDate(DateTime date);
 
-  Future<bool> syncByDateAndSummary(DateTime date, AHSummarySyncType summary);
+  Future<void> syncByDateAndSummary(DateTime date, AHSummarySyncType summary);
 
-  Future<bool> syncByDateAndEvent(DateTime date, AHEventSyncType event);
+  Future<void> syncByDateAndEvent(DateTime date, AHEventSyncType event);
 
   Future<List<SleepSummary>> getSleepSummary(DateTime date);
 
-  Future<PhysicalSummary?> getPhysicalSummary(DateTime date);
+  Future<PhysicalSummary> getPhysicalSummary(DateTime date);
 
-  Future<BodySummary?> getBodySummary(DateTime date);
+  Future<BodySummary> getBodySummary(DateTime date);
 
   Future<List<ActivityEvent>> getActivityEvents(DateTime date);
 
-  Future<int?> getTodayStepsCount();
+  Future<int> getTodayStepsCount();
 
-  Future<DailyCalories?> getTodayCaloriesCount();
+  Future<DailyCalories> getTodayCaloriesCount();
 
   Future<bool> isContinuousUploadEnabled();
 
-  Future<void> enableContinuousUpload(
-    bool enableNativeLogs,
-    String clientUUID,
-    String secretKey,
-    RookEnvironment environment,
-  );
+  Future<void> enableContinuousUpload(bool enableNativeLogs);
 
   Future<void> disableContinuousUpload();
 
   Future<bool> isScheduled();
 
-  Future<void> enableBackground(
-    bool enableNativeLogs,
-    String clientUUID,
-    String secretKey,
-    RookEnvironment environment,
-  );
+  Future<void> schedule(bool enableNativeLogs);
 
-  Future<void> disableBackground();
+  Future<void> cancel();
 
   Stream<Exception> get backgroundErrorsUpdates;
 }

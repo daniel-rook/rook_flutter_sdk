@@ -7,7 +7,6 @@ import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 
 const String iosBackgroundSyncRoute = '/ios/background-sync';
@@ -89,22 +88,19 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
         backgroundSyncOutput.append("Enabling background sync...");
       });
 
-      AHRookBackgroundSync.enableBackground(
-        clientUUID: Secrets.clientUUID,
-        secretKey: Secrets.secretKey,
-        environment: rookEnvironment,
-        enableNativeLogs: isDebug,
-      ).then((_) {
-        setState(() {
-          backgroundSyncOutput.append("Background sync enabled");
-        });
-      }).catchError((error) {
-        setState(() {
-          backgroundSyncOutput.append(
-            "Error enabling background sync $error",
-          );
-        });
-      });
+      AHRookBackgroundSync.enableBackground(enableNativeLogs: isDebug)
+          .then((_) {
+            setState(() {
+              backgroundSyncOutput.append("Background sync enabled");
+            });
+          })
+          .catchError((error) {
+            setState(() {
+              backgroundSyncOutput.append(
+                "Error enabling background sync $error",
+              );
+            });
+          });
     } else {
       backgroundSyncOutput.clear();
 
@@ -112,17 +108,19 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
         backgroundSyncOutput.append("Disabling background sync...");
       });
 
-      AHRookBackgroundSync.disableBackground().then((_) {
-        setState(() {
-          backgroundSyncOutput.append("Background sync disabled");
-        });
-      }).catchError((error) {
-        setState(() {
-          backgroundSyncOutput.append(
-            "Error disabling background sync $error",
-          );
-        });
-      });
+      AHRookBackgroundSync.disableBackground()
+          .then((_) {
+            setState(() {
+              backgroundSyncOutput.append("Background sync disabled");
+            });
+          })
+          .catchError((error) {
+            setState(() {
+              backgroundSyncOutput.append(
+                "Error disabling background sync $error",
+              );
+            });
+          });
     }
 
     setState(() {

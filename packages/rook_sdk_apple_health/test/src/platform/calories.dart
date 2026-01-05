@@ -6,64 +6,63 @@ import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 import '../common/test_utils.dart';
 
-void caloriesTests(
+void caloriesTest(
   MethodChannelRookSdkAppleHealth platform,
   MethodChannel channel,
 ) {
   group(
-      'MethodChannelRookSdkAppleHealth | SyncStatusWithCaloriesResultProto value unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final caloriesProto = CaloriesProto.create()
-        ..basal = 12.5
-        ..active = 22.5;
-      final proto = CaloriesResultProto.create()..success = caloriesProto;
+    'MethodChannelRookSdkAppleHealth | CaloriesResultProto value unwrap',
+    () {
+      mockMethodCall(channel, (_) async {
+        final caloriesProto = CaloriesProto.create()
+          ..basal = 12.5
+          ..active = 22.5;
+        final proto = CaloriesResultProto.create();
+        proto.success = caloriesProto;
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      "GIVEN success WHEN getTodayCaloriesCount THEN return a SyncStatusWithData<DailyCalories>",
-      () async {
-        final future = platform.getTodayCaloriesCount();
+      test(
+        "GIVEN success WHEN getTodayCaloriesCount THEN return a Data<DailyCalories>",
+        () async {
+          final future = platform.getTodayCaloriesCount();
 
-        await expectLater(
-          future,
-          completion(
-            predicate<DailyCalories?>(
-              (value) {
-                return value != null &&
-                    value.basal == 12.5 &&
-                    value.active == 22.5;
-              },
+          await expectLater(
+            future,
+            completion(
+              predicate<DailyCalories>((dailyCalories) {
+                return dailyCalories.basal == 12.5 &&
+                    dailyCalories.active == 22.5;
+              }),
             ),
-          ),
-        );
-      },
-    );
-  });
+          );
+        },
+      );
+    },
+  );
 
   group(
-      'MethodChannelRookSdkAppleHealth | SyncStatusWithCaloriesResultProto exception unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
-        ..message = "message"
-        ..code = 500;
+    'MethodChannelRookSdkAppleHealth | CaloriesResultProto exception unwrap',
+    () {
+      mockMethodCall(channel, (_) async {
+        final failure = SDKExceptionProto.create()
+          ..message = "message"
+          ..code = 500;
 
-      final proto = CaloriesResultProto.create()..failure = failure;
+        final proto = CaloriesResultProto.create()..failure = failure;
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      "GIVEN failure WHEN getTodayCaloriesCount THEN throw exception",
-      () async {
-        final future = platform.getTodayCaloriesCount();
+      test(
+        "GIVEN failure WHEN getTodayCaloriesCount THEN throw exception",
+        () async {
+          final future = platform.getTodayCaloriesCount();
 
-        await expectLater(future, throwsException);
-      },
-    );
-  });
+          await expectLater(future, throwsException);
+        },
+      );
+    },
+  );
 }

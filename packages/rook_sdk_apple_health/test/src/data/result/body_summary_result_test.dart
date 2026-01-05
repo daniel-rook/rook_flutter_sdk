@@ -12,7 +12,7 @@ void main() {
           ..sourceOfData = "Test"
           ..wasTheUserUnderPhysicalActivity = true;
 
-        final proto = BodySummaryResultProto.create()..synced = bodySummary;
+        final proto = BodySummaryResultProto.create()..success = bodySummary;
 
         final result = proto.unwrap();
 
@@ -21,21 +21,9 @@ void main() {
     );
 
     test(
-      "GIVEN recordsNotFound WHEN unwrap THEN return an empty list",
-      () {
-        final proto = BodySummaryResultProto.create()..recordsNotFound = true;
-
-        final result = proto.unwrap();
-
-        expect(result, isNull);
-      },
-    );
-
-    test(
       "GIVEN failure WHEN unwrap THEN throw exception",
       () {
-        final failure = PluginExceptionProto.create()
-          ..id = -1
+        final failure = SDKExceptionProto.create()
           ..message = "message"
           ..code = 500;
 

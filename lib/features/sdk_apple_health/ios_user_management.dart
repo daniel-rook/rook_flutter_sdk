@@ -17,7 +17,6 @@ class IOSUserManagement extends StatefulWidget {
 class _IOSUserManagementState extends State<IOSUserManagement> {
   final Logger logger = Logger('IOSUserManagement');
 
-  final ConsoleOutput clearUserOutput = ConsoleOutput();
   final ConsoleOutput deleteUserOutput = ConsoleOutput();
   final ConsoleOutput syncTimezoneUserOutput = ConsoleOutput();
 
@@ -52,12 +51,6 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
             onPressed: updateTimeZoneInformation,
             child: const Text("syncUserTimeZone"),
           ),
-          const SectionTitle('Delete (locally) user'),
-          Text(clearUserOutput.current),
-          FilledButton(
-            onPressed: clearUser,
-            child: const Text("clearUserID"),
-          ),
           const SectionTitle('Delete (deactivate) user from ROOK'),
           Text(deleteUserOutput.current),
           FilledButton(
@@ -83,25 +76,6 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
     }).catchError((error) {
       setState(() {
         syncTimezoneUserOutput.append('Error updating user timezone: $error');
-      });
-    });
-  }
-
-  void clearUser() {
-    deleteUserOutput.clear();
-
-    setState(() {
-      deleteUserOutput.append('Clearing user...');
-    });
-
-    AHRookConfigurationManager.clearUserID().then((_) {
-      setState(() {
-        deleteUserOutput.append('User cleared');
-        userID = '';
-      });
-    }).catchError((error) {
-      setState(() {
-        deleteUserOutput.append('Error clearing user: $error');
       });
     });
   }

@@ -147,9 +147,9 @@ final $typed_data.Uint8List eventSyncTypeProtoDescriptor = $convert.base64Decode
     'oOQkxPT0RfUFJFU1NVUkUQAhIQCgxCT0RZX01FVFJJQ1MQAxIOCgpIRUFSVF9SQVRFEAQSDwoL'
     'T1hZR0VOQVRJT04QBxIPCgtURU1QRVJBVFVSRRAIIgQIBRAFIgQIBhAGIgQICRAJIgQIChAK');
 
-@$core.Deprecated('Use pluginExceptionProtoDescriptor instead')
-const PluginExceptionProto$json = {
-  '1': 'PluginExceptionProto',
+@$core.Deprecated('Use sDKExceptionProtoDescriptor instead')
+const SDKExceptionProto$json = {
+  '1': 'SDKExceptionProto',
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 17, '10': 'id'},
     {'1': 'code', '3': 2, '4': 1, '5': 17, '10': 'code'},
@@ -157,17 +157,17 @@ const PluginExceptionProto$json = {
   ],
 };
 
-/// Descriptor for `PluginExceptionProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List pluginExceptionProtoDescriptor = $convert.base64Decode(
-    'ChRQbHVnaW5FeGNlcHRpb25Qcm90bxIOCgJpZBgBIAEoEVICaWQSEgoEY29kZRgCIAEoEVIEY2'
-    '9kZRIYCgdtZXNzYWdlGAMgASgJUgdtZXNzYWdl');
+/// Descriptor for `SDKExceptionProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List sDKExceptionProtoDescriptor = $convert.base64Decode(
+    'ChFTREtFeGNlcHRpb25Qcm90bxIOCgJpZBgBIAEoEVICaWQSEgoEY29kZRgCIAEoEVIEY29kZR'
+    'IYCgdtZXNzYWdlGAMgASgJUgdtZXNzYWdl');
 
 @$core.Deprecated('Use booleanResultProtoDescriptor instead')
 const BooleanResultProto$json = {
   '1': 'BooleanResultProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 8, '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.SDKExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -176,15 +176,15 @@ const BooleanResultProto$json = {
 
 /// Descriptor for `BooleanResultProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List booleanResultProtoDescriptor = $convert.base64Decode(
-    'ChJCb29sZWFuUmVzdWx0UHJvdG8SGgoHc3VjY2VzcxgBIAEoCEgAUgdzdWNjZXNzEjEKB2ZhaW'
-    'x1cmUYAiABKAsyFS5QbHVnaW5FeGNlcHRpb25Qcm90b0gAUgdmYWlsdXJlQggKBnJlc3VsdA==');
+    'ChJCb29sZWFuUmVzdWx0UHJvdG8SGgoHc3VjY2VzcxgBIAEoCEgAUgdzdWNjZXNzEi4KB2ZhaW'
+    'x1cmUYAiABKAsyEi5TREtFeGNlcHRpb25Qcm90b0gAUgdmYWlsdXJlQggKBnJlc3VsdA==');
 
 @$core.Deprecated('Use int64ResultProtoDescriptor instead')
 const Int64ResultProto$json = {
   '1': 'Int64ResultProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.SDKExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -193,8 +193,8 @@ const Int64ResultProto$json = {
 
 /// Descriptor for `Int64ResultProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List int64ResultProtoDescriptor = $convert.base64Decode(
-    'ChBJbnQ2NFJlc3VsdFByb3RvEhoKB3N1Y2Nlc3MYASABKANIAFIHc3VjY2VzcxIxCgdmYWlsdX'
-    'JlGAIgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
+    'ChBJbnQ2NFJlc3VsdFByb3RvEhoKB3N1Y2Nlc3MYASABKANIAFIHc3VjY2VzcxIuCgdmYWlsdX'
+    'JlGAIgASgLMhIuU0RLRXhjZXB0aW9uUHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use configurationProtoDescriptor instead')
 const ConfigurationProto$json = {
@@ -213,23 +213,6 @@ final $typed_data.Uint8List configurationProtoDescriptor = $convert.base64Decode
     'lzZWNyZXRLZXkYAiABKAlSCXNlY3JldEtleRIzCgtlbnZpcm9ubWVudBgDIAEoDjIRLkVudmly'
     'b25tZW50UHJvdG9SC2Vudmlyb25tZW50EjIKFGVuYWJsZUJhY2tncm91bmRTeW5jGAQgASgIUh'
     'RlbmFibGVCYWNrZ3JvdW5kU3luYw==');
-
-@$core.Deprecated('Use intResultProtoDescriptor instead')
-const IntResultProto$json = {
-  '1': 'IntResultProto',
-  '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 13, '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
-  ],
-  '8': [
-    {'1': 'result'},
-  ],
-};
-
-/// Descriptor for `IntResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List intResultProtoDescriptor = $convert.base64Decode(
-    'Cg5JbnRSZXN1bHRQcm90bxIaCgdzdWNjZXNzGAEgASgNSABSB3N1Y2Nlc3MSMQoHZmFpbHVyZR'
-    'gCIAEoCzIVLlBsdWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use caloriesProtoDescriptor instead')
 const CaloriesProto$json = {
@@ -250,7 +233,7 @@ const CaloriesResultProto$json = {
   '1': 'CaloriesResultProto',
   '2': [
     {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.CaloriesProto', '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.SDKExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -260,8 +243,8 @@ const CaloriesResultProto$json = {
 /// Descriptor for `CaloriesResultProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List caloriesResultProtoDescriptor = $convert.base64Decode(
     'ChNDYWxvcmllc1Jlc3VsdFByb3RvEioKB3N1Y2Nlc3MYASABKAsyDi5DYWxvcmllc1Byb3RvSA'
-    'BSB3N1Y2Nlc3MSMQoHZmFpbHVyZRgCIAEoCzIVLlBsdWdpbkV4Y2VwdGlvblByb3RvSABSB2Zh'
-    'aWx1cmVCCAoGcmVzdWx0');
+    'BSB3N1Y2Nlc3MSLgoHZmFpbHVyZRgCIAEoCzISLlNES0V4Y2VwdGlvblByb3RvSABSB2ZhaWx1'
+    'cmVCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use sleepSummaryProtoDescriptor instead')
 const SleepSummaryProto$json = {
@@ -379,9 +362,8 @@ final $typed_data.Uint8List sleepSummariesProtoDescriptor = $convert.base64Decod
 const SleepSummaryResultProto$json = {
   '1': 'SleepSummaryResultProto',
   '2': [
-    {'1': 'synced', '3': 1, '4': 1, '5': 11, '6': '.SleepSummariesProto', '9': 0, '10': 'synced'},
-    {'1': 'recordsNotFound', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'recordsNotFound'},
-    {'1': 'failure', '3': 3, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.SleepSummariesProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.SDKExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -390,10 +372,9 @@ const SleepSummaryResultProto$json = {
 
 /// Descriptor for `SleepSummaryResultProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List sleepSummaryResultProtoDescriptor = $convert.base64Decode(
-    'ChdTbGVlcFN1bW1hcnlSZXN1bHRQcm90bxIuCgZzeW5jZWQYASABKAsyFC5TbGVlcFN1bW1hcm'
-    'llc1Byb3RvSABSBnN5bmNlZBIqCg9yZWNvcmRzTm90Rm91bmQYAiABKAhIAFIPcmVjb3Jkc05v'
-    'dEZvdW5kEjEKB2ZhaWx1cmUYAyABKAsyFS5QbHVnaW5FeGNlcHRpb25Qcm90b0gAUgdmYWlsdX'
-    'JlQggKBnJlc3VsdA==');
+    'ChdTbGVlcFN1bW1hcnlSZXN1bHRQcm90bxIwCgdzdWNjZXNzGAEgASgLMhQuU2xlZXBTdW1tYX'
+    'JpZXNQcm90b0gAUgdzdWNjZXNzEi4KB2ZhaWx1cmUYAiABKAsyEi5TREtFeGNlcHRpb25Qcm90'
+    'b0gAUgdmYWlsdXJlQggKBnJlc3VsdA==');
 
 @$core.Deprecated('Use physicalSummaryProtoDescriptor instead')
 const PhysicalSummaryProto$json = {
@@ -528,9 +509,8 @@ final $typed_data.Uint8List physicalSummaryProtoDescriptor = $convert.base64Deco
 const PhysicalSummaryResultProto$json = {
   '1': 'PhysicalSummaryResultProto',
   '2': [
-    {'1': 'synced', '3': 1, '4': 1, '5': 11, '6': '.PhysicalSummaryProto', '9': 0, '10': 'synced'},
-    {'1': 'recordsNotFound', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'recordsNotFound'},
-    {'1': 'failure', '3': 3, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.PhysicalSummaryProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.SDKExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -539,10 +519,9 @@ const PhysicalSummaryResultProto$json = {
 
 /// Descriptor for `PhysicalSummaryResultProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List physicalSummaryResultProtoDescriptor = $convert.base64Decode(
-    'ChpQaHlzaWNhbFN1bW1hcnlSZXN1bHRQcm90bxIvCgZzeW5jZWQYASABKAsyFS5QaHlzaWNhbF'
-    'N1bW1hcnlQcm90b0gAUgZzeW5jZWQSKgoPcmVjb3Jkc05vdEZvdW5kGAIgASgISABSD3JlY29y'
-    'ZHNOb3RGb3VuZBIxCgdmYWlsdXJlGAMgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZm'
-    'FpbHVyZUIICgZyZXN1bHQ=');
+    'ChpQaHlzaWNhbFN1bW1hcnlSZXN1bHRQcm90bxIxCgdzdWNjZXNzGAEgASgLMhUuUGh5c2ljYW'
+    'xTdW1tYXJ5UHJvdG9IAFIHc3VjY2VzcxIuCgdmYWlsdXJlGAIgASgLMhIuU0RLRXhjZXB0aW9u'
+    'UHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use bodySummaryProtoDescriptor instead')
 const BodySummaryProto$json = {
@@ -688,9 +667,8 @@ final $typed_data.Uint8List bodySummaryProtoDescriptor = $convert.base64Decode(
 const BodySummaryResultProto$json = {
   '1': 'BodySummaryResultProto',
   '2': [
-    {'1': 'synced', '3': 1, '4': 1, '5': 11, '6': '.BodySummaryProto', '9': 0, '10': 'synced'},
-    {'1': 'recordsNotFound', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'recordsNotFound'},
-    {'1': 'failure', '3': 3, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.BodySummaryProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.SDKExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -699,10 +677,9 @@ const BodySummaryResultProto$json = {
 
 /// Descriptor for `BodySummaryResultProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List bodySummaryResultProtoDescriptor = $convert.base64Decode(
-    'ChZCb2R5U3VtbWFyeVJlc3VsdFByb3RvEisKBnN5bmNlZBgBIAEoCzIRLkJvZHlTdW1tYXJ5UH'
-    'JvdG9IAFIGc3luY2VkEioKD3JlY29yZHNOb3RGb3VuZBgCIAEoCEgAUg9yZWNvcmRzTm90Rm91'
-    'bmQSMQoHZmFpbHVyZRgDIAEoCzIVLlBsdWdpbkV4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCA'
-    'oGcmVzdWx0');
+    'ChZCb2R5U3VtbWFyeVJlc3VsdFByb3RvEi0KB3N1Y2Nlc3MYASABKAsyES5Cb2R5U3VtbWFyeV'
+    'Byb3RvSABSB3N1Y2Nlc3MSLgoHZmFpbHVyZRgCIAEoCzISLlNES0V4Y2VwdGlvblByb3RvSABS'
+    'B2ZhaWx1cmVCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use activityEventProtoDescriptor instead')
 const ActivityEventProto$json = {
@@ -916,9 +893,8 @@ final $typed_data.Uint8List activityEventsProtoDescriptor = $convert.base64Decod
 const ActivityEventResultProto$json = {
   '1': 'ActivityEventResultProto',
   '2': [
-    {'1': 'synced', '3': 1, '4': 1, '5': 11, '6': '.ActivityEventsProto', '9': 0, '10': 'synced'},
-    {'1': 'recordsNotFound', '3': 2, '4': 1, '5': 8, '9': 0, '10': 'recordsNotFound'},
-    {'1': 'failure', '3': 3, '4': 1, '5': 11, '6': '.PluginExceptionProto', '9': 0, '10': 'failure'},
+    {'1': 'success', '3': 1, '4': 1, '5': 11, '6': '.ActivityEventsProto', '9': 0, '10': 'success'},
+    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.SDKExceptionProto', '9': 0, '10': 'failure'},
   ],
   '8': [
     {'1': 'result'},
@@ -927,10 +903,9 @@ const ActivityEventResultProto$json = {
 
 /// Descriptor for `ActivityEventResultProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List activityEventResultProtoDescriptor = $convert.base64Decode(
-    'ChhBY3Rpdml0eUV2ZW50UmVzdWx0UHJvdG8SLgoGc3luY2VkGAEgASgLMhQuQWN0aXZpdHlFdm'
-    'VudHNQcm90b0gAUgZzeW5jZWQSKgoPcmVjb3Jkc05vdEZvdW5kGAIgASgISABSD3JlY29yZHNO'
-    'b3RGb3VuZBIxCgdmYWlsdXJlGAMgASgLMhUuUGx1Z2luRXhjZXB0aW9uUHJvdG9IAFIHZmFpbH'
-    'VyZUIICgZyZXN1bHQ=');
+    'ChhBY3Rpdml0eUV2ZW50UmVzdWx0UHJvdG8SMAoHc3VjY2VzcxgBIAEoCzIULkFjdGl2aXR5RX'
+    'ZlbnRzUHJvdG9IAFIHc3VjY2VzcxIuCgdmYWlsdXJlGAIgASgLMhIuU0RLRXhjZXB0aW9uUHJv'
+    'dG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use activeStepsGranularDataProtoDescriptor instead')
 const ActiveStepsGranularDataProto$json = {
