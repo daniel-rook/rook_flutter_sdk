@@ -245,23 +245,6 @@ final $typed_data.Uint8List androidPermissionsSummaryProtoDescriptor = $convert.
     'EgASgIUhJwZXJtaXNzaW9uc0dyYW50ZWQSKAoPZGlhbG9nRGlzcGxheWVkGAIgASgIUg9kaWFs'
     'b2dEaXNwbGF5ZWQ=');
 
-@$core.Deprecated('Use intResultProtoDescriptor instead')
-const IntResultProto$json = {
-  '1': 'IntResultProto',
-  '2': [
-    {'1': 'success', '3': 1, '4': 1, '5': 13, '9': 0, '10': 'success'},
-    {'1': 'failure', '3': 2, '4': 1, '5': 11, '6': '.SDKExceptionProto', '9': 0, '10': 'failure'},
-  ],
-  '8': [
-    {'1': 'result'},
-  ],
-};
-
-/// Descriptor for `IntResultProto`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List intResultProtoDescriptor = $convert.base64Decode(
-    'Cg5JbnRSZXN1bHRQcm90bxIaCgdzdWNjZXNzGAEgASgNSABSB3N1Y2Nlc3MSLgoHZmFpbHVyZR'
-    'gCIAEoCzISLlNES0V4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
-
 @$core.Deprecated('Use caloriesProtoDescriptor instead')
 const CaloriesProto$json = {
   '1': 'CaloriesProto',

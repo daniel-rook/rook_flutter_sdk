@@ -97,13 +97,6 @@ enum EventSyncTypeProto {
   CALORIES = 10;
 }
 
-message IntResultProto {
-  oneof result {
-    uint32 success = 1;
-    SDKExceptionProto failure = 2;
-  }
-}
-
 message CaloriesProto {
   double basal = 1;
   double active = 2;
