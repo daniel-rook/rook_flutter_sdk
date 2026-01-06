@@ -6,7 +6,7 @@ platforms:
   android:
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.10.4 <4.0.0"
   flutter: ">=3.0.0"
 
 dependencies:
@@ -17,9 +17,9 @@ dependencies:
   fixnum: "^1.0.0"
   rook_sdk_core: "^1.2.0"
 
-#dependency_overrides:
-#  rook_sdk_core:
-#    path: "../rook_sdk_core"
+dependency_overrides:
+  rook_sdk_core:
+    path: "../rook_sdk_core"
 
 dev_dependencies:
   flutter_test:

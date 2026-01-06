@@ -26,7 +26,7 @@ void activityEventTest(
       final activityEvents = ActivityEventsProto.create()
         ..elements.add(activityEvent);
 
-      final proto = ActivityEventResultProto.create()..synced = activityEvents;
+      final proto = ActivityEventResultProto.create()..success = activityEvents;
 
       return proto.writeToBuffer();
     });
@@ -47,35 +47,10 @@ void activityEventTest(
   });
 
   group(
-      'MethodChannelRookSdkSamsungHealth | ActivityEventResultProto recordsNotFound unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final proto = ActivityEventResultProto.create()..recordsNotFound = true;
-
-      return proto.writeToBuffer();
-    });
-
-    test(
-      "GIVEN recordsNotFound WHEN getActivityEvents THEN return an empty list",
-      () async {
-        final future = platform.getActivityEvents(DateTime.now());
-
-        await expectLater(
-          future,
-          completion(
-            predicate<List<ActivityEvent>>((value) => value.isEmpty),
-          ),
-        );
-      },
-    );
-  });
-
-  group(
       'MethodChannelRookSdkSamsungHealth | ActivityEventResultProto exception unwrap',
       () {
     mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
+      final failure = SDKExceptionProto.create()
         ..message = "message"
         ..code = 500;
 

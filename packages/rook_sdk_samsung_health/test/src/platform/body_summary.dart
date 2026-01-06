@@ -19,7 +19,7 @@ void bodySummaryTest(
         ..sourceOfData = "Test"
         ..wasTheUserUnderPhysicalActivity = true;
 
-      final proto = BodySummaryResultProto.create()..synced = bodySummary;
+      final proto = BodySummaryResultProto.create()..success = bodySummary;
 
       return proto.writeToBuffer();
     });
@@ -40,35 +40,10 @@ void bodySummaryTest(
   });
 
   group(
-      'MethodChannelRookSdkSamsungHealth | BodySummaryResultProto recordsNotFound unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final proto = BodySummaryResultProto.create()..recordsNotFound = true;
-
-      return proto.writeToBuffer();
-    });
-
-    test(
-      "GIVEN recordsNotFound WHEN getBodySummary THEN return null",
-      () async {
-        final future = platform.getBodySummary(DateTime.now());
-
-        await expectLater(
-          future,
-          completion(
-            predicate<BodySummary?>((value) => value == null),
-          ),
-        );
-      },
-    );
-  });
-
-  group(
       'MethodChannelRookSdkSamsungHealth | BodySummaryResultProto exception unwrap',
       () {
     mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
+      final failure = SDKExceptionProto.create()
         ..message = "message"
         ..code = 500;
 

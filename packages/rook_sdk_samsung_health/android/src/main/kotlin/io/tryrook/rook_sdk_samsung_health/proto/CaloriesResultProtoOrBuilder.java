@@ -5,20 +5,20 @@
 
 package io.tryrook.rook_sdk_samsung_health.proto;
 
-public interface PhysicalSummaryResultProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:PhysicalSummaryResultProto)
+public interface CaloriesResultProtoOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:CaloriesResultProto)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>.PhysicalSummaryProto success = 1;</code>
+   * <code>.CaloriesProto success = 1;</code>
    * @return Whether the success field is set.
    */
   boolean hasSuccess();
   /**
-   * <code>.PhysicalSummaryProto success = 1;</code>
+   * <code>.CaloriesProto success = 1;</code>
    * @return The success.
    */
-  io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto getSuccess();
+  io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto getSuccess();
 
   /**
    * <code>.SDKExceptionProto failure = 2;</code>
@@ -31,5 +31,5 @@ public interface PhysicalSummaryResultProtoOrBuilder extends
    */
   io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto getFailure();
 
-  public io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryResultProto.ResultCase getResultCase();
+  public io.tryrook.rook_sdk_samsung_health.proto.CaloriesResultProto.ResultCase getResultCase();
 }

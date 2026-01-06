@@ -86,7 +86,6 @@ class RookSdkSamsungHealthPlugin : FlutterPlugin, MethodCallHandler {
             "getUserID" -> configurationHandler.onMethodCall(call, result)
             "initRook" -> configurationHandler.onMethodCall(call, result)
             "updateUserID" -> configurationHandler.onMethodCall(call, result)
-            "clearUserID" -> configurationHandler.onMethodCall(call, result)
             "deleteUserFromRook" -> configurationHandler.onMethodCall(call, result)
             "syncUserTimeZone" -> configurationHandler.onMethodCall(call, result)
 

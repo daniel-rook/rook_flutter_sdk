@@ -42,7 +42,7 @@ android {
 
     defaultConfig {
         applicationId "io.tryrook.rook_flutter_sdk"
-        minSdk 26
+        minSdk 29
         targetSdk 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -64,8 +64,7 @@ android {
     }
 
     dependencies {
-        implementation(files("$rootDir/libs/samsung-health-data-api-1.0.0-b2.aar"))
-        implementation("com.google.code.gson:gson:2.13.0")
+        implementation(files("$rootDir/libs/samsung-health-data-api-1.0.0.aar"))
     }
 }
 

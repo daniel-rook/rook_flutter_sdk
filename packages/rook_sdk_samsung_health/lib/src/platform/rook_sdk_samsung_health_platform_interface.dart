@@ -32,8 +32,6 @@ abstract class RookSdkSamsungHealthPlatform extends PlatformInterface {
 
   Future<void> syncUserTimeZone();
 
-  Future<void> clearUserID();
-
   Future<void> deleteUserFromRook();
 
   Future<SamsungHealthAvailability> checkSamsungHealthAvailability();
@@ -53,25 +51,25 @@ abstract class RookSdkSamsungHealthPlatform extends PlatformInterface {
   Stream<SamsungHealthPermissionsSummary>
       get requestSamsungHealthPermissionsUpdates;
 
-  Future<bool> syncHistoricSummaries(bool enableLogs);
+  Future<void> syncHistoricSummaries(bool enableLogs);
 
-  Future<bool> syncSummariesByDate(DateTime date);
+  Future<void> syncSummariesByDate(DateTime date);
 
-  Future<bool> syncByDateAndSummary(DateTime date, SHSummarySyncType summary);
+  Future<void> syncByDateAndSummary(DateTime date, SHSummarySyncType summary);
 
-  Future<bool> syncByDateAndEvent(DateTime date, SHEventSyncType event);
+  Future<void> syncByDateAndEvent(DateTime date, SHEventSyncType event);
 
   Future<List<SleepSummary>> getSleepSummary(DateTime date);
 
-  Future<PhysicalSummary?> getPhysicalSummary(DateTime date);
+  Future<PhysicalSummary> getPhysicalSummary(DateTime date);
 
-  Future<BodySummary?> getBodySummary(DateTime date);
+  Future<BodySummary> getBodySummary(DateTime date);
 
   Future<List<ActivityEvent>> getActivityEvents(DateTime date);
 
-  Future<SyncStatusWithData<int>> getTodayStepsCount();
+  Future<int> getTodayStepsCount();
 
-  Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount();
+  Future<DailyCalories> getTodayCaloriesCount();
 
   Future<bool> isScheduled();
 

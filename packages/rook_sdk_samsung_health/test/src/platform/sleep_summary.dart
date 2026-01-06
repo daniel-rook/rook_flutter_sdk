@@ -25,7 +25,7 @@ void sleepSummaryTest(
       final sleepSummaries = SleepSummariesProto.create()
         ..elements.add(sleepSummary);
 
-      final proto = SleepSummaryResultProto.create()..synced = sleepSummaries;
+      final proto = SleepSummaryResultProto.create()..success = sleepSummaries;
 
       return proto.writeToBuffer();
     });
@@ -46,35 +46,10 @@ void sleepSummaryTest(
   });
 
   group(
-      'MethodChannelRookSdkSamsungHealth | SleepSummaryResultProto recordsNotFound unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final proto = SleepSummaryResultProto.create()..recordsNotFound = true;
-
-      return proto.writeToBuffer();
-    });
-
-    test(
-      "GIVEN recordsNotFound WHEN getSleepSummary THEN return an empty list",
-      () async {
-        final future = platform.getSleepSummary(DateTime.now());
-
-        await expectLater(
-          future,
-          completion(
-            predicate<List<SleepSummary>>((value) => value.isEmpty),
-          ),
-        );
-      },
-    );
-  });
-
-  group(
       'MethodChannelRookSdkSamsungHealth | SleepSummaryResultProto exception unwrap',
       () {
     mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
+      final failure = SDKExceptionProto.create()
         ..message = "message"
         ..code = 500;
 

@@ -3,7 +3,6 @@ import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_samsung_health/rook_sdk_samsung_health.dart';
 
 const String samsungSyncRoute = '/samsung/sync';
@@ -85,18 +84,12 @@ class _SamsungSyncState extends State<SamsungSync> {
               summarySyncType = selection ?? SHSummarySyncType.sleep;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(
-                value: SHSummarySyncType.sleep,
-                label: "Sleep",
-              ),
+              DropdownMenuEntry(value: SHSummarySyncType.sleep, label: "Sleep"),
               DropdownMenuEntry(
                 value: SHSummarySyncType.physical,
                 label: "Physical",
               ),
-              DropdownMenuEntry(
-                value: SHSummarySyncType.body,
-                label: "Body",
-              ),
+              DropdownMenuEntry(value: SHSummarySyncType.body, label: "Body"),
             ],
           ),
           Text(syncSingleSummaryOutput.current),
@@ -117,18 +110,12 @@ class _SamsungSyncState extends State<SamsungSync> {
               summarySyncType = selection ?? SHSummarySyncType.sleep;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(
-                value: SHSummarySyncType.sleep,
-                label: "Sleep",
-              ),
+              DropdownMenuEntry(value: SHSummarySyncType.sleep, label: "Sleep"),
               DropdownMenuEntry(
                 value: SHSummarySyncType.physical,
                 label: "Physical",
               ),
-              DropdownMenuEntry(
-                value: SHSummarySyncType.body,
-                label: "Body",
-              ),
+              DropdownMenuEntry(value: SHSummarySyncType.body, label: "Body"),
             ],
           ),
           Text(getSingleSummaryOutput.current),
@@ -181,10 +168,7 @@ class _SamsungSyncState extends State<SamsungSync> {
                 value: SHEventSyncType.oxygenation,
                 label: "Oxygenation",
               ),
-              DropdownMenuEntry(
-                value: SHEventSyncType.steps,
-                label: "Steps",
-              ),
+              DropdownMenuEntry(value: SHEventSyncType.steps, label: "Steps"),
               DropdownMenuEntry(
                 value: SHEventSyncType.calories,
                 label: "Calories",
@@ -394,9 +378,7 @@ class _SamsungSyncState extends State<SamsungSync> {
           data = "Not implemented yet.";
       }
 
-      getSingleEventOutput.append(
-        "$date $eventSyncType synced successfully",
-      );
+      getSingleEventOutput.append("$date $eventSyncType synced successfully");
 
       setState(() {
         getSingleEventOutput.append(data);
@@ -418,21 +400,11 @@ class _SamsungSyncState extends State<SamsungSync> {
     );
 
     try {
-      final syncStatusWithData = await RookSamsung.getTodayStepsCount();
+      final steps = await RookSamsung.getTodayStepsCount();
 
-      switch (syncStatusWithData) {
-        case Synced(data: final steps):
-          setState(
-            () =>
-                getTodayStepsOutput.append('$steps steps synced successfully'),
-          );
-          break;
-        case RecordsNotFound():
-          setState(
-            () => getTodayStepsOutput.append('Steps events not found'),
-          );
-          break;
-      }
+      setState(
+        () => getTodayStepsOutput.append('$steps steps synced successfully'),
+      );
     } catch (error) {
       setState(
         () => getTodayStepsOutput.append('Error syncing Steps events: $error'),
@@ -444,28 +416,16 @@ class _SamsungSyncState extends State<SamsungSync> {
     getTodayCaloriesOutput.clear();
 
     setState(
-      () => getTodayCaloriesOutput.append(
-        'Syncing calories events of today...',
-      ),
+      () =>
+          getTodayCaloriesOutput.append('Syncing calories events of today...'),
     );
 
     try {
-      final syncStatusWithData = await RookSamsung.getTodayCaloriesCount();
+      final calories = await RookSamsung.getTodayCaloriesCount();
 
-      switch (syncStatusWithData) {
-        case Synced(data: final calories):
-          setState(
-            () => getTodayCaloriesOutput.append(
-              '$calories synced successfully',
-            ),
-          );
-          break;
-        case RecordsNotFound():
-          setState(
-            () => getTodayCaloriesOutput.append('Calories events not found'),
-          );
-          break;
-      }
+      setState(
+        () => getTodayCaloriesOutput.append('$calories synced successfully'),
+      );
     } catch (error) {
       setState(
         () => getTodayCaloriesOutput.append(

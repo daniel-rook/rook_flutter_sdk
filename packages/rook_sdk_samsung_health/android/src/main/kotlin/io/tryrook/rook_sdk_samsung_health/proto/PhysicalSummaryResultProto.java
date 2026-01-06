@@ -18,9 +18,8 @@ public  final class PhysicalSummaryResultProto extends
   private int resultCase_ = 0;
   private java.lang.Object result_;
   public enum ResultCase {
-    SYNCED(1),
-    RECORDSNOTFOUND(2),
-    FAILURE(3),
+    SUCCESS(1),
+    FAILURE(2),
     RESULT_NOT_SET(0);
     private final int value;
     private ResultCase(int value) {
@@ -36,9 +35,8 @@ public  final class PhysicalSummaryResultProto extends
 
     public static ResultCase forNumber(int value) {
       switch (value) {
-        case 1: return SYNCED;
-        case 2: return RECORDSNOTFOUND;
-        case 3: return FAILURE;
+        case 1: return SUCCESS;
+        case 2: return FAILURE;
         case 0: return RESULT_NOT_SET;
         default: return null;
       }
@@ -60,36 +58,36 @@ public  final class PhysicalSummaryResultProto extends
     result_ = null;
   }
 
-  public static final int SYNCED_FIELD_NUMBER = 1;
+  public static final int SUCCESS_FIELD_NUMBER = 1;
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
   @java.lang.Override
-  public boolean hasSynced() {
+  public boolean hasSuccess() {
     return resultCase_ == 1;
   }
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
   @java.lang.Override
-  public io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto getSynced() {
+  public io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto getSuccess() {
     if (resultCase_ == 1) {
        return (io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto) result_;
     }
     return io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto.getDefaultInstance();
   }
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
-  private void setSynced(io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto value) {
+  private void setSuccess(io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 1;
   }
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
-  private void mergeSynced(io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto value) {
+  private void mergeSuccess(io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto value) {
     value.getClass();
   if (resultCase_ == 1 &&
         result_ != io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto.getDefaultInstance()) {
@@ -101,98 +99,60 @@ public  final class PhysicalSummaryResultProto extends
     resultCase_ = 1;
   }
   /**
-   * <code>.PhysicalSummaryProto synced = 1;</code>
+   * <code>.PhysicalSummaryProto success = 1;</code>
    */
-  private void clearSynced() {
+  private void clearSuccess() {
     if (resultCase_ == 1) {
       resultCase_ = 0;
       result_ = null;
     }
   }
 
-  public static final int RECORDSNOTFOUND_FIELD_NUMBER = 2;
+  public static final int FAILURE_FIELD_NUMBER = 2;
   /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @return Whether the recordsNotFound field is set.
-   */
-  @java.lang.Override
-  public boolean hasRecordsNotFound() {
-    return resultCase_ == 2;
-  }
-  /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @return The recordsNotFound.
-   */
-  @java.lang.Override
-  public boolean getRecordsNotFound() {
-    if (resultCase_ == 2) {
-      return (java.lang.Boolean) result_;
-    }
-    return false;
-  }
-  /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @param value The recordsNotFound to set.
-   */
-  private void setRecordsNotFound(boolean value) {
-    resultCase_ = 2;
-    result_ = value;
-  }
-  /**
-   * <code>bool recordsNotFound = 2;</code>
-   */
-  private void clearRecordsNotFound() {
-    if (resultCase_ == 2) {
-      resultCase_ = 0;
-      result_ = null;
-    }
-  }
-
-  public static final int FAILURE_FIELD_NUMBER = 3;
-  /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   @java.lang.Override
   public boolean hasFailure() {
-    return resultCase_ == 3;
+    return resultCase_ == 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto getFailure() {
-    if (resultCase_ == 3) {
-       return (io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto) result_;
+  public io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto getFailure() {
+    if (resultCase_ == 2) {
+       return (io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto) result_;
     }
-    return io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.getDefaultInstance();
+    return io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
-  private void setFailure(io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto value) {
+  private void setFailure(io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto value) {
     value.getClass();
   result_ = value;
-    resultCase_ = 3;
+    resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
-  private void mergeFailure(io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto value) {
+  private void mergeFailure(io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto value) {
     value.getClass();
-  if (resultCase_ == 3 &&
-        result_ != io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.getDefaultInstance()) {
-      result_ = io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.newBuilder((io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto) result_)
+  if (resultCase_ == 2 &&
+        result_ != io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.getDefaultInstance()) {
+      result_ = io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.newBuilder((io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto) result_)
           .mergeFrom(value).buildPartial();
     } else {
       result_ = value;
     }
-    resultCase_ = 3;
+    resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   private void clearFailure() {
-    if (resultCase_ == 3) {
+    if (resultCase_ == 2) {
       resultCase_ = 0;
       result_ = null;
     }
@@ -308,130 +268,94 @@ public  final class PhysicalSummaryResultProto extends
 
 
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
     @java.lang.Override
-    public boolean hasSynced() {
-      return instance.hasSynced();
+    public boolean hasSuccess() {
+      return instance.hasSuccess();
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
     @java.lang.Override
-    public io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto getSynced() {
-      return instance.getSynced();
+    public io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto getSuccess() {
+      return instance.getSuccess();
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
-    public Builder setSynced(io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto value) {
+    public Builder setSuccess(io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto value) {
       copyOnWrite();
-      instance.setSynced(value);
+      instance.setSuccess(value);
       return this;
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
-    public Builder setSynced(
+    public Builder setSuccess(
         io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto.Builder builderForValue) {
       copyOnWrite();
-      instance.setSynced(builderForValue.build());
+      instance.setSuccess(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
-    public Builder mergeSynced(io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto value) {
+    public Builder mergeSuccess(io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto value) {
       copyOnWrite();
-      instance.mergeSynced(value);
+      instance.mergeSuccess(value);
       return this;
     }
     /**
-     * <code>.PhysicalSummaryProto synced = 1;</code>
+     * <code>.PhysicalSummaryProto success = 1;</code>
      */
-    public Builder clearSynced() {
+    public Builder clearSuccess() {
       copyOnWrite();
-      instance.clearSynced();
+      instance.clearSuccess();
       return this;
     }
 
     /**
-     * <code>bool recordsNotFound = 2;</code>
-     * @return Whether the recordsNotFound field is set.
-     */
-    @java.lang.Override
-    public boolean hasRecordsNotFound() {
-      return instance.hasRecordsNotFound();
-    }
-    /**
-     * <code>bool recordsNotFound = 2;</code>
-     * @return The recordsNotFound.
-     */
-    @java.lang.Override
-    public boolean getRecordsNotFound() {
-      return instance.getRecordsNotFound();
-    }
-    /**
-     * <code>bool recordsNotFound = 2;</code>
-     * @param value The recordsNotFound to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRecordsNotFound(boolean value) {
-      copyOnWrite();
-      instance.setRecordsNotFound(value);
-      return this;
-    }
-    /**
-     * <code>bool recordsNotFound = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRecordsNotFound() {
-      copyOnWrite();
-      instance.clearRecordsNotFound();
-      return this;
-    }
-
-    /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     @java.lang.Override
     public boolean hasFailure() {
       return instance.hasFailure();
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto getFailure() {
+    public io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto getFailure() {
       return instance.getFailure();
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
-    public Builder setFailure(io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto value) {
+    public Builder setFailure(io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto value) {
       copyOnWrite();
       instance.setFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     public Builder setFailure(
-        io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.Builder builderForValue) {
+        io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.Builder builderForValue) {
       copyOnWrite();
       instance.setFailure(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
-    public Builder mergeFailure(io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto value) {
+    public Builder mergeFailure(io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto value) {
       copyOnWrite();
       instance.mergeFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 3;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     public Builder clearFailure() {
       copyOnWrite();
@@ -458,11 +382,11 @@ public  final class PhysicalSummaryResultProto extends
             "result_",
             "resultCase_",
             io.tryrook.rook_sdk_samsung_health.proto.PhysicalSummaryProto.class,
-            io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.class,
+            io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.class,
           };
           java.lang.String info =
-              "\u0000\u0003\u0001\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001<\u0000\u0002:" +
-              "\u0000\u0003<\u0000";
+              "\u0000\u0002\u0001\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001<\u0000\u0002<" +
+              "\u0000";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through

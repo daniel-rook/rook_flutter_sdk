@@ -38,11 +38,6 @@ class RookSamsung {
     return RookSdkSamsungHealthPlatform.instance.syncUserTimeZone();
   }
 
-  /// Removes the current user for data upload.
-  static Future<void> clearUserID() {
-    return RookSdkSamsungHealthPlatform.instance.clearUserID();
-  }
-
   /// Removes the current user from Samsung Health data source,
   /// once removed rook servers won't accept any health data from Samsung Health.
   static Future<void> deleteUserFromRook() {
@@ -126,7 +121,9 @@ class RookSamsung {
   /// If [enableLogs] is not null: Syncs the last 29 days of SLEEP_SUMMARY, PHYSICAL_SUMMARY and BODY_SUMMARY (not including today).
   /// If [date] is not null: Syncs SLEEP_SUMMARY, PHYSICAL_SUMMARY and BODY_SUMMARY for the provided [date].
   /// if [summary] and [date] are not null: Syncs the [summary] of choice for the provided [date].
-  static Future<bool> sync({
+  ///
+  /// Returns [RecordsNotFoundException] if no data is available.
+  static Future<void> sync({
     bool? enableLogs,
     DateTime? date,
     SHSummarySyncType? summary,
@@ -154,52 +151,54 @@ class RookSamsung {
   }
 
   /// Syncs the [event] of choice for the provided [date].
-  static Future<bool> syncEvents(DateTime date, SHEventSyncType event) {
+  ///
+  /// Returns [RecordsNotFoundException] if no data is available.
+  static Future<void> syncEvents(DateTime date, SHEventSyncType event) {
     return RookSdkSamsungHealthPlatform.instance.syncByDateAndEvent(
       date,
       event,
     );
   }
 
-  /// Retrieve and upload current day sleep summary of Health Connect.
+  /// Retrieve and upload current day sleep summary of Samsung Health.
   ///
-  /// Returns the current day sleep summaries or an empty list if none are available.
+  /// Returns the current day sleep summaries. Or [RecordsNotFoundException] if no data is available.
   static Future<List<SleepSummary>> getSleepSummary(DateTime date) {
     return RookSdkSamsungHealthPlatform.instance.getSleepSummary(date);
   }
 
-  /// Retrieve and upload current day physical summary of Health Connect.
+  /// Retrieve and upload current day physical summary of Samsung Health.
   ///
-  /// Returns the current day physical summary or null if none are available.
+  /// Returns the current day physical summary. Or [RecordsNotFoundException] if no data is available.
   static Future<PhysicalSummary?> getPhysicalSummary(DateTime date) {
     return RookSdkSamsungHealthPlatform.instance.getPhysicalSummary(date);
   }
 
-  /// Retrieve and upload current day body summary of Health Connect.
+  /// Retrieve and upload current day body summary of Samsung Health.
   ///
-  /// Returns the current day body summary or null if none are available.
+  /// Returns the current day body summary. Or [RecordsNotFoundException] if no data is available.
   static Future<BodySummary?> getBodySummary(DateTime date) {
     return RookSdkSamsungHealthPlatform.instance.getBodySummary(date);
   }
 
-  /// Retrieve and upload current day activity events of Health Connect.
+  /// Retrieve and upload current day activity events of Samsung Health.
   ///
-  /// Returns the current day activity events or an empty list if none are available.
+  /// Returns the current day activity events. Or [RecordsNotFoundException] if no data is available.
   static Future<List<ActivityEvent>> getActivityEvents(DateTime date) {
     return RookSdkSamsungHealthPlatform.instance.getActivityEvents(date);
   }
 
-  /// Retrieve and upload current day steps count of Health Connect.
+  /// Retrieve and upload current day steps count of Samsung Health.
   ///
-  /// Returns a [SHSyncStatusWithData] with the current day steps count (if available).
-  static Future<SyncStatusWithData<int>> getTodayStepsCount() {
+  /// Returns the current day steps count. Or [RecordsNotFoundException] if no data is available.
+  static Future<int> getTodayStepsCount() {
     return RookSdkSamsungHealthPlatform.instance.getTodayStepsCount();
   }
 
-  /// Retrieve and upload current day calories count of Health Connect.
+  /// Retrieve and upload current day calories count of Samsung Health.
   ///
-  /// Returns a [SHSyncStatusWithData] with the current day calories count (if available).
-  static Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount() {
+  /// Returns the current day calories count. Or [RecordsNotFoundException] if no data is available.
+  static Future<DailyCalories> getTodayCaloriesCount() {
     return RookSdkSamsungHealthPlatform.instance.getTodayCaloriesCount();
   }
 

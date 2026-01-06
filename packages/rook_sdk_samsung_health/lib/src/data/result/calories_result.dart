@@ -1,17 +1,14 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_samsung_health/src/data/mapper/sleep_summary_mappers.dart';
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pb.dart';
 
-extension SleepSummaryResult on SleepSummaryResultProto {
-  List<SleepSummary> unwrap() {
+extension CaloriesResult on CaloriesResultProto {
+  DailyCalories unwrap() {
     final resultType = whichResult();
 
     switch (resultType) {
-      case SleepSummaryResultProto_Result.success:
-        return success.elements.map((element) {
-          return element.toDomain();
-        }).toList();
-      case SleepSummaryResultProto_Result.failure:
+      case CaloriesResultProto_Result.success:
+        return success.toDomain();
+      case CaloriesResultProto_Result.failure:
         final exception = SDKException.fromCode(
           code: failure.code,
           message: failure.message,
@@ -21,5 +18,11 @@ extension SleepSummaryResult on SleepSummaryResultProto {
       default:
         throw Exception("Unknown error");
     }
+  }
+}
+
+extension CaloriesMapper on CaloriesProto {
+  DailyCalories toDomain() {
+    return DailyCalories(basal: basal, active: active);
   }
 }

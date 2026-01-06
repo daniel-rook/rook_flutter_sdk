@@ -76,17 +76,6 @@ class ConfigurationHandler(
                 )
             }
 
-            "clearUserID" -> coroutineScope.launch {
-                rookSamsung.clearUserID().fold(
-                    {
-                        methodResult.booleanSuccess(true)
-                    },
-                    {
-                        methodResult.booleanError(it)
-                    },
-                )
-            }
-
             "deleteUserFromRook" -> coroutineScope.launch {
                 rookSamsung.deleteUserFromRook().fold(
                     {

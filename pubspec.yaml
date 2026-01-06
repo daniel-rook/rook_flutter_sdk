@@ -21,7 +21,7 @@ dependencies:
   receive_intent: ^0.2.7
   logging: ">=1.0.0 <2.0.0"
   shared_preferences: ^2.5.2
-  url_launcher: ">=6.3.1 <7.0.0"
+  url_launcher: ">=6.3.2 <7.0.0"
   focus_detector: ">=2.0.0 <3.0.0"
 
 dependency_overrides:
