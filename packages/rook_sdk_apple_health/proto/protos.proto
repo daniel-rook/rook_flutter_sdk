@@ -89,15 +89,18 @@ enum SummarySyncTypeProto {
 }
 
 enum EventSyncTypeProto {
-  reserved 5, 6, 9, 10;
+  reserved 5;
 
   ACTIVITY = 0;
   BLOOD_GLUCOSE = 1;
   BLOOD_PRESSURE = 2;
   BODY_METRICS = 3;
   HEART_RATE = 4;
+  NUTRITION = 6;
   OXYGENATION = 7;
   TEMPERATURE = 8;
+  STEPS = 9;
+  CALORIES = 10;
 }
 
 message CaloriesProto {

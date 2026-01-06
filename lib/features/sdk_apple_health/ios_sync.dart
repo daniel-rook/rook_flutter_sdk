@@ -157,12 +157,24 @@ class _IOSSyncState extends State<IOSSync> {
                 label: "Heart rate",
               ),
               DropdownMenuEntry(
+                value: AHEventSyncType.nutrition,
+                label: "Nutrition",
+              ),
+              DropdownMenuEntry(
                 value: AHEventSyncType.oxygenation,
                 label: "Oxygenation",
               ),
               DropdownMenuEntry(
                 value: AHEventSyncType.temperature,
                 label: "Temperature",
+              ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.steps,
+                label: "Steps",
+              ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.calories,
+                label: "Calories",
               ),
             ],
           ),

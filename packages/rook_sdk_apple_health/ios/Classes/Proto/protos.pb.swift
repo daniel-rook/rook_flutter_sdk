@@ -317,8 +317,11 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
   case bloodPressure // = 2
   case bodyMetrics // = 3
   case heartRate // = 4
+  case nutrition // = 6
   case oxygenation // = 7
   case temperature // = 8
+  case steps // = 9
+  case calories // = 10
   case UNRECOGNIZED(Int)
 
   init() {
@@ -332,8 +335,11 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 2: self = .bloodPressure
     case 3: self = .bodyMetrics
     case 4: self = .heartRate
+    case 6: self = .nutrition
     case 7: self = .oxygenation
     case 8: self = .temperature
+    case 9: self = .steps
+    case 10: self = .calories
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -345,8 +351,11 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .bloodPressure: return 2
     case .bodyMetrics: return 3
     case .heartRate: return 4
+    case .nutrition: return 6
     case .oxygenation: return 7
     case .temperature: return 8
+    case .steps: return 9
+    case .calories: return 10
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -358,8 +367,11 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     .bloodPressure,
     .bodyMetrics,
     .heartRate,
+    .nutrition,
     .oxygenation,
     .temperature,
+    .steps,
+    .calories,
   ]
 
 }
@@ -2586,8 +2598,11 @@ extension EventSyncTypeProto: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "BLOOD_PRESSURE"),
     3: .same(proto: "BODY_METRICS"),
     4: .same(proto: "HEART_RATE"),
+    6: .same(proto: "NUTRITION"),
     7: .same(proto: "OXYGENATION"),
     8: .same(proto: "TEMPERATURE"),
+    9: .same(proto: "STEPS"),
+    10: .same(proto: "CALORIES"),
   ]
 }
 

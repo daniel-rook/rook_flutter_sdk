@@ -36,10 +36,16 @@ extension EventSyncTypeProto {
             return EventTypeToUpload.bodyMetrics
         case EventSyncTypeProto.heartRate:
             return EventTypeToUpload.heartRate
+        case EventSyncTypeProto.nutrition:
+            return EventTypeToUpload.nutrition
         case EventSyncTypeProto.oxygenation:
             return EventTypeToUpload.oxygenation
         case EventSyncTypeProto.temperature:
             return EventTypeToUpload.temperature
+        case EventSyncTypeProto.steps:
+            return EventTypeToUpload.steps
+        case EventSyncTypeProto.calories:
+            return EventTypeToUpload.calories
         default:
             fatalError("Unsupported event type")
         }

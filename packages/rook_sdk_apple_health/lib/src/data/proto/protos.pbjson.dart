@@ -130,22 +130,23 @@ const EventSyncTypeProto$json = {
     {'1': 'BLOOD_PRESSURE', '2': 2},
     {'1': 'BODY_METRICS', '2': 3},
     {'1': 'HEART_RATE', '2': 4},
+    {'1': 'NUTRITION', '2': 6},
     {'1': 'OXYGENATION', '2': 7},
     {'1': 'TEMPERATURE', '2': 8},
+    {'1': 'STEPS', '2': 9},
+    {'1': 'CALORIES', '2': 10},
   ],
   '4': [
     {'1': 5, '2': 5},
-    {'1': 6, '2': 6},
-    {'1': 9, '2': 9},
-    {'1': 10, '2': 10},
   ],
 };
 
 /// Descriptor for `EventSyncTypeProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List eventSyncTypeProtoDescriptor = $convert.base64Decode(
     'ChJFdmVudFN5bmNUeXBlUHJvdG8SDAoIQUNUSVZJVFkQABIRCg1CTE9PRF9HTFVDT1NFEAESEg'
-    'oOQkxPT0RfUFJFU1NVUkUQAhIQCgxCT0RZX01FVFJJQ1MQAxIOCgpIRUFSVF9SQVRFEAQSDwoL'
-    'T1hZR0VOQVRJT04QBxIPCgtURU1QRVJBVFVSRRAIIgQIBRAFIgQIBhAGIgQICRAJIgQIChAK');
+    'oOQkxPT0RfUFJFU1NVUkUQAhIQCgxCT0RZX01FVFJJQ1MQAxIOCgpIRUFSVF9SQVRFEAQSDQoJ'
+    'TlVUUklUSU9OEAYSDwoLT1hZR0VOQVRJT04QBxIPCgtURU1QRVJBVFVSRRAIEgkKBVNURVBTEA'
+    'kSDAoIQ0FMT1JJRVMQCiIECAUQBQ==');
 
 @$core.Deprecated('Use sDKExceptionProtoDescriptor instead')
 const SDKExceptionProto$json = {

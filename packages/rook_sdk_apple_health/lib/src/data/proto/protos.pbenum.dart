@@ -159,8 +159,11 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
   static const EventSyncTypeProto BLOOD_PRESSURE = EventSyncTypeProto._(2, _omitEnumNames ? '' : 'BLOOD_PRESSURE');
   static const EventSyncTypeProto BODY_METRICS = EventSyncTypeProto._(3, _omitEnumNames ? '' : 'BODY_METRICS');
   static const EventSyncTypeProto HEART_RATE = EventSyncTypeProto._(4, _omitEnumNames ? '' : 'HEART_RATE');
+  static const EventSyncTypeProto NUTRITION = EventSyncTypeProto._(6, _omitEnumNames ? '' : 'NUTRITION');
   static const EventSyncTypeProto OXYGENATION = EventSyncTypeProto._(7, _omitEnumNames ? '' : 'OXYGENATION');
   static const EventSyncTypeProto TEMPERATURE = EventSyncTypeProto._(8, _omitEnumNames ? '' : 'TEMPERATURE');
+  static const EventSyncTypeProto STEPS = EventSyncTypeProto._(9, _omitEnumNames ? '' : 'STEPS');
+  static const EventSyncTypeProto CALORIES = EventSyncTypeProto._(10, _omitEnumNames ? '' : 'CALORIES');
 
   static const $core.List<EventSyncTypeProto> values = <EventSyncTypeProto> [
     ACTIVITY,
@@ -168,11 +171,14 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
     BLOOD_PRESSURE,
     BODY_METRICS,
     HEART_RATE,
+    NUTRITION,
     OXYGENATION,
     TEMPERATURE,
+    STEPS,
+    CALORIES,
   ];
 
-  static final $core.List<EventSyncTypeProto?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 8);
+  static final $core.List<EventSyncTypeProto?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 10);
   static EventSyncTypeProto? valueOf($core.int value) =>  value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const EventSyncTypeProto._(super.value, super.name);

@@ -9,8 +9,11 @@ extension SummarySyncTypeMapperExtensions on AHEventSyncType {
       AHEventSyncType.bloodPressure => EventSyncTypeProto.BLOOD_PRESSURE,
       AHEventSyncType.bodyMetrics => EventSyncTypeProto.BODY_METRICS,
       AHEventSyncType.heartRate => EventSyncTypeProto.HEART_RATE,
+      AHEventSyncType.nutrition => EventSyncTypeProto.NUTRITION,
       AHEventSyncType.oxygenation => EventSyncTypeProto.OXYGENATION,
       AHEventSyncType.temperature => EventSyncTypeProto.TEMPERATURE,
+      AHEventSyncType.steps => EventSyncTypeProto.STEPS,
+      AHEventSyncType.calories => EventSyncTypeProto.CALORIES,
     };
   }
 }
