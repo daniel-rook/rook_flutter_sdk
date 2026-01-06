@@ -168,6 +168,10 @@ class _SamsungSyncState extends State<SamsungSync> {
                 value: SHEventSyncType.oxygenation,
                 label: "Oxygenation",
               ),
+              DropdownMenuEntry(
+                value: SHEventSyncType.temperature,
+                label: "Temperature",
+              ),
               DropdownMenuEntry(value: SHEventSyncType.steps, label: "Steps"),
               DropdownMenuEntry(
                 value: SHEventSyncType.calories,

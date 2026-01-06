@@ -94,6 +94,17 @@ void main() {
     );
 
     test(
+      'GIVEN a EventSyncType.temperature WHEN toProto THEN return EventSyncTypeProto.TEMPERATURE',
+          () {
+        const eventSyncType = SHEventSyncType.temperature;
+
+        final result = eventSyncType.toProto();
+
+        expect(result, EventSyncTypeProto.TEMPERATURE);
+      },
+    );
+
+    test(
       'GIVEN a EventSyncType.steps WHEN toProto THEN return EventSyncTypeProto.STEPS',
       () {
         const eventSyncType = SHEventSyncType.steps;

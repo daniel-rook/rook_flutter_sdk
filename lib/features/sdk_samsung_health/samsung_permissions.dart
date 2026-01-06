@@ -248,4 +248,5 @@ const _samsungPermissions = [
   SamsungHealthPermission.sleep,
   SamsungHealthPermission.steps,
   SamsungHealthPermission.waterIntake,
+  SamsungHealthPermission.bodyTemperature,
 ];

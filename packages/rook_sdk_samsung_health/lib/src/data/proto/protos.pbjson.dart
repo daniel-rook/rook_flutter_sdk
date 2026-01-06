@@ -75,6 +75,7 @@ const SamsungHealthPermissionProto$json = {
     {'1': 'SLEEP_PERMISSION', '2': 10},
     {'1': 'STEPS_PERMISSION', '2': 11},
     {'1': 'WATER_INTAKE_PERMISSION', '2': 12},
+    {'1': 'BODY_TEMPERATURE_PERMISSION', '2': 13},
   ],
 };
 
@@ -87,7 +88,7 @@ final $typed_data.Uint8List samsungHealthPermissionProtoDescriptor = $convert.ba
     'RV9MT0NBVElPTl9QRVJNSVNTSU9OEAYSHQoZRkxPT1JTX0NMSU1CRURfUEVSTUlTU0lPThAHEh'
     'kKFUhFQVJUX1JBVEVfUEVSTUlTU0lPThAIEhgKFE5VVFJJVElPTl9QRVJNSVNTSU9OEAkSFAoQ'
     'U0xFRVBfUEVSTUlTU0lPThAKEhQKEFNURVBTX1BFUk1JU1NJT04QCxIbChdXQVRFUl9JTlRBS0'
-    'VfUEVSTUlTU0lPThAM');
+    'VfUEVSTUlTU0lPThAMEh8KG0JPRFlfVEVNUEVSQVRVUkVfUEVSTUlTU0lPThAN');
 
 @$core.Deprecated('Use summarySyncTypeProtoDescriptor instead')
 const SummarySyncTypeProto$json = {
@@ -116,8 +117,9 @@ const EventSyncTypeProto$json = {
     {'1': 'HYDRATION', '2': 5},
     {'1': 'NUTRITION', '2': 6},
     {'1': 'OXYGENATION', '2': 7},
-    {'1': 'STEPS', '2': 8},
-    {'1': 'CALORIES', '2': 9},
+    {'1': 'TEMPERATURE', '2': 8},
+    {'1': 'STEPS', '2': 9},
+    {'1': 'CALORIES', '2': 10},
   ],
 };
 
@@ -125,8 +127,8 @@ const EventSyncTypeProto$json = {
 final $typed_data.Uint8List eventSyncTypeProtoDescriptor = $convert.base64Decode(
     'ChJFdmVudFN5bmNUeXBlUHJvdG8SDAoIQUNUSVZJVFkQABIRCg1CTE9PRF9HTFVDT1NFEAESEg'
     'oOQkxPT0RfUFJFU1NVUkUQAhIQCgxCT0RZX01FVFJJQ1MQAxIOCgpIRUFSVF9SQVRFEAQSDQoJ'
-    'SFlEUkFUSU9OEAUSDQoJTlVUUklUSU9OEAYSDwoLT1hZR0VOQVRJT04QBxIJCgVTVEVQUxAIEg'
-    'wKCENBTE9SSUVTEAk=');
+    'SFlEUkFUSU9OEAUSDQoJTlVUUklUSU9OEAYSDwoLT1hZR0VOQVRJT04QBxIPCgtURU1QRVJBVF'
+    'VSRRAIEgkKBVNURVBTEAkSDAoIQ0FMT1JJRVMQCg==');
 
 @$core.Deprecated('Use sDKExceptionProtoDescriptor instead')
 const SDKExceptionProto$json = {

@@ -79,6 +79,7 @@ class SamsungHealthPermissionProto extends $pb.ProtobufEnum {
   static const SamsungHealthPermissionProto SLEEP_PERMISSION = SamsungHealthPermissionProto._(10, _omitEnumNames ? '' : 'SLEEP_PERMISSION');
   static const SamsungHealthPermissionProto STEPS_PERMISSION = SamsungHealthPermissionProto._(11, _omitEnumNames ? '' : 'STEPS_PERMISSION');
   static const SamsungHealthPermissionProto WATER_INTAKE_PERMISSION = SamsungHealthPermissionProto._(12, _omitEnumNames ? '' : 'WATER_INTAKE_PERMISSION');
+  static const SamsungHealthPermissionProto BODY_TEMPERATURE_PERMISSION = SamsungHealthPermissionProto._(13, _omitEnumNames ? '' : 'BODY_TEMPERATURE_PERMISSION');
 
   static const $core.List<SamsungHealthPermissionProto> values = <SamsungHealthPermissionProto> [
     ACTIVITY_SUMMARY_PERMISSION,
@@ -94,9 +95,10 @@ class SamsungHealthPermissionProto extends $pb.ProtobufEnum {
     SLEEP_PERMISSION,
     STEPS_PERMISSION,
     WATER_INTAKE_PERMISSION,
+    BODY_TEMPERATURE_PERMISSION,
   ];
 
-  static final $core.List<SamsungHealthPermissionProto?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 12);
+  static final $core.List<SamsungHealthPermissionProto?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 13);
   static SamsungHealthPermissionProto? valueOf($core.int value) =>  value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const SamsungHealthPermissionProto._(super.value, super.name);
@@ -128,8 +130,9 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
   static const EventSyncTypeProto HYDRATION = EventSyncTypeProto._(5, _omitEnumNames ? '' : 'HYDRATION');
   static const EventSyncTypeProto NUTRITION = EventSyncTypeProto._(6, _omitEnumNames ? '' : 'NUTRITION');
   static const EventSyncTypeProto OXYGENATION = EventSyncTypeProto._(7, _omitEnumNames ? '' : 'OXYGENATION');
-  static const EventSyncTypeProto STEPS = EventSyncTypeProto._(8, _omitEnumNames ? '' : 'STEPS');
-  static const EventSyncTypeProto CALORIES = EventSyncTypeProto._(9, _omitEnumNames ? '' : 'CALORIES');
+  static const EventSyncTypeProto TEMPERATURE = EventSyncTypeProto._(8, _omitEnumNames ? '' : 'TEMPERATURE');
+  static const EventSyncTypeProto STEPS = EventSyncTypeProto._(9, _omitEnumNames ? '' : 'STEPS');
+  static const EventSyncTypeProto CALORIES = EventSyncTypeProto._(10, _omitEnumNames ? '' : 'CALORIES');
 
   static const $core.List<EventSyncTypeProto> values = <EventSyncTypeProto> [
     ACTIVITY,
@@ -140,11 +143,12 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
     HYDRATION,
     NUTRITION,
     OXYGENATION,
+    TEMPERATURE,
     STEPS,
     CALORIES,
   ];
 
-  static final $core.List<EventSyncTypeProto?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 9);
+  static final $core.List<EventSyncTypeProto?> _byValue = $pb.ProtobufEnum.$_initByValueList(values, 10);
   static EventSyncTypeProto? valueOf($core.int value) =>  value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const EventSyncTypeProto._(super.value, super.name);

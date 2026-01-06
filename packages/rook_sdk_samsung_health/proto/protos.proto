@@ -69,6 +69,7 @@ enum SamsungHealthPermissionProto {
   SLEEP_PERMISSION = 10;
   STEPS_PERMISSION = 11;
   WATER_INTAKE_PERMISSION = 12;
+  BODY_TEMPERATURE_PERMISSION = 13;
 }
 
 message SamsungHealthPermissionsSummaryProto {
@@ -91,8 +92,9 @@ enum EventSyncTypeProto {
   HYDRATION = 5;
   NUTRITION = 6;
   OXYGENATION = 7;
-  STEPS = 8;
-  CALORIES = 9;
+  TEMPERATURE = 8;
+  STEPS = 9;
+  CALORIES = 10;
 }
 
 message CaloriesProto {

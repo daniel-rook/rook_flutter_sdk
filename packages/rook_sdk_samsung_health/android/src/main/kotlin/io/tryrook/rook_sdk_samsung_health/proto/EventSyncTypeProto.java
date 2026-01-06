@@ -43,13 +43,17 @@ public enum EventSyncTypeProto
    */
   OXYGENATION(7),
   /**
-   * <code>STEPS = 8;</code>
+   * <code>TEMPERATURE = 8;</code>
    */
-  STEPS(8),
+  TEMPERATURE(8),
   /**
-   * <code>CALORIES = 9;</code>
+   * <code>STEPS = 9;</code>
    */
-  CALORIES(9),
+  STEPS(9),
+  /**
+   * <code>CALORIES = 10;</code>
+   */
+  CALORIES(10),
   UNRECOGNIZED(-1),
   ;
 
@@ -86,13 +90,17 @@ public enum EventSyncTypeProto
    */
   public static final int OXYGENATION_VALUE = 7;
   /**
-   * <code>STEPS = 8;</code>
+   * <code>TEMPERATURE = 8;</code>
    */
-  public static final int STEPS_VALUE = 8;
+  public static final int TEMPERATURE_VALUE = 8;
   /**
-   * <code>CALORIES = 9;</code>
+   * <code>STEPS = 9;</code>
    */
-  public static final int CALORIES_VALUE = 9;
+  public static final int STEPS_VALUE = 9;
+  /**
+   * <code>CALORIES = 10;</code>
+   */
+  public static final int CALORIES_VALUE = 10;
 
 
   @java.lang.Override
@@ -124,8 +132,9 @@ public enum EventSyncTypeProto
       case 5: return HYDRATION;
       case 6: return NUTRITION;
       case 7: return OXYGENATION;
-      case 8: return STEPS;
-      case 9: return CALORIES;
+      case 8: return TEMPERATURE;
+      case 9: return STEPS;
+      case 10: return CALORIES;
       default: return null;
     }
   }

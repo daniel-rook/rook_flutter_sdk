@@ -46,6 +46,9 @@ void main() {
           case SamsungHealthPermission.waterIntake:
             expectedProto =
                 SamsungHealthPermissionProto.WATER_INTAKE_PERMISSION;
+          case SamsungHealthPermission.bodyTemperature:
+            expectedProto =
+                SamsungHealthPermissionProto.BODY_TEMPERATURE_PERMISSION;
         }
 
         expect(
