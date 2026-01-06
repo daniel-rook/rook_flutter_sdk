@@ -102,7 +102,7 @@ class HCRookHealthPermissionsManager {
   ///
   /// ```dart
   /// // 1.- Create a stream subscription
-  /// StreamSubscription<bool>? streamSubscription;
+  /// StreamSubscription<HealthConnectPermissionsSummary>? streamSubscription;
   ///
   /// // 2.- Listen to stream
   /// streamSubscription = HCRookHealthPermissionsManager.requestHealthConnectPermissionsUpdates.listen((permissionsSummary) {
@@ -186,7 +186,7 @@ class HCRookHealthPermissionsManager {
   ///
   /// ```dart
   /// // 1.- Create a stream subscription
-  /// StreamSubscription<bool>? streamSubscription;
+  /// StreamSubscription<AndroidPermissionsSummary>? streamSubscription;
   ///
   /// // 2.- Listen to stream
   /// streamSubscription = HCRookHealthPermissionsManager.requestAndroidPermissionsUpdates.listen((permissionsSummary) {

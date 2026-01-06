@@ -89,7 +89,7 @@ class RookSamsung {
   ///
   /// ```dart
   /// // 1.- Create a stream subscription
-  /// StreamSubscription<bool>? streamSubscription;
+  /// StreamSubscription<SamsungHealthPermissionsSummary>? streamSubscription;
   ///
   /// // 2.- Listen to stream
   /// streamSubscription = RookSamsung.requestSamsungHealthPermissionsUpdates.listen((permissionsSummary) {
