@@ -151,16 +151,15 @@ final $typed_data.Uint8List eventSyncTypeProtoDescriptor = $convert.base64Decode
 const SDKExceptionProto$json = {
   '1': 'SDKExceptionProto',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 17, '10': 'id'},
-    {'1': 'code', '3': 2, '4': 1, '5': 17, '10': 'code'},
-    {'1': 'message', '3': 3, '4': 1, '5': 9, '10': 'message'},
+    {'1': 'code', '3': 1, '4': 1, '5': 17, '10': 'code'},
+    {'1': 'message', '3': 2, '4': 1, '5': 9, '10': 'message'},
   ],
 };
 
 /// Descriptor for `SDKExceptionProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List sDKExceptionProtoDescriptor = $convert.base64Decode(
-    'ChFTREtFeGNlcHRpb25Qcm90bxIOCgJpZBgBIAEoEVICaWQSEgoEY29kZRgCIAEoEVIEY29kZR'
-    'IYCgdtZXNzYWdlGAMgASgJUgdtZXNzYWdl');
+    'ChFTREtFeGNlcHRpb25Qcm90bxISCgRjb2RlGAEgASgRUgRjb2RlEhgKB21lc3NhZ2UYAiABKA'
+    'lSB21lc3NhZ2U=');
 
 @$core.Deprecated('Use booleanResultProtoDescriptor instead')
 const BooleanResultProto$json = {

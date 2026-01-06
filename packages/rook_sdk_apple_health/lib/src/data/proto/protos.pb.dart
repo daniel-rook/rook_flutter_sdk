@@ -23,12 +23,10 @@ export 'protos.pbenum.dart';
 
 class SDKExceptionProto extends $pb.GeneratedMessage {
   factory SDKExceptionProto({
-    $core.int? id,
     $core.int? code,
     $core.String? message,
   }) {
     final result = create();
-    if (id != null) result.id = id;
     if (code != null) result.code = code;
     if (message != null) result.message = message;
     return result;
@@ -40,9 +38,8 @@ class SDKExceptionProto extends $pb.GeneratedMessage {
   factory SDKExceptionProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SDKExceptionProto', createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OS3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OS3)
-    ..aOS(3, _omitFieldNames ? '' : 'message')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OS3)
+    ..aOS(2, _omitFieldNames ? '' : 'message')
     ..hasRequiredFields = false
   ;
 
@@ -64,31 +61,22 @@ class SDKExceptionProto extends $pb.GeneratedMessage {
   static SDKExceptionProto? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get id => $_getIZ(0);
+  $core.int get code => $_getIZ(0);
   @$pb.TagNumber(1)
-  set id($core.int value) => $_setSignedInt32(0, value);
+  set code($core.int value) => $_setSignedInt32(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasCode() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearCode() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get code => $_getIZ(1);
+  $core.String get message => $_getSZ(1);
   @$pb.TagNumber(2)
-  set code($core.int value) => $_setSignedInt32(1, value);
+  set message($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasCode() => $_has(1);
+  $core.bool hasMessage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCode() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get message => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set message($core.String value) => $_setString(2, value);
-  @$pb.TagNumber(3)
-  $core.bool hasMessage() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearMessage() => $_clearField(3);
+  void clearMessage() => $_clearField(2);
 }
 
 enum BooleanResultProto_Result {

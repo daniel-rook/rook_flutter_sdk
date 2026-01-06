@@ -150,7 +150,6 @@ void booleanResultTests(
   group('MethodChannelRookSdkAppleHealth | ResultBooleanProto exception unwrap', () {
     mockMethodCall(channel, (_) async {
       final failure = SDKExceptionProto.create()
-        ..id = -1
         ..message = "message"
         ..code = 500;
 

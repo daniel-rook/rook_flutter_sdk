@@ -1,9 +1,8 @@
 syntax = "proto3";
 
 message SDKExceptionProto {
-  sint32 id = 1;
-  sint32 code = 2;
-  string message = 3;
+  sint32 code = 1;
+  string message = 2;
 }
 
 message BooleanResultProto {
