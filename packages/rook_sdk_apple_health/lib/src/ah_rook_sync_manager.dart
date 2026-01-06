@@ -81,14 +81,14 @@ class AHRookSyncManager {
   /// Retrieve and upload current day steps count of Apple Health.
   ///
   /// Returns the current day steps count. Or [RecordsNotFoundException] if no data is available.
-  static Future<int?> getTodayStepsCount() {
+  static Future<int> getTodayStepsCount() {
     return RookSdkAppleHealthPlatform.instance.getTodayStepsCount();
   }
 
   /// Retrieve and upload current day calories count of Apple Health.
   ///
   /// Returns the current day calories count. Or [RecordsNotFoundException] if no data is available.
-  static Future<DailyCalories?> getTodayCaloriesCount() {
+  static Future<DailyCalories> getTodayCaloriesCount() {
     return RookSdkAppleHealthPlatform.instance.getTodayCaloriesCount();
   }
 }

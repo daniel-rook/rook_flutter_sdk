@@ -1,5 +1,6 @@
 package com.rookmotion.rook_sdk_health_connect.extension
 
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionMessage
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.int(int: Int) {

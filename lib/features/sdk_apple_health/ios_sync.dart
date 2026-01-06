@@ -84,18 +84,12 @@ class _IOSSyncState extends State<IOSSync> {
               summarySyncType = selection ?? AHSummarySyncType.sleep;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(
-                value: AHSummarySyncType.sleep,
-                label: "Sleep",
-              ),
+              DropdownMenuEntry(value: AHSummarySyncType.sleep, label: "Sleep"),
               DropdownMenuEntry(
                 value: AHSummarySyncType.physical,
                 label: "Physical",
               ),
-              DropdownMenuEntry(
-                value: AHSummarySyncType.body,
-                label: "Body",
-              ),
+              DropdownMenuEntry(value: AHSummarySyncType.body, label: "Body"),
             ],
           ),
           Text(syncSingleSummaryOutput.current),
@@ -116,18 +110,12 @@ class _IOSSyncState extends State<IOSSync> {
               summarySyncType = selection ?? AHSummarySyncType.sleep;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(
-                value: AHSummarySyncType.sleep,
-                label: "Sleep",
-              ),
+              DropdownMenuEntry(value: AHSummarySyncType.sleep, label: "Sleep"),
               DropdownMenuEntry(
                 value: AHSummarySyncType.physical,
                 label: "Physical",
               ),
-              DropdownMenuEntry(
-                value: AHSummarySyncType.body,
-                label: "Body",
-              ),
+              DropdownMenuEntry(value: AHSummarySyncType.body, label: "Body"),
             ],
           ),
           Text(getSingleSummaryOutput.current),
@@ -381,9 +369,7 @@ class _IOSSyncState extends State<IOSSync> {
           data = "Not implemented yet.";
       }
 
-      getSingleEventOutput.append(
-        "$date $eventSyncType synced successfully",
-      );
+      getSingleEventOutput.append("$date $eventSyncType synced successfully");
 
       setState(() {
         getSingleEventOutput.append(data);
@@ -407,15 +393,9 @@ class _IOSSyncState extends State<IOSSync> {
     try {
       final steps = await AHRookSyncManager.getTodayStepsCount();
 
-      if (steps != null) {
-        setState(
-          () => getTodayStepsOutput.append('$steps steps synced successfully'),
-        );
-      } else {
-        setState(
-          () => getTodayStepsOutput.append('Steps events not found'),
-        );
-      }
+      setState(
+        () => getTodayStepsOutput.append('$steps steps synced successfully'),
+      );
     } catch (error) {
       setState(
         () => getTodayStepsOutput.append('Error syncing Steps events: $error'),
@@ -427,25 +407,16 @@ class _IOSSyncState extends State<IOSSync> {
     getTodayCaloriesOutput.clear();
 
     setState(
-      () => getTodayCaloriesOutput.append(
-        'Syncing calories events of today...',
-      ),
+      () =>
+          getTodayCaloriesOutput.append('Syncing calories events of today...'),
     );
 
     try {
       final calories = await AHRookSyncManager.getTodayCaloriesCount();
 
-      if (calories != null) {
-        setState(
-          () => getTodayCaloriesOutput.append(
-            '$calories synced successfully',
-          ),
-        );
-      } else {
-        setState(
-          () => getTodayCaloriesOutput.append('Calories events not found'),
-        );
-      }
+      setState(
+        () => getTodayCaloriesOutput.append('$calories synced successfully'),
+      );
     } catch (error) {
       setState(
         () => getTodayCaloriesOutput.append(
