@@ -40,7 +40,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   app_settings: 58017cd26b604ae98c3e65acbdd8ba173703cc82
-  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   rook_sdk_apple_health: b4f197b0afbc16b770a82e2e16998c3fe0658de2
   RookSDK: de797be1368ce84cc2285b543e2b67ad2518e9d0
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
