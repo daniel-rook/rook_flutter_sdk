@@ -53,7 +53,7 @@ SPEC CHECKSUMS:
   RookSDK: b61dceb8074e96430470f43aa6a405e777a18e38
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
-  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
+  url_launcher_ios: bb13df5870e8c4234ca12609d04010a21be43dfa
 
 PODFILE CHECKSUM: b54a17eb26a5f4307c1fdd37d29fc33d3ecf0321
 
