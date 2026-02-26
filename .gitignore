@@ -47,3 +47,7 @@ app.*.map.json
 /android/app/release
 /lib/secrets.dart
 /reports/
+/packages/rook_sdk_apple_health/coverage/
+/packages/rook_sdk_samsung_health/coverage/
+/packages/rook_sdk_health_connect/coverage/
+/packages/rook_sdk_core/coverage/
