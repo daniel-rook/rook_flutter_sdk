@@ -10,5 +10,5 @@ enum SamsungHealthAvailability {
   notInstalled,
   outdated,
   disabled,
-  notReady;
+  notReady,
 }

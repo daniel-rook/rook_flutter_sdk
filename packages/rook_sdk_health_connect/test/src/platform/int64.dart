@@ -34,7 +34,7 @@ void int64ResultTests(
 
         await expectLater(
           future,
-          completion(predicate<int>((steps) => steps == 1)),
+          completion(predicate<int>((steps) => steps == 1000)),
         );
       },
     );

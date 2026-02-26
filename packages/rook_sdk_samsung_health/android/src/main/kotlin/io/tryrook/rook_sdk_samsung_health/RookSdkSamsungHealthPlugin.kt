@@ -104,6 +104,7 @@ class RookSdkSamsungHealthPlugin : FlutterPlugin, MethodCallHandler {
             "getActivityEvents" -> syncHandler.onMethodCall(call, result)
             "getTodayStepsCount" -> syncHandler.onMethodCall(call, result)
             "getTodayCaloriesCount" -> syncHandler.onMethodCall(call, result)
+            "getTodayHeartRate" -> syncHandler.onMethodCall(call, result)
 
             "isScheduled" -> backgroundSyncHandler.onMethodCall(call, result)
             "schedule" -> backgroundSyncHandler.onMethodCall(call, result)

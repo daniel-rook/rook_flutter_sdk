@@ -9,6 +9,7 @@ import 'package:rook_sdk_apple_health/src/data/result/activity_event_result.dart
 import 'package:rook_sdk_apple_health/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/calories_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/heart_rate_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/int64_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/sleep_summary_result.dart';
@@ -36,12 +37,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<void> setConfiguration(RookConfiguration rookConfiguration) async {
     final rookConfigurationProto = rookConfiguration.toProto();
 
-    await methodChannel.invokeMethod(
-      'setConfiguration',
-      [
-        rookConfigurationProto.writeToBuffer(),
-      ],
-    );
+    await methodChannel.invokeMethod('setConfiguration', [
+      rookConfigurationProto.writeToBuffer(),
+    ]);
   }
 
   @override
@@ -59,12 +57,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> updateUserID(String userID) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'updateUserID',
-      [
-        userID,
-      ],
-    );
+    final Uint8List bytes = await methodChannel.invokeMethod('updateUserID', [
+      userID,
+    ]);
     final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
@@ -82,8 +77,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> syncUserTimeZone() async {
-    final Uint8List bytes =
-        await methodChannel.invokeMethod('syncUserTimeZone');
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'syncUserTimeZone',
+    );
     final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
@@ -99,9 +95,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
     final Uint8List bytes = await methodChannel.invokeMethod(
       'requestPermissions',
-      [
-        permissionsProtoValues,
-      ],
+      [permissionsProtoValues],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -112,9 +106,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<void> syncHistoricSummaries(bool enableLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncHistoricSummaries',
-      [
-        enableLogs,
-      ],
+      [enableLogs],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -125,9 +117,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<void> syncSummariesByDate(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncSummariesByDate',
-      [
-        date.millisecondsSinceEpoch,
-      ],
+      [date.millisecondsSinceEpoch],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -142,10 +132,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final proto = summary.toProto();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncByDateAndSummary',
-      [
-        date.millisecondsSinceEpoch,
-        proto.value,
-      ],
+      [date.millisecondsSinceEpoch, proto.value],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -157,10 +144,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
     final proto = event.toProto();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncByDateAndEvent',
-      [
-        date.millisecondsSinceEpoch,
-        proto.value,
-      ],
+      [date.millisecondsSinceEpoch, proto.value],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -171,9 +155,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<List<SleepSummary>> getSleepSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getSleepSummary',
-      [
-        date.millisecondsSinceEpoch,
-      ],
+      [date.millisecondsSinceEpoch],
     );
     final result = SleepSummaryResultProto.fromBuffer(bytes);
 
@@ -184,9 +166,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<PhysicalSummary> getPhysicalSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getPhysicalSummary',
-      [
-        date.millisecondsSinceEpoch,
-      ],
+      [date.millisecondsSinceEpoch],
     );
     final result = PhysicalSummaryResultProto.fromBuffer(bytes);
 
@@ -195,12 +175,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<BodySummary> getBodySummary(DateTime date) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getBodySummary',
-      [
-        date.millisecondsSinceEpoch,
-      ],
-    );
+    final Uint8List bytes = await methodChannel.invokeMethod('getBodySummary', [
+      date.millisecondsSinceEpoch,
+    ]);
     final result = BodySummaryResultProto.fromBuffer(bytes);
 
     return result.unwrap();
@@ -210,9 +187,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<List<ActivityEvent>> getActivityEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getActivityEvents',
-      [
-        date.millisecondsSinceEpoch,
-      ],
+      [date.millisecondsSinceEpoch],
     );
     final result = ActivityEventResultProto.fromBuffer(bytes);
 
@@ -242,6 +217,17 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   }
 
   @override
+  Future<HeartRate> getTodayHeartRate() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getTodayHeartRate',
+    );
+
+    final result = HearRateResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
   Future<bool> isContinuousUploadEnabled() async {
     await Future.delayed(const Duration(milliseconds: 1500));
 
@@ -258,9 +244,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   Future<void> enableContinuousUpload(bool enableNativeLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableContinuousUpload',
-      [
-        enableNativeLogs,
-      ],
+      [enableNativeLogs],
     );
 
     final result = BooleanResultProto.fromBuffer(bytes);
@@ -292,12 +276,9 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> schedule(bool enableNativeLogs) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'schedule',
-      [
-        enableNativeLogs,
-      ],
-    );
+    final Uint8List bytes = await methodChannel.invokeMethod('schedule', [
+      enableNativeLogs,
+    ]);
 
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -306,9 +287,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Future<void> cancel() async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'cancel',
-    );
+    final Uint8List bytes = await methodChannel.invokeMethod('cancel');
 
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -317,16 +296,14 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
 
   @override
   Stream<Exception> get backgroundErrorsUpdates {
-    return backgroundErrorsEventChannel.receiveBroadcastStream().map(
-      (bytes) {
-        final proto = SDKExceptionProto.fromBuffer(bytes);
-        final exception = SDKException.fromCode(
-          code: proto.code,
-          message: proto.message,
-        );
+    return backgroundErrorsEventChannel.receiveBroadcastStream().map((bytes) {
+      final proto = SDKExceptionProto.fromBuffer(bytes);
+      final exception = SDKException.fromCode(
+        code: proto.code,
+        message: proto.message,
+      );
 
-        return exception;
-      },
-    );
+      return exception;
+    });
   }
 }

@@ -1,6 +1,7 @@
 package io.tryrook.rook_sdk_samsung_health.result
 
 import io.flutter.plugin.common.MethodChannel
+import io.tryrook.rook_sdk_samsung_health.DEFAULT_DOUBLE
 import io.tryrook.rook_sdk_samsung_health.extension.getSDKExceptionCode
 import io.tryrook.rook_sdk_samsung_health.extension.getSDKExceptionMessage
 import io.tryrook.rook_sdk_samsung_health.proto.CaloriesProto
@@ -32,7 +33,7 @@ fun MethodChannel.Result.caloriesError(throwable: Throwable) {
 
 fun SHCalories.toProto(): CaloriesProto {
     return CaloriesProto.newBuilder()
-        .setBasal(basal)
-        .setActive(active)
+        .setBasal(basal ?: DEFAULT_DOUBLE)
+        .setActive(active ?: DEFAULT_DOUBLE)
         .build()
 }

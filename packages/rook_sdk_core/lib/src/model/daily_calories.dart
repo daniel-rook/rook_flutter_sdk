@@ -1,6 +1,6 @@
 class DailyCalories {
-  final double basal;
-  final double active;
+  final double? basal;
+  final double? active;
 
   DailyCalories({required this.basal, required this.active});
 

@@ -1,5 +1,6 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_samsung_health/src/domain/util/check_non_default.dart';
 
 extension CaloriesResult on CaloriesResultProto {
   DailyCalories unwrap() {
@@ -23,6 +24,9 @@ extension CaloriesResult on CaloriesResultProto {
 
 extension CaloriesMapper on CaloriesProto {
   DailyCalories toDomain() {
-    return DailyCalories(basal: basal, active: active);
+    return DailyCalories(
+      basal: basal.checkNonDefault(),
+      active: active.checkNonDefault(),
+    );
   }
 }

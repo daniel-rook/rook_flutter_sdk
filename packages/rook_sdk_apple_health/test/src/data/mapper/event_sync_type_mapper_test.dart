@@ -62,7 +62,7 @@ void main() {
 
     test(
       'GIVEN a EventSyncType.nutrition WHEN toProto THEN return EventSyncTypeProto.NUTRITION',
-          () {
+      () {
         const eventSyncType = AHEventSyncType.nutrition;
 
         final result = eventSyncType.toProto();
@@ -95,7 +95,7 @@ void main() {
 
     test(
       'GIVEN a EventSyncType.steps WHEN toProto THEN return EventSyncTypeProto.STEPS',
-          () {
+      () {
         const eventSyncType = AHEventSyncType.steps;
 
         final result = eventSyncType.toProto();
@@ -106,7 +106,7 @@ void main() {
 
     test(
       'GIVEN a EventSyncType.calories WHEN toProto THEN return EventSyncTypeProto.CALORIES',
-          () {
+      () {
         const eventSyncType = AHEventSyncType.calories;
 
         final result = eventSyncType.toProto();

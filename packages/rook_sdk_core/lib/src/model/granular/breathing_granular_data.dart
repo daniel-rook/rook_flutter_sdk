@@ -2,10 +2,7 @@ class BreathingGranularData {
   final DateTime dateTime;
   final double breathsPerMin;
 
-  BreathingGranularData({
-    required this.dateTime,
-    required this.breathsPerMin,
-  });
+  BreathingGranularData({required this.dateTime, required this.breathsPerMin});
 
   @override
   bool operator ==(Object other) =>

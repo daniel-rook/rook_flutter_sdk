@@ -47,7 +47,7 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<void> revokeHealthConnectPermissions();
 
   Stream<HealthConnectPermissionsSummary>
-      get requestHealthConnectPermissionsUpdates;
+  get requestHealthConnectPermissionsUpdates;
 
   Future<bool> checkAndroidPermissions();
 
@@ -76,6 +76,8 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<int> getTodayStepsCount();
 
   Future<DailyCalories> getTodayCaloriesCount();
+
+  Future<HeartRate> getTodayHeartRate();
 
   Future<bool> isStepsAvailable();
 

@@ -2,10 +2,7 @@ class HrGranularData {
   final DateTime dateTime;
   final int hrBpm;
 
-  HrGranularData({
-    required this.dateTime,
-    required this.hrBpm,
-  });
+  HrGranularData({required this.dateTime, required this.hrBpm});
 
   @override
   bool operator ==(Object other) =>

@@ -4,5 +4,5 @@ enum SyncStatus {
   synced,
 
   /// Indicates that synchronization was successful.
-  recordsNotFound;
+  recordsNotFound,
 }

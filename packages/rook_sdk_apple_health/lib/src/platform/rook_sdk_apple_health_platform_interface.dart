@@ -56,6 +56,8 @@ abstract class RookSdkAppleHealthPlatform extends PlatformInterface {
 
   Future<DailyCalories> getTodayCaloriesCount();
 
+  Future<HeartRate> getTodayHeartRate();
+
   Future<bool> isContinuousUploadEnabled();
 
   Future<void> enableContinuousUpload(bool enableNativeLogs);

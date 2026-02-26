@@ -12,10 +12,7 @@ extension BloodPressureObjectMapper on BloodPressureObjectProto {
 
 extension PositionObjectMapper on PositionObjectProto {
   PositionObject toDomain() {
-    return PositionObject(
-      latDeg: latDeg,
-      lngDeg: lngDeg,
-    );
+    return PositionObject(latDeg: latDeg, lngDeg: lngDeg);
   }
 }
 

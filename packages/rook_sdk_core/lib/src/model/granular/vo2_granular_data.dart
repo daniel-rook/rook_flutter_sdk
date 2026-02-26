@@ -2,10 +2,7 @@ class Vo2GranularData {
   final DateTime dateTime;
   final double vo2MlPerMinPerKg;
 
-  Vo2GranularData({
-    required this.dateTime,
-    required this.vo2MlPerMinPerKg,
-  });
+  Vo2GranularData({required this.dateTime, required this.vo2MlPerMinPerKg});
 
   @override
   bool operator ==(Object other) =>

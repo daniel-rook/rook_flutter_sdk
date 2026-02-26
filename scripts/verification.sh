@@ -27,7 +27,7 @@ pana packages/rook_sdk_samsung_health 2>&1 | tee reports/rook_sdk_samsung_health
 echo "-----------------------------------------------TEST APPLE HEALTH----------------------------------------------" &&
 flutter test packages/rook_sdk_apple_health --file-reporter github:reports/rook_sdk_apple_health_test.txt &&
 echo "---------------------------------------------------TEST CORE--------------------------------------------------" &&
-flutter test packages/rook_sdk_core --file-reporter github:reports/rook_sdk_core_test.txt &&
+dart test packages/rook_sdk_core --file-reporter github:reports/rook_sdk_core_test.txt &&
 echo "----------------------------------------------TEST HEALTH CONNECT---------------------------------------------" &&
 flutter test packages/rook_sdk_health_connect --file-reporter github:reports/rook_sdk_health_connect_test.txt &&
 echo "----------------------------------------------TEST SAMSUNG HEALTH---------------------------------------------" &&

@@ -260,6 +260,16 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
+        case "getTodayHeartRate":
+            rookEventsManager.getTodayHeartRate { it in
+                switch it {
+                case let Result.success(hearRate):
+                    hearRateSuccess(flutterResult: result, rookHeartRate: hearRate)
+                case let Result.failure(error):
+                    hearRateError(flutterResult: result, error: error)
+                }
+            }
+            break
         case "isContinuousUploadEnabled":
             let enabled = RookConnectConfigurationManager.shared.isSyncEnable()
 

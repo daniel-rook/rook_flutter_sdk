@@ -2,10 +2,7 @@ class PositionObject {
   final double latDeg;
   final double lngDeg;
 
-  PositionObject({
-    required this.latDeg,
-    required this.lngDeg,
-  });
+  PositionObject({required this.latDeg, required this.lngDeg});
 
   @override
   bool operator ==(Object other) =>

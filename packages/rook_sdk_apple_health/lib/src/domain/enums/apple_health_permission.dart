@@ -47,5 +47,4 @@ enum AppleHealthPermission {
   dietaryFiber,
   dietarySodium,
   dietaryCholesterol,
-  ;
 }

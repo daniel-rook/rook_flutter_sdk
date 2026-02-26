@@ -49,7 +49,7 @@ abstract class RookSdkSamsungHealthPlatform extends PlatformInterface {
   );
 
   Stream<SamsungHealthPermissionsSummary>
-      get requestSamsungHealthPermissionsUpdates;
+  get requestSamsungHealthPermissionsUpdates;
 
   Future<void> syncHistoricSummaries(bool enableLogs);
 
@@ -70,6 +70,8 @@ abstract class RookSdkSamsungHealthPlatform extends PlatformInterface {
   Future<int> getTodayStepsCount();
 
   Future<DailyCalories> getTodayCaloriesCount();
+
+  Future<HeartRate> getTodayHeartRate();
 
   Future<bool> isScheduled();
 

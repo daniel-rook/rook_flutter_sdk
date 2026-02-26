@@ -6,6 +6,7 @@ import 'activity_event.dart';
 import 'body_summary.dart';
 import 'boolean.dart';
 import 'calories.dart';
+import 'hear_rate.dart';
 import 'int64.dart';
 import 'physical_summary.dart';
 import 'sleep_summary.dart';
@@ -33,4 +34,5 @@ void main() {
   physicalSummaryTest(platform, channel);
   bodySummaryTest(platform, channel);
   activityEventTest(platform, channel);
+  heartRateTest(platform, channel);
 }

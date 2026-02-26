@@ -115,6 +115,25 @@ message CaloriesResultProto {
   }
 }
 
+message HearRateProto {
+  sint32 hrMaximumBpm = 1;
+  sint32 hrMinimumBpm = 2;
+  sint32 hrAvgBpm = 3;
+  sint32 hrRestingBpm = 4;
+  repeated HrGranularDataProto hrGranularData = 5;
+  double hrvAvgRmssd = 6;
+  double hrvAvgSdnn = 7;
+  repeated HrvSdnnGranularDataProto hrvSdnnGranularData = 8;
+  repeated HrvRmssdGranularDataProto hrvRmssdGranularData = 9;
+}
+
+message HearRateResultProto {
+  oneof result {
+    HearRateProto success = 1;
+    SDKExceptionProto failure = 2;
+  }
+}
+
 // DATA STRUCTURES
 
 message SleepSummaryProto {

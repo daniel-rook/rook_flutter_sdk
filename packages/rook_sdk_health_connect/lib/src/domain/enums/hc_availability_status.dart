@@ -3,8 +3,4 @@
 /// * [installed] - APK is installed.
 /// * [notInstalled] - APK is not installed.
 /// * [notSupported] - This device does not support Health Connect.
-enum HCAvailabilityStatus {
-  installed,
-  notInstalled,
-  notSupported;
-}
+enum HCAvailabilityStatus { installed, notInstalled, notSupported }

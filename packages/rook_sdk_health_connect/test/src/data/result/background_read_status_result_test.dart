@@ -37,30 +37,23 @@ void main() {
   });
 
   group("Result", () {
-    test(
-      "GIVEN success WHEN unwrap THEN return a HCBackgroundReadStatus",
-      () {
-        final proto = BackgroundReadStatusResultProto.create();
-        proto.success = BackgroundReadStatusProto.PERMISSION_GRANTED;
+    test("GIVEN success WHEN unwrap THEN return a HCBackgroundReadStatus", () {
+      final proto = BackgroundReadStatusResultProto.create();
+      proto.success = BackgroundReadStatusProto.PERMISSION_GRANTED;
 
-        final result = proto.unwrap();
+      final result = proto.unwrap();
 
-        expect(result, HCBackgroundReadStatus.permissionGranted);
-      },
-    );
+      expect(result, HCBackgroundReadStatus.permissionGranted);
+    });
 
-    test(
-      "GIVEN failure WHEN unwrap THEN throw exception",
-      () {
-        final failure = SDKExceptionProto.create()
-          ..message = "message"
-          ..code = 500;
+    test("GIVEN failure WHEN unwrap THEN throw exception", () {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final proto = BackgroundReadStatusResultProto.create()
-          ..failure = failure;
+      final proto = BackgroundReadStatusResultProto.create()..failure = failure;
 
-        expect(() => proto.unwrap(), throwsException);
-      },
-    );
+      expect(() => proto.unwrap(), throwsException);
+    });
   });
 }

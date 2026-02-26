@@ -33,9 +33,7 @@ class HCRookSyncManager {
           summary,
         );
       } else {
-        return RookSdkHealthConnectPlatform.instance.syncSummariesByDate(
-          date,
-        );
+        return RookSdkHealthConnectPlatform.instance.syncSummariesByDate(date);
       }
     }
 
@@ -106,5 +104,14 @@ class HCRookSyncManager {
   /// Returns the current day calories count. Or [RecordsNotFoundException] if no data is available.
   static Future<DailyCalories> getTodayCaloriesCount() {
     return RookSdkHealthConnectPlatform.instance.getTodayCaloriesCount();
+  }
+
+  /// Retrieve and upload current day heart rate of Health Connect.
+  ///
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  ///
+  /// Returns the current day heart rate. Or [RecordsNotFoundException] if no data is available.
+  static Future<HeartRate> getTodayHeartRate() {
+    return RookSdkHealthConnectPlatform.instance.getTodayHeartRate();
   }
 }

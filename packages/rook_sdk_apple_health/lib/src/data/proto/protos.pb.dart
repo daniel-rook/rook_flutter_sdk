@@ -34,19 +34,26 @@ class SDKExceptionProto extends $pb.GeneratedMessage {
 
   SDKExceptionProto._();
 
-  factory SDKExceptionProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SDKExceptionProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SDKExceptionProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SDKExceptionProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SDKExceptionProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SDKExceptionProto',
+      createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OS3)
     ..aOS(2, _omitFieldNames ? '' : 'message')
-    ..hasRequiredFields = false
-  ;
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SDKExceptionProto clone() => SDKExceptionProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SDKExceptionProto copyWith(void Function(SDKExceptionProto) updates) => super.copyWith((message) => updates(message as SDKExceptionProto)) as SDKExceptionProto;
+  SDKExceptionProto copyWith(void Function(SDKExceptionProto) updates) =>
+      super.copyWith((message) => updates(message as SDKExceptionProto))
+          as SDKExceptionProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -55,9 +62,11 @@ class SDKExceptionProto extends $pb.GeneratedMessage {
   static SDKExceptionProto create() => SDKExceptionProto._();
   @$core.override
   SDKExceptionProto createEmptyInstance() => create();
-  static $pb.PbList<SDKExceptionProto> createRepeated() => $pb.PbList<SDKExceptionProto>();
+  static $pb.PbList<SDKExceptionProto> createRepeated() =>
+      $pb.PbList<SDKExceptionProto>();
   @$core.pragma('dart2js:noInline')
-  static SDKExceptionProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SDKExceptionProto>(create);
+  static SDKExceptionProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SDKExceptionProto>(create);
   static SDKExceptionProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -79,11 +88,7 @@ class SDKExceptionProto extends $pb.GeneratedMessage {
   void clearMessage() => $_clearField(2);
 }
 
-enum BooleanResultProto_Result {
-  success, 
-  failure, 
-  notSet
-}
+enum BooleanResultProto_Result { success, failure, notSet }
 
 class BooleanResultProto extends $pb.GeneratedMessage {
   factory BooleanResultProto({
@@ -98,25 +103,34 @@ class BooleanResultProto extends $pb.GeneratedMessage {
 
   BooleanResultProto._();
 
-  factory BooleanResultProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory BooleanResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BooleanResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BooleanResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, BooleanResultProto_Result> _BooleanResultProto_ResultByTag = {
-    1 : BooleanResultProto_Result.success,
-    2 : BooleanResultProto_Result.failure,
-    0 : BooleanResultProto_Result.notSet
+  static const $core.Map<$core.int, BooleanResultProto_Result>
+      _BooleanResultProto_ResultByTag = {
+    1: BooleanResultProto_Result.success,
+    2: BooleanResultProto_Result.failure,
+    0: BooleanResultProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BooleanResultProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BooleanResultProto',
+      createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOB(1, _omitFieldNames ? '' : 'success')
-    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BooleanResultProto clone() => BooleanResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BooleanResultProto copyWith(void Function(BooleanResultProto) updates) => super.copyWith((message) => updates(message as BooleanResultProto)) as BooleanResultProto;
+  BooleanResultProto copyWith(void Function(BooleanResultProto) updates) =>
+      super.copyWith((message) => updates(message as BooleanResultProto))
+          as BooleanResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -125,12 +139,15 @@ class BooleanResultProto extends $pb.GeneratedMessage {
   static BooleanResultProto create() => BooleanResultProto._();
   @$core.override
   BooleanResultProto createEmptyInstance() => create();
-  static $pb.PbList<BooleanResultProto> createRepeated() => $pb.PbList<BooleanResultProto>();
+  static $pb.PbList<BooleanResultProto> createRepeated() =>
+      $pb.PbList<BooleanResultProto>();
   @$core.pragma('dart2js:noInline')
-  static BooleanResultProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BooleanResultProto>(create);
+  static BooleanResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BooleanResultProto>(create);
   static BooleanResultProto? _defaultInstance;
 
-  BooleanResultProto_Result whichResult() => _BooleanResultProto_ResultByTag[$_whichOneof(0)]!;
+  BooleanResultProto_Result whichResult() =>
+      _BooleanResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -154,11 +171,7 @@ class BooleanResultProto extends $pb.GeneratedMessage {
   SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
-enum Int64ResultProto_Result {
-  success, 
-  failure, 
-  notSet
-}
+enum Int64ResultProto_Result { success, failure, notSet }
 
 class Int64ResultProto extends $pb.GeneratedMessage {
   factory Int64ResultProto({
@@ -173,25 +186,34 @@ class Int64ResultProto extends $pb.GeneratedMessage {
 
   Int64ResultProto._();
 
-  factory Int64ResultProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory Int64ResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Int64ResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory Int64ResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, Int64ResultProto_Result> _Int64ResultProto_ResultByTag = {
-    1 : Int64ResultProto_Result.success,
-    2 : Int64ResultProto_Result.failure,
-    0 : Int64ResultProto_Result.notSet
+  static const $core.Map<$core.int, Int64ResultProto_Result>
+      _Int64ResultProto_ResultByTag = {
+    1: Int64ResultProto_Result.success,
+    2: Int64ResultProto_Result.failure,
+    0: Int64ResultProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Int64ResultProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Int64ResultProto',
+      createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aInt64(1, _omitFieldNames ? '' : 'success')
-    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Int64ResultProto clone() => Int64ResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Int64ResultProto copyWith(void Function(Int64ResultProto) updates) => super.copyWith((message) => updates(message as Int64ResultProto)) as Int64ResultProto;
+  Int64ResultProto copyWith(void Function(Int64ResultProto) updates) =>
+      super.copyWith((message) => updates(message as Int64ResultProto))
+          as Int64ResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -200,12 +222,15 @@ class Int64ResultProto extends $pb.GeneratedMessage {
   static Int64ResultProto create() => Int64ResultProto._();
   @$core.override
   Int64ResultProto createEmptyInstance() => create();
-  static $pb.PbList<Int64ResultProto> createRepeated() => $pb.PbList<Int64ResultProto>();
+  static $pb.PbList<Int64ResultProto> createRepeated() =>
+      $pb.PbList<Int64ResultProto>();
   @$core.pragma('dart2js:noInline')
-  static Int64ResultProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Int64ResultProto>(create);
+  static Int64ResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Int64ResultProto>(create);
   static Int64ResultProto? _defaultInstance;
 
-  Int64ResultProto_Result whichResult() => _Int64ResultProto_ResultByTag[$_whichOneof(0)]!;
+  Int64ResultProto_Result whichResult() =>
+      _Int64ResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -240,27 +265,40 @@ class ConfigurationProto extends $pb.GeneratedMessage {
     if (clientUUID != null) result.clientUUID = clientUUID;
     if (secretKey != null) result.secretKey = secretKey;
     if (environment != null) result.environment = environment;
-    if (enableBackgroundSync != null) result.enableBackgroundSync = enableBackgroundSync;
+    if (enableBackgroundSync != null)
+      result.enableBackgroundSync = enableBackgroundSync;
     return result;
   }
 
   ConfigurationProto._();
 
-  factory ConfigurationProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory ConfigurationProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory ConfigurationProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ConfigurationProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConfigurationProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ConfigurationProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'clientUUID', protoName: 'clientUUID')
     ..aOS(2, _omitFieldNames ? '' : 'secretKey', protoName: 'secretKey')
-    ..e<EnvironmentProto>(3, _omitFieldNames ? '' : 'environment', $pb.PbFieldType.OE, defaultOrMaker: EnvironmentProto.SANDBOX, valueOf: EnvironmentProto.valueOf, enumValues: EnvironmentProto.values)
-    ..aOB(4, _omitFieldNames ? '' : 'enableBackgroundSync', protoName: 'enableBackgroundSync')
-    ..hasRequiredFields = false
-  ;
+    ..e<EnvironmentProto>(
+        3, _omitFieldNames ? '' : 'environment', $pb.PbFieldType.OE,
+        defaultOrMaker: EnvironmentProto.SANDBOX,
+        valueOf: EnvironmentProto.valueOf,
+        enumValues: EnvironmentProto.values)
+    ..aOB(4, _omitFieldNames ? '' : 'enableBackgroundSync',
+        protoName: 'enableBackgroundSync')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ConfigurationProto clone() => ConfigurationProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ConfigurationProto copyWith(void Function(ConfigurationProto) updates) => super.copyWith((message) => updates(message as ConfigurationProto)) as ConfigurationProto;
+  ConfigurationProto copyWith(void Function(ConfigurationProto) updates) =>
+      super.copyWith((message) => updates(message as ConfigurationProto))
+          as ConfigurationProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -269,9 +307,11 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   static ConfigurationProto create() => ConfigurationProto._();
   @$core.override
   ConfigurationProto createEmptyInstance() => create();
-  static $pb.PbList<ConfigurationProto> createRepeated() => $pb.PbList<ConfigurationProto>();
+  static $pb.PbList<ConfigurationProto> createRepeated() =>
+      $pb.PbList<ConfigurationProto>();
   @$core.pragma('dart2js:noInline')
-  static ConfigurationProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConfigurationProto>(create);
+  static ConfigurationProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ConfigurationProto>(create);
   static ConfigurationProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -324,19 +364,26 @@ class CaloriesProto extends $pb.GeneratedMessage {
 
   CaloriesProto._();
 
-  factory CaloriesProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory CaloriesProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory CaloriesProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CaloriesProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CaloriesProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CaloriesProto',
+      createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'basal', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'active', $pb.PbFieldType.OD)
-    ..hasRequiredFields = false
-  ;
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CaloriesProto clone() => CaloriesProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CaloriesProto copyWith(void Function(CaloriesProto) updates) => super.copyWith((message) => updates(message as CaloriesProto)) as CaloriesProto;
+  CaloriesProto copyWith(void Function(CaloriesProto) updates) =>
+      super.copyWith((message) => updates(message as CaloriesProto))
+          as CaloriesProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -345,9 +392,11 @@ class CaloriesProto extends $pb.GeneratedMessage {
   static CaloriesProto create() => CaloriesProto._();
   @$core.override
   CaloriesProto createEmptyInstance() => create();
-  static $pb.PbList<CaloriesProto> createRepeated() => $pb.PbList<CaloriesProto>();
+  static $pb.PbList<CaloriesProto> createRepeated() =>
+      $pb.PbList<CaloriesProto>();
   @$core.pragma('dart2js:noInline')
-  static CaloriesProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CaloriesProto>(create);
+  static CaloriesProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CaloriesProto>(create);
   static CaloriesProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -369,11 +418,7 @@ class CaloriesProto extends $pb.GeneratedMessage {
   void clearActive() => $_clearField(2);
 }
 
-enum CaloriesResultProto_Result {
-  success, 
-  failure, 
-  notSet
-}
+enum CaloriesResultProto_Result { success, failure, notSet }
 
 class CaloriesResultProto extends $pb.GeneratedMessage {
   factory CaloriesResultProto({
@@ -388,25 +433,35 @@ class CaloriesResultProto extends $pb.GeneratedMessage {
 
   CaloriesResultProto._();
 
-  factory CaloriesResultProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory CaloriesResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory CaloriesResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CaloriesResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, CaloriesResultProto_Result> _CaloriesResultProto_ResultByTag = {
-    1 : CaloriesResultProto_Result.success,
-    2 : CaloriesResultProto_Result.failure,
-    0 : CaloriesResultProto_Result.notSet
+  static const $core.Map<$core.int, CaloriesResultProto_Result>
+      _CaloriesResultProto_ResultByTag = {
+    1: CaloriesResultProto_Result.success,
+    2: CaloriesResultProto_Result.failure,
+    0: CaloriesResultProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CaloriesResultProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CaloriesResultProto',
+      createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<CaloriesProto>(1, _omitFieldNames ? '' : 'success', subBuilder: CaloriesProto.create)
-    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..aOM<CaloriesProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: CaloriesProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CaloriesResultProto clone() => CaloriesResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CaloriesResultProto copyWith(void Function(CaloriesResultProto) updates) => super.copyWith((message) => updates(message as CaloriesResultProto)) as CaloriesResultProto;
+  CaloriesResultProto copyWith(void Function(CaloriesResultProto) updates) =>
+      super.copyWith((message) => updates(message as CaloriesResultProto))
+          as CaloriesResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -415,12 +470,15 @@ class CaloriesResultProto extends $pb.GeneratedMessage {
   static CaloriesResultProto create() => CaloriesResultProto._();
   @$core.override
   CaloriesResultProto createEmptyInstance() => create();
-  static $pb.PbList<CaloriesResultProto> createRepeated() => $pb.PbList<CaloriesResultProto>();
+  static $pb.PbList<CaloriesResultProto> createRepeated() =>
+      $pb.PbList<CaloriesResultProto>();
   @$core.pragma('dart2js:noInline')
-  static CaloriesResultProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CaloriesResultProto>(create);
+  static CaloriesResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CaloriesResultProto>(create);
   static CaloriesResultProto? _defaultInstance;
 
-  CaloriesResultProto_Result whichResult() => _CaloriesResultProto_ResultByTag[$_whichOneof(0)]!;
+  CaloriesResultProto_Result whichResult() =>
+      _CaloriesResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -433,6 +491,247 @@ class CaloriesResultProto extends $pb.GeneratedMessage {
   void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
   CaloriesProto ensureSuccess() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  SDKExceptionProto get failure => $_getN(1);
+  @$pb.TagNumber(2)
+  set failure(SDKExceptionProto value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasFailure() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
+}
+
+class HearRateProto extends $pb.GeneratedMessage {
+  factory HearRateProto({
+    $core.int? hrMaximumBpm,
+    $core.int? hrMinimumBpm,
+    $core.int? hrAvgBpm,
+    $core.int? hrRestingBpm,
+    $core.Iterable<HrGranularDataProto>? hrGranularData,
+    $core.double? hrvAvgRmssd,
+    $core.double? hrvAvgSdnn,
+    $core.Iterable<HrvSdnnGranularDataProto>? hrvSdnnGranularData,
+    $core.Iterable<HrvRmssdGranularDataProto>? hrvRmssdGranularData,
+  }) {
+    final result = create();
+    if (hrMaximumBpm != null) result.hrMaximumBpm = hrMaximumBpm;
+    if (hrMinimumBpm != null) result.hrMinimumBpm = hrMinimumBpm;
+    if (hrAvgBpm != null) result.hrAvgBpm = hrAvgBpm;
+    if (hrRestingBpm != null) result.hrRestingBpm = hrRestingBpm;
+    if (hrGranularData != null) result.hrGranularData.addAll(hrGranularData);
+    if (hrvAvgRmssd != null) result.hrvAvgRmssd = hrvAvgRmssd;
+    if (hrvAvgSdnn != null) result.hrvAvgSdnn = hrvAvgSdnn;
+    if (hrvSdnnGranularData != null)
+      result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
+    if (hrvRmssdGranularData != null)
+      result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
+    return result;
+  }
+
+  HearRateProto._();
+
+  factory HearRateProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HearRateProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HearRateProto',
+      createEmptyInstance: create)
+    ..a<$core.int>(
+        1, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMaximumBpm')
+    ..a<$core.int>(
+        2, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMinimumBpm')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrAvgBpm')
+    ..a<$core.int>(
+        4, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrRestingBpm')
+    ..pc<HrGranularDataProto>(
+        5, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
+    ..a<$core.double>(
+        6, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgRmssd')
+    ..a<$core.double>(
+        7, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgSdnn')
+    ..pc<HrvSdnnGranularDataProto>(
+        8, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvSdnnGranularData',
+        subBuilder: HrvSdnnGranularDataProto.create)
+    ..pc<HrvRmssdGranularDataProto>(
+        9, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvRmssdGranularData',
+        subBuilder: HrvRmssdGranularDataProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  HearRateProto clone() => HearRateProto()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  HearRateProto copyWith(void Function(HearRateProto) updates) =>
+      super.copyWith((message) => updates(message as HearRateProto))
+          as HearRateProto;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static HearRateProto create() => HearRateProto._();
+  @$core.override
+  HearRateProto createEmptyInstance() => create();
+  static $pb.PbList<HearRateProto> createRepeated() =>
+      $pb.PbList<HearRateProto>();
+  @$core.pragma('dart2js:noInline')
+  static HearRateProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HearRateProto>(create);
+  static HearRateProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get hrMaximumBpm => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set hrMaximumBpm($core.int value) => $_setSignedInt32(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasHrMaximumBpm() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearHrMaximumBpm() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get hrMinimumBpm => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set hrMinimumBpm($core.int value) => $_setSignedInt32(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasHrMinimumBpm() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearHrMinimumBpm() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get hrAvgBpm => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set hrAvgBpm($core.int value) => $_setSignedInt32(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasHrAvgBpm() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearHrAvgBpm() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get hrRestingBpm => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set hrRestingBpm($core.int value) => $_setSignedInt32(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasHrRestingBpm() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearHrRestingBpm() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<HrGranularDataProto> get hrGranularData => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $core.double get hrvAvgRmssd => $_getN(5);
+  @$pb.TagNumber(6)
+  set hrvAvgRmssd($core.double value) => $_setDouble(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasHrvAvgRmssd() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearHrvAvgRmssd() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.double get hrvAvgSdnn => $_getN(6);
+  @$pb.TagNumber(7)
+  set hrvAvgSdnn($core.double value) => $_setDouble(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasHrvAvgSdnn() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearHrvAvgSdnn() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $pb.PbList<HrvSdnnGranularDataProto> get hrvSdnnGranularData => $_getList(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData =>
+      $_getList(8);
+}
+
+enum HearRateResultProto_Result { success, failure, notSet }
+
+class HearRateResultProto extends $pb.GeneratedMessage {
+  factory HearRateResultProto({
+    HearRateProto? success,
+    SDKExceptionProto? failure,
+  }) {
+    final result = create();
+    if (success != null) result.success = success;
+    if (failure != null) result.failure = failure;
+    return result;
+  }
+
+  HearRateResultProto._();
+
+  factory HearRateResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HearRateResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, HearRateResultProto_Result>
+      _HearRateResultProto_ResultByTag = {
+    1: HearRateResultProto_Result.success,
+    2: HearRateResultProto_Result.failure,
+    0: HearRateResultProto_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HearRateResultProto',
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<HearRateProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: HearRateProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  HearRateResultProto clone() => HearRateResultProto()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  HearRateResultProto copyWith(void Function(HearRateResultProto) updates) =>
+      super.copyWith((message) => updates(message as HearRateResultProto))
+          as HearRateResultProto;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static HearRateResultProto create() => HearRateResultProto._();
+  @$core.override
+  HearRateResultProto createEmptyInstance() => create();
+  static $pb.PbList<HearRateResultProto> createRepeated() =>
+      $pb.PbList<HearRateResultProto>();
+  @$core.pragma('dart2js:noInline')
+  static HearRateResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HearRateResultProto>(create);
+  static HearRateResultProto? _defaultInstance;
+
+  HearRateResultProto_Result whichResult() =>
+      _HearRateResultProto_ResultByTag[$_whichOneof(0)]!;
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  HearRateProto get success => $_getN(0);
+  @$pb.TagNumber(1)
+  set success(HearRateProto value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasSuccess() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSuccess() => $_clearField(1);
+  @$pb.TagNumber(1)
+  HearRateProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
   SDKExceptionProto get failure => $_getN(1);
@@ -496,22 +795,34 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
     if (sourceOfData != null) result.sourceOfData = sourceOfData;
-    if (wasTheUserUnderPhysicalActivity != null) result.wasTheUserUnderPhysicalActivity = wasTheUserUnderPhysicalActivity;
-    if (sleepStartDateTime != null) result.sleepStartDateTime = sleepStartDateTime;
+    if (wasTheUserUnderPhysicalActivity != null)
+      result.wasTheUserUnderPhysicalActivity = wasTheUserUnderPhysicalActivity;
+    if (sleepStartDateTime != null)
+      result.sleepStartDateTime = sleepStartDateTime;
     if (sleepEndDateTime != null) result.sleepEndDateTime = sleepEndDateTime;
     if (sleepDate != null) result.sleepDate = sleepDate;
-    if (sleepDurationSeconds != null) result.sleepDurationSeconds = sleepDurationSeconds;
+    if (sleepDurationSeconds != null)
+      result.sleepDurationSeconds = sleepDurationSeconds;
     if (timeInBedSeconds != null) result.timeInBedSeconds = timeInBedSeconds;
-    if (lightSleepDurationSeconds != null) result.lightSleepDurationSeconds = lightSleepDurationSeconds;
-    if (remSleepDurationSeconds != null) result.remSleepDurationSeconds = remSleepDurationSeconds;
-    if (deepSleepDurationSeconds != null) result.deepSleepDurationSeconds = deepSleepDurationSeconds;
-    if (timeToFallAsleepSeconds != null) result.timeToFallAsleepSeconds = timeToFallAsleepSeconds;
-    if (timeAwakeDuringSleepSeconds != null) result.timeAwakeDuringSleepSeconds = timeAwakeDuringSleepSeconds;
-    if (sleepQualityRating1To5Score != null) result.sleepQualityRating1To5Score = sleepQualityRating1To5Score;
-    if (sleepEfficiency1To100Score != null) result.sleepEfficiency1To100Score = sleepEfficiency1To100Score;
+    if (lightSleepDurationSeconds != null)
+      result.lightSleepDurationSeconds = lightSleepDurationSeconds;
+    if (remSleepDurationSeconds != null)
+      result.remSleepDurationSeconds = remSleepDurationSeconds;
+    if (deepSleepDurationSeconds != null)
+      result.deepSleepDurationSeconds = deepSleepDurationSeconds;
+    if (timeToFallAsleepSeconds != null)
+      result.timeToFallAsleepSeconds = timeToFallAsleepSeconds;
+    if (timeAwakeDuringSleepSeconds != null)
+      result.timeAwakeDuringSleepSeconds = timeAwakeDuringSleepSeconds;
+    if (sleepQualityRating1To5Score != null)
+      result.sleepQualityRating1To5Score = sleepQualityRating1To5Score;
+    if (sleepEfficiency1To100Score != null)
+      result.sleepEfficiency1To100Score = sleepEfficiency1To100Score;
     if (sleepGoalSeconds != null) result.sleepGoalSeconds = sleepGoalSeconds;
-    if (sleepContinuity1To5Score != null) result.sleepContinuity1To5Score = sleepContinuity1To5Score;
-    if (sleepContinuity1To5Rating != null) result.sleepContinuity1To5Rating = sleepContinuity1To5Rating;
+    if (sleepContinuity1To5Score != null)
+      result.sleepContinuity1To5Score = sleepContinuity1To5Score;
+    if (sleepContinuity1To5Rating != null)
+      result.sleepContinuity1To5Rating = sleepContinuity1To5Rating;
     if (hrMaximumBpm != null) result.hrMaximumBpm = hrMaximumBpm;
     if (hrMinimumBpm != null) result.hrMinimumBpm = hrMinimumBpm;
     if (hrAvgBpm != null) result.hrAvgBpm = hrAvgBpm;
@@ -520,84 +831,193 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
     if (hrGranularData != null) result.hrGranularData.addAll(hrGranularData);
     if (hrvAvgRmssd != null) result.hrvAvgRmssd = hrvAvgRmssd;
     if (hrvAvgSdnn != null) result.hrvAvgSdnn = hrvAvgSdnn;
-    if (hrvSdnnGranularData != null) result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
-    if (hrvRmssdGranularData != null) result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
-    if (temperatureMinimum != null) result.temperatureMinimum.addAll(temperatureMinimum);
+    if (hrvSdnnGranularData != null)
+      result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
+    if (hrvRmssdGranularData != null)
+      result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
+    if (temperatureMinimum != null)
+      result.temperatureMinimum.addAll(temperatureMinimum);
     if (temperatureAvg != null) result.temperatureAvg.addAll(temperatureAvg);
-    if (temperatureMaximum != null) result.temperatureMaximum.addAll(temperatureMaximum);
-    if (temperatureGranularData != null) result.temperatureGranularData.addAll(temperatureGranularData);
-    if (temperatureDelta != null) result.temperatureDelta.addAll(temperatureDelta);
-    if (breathsMinimumPerMin != null) result.breathsMinimumPerMin = breathsMinimumPerMin;
+    if (temperatureMaximum != null)
+      result.temperatureMaximum.addAll(temperatureMaximum);
+    if (temperatureGranularData != null)
+      result.temperatureGranularData.addAll(temperatureGranularData);
+    if (temperatureDelta != null)
+      result.temperatureDelta.addAll(temperatureDelta);
+    if (breathsMinimumPerMin != null)
+      result.breathsMinimumPerMin = breathsMinimumPerMin;
     if (breathsAvgPerMin != null) result.breathsAvgPerMin = breathsAvgPerMin;
-    if (breathsMaximumPerMin != null) result.breathsMaximumPerMin = breathsMaximumPerMin;
-    if (breathingGranularData != null) result.breathingGranularData.addAll(breathingGranularData);
-    if (snoringEventsCount != null) result.snoringEventsCount = snoringEventsCount;
-    if (snoringDurationTotalSeconds != null) result.snoringDurationTotalSeconds = snoringDurationTotalSeconds;
-    if (snoringGranularData != null) result.snoringGranularData.addAll(snoringGranularData);
-    if (saturationAvgPercentage != null) result.saturationAvgPercentage = saturationAvgPercentage;
-    if (saturationMinimumPercentage != null) result.saturationMinimumPercentage = saturationMinimumPercentage;
-    if (saturationMaximumPercentage != null) result.saturationMaximumPercentage = saturationMaximumPercentage;
-    if (saturationGranularData != null) result.saturationGranularData.addAll(saturationGranularData);
+    if (breathsMaximumPerMin != null)
+      result.breathsMaximumPerMin = breathsMaximumPerMin;
+    if (breathingGranularData != null)
+      result.breathingGranularData.addAll(breathingGranularData);
+    if (snoringEventsCount != null)
+      result.snoringEventsCount = snoringEventsCount;
+    if (snoringDurationTotalSeconds != null)
+      result.snoringDurationTotalSeconds = snoringDurationTotalSeconds;
+    if (snoringGranularData != null)
+      result.snoringGranularData.addAll(snoringGranularData);
+    if (saturationAvgPercentage != null)
+      result.saturationAvgPercentage = saturationAvgPercentage;
+    if (saturationMinimumPercentage != null)
+      result.saturationMinimumPercentage = saturationMinimumPercentage;
+    if (saturationMaximumPercentage != null)
+      result.saturationMaximumPercentage = saturationMaximumPercentage;
+    if (saturationGranularData != null)
+      result.saturationGranularData.addAll(saturationGranularData);
     return result;
   }
 
   SleepSummaryProto._();
 
-  factory SleepSummaryProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SleepSummaryProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SleepSummaryProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SleepSummaryProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SleepSummaryProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SleepSummaryProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
     ..aOS(2, _omitFieldNames ? '' : 'sourceOfData', protoName: 'sourceOfData')
-    ..aOB(3, _omitFieldNames ? '' : 'wasTheUserUnderPhysicalActivity', protoName: 'wasTheUserUnderPhysicalActivity')
-    ..aOS(4, _omitFieldNames ? '' : 'sleepStartDateTime', protoName: 'sleepStartDateTime')
-    ..aOS(5, _omitFieldNames ? '' : 'sleepEndDateTime', protoName: 'sleepEndDateTime')
+    ..aOB(3, _omitFieldNames ? '' : 'wasTheUserUnderPhysicalActivity',
+        protoName: 'wasTheUserUnderPhysicalActivity')
+    ..aOS(4, _omitFieldNames ? '' : 'sleepStartDateTime',
+        protoName: 'sleepStartDateTime')
+    ..aOS(5, _omitFieldNames ? '' : 'sleepEndDateTime',
+        protoName: 'sleepEndDateTime')
     ..aOS(6, _omitFieldNames ? '' : 'sleepDate', protoName: 'sleepDate')
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'sleepDurationSeconds', $pb.PbFieldType.OS3, protoName: 'sleepDurationSeconds')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'timeInBedSeconds', $pb.PbFieldType.OS3, protoName: 'timeInBedSeconds')
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'lightSleepDurationSeconds', $pb.PbFieldType.OS3, protoName: 'lightSleepDurationSeconds')
-    ..a<$core.int>(10, _omitFieldNames ? '' : 'remSleepDurationSeconds', $pb.PbFieldType.OS3, protoName: 'remSleepDurationSeconds')
-    ..a<$core.int>(11, _omitFieldNames ? '' : 'deepSleepDurationSeconds', $pb.PbFieldType.OS3, protoName: 'deepSleepDurationSeconds')
-    ..a<$core.int>(12, _omitFieldNames ? '' : 'timeToFallAsleepSeconds', $pb.PbFieldType.OS3, protoName: 'timeToFallAsleepSeconds')
-    ..a<$core.int>(13, _omitFieldNames ? '' : 'timeAwakeDuringSleepSeconds', $pb.PbFieldType.OS3, protoName: 'timeAwakeDuringSleepSeconds')
-    ..a<$core.int>(14, _omitFieldNames ? '' : 'sleepQualityRating1To5Score', $pb.PbFieldType.OS3, protoName: 'sleepQualityRating1To5Score')
-    ..a<$core.int>(15, _omitFieldNames ? '' : 'sleepEfficiency1To100Score', $pb.PbFieldType.OS3, protoName: 'sleepEfficiency1To100Score')
-    ..a<$core.int>(16, _omitFieldNames ? '' : 'sleepGoalSeconds', $pb.PbFieldType.OS3, protoName: 'sleepGoalSeconds')
-    ..a<$core.int>(17, _omitFieldNames ? '' : 'sleepContinuity1To5Score', $pb.PbFieldType.OS3, protoName: 'sleepContinuity1To5Score')
-    ..a<$core.int>(18, _omitFieldNames ? '' : 'sleepContinuity1To5Rating', $pb.PbFieldType.OS3, protoName: 'sleepContinuity1To5Rating')
-    ..a<$core.int>(19, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3, protoName: 'hrMaximumBpm')
-    ..a<$core.int>(20, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3, protoName: 'hrMinimumBpm')
-    ..a<$core.int>(21, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3, protoName: 'hrAvgBpm')
-    ..a<$core.int>(22, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3, protoName: 'hrRestingBpm')
-    ..a<$core.int>(23, _omitFieldNames ? '' : 'hrBasalBpm', $pb.PbFieldType.OS3, protoName: 'hrBasalBpm')
-    ..pc<HrGranularDataProto>(24, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM, protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
-    ..a<$core.double>(25, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD, protoName: 'hrvAvgRmssd')
-    ..a<$core.double>(26, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD, protoName: 'hrvAvgSdnn')
-    ..pc<HrvSdnnGranularDataProto>(27, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM, protoName: 'hrvSdnnGranularData', subBuilder: HrvSdnnGranularDataProto.create)
-    ..pc<HrvRmssdGranularDataProto>(28, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM, protoName: 'hrvRmssdGranularData', subBuilder: HrvRmssdGranularDataProto.create)
-    ..pc<TemperatureObjectProto>(29, _omitFieldNames ? '' : 'temperatureMinimum', $pb.PbFieldType.PM, protoName: 'temperatureMinimum', subBuilder: TemperatureObjectProto.create)
-    ..pc<TemperatureObjectProto>(30, _omitFieldNames ? '' : 'temperatureAvg', $pb.PbFieldType.PM, protoName: 'temperatureAvg', subBuilder: TemperatureObjectProto.create)
-    ..pc<TemperatureObjectProto>(31, _omitFieldNames ? '' : 'temperatureMaximum', $pb.PbFieldType.PM, protoName: 'temperatureMaximum', subBuilder: TemperatureObjectProto.create)
-    ..pc<TemperatureGranularDataProto>(32, _omitFieldNames ? '' : 'temperatureGranularData', $pb.PbFieldType.PM, protoName: 'temperatureGranularData', subBuilder: TemperatureGranularDataProto.create)
-    ..pc<TemperatureObjectProto>(33, _omitFieldNames ? '' : 'temperatureDelta', $pb.PbFieldType.PM, protoName: 'temperatureDelta', subBuilder: TemperatureObjectProto.create)
-    ..a<$core.double>(34, _omitFieldNames ? '' : 'breathsMinimumPerMin', $pb.PbFieldType.OD, protoName: 'breathsMinimumPerMin')
-    ..a<$core.double>(35, _omitFieldNames ? '' : 'breathsAvgPerMin', $pb.PbFieldType.OD, protoName: 'breathsAvgPerMin')
-    ..a<$core.double>(36, _omitFieldNames ? '' : 'breathsMaximumPerMin', $pb.PbFieldType.OD, protoName: 'breathsMaximumPerMin')
-    ..pc<BreathingGranularDataProto>(37, _omitFieldNames ? '' : 'breathingGranularData', $pb.PbFieldType.PM, protoName: 'breathingGranularData', subBuilder: BreathingGranularDataProto.create)
-    ..a<$core.int>(38, _omitFieldNames ? '' : 'snoringEventsCount', $pb.PbFieldType.OS3, protoName: 'snoringEventsCount')
-    ..a<$core.int>(39, _omitFieldNames ? '' : 'snoringDurationTotalSeconds', $pb.PbFieldType.OS3, protoName: 'snoringDurationTotalSeconds')
-    ..pc<SnoringGranularDataProto>(40, _omitFieldNames ? '' : 'snoringGranularData', $pb.PbFieldType.PM, protoName: 'snoringGranularData', subBuilder: SnoringGranularDataProto.create)
-    ..a<$core.double>(41, _omitFieldNames ? '' : 'saturationAvgPercentage', $pb.PbFieldType.OD, protoName: 'saturationAvgPercentage')
-    ..a<$core.double>(42, _omitFieldNames ? '' : 'saturationMinimumPercentage', $pb.PbFieldType.OD, protoName: 'saturationMinimumPercentage')
-    ..a<$core.double>(43, _omitFieldNames ? '' : 'saturationMaximumPercentage', $pb.PbFieldType.OD, protoName: 'saturationMaximumPercentage')
-    ..pc<SaturationGranularDataProto>(44, _omitFieldNames ? '' : 'saturationGranularData', $pb.PbFieldType.PM, protoName: 'saturationGranularData', subBuilder: SaturationGranularDataProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(
+        7, _omitFieldNames ? '' : 'sleepDurationSeconds', $pb.PbFieldType.OS3,
+        protoName: 'sleepDurationSeconds')
+    ..a<$core.int>(
+        8, _omitFieldNames ? '' : 'timeInBedSeconds', $pb.PbFieldType.OS3,
+        protoName: 'timeInBedSeconds')
+    ..a<$core.int>(9, _omitFieldNames ? '' : 'lightSleepDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'lightSleepDurationSeconds')
+    ..a<$core.int>(10, _omitFieldNames ? '' : 'remSleepDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'remSleepDurationSeconds')
+    ..a<$core.int>(11, _omitFieldNames ? '' : 'deepSleepDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'deepSleepDurationSeconds')
+    ..a<$core.int>(12, _omitFieldNames ? '' : 'timeToFallAsleepSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'timeToFallAsleepSeconds')
+    ..a<$core.int>(13, _omitFieldNames ? '' : 'timeAwakeDuringSleepSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'timeAwakeDuringSleepSeconds')
+    ..a<$core.int>(14, _omitFieldNames ? '' : 'sleepQualityRating1To5Score',
+        $pb.PbFieldType.OS3,
+        protoName: 'sleepQualityRating1To5Score')
+    ..a<$core.int>(15, _omitFieldNames ? '' : 'sleepEfficiency1To100Score',
+        $pb.PbFieldType.OS3,
+        protoName: 'sleepEfficiency1To100Score')
+    ..a<$core.int>(
+        16, _omitFieldNames ? '' : 'sleepGoalSeconds', $pb.PbFieldType.OS3,
+        protoName: 'sleepGoalSeconds')
+    ..a<$core.int>(17, _omitFieldNames ? '' : 'sleepContinuity1To5Score',
+        $pb.PbFieldType.OS3,
+        protoName: 'sleepContinuity1To5Score')
+    ..a<$core.int>(18, _omitFieldNames ? '' : 'sleepContinuity1To5Rating',
+        $pb.PbFieldType.OS3,
+        protoName: 'sleepContinuity1To5Rating')
+    ..a<$core.int>(
+        19, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMaximumBpm')
+    ..a<$core.int>(
+        20, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMinimumBpm')
+    ..a<$core.int>(21, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrAvgBpm')
+    ..a<$core.int>(
+        22, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrRestingBpm')
+    ..a<$core.int>(23, _omitFieldNames ? '' : 'hrBasalBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrBasalBpm')
+    ..pc<HrGranularDataProto>(
+        24, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
+    ..a<$core.double>(
+        25, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgRmssd')
+    ..a<$core.double>(
+        26, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgSdnn')
+    ..pc<HrvSdnnGranularDataProto>(
+        27, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvSdnnGranularData',
+        subBuilder: HrvSdnnGranularDataProto.create)
+    ..pc<HrvRmssdGranularDataProto>(
+        28, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvRmssdGranularData',
+        subBuilder: HrvRmssdGranularDataProto.create)
+    ..pc<TemperatureObjectProto>(
+        29, _omitFieldNames ? '' : 'temperatureMinimum', $pb.PbFieldType.PM,
+        protoName: 'temperatureMinimum',
+        subBuilder: TemperatureObjectProto.create)
+    ..pc<TemperatureObjectProto>(
+        30, _omitFieldNames ? '' : 'temperatureAvg', $pb.PbFieldType.PM,
+        protoName: 'temperatureAvg', subBuilder: TemperatureObjectProto.create)
+    ..pc<TemperatureObjectProto>(
+        31, _omitFieldNames ? '' : 'temperatureMaximum', $pb.PbFieldType.PM,
+        protoName: 'temperatureMaximum',
+        subBuilder: TemperatureObjectProto.create)
+    ..pc<TemperatureGranularDataProto>(32,
+        _omitFieldNames ? '' : 'temperatureGranularData', $pb.PbFieldType.PM,
+        protoName: 'temperatureGranularData',
+        subBuilder: TemperatureGranularDataProto.create)
+    ..pc<TemperatureObjectProto>(
+        33, _omitFieldNames ? '' : 'temperatureDelta', $pb.PbFieldType.PM,
+        protoName: 'temperatureDelta',
+        subBuilder: TemperatureObjectProto.create)
+    ..a<$core.double>(
+        34, _omitFieldNames ? '' : 'breathsMinimumPerMin', $pb.PbFieldType.OD,
+        protoName: 'breathsMinimumPerMin')
+    ..a<$core.double>(
+        35, _omitFieldNames ? '' : 'breathsAvgPerMin', $pb.PbFieldType.OD,
+        protoName: 'breathsAvgPerMin')
+    ..a<$core.double>(
+        36, _omitFieldNames ? '' : 'breathsMaximumPerMin', $pb.PbFieldType.OD,
+        protoName: 'breathsMaximumPerMin')
+    ..pc<BreathingGranularDataProto>(
+        37, _omitFieldNames ? '' : 'breathingGranularData', $pb.PbFieldType.PM,
+        protoName: 'breathingGranularData',
+        subBuilder: BreathingGranularDataProto.create)
+    ..a<$core.int>(
+        38, _omitFieldNames ? '' : 'snoringEventsCount', $pb.PbFieldType.OS3,
+        protoName: 'snoringEventsCount')
+    ..a<$core.int>(39, _omitFieldNames ? '' : 'snoringDurationTotalSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'snoringDurationTotalSeconds')
+    ..pc<SnoringGranularDataProto>(
+        40, _omitFieldNames ? '' : 'snoringGranularData', $pb.PbFieldType.PM,
+        protoName: 'snoringGranularData',
+        subBuilder: SnoringGranularDataProto.create)
+    ..a<$core.double>(41, _omitFieldNames ? '' : 'saturationAvgPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'saturationAvgPercentage')
+    ..a<$core.double>(42, _omitFieldNames ? '' : 'saturationMinimumPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'saturationMinimumPercentage')
+    ..a<$core.double>(43, _omitFieldNames ? '' : 'saturationMaximumPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'saturationMaximumPercentage')
+    ..pc<SaturationGranularDataProto>(
+        44, _omitFieldNames ? '' : 'saturationGranularData', $pb.PbFieldType.PM,
+        protoName: 'saturationGranularData',
+        subBuilder: SaturationGranularDataProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SleepSummaryProto clone() => SleepSummaryProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SleepSummaryProto copyWith(void Function(SleepSummaryProto) updates) => super.copyWith((message) => updates(message as SleepSummaryProto)) as SleepSummaryProto;
+  SleepSummaryProto copyWith(void Function(SleepSummaryProto) updates) =>
+      super.copyWith((message) => updates(message as SleepSummaryProto))
+          as SleepSummaryProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -606,9 +1026,11 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   static SleepSummaryProto create() => SleepSummaryProto._();
   @$core.override
   SleepSummaryProto createEmptyInstance() => create();
-  static $pb.PbList<SleepSummaryProto> createRepeated() => $pb.PbList<SleepSummaryProto>();
+  static $pb.PbList<SleepSummaryProto> createRepeated() =>
+      $pb.PbList<SleepSummaryProto>();
   @$core.pragma('dart2js:noInline')
-  static SleepSummaryProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SleepSummaryProto>(create);
+  static SleepSummaryProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SleepSummaryProto>(create);
   static SleepSummaryProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -722,7 +1144,8 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(13)
   $core.int get timeAwakeDuringSleepSeconds => $_getIZ(12);
   @$pb.TagNumber(13)
-  set timeAwakeDuringSleepSeconds($core.int value) => $_setSignedInt32(12, value);
+  set timeAwakeDuringSleepSeconds($core.int value) =>
+      $_setSignedInt32(12, value);
   @$pb.TagNumber(13)
   $core.bool hasTimeAwakeDuringSleepSeconds() => $_has(12);
   @$pb.TagNumber(13)
@@ -731,7 +1154,8 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   $core.int get sleepQualityRating1To5Score => $_getIZ(13);
   @$pb.TagNumber(14)
-  set sleepQualityRating1To5Score($core.int value) => $_setSignedInt32(13, value);
+  set sleepQualityRating1To5Score($core.int value) =>
+      $_setSignedInt32(13, value);
   @$pb.TagNumber(14)
   $core.bool hasSleepQualityRating1To5Score() => $_has(13);
   @$pb.TagNumber(14)
@@ -740,7 +1164,8 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   $core.int get sleepEfficiency1To100Score => $_getIZ(14);
   @$pb.TagNumber(15)
-  set sleepEfficiency1To100Score($core.int value) => $_setSignedInt32(14, value);
+  set sleepEfficiency1To100Score($core.int value) =>
+      $_setSignedInt32(14, value);
   @$pb.TagNumber(15)
   $core.bool hasSleepEfficiency1To100Score() => $_has(14);
   @$pb.TagNumber(15)
@@ -843,7 +1268,8 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   $pb.PbList<HrvSdnnGranularDataProto> get hrvSdnnGranularData => $_getList(26);
 
   @$pb.TagNumber(28)
-  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData => $_getList(27);
+  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData =>
+      $_getList(27);
 
   @$pb.TagNumber(29)
   $pb.PbList<TemperatureObjectProto> get temperatureMinimum => $_getList(28);
@@ -855,7 +1281,8 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   $pb.PbList<TemperatureObjectProto> get temperatureMaximum => $_getList(30);
 
   @$pb.TagNumber(32)
-  $pb.PbList<TemperatureGranularDataProto> get temperatureGranularData => $_getList(31);
+  $pb.PbList<TemperatureGranularDataProto> get temperatureGranularData =>
+      $_getList(31);
 
   @$pb.TagNumber(33)
   $pb.PbList<TemperatureObjectProto> get temperatureDelta => $_getList(32);
@@ -888,7 +1315,8 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   void clearBreathsMaximumPerMin() => $_clearField(36);
 
   @$pb.TagNumber(37)
-  $pb.PbList<BreathingGranularDataProto> get breathingGranularData => $_getList(36);
+  $pb.PbList<BreathingGranularDataProto> get breathingGranularData =>
+      $_getList(36);
 
   @$pb.TagNumber(38)
   $core.int get snoringEventsCount => $_getIZ(37);
@@ -902,7 +1330,8 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(39)
   $core.int get snoringDurationTotalSeconds => $_getIZ(38);
   @$pb.TagNumber(39)
-  set snoringDurationTotalSeconds($core.int value) => $_setSignedInt32(38, value);
+  set snoringDurationTotalSeconds($core.int value) =>
+      $_setSignedInt32(38, value);
   @$pb.TagNumber(39)
   $core.bool hasSnoringDurationTotalSeconds() => $_has(38);
   @$pb.TagNumber(39)
@@ -939,7 +1368,8 @@ class SleepSummaryProto extends $pb.GeneratedMessage {
   void clearSaturationMaximumPercentage() => $_clearField(43);
 
   @$pb.TagNumber(44)
-  $pb.PbList<SaturationGranularDataProto> get saturationGranularData => $_getList(43);
+  $pb.PbList<SaturationGranularDataProto> get saturationGranularData =>
+      $_getList(43);
 }
 
 class SleepSummariesProto extends $pb.GeneratedMessage {
@@ -953,18 +1383,27 @@ class SleepSummariesProto extends $pb.GeneratedMessage {
 
   SleepSummariesProto._();
 
-  factory SleepSummariesProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SleepSummariesProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SleepSummariesProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SleepSummariesProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SleepSummariesProto', createEmptyInstance: create)
-    ..pc<SleepSummaryProto>(1, _omitFieldNames ? '' : 'elements', $pb.PbFieldType.PM, subBuilder: SleepSummaryProto.create)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SleepSummariesProto',
+      createEmptyInstance: create)
+    ..pc<SleepSummaryProto>(
+        1, _omitFieldNames ? '' : 'elements', $pb.PbFieldType.PM,
+        subBuilder: SleepSummaryProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SleepSummariesProto clone() => SleepSummariesProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SleepSummariesProto copyWith(void Function(SleepSummariesProto) updates) => super.copyWith((message) => updates(message as SleepSummariesProto)) as SleepSummariesProto;
+  SleepSummariesProto copyWith(void Function(SleepSummariesProto) updates) =>
+      super.copyWith((message) => updates(message as SleepSummariesProto))
+          as SleepSummariesProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -973,20 +1412,18 @@ class SleepSummariesProto extends $pb.GeneratedMessage {
   static SleepSummariesProto create() => SleepSummariesProto._();
   @$core.override
   SleepSummariesProto createEmptyInstance() => create();
-  static $pb.PbList<SleepSummariesProto> createRepeated() => $pb.PbList<SleepSummariesProto>();
+  static $pb.PbList<SleepSummariesProto> createRepeated() =>
+      $pb.PbList<SleepSummariesProto>();
   @$core.pragma('dart2js:noInline')
-  static SleepSummariesProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SleepSummariesProto>(create);
+  static SleepSummariesProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SleepSummariesProto>(create);
   static SleepSummariesProto? _defaultInstance;
 
   @$pb.TagNumber(1)
   $pb.PbList<SleepSummaryProto> get elements => $_getList(0);
 }
 
-enum SleepSummaryResultProto_Result {
-  success, 
-  failure, 
-  notSet
-}
+enum SleepSummaryResultProto_Result { success, failure, notSet }
 
 class SleepSummaryResultProto extends $pb.GeneratedMessage {
   factory SleepSummaryResultProto({
@@ -1001,25 +1438,37 @@ class SleepSummaryResultProto extends $pb.GeneratedMessage {
 
   SleepSummaryResultProto._();
 
-  factory SleepSummaryResultProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SleepSummaryResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SleepSummaryResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SleepSummaryResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, SleepSummaryResultProto_Result> _SleepSummaryResultProto_ResultByTag = {
-    1 : SleepSummaryResultProto_Result.success,
-    2 : SleepSummaryResultProto_Result.failure,
-    0 : SleepSummaryResultProto_Result.notSet
+  static const $core.Map<$core.int, SleepSummaryResultProto_Result>
+      _SleepSummaryResultProto_ResultByTag = {
+    1: SleepSummaryResultProto_Result.success,
+    2: SleepSummaryResultProto_Result.failure,
+    0: SleepSummaryResultProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SleepSummaryResultProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SleepSummaryResultProto',
+      createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<SleepSummariesProto>(1, _omitFieldNames ? '' : 'success', subBuilder: SleepSummariesProto.create)
-    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..aOM<SleepSummariesProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: SleepSummariesProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SleepSummaryResultProto clone() => SleepSummaryResultProto()..mergeFromMessage(this);
+  SleepSummaryResultProto clone() =>
+      SleepSummaryResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SleepSummaryResultProto copyWith(void Function(SleepSummaryResultProto) updates) => super.copyWith((message) => updates(message as SleepSummaryResultProto)) as SleepSummaryResultProto;
+  SleepSummaryResultProto copyWith(
+          void Function(SleepSummaryResultProto) updates) =>
+      super.copyWith((message) => updates(message as SleepSummaryResultProto))
+          as SleepSummaryResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1028,12 +1477,15 @@ class SleepSummaryResultProto extends $pb.GeneratedMessage {
   static SleepSummaryResultProto create() => SleepSummaryResultProto._();
   @$core.override
   SleepSummaryResultProto createEmptyInstance() => create();
-  static $pb.PbList<SleepSummaryResultProto> createRepeated() => $pb.PbList<SleepSummaryResultProto>();
+  static $pb.PbList<SleepSummaryResultProto> createRepeated() =>
+      $pb.PbList<SleepSummaryResultProto>();
   @$core.pragma('dart2js:noInline')
-  static SleepSummaryResultProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SleepSummaryResultProto>(create);
+  static SleepSummaryResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SleepSummaryResultProto>(create);
   static SleepSummaryResultProto? _defaultInstance;
 
-  SleepSummaryResultProto_Result whichResult() => _SleepSummaryResultProto_ResultByTag[$_whichOneof(0)]!;
+  SleepSummaryResultProto_Result whichResult() =>
+      _SleepSummaryResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -1082,7 +1534,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
     $core.Iterable<ActiveStepsGranularDataProto>? activeStepsGranularData,
     $core.double? walkedDistanceMeters,
     $core.double? traveledDistanceMeters,
-    $core.Iterable<TraveledDistanceGranularDataProto>? traveledDistanceGranularData,
+    $core.Iterable<TraveledDistanceGranularDataProto>?
+        traveledDistanceGranularData,
     $core.double? floorsClimbed,
     $core.Iterable<FloorsClimbedGranularDataProto>? floorsClimbedGranularData,
     $core.double? elevationAvgAltitudeMeters,
@@ -1096,7 +1549,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
     $core.int? swimmingNumLaps,
     $core.double? swimmingPoolLengthMeters,
     $core.double? swimmingTotalDistanceMeters,
-    $core.Iterable<SwimmingDistanceGranularDataProto>? swimmingDistanceGranularData,
+    $core.Iterable<SwimmingDistanceGranularDataProto>?
+        swimmingDistanceGranularData,
     $core.int? hrMaximumBpm,
     $core.int? hrMinimumBpm,
     $core.int? hrAvgBpm,
@@ -1122,40 +1576,69 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
     if (sourceOfData != null) result.sourceOfData = sourceOfData;
-    if (wasTheUserUnderPhysicalActivity != null) result.wasTheUserUnderPhysicalActivity = wasTheUserUnderPhysicalActivity;
+    if (wasTheUserUnderPhysicalActivity != null)
+      result.wasTheUserUnderPhysicalActivity = wasTheUserUnderPhysicalActivity;
     if (activeSeconds != null) result.activeSeconds = activeSeconds;
     if (restSeconds != null) result.restSeconds = restSeconds;
-    if (lowIntensitySeconds != null) result.lowIntensitySeconds = lowIntensitySeconds;
-    if (moderateIntensitySeconds != null) result.moderateIntensitySeconds = moderateIntensitySeconds;
-    if (vigorousIntensitySeconds != null) result.vigorousIntensitySeconds = vigorousIntensitySeconds;
+    if (lowIntensitySeconds != null)
+      result.lowIntensitySeconds = lowIntensitySeconds;
+    if (moderateIntensitySeconds != null)
+      result.moderateIntensitySeconds = moderateIntensitySeconds;
+    if (vigorousIntensitySeconds != null)
+      result.vigorousIntensitySeconds = vigorousIntensitySeconds;
     if (inactivitySeconds != null) result.inactivitySeconds = inactivitySeconds;
-    if (activityLevelGranularData != null) result.activityLevelGranularData.addAll(activityLevelGranularData);
-    if (continuousInactivePeriods != null) result.continuousInactivePeriods = continuousInactivePeriods;
-    if (caloriesNetIntakeKcal != null) result.caloriesNetIntakeKcal = caloriesNetIntakeKcal;
-    if (caloriesExpenditureKcal != null) result.caloriesExpenditureKcal = caloriesExpenditureKcal;
-    if (caloriesNetActiveKcal != null) result.caloriesNetActiveKcal = caloriesNetActiveKcal;
-    if (caloriesBasalMetabolicRateKcal != null) result.caloriesBasalMetabolicRateKcal = caloriesBasalMetabolicRateKcal;
+    if (activityLevelGranularData != null)
+      result.activityLevelGranularData.addAll(activityLevelGranularData);
+    if (continuousInactivePeriods != null)
+      result.continuousInactivePeriods = continuousInactivePeriods;
+    if (caloriesNetIntakeKcal != null)
+      result.caloriesNetIntakeKcal = caloriesNetIntakeKcal;
+    if (caloriesExpenditureKcal != null)
+      result.caloriesExpenditureKcal = caloriesExpenditureKcal;
+    if (caloriesNetActiveKcal != null)
+      result.caloriesNetActiveKcal = caloriesNetActiveKcal;
+    if (caloriesBasalMetabolicRateKcal != null)
+      result.caloriesBasalMetabolicRateKcal = caloriesBasalMetabolicRateKcal;
     if (steps != null) result.steps = steps;
-    if (stepsGranularData != null) result.stepsGranularData.addAll(stepsGranularData);
+    if (stepsGranularData != null)
+      result.stepsGranularData.addAll(stepsGranularData);
     if (activeSteps != null) result.activeSteps = activeSteps;
-    if (activeStepsGranularData != null) result.activeStepsGranularData.addAll(activeStepsGranularData);
-    if (walkedDistanceMeters != null) result.walkedDistanceMeters = walkedDistanceMeters;
-    if (traveledDistanceMeters != null) result.traveledDistanceMeters = traveledDistanceMeters;
-    if (traveledDistanceGranularData != null) result.traveledDistanceGranularData.addAll(traveledDistanceGranularData);
+    if (activeStepsGranularData != null)
+      result.activeStepsGranularData.addAll(activeStepsGranularData);
+    if (walkedDistanceMeters != null)
+      result.walkedDistanceMeters = walkedDistanceMeters;
+    if (traveledDistanceMeters != null)
+      result.traveledDistanceMeters = traveledDistanceMeters;
+    if (traveledDistanceGranularData != null)
+      result.traveledDistanceGranularData.addAll(traveledDistanceGranularData);
     if (floorsClimbed != null) result.floorsClimbed = floorsClimbed;
-    if (floorsClimbedGranularData != null) result.floorsClimbedGranularData.addAll(floorsClimbedGranularData);
-    if (elevationAvgAltitudeMeters != null) result.elevationAvgAltitudeMeters = elevationAvgAltitudeMeters;
-    if (elevationMinimumAltitudeMeters != null) result.elevationMinimumAltitudeMeters = elevationMinimumAltitudeMeters;
-    if (elevationMaximumAltitudeMeters != null) result.elevationMaximumAltitudeMeters = elevationMaximumAltitudeMeters;
-    if (elevationLossActualAltitudeMeters != null) result.elevationLossActualAltitudeMeters = elevationLossActualAltitudeMeters;
-    if (elevationGainActualAltitudeMeters != null) result.elevationGainActualAltitudeMeters = elevationGainActualAltitudeMeters;
-    if (elevationPlannedGainMeters != null) result.elevationPlannedGainMeters = elevationPlannedGainMeters;
-    if (elevationGranularData != null) result.elevationGranularData.addAll(elevationGranularData);
-    if (swimmingNumStrokes != null) result.swimmingNumStrokes = swimmingNumStrokes;
+    if (floorsClimbedGranularData != null)
+      result.floorsClimbedGranularData.addAll(floorsClimbedGranularData);
+    if (elevationAvgAltitudeMeters != null)
+      result.elevationAvgAltitudeMeters = elevationAvgAltitudeMeters;
+    if (elevationMinimumAltitudeMeters != null)
+      result.elevationMinimumAltitudeMeters = elevationMinimumAltitudeMeters;
+    if (elevationMaximumAltitudeMeters != null)
+      result.elevationMaximumAltitudeMeters = elevationMaximumAltitudeMeters;
+    if (elevationLossActualAltitudeMeters != null)
+      result.elevationLossActualAltitudeMeters =
+          elevationLossActualAltitudeMeters;
+    if (elevationGainActualAltitudeMeters != null)
+      result.elevationGainActualAltitudeMeters =
+          elevationGainActualAltitudeMeters;
+    if (elevationPlannedGainMeters != null)
+      result.elevationPlannedGainMeters = elevationPlannedGainMeters;
+    if (elevationGranularData != null)
+      result.elevationGranularData.addAll(elevationGranularData);
+    if (swimmingNumStrokes != null)
+      result.swimmingNumStrokes = swimmingNumStrokes;
     if (swimmingNumLaps != null) result.swimmingNumLaps = swimmingNumLaps;
-    if (swimmingPoolLengthMeters != null) result.swimmingPoolLengthMeters = swimmingPoolLengthMeters;
-    if (swimmingTotalDistanceMeters != null) result.swimmingTotalDistanceMeters = swimmingTotalDistanceMeters;
-    if (swimmingDistanceGranularData != null) result.swimmingDistanceGranularData.addAll(swimmingDistanceGranularData);
+    if (swimmingPoolLengthMeters != null)
+      result.swimmingPoolLengthMeters = swimmingPoolLengthMeters;
+    if (swimmingTotalDistanceMeters != null)
+      result.swimmingTotalDistanceMeters = swimmingTotalDistanceMeters;
+    if (swimmingDistanceGranularData != null)
+      result.swimmingDistanceGranularData.addAll(swimmingDistanceGranularData);
     if (hrMaximumBpm != null) result.hrMaximumBpm = hrMaximumBpm;
     if (hrMinimumBpm != null) result.hrMinimumBpm = hrMinimumBpm;
     if (hrAvgBpm != null) result.hrAvgBpm = hrAvgBpm;
@@ -1163,93 +1646,243 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
     if (hrGranularData != null) result.hrGranularData.addAll(hrGranularData);
     if (hrvAvgRmssd != null) result.hrvAvgRmssd = hrvAvgRmssd;
     if (hrvAvgSdnn != null) result.hrvAvgSdnn = hrvAvgSdnn;
-    if (hrvSdnnGranularData != null) result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
-    if (hrvRmssdGranularData != null) result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
-    if (saturationAvgPercentage != null) result.saturationAvgPercentage = saturationAvgPercentage;
-    if (saturationGranularData != null) result.saturationGranularData.addAll(saturationGranularData);
-    if (vo2MaxMlPerMinPerKg != null) result.vo2MaxMlPerMinPerKg = vo2MaxMlPerMinPerKg;
+    if (hrvSdnnGranularData != null)
+      result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
+    if (hrvRmssdGranularData != null)
+      result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
+    if (saturationAvgPercentage != null)
+      result.saturationAvgPercentage = saturationAvgPercentage;
+    if (saturationGranularData != null)
+      result.saturationGranularData.addAll(saturationGranularData);
+    if (vo2MaxMlPerMinPerKg != null)
+      result.vo2MaxMlPerMinPerKg = vo2MaxMlPerMinPerKg;
     if (vo2GranularData != null) result.vo2GranularData.addAll(vo2GranularData);
-    if (stressAtRestDurationSeconds != null) result.stressAtRestDurationSeconds = stressAtRestDurationSeconds;
-    if (stressDurationSeconds != null) result.stressDurationSeconds = stressDurationSeconds;
-    if (lowStressDurationSeconds != null) result.lowStressDurationSeconds = lowStressDurationSeconds;
-    if (mediumStressDurationSeconds != null) result.mediumStressDurationSeconds = mediumStressDurationSeconds;
-    if (highStressDurationSeconds != null) result.highStressDurationSeconds = highStressDurationSeconds;
-    if (stressGranularData != null) result.stressGranularData.addAll(stressGranularData);
+    if (stressAtRestDurationSeconds != null)
+      result.stressAtRestDurationSeconds = stressAtRestDurationSeconds;
+    if (stressDurationSeconds != null)
+      result.stressDurationSeconds = stressDurationSeconds;
+    if (lowStressDurationSeconds != null)
+      result.lowStressDurationSeconds = lowStressDurationSeconds;
+    if (mediumStressDurationSeconds != null)
+      result.mediumStressDurationSeconds = mediumStressDurationSeconds;
+    if (highStressDurationSeconds != null)
+      result.highStressDurationSeconds = highStressDurationSeconds;
+    if (stressGranularData != null)
+      result.stressGranularData.addAll(stressGranularData);
     if (stressAvgLevel != null) result.stressAvgLevel = stressAvgLevel;
-    if (stressMaximumLevel != null) result.stressMaximumLevel = stressMaximumLevel;
+    if (stressMaximumLevel != null)
+      result.stressMaximumLevel = stressMaximumLevel;
     return result;
   }
 
   PhysicalSummaryProto._();
 
-  factory PhysicalSummaryProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory PhysicalSummaryProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory PhysicalSummaryProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PhysicalSummaryProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PhysicalSummaryProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PhysicalSummaryProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
     ..aOS(2, _omitFieldNames ? '' : 'sourceOfData', protoName: 'sourceOfData')
-    ..aOB(3, _omitFieldNames ? '' : 'wasTheUserUnderPhysicalActivity', protoName: 'wasTheUserUnderPhysicalActivity')
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'activeSeconds', $pb.PbFieldType.OS3, protoName: 'activeSeconds')
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'restSeconds', $pb.PbFieldType.OS3, protoName: 'restSeconds')
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'lowIntensitySeconds', $pb.PbFieldType.OS3, protoName: 'lowIntensitySeconds')
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'moderateIntensitySeconds', $pb.PbFieldType.OS3, protoName: 'moderateIntensitySeconds')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'vigorousIntensitySeconds', $pb.PbFieldType.OS3, protoName: 'vigorousIntensitySeconds')
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'inactivitySeconds', $pb.PbFieldType.OS3, protoName: 'inactivitySeconds')
-    ..pc<ActivityLevelGranularDataProto>(10, _omitFieldNames ? '' : 'activityLevelGranularData', $pb.PbFieldType.PM, protoName: 'activityLevelGranularData', subBuilder: ActivityLevelGranularDataProto.create)
-    ..a<$core.int>(11, _omitFieldNames ? '' : 'continuousInactivePeriods', $pb.PbFieldType.OS3, protoName: 'continuousInactivePeriods')
-    ..a<$core.double>(12, _omitFieldNames ? '' : 'caloriesNetIntakeKcal', $pb.PbFieldType.OD, protoName: 'caloriesNetIntakeKcal')
-    ..a<$core.double>(13, _omitFieldNames ? '' : 'caloriesExpenditureKcal', $pb.PbFieldType.OD, protoName: 'caloriesExpenditureKcal')
-    ..a<$core.double>(14, _omitFieldNames ? '' : 'caloriesNetActiveKcal', $pb.PbFieldType.OD, protoName: 'caloriesNetActiveKcal')
-    ..a<$core.double>(15, _omitFieldNames ? '' : 'caloriesBasalMetabolicRateKcal', $pb.PbFieldType.OD, protoName: 'caloriesBasalMetabolicRateKcal')
+    ..aOB(3, _omitFieldNames ? '' : 'wasTheUserUnderPhysicalActivity',
+        protoName: 'wasTheUserUnderPhysicalActivity')
+    ..a<$core.int>(
+        4, _omitFieldNames ? '' : 'activeSeconds', $pb.PbFieldType.OS3,
+        protoName: 'activeSeconds')
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'restSeconds', $pb.PbFieldType.OS3,
+        protoName: 'restSeconds')
+    ..a<$core.int>(
+        6, _omitFieldNames ? '' : 'lowIntensitySeconds', $pb.PbFieldType.OS3,
+        protoName: 'lowIntensitySeconds')
+    ..a<$core.int>(7, _omitFieldNames ? '' : 'moderateIntensitySeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'moderateIntensitySeconds')
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'vigorousIntensitySeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'vigorousIntensitySeconds')
+    ..a<$core.int>(
+        9, _omitFieldNames ? '' : 'inactivitySeconds', $pb.PbFieldType.OS3,
+        protoName: 'inactivitySeconds')
+    ..pc<ActivityLevelGranularDataProto>(10,
+        _omitFieldNames ? '' : 'activityLevelGranularData', $pb.PbFieldType.PM,
+        protoName: 'activityLevelGranularData',
+        subBuilder: ActivityLevelGranularDataProto.create)
+    ..a<$core.int>(11, _omitFieldNames ? '' : 'continuousInactivePeriods',
+        $pb.PbFieldType.OS3,
+        protoName: 'continuousInactivePeriods')
+    ..a<$core.double>(
+        12, _omitFieldNames ? '' : 'caloriesNetIntakeKcal', $pb.PbFieldType.OD,
+        protoName: 'caloriesNetIntakeKcal')
+    ..a<$core.double>(13, _omitFieldNames ? '' : 'caloriesExpenditureKcal',
+        $pb.PbFieldType.OD,
+        protoName: 'caloriesExpenditureKcal')
+    ..a<$core.double>(
+        14, _omitFieldNames ? '' : 'caloriesNetActiveKcal', $pb.PbFieldType.OD,
+        protoName: 'caloriesNetActiveKcal')
+    ..a<$core.double>(
+        15,
+        _omitFieldNames ? '' : 'caloriesBasalMetabolicRateKcal',
+        $pb.PbFieldType.OD,
+        protoName: 'caloriesBasalMetabolicRateKcal')
     ..a<$core.int>(16, _omitFieldNames ? '' : 'steps', $pb.PbFieldType.OS3)
-    ..pc<StepsGranularDataProto>(17, _omitFieldNames ? '' : 'stepsGranularData', $pb.PbFieldType.PM, protoName: 'stepsGranularData', subBuilder: StepsGranularDataProto.create)
-    ..a<$core.int>(18, _omitFieldNames ? '' : 'activeSteps', $pb.PbFieldType.OS3, protoName: 'activeSteps')
-    ..pc<ActiveStepsGranularDataProto>(19, _omitFieldNames ? '' : 'activeStepsGranularData', $pb.PbFieldType.PM, protoName: 'activeStepsGranularData', subBuilder: ActiveStepsGranularDataProto.create)
-    ..a<$core.double>(20, _omitFieldNames ? '' : 'walkedDistanceMeters', $pb.PbFieldType.OD, protoName: 'walkedDistanceMeters')
-    ..a<$core.double>(21, _omitFieldNames ? '' : 'traveledDistanceMeters', $pb.PbFieldType.OD, protoName: 'traveledDistanceMeters')
-    ..pc<TraveledDistanceGranularDataProto>(22, _omitFieldNames ? '' : 'traveledDistanceGranularData', $pb.PbFieldType.PM, protoName: 'traveledDistanceGranularData', subBuilder: TraveledDistanceGranularDataProto.create)
-    ..a<$core.double>(23, _omitFieldNames ? '' : 'floorsClimbed', $pb.PbFieldType.OD, protoName: 'floorsClimbed')
-    ..pc<FloorsClimbedGranularDataProto>(24, _omitFieldNames ? '' : 'floorsClimbedGranularData', $pb.PbFieldType.PM, protoName: 'floorsClimbedGranularData', subBuilder: FloorsClimbedGranularDataProto.create)
-    ..a<$core.double>(25, _omitFieldNames ? '' : 'elevationAvgAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationAvgAltitudeMeters')
-    ..a<$core.double>(26, _omitFieldNames ? '' : 'elevationMinimumAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationMinimumAltitudeMeters')
-    ..a<$core.double>(27, _omitFieldNames ? '' : 'elevationMaximumAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationMaximumAltitudeMeters')
-    ..a<$core.double>(28, _omitFieldNames ? '' : 'elevationLossActualAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationLossActualAltitudeMeters')
-    ..a<$core.double>(29, _omitFieldNames ? '' : 'elevationGainActualAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationGainActualAltitudeMeters')
-    ..a<$core.double>(30, _omitFieldNames ? '' : 'elevationPlannedGainMeters', $pb.PbFieldType.OD, protoName: 'elevationPlannedGainMeters')
-    ..pc<ElevationGranularDataProto>(31, _omitFieldNames ? '' : 'elevationGranularData', $pb.PbFieldType.PM, protoName: 'elevationGranularData', subBuilder: ElevationGranularDataProto.create)
-    ..a<$core.int>(32, _omitFieldNames ? '' : 'swimmingNumStrokes', $pb.PbFieldType.OS3, protoName: 'swimmingNumStrokes')
-    ..a<$core.int>(33, _omitFieldNames ? '' : 'swimmingNumLaps', $pb.PbFieldType.OS3, protoName: 'swimmingNumLaps')
-    ..a<$core.double>(34, _omitFieldNames ? '' : 'swimmingPoolLengthMeters', $pb.PbFieldType.OD, protoName: 'swimmingPoolLengthMeters')
-    ..a<$core.double>(35, _omitFieldNames ? '' : 'swimmingTotalDistanceMeters', $pb.PbFieldType.OD, protoName: 'swimmingTotalDistanceMeters')
-    ..pc<SwimmingDistanceGranularDataProto>(36, _omitFieldNames ? '' : 'swimmingDistanceGranularData', $pb.PbFieldType.PM, protoName: 'swimmingDistanceGranularData', subBuilder: SwimmingDistanceGranularDataProto.create)
-    ..a<$core.int>(37, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3, protoName: 'hrMaximumBpm')
-    ..a<$core.int>(38, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3, protoName: 'hrMinimumBpm')
-    ..a<$core.int>(39, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3, protoName: 'hrAvgBpm')
-    ..a<$core.int>(40, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3, protoName: 'hrRestingBpm')
-    ..pc<HrGranularDataProto>(41, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM, protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
-    ..a<$core.double>(42, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD, protoName: 'hrvAvgRmssd')
-    ..a<$core.double>(43, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD, protoName: 'hrvAvgSdnn')
-    ..pc<HrvSdnnGranularDataProto>(44, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM, protoName: 'hrvSdnnGranularData', subBuilder: HrvSdnnGranularDataProto.create)
-    ..pc<HrvRmssdGranularDataProto>(45, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM, protoName: 'hrvRmssdGranularData', subBuilder: HrvRmssdGranularDataProto.create)
-    ..a<$core.double>(46, _omitFieldNames ? '' : 'saturationAvgPercentage', $pb.PbFieldType.OD, protoName: 'saturationAvgPercentage')
-    ..pc<SaturationGranularDataProto>(47, _omitFieldNames ? '' : 'saturationGranularData', $pb.PbFieldType.PM, protoName: 'saturationGranularData', subBuilder: SaturationGranularDataProto.create)
-    ..a<$core.double>(48, _omitFieldNames ? '' : 'vo2MaxMlPerMinPerKg', $pb.PbFieldType.OD, protoName: 'vo2MaxMlPerMinPerKg')
-    ..pc<Vo2GranularDataProto>(49, _omitFieldNames ? '' : 'vo2GranularData', $pb.PbFieldType.PM, protoName: 'vo2GranularData', subBuilder: Vo2GranularDataProto.create)
-    ..a<$core.int>(50, _omitFieldNames ? '' : 'stressAtRestDurationSeconds', $pb.PbFieldType.OS3, protoName: 'stressAtRestDurationSeconds')
-    ..a<$core.int>(51, _omitFieldNames ? '' : 'stressDurationSeconds', $pb.PbFieldType.OS3, protoName: 'stressDurationSeconds')
-    ..a<$core.int>(52, _omitFieldNames ? '' : 'lowStressDurationSeconds', $pb.PbFieldType.OS3, protoName: 'lowStressDurationSeconds')
-    ..a<$core.int>(53, _omitFieldNames ? '' : 'mediumStressDurationSeconds', $pb.PbFieldType.OS3, protoName: 'mediumStressDurationSeconds')
-    ..a<$core.int>(54, _omitFieldNames ? '' : 'highStressDurationSeconds', $pb.PbFieldType.OS3, protoName: 'highStressDurationSeconds')
-    ..pc<StressGranularDataProto>(55, _omitFieldNames ? '' : 'stressGranularData', $pb.PbFieldType.PM, protoName: 'stressGranularData', subBuilder: StressGranularDataProto.create)
-    ..a<$core.int>(56, _omitFieldNames ? '' : 'stressAvgLevel', $pb.PbFieldType.OS3, protoName: 'stressAvgLevel')
-    ..a<$core.int>(57, _omitFieldNames ? '' : 'stressMaximumLevel', $pb.PbFieldType.OS3, protoName: 'stressMaximumLevel')
-    ..hasRequiredFields = false
-  ;
+    ..pc<StepsGranularDataProto>(
+        17, _omitFieldNames ? '' : 'stepsGranularData', $pb.PbFieldType.PM,
+        protoName: 'stepsGranularData',
+        subBuilder: StepsGranularDataProto.create)
+    ..a<$core.int>(
+        18, _omitFieldNames ? '' : 'activeSteps', $pb.PbFieldType.OS3,
+        protoName: 'activeSteps')
+    ..pc<ActiveStepsGranularDataProto>(19,
+        _omitFieldNames ? '' : 'activeStepsGranularData', $pb.PbFieldType.PM,
+        protoName: 'activeStepsGranularData',
+        subBuilder: ActiveStepsGranularDataProto.create)
+    ..a<$core.double>(
+        20, _omitFieldNames ? '' : 'walkedDistanceMeters', $pb.PbFieldType.OD,
+        protoName: 'walkedDistanceMeters')
+    ..a<$core.double>(
+        21, _omitFieldNames ? '' : 'traveledDistanceMeters', $pb.PbFieldType.OD,
+        protoName: 'traveledDistanceMeters')
+    ..pc<TraveledDistanceGranularDataProto>(
+        22,
+        _omitFieldNames ? '' : 'traveledDistanceGranularData',
+        $pb.PbFieldType.PM,
+        protoName: 'traveledDistanceGranularData',
+        subBuilder: TraveledDistanceGranularDataProto.create)
+    ..a<$core.double>(
+        23, _omitFieldNames ? '' : 'floorsClimbed', $pb.PbFieldType.OD,
+        protoName: 'floorsClimbed')
+    ..pc<FloorsClimbedGranularDataProto>(24,
+        _omitFieldNames ? '' : 'floorsClimbedGranularData', $pb.PbFieldType.PM,
+        protoName: 'floorsClimbedGranularData',
+        subBuilder: FloorsClimbedGranularDataProto.create)
+    ..a<$core.double>(25, _omitFieldNames ? '' : 'elevationAvgAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationAvgAltitudeMeters')
+    ..a<$core.double>(
+        26,
+        _omitFieldNames ? '' : 'elevationMinimumAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationMinimumAltitudeMeters')
+    ..a<$core.double>(
+        27,
+        _omitFieldNames ? '' : 'elevationMaximumAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationMaximumAltitudeMeters')
+    ..a<$core.double>(
+        28,
+        _omitFieldNames ? '' : 'elevationLossActualAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationLossActualAltitudeMeters')
+    ..a<$core.double>(
+        29,
+        _omitFieldNames ? '' : 'elevationGainActualAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationGainActualAltitudeMeters')
+    ..a<$core.double>(30, _omitFieldNames ? '' : 'elevationPlannedGainMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationPlannedGainMeters')
+    ..pc<ElevationGranularDataProto>(
+        31, _omitFieldNames ? '' : 'elevationGranularData', $pb.PbFieldType.PM,
+        protoName: 'elevationGranularData',
+        subBuilder: ElevationGranularDataProto.create)
+    ..a<$core.int>(
+        32, _omitFieldNames ? '' : 'swimmingNumStrokes', $pb.PbFieldType.OS3,
+        protoName: 'swimmingNumStrokes')
+    ..a<$core.int>(
+        33, _omitFieldNames ? '' : 'swimmingNumLaps', $pb.PbFieldType.OS3,
+        protoName: 'swimmingNumLaps')
+    ..a<$core.double>(34, _omitFieldNames ? '' : 'swimmingPoolLengthMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'swimmingPoolLengthMeters')
+    ..a<$core.double>(35, _omitFieldNames ? '' : 'swimmingTotalDistanceMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'swimmingTotalDistanceMeters')
+    ..pc<SwimmingDistanceGranularDataProto>(
+        36,
+        _omitFieldNames ? '' : 'swimmingDistanceGranularData',
+        $pb.PbFieldType.PM,
+        protoName: 'swimmingDistanceGranularData',
+        subBuilder: SwimmingDistanceGranularDataProto.create)
+    ..a<$core.int>(
+        37, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMaximumBpm')
+    ..a<$core.int>(
+        38, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMinimumBpm')
+    ..a<$core.int>(39, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrAvgBpm')
+    ..a<$core.int>(
+        40, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrRestingBpm')
+    ..pc<HrGranularDataProto>(
+        41, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
+    ..a<$core.double>(
+        42, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgRmssd')
+    ..a<$core.double>(
+        43, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgSdnn')
+    ..pc<HrvSdnnGranularDataProto>(
+        44, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvSdnnGranularData',
+        subBuilder: HrvSdnnGranularDataProto.create)
+    ..pc<HrvRmssdGranularDataProto>(
+        45, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvRmssdGranularData',
+        subBuilder: HrvRmssdGranularDataProto.create)
+    ..a<$core.double>(46, _omitFieldNames ? '' : 'saturationAvgPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'saturationAvgPercentage')
+    ..pc<SaturationGranularDataProto>(
+        47, _omitFieldNames ? '' : 'saturationGranularData', $pb.PbFieldType.PM,
+        protoName: 'saturationGranularData',
+        subBuilder: SaturationGranularDataProto.create)
+    ..a<$core.double>(
+        48, _omitFieldNames ? '' : 'vo2MaxMlPerMinPerKg', $pb.PbFieldType.OD,
+        protoName: 'vo2MaxMlPerMinPerKg')
+    ..pc<Vo2GranularDataProto>(
+        49, _omitFieldNames ? '' : 'vo2GranularData', $pb.PbFieldType.PM,
+        protoName: 'vo2GranularData', subBuilder: Vo2GranularDataProto.create)
+    ..a<$core.int>(50, _omitFieldNames ? '' : 'stressAtRestDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'stressAtRestDurationSeconds')
+    ..a<$core.int>(
+        51, _omitFieldNames ? '' : 'stressDurationSeconds', $pb.PbFieldType.OS3,
+        protoName: 'stressDurationSeconds')
+    ..a<$core.int>(52, _omitFieldNames ? '' : 'lowStressDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'lowStressDurationSeconds')
+    ..a<$core.int>(53, _omitFieldNames ? '' : 'mediumStressDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'mediumStressDurationSeconds')
+    ..a<$core.int>(54, _omitFieldNames ? '' : 'highStressDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'highStressDurationSeconds')
+    ..pc<StressGranularDataProto>(
+        55, _omitFieldNames ? '' : 'stressGranularData', $pb.PbFieldType.PM,
+        protoName: 'stressGranularData',
+        subBuilder: StressGranularDataProto.create)
+    ..a<$core.int>(
+        56, _omitFieldNames ? '' : 'stressAvgLevel', $pb.PbFieldType.OS3,
+        protoName: 'stressAvgLevel')
+    ..a<$core.int>(
+        57, _omitFieldNames ? '' : 'stressMaximumLevel', $pb.PbFieldType.OS3,
+        protoName: 'stressMaximumLevel')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PhysicalSummaryProto clone() => PhysicalSummaryProto()..mergeFromMessage(this);
+  PhysicalSummaryProto clone() =>
+      PhysicalSummaryProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PhysicalSummaryProto copyWith(void Function(PhysicalSummaryProto) updates) => super.copyWith((message) => updates(message as PhysicalSummaryProto)) as PhysicalSummaryProto;
+  PhysicalSummaryProto copyWith(void Function(PhysicalSummaryProto) updates) =>
+      super.copyWith((message) => updates(message as PhysicalSummaryProto))
+          as PhysicalSummaryProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1258,9 +1891,11 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   static PhysicalSummaryProto create() => PhysicalSummaryProto._();
   @$core.override
   PhysicalSummaryProto createEmptyInstance() => create();
-  static $pb.PbList<PhysicalSummaryProto> createRepeated() => $pb.PbList<PhysicalSummaryProto>();
+  static $pb.PbList<PhysicalSummaryProto> createRepeated() =>
+      $pb.PbList<PhysicalSummaryProto>();
   @$core.pragma('dart2js:noInline')
-  static PhysicalSummaryProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PhysicalSummaryProto>(create);
+  static PhysicalSummaryProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PhysicalSummaryProto>(create);
   static PhysicalSummaryProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1345,7 +1980,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearInactivitySeconds() => $_clearField(9);
 
   @$pb.TagNumber(10)
-  $pb.PbList<ActivityLevelGranularDataProto> get activityLevelGranularData => $_getList(9);
+  $pb.PbList<ActivityLevelGranularDataProto> get activityLevelGranularData =>
+      $_getList(9);
 
   @$pb.TagNumber(11)
   $core.int get continuousInactivePeriods => $_getIZ(10);
@@ -1386,7 +2022,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   $core.double get caloriesBasalMetabolicRateKcal => $_getN(14);
   @$pb.TagNumber(15)
-  set caloriesBasalMetabolicRateKcal($core.double value) => $_setDouble(14, value);
+  set caloriesBasalMetabolicRateKcal($core.double value) =>
+      $_setDouble(14, value);
   @$pb.TagNumber(15)
   $core.bool hasCaloriesBasalMetabolicRateKcal() => $_has(14);
   @$pb.TagNumber(15)
@@ -1414,7 +2051,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearActiveSteps() => $_clearField(18);
 
   @$pb.TagNumber(19)
-  $pb.PbList<ActiveStepsGranularDataProto> get activeStepsGranularData => $_getList(18);
+  $pb.PbList<ActiveStepsGranularDataProto> get activeStepsGranularData =>
+      $_getList(18);
 
   @$pb.TagNumber(20)
   $core.double get walkedDistanceMeters => $_getN(19);
@@ -1435,7 +2073,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearTraveledDistanceMeters() => $_clearField(21);
 
   @$pb.TagNumber(22)
-  $pb.PbList<TraveledDistanceGranularDataProto> get traveledDistanceGranularData => $_getList(21);
+  $pb.PbList<TraveledDistanceGranularDataProto>
+      get traveledDistanceGranularData => $_getList(21);
 
   @$pb.TagNumber(23)
   $core.double get floorsClimbed => $_getN(22);
@@ -1447,7 +2086,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearFloorsClimbed() => $_clearField(23);
 
   @$pb.TagNumber(24)
-  $pb.PbList<FloorsClimbedGranularDataProto> get floorsClimbedGranularData => $_getList(23);
+  $pb.PbList<FloorsClimbedGranularDataProto> get floorsClimbedGranularData =>
+      $_getList(23);
 
   @$pb.TagNumber(25)
   $core.double get elevationAvgAltitudeMeters => $_getN(24);
@@ -1461,7 +2101,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(26)
   $core.double get elevationMinimumAltitudeMeters => $_getN(25);
   @$pb.TagNumber(26)
-  set elevationMinimumAltitudeMeters($core.double value) => $_setDouble(25, value);
+  set elevationMinimumAltitudeMeters($core.double value) =>
+      $_setDouble(25, value);
   @$pb.TagNumber(26)
   $core.bool hasElevationMinimumAltitudeMeters() => $_has(25);
   @$pb.TagNumber(26)
@@ -1470,7 +2111,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(27)
   $core.double get elevationMaximumAltitudeMeters => $_getN(26);
   @$pb.TagNumber(27)
-  set elevationMaximumAltitudeMeters($core.double value) => $_setDouble(26, value);
+  set elevationMaximumAltitudeMeters($core.double value) =>
+      $_setDouble(26, value);
   @$pb.TagNumber(27)
   $core.bool hasElevationMaximumAltitudeMeters() => $_has(26);
   @$pb.TagNumber(27)
@@ -1479,7 +2121,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(28)
   $core.double get elevationLossActualAltitudeMeters => $_getN(27);
   @$pb.TagNumber(28)
-  set elevationLossActualAltitudeMeters($core.double value) => $_setDouble(27, value);
+  set elevationLossActualAltitudeMeters($core.double value) =>
+      $_setDouble(27, value);
   @$pb.TagNumber(28)
   $core.bool hasElevationLossActualAltitudeMeters() => $_has(27);
   @$pb.TagNumber(28)
@@ -1488,7 +2131,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(29)
   $core.double get elevationGainActualAltitudeMeters => $_getN(28);
   @$pb.TagNumber(29)
-  set elevationGainActualAltitudeMeters($core.double value) => $_setDouble(28, value);
+  set elevationGainActualAltitudeMeters($core.double value) =>
+      $_setDouble(28, value);
   @$pb.TagNumber(29)
   $core.bool hasElevationGainActualAltitudeMeters() => $_has(28);
   @$pb.TagNumber(29)
@@ -1504,7 +2148,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearElevationPlannedGainMeters() => $_clearField(30);
 
   @$pb.TagNumber(31)
-  $pb.PbList<ElevationGranularDataProto> get elevationGranularData => $_getList(30);
+  $pb.PbList<ElevationGranularDataProto> get elevationGranularData =>
+      $_getList(30);
 
   @$pb.TagNumber(32)
   $core.int get swimmingNumStrokes => $_getIZ(31);
@@ -1543,7 +2188,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearSwimmingTotalDistanceMeters() => $_clearField(35);
 
   @$pb.TagNumber(36)
-  $pb.PbList<SwimmingDistanceGranularDataProto> get swimmingDistanceGranularData => $_getList(35);
+  $pb.PbList<SwimmingDistanceGranularDataProto>
+      get swimmingDistanceGranularData => $_getList(35);
 
   @$pb.TagNumber(37)
   $core.int get hrMaximumBpm => $_getIZ(36);
@@ -1606,7 +2252,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   $pb.PbList<HrvSdnnGranularDataProto> get hrvSdnnGranularData => $_getList(43);
 
   @$pb.TagNumber(45)
-  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData => $_getList(44);
+  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData =>
+      $_getList(44);
 
   @$pb.TagNumber(46)
   $core.double get saturationAvgPercentage => $_getN(45);
@@ -1618,7 +2265,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearSaturationAvgPercentage() => $_clearField(46);
 
   @$pb.TagNumber(47)
-  $pb.PbList<SaturationGranularDataProto> get saturationGranularData => $_getList(46);
+  $pb.PbList<SaturationGranularDataProto> get saturationGranularData =>
+      $_getList(46);
 
   @$pb.TagNumber(48)
   $core.double get vo2MaxMlPerMinPerKg => $_getN(47);
@@ -1635,7 +2283,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(50)
   $core.int get stressAtRestDurationSeconds => $_getIZ(49);
   @$pb.TagNumber(50)
-  set stressAtRestDurationSeconds($core.int value) => $_setSignedInt32(49, value);
+  set stressAtRestDurationSeconds($core.int value) =>
+      $_setSignedInt32(49, value);
   @$pb.TagNumber(50)
   $core.bool hasStressAtRestDurationSeconds() => $_has(49);
   @$pb.TagNumber(50)
@@ -1662,7 +2311,8 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(53)
   $core.int get mediumStressDurationSeconds => $_getIZ(52);
   @$pb.TagNumber(53)
-  set mediumStressDurationSeconds($core.int value) => $_setSignedInt32(52, value);
+  set mediumStressDurationSeconds($core.int value) =>
+      $_setSignedInt32(52, value);
   @$pb.TagNumber(53)
   $core.bool hasMediumStressDurationSeconds() => $_has(52);
   @$pb.TagNumber(53)
@@ -1699,11 +2349,7 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearStressMaximumLevel() => $_clearField(57);
 }
 
-enum PhysicalSummaryResultProto_Result {
-  success, 
-  failure, 
-  notSet
-}
+enum PhysicalSummaryResultProto_Result { success, failure, notSet }
 
 class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
   factory PhysicalSummaryResultProto({
@@ -1718,25 +2364,38 @@ class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
 
   PhysicalSummaryResultProto._();
 
-  factory PhysicalSummaryResultProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory PhysicalSummaryResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory PhysicalSummaryResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PhysicalSummaryResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, PhysicalSummaryResultProto_Result> _PhysicalSummaryResultProto_ResultByTag = {
-    1 : PhysicalSummaryResultProto_Result.success,
-    2 : PhysicalSummaryResultProto_Result.failure,
-    0 : PhysicalSummaryResultProto_Result.notSet
+  static const $core.Map<$core.int, PhysicalSummaryResultProto_Result>
+      _PhysicalSummaryResultProto_ResultByTag = {
+    1: PhysicalSummaryResultProto_Result.success,
+    2: PhysicalSummaryResultProto_Result.failure,
+    0: PhysicalSummaryResultProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PhysicalSummaryResultProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PhysicalSummaryResultProto',
+      createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<PhysicalSummaryProto>(1, _omitFieldNames ? '' : 'success', subBuilder: PhysicalSummaryProto.create)
-    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..aOM<PhysicalSummaryProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: PhysicalSummaryProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PhysicalSummaryResultProto clone() => PhysicalSummaryResultProto()..mergeFromMessage(this);
+  PhysicalSummaryResultProto clone() =>
+      PhysicalSummaryResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PhysicalSummaryResultProto copyWith(void Function(PhysicalSummaryResultProto) updates) => super.copyWith((message) => updates(message as PhysicalSummaryResultProto)) as PhysicalSummaryResultProto;
+  PhysicalSummaryResultProto copyWith(
+          void Function(PhysicalSummaryResultProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as PhysicalSummaryResultProto))
+          as PhysicalSummaryResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -1745,12 +2404,15 @@ class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
   static PhysicalSummaryResultProto create() => PhysicalSummaryResultProto._();
   @$core.override
   PhysicalSummaryResultProto createEmptyInstance() => create();
-  static $pb.PbList<PhysicalSummaryResultProto> createRepeated() => $pb.PbList<PhysicalSummaryResultProto>();
+  static $pb.PbList<PhysicalSummaryResultProto> createRepeated() =>
+      $pb.PbList<PhysicalSummaryResultProto>();
   @$core.pragma('dart2js:noInline')
-  static PhysicalSummaryResultProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PhysicalSummaryResultProto>(create);
+  static PhysicalSummaryResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PhysicalSummaryResultProto>(create);
   static PhysicalSummaryResultProto? _defaultInstance;
 
-  PhysicalSummaryResultProto_Result whichResult() => _PhysicalSummaryResultProto_ResultByTag[$_whichOneof(0)]!;
+  PhysicalSummaryResultProto_Result whichResult() =>
+      _PhysicalSummaryResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -1777,8 +2439,8 @@ class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
 }
 
 enum BodySummaryProto_IsAPredictedCycle {
-  isAPredictedCycleValue, 
-  isAPredictedCycleUnknown, 
+  isAPredictedCycleValue,
+  isAPredictedCycleUnknown,
   notSet
 }
 
@@ -1801,7 +2463,8 @@ class BodySummaryProto extends $pb.GeneratedMessage {
     $core.Iterable<BloodPressureObjectProto>? bloodPressureAvg,
     $core.Iterable<BloodPressureGranularDataProto>? bloodPressureGranularData,
     $core.double? waterTotalConsumptionMl,
-    $core.Iterable<HydrationAmountGranularDataProto>? hydrationAmountGranularData,
+    $core.Iterable<HydrationAmountGranularDataProto>?
+        hydrationAmountGranularData,
     $core.Iterable<HydrationLevelGranularDataProto>? hydrationLevelGranularData,
     $core.int? hrMaximumBpm,
     $core.int? hrMinimumBpm,
@@ -1847,28 +2510,43 @@ class BodySummaryProto extends $pb.GeneratedMessage {
     $core.int? daysUntilNextPhase,
     $core.bool? isAPredictedCycleValue,
     $core.bool? isAPredictedCycleUnknown,
-    $core.Iterable<MenstruationFlowGranularDataProto>? menstruationFlowGranularData,
+    $core.Iterable<MenstruationFlowGranularDataProto>?
+        menstruationFlowGranularData,
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
     if (sourceOfData != null) result.sourceOfData = sourceOfData;
-    if (wasTheUserUnderPhysicalActivity != null) result.wasTheUserUnderPhysicalActivity = wasTheUserUnderPhysicalActivity;
-    if (waistCircumferenceCm != null) result.waistCircumferenceCm = waistCircumferenceCm;
-    if (hipCircumferenceCm != null) result.hipCircumferenceCm = hipCircumferenceCm;
-    if (chestCircumferenceCm != null) result.chestCircumferenceCm = chestCircumferenceCm;
-    if (boneCompositionPercentage != null) result.boneCompositionPercentage = boneCompositionPercentage;
-    if (muscleCompositionPercentage != null) result.muscleCompositionPercentage = muscleCompositionPercentage;
-    if (waterCompositionPercentage != null) result.waterCompositionPercentage = waterCompositionPercentage;
+    if (wasTheUserUnderPhysicalActivity != null)
+      result.wasTheUserUnderPhysicalActivity = wasTheUserUnderPhysicalActivity;
+    if (waistCircumferenceCm != null)
+      result.waistCircumferenceCm = waistCircumferenceCm;
+    if (hipCircumferenceCm != null)
+      result.hipCircumferenceCm = hipCircumferenceCm;
+    if (chestCircumferenceCm != null)
+      result.chestCircumferenceCm = chestCircumferenceCm;
+    if (boneCompositionPercentage != null)
+      result.boneCompositionPercentage = boneCompositionPercentage;
+    if (muscleCompositionPercentage != null)
+      result.muscleCompositionPercentage = muscleCompositionPercentage;
+    if (waterCompositionPercentage != null)
+      result.waterCompositionPercentage = waterCompositionPercentage;
     if (weightKg != null) result.weightKg = weightKg;
     if (heightCm != null) result.heightCm = heightCm;
     if (bmi != null) result.bmi = bmi;
-    if (bloodGlucoseAvgMgPerDl != null) result.bloodGlucoseAvgMgPerDl = bloodGlucoseAvgMgPerDl;
-    if (bloodGlucoseGranularData != null) result.bloodGlucoseGranularData.addAll(bloodGlucoseGranularData);
-    if (bloodPressureAvg != null) result.bloodPressureAvg.addAll(bloodPressureAvg);
-    if (bloodPressureGranularData != null) result.bloodPressureGranularData.addAll(bloodPressureGranularData);
-    if (waterTotalConsumptionMl != null) result.waterTotalConsumptionMl = waterTotalConsumptionMl;
-    if (hydrationAmountGranularData != null) result.hydrationAmountGranularData.addAll(hydrationAmountGranularData);
-    if (hydrationLevelGranularData != null) result.hydrationLevelGranularData.addAll(hydrationLevelGranularData);
+    if (bloodGlucoseAvgMgPerDl != null)
+      result.bloodGlucoseAvgMgPerDl = bloodGlucoseAvgMgPerDl;
+    if (bloodGlucoseGranularData != null)
+      result.bloodGlucoseGranularData.addAll(bloodGlucoseGranularData);
+    if (bloodPressureAvg != null)
+      result.bloodPressureAvg.addAll(bloodPressureAvg);
+    if (bloodPressureGranularData != null)
+      result.bloodPressureGranularData.addAll(bloodPressureGranularData);
+    if (waterTotalConsumptionMl != null)
+      result.waterTotalConsumptionMl = waterTotalConsumptionMl;
+    if (hydrationAmountGranularData != null)
+      result.hydrationAmountGranularData.addAll(hydrationAmountGranularData);
+    if (hydrationLevelGranularData != null)
+      result.hydrationLevelGranularData.addAll(hydrationLevelGranularData);
     if (hrMaximumBpm != null) result.hrMaximumBpm = hrMaximumBpm;
     if (hrMinimumBpm != null) result.hrMinimumBpm = hrMinimumBpm;
     if (hrAvgBpm != null) result.hrAvgBpm = hrAvgBpm;
@@ -1876,130 +2554,286 @@ class BodySummaryProto extends $pb.GeneratedMessage {
     if (hrGranularData != null) result.hrGranularData.addAll(hrGranularData);
     if (hrvAvgRmssd != null) result.hrvAvgRmssd = hrvAvgRmssd;
     if (hrvAvgSdnn != null) result.hrvAvgSdnn = hrvAvgSdnn;
-    if (hrvSdnnGranularData != null) result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
-    if (hrvRmssdGranularData != null) result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
+    if (hrvSdnnGranularData != null)
+      result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
+    if (hrvRmssdGranularData != null)
+      result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
     if (moodMinimumScale != null) result.moodMinimumScale = moodMinimumScale;
     if (moodAvgScale != null) result.moodAvgScale = moodAvgScale;
     if (moodMaximumScale != null) result.moodMaximumScale = moodMaximumScale;
-    if (moodGranularData != null) result.moodGranularData.addAll(moodGranularData);
+    if (moodGranularData != null)
+      result.moodGranularData.addAll(moodGranularData);
     if (moodDeltaScale != null) result.moodDeltaScale = moodDeltaScale;
     if (foodIntake != null) result.foodIntake = foodIntake;
-    if (caloriesIntakeKcal != null) result.caloriesIntakeKcal = caloriesIntakeKcal;
+    if (caloriesIntakeKcal != null)
+      result.caloriesIntakeKcal = caloriesIntakeKcal;
     if (proteinIntakeG != null) result.proteinIntakeG = proteinIntakeG;
     if (sugarIntakeG != null) result.sugarIntakeG = sugarIntakeG;
     if (fatIntakeG != null) result.fatIntakeG = fatIntakeG;
     if (transFatIntakeG != null) result.transFatIntakeG = transFatIntakeG;
-    if (carbohydratesIntakeG != null) result.carbohydratesIntakeG = carbohydratesIntakeG;
+    if (carbohydratesIntakeG != null)
+      result.carbohydratesIntakeG = carbohydratesIntakeG;
     if (fiberIntakeG != null) result.fiberIntakeG = fiberIntakeG;
     if (alcoholIntakeG != null) result.alcoholIntakeG = alcoholIntakeG;
     if (sodiumIntakeMg != null) result.sodiumIntakeMg = sodiumIntakeMg;
-    if (cholesterolIntakeMg != null) result.cholesterolIntakeMg = cholesterolIntakeMg;
-    if (saturationAvgPercentage != null) result.saturationAvgPercentage = saturationAvgPercentage;
-    if (saturationGranularData != null) result.saturationGranularData.addAll(saturationGranularData);
-    if (vo2MaxMlPerMinPerKg != null) result.vo2MaxMlPerMinPerKg = vo2MaxMlPerMinPerKg;
+    if (cholesterolIntakeMg != null)
+      result.cholesterolIntakeMg = cholesterolIntakeMg;
+    if (saturationAvgPercentage != null)
+      result.saturationAvgPercentage = saturationAvgPercentage;
+    if (saturationGranularData != null)
+      result.saturationGranularData.addAll(saturationGranularData);
+    if (vo2MaxMlPerMinPerKg != null)
+      result.vo2MaxMlPerMinPerKg = vo2MaxMlPerMinPerKg;
     if (vo2GranularData != null) result.vo2GranularData.addAll(vo2GranularData);
-    if (temperatureMinimum != null) result.temperatureMinimum.addAll(temperatureMinimum);
+    if (temperatureMinimum != null)
+      result.temperatureMinimum.addAll(temperatureMinimum);
     if (temperatureAvg != null) result.temperatureAvg.addAll(temperatureAvg);
-    if (temperatureMaximum != null) result.temperatureMaximum.addAll(temperatureMaximum);
-    if (temperatureGranularData != null) result.temperatureGranularData.addAll(temperatureGranularData);
-    if (temperatureDelta != null) result.temperatureDelta.addAll(temperatureDelta);
-    if (lastUpdatedDatetime != null) result.lastUpdatedDatetime = lastUpdatedDatetime;
+    if (temperatureMaximum != null)
+      result.temperatureMaximum.addAll(temperatureMaximum);
+    if (temperatureGranularData != null)
+      result.temperatureGranularData.addAll(temperatureGranularData);
+    if (temperatureDelta != null)
+      result.temperatureDelta.addAll(temperatureDelta);
+    if (lastUpdatedDatetime != null)
+      result.lastUpdatedDatetime = lastUpdatedDatetime;
     if (periodStartDate != null) result.periodStartDate = periodStartDate;
     if (cycleDay != null) result.cycleDay = cycleDay;
     if (cycleLengthDays != null) result.cycleLengthDays = cycleLengthDays;
-    if (predictedCycleLengthDays != null) result.predictedCycleLengthDays = predictedCycleLengthDays;
+    if (predictedCycleLengthDays != null)
+      result.predictedCycleLengthDays = predictedCycleLengthDays;
     if (currentPhase != null) result.currentPhase = currentPhase;
-    if (lengthOfCurrentPhaseDays != null) result.lengthOfCurrentPhaseDays = lengthOfCurrentPhaseDays;
-    if (daysUntilNextPhase != null) result.daysUntilNextPhase = daysUntilNextPhase;
-    if (isAPredictedCycleValue != null) result.isAPredictedCycleValue = isAPredictedCycleValue;
-    if (isAPredictedCycleUnknown != null) result.isAPredictedCycleUnknown = isAPredictedCycleUnknown;
-    if (menstruationFlowGranularData != null) result.menstruationFlowGranularData.addAll(menstruationFlowGranularData);
+    if (lengthOfCurrentPhaseDays != null)
+      result.lengthOfCurrentPhaseDays = lengthOfCurrentPhaseDays;
+    if (daysUntilNextPhase != null)
+      result.daysUntilNextPhase = daysUntilNextPhase;
+    if (isAPredictedCycleValue != null)
+      result.isAPredictedCycleValue = isAPredictedCycleValue;
+    if (isAPredictedCycleUnknown != null)
+      result.isAPredictedCycleUnknown = isAPredictedCycleUnknown;
+    if (menstruationFlowGranularData != null)
+      result.menstruationFlowGranularData.addAll(menstruationFlowGranularData);
     return result;
   }
 
   BodySummaryProto._();
 
-  factory BodySummaryProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory BodySummaryProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BodySummaryProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BodySummaryProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, BodySummaryProto_IsAPredictedCycle> _BodySummaryProto_IsAPredictedCycleByTag = {
-    62 : BodySummaryProto_IsAPredictedCycle.isAPredictedCycleValue,
-    63 : BodySummaryProto_IsAPredictedCycle.isAPredictedCycleUnknown,
-    0 : BodySummaryProto_IsAPredictedCycle.notSet
+  static const $core.Map<$core.int, BodySummaryProto_IsAPredictedCycle>
+      _BodySummaryProto_IsAPredictedCycleByTag = {
+    62: BodySummaryProto_IsAPredictedCycle.isAPredictedCycleValue,
+    63: BodySummaryProto_IsAPredictedCycle.isAPredictedCycleUnknown,
+    0: BodySummaryProto_IsAPredictedCycle.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BodySummaryProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BodySummaryProto',
+      createEmptyInstance: create)
     ..oo(0, [62, 63])
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
     ..aOS(2, _omitFieldNames ? '' : 'sourceOfData', protoName: 'sourceOfData')
-    ..aOB(3, _omitFieldNames ? '' : 'wasTheUserUnderPhysicalActivity', protoName: 'wasTheUserUnderPhysicalActivity')
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'waistCircumferenceCm', $pb.PbFieldType.OD, protoName: 'waistCircumferenceCm')
-    ..a<$core.double>(5, _omitFieldNames ? '' : 'hipCircumferenceCm', $pb.PbFieldType.OD, protoName: 'hipCircumferenceCm')
-    ..a<$core.double>(6, _omitFieldNames ? '' : 'chestCircumferenceCm', $pb.PbFieldType.OD, protoName: 'chestCircumferenceCm')
-    ..a<$core.double>(7, _omitFieldNames ? '' : 'boneCompositionPercentage', $pb.PbFieldType.OD, protoName: 'boneCompositionPercentage')
-    ..a<$core.double>(8, _omitFieldNames ? '' : 'muscleCompositionPercentage', $pb.PbFieldType.OD, protoName: 'muscleCompositionPercentage')
-    ..a<$core.double>(9, _omitFieldNames ? '' : 'waterCompositionPercentage', $pb.PbFieldType.OD, protoName: 'waterCompositionPercentage')
-    ..a<$core.double>(10, _omitFieldNames ? '' : 'weightKg', $pb.PbFieldType.OD, protoName: 'weightKg')
-    ..a<$core.double>(11, _omitFieldNames ? '' : 'heightCm', $pb.PbFieldType.OD, protoName: 'heightCm')
+    ..aOB(3, _omitFieldNames ? '' : 'wasTheUserUnderPhysicalActivity',
+        protoName: 'wasTheUserUnderPhysicalActivity')
+    ..a<$core.double>(
+        4, _omitFieldNames ? '' : 'waistCircumferenceCm', $pb.PbFieldType.OD,
+        protoName: 'waistCircumferenceCm')
+    ..a<$core.double>(
+        5, _omitFieldNames ? '' : 'hipCircumferenceCm', $pb.PbFieldType.OD,
+        protoName: 'hipCircumferenceCm')
+    ..a<$core.double>(
+        6, _omitFieldNames ? '' : 'chestCircumferenceCm', $pb.PbFieldType.OD,
+        protoName: 'chestCircumferenceCm')
+    ..a<$core.double>(7, _omitFieldNames ? '' : 'boneCompositionPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'boneCompositionPercentage')
+    ..a<$core.double>(8, _omitFieldNames ? '' : 'muscleCompositionPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'muscleCompositionPercentage')
+    ..a<$core.double>(9, _omitFieldNames ? '' : 'waterCompositionPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'waterCompositionPercentage')
+    ..a<$core.double>(10, _omitFieldNames ? '' : 'weightKg', $pb.PbFieldType.OD,
+        protoName: 'weightKg')
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'heightCm', $pb.PbFieldType.OD,
+        protoName: 'heightCm')
     ..a<$core.double>(12, _omitFieldNames ? '' : 'bmi', $pb.PbFieldType.OD)
-    ..a<$core.double>(13, _omitFieldNames ? '' : 'bloodGlucoseAvgMgPerDl', $pb.PbFieldType.OD, protoName: 'bloodGlucoseAvgMgPerDl')
-    ..pc<BloodGlucoseGranularDataProto>(14, _omitFieldNames ? '' : 'bloodGlucoseGranularData', $pb.PbFieldType.PM, protoName: 'bloodGlucoseGranularData', subBuilder: BloodGlucoseGranularDataProto.create)
-    ..pc<BloodPressureObjectProto>(15, _omitFieldNames ? '' : 'bloodPressureAvg', $pb.PbFieldType.PM, protoName: 'bloodPressureAvg', subBuilder: BloodPressureObjectProto.create)
-    ..pc<BloodPressureGranularDataProto>(16, _omitFieldNames ? '' : 'bloodPressureGranularData', $pb.PbFieldType.PM, protoName: 'bloodPressureGranularData', subBuilder: BloodPressureGranularDataProto.create)
-    ..a<$core.double>(17, _omitFieldNames ? '' : 'waterTotalConsumptionMl', $pb.PbFieldType.OD, protoName: 'waterTotalConsumptionMl')
-    ..pc<HydrationAmountGranularDataProto>(18, _omitFieldNames ? '' : 'hydrationAmountGranularData', $pb.PbFieldType.PM, protoName: 'hydrationAmountGranularData', subBuilder: HydrationAmountGranularDataProto.create)
-    ..pc<HydrationLevelGranularDataProto>(19, _omitFieldNames ? '' : 'hydrationLevelGranularData', $pb.PbFieldType.PM, protoName: 'hydrationLevelGranularData', subBuilder: HydrationLevelGranularDataProto.create)
-    ..a<$core.int>(20, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3, protoName: 'hrMaximumBpm')
-    ..a<$core.int>(21, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3, protoName: 'hrMinimumBpm')
-    ..a<$core.int>(22, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3, protoName: 'hrAvgBpm')
-    ..a<$core.int>(23, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3, protoName: 'hrRestingBpm')
-    ..pc<HrGranularDataProto>(24, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM, protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
-    ..a<$core.double>(25, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD, protoName: 'hrvAvgRmssd')
-    ..a<$core.double>(26, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD, protoName: 'hrvAvgSdnn')
-    ..pc<HrvSdnnGranularDataProto>(27, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM, protoName: 'hrvSdnnGranularData', subBuilder: HrvSdnnGranularDataProto.create)
-    ..pc<HrvRmssdGranularDataProto>(28, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM, protoName: 'hrvRmssdGranularData', subBuilder: HrvRmssdGranularDataProto.create)
-    ..a<$core.double>(29, _omitFieldNames ? '' : 'moodMinimumScale', $pb.PbFieldType.OD, protoName: 'moodMinimumScale')
-    ..a<$core.double>(30, _omitFieldNames ? '' : 'moodAvgScale', $pb.PbFieldType.OD, protoName: 'moodAvgScale')
-    ..a<$core.double>(31, _omitFieldNames ? '' : 'moodMaximumScale', $pb.PbFieldType.OD, protoName: 'moodMaximumScale')
-    ..pc<MoodGranularDataProto>(32, _omitFieldNames ? '' : 'moodGranularData', $pb.PbFieldType.PM, protoName: 'moodGranularData', subBuilder: MoodGranularDataProto.create)
-    ..a<$core.double>(33, _omitFieldNames ? '' : 'moodDeltaScale', $pb.PbFieldType.OD, protoName: 'moodDeltaScale')
-    ..a<$core.double>(34, _omitFieldNames ? '' : 'foodIntake', $pb.PbFieldType.OD, protoName: 'foodIntake')
-    ..a<$core.double>(35, _omitFieldNames ? '' : 'caloriesIntakeKcal', $pb.PbFieldType.OD, protoName: 'caloriesIntakeKcal')
-    ..a<$core.double>(36, _omitFieldNames ? '' : 'proteinIntakeG', $pb.PbFieldType.OD, protoName: 'proteinIntakeG')
-    ..a<$core.double>(37, _omitFieldNames ? '' : 'sugarIntakeG', $pb.PbFieldType.OD, protoName: 'sugarIntakeG')
-    ..a<$core.double>(38, _omitFieldNames ? '' : 'fatIntakeG', $pb.PbFieldType.OD, protoName: 'fatIntakeG')
-    ..a<$core.double>(39, _omitFieldNames ? '' : 'transFatIntakeG', $pb.PbFieldType.OD, protoName: 'transFatIntakeG')
-    ..a<$core.double>(40, _omitFieldNames ? '' : 'carbohydratesIntakeG', $pb.PbFieldType.OD, protoName: 'carbohydratesIntakeG')
-    ..a<$core.double>(41, _omitFieldNames ? '' : 'fiberIntakeG', $pb.PbFieldType.OD, protoName: 'fiberIntakeG')
-    ..a<$core.double>(42, _omitFieldNames ? '' : 'alcoholIntakeG', $pb.PbFieldType.OD, protoName: 'alcoholIntakeG')
-    ..a<$core.double>(43, _omitFieldNames ? '' : 'sodiumIntakeMg', $pb.PbFieldType.OD, protoName: 'sodiumIntakeMg')
-    ..a<$core.double>(44, _omitFieldNames ? '' : 'cholesterolIntakeMg', $pb.PbFieldType.OD, protoName: 'cholesterolIntakeMg')
-    ..a<$core.double>(45, _omitFieldNames ? '' : 'saturationAvgPercentage', $pb.PbFieldType.OD, protoName: 'saturationAvgPercentage')
-    ..pc<SaturationGranularDataProto>(46, _omitFieldNames ? '' : 'saturationGranularData', $pb.PbFieldType.PM, protoName: 'saturationGranularData', subBuilder: SaturationGranularDataProto.create)
-    ..a<$core.double>(47, _omitFieldNames ? '' : 'vo2MaxMlPerMinPerKg', $pb.PbFieldType.OD, protoName: 'vo2MaxMlPerMinPerKg')
-    ..pc<Vo2GranularDataProto>(48, _omitFieldNames ? '' : 'vo2GranularData', $pb.PbFieldType.PM, protoName: 'vo2GranularData', subBuilder: Vo2GranularDataProto.create)
-    ..pc<TemperatureObjectProto>(49, _omitFieldNames ? '' : 'temperatureMinimum', $pb.PbFieldType.PM, protoName: 'temperatureMinimum', subBuilder: TemperatureObjectProto.create)
-    ..pc<TemperatureObjectProto>(50, _omitFieldNames ? '' : 'temperatureAvg', $pb.PbFieldType.PM, protoName: 'temperatureAvg', subBuilder: TemperatureObjectProto.create)
-    ..pc<TemperatureObjectProto>(51, _omitFieldNames ? '' : 'temperatureMaximum', $pb.PbFieldType.PM, protoName: 'temperatureMaximum', subBuilder: TemperatureObjectProto.create)
-    ..pc<TemperatureGranularDataProto>(52, _omitFieldNames ? '' : 'temperatureGranularData', $pb.PbFieldType.PM, protoName: 'temperatureGranularData', subBuilder: TemperatureGranularDataProto.create)
-    ..pc<TemperatureObjectProto>(53, _omitFieldNames ? '' : 'temperatureDelta', $pb.PbFieldType.PM, protoName: 'temperatureDelta', subBuilder: TemperatureObjectProto.create)
-    ..aOS(54, _omitFieldNames ? '' : 'lastUpdatedDatetime', protoName: 'lastUpdatedDatetime')
-    ..aOS(55, _omitFieldNames ? '' : 'periodStartDate', protoName: 'periodStartDate')
-    ..a<$core.int>(56, _omitFieldNames ? '' : 'cycleDay', $pb.PbFieldType.OS3, protoName: 'cycleDay')
-    ..a<$core.int>(57, _omitFieldNames ? '' : 'cycleLengthDays', $pb.PbFieldType.OS3, protoName: 'cycleLengthDays')
-    ..a<$core.int>(58, _omitFieldNames ? '' : 'predictedCycleLengthDays', $pb.PbFieldType.OS3, protoName: 'predictedCycleLengthDays')
+    ..a<$core.double>(
+        13, _omitFieldNames ? '' : 'bloodGlucoseAvgMgPerDl', $pb.PbFieldType.OD,
+        protoName: 'bloodGlucoseAvgMgPerDl')
+    ..pc<BloodGlucoseGranularDataProto>(14,
+        _omitFieldNames ? '' : 'bloodGlucoseGranularData', $pb.PbFieldType.PM,
+        protoName: 'bloodGlucoseGranularData',
+        subBuilder: BloodGlucoseGranularDataProto.create)
+    ..pc<BloodPressureObjectProto>(
+        15, _omitFieldNames ? '' : 'bloodPressureAvg', $pb.PbFieldType.PM,
+        protoName: 'bloodPressureAvg',
+        subBuilder: BloodPressureObjectProto.create)
+    ..pc<BloodPressureGranularDataProto>(16,
+        _omitFieldNames ? '' : 'bloodPressureGranularData', $pb.PbFieldType.PM,
+        protoName: 'bloodPressureGranularData',
+        subBuilder: BloodPressureGranularDataProto.create)
+    ..a<$core.double>(17, _omitFieldNames ? '' : 'waterTotalConsumptionMl',
+        $pb.PbFieldType.OD,
+        protoName: 'waterTotalConsumptionMl')
+    ..pc<HydrationAmountGranularDataProto>(
+        18,
+        _omitFieldNames ? '' : 'hydrationAmountGranularData',
+        $pb.PbFieldType.PM,
+        protoName: 'hydrationAmountGranularData',
+        subBuilder: HydrationAmountGranularDataProto.create)
+    ..pc<HydrationLevelGranularDataProto>(19,
+        _omitFieldNames ? '' : 'hydrationLevelGranularData', $pb.PbFieldType.PM,
+        protoName: 'hydrationLevelGranularData',
+        subBuilder: HydrationLevelGranularDataProto.create)
+    ..a<$core.int>(
+        20, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMaximumBpm')
+    ..a<$core.int>(
+        21, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMinimumBpm')
+    ..a<$core.int>(22, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrAvgBpm')
+    ..a<$core.int>(
+        23, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrRestingBpm')
+    ..pc<HrGranularDataProto>(
+        24, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
+    ..a<$core.double>(
+        25, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgRmssd')
+    ..a<$core.double>(
+        26, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgSdnn')
+    ..pc<HrvSdnnGranularDataProto>(
+        27, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvSdnnGranularData',
+        subBuilder: HrvSdnnGranularDataProto.create)
+    ..pc<HrvRmssdGranularDataProto>(
+        28, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvRmssdGranularData',
+        subBuilder: HrvRmssdGranularDataProto.create)
+    ..a<$core.double>(
+        29, _omitFieldNames ? '' : 'moodMinimumScale', $pb.PbFieldType.OD,
+        protoName: 'moodMinimumScale')
+    ..a<$core.double>(
+        30, _omitFieldNames ? '' : 'moodAvgScale', $pb.PbFieldType.OD,
+        protoName: 'moodAvgScale')
+    ..a<$core.double>(
+        31, _omitFieldNames ? '' : 'moodMaximumScale', $pb.PbFieldType.OD,
+        protoName: 'moodMaximumScale')
+    ..pc<MoodGranularDataProto>(
+        32, _omitFieldNames ? '' : 'moodGranularData', $pb.PbFieldType.PM,
+        protoName: 'moodGranularData', subBuilder: MoodGranularDataProto.create)
+    ..a<$core.double>(
+        33, _omitFieldNames ? '' : 'moodDeltaScale', $pb.PbFieldType.OD,
+        protoName: 'moodDeltaScale')
+    ..a<$core.double>(
+        34, _omitFieldNames ? '' : 'foodIntake', $pb.PbFieldType.OD,
+        protoName: 'foodIntake')
+    ..a<$core.double>(
+        35, _omitFieldNames ? '' : 'caloriesIntakeKcal', $pb.PbFieldType.OD,
+        protoName: 'caloriesIntakeKcal')
+    ..a<$core.double>(
+        36, _omitFieldNames ? '' : 'proteinIntakeG', $pb.PbFieldType.OD,
+        protoName: 'proteinIntakeG')
+    ..a<$core.double>(
+        37, _omitFieldNames ? '' : 'sugarIntakeG', $pb.PbFieldType.OD,
+        protoName: 'sugarIntakeG')
+    ..a<$core.double>(
+        38, _omitFieldNames ? '' : 'fatIntakeG', $pb.PbFieldType.OD,
+        protoName: 'fatIntakeG')
+    ..a<$core.double>(
+        39, _omitFieldNames ? '' : 'transFatIntakeG', $pb.PbFieldType.OD,
+        protoName: 'transFatIntakeG')
+    ..a<$core.double>(
+        40, _omitFieldNames ? '' : 'carbohydratesIntakeG', $pb.PbFieldType.OD,
+        protoName: 'carbohydratesIntakeG')
+    ..a<$core.double>(
+        41, _omitFieldNames ? '' : 'fiberIntakeG', $pb.PbFieldType.OD,
+        protoName: 'fiberIntakeG')
+    ..a<$core.double>(
+        42, _omitFieldNames ? '' : 'alcoholIntakeG', $pb.PbFieldType.OD,
+        protoName: 'alcoholIntakeG')
+    ..a<$core.double>(
+        43, _omitFieldNames ? '' : 'sodiumIntakeMg', $pb.PbFieldType.OD,
+        protoName: 'sodiumIntakeMg')
+    ..a<$core.double>(
+        44, _omitFieldNames ? '' : 'cholesterolIntakeMg', $pb.PbFieldType.OD,
+        protoName: 'cholesterolIntakeMg')
+    ..a<$core.double>(45, _omitFieldNames ? '' : 'saturationAvgPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'saturationAvgPercentage')
+    ..pc<SaturationGranularDataProto>(
+        46, _omitFieldNames ? '' : 'saturationGranularData', $pb.PbFieldType.PM,
+        protoName: 'saturationGranularData',
+        subBuilder: SaturationGranularDataProto.create)
+    ..a<$core.double>(
+        47, _omitFieldNames ? '' : 'vo2MaxMlPerMinPerKg', $pb.PbFieldType.OD,
+        protoName: 'vo2MaxMlPerMinPerKg')
+    ..pc<Vo2GranularDataProto>(
+        48, _omitFieldNames ? '' : 'vo2GranularData', $pb.PbFieldType.PM,
+        protoName: 'vo2GranularData', subBuilder: Vo2GranularDataProto.create)
+    ..pc<TemperatureObjectProto>(
+        49, _omitFieldNames ? '' : 'temperatureMinimum', $pb.PbFieldType.PM,
+        protoName: 'temperatureMinimum',
+        subBuilder: TemperatureObjectProto.create)
+    ..pc<TemperatureObjectProto>(
+        50, _omitFieldNames ? '' : 'temperatureAvg', $pb.PbFieldType.PM,
+        protoName: 'temperatureAvg', subBuilder: TemperatureObjectProto.create)
+    ..pc<TemperatureObjectProto>(
+        51, _omitFieldNames ? '' : 'temperatureMaximum', $pb.PbFieldType.PM,
+        protoName: 'temperatureMaximum',
+        subBuilder: TemperatureObjectProto.create)
+    ..pc<TemperatureGranularDataProto>(52,
+        _omitFieldNames ? '' : 'temperatureGranularData', $pb.PbFieldType.PM,
+        protoName: 'temperatureGranularData',
+        subBuilder: TemperatureGranularDataProto.create)
+    ..pc<TemperatureObjectProto>(
+        53, _omitFieldNames ? '' : 'temperatureDelta', $pb.PbFieldType.PM,
+        protoName: 'temperatureDelta',
+        subBuilder: TemperatureObjectProto.create)
+    ..aOS(54, _omitFieldNames ? '' : 'lastUpdatedDatetime',
+        protoName: 'lastUpdatedDatetime')
+    ..aOS(55, _omitFieldNames ? '' : 'periodStartDate',
+        protoName: 'periodStartDate')
+    ..a<$core.int>(56, _omitFieldNames ? '' : 'cycleDay', $pb.PbFieldType.OS3,
+        protoName: 'cycleDay')
+    ..a<$core.int>(
+        57, _omitFieldNames ? '' : 'cycleLengthDays', $pb.PbFieldType.OS3,
+        protoName: 'cycleLengthDays')
+    ..a<$core.int>(58, _omitFieldNames ? '' : 'predictedCycleLengthDays',
+        $pb.PbFieldType.OS3,
+        protoName: 'predictedCycleLengthDays')
     ..aOS(59, _omitFieldNames ? '' : 'currentPhase', protoName: 'currentPhase')
-    ..a<$core.int>(60, _omitFieldNames ? '' : 'lengthOfCurrentPhaseDays', $pb.PbFieldType.OS3, protoName: 'lengthOfCurrentPhaseDays')
-    ..a<$core.int>(61, _omitFieldNames ? '' : 'daysUntilNextPhase', $pb.PbFieldType.OS3, protoName: 'daysUntilNextPhase')
-    ..aOB(62, _omitFieldNames ? '' : 'isAPredictedCycleValue', protoName: 'isAPredictedCycleValue')
-    ..aOB(63, _omitFieldNames ? '' : 'isAPredictedCycleUnknown', protoName: 'isAPredictedCycleUnknown')
-    ..pc<MenstruationFlowGranularDataProto>(64, _omitFieldNames ? '' : 'menstruationFlowGranularData', $pb.PbFieldType.PM, protoName: 'menstruationFlowGranularData', subBuilder: MenstruationFlowGranularDataProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(60, _omitFieldNames ? '' : 'lengthOfCurrentPhaseDays',
+        $pb.PbFieldType.OS3,
+        protoName: 'lengthOfCurrentPhaseDays')
+    ..a<$core.int>(
+        61, _omitFieldNames ? '' : 'daysUntilNextPhase', $pb.PbFieldType.OS3,
+        protoName: 'daysUntilNextPhase')
+    ..aOB(62, _omitFieldNames ? '' : 'isAPredictedCycleValue',
+        protoName: 'isAPredictedCycleValue')
+    ..aOB(63, _omitFieldNames ? '' : 'isAPredictedCycleUnknown',
+        protoName: 'isAPredictedCycleUnknown')
+    ..pc<MenstruationFlowGranularDataProto>(
+        64,
+        _omitFieldNames ? '' : 'menstruationFlowGranularData',
+        $pb.PbFieldType.PM,
+        protoName: 'menstruationFlowGranularData',
+        subBuilder: MenstruationFlowGranularDataProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BodySummaryProto clone() => BodySummaryProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BodySummaryProto copyWith(void Function(BodySummaryProto) updates) => super.copyWith((message) => updates(message as BodySummaryProto)) as BodySummaryProto;
+  BodySummaryProto copyWith(void Function(BodySummaryProto) updates) =>
+      super.copyWith((message) => updates(message as BodySummaryProto))
+          as BodySummaryProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2008,12 +2842,15 @@ class BodySummaryProto extends $pb.GeneratedMessage {
   static BodySummaryProto create() => BodySummaryProto._();
   @$core.override
   BodySummaryProto createEmptyInstance() => create();
-  static $pb.PbList<BodySummaryProto> createRepeated() => $pb.PbList<BodySummaryProto>();
+  static $pb.PbList<BodySummaryProto> createRepeated() =>
+      $pb.PbList<BodySummaryProto>();
   @$core.pragma('dart2js:noInline')
-  static BodySummaryProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BodySummaryProto>(create);
+  static BodySummaryProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BodySummaryProto>(create);
   static BodySummaryProto? _defaultInstance;
 
-  BodySummaryProto_IsAPredictedCycle whichIsAPredictedCycle() => _BodySummaryProto_IsAPredictedCycleByTag[$_whichOneof(0)]!;
+  BodySummaryProto_IsAPredictedCycle whichIsAPredictedCycle() =>
+      _BodySummaryProto_IsAPredictedCycleByTag[$_whichOneof(0)]!;
   void clearIsAPredictedCycle() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -2134,13 +2971,15 @@ class BodySummaryProto extends $pb.GeneratedMessage {
   void clearBloodGlucoseAvgMgPerDl() => $_clearField(13);
 
   @$pb.TagNumber(14)
-  $pb.PbList<BloodGlucoseGranularDataProto> get bloodGlucoseGranularData => $_getList(13);
+  $pb.PbList<BloodGlucoseGranularDataProto> get bloodGlucoseGranularData =>
+      $_getList(13);
 
   @$pb.TagNumber(15)
   $pb.PbList<BloodPressureObjectProto> get bloodPressureAvg => $_getList(14);
 
   @$pb.TagNumber(16)
-  $pb.PbList<BloodPressureGranularDataProto> get bloodPressureGranularData => $_getList(15);
+  $pb.PbList<BloodPressureGranularDataProto> get bloodPressureGranularData =>
+      $_getList(15);
 
   @$pb.TagNumber(17)
   $core.double get waterTotalConsumptionMl => $_getN(16);
@@ -2152,10 +2991,12 @@ class BodySummaryProto extends $pb.GeneratedMessage {
   void clearWaterTotalConsumptionMl() => $_clearField(17);
 
   @$pb.TagNumber(18)
-  $pb.PbList<HydrationAmountGranularDataProto> get hydrationAmountGranularData => $_getList(17);
+  $pb.PbList<HydrationAmountGranularDataProto>
+      get hydrationAmountGranularData => $_getList(17);
 
   @$pb.TagNumber(19)
-  $pb.PbList<HydrationLevelGranularDataProto> get hydrationLevelGranularData => $_getList(18);
+  $pb.PbList<HydrationLevelGranularDataProto> get hydrationLevelGranularData =>
+      $_getList(18);
 
   @$pb.TagNumber(20)
   $core.int get hrMaximumBpm => $_getIZ(19);
@@ -2218,7 +3059,8 @@ class BodySummaryProto extends $pb.GeneratedMessage {
   $pb.PbList<HrvSdnnGranularDataProto> get hrvSdnnGranularData => $_getList(26);
 
   @$pb.TagNumber(28)
-  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData => $_getList(27);
+  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData =>
+      $_getList(27);
 
   @$pb.TagNumber(29)
   $core.double get moodMinimumScale => $_getN(28);
@@ -2368,7 +3210,8 @@ class BodySummaryProto extends $pb.GeneratedMessage {
   void clearSaturationAvgPercentage() => $_clearField(45);
 
   @$pb.TagNumber(46)
-  $pb.PbList<SaturationGranularDataProto> get saturationGranularData => $_getList(45);
+  $pb.PbList<SaturationGranularDataProto> get saturationGranularData =>
+      $_getList(45);
 
   @$pb.TagNumber(47)
   $core.double get vo2MaxMlPerMinPerKg => $_getN(46);
@@ -2392,7 +3235,8 @@ class BodySummaryProto extends $pb.GeneratedMessage {
   $pb.PbList<TemperatureObjectProto> get temperatureMaximum => $_getList(50);
 
   @$pb.TagNumber(52)
-  $pb.PbList<TemperatureGranularDataProto> get temperatureGranularData => $_getList(51);
+  $pb.PbList<TemperatureGranularDataProto> get temperatureGranularData =>
+      $_getList(51);
 
   @$pb.TagNumber(53)
   $pb.PbList<TemperatureObjectProto> get temperatureDelta => $_getList(52);
@@ -2488,14 +3332,11 @@ class BodySummaryProto extends $pb.GeneratedMessage {
   void clearIsAPredictedCycleUnknown() => $_clearField(63);
 
   @$pb.TagNumber(64)
-  $pb.PbList<MenstruationFlowGranularDataProto> get menstruationFlowGranularData => $_getList(63);
+  $pb.PbList<MenstruationFlowGranularDataProto>
+      get menstruationFlowGranularData => $_getList(63);
 }
 
-enum BodySummaryResultProto_Result {
-  success, 
-  failure, 
-  notSet
-}
+enum BodySummaryResultProto_Result { success, failure, notSet }
 
 class BodySummaryResultProto extends $pb.GeneratedMessage {
   factory BodySummaryResultProto({
@@ -2510,25 +3351,37 @@ class BodySummaryResultProto extends $pb.GeneratedMessage {
 
   BodySummaryResultProto._();
 
-  factory BodySummaryResultProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory BodySummaryResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BodySummaryResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BodySummaryResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, BodySummaryResultProto_Result> _BodySummaryResultProto_ResultByTag = {
-    1 : BodySummaryResultProto_Result.success,
-    2 : BodySummaryResultProto_Result.failure,
-    0 : BodySummaryResultProto_Result.notSet
+  static const $core.Map<$core.int, BodySummaryResultProto_Result>
+      _BodySummaryResultProto_ResultByTag = {
+    1: BodySummaryResultProto_Result.success,
+    2: BodySummaryResultProto_Result.failure,
+    0: BodySummaryResultProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BodySummaryResultProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BodySummaryResultProto',
+      createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<BodySummaryProto>(1, _omitFieldNames ? '' : 'success', subBuilder: BodySummaryProto.create)
-    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..aOM<BodySummaryProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: BodySummaryProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BodySummaryResultProto clone() => BodySummaryResultProto()..mergeFromMessage(this);
+  BodySummaryResultProto clone() =>
+      BodySummaryResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BodySummaryResultProto copyWith(void Function(BodySummaryResultProto) updates) => super.copyWith((message) => updates(message as BodySummaryResultProto)) as BodySummaryResultProto;
+  BodySummaryResultProto copyWith(
+          void Function(BodySummaryResultProto) updates) =>
+      super.copyWith((message) => updates(message as BodySummaryResultProto))
+          as BodySummaryResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2537,12 +3390,15 @@ class BodySummaryResultProto extends $pb.GeneratedMessage {
   static BodySummaryResultProto create() => BodySummaryResultProto._();
   @$core.override
   BodySummaryResultProto createEmptyInstance() => create();
-  static $pb.PbList<BodySummaryResultProto> createRepeated() => $pb.PbList<BodySummaryResultProto>();
+  static $pb.PbList<BodySummaryResultProto> createRepeated() =>
+      $pb.PbList<BodySummaryResultProto>();
   @$core.pragma('dart2js:noInline')
-  static BodySummaryResultProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BodySummaryResultProto>(create);
+  static BodySummaryResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BodySummaryResultProto>(create);
   static BodySummaryResultProto? _defaultInstance;
 
-  BodySummaryResultProto_Result whichResult() => _BodySummaryResultProto_ResultByTag[$_whichOneof(0)]!;
+  BodySummaryResultProto_Result whichResult() =>
+      _BodySummaryResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -2600,7 +3456,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
     $core.Iterable<StepsGranularDataProto>? stepsGranularData,
     $core.double? walkedDistanceMeters,
     $core.double? traveledDistanceMeters,
-    $core.Iterable<TraveledDistanceGranularDataProto>? traveledDistanceGranularData,
+    $core.Iterable<TraveledDistanceGranularDataProto>?
+        traveledDistanceGranularData,
     $core.double? floorsClimbed,
     $core.Iterable<FloorsClimbedGranularDataProto>? floorsClimbedGranularData,
     $core.double? elevationAvgAltitudeMeters,
@@ -2614,7 +3471,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
     $core.int? swimmingNumLaps,
     $core.double? swimmingPoolLengthMeters,
     $core.double? swimmingTotalDistanceMeters,
-    $core.Iterable<SwimmingDistanceGranularDataProto>? swimmingDistanceGranularData,
+    $core.Iterable<SwimmingDistanceGranularDataProto>?
+        swimmingDistanceGranularData,
     $core.int? hrMaximumBpm,
     $core.int? hrMinimumBpm,
     $core.int? hrAvgBpm,
@@ -2663,49 +3521,88 @@ class ActivityEventProto extends $pb.GeneratedMessage {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
     if (sourceOfData != null) result.sourceOfData = sourceOfData;
-    if (wasTheUserUnderPhysicalActivity != null) result.wasTheUserUnderPhysicalActivity = wasTheUserUnderPhysicalActivity;
-    if (activityStartDateTime != null) result.activityStartDateTime = activityStartDateTime;
-    if (activityEndDateTime != null) result.activityEndDateTime = activityEndDateTime;
-    if (activityDurationSeconds != null) result.activityDurationSeconds = activityDurationSeconds;
+    if (wasTheUserUnderPhysicalActivity != null)
+      result.wasTheUserUnderPhysicalActivity = wasTheUserUnderPhysicalActivity;
+    if (activityStartDateTime != null)
+      result.activityStartDateTime = activityStartDateTime;
+    if (activityEndDateTime != null)
+      result.activityEndDateTime = activityEndDateTime;
+    if (activityDurationSeconds != null)
+      result.activityDurationSeconds = activityDurationSeconds;
     if (activityTypeName != null) result.activityTypeName = activityTypeName;
     if (activeSeconds != null) result.activeSeconds = activeSeconds;
     if (restSeconds != null) result.restSeconds = restSeconds;
-    if (lowIntensitySeconds != null) result.lowIntensitySeconds = lowIntensitySeconds;
-    if (moderateIntensitySeconds != null) result.moderateIntensitySeconds = moderateIntensitySeconds;
-    if (vigorousIntensitySeconds != null) result.vigorousIntensitySeconds = vigorousIntensitySeconds;
+    if (lowIntensitySeconds != null)
+      result.lowIntensitySeconds = lowIntensitySeconds;
+    if (moderateIntensitySeconds != null)
+      result.moderateIntensitySeconds = moderateIntensitySeconds;
+    if (vigorousIntensitySeconds != null)
+      result.vigorousIntensitySeconds = vigorousIntensitySeconds;
     if (inactivitySeconds != null) result.inactivitySeconds = inactivitySeconds;
-    if (activityLevelGranularData != null) result.activityLevelGranularData.addAll(activityLevelGranularData);
-    if (continuousInactivePeriods != null) result.continuousInactivePeriods = continuousInactivePeriods;
-    if (activityStrainLevel != null) result.activityStrainLevel = activityStrainLevel;
-    if (activityWorkKilojoules != null) result.activityWorkKilojoules = activityWorkKilojoules;
-    if (activityEnergyKilojoules != null) result.activityEnergyKilojoules = activityEnergyKilojoules;
-    if (activityEnergyPlannedKilojoules != null) result.activityEnergyPlannedKilojoules = activityEnergyPlannedKilojoules;
-    if (caloriesNetIntakeKcal != null) result.caloriesNetIntakeKcal = caloriesNetIntakeKcal;
-    if (caloriesExpenditureKcal != null) result.caloriesExpenditureKcal = caloriesExpenditureKcal;
-    if (caloriesNetActiveKcal != null) result.caloriesNetActiveKcal = caloriesNetActiveKcal;
-    if (caloriesBasalMetabolicRateKcal != null) result.caloriesBasalMetabolicRateKcal = caloriesBasalMetabolicRateKcal;
-    if (fatPercentageOfCalories != null) result.fatPercentageOfCalories = fatPercentageOfCalories;
-    if (carbohydratePercentageOfCalories != null) result.carbohydratePercentageOfCalories = carbohydratePercentageOfCalories;
-    if (proteinPercentageOfCalories != null) result.proteinPercentageOfCalories = proteinPercentageOfCalories;
+    if (activityLevelGranularData != null)
+      result.activityLevelGranularData.addAll(activityLevelGranularData);
+    if (continuousInactivePeriods != null)
+      result.continuousInactivePeriods = continuousInactivePeriods;
+    if (activityStrainLevel != null)
+      result.activityStrainLevel = activityStrainLevel;
+    if (activityWorkKilojoules != null)
+      result.activityWorkKilojoules = activityWorkKilojoules;
+    if (activityEnergyKilojoules != null)
+      result.activityEnergyKilojoules = activityEnergyKilojoules;
+    if (activityEnergyPlannedKilojoules != null)
+      result.activityEnergyPlannedKilojoules = activityEnergyPlannedKilojoules;
+    if (caloriesNetIntakeKcal != null)
+      result.caloriesNetIntakeKcal = caloriesNetIntakeKcal;
+    if (caloriesExpenditureKcal != null)
+      result.caloriesExpenditureKcal = caloriesExpenditureKcal;
+    if (caloriesNetActiveKcal != null)
+      result.caloriesNetActiveKcal = caloriesNetActiveKcal;
+    if (caloriesBasalMetabolicRateKcal != null)
+      result.caloriesBasalMetabolicRateKcal = caloriesBasalMetabolicRateKcal;
+    if (fatPercentageOfCalories != null)
+      result.fatPercentageOfCalories = fatPercentageOfCalories;
+    if (carbohydratePercentageOfCalories != null)
+      result.carbohydratePercentageOfCalories =
+          carbohydratePercentageOfCalories;
+    if (proteinPercentageOfCalories != null)
+      result.proteinPercentageOfCalories = proteinPercentageOfCalories;
     if (steps != null) result.steps = steps;
-    if (stepsGranularData != null) result.stepsGranularData.addAll(stepsGranularData);
-    if (walkedDistanceMeters != null) result.walkedDistanceMeters = walkedDistanceMeters;
-    if (traveledDistanceMeters != null) result.traveledDistanceMeters = traveledDistanceMeters;
-    if (traveledDistanceGranularData != null) result.traveledDistanceGranularData.addAll(traveledDistanceGranularData);
+    if (stepsGranularData != null)
+      result.stepsGranularData.addAll(stepsGranularData);
+    if (walkedDistanceMeters != null)
+      result.walkedDistanceMeters = walkedDistanceMeters;
+    if (traveledDistanceMeters != null)
+      result.traveledDistanceMeters = traveledDistanceMeters;
+    if (traveledDistanceGranularData != null)
+      result.traveledDistanceGranularData.addAll(traveledDistanceGranularData);
     if (floorsClimbed != null) result.floorsClimbed = floorsClimbed;
-    if (floorsClimbedGranularData != null) result.floorsClimbedGranularData.addAll(floorsClimbedGranularData);
-    if (elevationAvgAltitudeMeters != null) result.elevationAvgAltitudeMeters = elevationAvgAltitudeMeters;
-    if (elevationMinimumAltitudeMeters != null) result.elevationMinimumAltitudeMeters = elevationMinimumAltitudeMeters;
-    if (elevationMaximumAltitudeMeters != null) result.elevationMaximumAltitudeMeters = elevationMaximumAltitudeMeters;
-    if (elevationLossActualAltitudeMeters != null) result.elevationLossActualAltitudeMeters = elevationLossActualAltitudeMeters;
-    if (elevationGainActualAltitudeMeters != null) result.elevationGainActualAltitudeMeters = elevationGainActualAltitudeMeters;
-    if (elevationPlannedGainMeters != null) result.elevationPlannedGainMeters = elevationPlannedGainMeters;
-    if (elevationGranularData != null) result.elevationGranularData.addAll(elevationGranularData);
-    if (swimmingNumStrokes != null) result.swimmingNumStrokes = swimmingNumStrokes;
+    if (floorsClimbedGranularData != null)
+      result.floorsClimbedGranularData.addAll(floorsClimbedGranularData);
+    if (elevationAvgAltitudeMeters != null)
+      result.elevationAvgAltitudeMeters = elevationAvgAltitudeMeters;
+    if (elevationMinimumAltitudeMeters != null)
+      result.elevationMinimumAltitudeMeters = elevationMinimumAltitudeMeters;
+    if (elevationMaximumAltitudeMeters != null)
+      result.elevationMaximumAltitudeMeters = elevationMaximumAltitudeMeters;
+    if (elevationLossActualAltitudeMeters != null)
+      result.elevationLossActualAltitudeMeters =
+          elevationLossActualAltitudeMeters;
+    if (elevationGainActualAltitudeMeters != null)
+      result.elevationGainActualAltitudeMeters =
+          elevationGainActualAltitudeMeters;
+    if (elevationPlannedGainMeters != null)
+      result.elevationPlannedGainMeters = elevationPlannedGainMeters;
+    if (elevationGranularData != null)
+      result.elevationGranularData.addAll(elevationGranularData);
+    if (swimmingNumStrokes != null)
+      result.swimmingNumStrokes = swimmingNumStrokes;
     if (swimmingNumLaps != null) result.swimmingNumLaps = swimmingNumLaps;
-    if (swimmingPoolLengthMeters != null) result.swimmingPoolLengthMeters = swimmingPoolLengthMeters;
-    if (swimmingTotalDistanceMeters != null) result.swimmingTotalDistanceMeters = swimmingTotalDistanceMeters;
-    if (swimmingDistanceGranularData != null) result.swimmingDistanceGranularData.addAll(swimmingDistanceGranularData);
+    if (swimmingPoolLengthMeters != null)
+      result.swimmingPoolLengthMeters = swimmingPoolLengthMeters;
+    if (swimmingTotalDistanceMeters != null)
+      result.swimmingTotalDistanceMeters = swimmingTotalDistanceMeters;
+    if (swimmingDistanceGranularData != null)
+      result.swimmingDistanceGranularData.addAll(swimmingDistanceGranularData);
     if (hrMaximumBpm != null) result.hrMaximumBpm = hrMaximumBpm;
     if (hrMinimumBpm != null) result.hrMinimumBpm = hrMinimumBpm;
     if (hrAvgBpm != null) result.hrAvgBpm = hrAvgBpm;
@@ -2713,148 +3610,378 @@ class ActivityEventProto extends $pb.GeneratedMessage {
     if (hrGranularData != null) result.hrGranularData.addAll(hrGranularData);
     if (hrvAvgRmssd != null) result.hrvAvgRmssd = hrvAvgRmssd;
     if (hrvAvgSdnn != null) result.hrvAvgSdnn = hrvAvgSdnn;
-    if (hrvSdnnGranularData != null) result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
-    if (hrvRmssdGranularData != null) result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
-    if (speedNormalizedMetersPerSecond != null) result.speedNormalizedMetersPerSecond = speedNormalizedMetersPerSecond;
-    if (speedAvgMetersPerSecond != null) result.speedAvgMetersPerSecond = speedAvgMetersPerSecond;
-    if (speedMaximumMetersPerSecond != null) result.speedMaximumMetersPerSecond = speedMaximumMetersPerSecond;
-    if (speedGranularData != null) result.speedGranularData.addAll(speedGranularData);
+    if (hrvSdnnGranularData != null)
+      result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
+    if (hrvRmssdGranularData != null)
+      result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
+    if (speedNormalizedMetersPerSecond != null)
+      result.speedNormalizedMetersPerSecond = speedNormalizedMetersPerSecond;
+    if (speedAvgMetersPerSecond != null)
+      result.speedAvgMetersPerSecond = speedAvgMetersPerSecond;
+    if (speedMaximumMetersPerSecond != null)
+      result.speedMaximumMetersPerSecond = speedMaximumMetersPerSecond;
+    if (speedGranularData != null)
+      result.speedGranularData.addAll(speedGranularData);
     if (velocityAvg != null) result.velocityAvg.addAll(velocityAvg);
     if (velocityMaximum != null) result.velocityMaximum.addAll(velocityMaximum);
     if (paceAvgMinPerKm != null) result.paceAvgMinPerKm = paceAvgMinPerKm;
-    if (paceMaximumMinPerKm != null) result.paceMaximumMinPerKm = paceMaximumMinPerKm;
+    if (paceMaximumMinPerKm != null)
+      result.paceMaximumMinPerKm = paceMaximumMinPerKm;
     if (cadenceAvgRpm != null) result.cadenceAvgRpm = cadenceAvgRpm;
     if (cadenceMaximumRpm != null) result.cadenceMaximumRpm = cadenceMaximumRpm;
-    if (cadenceGranularData != null) result.cadenceGranularData.addAll(cadenceGranularData);
-    if (torqueAvgNewtonMeters != null) result.torqueAvgNewtonMeters = torqueAvgNewtonMeters;
-    if (torqueMaximumNewtonMeters != null) result.torqueMaximumNewtonMeters = torqueMaximumNewtonMeters;
-    if (torqueGranularData != null) result.torqueGranularData.addAll(torqueGranularData);
+    if (cadenceGranularData != null)
+      result.cadenceGranularData.addAll(cadenceGranularData);
+    if (torqueAvgNewtonMeters != null)
+      result.torqueAvgNewtonMeters = torqueAvgNewtonMeters;
+    if (torqueMaximumNewtonMeters != null)
+      result.torqueMaximumNewtonMeters = torqueMaximumNewtonMeters;
+    if (torqueGranularData != null)
+      result.torqueGranularData.addAll(torqueGranularData);
     if (lapGranularData != null) result.lapGranularData.addAll(lapGranularData);
-    if (saturationAvgPercentage != null) result.saturationAvgPercentage = saturationAvgPercentage;
-    if (saturationGranularData != null) result.saturationGranularData.addAll(saturationGranularData);
-    if (vo2MaxMlPerMinPerKg != null) result.vo2MaxMlPerMinPerKg = vo2MaxMlPerMinPerKg;
+    if (saturationAvgPercentage != null)
+      result.saturationAvgPercentage = saturationAvgPercentage;
+    if (saturationGranularData != null)
+      result.saturationGranularData.addAll(saturationGranularData);
+    if (vo2MaxMlPerMinPerKg != null)
+      result.vo2MaxMlPerMinPerKg = vo2MaxMlPerMinPerKg;
     if (vo2GranularData != null) result.vo2GranularData.addAll(vo2GranularData);
     if (positionStart != null) result.positionStart.addAll(positionStart);
-    if (positionCentroid != null) result.positionCentroid.addAll(positionCentroid);
+    if (positionCentroid != null)
+      result.positionCentroid.addAll(positionCentroid);
     if (positionEnd != null) result.positionEnd.addAll(positionEnd);
-    if (positionGranularData != null) result.positionGranularData.addAll(positionGranularData);
-    if (positionPolylineMapDataSummary != null) result.positionPolylineMapDataSummary = positionPolylineMapDataSummary;
+    if (positionGranularData != null)
+      result.positionGranularData.addAll(positionGranularData);
+    if (positionPolylineMapDataSummary != null)
+      result.positionPolylineMapDataSummary = positionPolylineMapDataSummary;
     if (powerAvgWatts != null) result.powerAvgWatts = powerAvgWatts;
     if (powerMaximumWatts != null) result.powerMaximumWatts = powerMaximumWatts;
-    if (powerGranularData != null) result.powerGranularData.addAll(powerGranularData);
-    if (stressAtRestDurationSeconds != null) result.stressAtRestDurationSeconds = stressAtRestDurationSeconds;
-    if (stressDurationSeconds != null) result.stressDurationSeconds = stressDurationSeconds;
-    if (lowStressDurationSeconds != null) result.lowStressDurationSeconds = lowStressDurationSeconds;
-    if (mediumStressDurationSeconds != null) result.mediumStressDurationSeconds = mediumStressDurationSeconds;
-    if (highStressDurationSeconds != null) result.highStressDurationSeconds = highStressDurationSeconds;
+    if (powerGranularData != null)
+      result.powerGranularData.addAll(powerGranularData);
+    if (stressAtRestDurationSeconds != null)
+      result.stressAtRestDurationSeconds = stressAtRestDurationSeconds;
+    if (stressDurationSeconds != null)
+      result.stressDurationSeconds = stressDurationSeconds;
+    if (lowStressDurationSeconds != null)
+      result.lowStressDurationSeconds = lowStressDurationSeconds;
+    if (mediumStressDurationSeconds != null)
+      result.mediumStressDurationSeconds = mediumStressDurationSeconds;
+    if (highStressDurationSeconds != null)
+      result.highStressDurationSeconds = highStressDurationSeconds;
     if (tssGranularData != null) result.tssGranularData.addAll(tssGranularData);
     if (stressAvgLevel != null) result.stressAvgLevel = stressAvgLevel;
-    if (stressMaximumLevel != null) result.stressMaximumLevel = stressMaximumLevel;
+    if (stressMaximumLevel != null)
+      result.stressMaximumLevel = stressMaximumLevel;
     return result;
   }
 
   ActivityEventProto._();
 
-  factory ActivityEventProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory ActivityEventProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory ActivityEventProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ActivityEventProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ActivityEventProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActivityEventProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
     ..aOS(2, _omitFieldNames ? '' : 'sourceOfData', protoName: 'sourceOfData')
-    ..aOB(3, _omitFieldNames ? '' : 'wasTheUserUnderPhysicalActivity', protoName: 'wasTheUserUnderPhysicalActivity')
-    ..aOS(4, _omitFieldNames ? '' : 'activityStartDateTime', protoName: 'activityStartDateTime')
-    ..aOS(5, _omitFieldNames ? '' : 'activityEndDateTime', protoName: 'activityEndDateTime')
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'activityDurationSeconds', $pb.PbFieldType.OS3, protoName: 'activityDurationSeconds')
-    ..aOS(7, _omitFieldNames ? '' : 'activityTypeName', protoName: 'activityTypeName')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'activeSeconds', $pb.PbFieldType.OS3, protoName: 'activeSeconds')
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'restSeconds', $pb.PbFieldType.OS3, protoName: 'restSeconds')
-    ..a<$core.int>(10, _omitFieldNames ? '' : 'lowIntensitySeconds', $pb.PbFieldType.OS3, protoName: 'lowIntensitySeconds')
-    ..a<$core.int>(11, _omitFieldNames ? '' : 'moderateIntensitySeconds', $pb.PbFieldType.OS3, protoName: 'moderateIntensitySeconds')
-    ..a<$core.int>(12, _omitFieldNames ? '' : 'vigorousIntensitySeconds', $pb.PbFieldType.OS3, protoName: 'vigorousIntensitySeconds')
-    ..a<$core.int>(13, _omitFieldNames ? '' : 'inactivitySeconds', $pb.PbFieldType.OS3, protoName: 'inactivitySeconds')
-    ..pc<ActivityLevelGranularDataProto>(14, _omitFieldNames ? '' : 'activityLevelGranularData', $pb.PbFieldType.PM, protoName: 'activityLevelGranularData', subBuilder: ActivityLevelGranularDataProto.create)
-    ..a<$core.int>(15, _omitFieldNames ? '' : 'continuousInactivePeriods', $pb.PbFieldType.OS3, protoName: 'continuousInactivePeriods')
-    ..a<$core.int>(16, _omitFieldNames ? '' : 'activityStrainLevel', $pb.PbFieldType.OS3, protoName: 'activityStrainLevel')
-    ..a<$core.double>(17, _omitFieldNames ? '' : 'activityWorkKilojoules', $pb.PbFieldType.OD, protoName: 'activityWorkKilojoules')
-    ..a<$core.double>(18, _omitFieldNames ? '' : 'activityEnergyKilojoules', $pb.PbFieldType.OD, protoName: 'activityEnergyKilojoules')
-    ..a<$core.double>(19, _omitFieldNames ? '' : 'activityEnergyPlannedKilojoules', $pb.PbFieldType.OD, protoName: 'activityEnergyPlannedKilojoules')
-    ..a<$core.double>(20, _omitFieldNames ? '' : 'caloriesNetIntakeKcal', $pb.PbFieldType.OD, protoName: 'caloriesNetIntakeKcal')
-    ..a<$core.double>(21, _omitFieldNames ? '' : 'caloriesExpenditureKcal', $pb.PbFieldType.OD, protoName: 'caloriesExpenditureKcal')
-    ..a<$core.double>(22, _omitFieldNames ? '' : 'caloriesNetActiveKcal', $pb.PbFieldType.OD, protoName: 'caloriesNetActiveKcal')
-    ..a<$core.double>(23, _omitFieldNames ? '' : 'caloriesBasalMetabolicRateKcal', $pb.PbFieldType.OD, protoName: 'caloriesBasalMetabolicRateKcal')
-    ..a<$core.double>(24, _omitFieldNames ? '' : 'fatPercentageOfCalories', $pb.PbFieldType.OD, protoName: 'fatPercentageOfCalories')
-    ..a<$core.double>(25, _omitFieldNames ? '' : 'carbohydratePercentageOfCalories', $pb.PbFieldType.OD, protoName: 'carbohydratePercentageOfCalories')
-    ..a<$core.double>(26, _omitFieldNames ? '' : 'proteinPercentageOfCalories', $pb.PbFieldType.OD, protoName: 'proteinPercentageOfCalories')
+    ..aOB(3, _omitFieldNames ? '' : 'wasTheUserUnderPhysicalActivity',
+        protoName: 'wasTheUserUnderPhysicalActivity')
+    ..aOS(4, _omitFieldNames ? '' : 'activityStartDateTime',
+        protoName: 'activityStartDateTime')
+    ..aOS(5, _omitFieldNames ? '' : 'activityEndDateTime',
+        protoName: 'activityEndDateTime')
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'activityDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'activityDurationSeconds')
+    ..aOS(7, _omitFieldNames ? '' : 'activityTypeName',
+        protoName: 'activityTypeName')
+    ..a<$core.int>(
+        8, _omitFieldNames ? '' : 'activeSeconds', $pb.PbFieldType.OS3,
+        protoName: 'activeSeconds')
+    ..a<$core.int>(9, _omitFieldNames ? '' : 'restSeconds', $pb.PbFieldType.OS3,
+        protoName: 'restSeconds')
+    ..a<$core.int>(
+        10, _omitFieldNames ? '' : 'lowIntensitySeconds', $pb.PbFieldType.OS3,
+        protoName: 'lowIntensitySeconds')
+    ..a<$core.int>(11, _omitFieldNames ? '' : 'moderateIntensitySeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'moderateIntensitySeconds')
+    ..a<$core.int>(12, _omitFieldNames ? '' : 'vigorousIntensitySeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'vigorousIntensitySeconds')
+    ..a<$core.int>(
+        13, _omitFieldNames ? '' : 'inactivitySeconds', $pb.PbFieldType.OS3,
+        protoName: 'inactivitySeconds')
+    ..pc<ActivityLevelGranularDataProto>(14,
+        _omitFieldNames ? '' : 'activityLevelGranularData', $pb.PbFieldType.PM,
+        protoName: 'activityLevelGranularData',
+        subBuilder: ActivityLevelGranularDataProto.create)
+    ..a<$core.int>(15, _omitFieldNames ? '' : 'continuousInactivePeriods',
+        $pb.PbFieldType.OS3,
+        protoName: 'continuousInactivePeriods')
+    ..a<$core.int>(
+        16, _omitFieldNames ? '' : 'activityStrainLevel', $pb.PbFieldType.OS3,
+        protoName: 'activityStrainLevel')
+    ..a<$core.double>(
+        17, _omitFieldNames ? '' : 'activityWorkKilojoules', $pb.PbFieldType.OD,
+        protoName: 'activityWorkKilojoules')
+    ..a<$core.double>(18, _omitFieldNames ? '' : 'activityEnergyKilojoules',
+        $pb.PbFieldType.OD,
+        protoName: 'activityEnergyKilojoules')
+    ..a<$core.double>(
+        19,
+        _omitFieldNames ? '' : 'activityEnergyPlannedKilojoules',
+        $pb.PbFieldType.OD,
+        protoName: 'activityEnergyPlannedKilojoules')
+    ..a<$core.double>(
+        20, _omitFieldNames ? '' : 'caloriesNetIntakeKcal', $pb.PbFieldType.OD,
+        protoName: 'caloriesNetIntakeKcal')
+    ..a<$core.double>(21, _omitFieldNames ? '' : 'caloriesExpenditureKcal',
+        $pb.PbFieldType.OD,
+        protoName: 'caloriesExpenditureKcal')
+    ..a<$core.double>(
+        22, _omitFieldNames ? '' : 'caloriesNetActiveKcal', $pb.PbFieldType.OD,
+        protoName: 'caloriesNetActiveKcal')
+    ..a<$core.double>(
+        23,
+        _omitFieldNames ? '' : 'caloriesBasalMetabolicRateKcal',
+        $pb.PbFieldType.OD,
+        protoName: 'caloriesBasalMetabolicRateKcal')
+    ..a<$core.double>(24, _omitFieldNames ? '' : 'fatPercentageOfCalories',
+        $pb.PbFieldType.OD,
+        protoName: 'fatPercentageOfCalories')
+    ..a<$core.double>(
+        25,
+        _omitFieldNames ? '' : 'carbohydratePercentageOfCalories',
+        $pb.PbFieldType.OD,
+        protoName: 'carbohydratePercentageOfCalories')
+    ..a<$core.double>(26, _omitFieldNames ? '' : 'proteinPercentageOfCalories',
+        $pb.PbFieldType.OD,
+        protoName: 'proteinPercentageOfCalories')
     ..a<$core.int>(27, _omitFieldNames ? '' : 'steps', $pb.PbFieldType.OS3)
-    ..pc<StepsGranularDataProto>(28, _omitFieldNames ? '' : 'stepsGranularData', $pb.PbFieldType.PM, protoName: 'stepsGranularData', subBuilder: StepsGranularDataProto.create)
-    ..a<$core.double>(29, _omitFieldNames ? '' : 'walkedDistanceMeters', $pb.PbFieldType.OD, protoName: 'walkedDistanceMeters')
-    ..a<$core.double>(30, _omitFieldNames ? '' : 'traveledDistanceMeters', $pb.PbFieldType.OD, protoName: 'traveledDistanceMeters')
-    ..pc<TraveledDistanceGranularDataProto>(31, _omitFieldNames ? '' : 'traveledDistanceGranularData', $pb.PbFieldType.PM, protoName: 'traveledDistanceGranularData', subBuilder: TraveledDistanceGranularDataProto.create)
-    ..a<$core.double>(32, _omitFieldNames ? '' : 'floorsClimbed', $pb.PbFieldType.OD, protoName: 'floorsClimbed')
-    ..pc<FloorsClimbedGranularDataProto>(33, _omitFieldNames ? '' : 'floorsClimbedGranularData', $pb.PbFieldType.PM, protoName: 'floorsClimbedGranularData', subBuilder: FloorsClimbedGranularDataProto.create)
-    ..a<$core.double>(34, _omitFieldNames ? '' : 'elevationAvgAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationAvgAltitudeMeters')
-    ..a<$core.double>(35, _omitFieldNames ? '' : 'elevationMinimumAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationMinimumAltitudeMeters')
-    ..a<$core.double>(36, _omitFieldNames ? '' : 'elevationMaximumAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationMaximumAltitudeMeters')
-    ..a<$core.double>(37, _omitFieldNames ? '' : 'elevationLossActualAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationLossActualAltitudeMeters')
-    ..a<$core.double>(38, _omitFieldNames ? '' : 'elevationGainActualAltitudeMeters', $pb.PbFieldType.OD, protoName: 'elevationGainActualAltitudeMeters')
-    ..a<$core.double>(39, _omitFieldNames ? '' : 'elevationPlannedGainMeters', $pb.PbFieldType.OD, protoName: 'elevationPlannedGainMeters')
-    ..pc<ElevationGranularDataProto>(40, _omitFieldNames ? '' : 'elevationGranularData', $pb.PbFieldType.PM, protoName: 'elevationGranularData', subBuilder: ElevationGranularDataProto.create)
-    ..a<$core.int>(41, _omitFieldNames ? '' : 'swimmingNumStrokes', $pb.PbFieldType.OS3, protoName: 'swimmingNumStrokes')
-    ..a<$core.int>(42, _omitFieldNames ? '' : 'swimmingNumLaps', $pb.PbFieldType.OS3, protoName: 'swimmingNumLaps')
-    ..a<$core.double>(43, _omitFieldNames ? '' : 'swimmingPoolLengthMeters', $pb.PbFieldType.OD, protoName: 'swimmingPoolLengthMeters')
-    ..a<$core.double>(44, _omitFieldNames ? '' : 'swimmingTotalDistanceMeters', $pb.PbFieldType.OD, protoName: 'swimmingTotalDistanceMeters')
-    ..pc<SwimmingDistanceGranularDataProto>(45, _omitFieldNames ? '' : 'swimmingDistanceGranularData', $pb.PbFieldType.PM, protoName: 'swimmingDistanceGranularData', subBuilder: SwimmingDistanceGranularDataProto.create)
-    ..a<$core.int>(46, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3, protoName: 'hrMaximumBpm')
-    ..a<$core.int>(47, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3, protoName: 'hrMinimumBpm')
-    ..a<$core.int>(48, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3, protoName: 'hrAvgBpm')
-    ..a<$core.int>(49, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3, protoName: 'hrRestingBpm')
-    ..pc<HrGranularDataProto>(50, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM, protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
-    ..a<$core.double>(51, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD, protoName: 'hrvAvgRmssd')
-    ..a<$core.double>(52, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD, protoName: 'hrvAvgSdnn')
-    ..pc<HrvSdnnGranularDataProto>(53, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM, protoName: 'hrvSdnnGranularData', subBuilder: HrvSdnnGranularDataProto.create)
-    ..pc<HrvRmssdGranularDataProto>(54, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM, protoName: 'hrvRmssdGranularData', subBuilder: HrvRmssdGranularDataProto.create)
-    ..a<$core.double>(55, _omitFieldNames ? '' : 'speedNormalizedMetersPerSecond', $pb.PbFieldType.OD, protoName: 'speedNormalizedMetersPerSecond')
-    ..a<$core.double>(56, _omitFieldNames ? '' : 'speedAvgMetersPerSecond', $pb.PbFieldType.OD, protoName: 'speedAvgMetersPerSecond')
-    ..a<$core.double>(57, _omitFieldNames ? '' : 'speedMaximumMetersPerSecond', $pb.PbFieldType.OD, protoName: 'speedMaximumMetersPerSecond')
-    ..pc<SpeedGranularDataProto>(58, _omitFieldNames ? '' : 'speedGranularData', $pb.PbFieldType.PM, protoName: 'speedGranularData', subBuilder: SpeedGranularDataProto.create)
-    ..pc<VelocityObjectProto>(59, _omitFieldNames ? '' : 'velocityAvg', $pb.PbFieldType.PM, protoName: 'velocityAvg', subBuilder: VelocityObjectProto.create)
-    ..pc<VelocityObjectProto>(60, _omitFieldNames ? '' : 'velocityMaximum', $pb.PbFieldType.PM, protoName: 'velocityMaximum', subBuilder: VelocityObjectProto.create)
-    ..a<$core.double>(61, _omitFieldNames ? '' : 'paceAvgMinPerKm', $pb.PbFieldType.OD, protoName: 'paceAvgMinPerKm')
-    ..a<$core.double>(62, _omitFieldNames ? '' : 'paceMaximumMinPerKm', $pb.PbFieldType.OD, protoName: 'paceMaximumMinPerKm')
-    ..a<$core.double>(63, _omitFieldNames ? '' : 'cadenceAvgRpm', $pb.PbFieldType.OD, protoName: 'cadenceAvgRpm')
-    ..a<$core.double>(64, _omitFieldNames ? '' : 'cadenceMaximumRpm', $pb.PbFieldType.OD, protoName: 'cadenceMaximumRpm')
-    ..pc<CadenceGranularDataProto>(65, _omitFieldNames ? '' : 'cadenceGranularData', $pb.PbFieldType.PM, protoName: 'cadenceGranularData', subBuilder: CadenceGranularDataProto.create)
-    ..a<$core.double>(66, _omitFieldNames ? '' : 'torqueAvgNewtonMeters', $pb.PbFieldType.OD, protoName: 'torqueAvgNewtonMeters')
-    ..a<$core.double>(67, _omitFieldNames ? '' : 'torqueMaximumNewtonMeters', $pb.PbFieldType.OD, protoName: 'torqueMaximumNewtonMeters')
-    ..pc<TorqueGranularDataProto>(68, _omitFieldNames ? '' : 'torqueGranularData', $pb.PbFieldType.PM, protoName: 'torqueGranularData', subBuilder: TorqueGranularDataProto.create)
-    ..pc<LapGranularDataProto>(69, _omitFieldNames ? '' : 'lapGranularData', $pb.PbFieldType.PM, protoName: 'lapGranularData', subBuilder: LapGranularDataProto.create)
-    ..a<$core.double>(70, _omitFieldNames ? '' : 'saturationAvgPercentage', $pb.PbFieldType.OD, protoName: 'saturationAvgPercentage')
-    ..pc<SaturationGranularDataProto>(71, _omitFieldNames ? '' : 'saturationGranularData', $pb.PbFieldType.PM, protoName: 'saturationGranularData', subBuilder: SaturationGranularDataProto.create)
-    ..a<$core.double>(72, _omitFieldNames ? '' : 'vo2MaxMlPerMinPerKg', $pb.PbFieldType.OD, protoName: 'vo2MaxMlPerMinPerKg')
-    ..pc<Vo2GranularDataProto>(73, _omitFieldNames ? '' : 'vo2GranularData', $pb.PbFieldType.PM, protoName: 'vo2GranularData', subBuilder: Vo2GranularDataProto.create)
-    ..pc<PositionObjectProto>(74, _omitFieldNames ? '' : 'positionStart', $pb.PbFieldType.PM, protoName: 'positionStart', subBuilder: PositionObjectProto.create)
-    ..pc<PositionObjectProto>(75, _omitFieldNames ? '' : 'positionCentroid', $pb.PbFieldType.PM, protoName: 'positionCentroid', subBuilder: PositionObjectProto.create)
-    ..pc<PositionObjectProto>(76, _omitFieldNames ? '' : 'positionEnd', $pb.PbFieldType.PM, protoName: 'positionEnd', subBuilder: PositionObjectProto.create)
-    ..pc<PositionGranularDataProto>(77, _omitFieldNames ? '' : 'positionGranularData', $pb.PbFieldType.PM, protoName: 'positionGranularData', subBuilder: PositionGranularDataProto.create)
-    ..aOS(78, _omitFieldNames ? '' : 'positionPolylineMapDataSummary', protoName: 'positionPolylineMapDataSummary')
-    ..a<$core.double>(79, _omitFieldNames ? '' : 'powerAvgWatts', $pb.PbFieldType.OD, protoName: 'powerAvgWatts')
-    ..a<$core.double>(80, _omitFieldNames ? '' : 'powerMaximumWatts', $pb.PbFieldType.OD, protoName: 'powerMaximumWatts')
-    ..pc<PowerGranularDataProto>(81, _omitFieldNames ? '' : 'powerGranularData', $pb.PbFieldType.PM, protoName: 'powerGranularData', subBuilder: PowerGranularDataProto.create)
-    ..a<$core.int>(82, _omitFieldNames ? '' : 'stressAtRestDurationSeconds', $pb.PbFieldType.OS3, protoName: 'stressAtRestDurationSeconds')
-    ..a<$core.int>(83, _omitFieldNames ? '' : 'stressDurationSeconds', $pb.PbFieldType.OS3, protoName: 'stressDurationSeconds')
-    ..a<$core.int>(84, _omitFieldNames ? '' : 'lowStressDurationSeconds', $pb.PbFieldType.OS3, protoName: 'lowStressDurationSeconds')
-    ..a<$core.int>(85, _omitFieldNames ? '' : 'mediumStressDurationSeconds', $pb.PbFieldType.OS3, protoName: 'mediumStressDurationSeconds')
-    ..a<$core.int>(86, _omitFieldNames ? '' : 'highStressDurationSeconds', $pb.PbFieldType.OS3, protoName: 'highStressDurationSeconds')
-    ..pc<TssGranularDataProto>(87, _omitFieldNames ? '' : 'tssGranularData', $pb.PbFieldType.PM, protoName: 'tssGranularData', subBuilder: TssGranularDataProto.create)
-    ..a<$core.int>(88, _omitFieldNames ? '' : 'stressAvgLevel', $pb.PbFieldType.OS3, protoName: 'stressAvgLevel')
-    ..a<$core.int>(89, _omitFieldNames ? '' : 'stressMaximumLevel', $pb.PbFieldType.OS3, protoName: 'stressMaximumLevel')
-    ..hasRequiredFields = false
-  ;
+    ..pc<StepsGranularDataProto>(
+        28, _omitFieldNames ? '' : 'stepsGranularData', $pb.PbFieldType.PM,
+        protoName: 'stepsGranularData',
+        subBuilder: StepsGranularDataProto.create)
+    ..a<$core.double>(
+        29, _omitFieldNames ? '' : 'walkedDistanceMeters', $pb.PbFieldType.OD,
+        protoName: 'walkedDistanceMeters')
+    ..a<$core.double>(
+        30, _omitFieldNames ? '' : 'traveledDistanceMeters', $pb.PbFieldType.OD,
+        protoName: 'traveledDistanceMeters')
+    ..pc<TraveledDistanceGranularDataProto>(
+        31,
+        _omitFieldNames ? '' : 'traveledDistanceGranularData',
+        $pb.PbFieldType.PM,
+        protoName: 'traveledDistanceGranularData',
+        subBuilder: TraveledDistanceGranularDataProto.create)
+    ..a<$core.double>(
+        32, _omitFieldNames ? '' : 'floorsClimbed', $pb.PbFieldType.OD,
+        protoName: 'floorsClimbed')
+    ..pc<FloorsClimbedGranularDataProto>(33,
+        _omitFieldNames ? '' : 'floorsClimbedGranularData', $pb.PbFieldType.PM,
+        protoName: 'floorsClimbedGranularData',
+        subBuilder: FloorsClimbedGranularDataProto.create)
+    ..a<$core.double>(34, _omitFieldNames ? '' : 'elevationAvgAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationAvgAltitudeMeters')
+    ..a<$core.double>(
+        35,
+        _omitFieldNames ? '' : 'elevationMinimumAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationMinimumAltitudeMeters')
+    ..a<$core.double>(
+        36,
+        _omitFieldNames ? '' : 'elevationMaximumAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationMaximumAltitudeMeters')
+    ..a<$core.double>(
+        37,
+        _omitFieldNames ? '' : 'elevationLossActualAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationLossActualAltitudeMeters')
+    ..a<$core.double>(
+        38,
+        _omitFieldNames ? '' : 'elevationGainActualAltitudeMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationGainActualAltitudeMeters')
+    ..a<$core.double>(39, _omitFieldNames ? '' : 'elevationPlannedGainMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'elevationPlannedGainMeters')
+    ..pc<ElevationGranularDataProto>(
+        40, _omitFieldNames ? '' : 'elevationGranularData', $pb.PbFieldType.PM,
+        protoName: 'elevationGranularData',
+        subBuilder: ElevationGranularDataProto.create)
+    ..a<$core.int>(
+        41, _omitFieldNames ? '' : 'swimmingNumStrokes', $pb.PbFieldType.OS3,
+        protoName: 'swimmingNumStrokes')
+    ..a<$core.int>(
+        42, _omitFieldNames ? '' : 'swimmingNumLaps', $pb.PbFieldType.OS3,
+        protoName: 'swimmingNumLaps')
+    ..a<$core.double>(43, _omitFieldNames ? '' : 'swimmingPoolLengthMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'swimmingPoolLengthMeters')
+    ..a<$core.double>(44, _omitFieldNames ? '' : 'swimmingTotalDistanceMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'swimmingTotalDistanceMeters')
+    ..pc<SwimmingDistanceGranularDataProto>(
+        45,
+        _omitFieldNames ? '' : 'swimmingDistanceGranularData',
+        $pb.PbFieldType.PM,
+        protoName: 'swimmingDistanceGranularData',
+        subBuilder: SwimmingDistanceGranularDataProto.create)
+    ..a<$core.int>(
+        46, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMaximumBpm')
+    ..a<$core.int>(
+        47, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMinimumBpm')
+    ..a<$core.int>(48, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrAvgBpm')
+    ..a<$core.int>(
+        49, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrRestingBpm')
+    ..pc<HrGranularDataProto>(
+        50, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
+    ..a<$core.double>(
+        51, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgRmssd')
+    ..a<$core.double>(
+        52, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgSdnn')
+    ..pc<HrvSdnnGranularDataProto>(
+        53, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvSdnnGranularData',
+        subBuilder: HrvSdnnGranularDataProto.create)
+    ..pc<HrvRmssdGranularDataProto>(
+        54, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvRmssdGranularData',
+        subBuilder: HrvRmssdGranularDataProto.create)
+    ..a<$core.double>(
+        55,
+        _omitFieldNames ? '' : 'speedNormalizedMetersPerSecond',
+        $pb.PbFieldType.OD,
+        protoName: 'speedNormalizedMetersPerSecond')
+    ..a<$core.double>(56, _omitFieldNames ? '' : 'speedAvgMetersPerSecond',
+        $pb.PbFieldType.OD,
+        protoName: 'speedAvgMetersPerSecond')
+    ..a<$core.double>(57, _omitFieldNames ? '' : 'speedMaximumMetersPerSecond',
+        $pb.PbFieldType.OD,
+        protoName: 'speedMaximumMetersPerSecond')
+    ..pc<SpeedGranularDataProto>(
+        58, _omitFieldNames ? '' : 'speedGranularData', $pb.PbFieldType.PM,
+        protoName: 'speedGranularData',
+        subBuilder: SpeedGranularDataProto.create)
+    ..pc<VelocityObjectProto>(
+        59, _omitFieldNames ? '' : 'velocityAvg', $pb.PbFieldType.PM,
+        protoName: 'velocityAvg', subBuilder: VelocityObjectProto.create)
+    ..pc<VelocityObjectProto>(
+        60, _omitFieldNames ? '' : 'velocityMaximum', $pb.PbFieldType.PM,
+        protoName: 'velocityMaximum', subBuilder: VelocityObjectProto.create)
+    ..a<$core.double>(
+        61, _omitFieldNames ? '' : 'paceAvgMinPerKm', $pb.PbFieldType.OD,
+        protoName: 'paceAvgMinPerKm')
+    ..a<$core.double>(
+        62, _omitFieldNames ? '' : 'paceMaximumMinPerKm', $pb.PbFieldType.OD,
+        protoName: 'paceMaximumMinPerKm')
+    ..a<$core.double>(
+        63, _omitFieldNames ? '' : 'cadenceAvgRpm', $pb.PbFieldType.OD,
+        protoName: 'cadenceAvgRpm')
+    ..a<$core.double>(
+        64, _omitFieldNames ? '' : 'cadenceMaximumRpm', $pb.PbFieldType.OD,
+        protoName: 'cadenceMaximumRpm')
+    ..pc<CadenceGranularDataProto>(
+        65, _omitFieldNames ? '' : 'cadenceGranularData', $pb.PbFieldType.PM,
+        protoName: 'cadenceGranularData',
+        subBuilder: CadenceGranularDataProto.create)
+    ..a<$core.double>(
+        66, _omitFieldNames ? '' : 'torqueAvgNewtonMeters', $pb.PbFieldType.OD,
+        protoName: 'torqueAvgNewtonMeters')
+    ..a<$core.double>(67, _omitFieldNames ? '' : 'torqueMaximumNewtonMeters',
+        $pb.PbFieldType.OD,
+        protoName: 'torqueMaximumNewtonMeters')
+    ..pc<TorqueGranularDataProto>(
+        68, _omitFieldNames ? '' : 'torqueGranularData', $pb.PbFieldType.PM,
+        protoName: 'torqueGranularData',
+        subBuilder: TorqueGranularDataProto.create)
+    ..pc<LapGranularDataProto>(
+        69, _omitFieldNames ? '' : 'lapGranularData', $pb.PbFieldType.PM,
+        protoName: 'lapGranularData', subBuilder: LapGranularDataProto.create)
+    ..a<$core.double>(70, _omitFieldNames ? '' : 'saturationAvgPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'saturationAvgPercentage')
+    ..pc<SaturationGranularDataProto>(
+        71, _omitFieldNames ? '' : 'saturationGranularData', $pb.PbFieldType.PM,
+        protoName: 'saturationGranularData',
+        subBuilder: SaturationGranularDataProto.create)
+    ..a<$core.double>(
+        72, _omitFieldNames ? '' : 'vo2MaxMlPerMinPerKg', $pb.PbFieldType.OD,
+        protoName: 'vo2MaxMlPerMinPerKg')
+    ..pc<Vo2GranularDataProto>(
+        73, _omitFieldNames ? '' : 'vo2GranularData', $pb.PbFieldType.PM,
+        protoName: 'vo2GranularData', subBuilder: Vo2GranularDataProto.create)
+    ..pc<PositionObjectProto>(
+        74, _omitFieldNames ? '' : 'positionStart', $pb.PbFieldType.PM,
+        protoName: 'positionStart', subBuilder: PositionObjectProto.create)
+    ..pc<PositionObjectProto>(
+        75, _omitFieldNames ? '' : 'positionCentroid', $pb.PbFieldType.PM,
+        protoName: 'positionCentroid', subBuilder: PositionObjectProto.create)
+    ..pc<PositionObjectProto>(
+        76, _omitFieldNames ? '' : 'positionEnd', $pb.PbFieldType.PM,
+        protoName: 'positionEnd', subBuilder: PositionObjectProto.create)
+    ..pc<PositionGranularDataProto>(
+        77, _omitFieldNames ? '' : 'positionGranularData', $pb.PbFieldType.PM,
+        protoName: 'positionGranularData',
+        subBuilder: PositionGranularDataProto.create)
+    ..aOS(78, _omitFieldNames ? '' : 'positionPolylineMapDataSummary',
+        protoName: 'positionPolylineMapDataSummary')
+    ..a<$core.double>(
+        79, _omitFieldNames ? '' : 'powerAvgWatts', $pb.PbFieldType.OD,
+        protoName: 'powerAvgWatts')
+    ..a<$core.double>(
+        80, _omitFieldNames ? '' : 'powerMaximumWatts', $pb.PbFieldType.OD,
+        protoName: 'powerMaximumWatts')
+    ..pc<PowerGranularDataProto>(
+        81, _omitFieldNames ? '' : 'powerGranularData', $pb.PbFieldType.PM,
+        protoName: 'powerGranularData',
+        subBuilder: PowerGranularDataProto.create)
+    ..a<$core.int>(82, _omitFieldNames ? '' : 'stressAtRestDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'stressAtRestDurationSeconds')
+    ..a<$core.int>(
+        83, _omitFieldNames ? '' : 'stressDurationSeconds', $pb.PbFieldType.OS3,
+        protoName: 'stressDurationSeconds')
+    ..a<$core.int>(84, _omitFieldNames ? '' : 'lowStressDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'lowStressDurationSeconds')
+    ..a<$core.int>(85, _omitFieldNames ? '' : 'mediumStressDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'mediumStressDurationSeconds')
+    ..a<$core.int>(86, _omitFieldNames ? '' : 'highStressDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'highStressDurationSeconds')
+    ..pc<TssGranularDataProto>(
+        87, _omitFieldNames ? '' : 'tssGranularData', $pb.PbFieldType.PM,
+        protoName: 'tssGranularData', subBuilder: TssGranularDataProto.create)
+    ..a<$core.int>(
+        88, _omitFieldNames ? '' : 'stressAvgLevel', $pb.PbFieldType.OS3,
+        protoName: 'stressAvgLevel')
+    ..a<$core.int>(
+        89, _omitFieldNames ? '' : 'stressMaximumLevel', $pb.PbFieldType.OS3,
+        protoName: 'stressMaximumLevel')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ActivityEventProto clone() => ActivityEventProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ActivityEventProto copyWith(void Function(ActivityEventProto) updates) => super.copyWith((message) => updates(message as ActivityEventProto)) as ActivityEventProto;
+  ActivityEventProto copyWith(void Function(ActivityEventProto) updates) =>
+      super.copyWith((message) => updates(message as ActivityEventProto))
+          as ActivityEventProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -2863,9 +3990,11 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   static ActivityEventProto create() => ActivityEventProto._();
   @$core.override
   ActivityEventProto createEmptyInstance() => create();
-  static $pb.PbList<ActivityEventProto> createRepeated() => $pb.PbList<ActivityEventProto>();
+  static $pb.PbList<ActivityEventProto> createRepeated() =>
+      $pb.PbList<ActivityEventProto>();
   @$core.pragma('dart2js:noInline')
-  static ActivityEventProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ActivityEventProto>(create);
+  static ActivityEventProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ActivityEventProto>(create);
   static ActivityEventProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -2986,7 +4115,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   void clearInactivitySeconds() => $_clearField(13);
 
   @$pb.TagNumber(14)
-  $pb.PbList<ActivityLevelGranularDataProto> get activityLevelGranularData => $_getList(13);
+  $pb.PbList<ActivityLevelGranularDataProto> get activityLevelGranularData =>
+      $_getList(13);
 
   @$pb.TagNumber(15)
   $core.int get continuousInactivePeriods => $_getIZ(14);
@@ -3027,7 +4157,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(19)
   $core.double get activityEnergyPlannedKilojoules => $_getN(18);
   @$pb.TagNumber(19)
-  set activityEnergyPlannedKilojoules($core.double value) => $_setDouble(18, value);
+  set activityEnergyPlannedKilojoules($core.double value) =>
+      $_setDouble(18, value);
   @$pb.TagNumber(19)
   $core.bool hasActivityEnergyPlannedKilojoules() => $_has(18);
   @$pb.TagNumber(19)
@@ -3063,7 +4194,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(23)
   $core.double get caloriesBasalMetabolicRateKcal => $_getN(22);
   @$pb.TagNumber(23)
-  set caloriesBasalMetabolicRateKcal($core.double value) => $_setDouble(22, value);
+  set caloriesBasalMetabolicRateKcal($core.double value) =>
+      $_setDouble(22, value);
   @$pb.TagNumber(23)
   $core.bool hasCaloriesBasalMetabolicRateKcal() => $_has(22);
   @$pb.TagNumber(23)
@@ -3081,7 +4213,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(25)
   $core.double get carbohydratePercentageOfCalories => $_getN(24);
   @$pb.TagNumber(25)
-  set carbohydratePercentageOfCalories($core.double value) => $_setDouble(24, value);
+  set carbohydratePercentageOfCalories($core.double value) =>
+      $_setDouble(24, value);
   @$pb.TagNumber(25)
   $core.bool hasCarbohydratePercentageOfCalories() => $_has(24);
   @$pb.TagNumber(25)
@@ -3127,7 +4260,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   void clearTraveledDistanceMeters() => $_clearField(30);
 
   @$pb.TagNumber(31)
-  $pb.PbList<TraveledDistanceGranularDataProto> get traveledDistanceGranularData => $_getList(30);
+  $pb.PbList<TraveledDistanceGranularDataProto>
+      get traveledDistanceGranularData => $_getList(30);
 
   @$pb.TagNumber(32)
   $core.double get floorsClimbed => $_getN(31);
@@ -3139,7 +4273,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   void clearFloorsClimbed() => $_clearField(32);
 
   @$pb.TagNumber(33)
-  $pb.PbList<FloorsClimbedGranularDataProto> get floorsClimbedGranularData => $_getList(32);
+  $pb.PbList<FloorsClimbedGranularDataProto> get floorsClimbedGranularData =>
+      $_getList(32);
 
   @$pb.TagNumber(34)
   $core.double get elevationAvgAltitudeMeters => $_getN(33);
@@ -3153,7 +4288,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(35)
   $core.double get elevationMinimumAltitudeMeters => $_getN(34);
   @$pb.TagNumber(35)
-  set elevationMinimumAltitudeMeters($core.double value) => $_setDouble(34, value);
+  set elevationMinimumAltitudeMeters($core.double value) =>
+      $_setDouble(34, value);
   @$pb.TagNumber(35)
   $core.bool hasElevationMinimumAltitudeMeters() => $_has(34);
   @$pb.TagNumber(35)
@@ -3162,7 +4298,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(36)
   $core.double get elevationMaximumAltitudeMeters => $_getN(35);
   @$pb.TagNumber(36)
-  set elevationMaximumAltitudeMeters($core.double value) => $_setDouble(35, value);
+  set elevationMaximumAltitudeMeters($core.double value) =>
+      $_setDouble(35, value);
   @$pb.TagNumber(36)
   $core.bool hasElevationMaximumAltitudeMeters() => $_has(35);
   @$pb.TagNumber(36)
@@ -3171,7 +4308,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(37)
   $core.double get elevationLossActualAltitudeMeters => $_getN(36);
   @$pb.TagNumber(37)
-  set elevationLossActualAltitudeMeters($core.double value) => $_setDouble(36, value);
+  set elevationLossActualAltitudeMeters($core.double value) =>
+      $_setDouble(36, value);
   @$pb.TagNumber(37)
   $core.bool hasElevationLossActualAltitudeMeters() => $_has(36);
   @$pb.TagNumber(37)
@@ -3180,7 +4318,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(38)
   $core.double get elevationGainActualAltitudeMeters => $_getN(37);
   @$pb.TagNumber(38)
-  set elevationGainActualAltitudeMeters($core.double value) => $_setDouble(37, value);
+  set elevationGainActualAltitudeMeters($core.double value) =>
+      $_setDouble(37, value);
   @$pb.TagNumber(38)
   $core.bool hasElevationGainActualAltitudeMeters() => $_has(37);
   @$pb.TagNumber(38)
@@ -3196,7 +4335,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   void clearElevationPlannedGainMeters() => $_clearField(39);
 
   @$pb.TagNumber(40)
-  $pb.PbList<ElevationGranularDataProto> get elevationGranularData => $_getList(39);
+  $pb.PbList<ElevationGranularDataProto> get elevationGranularData =>
+      $_getList(39);
 
   @$pb.TagNumber(41)
   $core.int get swimmingNumStrokes => $_getIZ(40);
@@ -3235,7 +4375,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   void clearSwimmingTotalDistanceMeters() => $_clearField(44);
 
   @$pb.TagNumber(45)
-  $pb.PbList<SwimmingDistanceGranularDataProto> get swimmingDistanceGranularData => $_getList(44);
+  $pb.PbList<SwimmingDistanceGranularDataProto>
+      get swimmingDistanceGranularData => $_getList(44);
 
   @$pb.TagNumber(46)
   $core.int get hrMaximumBpm => $_getIZ(45);
@@ -3298,12 +4439,14 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   $pb.PbList<HrvSdnnGranularDataProto> get hrvSdnnGranularData => $_getList(52);
 
   @$pb.TagNumber(54)
-  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData => $_getList(53);
+  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData =>
+      $_getList(53);
 
   @$pb.TagNumber(55)
   $core.double get speedNormalizedMetersPerSecond => $_getN(54);
   @$pb.TagNumber(55)
-  set speedNormalizedMetersPerSecond($core.double value) => $_setDouble(54, value);
+  set speedNormalizedMetersPerSecond($core.double value) =>
+      $_setDouble(54, value);
   @$pb.TagNumber(55)
   $core.bool hasSpeedNormalizedMetersPerSecond() => $_has(54);
   @$pb.TagNumber(55)
@@ -3409,7 +4552,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   void clearSaturationAvgPercentage() => $_clearField(70);
 
   @$pb.TagNumber(71)
-  $pb.PbList<SaturationGranularDataProto> get saturationGranularData => $_getList(70);
+  $pb.PbList<SaturationGranularDataProto> get saturationGranularData =>
+      $_getList(70);
 
   @$pb.TagNumber(72)
   $core.double get vo2MaxMlPerMinPerKg => $_getN(71);
@@ -3433,12 +4577,14 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   $pb.PbList<PositionObjectProto> get positionEnd => $_getList(75);
 
   @$pb.TagNumber(77)
-  $pb.PbList<PositionGranularDataProto> get positionGranularData => $_getList(76);
+  $pb.PbList<PositionGranularDataProto> get positionGranularData =>
+      $_getList(76);
 
   @$pb.TagNumber(78)
   $core.String get positionPolylineMapDataSummary => $_getSZ(77);
   @$pb.TagNumber(78)
-  set positionPolylineMapDataSummary($core.String value) => $_setString(77, value);
+  set positionPolylineMapDataSummary($core.String value) =>
+      $_setString(77, value);
   @$pb.TagNumber(78)
   $core.bool hasPositionPolylineMapDataSummary() => $_has(77);
   @$pb.TagNumber(78)
@@ -3468,7 +4614,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(82)
   $core.int get stressAtRestDurationSeconds => $_getIZ(81);
   @$pb.TagNumber(82)
-  set stressAtRestDurationSeconds($core.int value) => $_setSignedInt32(81, value);
+  set stressAtRestDurationSeconds($core.int value) =>
+      $_setSignedInt32(81, value);
   @$pb.TagNumber(82)
   $core.bool hasStressAtRestDurationSeconds() => $_has(81);
   @$pb.TagNumber(82)
@@ -3495,7 +4642,8 @@ class ActivityEventProto extends $pb.GeneratedMessage {
   @$pb.TagNumber(85)
   $core.int get mediumStressDurationSeconds => $_getIZ(84);
   @$pb.TagNumber(85)
-  set mediumStressDurationSeconds($core.int value) => $_setSignedInt32(84, value);
+  set mediumStressDurationSeconds($core.int value) =>
+      $_setSignedInt32(84, value);
   @$pb.TagNumber(85)
   $core.bool hasMediumStressDurationSeconds() => $_has(84);
   @$pb.TagNumber(85)
@@ -3543,18 +4691,27 @@ class ActivityEventsProto extends $pb.GeneratedMessage {
 
   ActivityEventsProto._();
 
-  factory ActivityEventsProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory ActivityEventsProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory ActivityEventsProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ActivityEventsProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ActivityEventsProto', createEmptyInstance: create)
-    ..pc<ActivityEventProto>(1, _omitFieldNames ? '' : 'elements', $pb.PbFieldType.PM, subBuilder: ActivityEventProto.create)
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActivityEventsProto',
+      createEmptyInstance: create)
+    ..pc<ActivityEventProto>(
+        1, _omitFieldNames ? '' : 'elements', $pb.PbFieldType.PM,
+        subBuilder: ActivityEventProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ActivityEventsProto clone() => ActivityEventsProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ActivityEventsProto copyWith(void Function(ActivityEventsProto) updates) => super.copyWith((message) => updates(message as ActivityEventsProto)) as ActivityEventsProto;
+  ActivityEventsProto copyWith(void Function(ActivityEventsProto) updates) =>
+      super.copyWith((message) => updates(message as ActivityEventsProto))
+          as ActivityEventsProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3563,20 +4720,18 @@ class ActivityEventsProto extends $pb.GeneratedMessage {
   static ActivityEventsProto create() => ActivityEventsProto._();
   @$core.override
   ActivityEventsProto createEmptyInstance() => create();
-  static $pb.PbList<ActivityEventsProto> createRepeated() => $pb.PbList<ActivityEventsProto>();
+  static $pb.PbList<ActivityEventsProto> createRepeated() =>
+      $pb.PbList<ActivityEventsProto>();
   @$core.pragma('dart2js:noInline')
-  static ActivityEventsProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ActivityEventsProto>(create);
+  static ActivityEventsProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ActivityEventsProto>(create);
   static ActivityEventsProto? _defaultInstance;
 
   @$pb.TagNumber(1)
   $pb.PbList<ActivityEventProto> get elements => $_getList(0);
 }
 
-enum ActivityEventResultProto_Result {
-  success, 
-  failure, 
-  notSet
-}
+enum ActivityEventResultProto_Result { success, failure, notSet }
 
 class ActivityEventResultProto extends $pb.GeneratedMessage {
   factory ActivityEventResultProto({
@@ -3591,25 +4746,37 @@ class ActivityEventResultProto extends $pb.GeneratedMessage {
 
   ActivityEventResultProto._();
 
-  factory ActivityEventResultProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory ActivityEventResultProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory ActivityEventResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ActivityEventResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, ActivityEventResultProto_Result> _ActivityEventResultProto_ResultByTag = {
-    1 : ActivityEventResultProto_Result.success,
-    2 : ActivityEventResultProto_Result.failure,
-    0 : ActivityEventResultProto_Result.notSet
+  static const $core.Map<$core.int, ActivityEventResultProto_Result>
+      _ActivityEventResultProto_ResultByTag = {
+    1: ActivityEventResultProto_Result.success,
+    2: ActivityEventResultProto_Result.failure,
+    0: ActivityEventResultProto_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ActivityEventResultProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActivityEventResultProto',
+      createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<ActivityEventsProto>(1, _omitFieldNames ? '' : 'success', subBuilder: ActivityEventsProto.create)
-    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure', subBuilder: SDKExceptionProto.create)
-    ..hasRequiredFields = false
-  ;
+    ..aOM<ActivityEventsProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: ActivityEventsProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ActivityEventResultProto clone() => ActivityEventResultProto()..mergeFromMessage(this);
+  ActivityEventResultProto clone() =>
+      ActivityEventResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ActivityEventResultProto copyWith(void Function(ActivityEventResultProto) updates) => super.copyWith((message) => updates(message as ActivityEventResultProto)) as ActivityEventResultProto;
+  ActivityEventResultProto copyWith(
+          void Function(ActivityEventResultProto) updates) =>
+      super.copyWith((message) => updates(message as ActivityEventResultProto))
+          as ActivityEventResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3618,12 +4785,15 @@ class ActivityEventResultProto extends $pb.GeneratedMessage {
   static ActivityEventResultProto create() => ActivityEventResultProto._();
   @$core.override
   ActivityEventResultProto createEmptyInstance() => create();
-  static $pb.PbList<ActivityEventResultProto> createRepeated() => $pb.PbList<ActivityEventResultProto>();
+  static $pb.PbList<ActivityEventResultProto> createRepeated() =>
+      $pb.PbList<ActivityEventResultProto>();
   @$core.pragma('dart2js:noInline')
-  static ActivityEventResultProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ActivityEventResultProto>(create);
+  static ActivityEventResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ActivityEventResultProto>(create);
   static ActivityEventResultProto? _defaultInstance;
 
-  ActivityEventResultProto_Result whichResult() => _ActivityEventResultProto_ResultByTag[$_whichOneof(0)]!;
+  ActivityEventResultProto_Result whichResult() =>
+      _ActivityEventResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -3657,38 +4827,55 @@ class ActiveStepsGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (activeSteps != null) result.activeSteps = activeSteps;
     return result;
   }
 
   ActiveStepsGranularDataProto._();
 
-  factory ActiveStepsGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory ActiveStepsGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory ActiveStepsGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ActiveStepsGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ActiveStepsGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActiveStepsGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'activeSteps', $pb.PbFieldType.OS3, protoName: 'activeSteps')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'activeSteps', $pb.PbFieldType.OS3,
+        protoName: 'activeSteps')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ActiveStepsGranularDataProto clone() => ActiveStepsGranularDataProto()..mergeFromMessage(this);
+  ActiveStepsGranularDataProto clone() =>
+      ActiveStepsGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ActiveStepsGranularDataProto copyWith(void Function(ActiveStepsGranularDataProto) updates) => super.copyWith((message) => updates(message as ActiveStepsGranularDataProto)) as ActiveStepsGranularDataProto;
+  ActiveStepsGranularDataProto copyWith(
+          void Function(ActiveStepsGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as ActiveStepsGranularDataProto))
+          as ActiveStepsGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ActiveStepsGranularDataProto create() => ActiveStepsGranularDataProto._();
+  static ActiveStepsGranularDataProto create() =>
+      ActiveStepsGranularDataProto._();
   @$core.override
   ActiveStepsGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<ActiveStepsGranularDataProto> createRepeated() => $pb.PbList<ActiveStepsGranularDataProto>();
+  static $pb.PbList<ActiveStepsGranularDataProto> createRepeated() =>
+      $pb.PbList<ActiveStepsGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static ActiveStepsGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ActiveStepsGranularDataProto>(create);
+  static ActiveStepsGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ActiveStepsGranularDataProto>(create);
   static ActiveStepsGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3732,30 +4919,45 @@ class ActivityLevelGranularDataProto extends $pb.GeneratedMessage {
 
   ActivityLevelGranularDataProto._();
 
-  factory ActivityLevelGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory ActivityLevelGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory ActivityLevelGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ActivityLevelGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ActivityLevelGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ActivityLevelGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'activityLevel', $pb.PbFieldType.OS3, protoName: 'activityLevel')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(
+        2, _omitFieldNames ? '' : 'activityLevel', $pb.PbFieldType.OS3,
+        protoName: 'activityLevel')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ActivityLevelGranularDataProto clone() => ActivityLevelGranularDataProto()..mergeFromMessage(this);
+  ActivityLevelGranularDataProto clone() =>
+      ActivityLevelGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ActivityLevelGranularDataProto copyWith(void Function(ActivityLevelGranularDataProto) updates) => super.copyWith((message) => updates(message as ActivityLevelGranularDataProto)) as ActivityLevelGranularDataProto;
+  ActivityLevelGranularDataProto copyWith(
+          void Function(ActivityLevelGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as ActivityLevelGranularDataProto))
+          as ActivityLevelGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ActivityLevelGranularDataProto create() => ActivityLevelGranularDataProto._();
+  static ActivityLevelGranularDataProto create() =>
+      ActivityLevelGranularDataProto._();
   @$core.override
   ActivityLevelGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<ActivityLevelGranularDataProto> createRepeated() => $pb.PbList<ActivityLevelGranularDataProto>();
+  static $pb.PbList<ActivityLevelGranularDataProto> createRepeated() =>
+      $pb.PbList<ActivityLevelGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static ActivityLevelGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ActivityLevelGranularDataProto>(create);
+  static ActivityLevelGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ActivityLevelGranularDataProto>(create);
   static ActivityLevelGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3784,36 +4986,52 @@ class BloodGlucoseGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (bloodGlucoseMgPerDl != null) result.bloodGlucoseMgPerDl = bloodGlucoseMgPerDl;
+    if (bloodGlucoseMgPerDl != null)
+      result.bloodGlucoseMgPerDl = bloodGlucoseMgPerDl;
     return result;
   }
 
   BloodGlucoseGranularDataProto._();
 
-  factory BloodGlucoseGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory BloodGlucoseGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BloodGlucoseGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BloodGlucoseGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BloodGlucoseGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BloodGlucoseGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'bloodGlucoseMgPerDl', $pb.PbFieldType.OD, protoName: 'bloodGlucoseMgPerDl')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(
+        2, _omitFieldNames ? '' : 'bloodGlucoseMgPerDl', $pb.PbFieldType.OD,
+        protoName: 'bloodGlucoseMgPerDl')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BloodGlucoseGranularDataProto clone() => BloodGlucoseGranularDataProto()..mergeFromMessage(this);
+  BloodGlucoseGranularDataProto clone() =>
+      BloodGlucoseGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BloodGlucoseGranularDataProto copyWith(void Function(BloodGlucoseGranularDataProto) updates) => super.copyWith((message) => updates(message as BloodGlucoseGranularDataProto)) as BloodGlucoseGranularDataProto;
+  BloodGlucoseGranularDataProto copyWith(
+          void Function(BloodGlucoseGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as BloodGlucoseGranularDataProto))
+          as BloodGlucoseGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static BloodGlucoseGranularDataProto create() => BloodGlucoseGranularDataProto._();
+  static BloodGlucoseGranularDataProto create() =>
+      BloodGlucoseGranularDataProto._();
   @$core.override
   BloodGlucoseGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<BloodGlucoseGranularDataProto> createRepeated() => $pb.PbList<BloodGlucoseGranularDataProto>();
+  static $pb.PbList<BloodGlucoseGranularDataProto> createRepeated() =>
+      $pb.PbList<BloodGlucoseGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static BloodGlucoseGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BloodGlucoseGranularDataProto>(create);
+  static BloodGlucoseGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BloodGlucoseGranularDataProto>(create);
   static BloodGlucoseGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3850,31 +5068,48 @@ class BloodPressureGranularDataProto extends $pb.GeneratedMessage {
 
   BloodPressureGranularDataProto._();
 
-  factory BloodPressureGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory BloodPressureGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BloodPressureGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BloodPressureGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BloodPressureGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BloodPressureGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'systolicMmHg', $pb.PbFieldType.OD, protoName: 'systolicMmHg')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'diastolicMmHg', $pb.PbFieldType.OD, protoName: 'diastolicMmHg')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(
+        2, _omitFieldNames ? '' : 'systolicMmHg', $pb.PbFieldType.OD,
+        protoName: 'systolicMmHg')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'diastolicMmHg', $pb.PbFieldType.OD,
+        protoName: 'diastolicMmHg')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BloodPressureGranularDataProto clone() => BloodPressureGranularDataProto()..mergeFromMessage(this);
+  BloodPressureGranularDataProto clone() =>
+      BloodPressureGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BloodPressureGranularDataProto copyWith(void Function(BloodPressureGranularDataProto) updates) => super.copyWith((message) => updates(message as BloodPressureGranularDataProto)) as BloodPressureGranularDataProto;
+  BloodPressureGranularDataProto copyWith(
+          void Function(BloodPressureGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as BloodPressureGranularDataProto))
+          as BloodPressureGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static BloodPressureGranularDataProto create() => BloodPressureGranularDataProto._();
+  static BloodPressureGranularDataProto create() =>
+      BloodPressureGranularDataProto._();
   @$core.override
   BloodPressureGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<BloodPressureGranularDataProto> createRepeated() => $pb.PbList<BloodPressureGranularDataProto>();
+  static $pb.PbList<BloodPressureGranularDataProto> createRepeated() =>
+      $pb.PbList<BloodPressureGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static BloodPressureGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BloodPressureGranularDataProto>(create);
+  static BloodPressureGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BloodPressureGranularDataProto>(create);
   static BloodPressureGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3918,19 +5153,31 @@ class BreathingGranularDataProto extends $pb.GeneratedMessage {
 
   BreathingGranularDataProto._();
 
-  factory BreathingGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory BreathingGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BreathingGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BreathingGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BreathingGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BreathingGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'breathsPerMin', $pb.PbFieldType.OD, protoName: 'breathsPerMin')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(
+        2, _omitFieldNames ? '' : 'breathsPerMin', $pb.PbFieldType.OD,
+        protoName: 'breathsPerMin')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BreathingGranularDataProto clone() => BreathingGranularDataProto()..mergeFromMessage(this);
+  BreathingGranularDataProto clone() =>
+      BreathingGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BreathingGranularDataProto copyWith(void Function(BreathingGranularDataProto) updates) => super.copyWith((message) => updates(message as BreathingGranularDataProto)) as BreathingGranularDataProto;
+  BreathingGranularDataProto copyWith(
+          void Function(BreathingGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as BreathingGranularDataProto))
+          as BreathingGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -3939,9 +5186,11 @@ class BreathingGranularDataProto extends $pb.GeneratedMessage {
   static BreathingGranularDataProto create() => BreathingGranularDataProto._();
   @$core.override
   BreathingGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<BreathingGranularDataProto> createRepeated() => $pb.PbList<BreathingGranularDataProto>();
+  static $pb.PbList<BreathingGranularDataProto> createRepeated() =>
+      $pb.PbList<BreathingGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static BreathingGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BreathingGranularDataProto>(create);
+  static BreathingGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BreathingGranularDataProto>(create);
   static BreathingGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -3971,27 +5220,41 @@ class CadenceGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (cadenceRpm != null) result.cadenceRpm = cadenceRpm;
     return result;
   }
 
   CadenceGranularDataProto._();
 
-  factory CadenceGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory CadenceGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory CadenceGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CadenceGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CadenceGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CadenceGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'cadenceRpm', $pb.PbFieldType.OD, protoName: 'cadenceRpm')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'cadenceRpm', $pb.PbFieldType.OD,
+        protoName: 'cadenceRpm')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CadenceGranularDataProto clone() => CadenceGranularDataProto()..mergeFromMessage(this);
+  CadenceGranularDataProto clone() =>
+      CadenceGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CadenceGranularDataProto copyWith(void Function(CadenceGranularDataProto) updates) => super.copyWith((message) => updates(message as CadenceGranularDataProto)) as CadenceGranularDataProto;
+  CadenceGranularDataProto copyWith(
+          void Function(CadenceGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as CadenceGranularDataProto))
+          as CadenceGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4000,9 +5263,11 @@ class CadenceGranularDataProto extends $pb.GeneratedMessage {
   static CadenceGranularDataProto create() => CadenceGranularDataProto._();
   @$core.override
   CadenceGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<CadenceGranularDataProto> createRepeated() => $pb.PbList<CadenceGranularDataProto>();
+  static $pb.PbList<CadenceGranularDataProto> createRepeated() =>
+      $pb.PbList<CadenceGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static CadenceGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CadenceGranularDataProto>(create);
+  static CadenceGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CadenceGranularDataProto>(create);
   static CadenceGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4041,27 +5306,43 @@ class ElevationGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
-    if (elevationChangeMeters != null) result.elevationChangeMeters = elevationChangeMeters;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
+    if (elevationChangeMeters != null)
+      result.elevationChangeMeters = elevationChangeMeters;
     return result;
   }
 
   ElevationGranularDataProto._();
 
-  factory ElevationGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory ElevationGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory ElevationGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ElevationGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ElevationGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ElevationGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'elevationChangeMeters', $pb.PbFieldType.OD, protoName: 'elevationChangeMeters')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'elevationChangeMeters', $pb.PbFieldType.OD,
+        protoName: 'elevationChangeMeters')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ElevationGranularDataProto clone() => ElevationGranularDataProto()..mergeFromMessage(this);
+  ElevationGranularDataProto clone() =>
+      ElevationGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ElevationGranularDataProto copyWith(void Function(ElevationGranularDataProto) updates) => super.copyWith((message) => updates(message as ElevationGranularDataProto)) as ElevationGranularDataProto;
+  ElevationGranularDataProto copyWith(
+          void Function(ElevationGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as ElevationGranularDataProto))
+          as ElevationGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4070,9 +5351,11 @@ class ElevationGranularDataProto extends $pb.GeneratedMessage {
   static ElevationGranularDataProto create() => ElevationGranularDataProto._();
   @$core.override
   ElevationGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<ElevationGranularDataProto> createRepeated() => $pb.PbList<ElevationGranularDataProto>();
+  static $pb.PbList<ElevationGranularDataProto> createRepeated() =>
+      $pb.PbList<ElevationGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static ElevationGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ElevationGranularDataProto>(create);
+  static ElevationGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ElevationGranularDataProto>(create);
   static ElevationGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4111,38 +5394,56 @@ class FloorsClimbedGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (floorsClimbed != null) result.floorsClimbed = floorsClimbed;
     return result;
   }
 
   FloorsClimbedGranularDataProto._();
 
-  factory FloorsClimbedGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory FloorsClimbedGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory FloorsClimbedGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory FloorsClimbedGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FloorsClimbedGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FloorsClimbedGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'floorsClimbed', $pb.PbFieldType.OD, protoName: 'floorsClimbed')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'floorsClimbed', $pb.PbFieldType.OD,
+        protoName: 'floorsClimbed')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FloorsClimbedGranularDataProto clone() => FloorsClimbedGranularDataProto()..mergeFromMessage(this);
+  FloorsClimbedGranularDataProto clone() =>
+      FloorsClimbedGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FloorsClimbedGranularDataProto copyWith(void Function(FloorsClimbedGranularDataProto) updates) => super.copyWith((message) => updates(message as FloorsClimbedGranularDataProto)) as FloorsClimbedGranularDataProto;
+  FloorsClimbedGranularDataProto copyWith(
+          void Function(FloorsClimbedGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as FloorsClimbedGranularDataProto))
+          as FloorsClimbedGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static FloorsClimbedGranularDataProto create() => FloorsClimbedGranularDataProto._();
+  static FloorsClimbedGranularDataProto create() =>
+      FloorsClimbedGranularDataProto._();
   @$core.override
   FloorsClimbedGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<FloorsClimbedGranularDataProto> createRepeated() => $pb.PbList<FloorsClimbedGranularDataProto>();
+  static $pb.PbList<FloorsClimbedGranularDataProto> createRepeated() =>
+      $pb.PbList<FloorsClimbedGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static FloorsClimbedGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FloorsClimbedGranularDataProto>(create);
+  static FloorsClimbedGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FloorsClimbedGranularDataProto>(create);
   static FloorsClimbedGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4186,19 +5487,27 @@ class HrGranularDataProto extends $pb.GeneratedMessage {
 
   HrGranularDataProto._();
 
-  factory HrGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory HrGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory HrGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HrGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HrGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HrGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'hrBpm', $pb.PbFieldType.OS3, protoName: 'hrBpm')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'hrBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrBpm')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   HrGranularDataProto clone() => HrGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HrGranularDataProto copyWith(void Function(HrGranularDataProto) updates) => super.copyWith((message) => updates(message as HrGranularDataProto)) as HrGranularDataProto;
+  HrGranularDataProto copyWith(void Function(HrGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as HrGranularDataProto))
+          as HrGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4207,9 +5516,11 @@ class HrGranularDataProto extends $pb.GeneratedMessage {
   static HrGranularDataProto create() => HrGranularDataProto._();
   @$core.override
   HrGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<HrGranularDataProto> createRepeated() => $pb.PbList<HrGranularDataProto>();
+  static $pb.PbList<HrGranularDataProto> createRepeated() =>
+      $pb.PbList<HrGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static HrGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HrGranularDataProto>(create);
+  static HrGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HrGranularDataProto>(create);
   static HrGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4244,19 +5555,29 @@ class HrvSdnnGranularDataProto extends $pb.GeneratedMessage {
 
   HrvSdnnGranularDataProto._();
 
-  factory HrvSdnnGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory HrvSdnnGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory HrvSdnnGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HrvSdnnGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HrvSdnnGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HrvSdnnGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'hrvSdnn', $pb.PbFieldType.OD, protoName: 'hrvSdnn')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'hrvSdnn', $pb.PbFieldType.OD,
+        protoName: 'hrvSdnn')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HrvSdnnGranularDataProto clone() => HrvSdnnGranularDataProto()..mergeFromMessage(this);
+  HrvSdnnGranularDataProto clone() =>
+      HrvSdnnGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HrvSdnnGranularDataProto copyWith(void Function(HrvSdnnGranularDataProto) updates) => super.copyWith((message) => updates(message as HrvSdnnGranularDataProto)) as HrvSdnnGranularDataProto;
+  HrvSdnnGranularDataProto copyWith(
+          void Function(HrvSdnnGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as HrvSdnnGranularDataProto))
+          as HrvSdnnGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4265,9 +5586,11 @@ class HrvSdnnGranularDataProto extends $pb.GeneratedMessage {
   static HrvSdnnGranularDataProto create() => HrvSdnnGranularDataProto._();
   @$core.override
   HrvSdnnGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<HrvSdnnGranularDataProto> createRepeated() => $pb.PbList<HrvSdnnGranularDataProto>();
+  static $pb.PbList<HrvSdnnGranularDataProto> createRepeated() =>
+      $pb.PbList<HrvSdnnGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static HrvSdnnGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HrvSdnnGranularDataProto>(create);
+  static HrvSdnnGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HrvSdnnGranularDataProto>(create);
   static HrvSdnnGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4302,30 +5625,46 @@ class MenstruationFlowGranularDataProto extends $pb.GeneratedMessage {
 
   MenstruationFlowGranularDataProto._();
 
-  factory MenstruationFlowGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory MenstruationFlowGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory MenstruationFlowGranularDataProto.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory MenstruationFlowGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MenstruationFlowGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MenstruationFlowGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'flowMl', $pb.PbFieldType.OD, protoName: 'flowMl')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'flowMl', $pb.PbFieldType.OD,
+        protoName: 'flowMl')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  MenstruationFlowGranularDataProto clone() => MenstruationFlowGranularDataProto()..mergeFromMessage(this);
+  MenstruationFlowGranularDataProto clone() =>
+      MenstruationFlowGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  MenstruationFlowGranularDataProto copyWith(void Function(MenstruationFlowGranularDataProto) updates) => super.copyWith((message) => updates(message as MenstruationFlowGranularDataProto)) as MenstruationFlowGranularDataProto;
+  MenstruationFlowGranularDataProto copyWith(
+          void Function(MenstruationFlowGranularDataProto) updates) =>
+      super.copyWith((message) =>
+              updates(message as MenstruationFlowGranularDataProto))
+          as MenstruationFlowGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static MenstruationFlowGranularDataProto create() => MenstruationFlowGranularDataProto._();
+  static MenstruationFlowGranularDataProto create() =>
+      MenstruationFlowGranularDataProto._();
   @$core.override
   MenstruationFlowGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<MenstruationFlowGranularDataProto> createRepeated() => $pb.PbList<MenstruationFlowGranularDataProto>();
+  static $pb.PbList<MenstruationFlowGranularDataProto> createRepeated() =>
+      $pb.PbList<MenstruationFlowGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static MenstruationFlowGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MenstruationFlowGranularDataProto>(create);
+  static MenstruationFlowGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MenstruationFlowGranularDataProto>(
+          create);
   static MenstruationFlowGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4355,27 +5694,40 @@ class MoodGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (moodScale != null) result.moodScale = moodScale;
     return result;
   }
 
   MoodGranularDataProto._();
 
-  factory MoodGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory MoodGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory MoodGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory MoodGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MoodGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'MoodGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'moodScale', $pb.PbFieldType.OD, protoName: 'moodScale')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(3, _omitFieldNames ? '' : 'moodScale', $pb.PbFieldType.OD,
+        protoName: 'moodScale')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  MoodGranularDataProto clone() => MoodGranularDataProto()..mergeFromMessage(this);
+  MoodGranularDataProto clone() =>
+      MoodGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  MoodGranularDataProto copyWith(void Function(MoodGranularDataProto) updates) => super.copyWith((message) => updates(message as MoodGranularDataProto)) as MoodGranularDataProto;
+  MoodGranularDataProto copyWith(
+          void Function(MoodGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as MoodGranularDataProto))
+          as MoodGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4384,9 +5736,11 @@ class MoodGranularDataProto extends $pb.GeneratedMessage {
   static MoodGranularDataProto create() => MoodGranularDataProto._();
   @$core.override
   MoodGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<MoodGranularDataProto> createRepeated() => $pb.PbList<MoodGranularDataProto>();
+  static $pb.PbList<MoodGranularDataProto> createRepeated() =>
+      $pb.PbList<MoodGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static MoodGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MoodGranularDataProto>(create);
+  static MoodGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<MoodGranularDataProto>(create);
   static MoodGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4425,27 +5779,38 @@ class LapGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (laps != null) result.laps = laps;
     return result;
   }
 
   LapGranularDataProto._();
 
-  factory LapGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory LapGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory LapGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory LapGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LapGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'LapGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
     ..a<$core.int>(3, _omitFieldNames ? '' : 'laps', $pb.PbFieldType.OS3)
-    ..hasRequiredFields = false
-  ;
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LapGranularDataProto clone() => LapGranularDataProto()..mergeFromMessage(this);
+  LapGranularDataProto clone() =>
+      LapGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LapGranularDataProto copyWith(void Function(LapGranularDataProto) updates) => super.copyWith((message) => updates(message as LapGranularDataProto)) as LapGranularDataProto;
+  LapGranularDataProto copyWith(void Function(LapGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as LapGranularDataProto))
+          as LapGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4454,9 +5819,11 @@ class LapGranularDataProto extends $pb.GeneratedMessage {
   static LapGranularDataProto create() => LapGranularDataProto._();
   @$core.override
   LapGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<LapGranularDataProto> createRepeated() => $pb.PbList<LapGranularDataProto>();
+  static $pb.PbList<LapGranularDataProto> createRepeated() =>
+      $pb.PbList<LapGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static LapGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LapGranularDataProto>(create);
+  static LapGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<LapGranularDataProto>(create);
   static LapGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4495,27 +5862,41 @@ class PowerGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (powerWatts != null) result.powerWatts = powerWatts;
     return result;
   }
 
   PowerGranularDataProto._();
 
-  factory PowerGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory PowerGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory PowerGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PowerGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PowerGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PowerGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'powerWatts', $pb.PbFieldType.OD, protoName: 'powerWatts')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'powerWatts', $pb.PbFieldType.OD,
+        protoName: 'powerWatts')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PowerGranularDataProto clone() => PowerGranularDataProto()..mergeFromMessage(this);
+  PowerGranularDataProto clone() =>
+      PowerGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PowerGranularDataProto copyWith(void Function(PowerGranularDataProto) updates) => super.copyWith((message) => updates(message as PowerGranularDataProto)) as PowerGranularDataProto;
+  PowerGranularDataProto copyWith(
+          void Function(PowerGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as PowerGranularDataProto))
+          as PowerGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4524,9 +5905,11 @@ class PowerGranularDataProto extends $pb.GeneratedMessage {
   static PowerGranularDataProto create() => PowerGranularDataProto._();
   @$core.override
   PowerGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<PowerGranularDataProto> createRepeated() => $pb.PbList<PowerGranularDataProto>();
+  static $pb.PbList<PowerGranularDataProto> createRepeated() =>
+      $pb.PbList<PowerGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static PowerGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PowerGranularDataProto>(create);
+  static PowerGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PowerGranularDataProto>(create);
   static PowerGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4566,7 +5949,8 @@ class PositionGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (latDeg != null) result.latDeg = latDeg;
     if (lngDeg != null) result.lngDeg = lngDeg;
     return result;
@@ -4574,21 +5958,34 @@ class PositionGranularDataProto extends $pb.GeneratedMessage {
 
   PositionGranularDataProto._();
 
-  factory PositionGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory PositionGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory PositionGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PositionGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PositionGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PositionGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'latDeg', $pb.PbFieldType.OD, protoName: 'latDeg')
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'lngDeg', $pb.PbFieldType.OD, protoName: 'lngDeg')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(3, _omitFieldNames ? '' : 'latDeg', $pb.PbFieldType.OD,
+        protoName: 'latDeg')
+    ..a<$core.double>(4, _omitFieldNames ? '' : 'lngDeg', $pb.PbFieldType.OD,
+        protoName: 'lngDeg')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PositionGranularDataProto clone() => PositionGranularDataProto()..mergeFromMessage(this);
+  PositionGranularDataProto clone() =>
+      PositionGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PositionGranularDataProto copyWith(void Function(PositionGranularDataProto) updates) => super.copyWith((message) => updates(message as PositionGranularDataProto)) as PositionGranularDataProto;
+  PositionGranularDataProto copyWith(
+          void Function(PositionGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as PositionGranularDataProto))
+          as PositionGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4597,9 +5994,11 @@ class PositionGranularDataProto extends $pb.GeneratedMessage {
   static PositionGranularDataProto create() => PositionGranularDataProto._();
   @$core.override
   PositionGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<PositionGranularDataProto> createRepeated() => $pb.PbList<PositionGranularDataProto>();
+  static $pb.PbList<PositionGranularDataProto> createRepeated() =>
+      $pb.PbList<PositionGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static PositionGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PositionGranularDataProto>(create);
+  static PositionGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PositionGranularDataProto>(create);
   static PositionGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4647,38 +6046,58 @@ class HydrationAmountGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (hydrationAmountMl != null) result.hydrationAmountMl = hydrationAmountMl;
     return result;
   }
 
   HydrationAmountGranularDataProto._();
 
-  factory HydrationAmountGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory HydrationAmountGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory HydrationAmountGranularDataProto.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HydrationAmountGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HydrationAmountGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HydrationAmountGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'hydrationAmountMl', $pb.PbFieldType.OD, protoName: 'hydrationAmountMl')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'hydrationAmountMl', $pb.PbFieldType.OD,
+        protoName: 'hydrationAmountMl')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HydrationAmountGranularDataProto clone() => HydrationAmountGranularDataProto()..mergeFromMessage(this);
+  HydrationAmountGranularDataProto clone() =>
+      HydrationAmountGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HydrationAmountGranularDataProto copyWith(void Function(HydrationAmountGranularDataProto) updates) => super.copyWith((message) => updates(message as HydrationAmountGranularDataProto)) as HydrationAmountGranularDataProto;
+  HydrationAmountGranularDataProto copyWith(
+          void Function(HydrationAmountGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as HydrationAmountGranularDataProto))
+          as HydrationAmountGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static HydrationAmountGranularDataProto create() => HydrationAmountGranularDataProto._();
+  static HydrationAmountGranularDataProto create() =>
+      HydrationAmountGranularDataProto._();
   @$core.override
   HydrationAmountGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<HydrationAmountGranularDataProto> createRepeated() => $pb.PbList<HydrationAmountGranularDataProto>();
+  static $pb.PbList<HydrationAmountGranularDataProto> createRepeated() =>
+      $pb.PbList<HydrationAmountGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static HydrationAmountGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HydrationAmountGranularDataProto>(create);
+  static HydrationAmountGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HydrationAmountGranularDataProto>(
+          create);
   static HydrationAmountGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4716,36 +6135,52 @@ class SaturationGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (saturationPercentage != null) result.saturationPercentage = saturationPercentage;
+    if (saturationPercentage != null)
+      result.saturationPercentage = saturationPercentage;
     return result;
   }
 
   SaturationGranularDataProto._();
 
-  factory SaturationGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SaturationGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SaturationGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SaturationGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaturationGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SaturationGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'saturationPercentage', $pb.PbFieldType.OD, protoName: 'saturationPercentage')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(
+        2, _omitFieldNames ? '' : 'saturationPercentage', $pb.PbFieldType.OD,
+        protoName: 'saturationPercentage')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SaturationGranularDataProto clone() => SaturationGranularDataProto()..mergeFromMessage(this);
+  SaturationGranularDataProto clone() =>
+      SaturationGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SaturationGranularDataProto copyWith(void Function(SaturationGranularDataProto) updates) => super.copyWith((message) => updates(message as SaturationGranularDataProto)) as SaturationGranularDataProto;
+  SaturationGranularDataProto copyWith(
+          void Function(SaturationGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as SaturationGranularDataProto))
+          as SaturationGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SaturationGranularDataProto create() => SaturationGranularDataProto._();
+  static SaturationGranularDataProto create() =>
+      SaturationGranularDataProto._();
   @$core.override
   SaturationGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<SaturationGranularDataProto> createRepeated() => $pb.PbList<SaturationGranularDataProto>();
+  static $pb.PbList<SaturationGranularDataProto> createRepeated() =>
+      $pb.PbList<SaturationGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static SaturationGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaturationGranularDataProto>(create);
+  static SaturationGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SaturationGranularDataProto>(create);
   static SaturationGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4775,38 +6210,58 @@ class HydrationLevelGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
-    if (hydrationLevelPercentage != null) result.hydrationLevelPercentage = hydrationLevelPercentage;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
+    if (hydrationLevelPercentage != null)
+      result.hydrationLevelPercentage = hydrationLevelPercentage;
     return result;
   }
 
   HydrationLevelGranularDataProto._();
 
-  factory HydrationLevelGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory HydrationLevelGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory HydrationLevelGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HydrationLevelGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HydrationLevelGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HydrationLevelGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'hydrationLevelPercentage', $pb.PbFieldType.OD, protoName: 'hydrationLevelPercentage')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(3, _omitFieldNames ? '' : 'hydrationLevelPercentage',
+        $pb.PbFieldType.OD,
+        protoName: 'hydrationLevelPercentage')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HydrationLevelGranularDataProto clone() => HydrationLevelGranularDataProto()..mergeFromMessage(this);
+  HydrationLevelGranularDataProto clone() =>
+      HydrationLevelGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HydrationLevelGranularDataProto copyWith(void Function(HydrationLevelGranularDataProto) updates) => super.copyWith((message) => updates(message as HydrationLevelGranularDataProto)) as HydrationLevelGranularDataProto;
+  HydrationLevelGranularDataProto copyWith(
+          void Function(HydrationLevelGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as HydrationLevelGranularDataProto))
+          as HydrationLevelGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static HydrationLevelGranularDataProto create() => HydrationLevelGranularDataProto._();
+  static HydrationLevelGranularDataProto create() =>
+      HydrationLevelGranularDataProto._();
   @$core.override
   HydrationLevelGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<HydrationLevelGranularDataProto> createRepeated() => $pb.PbList<HydrationLevelGranularDataProto>();
+  static $pb.PbList<HydrationLevelGranularDataProto> createRepeated() =>
+      $pb.PbList<HydrationLevelGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static HydrationLevelGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HydrationLevelGranularDataProto>(create);
+  static HydrationLevelGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HydrationLevelGranularDataProto>(
+          create);
   static HydrationLevelGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4850,19 +6305,29 @@ class HrvRmssdGranularDataProto extends $pb.GeneratedMessage {
 
   HrvRmssdGranularDataProto._();
 
-  factory HrvRmssdGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory HrvRmssdGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory HrvRmssdGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HrvRmssdGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HrvRmssdGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HrvRmssdGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'hrvRmssd', $pb.PbFieldType.OD, protoName: 'hrvRmssd')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'hrvRmssd', $pb.PbFieldType.OD,
+        protoName: 'hrvRmssd')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HrvRmssdGranularDataProto clone() => HrvRmssdGranularDataProto()..mergeFromMessage(this);
+  HrvRmssdGranularDataProto clone() =>
+      HrvRmssdGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HrvRmssdGranularDataProto copyWith(void Function(HrvRmssdGranularDataProto) updates) => super.copyWith((message) => updates(message as HrvRmssdGranularDataProto)) as HrvRmssdGranularDataProto;
+  HrvRmssdGranularDataProto copyWith(
+          void Function(HrvRmssdGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as HrvRmssdGranularDataProto))
+          as HrvRmssdGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4871,9 +6336,11 @@ class HrvRmssdGranularDataProto extends $pb.GeneratedMessage {
   static HrvRmssdGranularDataProto create() => HrvRmssdGranularDataProto._();
   @$core.override
   HrvRmssdGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<HrvRmssdGranularDataProto> createRepeated() => $pb.PbList<HrvRmssdGranularDataProto>();
+  static $pb.PbList<HrvRmssdGranularDataProto> createRepeated() =>
+      $pb.PbList<HrvRmssdGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static HrvRmssdGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HrvRmssdGranularDataProto>(create);
+  static HrvRmssdGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HrvRmssdGranularDataProto>(create);
   static HrvRmssdGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4903,27 +6370,42 @@ class SnoringGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
-    if (snoringEventsCount != null) result.snoringEventsCount = snoringEventsCount;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
+    if (snoringEventsCount != null)
+      result.snoringEventsCount = snoringEventsCount;
     return result;
   }
 
   SnoringGranularDataProto._();
 
-  factory SnoringGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SnoringGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SnoringGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SnoringGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SnoringGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SnoringGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'snoringEventsCount', $pb.PbFieldType.OS3, protoName: 'snoringEventsCount')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.int>(
+        3, _omitFieldNames ? '' : 'snoringEventsCount', $pb.PbFieldType.OS3,
+        protoName: 'snoringEventsCount')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SnoringGranularDataProto clone() => SnoringGranularDataProto()..mergeFromMessage(this);
+  SnoringGranularDataProto clone() =>
+      SnoringGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SnoringGranularDataProto copyWith(void Function(SnoringGranularDataProto) updates) => super.copyWith((message) => updates(message as SnoringGranularDataProto)) as SnoringGranularDataProto;
+  SnoringGranularDataProto copyWith(
+          void Function(SnoringGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as SnoringGranularDataProto))
+          as SnoringGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -4932,9 +6414,11 @@ class SnoringGranularDataProto extends $pb.GeneratedMessage {
   static SnoringGranularDataProto create() => SnoringGranularDataProto._();
   @$core.override
   SnoringGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<SnoringGranularDataProto> createRepeated() => $pb.PbList<SnoringGranularDataProto>();
+  static $pb.PbList<SnoringGranularDataProto> createRepeated() =>
+      $pb.PbList<SnoringGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static SnoringGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SnoringGranularDataProto>(create);
+  static SnoringGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SnoringGranularDataProto>(create);
   static SnoringGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -4973,27 +6457,42 @@ class SpeedGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
-    if (speedMetersPerSecond != null) result.speedMetersPerSecond = speedMetersPerSecond;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
+    if (speedMetersPerSecond != null)
+      result.speedMetersPerSecond = speedMetersPerSecond;
     return result;
   }
 
   SpeedGranularDataProto._();
 
-  factory SpeedGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SpeedGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SpeedGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SpeedGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SpeedGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SpeedGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'speedMetersPerSecond', $pb.PbFieldType.OD, protoName: 'speedMetersPerSecond')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'speedMetersPerSecond', $pb.PbFieldType.OD,
+        protoName: 'speedMetersPerSecond')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SpeedGranularDataProto clone() => SpeedGranularDataProto()..mergeFromMessage(this);
+  SpeedGranularDataProto clone() =>
+      SpeedGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SpeedGranularDataProto copyWith(void Function(SpeedGranularDataProto) updates) => super.copyWith((message) => updates(message as SpeedGranularDataProto)) as SpeedGranularDataProto;
+  SpeedGranularDataProto copyWith(
+          void Function(SpeedGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as SpeedGranularDataProto))
+          as SpeedGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5002,9 +6501,11 @@ class SpeedGranularDataProto extends $pb.GeneratedMessage {
   static SpeedGranularDataProto create() => SpeedGranularDataProto._();
   @$core.override
   SpeedGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<SpeedGranularDataProto> createRepeated() => $pb.PbList<SpeedGranularDataProto>();
+  static $pb.PbList<SpeedGranularDataProto> createRepeated() =>
+      $pb.PbList<SpeedGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static SpeedGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SpeedGranularDataProto>(create);
+  static SpeedGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SpeedGranularDataProto>(create);
   static SpeedGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5043,27 +6544,39 @@ class StepsGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (steps != null) result.steps = steps;
     return result;
   }
 
   StepsGranularDataProto._();
 
-  factory StepsGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory StepsGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory StepsGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory StepsGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'StepsGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StepsGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
     ..a<$core.int>(3, _omitFieldNames ? '' : 'steps', $pb.PbFieldType.OS3)
-    ..hasRequiredFields = false
-  ;
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StepsGranularDataProto clone() => StepsGranularDataProto()..mergeFromMessage(this);
+  StepsGranularDataProto clone() =>
+      StepsGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StepsGranularDataProto copyWith(void Function(StepsGranularDataProto) updates) => super.copyWith((message) => updates(message as StepsGranularDataProto)) as StepsGranularDataProto;
+  StepsGranularDataProto copyWith(
+          void Function(StepsGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as StepsGranularDataProto))
+          as StepsGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5072,9 +6585,11 @@ class StepsGranularDataProto extends $pb.GeneratedMessage {
   static StepsGranularDataProto create() => StepsGranularDataProto._();
   @$core.override
   StepsGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<StepsGranularDataProto> createRepeated() => $pb.PbList<StepsGranularDataProto>();
+  static $pb.PbList<StepsGranularDataProto> createRepeated() =>
+      $pb.PbList<StepsGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static StepsGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StepsGranularDataProto>(create);
+  static StepsGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StepsGranularDataProto>(create);
   static StepsGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5118,19 +6633,29 @@ class StressGranularDataProto extends $pb.GeneratedMessage {
 
   StressGranularDataProto._();
 
-  factory StressGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory StressGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory StressGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory StressGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'StressGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StressGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'stressScore', $pb.PbFieldType.OS3, protoName: 'stressScore')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'stressScore', $pb.PbFieldType.OS3,
+        protoName: 'stressScore')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StressGranularDataProto clone() => StressGranularDataProto()..mergeFromMessage(this);
+  StressGranularDataProto clone() =>
+      StressGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StressGranularDataProto copyWith(void Function(StressGranularDataProto) updates) => super.copyWith((message) => updates(message as StressGranularDataProto)) as StressGranularDataProto;
+  StressGranularDataProto copyWith(
+          void Function(StressGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as StressGranularDataProto))
+          as StressGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5139,9 +6664,11 @@ class StressGranularDataProto extends $pb.GeneratedMessage {
   static StressGranularDataProto create() => StressGranularDataProto._();
   @$core.override
   StressGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<StressGranularDataProto> createRepeated() => $pb.PbList<StressGranularDataProto>();
+  static $pb.PbList<StressGranularDataProto> createRepeated() =>
+      $pb.PbList<StressGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static StressGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StressGranularDataProto>(create);
+  static StressGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StressGranularDataProto>(create);
   static StressGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5171,38 +6698,59 @@ class SwimmingDistanceGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
-    if (swimmingDistanceMeters != null) result.swimmingDistanceMeters = swimmingDistanceMeters;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
+    if (swimmingDistanceMeters != null)
+      result.swimmingDistanceMeters = swimmingDistanceMeters;
     return result;
   }
 
   SwimmingDistanceGranularDataProto._();
 
-  factory SwimmingDistanceGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SwimmingDistanceGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SwimmingDistanceGranularDataProto.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory SwimmingDistanceGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SwimmingDistanceGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'SwimmingDistanceGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'swimmingDistanceMeters', $pb.PbFieldType.OD, protoName: 'swimmingDistanceMeters')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'swimmingDistanceMeters', $pb.PbFieldType.OD,
+        protoName: 'swimmingDistanceMeters')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SwimmingDistanceGranularDataProto clone() => SwimmingDistanceGranularDataProto()..mergeFromMessage(this);
+  SwimmingDistanceGranularDataProto clone() =>
+      SwimmingDistanceGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SwimmingDistanceGranularDataProto copyWith(void Function(SwimmingDistanceGranularDataProto) updates) => super.copyWith((message) => updates(message as SwimmingDistanceGranularDataProto)) as SwimmingDistanceGranularDataProto;
+  SwimmingDistanceGranularDataProto copyWith(
+          void Function(SwimmingDistanceGranularDataProto) updates) =>
+      super.copyWith((message) =>
+              updates(message as SwimmingDistanceGranularDataProto))
+          as SwimmingDistanceGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SwimmingDistanceGranularDataProto create() => SwimmingDistanceGranularDataProto._();
+  static SwimmingDistanceGranularDataProto create() =>
+      SwimmingDistanceGranularDataProto._();
   @$core.override
   SwimmingDistanceGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<SwimmingDistanceGranularDataProto> createRepeated() => $pb.PbList<SwimmingDistanceGranularDataProto>();
+  static $pb.PbList<SwimmingDistanceGranularDataProto> createRepeated() =>
+      $pb.PbList<SwimmingDistanceGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static SwimmingDistanceGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SwimmingDistanceGranularDataProto>(create);
+  static SwimmingDistanceGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SwimmingDistanceGranularDataProto>(
+          create);
   static SwimmingDistanceGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5241,38 +6789,55 @@ class TemperatureGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (temperatureCelsius != null) result.temperatureCelsius = temperatureCelsius;
+    if (temperatureCelsius != null)
+      result.temperatureCelsius = temperatureCelsius;
     if (measurementType != null) result.measurementType = measurementType;
     return result;
   }
 
   TemperatureGranularDataProto._();
 
-  factory TemperatureGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory TemperatureGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory TemperatureGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TemperatureGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TemperatureGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TemperatureGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'temperatureCelsius', $pb.PbFieldType.OD, protoName: 'temperatureCelsius')
-    ..aOS(3, _omitFieldNames ? '' : 'measurementType', protoName: 'measurementType')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(
+        2, _omitFieldNames ? '' : 'temperatureCelsius', $pb.PbFieldType.OD,
+        protoName: 'temperatureCelsius')
+    ..aOS(3, _omitFieldNames ? '' : 'measurementType',
+        protoName: 'measurementType')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TemperatureGranularDataProto clone() => TemperatureGranularDataProto()..mergeFromMessage(this);
+  TemperatureGranularDataProto clone() =>
+      TemperatureGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TemperatureGranularDataProto copyWith(void Function(TemperatureGranularDataProto) updates) => super.copyWith((message) => updates(message as TemperatureGranularDataProto)) as TemperatureGranularDataProto;
+  TemperatureGranularDataProto copyWith(
+          void Function(TemperatureGranularDataProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as TemperatureGranularDataProto))
+          as TemperatureGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static TemperatureGranularDataProto create() => TemperatureGranularDataProto._();
+  static TemperatureGranularDataProto create() =>
+      TemperatureGranularDataProto._();
   @$core.override
   TemperatureGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<TemperatureGranularDataProto> createRepeated() => $pb.PbList<TemperatureGranularDataProto>();
+  static $pb.PbList<TemperatureGranularDataProto> createRepeated() =>
+      $pb.PbList<TemperatureGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static TemperatureGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TemperatureGranularDataProto>(create);
+  static TemperatureGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TemperatureGranularDataProto>(create);
   static TemperatureGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5311,27 +6876,42 @@ class TorqueGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
-    if (torqueNewtonMeters != null) result.torqueNewtonMeters = torqueNewtonMeters;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
+    if (torqueNewtonMeters != null)
+      result.torqueNewtonMeters = torqueNewtonMeters;
     return result;
   }
 
   TorqueGranularDataProto._();
 
-  factory TorqueGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory TorqueGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory TorqueGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TorqueGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TorqueGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TorqueGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'torqueNewtonMeters', $pb.PbFieldType.OD, protoName: 'torqueNewtonMeters')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'torqueNewtonMeters', $pb.PbFieldType.OD,
+        protoName: 'torqueNewtonMeters')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TorqueGranularDataProto clone() => TorqueGranularDataProto()..mergeFromMessage(this);
+  TorqueGranularDataProto clone() =>
+      TorqueGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TorqueGranularDataProto copyWith(void Function(TorqueGranularDataProto) updates) => super.copyWith((message) => updates(message as TorqueGranularDataProto)) as TorqueGranularDataProto;
+  TorqueGranularDataProto copyWith(
+          void Function(TorqueGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as TorqueGranularDataProto))
+          as TorqueGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5340,9 +6920,11 @@ class TorqueGranularDataProto extends $pb.GeneratedMessage {
   static TorqueGranularDataProto create() => TorqueGranularDataProto._();
   @$core.override
   TorqueGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<TorqueGranularDataProto> createRepeated() => $pb.PbList<TorqueGranularDataProto>();
+  static $pb.PbList<TorqueGranularDataProto> createRepeated() =>
+      $pb.PbList<TorqueGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static TorqueGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TorqueGranularDataProto>(create);
+  static TorqueGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TorqueGranularDataProto>(create);
   static TorqueGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5381,38 +6963,59 @@ class TraveledDistanceGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
-    if (traveledDistanceMeters != null) result.traveledDistanceMeters = traveledDistanceMeters;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
+    if (traveledDistanceMeters != null)
+      result.traveledDistanceMeters = traveledDistanceMeters;
     return result;
   }
 
   TraveledDistanceGranularDataProto._();
 
-  factory TraveledDistanceGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory TraveledDistanceGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory TraveledDistanceGranularDataProto.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TraveledDistanceGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TraveledDistanceGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TraveledDistanceGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'traveledDistanceMeters', $pb.PbFieldType.OD, protoName: 'traveledDistanceMeters')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.double>(
+        3, _omitFieldNames ? '' : 'traveledDistanceMeters', $pb.PbFieldType.OD,
+        protoName: 'traveledDistanceMeters')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TraveledDistanceGranularDataProto clone() => TraveledDistanceGranularDataProto()..mergeFromMessage(this);
+  TraveledDistanceGranularDataProto clone() =>
+      TraveledDistanceGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TraveledDistanceGranularDataProto copyWith(void Function(TraveledDistanceGranularDataProto) updates) => super.copyWith((message) => updates(message as TraveledDistanceGranularDataProto)) as TraveledDistanceGranularDataProto;
+  TraveledDistanceGranularDataProto copyWith(
+          void Function(TraveledDistanceGranularDataProto) updates) =>
+      super.copyWith((message) =>
+              updates(message as TraveledDistanceGranularDataProto))
+          as TraveledDistanceGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static TraveledDistanceGranularDataProto create() => TraveledDistanceGranularDataProto._();
+  static TraveledDistanceGranularDataProto create() =>
+      TraveledDistanceGranularDataProto._();
   @$core.override
   TraveledDistanceGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<TraveledDistanceGranularDataProto> createRepeated() => $pb.PbList<TraveledDistanceGranularDataProto>();
+  static $pb.PbList<TraveledDistanceGranularDataProto> createRepeated() =>
+      $pb.PbList<TraveledDistanceGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static TraveledDistanceGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TraveledDistanceGranularDataProto>(create);
+  static TraveledDistanceGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TraveledDistanceGranularDataProto>(
+          create);
   static TraveledDistanceGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5451,27 +7054,39 @@ class TssGranularDataProto extends $pb.GeneratedMessage {
   }) {
     final result = create();
     if (dateTime != null) result.dateTime = dateTime;
-    if (intervalDurationSeconds != null) result.intervalDurationSeconds = intervalDurationSeconds;
+    if (intervalDurationSeconds != null)
+      result.intervalDurationSeconds = intervalDurationSeconds;
     if (tssScore != null) result.tssScore = tssScore;
     return result;
   }
 
   TssGranularDataProto._();
 
-  factory TssGranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory TssGranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory TssGranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TssGranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TssGranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TssGranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds', $pb.PbFieldType.OS3, protoName: 'intervalDurationSeconds')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'tssScore', $pb.PbFieldType.OS3, protoName: 'tssScore')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'intervalDurationSeconds',
+        $pb.PbFieldType.OS3,
+        protoName: 'intervalDurationSeconds')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'tssScore', $pb.PbFieldType.OS3,
+        protoName: 'tssScore')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TssGranularDataProto clone() => TssGranularDataProto()..mergeFromMessage(this);
+  TssGranularDataProto clone() =>
+      TssGranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TssGranularDataProto copyWith(void Function(TssGranularDataProto) updates) => super.copyWith((message) => updates(message as TssGranularDataProto)) as TssGranularDataProto;
+  TssGranularDataProto copyWith(void Function(TssGranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as TssGranularDataProto))
+          as TssGranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5480,9 +7095,11 @@ class TssGranularDataProto extends $pb.GeneratedMessage {
   static TssGranularDataProto create() => TssGranularDataProto._();
   @$core.override
   TssGranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<TssGranularDataProto> createRepeated() => $pb.PbList<TssGranularDataProto>();
+  static $pb.PbList<TssGranularDataProto> createRepeated() =>
+      $pb.PbList<TssGranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static TssGranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TssGranularDataProto>(create);
+  static TssGranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TssGranularDataProto>(create);
   static TssGranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5526,19 +7143,29 @@ class Vo2GranularDataProto extends $pb.GeneratedMessage {
 
   Vo2GranularDataProto._();
 
-  factory Vo2GranularDataProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory Vo2GranularDataProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory Vo2GranularDataProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory Vo2GranularDataProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Vo2GranularDataProto', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Vo2GranularDataProto',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dateTime', protoName: 'dateTime')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'vo2MlPerMinPerKg', $pb.PbFieldType.OD, protoName: 'vo2MlPerMinPerKg')
-    ..hasRequiredFields = false
-  ;
+    ..a<$core.double>(
+        2, _omitFieldNames ? '' : 'vo2MlPerMinPerKg', $pb.PbFieldType.OD,
+        protoName: 'vo2MlPerMinPerKg')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Vo2GranularDataProto clone() => Vo2GranularDataProto()..mergeFromMessage(this);
+  Vo2GranularDataProto clone() =>
+      Vo2GranularDataProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Vo2GranularDataProto copyWith(void Function(Vo2GranularDataProto) updates) => super.copyWith((message) => updates(message as Vo2GranularDataProto)) as Vo2GranularDataProto;
+  Vo2GranularDataProto copyWith(void Function(Vo2GranularDataProto) updates) =>
+      super.copyWith((message) => updates(message as Vo2GranularDataProto))
+          as Vo2GranularDataProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5547,9 +7174,11 @@ class Vo2GranularDataProto extends $pb.GeneratedMessage {
   static Vo2GranularDataProto create() => Vo2GranularDataProto._();
   @$core.override
   Vo2GranularDataProto createEmptyInstance() => create();
-  static $pb.PbList<Vo2GranularDataProto> createRepeated() => $pb.PbList<Vo2GranularDataProto>();
+  static $pb.PbList<Vo2GranularDataProto> createRepeated() =>
+      $pb.PbList<Vo2GranularDataProto>();
   @$core.pragma('dart2js:noInline')
-  static Vo2GranularDataProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Vo2GranularDataProto>(create);
+  static Vo2GranularDataProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Vo2GranularDataProto>(create);
   static Vo2GranularDataProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5584,19 +7213,32 @@ class BloodPressureObjectProto extends $pb.GeneratedMessage {
 
   BloodPressureObjectProto._();
 
-  factory BloodPressureObjectProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory BloodPressureObjectProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory BloodPressureObjectProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BloodPressureObjectProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BloodPressureObjectProto', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'systolicMmHg', $pb.PbFieldType.OD, protoName: 'systolicMmHg')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'diastolicMmHg', $pb.PbFieldType.OD, protoName: 'diastolicMmHg')
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BloodPressureObjectProto',
+      createEmptyInstance: create)
+    ..a<$core.double>(
+        1, _omitFieldNames ? '' : 'systolicMmHg', $pb.PbFieldType.OD,
+        protoName: 'systolicMmHg')
+    ..a<$core.double>(
+        2, _omitFieldNames ? '' : 'diastolicMmHg', $pb.PbFieldType.OD,
+        protoName: 'diastolicMmHg')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BloodPressureObjectProto clone() => BloodPressureObjectProto()..mergeFromMessage(this);
+  BloodPressureObjectProto clone() =>
+      BloodPressureObjectProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BloodPressureObjectProto copyWith(void Function(BloodPressureObjectProto) updates) => super.copyWith((message) => updates(message as BloodPressureObjectProto)) as BloodPressureObjectProto;
+  BloodPressureObjectProto copyWith(
+          void Function(BloodPressureObjectProto) updates) =>
+      super.copyWith((message) => updates(message as BloodPressureObjectProto))
+          as BloodPressureObjectProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5605,9 +7247,11 @@ class BloodPressureObjectProto extends $pb.GeneratedMessage {
   static BloodPressureObjectProto create() => BloodPressureObjectProto._();
   @$core.override
   BloodPressureObjectProto createEmptyInstance() => create();
-  static $pb.PbList<BloodPressureObjectProto> createRepeated() => $pb.PbList<BloodPressureObjectProto>();
+  static $pb.PbList<BloodPressureObjectProto> createRepeated() =>
+      $pb.PbList<BloodPressureObjectProto>();
   @$core.pragma('dart2js:noInline')
-  static BloodPressureObjectProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BloodPressureObjectProto>(create);
+  static BloodPressureObjectProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BloodPressureObjectProto>(create);
   static BloodPressureObjectProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5642,19 +7286,28 @@ class PositionObjectProto extends $pb.GeneratedMessage {
 
   PositionObjectProto._();
 
-  factory PositionObjectProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory PositionObjectProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory PositionObjectProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PositionObjectProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PositionObjectProto', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'latDeg', $pb.PbFieldType.OD, protoName: 'latDeg')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'lngDeg', $pb.PbFieldType.OD, protoName: 'lngDeg')
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PositionObjectProto',
+      createEmptyInstance: create)
+    ..a<$core.double>(1, _omitFieldNames ? '' : 'latDeg', $pb.PbFieldType.OD,
+        protoName: 'latDeg')
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'lngDeg', $pb.PbFieldType.OD,
+        protoName: 'lngDeg')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PositionObjectProto clone() => PositionObjectProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PositionObjectProto copyWith(void Function(PositionObjectProto) updates) => super.copyWith((message) => updates(message as PositionObjectProto)) as PositionObjectProto;
+  PositionObjectProto copyWith(void Function(PositionObjectProto) updates) =>
+      super.copyWith((message) => updates(message as PositionObjectProto))
+          as PositionObjectProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5663,9 +7316,11 @@ class PositionObjectProto extends $pb.GeneratedMessage {
   static PositionObjectProto create() => PositionObjectProto._();
   @$core.override
   PositionObjectProto createEmptyInstance() => create();
-  static $pb.PbList<PositionObjectProto> createRepeated() => $pb.PbList<PositionObjectProto>();
+  static $pb.PbList<PositionObjectProto> createRepeated() =>
+      $pb.PbList<PositionObjectProto>();
   @$core.pragma('dart2js:noInline')
-  static PositionObjectProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PositionObjectProto>(create);
+  static PositionObjectProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PositionObjectProto>(create);
   static PositionObjectProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5693,26 +7348,39 @@ class TemperatureObjectProto extends $pb.GeneratedMessage {
     $core.String? measurementType,
   }) {
     final result = create();
-    if (temperatureCelsius != null) result.temperatureCelsius = temperatureCelsius;
+    if (temperatureCelsius != null)
+      result.temperatureCelsius = temperatureCelsius;
     if (measurementType != null) result.measurementType = measurementType;
     return result;
   }
 
   TemperatureObjectProto._();
 
-  factory TemperatureObjectProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory TemperatureObjectProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory TemperatureObjectProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TemperatureObjectProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TemperatureObjectProto', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'temperatureCelsius', $pb.PbFieldType.OD, protoName: 'temperatureCelsius')
-    ..aOS(2, _omitFieldNames ? '' : 'measurementType', protoName: 'measurementType')
-    ..hasRequiredFields = false
-  ;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TemperatureObjectProto',
+      createEmptyInstance: create)
+    ..a<$core.double>(
+        1, _omitFieldNames ? '' : 'temperatureCelsius', $pb.PbFieldType.OD,
+        protoName: 'temperatureCelsius')
+    ..aOS(2, _omitFieldNames ? '' : 'measurementType',
+        protoName: 'measurementType')
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TemperatureObjectProto clone() => TemperatureObjectProto()..mergeFromMessage(this);
+  TemperatureObjectProto clone() =>
+      TemperatureObjectProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TemperatureObjectProto copyWith(void Function(TemperatureObjectProto) updates) => super.copyWith((message) => updates(message as TemperatureObjectProto)) as TemperatureObjectProto;
+  TemperatureObjectProto copyWith(
+          void Function(TemperatureObjectProto) updates) =>
+      super.copyWith((message) => updates(message as TemperatureObjectProto))
+          as TemperatureObjectProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5721,9 +7389,11 @@ class TemperatureObjectProto extends $pb.GeneratedMessage {
   static TemperatureObjectProto create() => TemperatureObjectProto._();
   @$core.override
   TemperatureObjectProto createEmptyInstance() => create();
-  static $pb.PbList<TemperatureObjectProto> createRepeated() => $pb.PbList<TemperatureObjectProto>();
+  static $pb.PbList<TemperatureObjectProto> createRepeated() =>
+      $pb.PbList<TemperatureObjectProto>();
   @$core.pragma('dart2js:noInline')
-  static TemperatureObjectProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TemperatureObjectProto>(create);
+  static TemperatureObjectProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TemperatureObjectProto>(create);
   static TemperatureObjectProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5751,26 +7421,36 @@ class VelocityObjectProto extends $pb.GeneratedMessage {
     $core.String? direction,
   }) {
     final result = create();
-    if (speedMetersPerSecond != null) result.speedMetersPerSecond = speedMetersPerSecond;
+    if (speedMetersPerSecond != null)
+      result.speedMetersPerSecond = speedMetersPerSecond;
     if (direction != null) result.direction = direction;
     return result;
   }
 
   VelocityObjectProto._();
 
-  factory VelocityObjectProto.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory VelocityObjectProto.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory VelocityObjectProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory VelocityObjectProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'VelocityObjectProto', createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'speedMetersPerSecond', $pb.PbFieldType.OD, protoName: 'speedMetersPerSecond')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VelocityObjectProto',
+      createEmptyInstance: create)
+    ..a<$core.double>(
+        1, _omitFieldNames ? '' : 'speedMetersPerSecond', $pb.PbFieldType.OD,
+        protoName: 'speedMetersPerSecond')
     ..aOS(2, _omitFieldNames ? '' : 'direction')
-    ..hasRequiredFields = false
-  ;
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   VelocityObjectProto clone() => VelocityObjectProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  VelocityObjectProto copyWith(void Function(VelocityObjectProto) updates) => super.copyWith((message) => updates(message as VelocityObjectProto)) as VelocityObjectProto;
+  VelocityObjectProto copyWith(void Function(VelocityObjectProto) updates) =>
+      super.copyWith((message) => updates(message as VelocityObjectProto))
+          as VelocityObjectProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -5779,9 +7459,11 @@ class VelocityObjectProto extends $pb.GeneratedMessage {
   static VelocityObjectProto create() => VelocityObjectProto._();
   @$core.override
   VelocityObjectProto createEmptyInstance() => create();
-  static $pb.PbList<VelocityObjectProto> createRepeated() => $pb.PbList<VelocityObjectProto>();
+  static $pb.PbList<VelocityObjectProto> createRepeated() =>
+      $pb.PbList<VelocityObjectProto>();
   @$core.pragma('dart2js:noInline')
-  static VelocityObjectProto getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<VelocityObjectProto>(create);
+  static VelocityObjectProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<VelocityObjectProto>(create);
   static VelocityObjectProto? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -5803,6 +7485,7 @@ class VelocityObjectProto extends $pb.GeneratedMessage {
   void clearDirection() => $_clearField(2);
 }
 
-
-const $core.bool _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
-const $core.bool _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');
+const $core.bool _omitFieldNames =
+    $core.bool.fromEnvironment('protobuf.omit_field_names');
+const $core.bool _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

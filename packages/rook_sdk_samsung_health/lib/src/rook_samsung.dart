@@ -56,8 +56,9 @@ class RookSamsung {
   static Future<bool> checkSamsungHealthPermissions(
     List<SamsungHealthPermission> permissions,
   ) {
-    return RookSdkSamsungHealthPlatform.instance
-        .checkSamsungHealthPermissions(permissions);
+    return RookSdkSamsungHealthPlatform.instance.checkSamsungHealthPermissions(
+      permissions,
+    );
   }
 
   /// Checks if at least one of the provided permissions is granted
@@ -111,9 +112,10 @@ class RookSamsung {
   /// streamSubscription?.cancel();
   /// ```
   static Stream<SamsungHealthPermissionsSummary>
-      get requestSamsungHealthPermissionsUpdates {
+  get requestSamsungHealthPermissionsUpdates {
     return RookSdkSamsungHealthPlatform
-        .instance.requestSamsungHealthPermissionsUpdates;
+        .instance
+        .requestSamsungHealthPermissionsUpdates;
   }
 
   /// Syncs summaries using the provided parameters.
@@ -141,9 +143,7 @@ class RookSamsung {
           summary,
         );
       } else {
-        return RookSdkSamsungHealthPlatform.instance.syncSummariesByDate(
-          date,
-        );
+        return RookSdkSamsungHealthPlatform.instance.syncSummariesByDate(date);
       }
     }
 
@@ -200,6 +200,15 @@ class RookSamsung {
   /// Returns the current day calories count. Or [RecordsNotFoundException] if no data is available.
   static Future<DailyCalories> getTodayCaloriesCount() {
     return RookSdkSamsungHealthPlatform.instance.getTodayCaloriesCount();
+  }
+
+  /// Retrieve and upload current day heart rate of Health Connect.
+  ///
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  ///
+  /// Returns the current day heart rate. Or [RecordsNotFoundException] if no data is available.
+  static Future<HeartRate> getTodayHeartRate() {
+    return RookSdkSamsungHealthPlatform.instance.getTodayHeartRate();
   }
 
   /// Checks if background sync is already scheduled.

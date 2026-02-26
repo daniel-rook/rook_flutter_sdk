@@ -1,0 +1,20 @@
+
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 1 should map to Instance of 'TypeMatcher<SDKNotInitializedException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 2 should map to Instance of 'TypeMatcher<MissingConfigurationException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 3 should map to Instance of 'TypeMatcher<SDKNotAuthorizedException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 4 should map to Instance of 'TypeMatcher<MissingPermissionsException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 5 should map to Instance of 'TypeMatcher<HealthKitNotInstalledException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 6 should map to Instance of 'TypeMatcher<HealthKitNotSupportedException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 7 should map to Instance of 'TypeMatcher<RecordsNotFoundException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 8 should map to Instance of 'TypeMatcher<DateNotValidForEventsException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 9 should map to Instance of 'TypeMatcher<DateNotValidForSummariesException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 10 should map to Instance of 'TypeMatcher<UserNotInitializedException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 11 should map to Instance of 'TypeMatcher<HttpRequestException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 12 should map to Instance of 'TypeMatcher<ConnectTimeoutException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 13 should map to Instance of 'TypeMatcher<HealthConnectQuotaExceededException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 14 should map to Instance of 'TypeMatcher<HealthKitDisabledException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 15 should map to Instance of 'TypeMatcher<HealthKitNotReadyException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types 16 should map to Instance of 'TypeMatcher<HealthKitOutdatedException>'
+✅ test/src/exception/sdk_exception_test.dart: should map all codes to their respective exception types -1 should map to Instance of 'TypeMatcher<UnknownException>'
+
+🎉 17 tests passed.

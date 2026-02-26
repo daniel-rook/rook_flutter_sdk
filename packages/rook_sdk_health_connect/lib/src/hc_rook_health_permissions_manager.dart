@@ -124,9 +124,10 @@ class HCRookHealthPermissionsManager {
   /// streamSubscription?.cancel();
   /// ```
   static Stream<HealthConnectPermissionsSummary>
-      get requestHealthConnectPermissionsUpdates {
+  get requestHealthConnectPermissionsUpdates {
     return RookSdkHealthConnectPlatform
-        .instance.requestHealthConnectPermissionsUpdates;
+        .instance
+        .requestHealthConnectPermissionsUpdates;
   }
 
   /// Revoke (reset) all granted health connect permissions.
@@ -210,8 +211,9 @@ class HCRookHealthPermissionsManager {
   /// streamSubscription?.cancel();
   /// ```
   static Stream<AndroidPermissionsSummary>
-      get requestAndroidPermissionsUpdates {
+  get requestAndroidPermissionsUpdates {
     return RookSdkHealthConnectPlatform
-        .instance.requestAndroidPermissionsUpdates;
+        .instance
+        .requestAndroidPermissionsUpdates;
   }
 }

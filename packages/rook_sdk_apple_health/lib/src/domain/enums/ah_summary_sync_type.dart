@@ -1,5 +1,1 @@
-enum AHSummarySyncType {
-  sleep,
-  physical,
-  body,
-}
+enum AHSummarySyncType { sleep, physical, body }

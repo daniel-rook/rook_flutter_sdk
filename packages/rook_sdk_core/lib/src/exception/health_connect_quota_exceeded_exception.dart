@@ -4,8 +4,10 @@ import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 ///
 /// * Health Connect SDK
 final class HealthConnectQuotaExceededException extends SDKException {
-  const HealthConnectQuotaExceededException({required int code, required String message})
-    : super(code: code, message: message);
+  const HealthConnectQuotaExceededException({
+    required int code,
+    required String message,
+  }) : super(code: code, message: message);
 
   @override
   String toString() {

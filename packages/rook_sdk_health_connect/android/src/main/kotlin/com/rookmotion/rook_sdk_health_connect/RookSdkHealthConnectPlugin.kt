@@ -146,6 +146,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "getActivityEvents" -> syncHandler.onMethodCall(call, result)
             "getTodayStepsCount" -> syncHandler.onMethodCall(call, result)
             "getTodayCaloriesCount" -> syncHandler.onMethodCall(call, result)
+            "getTodayHeartRate" -> syncHandler.onMethodCall(call, result)
 
             "isStepsAvailable" -> stepsHandler.onMethodCall(call, result)
             "isBackgroundAndroidStepsActive" -> stepsHandler.onMethodCall(call, result)

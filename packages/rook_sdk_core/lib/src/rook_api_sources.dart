@@ -35,10 +35,10 @@ final class RookApiSources {
     required String secretKey,
     required RookEnvironment environment,
     required bool enableLogs,
-  })  : _clientUUID = clientUUID,
-        _secretKey = secretKey,
-        _environment = environment,
-        _enableLogs = enableLogs;
+  }) : _clientUUID = clientUUID,
+       _secretKey = secretKey,
+       _environment = environment,
+       _enableLogs = enableLogs;
 
   /// Returns a [DataSourceAuthorizer] of a specific data source for the current user.
   ///
@@ -55,9 +55,7 @@ final class RookApiSources {
     try {
       final response = await _dio.get<Map<String, dynamic>>(
         "/v1/user_id/$userID/data_source/$dataSource/authorizer",
-        queryParameters: {
-          if (redirectUrl != null) "redirect_url": redirectUrl,
-        },
+        queryParameters: {if (redirectUrl != null) "redirect_url": redirectUrl},
         options: Options(
           headers: {
             "Authorization": _authorization,
@@ -142,9 +140,7 @@ final class RookApiSources {
     try {
       await _dio.post<Map<String, dynamic>>(
         "/v1/user_id/$userID/data_sources/revoke_auth",
-        data: {
-          "data_source": dataSource.identifier,
-        },
+        data: {"data_source": dataSource.identifier},
         options: Options(
           headers: {
             "Authorization": _authorization,

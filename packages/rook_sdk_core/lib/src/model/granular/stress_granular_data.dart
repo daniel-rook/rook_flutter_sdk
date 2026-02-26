@@ -2,10 +2,7 @@ class StressGranularData {
   final DateTime dateTime;
   final int stressScore;
 
-  StressGranularData({
-    required this.dateTime,
-    required this.stressScore,
-  });
+  StressGranularData({required this.dateTime, required this.stressScore});
 
   @override
   bool operator ==(Object other) =>

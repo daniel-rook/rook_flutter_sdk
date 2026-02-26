@@ -60,6 +60,7 @@ export 'src/model/granular/torque_granular_data.dart';
 export 'src/model/granular/traveled_distance_granular_data.dart';
 export 'src/model/granular/tss_granular_data.dart';
 export 'src/model/granular/vo2_granular_data.dart';
+export 'src/model/heart_rate.dart';
 export 'src/model/physical_summary.dart';
 export 'src/model/rook_configuration.dart';
 export 'src/model/sleep_summary.dart';

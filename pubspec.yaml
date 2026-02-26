@@ -29,6 +29,7 @@ dependency_overrides:
     path: "packages/rook_sdk_core"
 
 dev_dependencies:
+  test: ^1.21.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0

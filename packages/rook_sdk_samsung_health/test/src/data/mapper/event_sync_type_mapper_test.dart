@@ -95,7 +95,7 @@ void main() {
 
     test(
       'GIVEN a EventSyncType.temperature WHEN toProto THEN return EventSyncTypeProto.TEMPERATURE',
-          () {
+      () {
         const eventSyncType = SHEventSyncType.temperature;
 
         final result = eventSyncType.toProto();

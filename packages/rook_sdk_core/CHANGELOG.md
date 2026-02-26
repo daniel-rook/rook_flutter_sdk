@@ -5,16 +5,15 @@
     * Check which data sources a user has already authorized.
     * Revoke authorization for a specific data source.
 * Added `SDKException` with `code` and `message` properties.
-    * Available odes are available in `SDKExceptionCode`.
+    * Available codes are available in `SDKExceptionCode`.
 * Added `HealthKitOutdatedException`.
 * Added `HealthKitDisabledException`.
-* Added `HealthKitNotInstalledException`.
 * Added `HealthKitNotReadyException`.
-* Added `HealthKitNotSupportedException`.
 * Added `HealthKitOutdatedException`.
 * Added `MissingPermissionsException`.
 * Added `RecordsNotFoundException`.
 * Added `UnknownException`.
+* Added `HeartRate`
 * Changed `ConnectTimeoutException` declaration to final, and parent class to `SDKException`.
 * Changed `DateNotValidForEventsException` declaration to final, and parent class to `SDKException`.
 * Changed `DateNotValidForSummariesException` declaration to final, and parent class to `SDKException`.
@@ -26,12 +25,12 @@
 * Changed `SDKNotAuthorizedException` declaration to final, and parent class to `SDKException`.
 * Changed `SDKNotInitializedException` declaration to final, and parent class to `SDKException`.
 * Changed `UserNotInitializedException` declaration to final, and parent class to `SDKException`.
+* Replaced `HealthConnectNotInstalledException` with `HealthKitNotInstalledException`.
+* Replaced `DeviceNotSupportedException` with `HealthKitNotSupportedException`.
+* Replaced `RequestQuotaExceededException` with `HealthConnectQuotaExceededException`.
+* Replaced `MissingHealthConnectPermissionsException` and `MissingAndroidPermissionsException` with
+  `MissingPermissionsException`.
 * Removed `BadUserTimeZoneException`.
-* Removed `DeviceNotSupportedException`.
-* Removed `HealthConnectNotInstalledException`.
-* Removed `MissingAndroidPermissionsException`.
-* Removed `MissingHealthConnectPermissionsException`.
-* Removed `RequestQuotaExceededException`.
 * Removed `UserNotDeletedException`.
 * Removed `UserNotRegisteredException`.
 

@@ -524,6 +524,68 @@ struct CaloriesResultProto: Sendable {
   init() {}
 }
 
+struct HearRateProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var hrMaximumBpm: Int32 = 0
+
+  var hrMinimumBpm: Int32 = 0
+
+  var hrAvgBpm: Int32 = 0
+
+  var hrRestingBpm: Int32 = 0
+
+  var hrGranularData: [HrGranularDataProto] = []
+
+  var hrvAvgRmssd: Double = 0
+
+  var hrvAvgSdnn: Double = 0
+
+  var hrvSdnnGranularData: [HrvSdnnGranularDataProto] = []
+
+  var hrvRmssdGranularData: [HrvRmssdGranularDataProto] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct HearRateResultProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: HearRateResultProto.OneOf_Result? = nil
+
+  var success: HearRateProto {
+    get {
+      if case .success(let v)? = result {return v}
+      return HearRateProto()
+    }
+    set {result = .success(newValue)}
+  }
+
+  var failure: SDKExceptionProto {
+    get {
+      if case .failure(let v)? = result {return v}
+      return SDKExceptionProto()
+    }
+    set {result = .failure(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable, Sendable {
+    case success(HearRateProto)
+    case failure(SDKExceptionProto)
+
+  }
+
+  init() {}
+}
+
 struct SleepSummaryProto: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -2926,6 +2988,156 @@ extension CaloriesResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 
   static func ==(lhs: CaloriesResultProto, rhs: CaloriesResultProto) -> Bool {
+    if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension HearRateProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "HearRateProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "hrMaximumBpm"),
+    2: .same(proto: "hrMinimumBpm"),
+    3: .same(proto: "hrAvgBpm"),
+    4: .same(proto: "hrRestingBpm"),
+    5: .same(proto: "hrGranularData"),
+    6: .same(proto: "hrvAvgRmssd"),
+    7: .same(proto: "hrvAvgSdnn"),
+    8: .same(proto: "hrvSdnnGranularData"),
+    9: .same(proto: "hrvRmssdGranularData"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularSInt32Field(value: &self.hrMaximumBpm) }()
+      case 2: try { try decoder.decodeSingularSInt32Field(value: &self.hrMinimumBpm) }()
+      case 3: try { try decoder.decodeSingularSInt32Field(value: &self.hrAvgBpm) }()
+      case 4: try { try decoder.decodeSingularSInt32Field(value: &self.hrRestingBpm) }()
+      case 5: try { try decoder.decodeRepeatedMessageField(value: &self.hrGranularData) }()
+      case 6: try { try decoder.decodeSingularDoubleField(value: &self.hrvAvgRmssd) }()
+      case 7: try { try decoder.decodeSingularDoubleField(value: &self.hrvAvgSdnn) }()
+      case 8: try { try decoder.decodeRepeatedMessageField(value: &self.hrvSdnnGranularData) }()
+      case 9: try { try decoder.decodeRepeatedMessageField(value: &self.hrvRmssdGranularData) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.hrMaximumBpm != 0 {
+      try visitor.visitSingularSInt32Field(value: self.hrMaximumBpm, fieldNumber: 1)
+    }
+    if self.hrMinimumBpm != 0 {
+      try visitor.visitSingularSInt32Field(value: self.hrMinimumBpm, fieldNumber: 2)
+    }
+    if self.hrAvgBpm != 0 {
+      try visitor.visitSingularSInt32Field(value: self.hrAvgBpm, fieldNumber: 3)
+    }
+    if self.hrRestingBpm != 0 {
+      try visitor.visitSingularSInt32Field(value: self.hrRestingBpm, fieldNumber: 4)
+    }
+    if !self.hrGranularData.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.hrGranularData, fieldNumber: 5)
+    }
+    if self.hrvAvgRmssd.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.hrvAvgRmssd, fieldNumber: 6)
+    }
+    if self.hrvAvgSdnn.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.hrvAvgSdnn, fieldNumber: 7)
+    }
+    if !self.hrvSdnnGranularData.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.hrvSdnnGranularData, fieldNumber: 8)
+    }
+    if !self.hrvRmssdGranularData.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.hrvRmssdGranularData, fieldNumber: 9)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: HearRateProto, rhs: HearRateProto) -> Bool {
+    if lhs.hrMaximumBpm != rhs.hrMaximumBpm {return false}
+    if lhs.hrMinimumBpm != rhs.hrMinimumBpm {return false}
+    if lhs.hrAvgBpm != rhs.hrAvgBpm {return false}
+    if lhs.hrRestingBpm != rhs.hrRestingBpm {return false}
+    if lhs.hrGranularData != rhs.hrGranularData {return false}
+    if lhs.hrvAvgRmssd != rhs.hrvAvgRmssd {return false}
+    if lhs.hrvAvgSdnn != rhs.hrvAvgSdnn {return false}
+    if lhs.hrvSdnnGranularData != rhs.hrvSdnnGranularData {return false}
+    if lhs.hrvRmssdGranularData != rhs.hrvRmssdGranularData {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension HearRateResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "HearRateResultProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "success"),
+    2: .same(proto: "failure"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: HearRateProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .success(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .success(v)
+        }
+      }()
+      case 2: try {
+        var v: SDKExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .failure(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .failure(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .success?: try {
+      guard case .success(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .failure?: try {
+      guard case .failure(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: HearRateResultProto, rhs: HearRateResultProto) -> Bool {
     if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

@@ -71,8 +71,8 @@ func dailyCaloriesSuccess(flutterResult: FlutterResult, rookCalories: RookCalori
     do {
         let bytes = try CaloriesResultProto.with {
             $0.success = CaloriesProto.with {
-                $0.basal = Double(rookCalories.basalCalories ?? .zero)
-                $0.active = Double(rookCalories.activeCalories ?? .zero)
+                $0.basal = rookCalories.basalCalories.toDouble()
+                $0.active = rookCalories.activeCalories.toDouble()
             }
         }.serializedData()
 
@@ -99,16 +99,55 @@ func dailyCaloriesError(flutterResult: FlutterResult, error: Error) {
     }
 }
 
+func hearRateSuccess(flutterResult: FlutterResult, rookHeartRate: RookHeartRate) {
+    do {
+        let bytes = try HearRateResultProto.with {
+            $0.success = HearRateProto.with {
+                $0.hrMaximumBpm = rookHeartRate.hrMaximumBPM.toInt32()
+                $0.hrMinimumBpm = rookHeartRate.hrMinimumBPM.toInt32()
+                $0.hrAvgBpm = rookHeartRate.hrAverageBMP.toInt32()
+                $0.hrRestingBpm = rookHeartRate.hrRestingBPM.toInt32()
+                $0.hrGranularData = rookHeartRate.hrGranularData?.map { $0.toGranularProto() } ?? []
+                $0.hrvAvgRmssd = rookHeartRate.hrvAverageRMSSD ?? DEFAULT_DOUBLE
+                $0.hrvAvgSdnn = rookHeartRate.hrvAverageSDNN ?? DEFAULT_DOUBLE
+                $0.hrvSdnnGranularData = rookHeartRate.hrvSDNNGranularData?.map { $0.toGranularSdnnProto() } ?? []
+                $0.hrvRmssdGranularData = rookHeartRate.hrvRMSSDGranularData?.map { $0.toGranularRmssdProto() } ?? []
+            }
+        }.serializedData()
+
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
+    }
+}
+
+func hearRateError(flutterResult: FlutterResult, error: Error) {
+    do {
+        let exception = SDKExceptionProto.with {
+            $0.code = error.getSDKExceptionCode()
+            $0.message = error.getSDKExceptionMessage()
+        }
+
+        let bytes = try HearRateResultProto.with {
+            $0.failure = exception
+        }.serializedData()
+
+        flutterResult(bytes)
+    } catch let catchedError {
+        debugPrint("Failed to serialize flutter result \(catchedError)")
+    }
+}
+
 func sleepSummarySuccess(flutterResult: FlutterResult, sleepSummary: [RookSleepSummary]) {
     do {
         let sleepSummaries = SleepSummariesProto.with {
             $0.elements = sleepSummary.map { it in it.toProto() }
         }
-        
+
         let bytes = try SleepSummaryResultProto.with {
             $0.success = sleepSummaries
         }.serializedData()
-        
+
         flutterResult(bytes)
     } catch let catchedError {
         debugPrint("Failed to serialize flutter result \(catchedError)")
@@ -137,7 +176,7 @@ func physicalSummarySuccess(flutterResult: FlutterResult, physicalSummary: RookP
         let bytes = try PhysicalSummaryResultProto.with {
             $0.success = physicalSummary.toProto()
         }.serializedData()
-        
+
         flutterResult(bytes)
     } catch let catchedError {
         debugPrint("Failed to serialize flutter result \(catchedError)")
@@ -166,7 +205,7 @@ func bodySummarySuccess(flutterResult: FlutterResult, bodySummary: RookBodySumma
         let bytes = try BodySummaryResultProto.with {
             $0.success = bodySummary.toProto()
         }.serializedData()
-        
+
         flutterResult(bytes)
     } catch let catchedError {
         debugPrint("Failed to serialize flutter result \(catchedError)")
@@ -195,11 +234,11 @@ func activityEventSuccess(flutterResult: FlutterResult, activityEvent: [RookActi
         let activityEvents = ActivityEventsProto.with {
             $0.elements = activityEvent.map { it in it.toProto() }
         }
-        
+
         let bytes = try ActivityEventResultProto.with {
             $0.success = activityEvents
         }.serializedData()
-        
+
         flutterResult(bytes)
     } catch let catchedError {
         debugPrint("Failed to serialize flutter result \(catchedError)")

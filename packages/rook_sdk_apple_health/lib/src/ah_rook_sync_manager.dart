@@ -31,9 +31,7 @@ class AHRookSyncManager {
           summary,
         );
       } else {
-        return RookSdkAppleHealthPlatform.instance.syncSummariesByDate(
-          date,
-        );
+        return RookSdkAppleHealthPlatform.instance.syncSummariesByDate(date);
       }
     }
 
@@ -44,10 +42,7 @@ class AHRookSyncManager {
   ///
   /// Returns [RecordsNotFoundException] if no data is available.
   static Future<void> syncEvents(DateTime date, AHEventSyncType event) {
-    return RookSdkAppleHealthPlatform.instance.syncByDateAndEvent(
-      date,
-      event,
-    );
+    return RookSdkAppleHealthPlatform.instance.syncByDateAndEvent(date, event);
   }
 
   /// Retrieve and upload current day sleep summary of Apple Health.
@@ -90,5 +85,14 @@ class AHRookSyncManager {
   /// Returns the current day calories count. Or [RecordsNotFoundException] if no data is available.
   static Future<DailyCalories> getTodayCaloriesCount() {
     return RookSdkAppleHealthPlatform.instance.getTodayCaloriesCount();
+  }
+
+  /// Retrieve and upload current day heart rate of Health Connect.
+  ///
+  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  ///
+  /// Returns the current day heart rate. Or [RecordsNotFoundException] if no data is available.
+  static Future<HeartRate> getTodayHeartRate() {
+    return RookSdkAppleHealthPlatform.instance.getTodayHeartRate();
   }
 }

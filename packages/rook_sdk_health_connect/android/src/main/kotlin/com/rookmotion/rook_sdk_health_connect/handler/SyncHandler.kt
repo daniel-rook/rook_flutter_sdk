@@ -3,9 +3,10 @@ package com.rookmotion.rook_sdk_health_connect.handler
 import com.rookmotion.rook.sdk.RookSyncManager
 import com.rookmotion.rook.sdk.domain.enums.SyncStatus
 import com.rookmotion.rook.sdk.domain.exception.HCRecordsNotFoundException
-import com.rookmotion.rook.sdk.domain.model.DailyCalories
 import com.rookmotion.rook.sdk.domain.model.HCActivityEvent
 import com.rookmotion.rook.sdk.domain.model.HCBodySummary
+import com.rookmotion.rook.sdk.domain.model.HCCalories
+import com.rookmotion.rook.sdk.domain.model.HCHeartRate
 import com.rookmotion.rook.sdk.domain.model.HCPhysicalSummary
 import com.rookmotion.rook.sdk.domain.model.HCSleepSummary
 import com.rookmotion.rook.sdk.domain.model.SyncStatusWithData
@@ -25,6 +26,8 @@ import com.rookmotion.rook_sdk_health_connect.result.booleanError
 import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
 import com.rookmotion.rook_sdk_health_connect.result.caloriesError
 import com.rookmotion.rook_sdk_health_connect.result.caloriesSuccess
+import com.rookmotion.rook_sdk_health_connect.result.heartRateError
+import com.rookmotion.rook_sdk_health_connect.result.heartRateSuccess
 import com.rookmotion.rook_sdk_health_connect.result.int64Error
 import com.rookmotion.rook_sdk_health_connect.result.int64Success
 import com.rookmotion.rook_sdk_health_connect.result.physicalSummaryError
@@ -246,12 +249,31 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                 rookSyncManager.getTodayCaloriesCount().fold(
                     { syncStatus ->
                         when (syncStatus) {
-                            is SyncStatusWithData.Synced<DailyCalories> -> {
+                            is SyncStatusWithData.Synced<HCCalories> -> {
                                 methodResult.caloriesSuccess(syncStatus.data)
                             }
 
                             SyncStatusWithData.RecordsNotFound -> {
                                 methodResult.caloriesError(HCRecordsNotFoundException("Calories"))
+                            }
+                        }
+                    },
+                    {
+                        methodResult.caloriesError(it)
+                    },
+                )
+            }
+
+            "getTodayHeartRate" -> coroutineScope.launch {
+                rookSyncManager.getTodayHeartRate().fold(
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SyncStatusWithData.Synced<HCHeartRate> -> {
+                                methodResult.heartRateSuccess(syncStatus.data)
+                            }
+
+                            SyncStatusWithData.RecordsNotFound -> {
+                                methodResult.heartRateError(HCRecordsNotFoundException("Heart Rate"))
                             }
                         }
                     },

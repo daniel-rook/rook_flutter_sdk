@@ -1,5 +1,1 @@
-enum HCSummarySyncType {
-  sleep,
-  physical,
-  body,
-}
+enum HCSummarySyncType { sleep, physical, body }

@@ -61,7 +61,7 @@ void booleanResultTests(
       () async {
         final future = platform.syncHistoricSummaries(true);
 
-        await expectLater(future, completion(true));
+        await expectLater(future, completes);
       },
     );
 
@@ -70,7 +70,7 @@ void booleanResultTests(
       () async {
         final future = platform.syncSummariesByDate(DateTime.now());
 
-        await expectLater(future, completion(true));
+        await expectLater(future, completes);
       },
     );
 
@@ -82,7 +82,7 @@ void booleanResultTests(
           AHSummarySyncType.sleep,
         );
 
-        await expectLater(future, completion(true));
+        await expectLater(future, completes);
       },
     );
 
@@ -94,7 +94,7 @@ void booleanResultTests(
           AHEventSyncType.activity,
         );
 
-        await expectLater(future, completion(true));
+        await expectLater(future, completes);
       },
     );
 

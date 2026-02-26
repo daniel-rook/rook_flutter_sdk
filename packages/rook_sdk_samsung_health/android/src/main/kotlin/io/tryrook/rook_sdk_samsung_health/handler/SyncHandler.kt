@@ -17,6 +17,8 @@ import io.tryrook.rook_sdk_samsung_health.result.booleanError
 import io.tryrook.rook_sdk_samsung_health.result.booleanSuccess
 import io.tryrook.rook_sdk_samsung_health.result.caloriesError
 import io.tryrook.rook_sdk_samsung_health.result.caloriesSuccess
+import io.tryrook.rook_sdk_samsung_health.result.heartRateError
+import io.tryrook.rook_sdk_samsung_health.result.heartRateSuccess
 import io.tryrook.rook_sdk_samsung_health.result.int64Error
 import io.tryrook.rook_sdk_samsung_health.result.int64Success
 import io.tryrook.rook_sdk_samsung_health.result.physicalSummaryError
@@ -29,6 +31,7 @@ import io.tryrook.sdk.samsung.domain.exception.SHRecordsNotFoundException
 import io.tryrook.sdk.samsung.domain.model.SHActivityEvent
 import io.tryrook.sdk.samsung.domain.model.SHBodySummary
 import io.tryrook.sdk.samsung.domain.model.SHCalories
+import io.tryrook.sdk.samsung.domain.model.SHHeartRate
 import io.tryrook.sdk.samsung.domain.model.SHPhysicalSummary
 import io.tryrook.sdk.samsung.domain.model.SHSleepSummary
 import io.tryrook.sdk.samsung.domain.model.SHSyncStatusWithData
@@ -251,6 +254,25 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
 
                             SHSyncStatusWithData.RecordsNotFound -> {
                                 methodResult.caloriesError(SHRecordsNotFoundException("Calories"))
+                            }
+                        }
+                    },
+                    {
+                        methodResult.caloriesError(it)
+                    },
+                )
+            }
+
+            "getTodayHeartRate" -> coroutineScope.launch {
+                rookSamsung.getTodayHeartRate().fold(
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SHSyncStatusWithData.Synced<SHHeartRate> -> {
+                                methodResult.heartRateSuccess(syncStatus.data)
+                            }
+
+                            SHSyncStatusWithData.RecordsNotFound -> {
+                                methodResult.heartRateError(SHRecordsNotFoundException("Heart Rate"))
                             }
                         }
                     },

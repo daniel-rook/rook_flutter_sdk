@@ -11,36 +11,38 @@ void healthConnectAvailabilityTests(
   MethodChannel channel,
 ) {
   group(
-      'MethodChannelRookSdkHealthConnect | Health Connect Availability Success',
-      () {
-    mockMethodCall(channel, (_) async {
-      return HealthConnectAvailabilityProto.INSTALLED.value;
-    });
+    'MethodChannelRookSdkHealthConnect | Health Connect Availability Success',
+    () {
+      mockMethodCall(channel, (_) async {
+        return HealthConnectAvailabilityProto.INSTALLED.value;
+      });
 
-    test(
-      'GIVEN the happy path WHEN checkHealthConnectAvailability THEN complete with expected value',
-      () async {
-        final future = platform.checkHealthConnectAvailability();
+      test(
+        'GIVEN the happy path WHEN checkHealthConnectAvailability THEN complete with expected value',
+        () async {
+          final future = platform.checkHealthConnectAvailability();
 
-        await expectLater(future, completion(HCAvailabilityStatus.installed));
-      },
-    );
-  });
+          await expectLater(future, completion(HCAvailabilityStatus.installed));
+        },
+      );
+    },
+  );
 
   group(
-      'MethodChannelRookSdkHealthConnect | Health Connect Availability Failure',
-      () {
-    mockMethodCall(channel, (_) async {
-      throw Exception("Unknown error");
-    });
+    'MethodChannelRookSdkHealthConnect | Health Connect Availability Failure',
+    () {
+      mockMethodCall(channel, (_) async {
+        throw Exception("Unknown error");
+      });
 
-    test(
-      'GIVEN the unhappy path WHEN checkHealthConnectAvailability THEN throw exception',
-      () async {
-        final future = platform.checkHealthConnectAvailability();
+      test(
+        'GIVEN the unhappy path WHEN checkHealthConnectAvailability THEN throw exception',
+        () async {
+          final future = platform.checkHealthConnectAvailability();
 
-        await expectLater(future, throwsException);
-      },
-    );
-  });
+          await expectLater(future, throwsException);
+        },
+      );
+    },
+  );
 }

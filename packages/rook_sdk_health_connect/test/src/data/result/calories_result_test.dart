@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_health_connect/src/data/result/calories_result.dart';
 
@@ -17,25 +16,18 @@ void main() {
   });
 
   group("Result", () {
-    test(
-      "GIVEN success WHEN unwrap THEN return a SyncStatusWithData<DailyCalories>",
-      () {
-        final caloriesProto = CaloriesProto.create()
-          ..basal = 12.5
-          ..active = 22.5;
-        final proto = CaloriesResultProto.create();
-        proto.success = caloriesProto;
+    test("GIVEN success WHEN unwrap THEN return a DailyCalories", () {
+      final caloriesProto = CaloriesProto.create()
+        ..basal = 12.5
+        ..active = 22.5;
+      final proto = CaloriesResultProto.create();
+      proto.success = caloriesProto;
 
-        final result = proto.unwrap();
+      final result = proto.unwrap();
 
-        expect(result, isA<Synced<DailyCalories>>());
-
-        final dailyCalories = (result as Synced<DailyCalories>).data;
-
-        expect(dailyCalories.basal, 12.5);
-        expect(dailyCalories.active, 22.5);
-      },
-    );
+      expect(result.basal, 12.5);
+      expect(result.active, 22.5);
+    });
 
     test("GIVEN failure WHEN unwrap THEN throw exception", () {
       final failure = SDKExceptionProto.create()

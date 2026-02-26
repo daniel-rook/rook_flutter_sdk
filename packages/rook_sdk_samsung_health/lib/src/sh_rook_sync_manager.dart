@@ -24,9 +24,7 @@ class SHRookSyncManager {
           summary,
         );
       } else {
-        return RookSdkSamsungHealthPlatform.instance.syncSummariesByDate(
-          date,
-        );
+        return RookSdkSamsungHealthPlatform.instance.syncSummariesByDate(date);
       }
     }
 

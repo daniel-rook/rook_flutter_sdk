@@ -12,6 +12,7 @@ import 'package:rook_sdk_samsung_health/src/data/result/activity_event_result.da
 import 'package:rook_sdk_samsung_health/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/calories_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/heart_rate_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/int64_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/request_permissions_status_result.dart';
@@ -49,12 +50,9 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
 
   @override
   Future<void> initRook(RookConfiguration configuration) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'initRook',
-      [
-        configuration.toProto().writeToBuffer(),
-      ],
-    );
+    final Uint8List bytes = await methodChannel.invokeMethod('initRook', [
+      configuration.toProto().writeToBuffer(),
+    ]);
     final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
@@ -62,12 +60,9 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
 
   @override
   Future<void> updateUserID(String userID) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'updateUserID',
-      [
-        userID,
-      ],
-    );
+    final Uint8List bytes = await methodChannel.invokeMethod('updateUserID', [
+      userID,
+    ]);
     final result = BooleanResultProto.fromBuffer(bytes);
 
     result.unwrap();
@@ -98,7 +93,8 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     final int code = await methodChannel.invokeMethod(
       'checkSamsungHealthAvailability',
     );
-    final proto = SamsungHealthAvailabilityProto.valueOf(code) ??
+    final proto =
+        SamsungHealthAvailabilityProto.valueOf(code) ??
         SamsungHealthAvailabilityProto.NOT_INSTALLED;
 
     return proto.toDomain();
@@ -113,9 +109,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     }).toList();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'checkSamsungHealthPermissions',
-      [
-        permissionsProtoValues,
-      ],
+      [permissionsProtoValues],
     );
 
     final result = BooleanResultProto.fromBuffer(bytes);
@@ -132,9 +126,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     }).toList();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'checkSamsungHealthPermissionsPartially',
-      [
-        permissionsProtoValues,
-      ],
+      [permissionsProtoValues],
     );
 
     final result = BooleanResultProto.fromBuffer(bytes);
@@ -151,9 +143,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     }).toList();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'requestSamsungHealthPermissions',
-      [
-        permissionsProtoValues,
-      ],
+      [permissionsProtoValues],
     );
 
     final result = RequestPermissionsStatusResultProto.fromBuffer(bytes);
@@ -163,22 +153,19 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
 
   @override
   Stream<SamsungHealthPermissionsSummary>
-      get requestSamsungHealthPermissionsUpdates {
-    return samsungHealthPermissionsEventChannel.receiveBroadcastStream().map(
-      (bytes) {
-        return SamsungHealthPermissionsSummaryProto.fromBuffer(bytes)
-            .toDomain();
-      },
-    );
+  get requestSamsungHealthPermissionsUpdates {
+    return samsungHealthPermissionsEventChannel.receiveBroadcastStream().map((
+      bytes,
+    ) {
+      return SamsungHealthPermissionsSummaryProto.fromBuffer(bytes).toDomain();
+    });
   }
 
   @override
   Future<void> syncHistoricSummaries(bool enableLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncHistoricSummaries',
-      [
-        enableLogs,
-      ],
+      [enableLogs],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -189,9 +176,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   Future<void> syncSummariesByDate(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncSummariesByDate',
-      [
-        date.millisecondsSinceEpoch,
-      ],
+      [date.millisecondsSinceEpoch],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -206,10 +191,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     final proto = summary.toProto();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncByDateAndSummary',
-      [
-        date.millisecondsSinceEpoch,
-        proto.value,
-      ],
+      [date.millisecondsSinceEpoch, proto.value],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -221,10 +203,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
     final proto = event.toProto();
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncByDateAndEvent',
-      [
-        date.millisecondsSinceEpoch,
-        proto.value,
-      ],
+      [date.millisecondsSinceEpoch, proto.value],
     );
     final result = BooleanResultProto.fromBuffer(bytes);
 
@@ -235,9 +214,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   Future<List<SleepSummary>> getSleepSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getSleepSummary',
-      [
-        date.millisecondsSinceEpoch,
-      ],
+      [date.millisecondsSinceEpoch],
     );
     final result = SleepSummaryResultProto.fromBuffer(bytes);
 
@@ -248,9 +225,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   Future<PhysicalSummary> getPhysicalSummary(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getPhysicalSummary',
-      [
-        date.millisecondsSinceEpoch,
-      ],
+      [date.millisecondsSinceEpoch],
     );
     final result = PhysicalSummaryResultProto.fromBuffer(bytes);
 
@@ -259,12 +234,9 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
 
   @override
   Future<BodySummary> getBodySummary(DateTime date) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'getBodySummary',
-      [
-        date.millisecondsSinceEpoch,
-      ],
-    );
+    final Uint8List bytes = await methodChannel.invokeMethod('getBodySummary', [
+      date.millisecondsSinceEpoch,
+    ]);
     final result = BodySummaryResultProto.fromBuffer(bytes);
 
     return result.unwrap();
@@ -274,9 +246,7 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   Future<List<ActivityEvent>> getActivityEvents(DateTime date) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getActivityEvents',
-      [
-        date.millisecondsSinceEpoch,
-      ],
+      [date.millisecondsSinceEpoch],
     );
     final result = ActivityEventResultProto.fromBuffer(bytes);
 
@@ -305,6 +275,17 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   }
 
   @override
+  Future<HeartRate> getTodayHeartRate() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getTodayHeartRate',
+    );
+
+    final result = HearRateResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
   Future<bool> isScheduled() async {
     final Uint8List bytes = await methodChannel.invokeMethod('isScheduled');
 
@@ -315,22 +296,17 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
 
   @override
   Stream<bool> get isScheduledUpdates {
-    return isScheduledEventChannel.receiveBroadcastStream().map(
-      (bytes) {
-        return bytes as bool;
-      },
-    );
+    return isScheduledEventChannel.receiveBroadcastStream().map((bytes) {
+      return bytes as bool;
+    });
   }
 
   @override
   Future<void> schedule(bool enableNativeLogs, bool cancelAndReschedule) async {
-    final Uint8List bytes = await methodChannel.invokeMethod(
-      'schedule',
-      [
-        enableNativeLogs,
-        cancelAndReschedule,
-      ],
-    );
+    final Uint8List bytes = await methodChannel.invokeMethod('schedule', [
+      enableNativeLogs,
+      cancelAndReschedule,
+    ]);
 
     final result = BooleanResultProto.fromBuffer(bytes);
 
