@@ -27,44 +27,44 @@ class _SamsungPermissionsState extends State<SamsungPermissions> {
   final ConsoleOutput requestPermissionsOutput = ConsoleOutput();
 
   StreamSubscription<SamsungHealthPermissionsSummary>?
-      samsungHealthPermissionsSubscription;
+  samsungHealthPermissionsSubscription;
 
   @override
   void initState() {
     samsungHealthPermissionsSubscription = RookSamsung
         .requestSamsungHealthPermissionsUpdates
         .listen((permissionsSummary) {
-      if (permissionsSummary.dataTypesGranted) {
-        setState(() {
-          checkPermissionsOutput.append('Permissions granted');
-          checkPermissionsPartiallyOutput.append(
-            'Permissions partially granted',
-          );
-          requestPermissionsOutput.append('Permissions granted');
-        });
-      } else {
-        setState(() {
-          checkPermissionsOutput.append(
-            "There is one or more missing permissions",
-          );
-          requestPermissionsOutput.append(
-            "There is one or more missing permissions",
-          );
-        });
-      }
+          if (permissionsSummary.dataTypesGranted) {
+            setState(() {
+              checkPermissionsOutput.append('Permissions granted');
+              checkPermissionsPartiallyOutput.append(
+                'Permissions partially granted',
+              );
+              requestPermissionsOutput.append('Permissions granted');
+            });
+          } else {
+            setState(() {
+              checkPermissionsOutput.append(
+                "There is one or more missing permissions",
+              );
+              requestPermissionsOutput.append(
+                "There is one or more missing permissions",
+              );
+            });
+          }
 
-      if (permissionsSummary.dataTypesPartiallyGranted) {
-        setState(() {
-          checkPermissionsPartiallyOutput.append(
-            'Permissions partially granted',
-          );
+          if (permissionsSummary.dataTypesPartiallyGranted) {
+            setState(() {
+              checkPermissionsPartiallyOutput.append(
+                'Permissions partially granted',
+              );
+            });
+          } else {
+            setState(() {
+              checkPermissionsPartiallyOutput.append("No permission granted");
+            });
+          }
         });
-      } else {
-        setState(() {
-          checkPermissionsPartiallyOutput.append("No permission granted");
-        });
-      }
-    });
 
     super.initState();
   }
@@ -119,36 +119,44 @@ class _SamsungPermissionsState extends State<SamsungPermissions> {
     checkAvailabilityOutput.clear();
 
     setState(() {
-      checkAvailabilityOutput
-          .append('Verifying Samsung Health availability...');
+      checkAvailabilityOutput.append(
+        'Verifying Samsung Health availability...',
+      );
     });
 
-    RookSamsung.checkSamsungHealthAvailability().then((availability) {
-      final message = switch (availability) {
-        SamsungHealthAvailability.installed => 'Samsung Health is installed!',
-        SamsungHealthAvailability.notInstalled =>
-          'Samsung Health not installed.',
-        SamsungHealthAvailability.outdated => "Samsung Health is outdated.",
-        SamsungHealthAvailability.disabled => "Samsung Health is disabled.",
-        SamsungHealthAvailability.notReady => "Samsung Health is not ready.",
-      };
+    RookSamsung.checkSamsungHealthAvailability()
+        .then((availability) {
+          final message = switch (availability) {
+            SamsungHealthAvailability.installed =>
+              'Samsung Health is installed!',
+            SamsungHealthAvailability.notInstalled =>
+              'Samsung Health not installed.',
+            SamsungHealthAvailability.outdated => "Samsung Health is outdated.",
+            SamsungHealthAvailability.disabled => "Samsung Health is disabled.",
+            SamsungHealthAvailability.notReady =>
+              "Samsung Health is not ready.",
+          };
 
-      setState(() {
-        checkAvailabilityOutput.append(message);
-      });
-    }).catchError((error) {
-      setState(() {
-        checkAvailabilityOutput
-            .append('Error verifying Samsung Health availability: $error');
-      });
-    });
+          setState(() {
+            checkAvailabilityOutput.append(message);
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            checkAvailabilityOutput.append(
+              'Error verifying Samsung Health availability: $error',
+            );
+          });
+        });
   }
 
   void downloadSamsungHealth() async {
     try {
-      await launchUrl(Uri.parse(
-        'https://play.google.com/store/apps/details?id=com.sec.android.app.shealth',
-      ));
+      await launchUrl(
+        Uri.parse(
+          'https://play.google.com/store/apps/details?id=com.sec.android.app.shealth',
+        ),
+      );
     } catch (ignored) {
       // Ignored
     }
@@ -163,74 +171,82 @@ class _SamsungPermissionsState extends State<SamsungPermissions> {
 
     RookSamsung.checkSamsungHealthPermissions(_samsungPermissions)
         .then((permissionsGranted) {
-      String message = switch (permissionsGranted) {
-        true => 'Permissions granted',
-        false => 'There is one or more missing permissions',
-      };
+          String message = switch (permissionsGranted) {
+            true => 'Permissions granted',
+            false => 'There is one or more missing permissions',
+          };
 
-      setState(() {
-        checkPermissionsOutput.append(message);
-      });
-    }).catchError((error) {
-      setState(() {
-        checkPermissionsOutput
-            .append('Error verifying Samsung Health permissions: $error');
-      });
-    });
+          setState(() {
+            checkPermissionsOutput.append(message);
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            checkPermissionsOutput.append(
+              'Error verifying Samsung Health permissions: $error',
+            );
+          });
+        });
   }
 
   void checkPermissionsPartially() {
     checkPermissionsPartiallyOutput.clear();
 
     setState(() {
-      checkPermissionsPartiallyOutput
-          .append('Verifying Samsung Health permissions...');
+      checkPermissionsPartiallyOutput.append(
+        'Verifying Samsung Health permissions...',
+      );
     });
 
     RookSamsung.checkSamsungHealthPermissionsPartially(_samsungPermissions)
         .then((permissionsPartiallyGranted) {
-      String message = switch (permissionsPartiallyGranted) {
-        true => 'Permissions partially granted',
-        false => 'No permission granted',
-      };
+          String message = switch (permissionsPartiallyGranted) {
+            true => 'Permissions partially granted',
+            false => 'No permission granted',
+          };
 
-      setState(() {
-        checkPermissionsPartiallyOutput.append(message);
-      });
-    }).catchError((error) {
-      setState(() {
-        checkPermissionsPartiallyOutput
-            .append('Error verifying Samsung Health permissions: $error');
-      });
-    });
+          setState(() {
+            checkPermissionsPartiallyOutput.append(message);
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            checkPermissionsPartiallyOutput.append(
+              'Error verifying Samsung Health permissions: $error',
+            );
+          });
+        });
   }
 
   void requestPermissions() {
     requestPermissionsOutput.clear();
 
     setState(() {
-      requestPermissionsOutput
-          .append('Requesting Samsung Health permissions...');
+      requestPermissionsOutput.append(
+        'Requesting Samsung Health permissions...',
+      );
     });
 
     RookSamsung.requestSamsungHealthPermissions(_samsungPermissions)
         .then((requestPermissionsStatus) {
-      String message = switch (requestPermissionsStatus) {
-        RequestPermissionsStatus.alreadyGranted =>
-          'Permissions already granted',
-        RequestPermissionsStatus.requestSent =>
-          'Permissions request sent, if nothing happens open Samsung Health settings and give permissions manually',
-      };
+          String message = switch (requestPermissionsStatus) {
+            RequestPermissionsStatus.alreadyGranted =>
+              'Permissions already granted',
+            RequestPermissionsStatus.requestSent =>
+              'Permissions request sent, if nothing happens open Samsung Health settings and give permissions manually',
+          };
 
-      setState(() {
-        requestPermissionsOutput.append(message);
-      });
-    }).catchError((error) {
-      setState(() {
-        requestPermissionsOutput
-            .append('Error requesting Samsung Health permissions: $error');
-      });
-    });
+          setState(() {
+            requestPermissionsOutput.append(message);
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            requestPermissionsOutput.append(
+              'Error requesting Samsung Health permissions: $error',
+            );
+          });
+        });
   }
 }
 

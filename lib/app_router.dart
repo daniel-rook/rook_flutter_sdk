@@ -17,10 +17,13 @@ import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_configurati
 import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_permissions.dart';
 import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_user_management.dart';
+import 'package:rook_flutter_sdk/menu_screen.dart';
 
 class AppRouter {
   Route<Object?>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case menuRoute:
+        return MaterialPageRoute(builder: (context) => const MenuScreen());
       case androidConfigurationRoute:
         return MaterialPageRoute(
           builder: (context) => const AndroidConfiguration(),
@@ -42,9 +45,7 @@ class AppRouter {
           builder: (context) => const AndroidPermissions(),
         );
       case androidSyncRoute:
-        return MaterialPageRoute(
-          builder: (context) => const AndroidSync(),
-        );
+        return MaterialPageRoute(builder: (context) => const AndroidSync());
       case androidBackgroundSyncRoute:
         return MaterialPageRoute(
           builder: (context) => const AndroidBackgroundSync(),
@@ -62,9 +63,7 @@ class AppRouter {
           builder: (context) => const SamsungPermissions(),
         );
       case samsungSyncRoute:
-        return MaterialPageRoute(
-          builder: (context) => const SamsungSync(),
-        );
+        return MaterialPageRoute(builder: (context) => const SamsungSync());
       case samsungBackgroundSyncRoute:
         return MaterialPageRoute(
           builder: (context) => const SamsungBackgroundSync(),
@@ -78,13 +77,9 @@ class AppRouter {
           builder: (context) => const IOSUserManagement(),
         );
       case iosDataSourcesRoute:
-        return MaterialPageRoute(
-          builder: (context) => const IOSDataSources(),
-        );
+        return MaterialPageRoute(builder: (context) => const IOSDataSources());
       case iosSyncRoute:
-        return MaterialPageRoute(
-          builder: (context) => const IOSSync(),
-        );
+        return MaterialPageRoute(builder: (context) => const IOSSync());
       case iosContinuousUploadRoute:
         return MaterialPageRoute(
           builder: (context) => const IOSContinuousUpload(),

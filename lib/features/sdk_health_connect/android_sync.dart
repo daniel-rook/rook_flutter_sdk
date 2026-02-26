@@ -30,6 +30,7 @@ class _AndroidSyncState extends State<AndroidSync> {
   final ConsoleOutput getSingleEventOutput = ConsoleOutput();
   final ConsoleOutput getTodayStepsOutput = ConsoleOutput();
   final ConsoleOutput getTodayCaloriesOutput = ConsoleOutput();
+  final ConsoleOutput getTodayHeartRateOutput = ConsoleOutput();
 
   @override
   void initState() {
@@ -219,6 +220,12 @@ class _AndroidSyncState extends State<AndroidSync> {
           FilledButton(
             onPressed: getTodayCalories,
             child: const Text('Get today calories'),
+          ),
+          const SectionTitle('Get today heart rate'),
+          Text(getTodayHeartRateOutput.current),
+          FilledButton(
+            onPressed: getTodayHeartRate,
+            child: const Text('Get today heart rate'),
           ),
         ],
       ),
@@ -434,6 +441,30 @@ class _AndroidSyncState extends State<AndroidSync> {
       setState(
         () => getTodayCaloriesOutput.append(
           'Error syncing Calories events: $error',
+        ),
+      );
+    }
+  }
+
+  void getTodayHeartRate() async {
+    getTodayHeartRateOutput.clear();
+
+    setState(
+          () => getTodayHeartRateOutput.append(
+        'Syncing heart rate events of today...',
+      ),
+    );
+
+    try {
+      final heartRate = await HCRookSyncManager.getTodayHeartRate();
+
+      setState(
+            () => getTodayHeartRateOutput.append('$heartRate synced successfully'),
+      );
+    } catch (error) {
+      setState(
+            () => getTodayHeartRateOutput.append(
+          'Error syncing heart rate events: $error',
         ),
       );
     }

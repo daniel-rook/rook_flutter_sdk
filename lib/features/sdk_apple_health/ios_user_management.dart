@@ -24,15 +24,17 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
 
   @override
   void initState() {
-    AHRookConfigurationManager.getUserID().then((userID) {
-      setState(() {
-        this.userID = userID;
-      });
-    }).catchError((error) {
-      setState(() {
-        userID = '$error';
-      });
-    });
+    AHRookConfigurationManager.getUserID()
+        .then((userID) {
+          setState(() {
+            this.userID = userID;
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            userID = '$error';
+          });
+        });
     super.initState();
   }
 
@@ -56,7 +58,7 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
           FilledButton(
             onPressed: deleteUser,
             child: const Text("deleteUserFromRook"),
-          )
+          ),
         ],
       ),
     );
@@ -69,15 +71,19 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
       syncTimezoneUserOutput.append('Updating user timezone...');
     });
 
-    AHRookConfigurationManager.syncUserTimeZone().then((_) {
-      setState(() {
-        syncTimezoneUserOutput.append('User timezone updated successfully');
-      });
-    }).catchError((error) {
-      setState(() {
-        syncTimezoneUserOutput.append('Error updating user timezone: $error');
-      });
-    });
+    AHRookConfigurationManager.syncUserTimeZone()
+        .then((_) {
+          setState(() {
+            syncTimezoneUserOutput.append('User timezone updated successfully');
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            syncTimezoneUserOutput.append(
+              'Error updating user timezone: $error',
+            );
+          });
+        });
   }
 
   void deleteUser() {
@@ -87,15 +93,17 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
       deleteUserOutput.append('Deleting user from rook...');
     });
 
-    AHRookConfigurationManager.deleteUserFromRook().then((_) {
-      setState(() {
-        deleteUserOutput.append('User deleted from rook');
-        userID = '';
-      });
-    }).catchError((error) {
-      setState(() {
-        deleteUserOutput.append('Error deleting user from rook: $error');
-      });
-    });
+    AHRookConfigurationManager.deleteUserFromRook()
+        .then((_) {
+          setState(() {
+            deleteUserOutput.append('User deleted from rook');
+            userID = '';
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            deleteUserOutput.append('Error deleting user from rook: $error');
+          });
+        });
   }
 }

@@ -54,7 +54,7 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
                               TextButton(
                                 onPressed: AppSettings.openAppSettings,
                                 child: Text("Open application Settings"),
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -64,10 +64,11 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
                         onPressed: () {
                           AndroidStepsManager.enableBackgroundAndroidSteps()
                               .then((_) {
-                            checkStepsServiceStatus();
-                          }).catchError((error) {
-                            logger.severe("Error enabling steps: $error");
-                          });
+                                checkStepsServiceStatus();
+                              })
+                              .catchError((error) {
+                                logger.severe("Error enabling steps: $error");
+                              });
                         },
                         child: const Text("Enable steps tracking"),
                       ),
@@ -76,10 +77,11 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
                         onPressed: () {
                           AndroidStepsManager.disableBackgroundAndroidSteps()
                               .then((_) {
-                            checkStepsServiceStatus();
-                          }).catchError((error) {
-                            logger.severe("Error disabling steps: $error");
-                          });
+                                checkStepsServiceStatus();
+                              })
+                              .catchError((error) {
+                                logger.severe("Error disabling steps: $error");
+                              });
                         },
                         child: const Text("Disable steps tracking"),
                       ),
@@ -88,10 +90,11 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
                         onPressed: () {
                           AndroidStepsManager.syncTodayAndroidStepsCount()
                               .then((syncedSteps) {
-                            setState(() => steps = syncedSteps);
-                          }).catchError((error) {
-                            logger.severe('Error syncing steps: $error');
-                          });
+                                setState(() => steps = syncedSteps);
+                              })
+                              .catchError((error) {
+                                logger.severe('Error syncing steps: $error');
+                              });
                         },
                         child: const Text("Sync today steps"),
                       ),
@@ -122,8 +125,8 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
 
   void requestAndroidPermissions() async {
     try {
-      final shouldRequestPermissions = await HCRookHealthPermissionsManager
-          .shouldRequestAndroidPermissions();
+      final shouldRequestPermissions =
+          await HCRookHealthPermissionsManager.shouldRequestAndroidPermissions();
 
       if (shouldRequestPermissions) {
         final requestPermissionsStatus =
@@ -133,14 +136,10 @@ class _AndroidSystemStepsState extends State<AndroidSystemSteps> {
             requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
 
         if (permissionsAlreadyGranted) {
-          setState(
-            () => hasAndroidPermissions = true,
-          );
+          setState(() => hasAndroidPermissions = true);
         }
       } else {
-        setState(
-          () => androidPermissionsPreviouslyDenied = true,
-        );
+        setState(() => androidPermissionsPreviouslyDenied = true);
       }
     } catch (error) {
       logger.severe('requestAndroidPermissions - error: $error');

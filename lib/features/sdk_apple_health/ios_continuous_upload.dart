@@ -57,9 +57,9 @@ class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
   }
 
   void automaticallyStartContinuousUpload() async {
-    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
+    final enabled = await AppPreferences().getAppleHealthContinuousUpload();
 
-    if (autoSyncAcceptation) {
+    if (enabled) {
       continuousUploadOutput.clear();
 
       setState(() {
@@ -102,17 +102,17 @@ class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
     }
 
     setState(() {
-      continuousChecked = autoSyncAcceptation;
+      continuousChecked = enabled;
     });
   }
 
   void enableContinuousUpload() async {
-    await AppPreferences().setAutoSyncAcceptation(true);
+    await AppPreferences().setAppleHealthContinuousUpload(true);
     automaticallyStartContinuousUpload();
   }
 
   void disableContinuousUpload() async {
-    await AppPreferences().setAutoSyncAcceptation(false);
+    await AppPreferences().setAppleHealthContinuousUpload(false);
     automaticallyStartContinuousUpload();
   }
 }

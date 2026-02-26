@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
@@ -49,10 +48,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
           ),
           const SectionTitle('2. Initialize SDK'),
           Text(initializeOutput.current),
-          FilledButton(
-            onPressed: initialize,
-            child: const Text('initRook'),
-          ),
+          FilledButton(onPressed: initialize, child: const Text('initRook')),
           const SectionTitle('3. Update user ID'),
           TextFormField(
             key: _formKey,
@@ -75,49 +71,43 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
           const SizedBox(height: 20),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      androidBackgroundStepsRoute,
-                    )
+                ? () => Navigator.of(
+                    context,
+                  ).pushNamed(androidBackgroundStepsRoute)
                 : null,
             child: const Text('Background steps'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      androidUserManagementRoute,
-                    )
+                ? () => Navigator.of(
+                    context,
+                  ).pushNamed(androidUserManagementRoute)
                 : null,
             child: const Text('User management'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      androidDataSourcesRoute,
-                    )
+                ? () => Navigator.of(context).pushNamed(androidDataSourcesRoute)
                 : null,
             child: const Text('Data sources'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      androidPermissionsRoute,
-                    )
+                ? () => Navigator.of(context).pushNamed(androidPermissionsRoute)
                 : null,
             child: const Text('Permissions'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      androidSyncRoute,
-                    )
+                ? () => Navigator.of(context).pushNamed(androidSyncRoute)
                 : null,
             child: const Text('Manually sync health data'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      androidBackgroundSyncRoute,
-                    )
+                ? () => Navigator.of(
+                    context,
+                  ).pushNamed(androidBackgroundSyncRoute)
                 : null,
             child: const Text('Background sync'),
           ),
@@ -134,13 +124,10 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
   }
 
   void setConfiguration() async {
-    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
-
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
       secretKey: Secrets.secretKey,
       environment: rookEnvironment,
-      // This should be based on user choice: autoSyncAcceptation
       enableBackgroundSync: false,
     );
 
@@ -167,16 +154,18 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
       initializeOutput.append('Initializing...');
     });
 
-    HCRookConfigurationManager.initRook().then((_) {
-      setState(() {
-        initializeOutput.append('SDK initialized successfully');
-      });
-      checkUserIDRegistered();
-    }).catchError((error) {
-      setState(() {
-        initializeOutput.append('Error initializing SDK: $error');
-      });
-    });
+    HCRookConfigurationManager.initRook()
+        .then((_) {
+          setState(() {
+            initializeOutput.append('SDK initialized successfully');
+          });
+          checkUserIDRegistered();
+        })
+        .catchError((error) {
+          setState(() {
+            initializeOutput.append('Error initializing SDK: $error');
+          });
+        });
   }
 
   void checkUserIDRegistered() {
@@ -185,14 +174,16 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
     HCRookConfigurationManager.getUserID().then((userID) {
       if (userID != null) {
         setState(() {
-          updateUserOutput
-              .append('Found local userID $userID, you can skip step 3');
+          updateUserOutput.append(
+            'Found local userID $userID, you can skip step 3',
+          );
           enableNavigation = true;
         });
       } else {
         setState(() {
-          updateUserOutput
-              .append('Local userID not found, please set a userID');
+          updateUserOutput.append(
+            'Local userID not found, please set a userID',
+          );
         });
       }
     });
@@ -205,15 +196,17 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
       updateUserOutput.append('Updating userID...');
     });
 
-    HCRookConfigurationManager.updateUserID(userID!).then((_) {
-      setState(() {
-        updateUserOutput.append('userID updated successfully');
-        enableNavigation = true;
-      });
-    }).catchError((error) {
-      setState(() {
-        updateUserOutput.append('Error updating userID: $error');
-      });
-    });
+    HCRookConfigurationManager.updateUserID(userID!)
+        .then((_) {
+          setState(() {
+            updateUserOutput.append('userID updated successfully');
+            enableNavigation = true;
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            updateUserOutput.append('Error updating userID: $error');
+          });
+        });
   }
 }

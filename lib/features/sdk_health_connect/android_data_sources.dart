@@ -41,30 +41,15 @@ class _AndroidDataSourcesState extends State<AndroidDataSources> {
               dataSourceType = selection!;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(
-                value: DataSourceType.garmin,
-                label: "Garmin",
-              ),
-              DropdownMenuEntry(
-                value: DataSourceType.oura,
-                label: "Oura",
-              ),
-              DropdownMenuEntry(
-                value: DataSourceType.polar,
-                label: "Polar",
-              ),
-              DropdownMenuEntry(
-                value: DataSourceType.fitbit,
-                label: "Fitbit",
-              ),
+              DropdownMenuEntry(value: DataSourceType.garmin, label: "Garmin"),
+              DropdownMenuEntry(value: DataSourceType.oura, label: "Oura"),
+              DropdownMenuEntry(value: DataSourceType.polar, label: "Polar"),
+              DropdownMenuEntry(value: DataSourceType.fitbit, label: "Fitbit"),
               DropdownMenuEntry(
                 value: DataSourceType.withings,
                 label: "Withings",
               ),
-              DropdownMenuEntry(
-                value: DataSourceType.whoop,
-                label: "Whoop",
-              ),
+              DropdownMenuEntry(value: DataSourceType.whoop, label: "Whoop"),
             ],
           ),
           Text(dataSourceAuthorizerOutput.current),
@@ -85,30 +70,15 @@ class _AndroidDataSourcesState extends State<AndroidDataSources> {
               dataSourceType = selection!;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(
-                value: DataSourceType.garmin,
-                label: "Garmin",
-              ),
-              DropdownMenuEntry(
-                value: DataSourceType.oura,
-                label: "Oura",
-              ),
-              DropdownMenuEntry(
-                value: DataSourceType.polar,
-                label: "Polar",
-              ),
-              DropdownMenuEntry(
-                value: DataSourceType.fitbit,
-                label: "Fitbit",
-              ),
+              DropdownMenuEntry(value: DataSourceType.garmin, label: "Garmin"),
+              DropdownMenuEntry(value: DataSourceType.oura, label: "Oura"),
+              DropdownMenuEntry(value: DataSourceType.polar, label: "Polar"),
+              DropdownMenuEntry(value: DataSourceType.fitbit, label: "Fitbit"),
               DropdownMenuEntry(
                 value: DataSourceType.withings,
                 label: "Withings",
               ),
-              DropdownMenuEntry(
-                value: DataSourceType.whoop,
-                label: "Whoop",
-              ),
+              DropdownMenuEntry(value: DataSourceType.whoop, label: "Whoop"),
             ],
           ),
           Text(revokeDataSourceOutput.current),
@@ -137,7 +107,8 @@ class _AndroidDataSourcesState extends State<AndroidDataSources> {
         redirectUrl: null,
       );
 
-      final string = "Success getting data source authorizer"
+      final string =
+          "Success getting data source authorizer"
           "\n"
           "Data source: ${authorizer.dataSource}"
           "\n"
@@ -161,8 +132,9 @@ class _AndroidDataSourcesState extends State<AndroidDataSources> {
     authorizedDataSourcesV2Output.clear();
 
     setState(() {
-      authorizedDataSourcesV2Output
-          .append("Getting authorized data sources v2...");
+      authorizedDataSourcesV2Output.append(
+        "Getting authorized data sources v2...",
+      );
     });
 
     try {
@@ -204,9 +176,7 @@ class _AndroidDataSourcesState extends State<AndroidDataSources> {
       });
     } catch (error) {
       setState(() {
-        revokeDataSourceOutput.append(
-          "Error revoking data source $error",
-        );
+        revokeDataSourceOutput.append("Error revoking data source $error");
       });
     }
   }

@@ -29,15 +29,17 @@ class _AppleHealthStepsState extends State<AppleHealthSteps> {
             ),
             CupertinoButton(
               onPressed: () {
-                AHRookSyncManager.getTodayStepsCount().then((syncedSteps) {
-                  setState(() => steps = syncedSteps ?? 0);
-                }).catchError((error) {
-                  logger.severe('Error syncing steps: $error');
-                });
+                AHRookSyncManager.getTodayStepsCount()
+                    .then((syncedSteps) {
+                      setState(() => steps = syncedSteps ?? 0);
+                    })
+                    .catchError((error) {
+                      logger.severe('Error syncing steps: $error');
+                    });
               },
               child: const Text("Sync today steps"),
             ),
-            if (steps > 0) Text("Steps synced: $steps")
+            if (steps > 0) Text("Steps synced: $steps"),
           ],
         ),
       ),

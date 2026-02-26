@@ -28,7 +28,7 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
   ConsoleOutput backgroundSyncOutput = ConsoleOutput();
 
   StreamSubscription<SamsungHealthPermissionsSummary>?
-      samsungHealthPermissionsSubscription;
+  samsungHealthPermissionsSubscription;
   StreamSubscription<bool>? isScheduledUpdatesSubscription;
 
   @override
@@ -36,14 +36,16 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
     samsungHealthPermissionsSubscription = RookSamsung
         .requestSamsungHealthPermissionsUpdates
         .listen((permissionsSummary) {
-      setState(() {
-        hasDataTypesPermissions = permissionsSummary.dataTypesGranted ||
-            permissionsSummary.dataTypesPartiallyGranted;
-      });
-    });
+          setState(() {
+            hasDataTypesPermissions =
+                permissionsSummary.dataTypesGranted ||
+                permissionsSummary.dataTypesPartiallyGranted;
+          });
+        });
 
-    isScheduledUpdatesSubscription =
-        RookSamsung.isScheduledUpdates.listen((isScheduled) {
+    isScheduledUpdatesSubscription = RookSamsung.isScheduledUpdates.listen((
+      isScheduled,
+    ) {
       setState(() {
         backgroundEnabled = isScheduled;
       });
@@ -100,13 +102,14 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
   }
 
   void checkAvailabilityAndPermissions() async {
-    final hasPermissions =
-        await RookSamsung.checkSamsungHealthPermissions(_samsungPermissions)
-            .getOrFalse();
+    final hasPermissions = await RookSamsung.checkSamsungHealthPermissions(
+      _samsungPermissions,
+    ).getOrFalse();
 
     final hasPartialPermissions =
-        await RookSamsung.checkSamsungHealthPermissions(_samsungPermissions)
-            .getOrFalse();
+        await RookSamsung.checkSamsungHealthPermissions(
+          _samsungPermissions,
+        ).getOrFalse();
 
     setState(() {
       hasDataTypesPermissions = hasPermissions || hasPartialPermissions;
@@ -117,7 +120,8 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
     try {
       final requestPermissionsStatus =
           await RookSamsung.requestSamsungHealthPermissions(
-              _samsungPermissions);
+            _samsungPermissions,
+          );
 
       String message = switch (requestPermissionsStatus) {
         RequestPermissionsStatus.alreadyGranted =>
@@ -132,12 +136,11 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final autoSyncAcceptation =
-        await AppPreferences().getSamsungAutoSyncAcceptation();
+    final enabled = await AppPreferences().getSamsungHealthBackgroundSync();
 
     backgroundSyncOutput.clear();
 
-    if (autoSyncAcceptation) {
+    if (enabled) {
       setState(() {
         backgroundSyncOutput.append("Enabling background sync...");
       });
@@ -173,12 +176,12 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
   }
 
   void enableBackgroundSync() async {
-    await AppPreferences().setSamsungAutoSyncAcceptation(true);
+    await AppPreferences().setSamsungHealthBackgroundSync(true);
     automaticallyStartBackgroundSync();
   }
 
   void disableBackgroundSync() async {
-    await AppPreferences().setSamsungAutoSyncAcceptation(false);
+    await AppPreferences().setSamsungHealthBackgroundSync(false);
     automaticallyStartBackgroundSync();
   }
 }

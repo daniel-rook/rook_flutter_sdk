@@ -30,6 +30,7 @@ class _IOSSyncState extends State<IOSSync> {
   final ConsoleOutput getSingleEventOutput = ConsoleOutput();
   final ConsoleOutput getTodayStepsOutput = ConsoleOutput();
   final ConsoleOutput getTodayCaloriesOutput = ConsoleOutput();
+  final ConsoleOutput getTodayHeartRateOutput = ConsoleOutput();
 
   @override
   void initState() {
@@ -168,10 +169,7 @@ class _IOSSyncState extends State<IOSSync> {
                 value: AHEventSyncType.temperature,
                 label: "Temperature",
               ),
-              DropdownMenuEntry(
-                value: AHEventSyncType.steps,
-                label: "Steps",
-              ),
+              DropdownMenuEntry(value: AHEventSyncType.steps, label: "Steps"),
               DropdownMenuEntry(
                 value: AHEventSyncType.calories,
                 label: "Calories",
@@ -218,6 +216,12 @@ class _IOSSyncState extends State<IOSSync> {
           FilledButton(
             onPressed: getTodayCalories,
             child: const Text('Get today calories'),
+          ),
+          const SectionTitle('Get today heart rate'),
+          Text(getTodayHeartRateOutput.current),
+          FilledButton(
+            onPressed: getTodayHeartRate,
+            child: const Text('Get today heart rate'),
           ),
         ],
       ),
@@ -433,6 +437,30 @@ class _IOSSyncState extends State<IOSSync> {
       setState(
         () => getTodayCaloriesOutput.append(
           'Error syncing Calories events: $error',
+        ),
+      );
+    }
+  }
+
+  void getTodayHeartRate() async {
+    getTodayHeartRateOutput.clear();
+
+    setState(
+          () => getTodayHeartRateOutput.append(
+        'Syncing heart rate events of today...',
+      ),
+    );
+
+    try {
+      final heartRate = await AHRookSyncManager.getTodayHeartRate();
+
+      setState(
+            () => getTodayHeartRateOutput.append('$heartRate synced successfully'),
+      );
+    } catch (error) {
+      setState(
+            () => getTodayHeartRateOutput.append(
+          'Error syncing heart rate events: $error',
         ),
       );
     }

@@ -71,7 +71,7 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
                       TextButton(
                         onPressed: AppSettings.openAppSettings,
                         child: Text("Open application Settings"),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -81,22 +81,26 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
                 !isTrackingSteps)
               FilledButton(
                 onPressed: () {
-                  AndroidStepsManager.enableBackgroundAndroidSteps().then((_) {
-                    checkStepsServiceStatus();
-                  }).catchError((error) {
-                    logger.severe("Error enabling steps: $error");
-                  });
+                  AndroidStepsManager.enableBackgroundAndroidSteps()
+                      .then((_) {
+                        checkStepsServiceStatus();
+                      })
+                      .catchError((error) {
+                        logger.severe("Error enabling steps: $error");
+                      });
                 },
                 child: const Text("Enable steps tracking"),
               ),
             if (isTrackingSteps)
               FilledButton(
                 onPressed: () {
-                  AndroidStepsManager.disableBackgroundAndroidSteps().then((_) {
-                    checkStepsServiceStatus();
-                  }).catchError((error) {
-                    logger.severe("Error disabling steps: $error");
-                  });
+                  AndroidStepsManager.disableBackgroundAndroidSteps()
+                      .then((_) {
+                        checkStepsServiceStatus();
+                      })
+                      .catchError((error) {
+                        logger.severe("Error disabling steps: $error");
+                      });
                 },
                 child: const Text("Disable steps tracking"),
               ),
@@ -105,14 +109,15 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
                 onPressed: () {
                   AndroidStepsManager.syncTodayAndroidStepsCount()
                       .then((syncedSteps) {
-                    setState(() => steps = syncedSteps);
-                  }).catchError((error) {
-                    logger.severe('Error syncing steps: $error');
-                  });
+                        setState(() => steps = syncedSteps);
+                      })
+                      .catchError((error) {
+                        logger.severe('Error syncing steps: $error');
+                      });
                 },
                 child: const Text("Sync today steps"),
               ),
-            if (isTrackingSteps && steps > 0) Text("Steps synced: $steps")
+            if (isTrackingSteps && steps > 0) Text("Steps synced: $steps"),
           ],
         ),
       ),
@@ -134,8 +139,8 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
 
   void requestAndroidPermissions() async {
     try {
-      final shouldRequestPermissions = await HCRookHealthPermissionsManager
-          .shouldRequestAndroidPermissions();
+      final shouldRequestPermissions =
+          await HCRookHealthPermissionsManager.shouldRequestAndroidPermissions();
 
       if (shouldRequestPermissions) {
         final requestPermissionsStatus =
@@ -145,14 +150,10 @@ class _AndroidBackgroundStepsState extends State<AndroidBackgroundSteps> {
             requestPermissionsStatus == RequestPermissionsStatus.alreadyGranted;
 
         if (permissionsAlreadyGranted) {
-          setState(
-            () => hasAndroidPermissions = true,
-          );
+          setState(() => hasAndroidPermissions = true);
         }
       } else {
-        setState(
-          () => androidPermissionsPreviouslyDenied = true,
-        );
+        setState(() => androidPermissionsPreviouslyDenied = true);
       }
     } catch (error) {
       logger.severe('requestAndroidPermissions - error: $error');

@@ -7,11 +7,10 @@ import 'package:receive_intent/receive_intent.dart';
 import 'package:rook_flutter_sdk/app_router.dart';
 import 'package:rook_flutter_sdk/color_schemes.g.dart';
 import 'package:rook_flutter_sdk/common/preferences.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_configuration.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_configuration.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/hc_privacy_policy_screen.dart';
-import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_configuration.dart';
-import 'package:rook_sdk_samsung_health/rook_sdk_samsung_health.dart';
+import 'package:rook_flutter_sdk/menu_screen.dart';
+import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
+import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
 import 'common/environments.dart';
 
@@ -29,33 +28,53 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   if (Platform.isAndroid) {
-    enableAndroidBackgroundSync();
+    startBackgroundSyncAndroid();
   } else {
-    enableIOSBackgroundSync();
+    startBackgroundSyncIOS();
   }
 
   runAppFromIntent();
 }
 
-void enableAndroidBackgroundSync() async {
-  try {
-    final userAllowedBackgroundSync =
-        await AppPreferences().getSamsungAutoSyncAcceptation();
+void startBackgroundSyncAndroid() {
+  final preferences = AppPreferences();
 
-    print("userAllowedBackgroundSync: $userAllowedBackgroundSync");
+  preferences
+      .getHealthConnectBackgroundSync()
+      .then((healthConnectEnabled) async {
+        print("Starting Health Connect background sync...");
+        await HCRookBackgroundSync.enableBackground(enableNativeLogs: isDebug);
+        print("Health Connect background sync started");
+      })
+      .catchError((error) {
+        print("Failed to start Health Connect background sync: $error");
+      });
 
-    if (userAllowedBackgroundSync) {
-      await RookSamsung.enableBackground(enableNativeLogs: isDebug);
-    }
-
-    print("Enabled background sync");
-  } catch (error) {
-    print("Failed to enable background sync: $error");
-  }
+  preferences
+      .getSamsungHealthBackgroundSync()
+      .then((samsungHealthEnabled) async {
+        print("Starting Samsung Health background sync...");
+        await HCRookBackgroundSync.enableBackground(enableNativeLogs: isDebug);
+        print("Samsung Health background sync started");
+      })
+      .catchError((error) {
+        print("Failed to start Samsung Health background sync: $error");
+      });
 }
 
-void enableIOSBackgroundSync() async {
-  // Go to IOS documentation to learn how to enable background sync
+void startBackgroundSyncIOS() {
+  final preferences = AppPreferences();
+
+  preferences
+      .getHealthConnectBackgroundSync()
+      .then((healthConnectEnabled) async {
+        print("Starting Apple Health background sync...");
+        await AHRookBackgroundSync.enableBackground(enableNativeLogs: isDebug);
+        print("Apple Health background sync started");
+      })
+      .catchError((error) {
+        print("Failed to start Apple Health background sync: $error");
+      });
 }
 
 void runAppFromIntent() async {
@@ -86,11 +105,7 @@ class RookApp extends StatelessWidget {
       title: '(Flutter) Rook SDK',
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-      initialRoute: defaultTargetPlatform == TargetPlatform.android
-          ? _useSamsung
-              ? samsungConfigurationRoute
-              : androidConfigurationRoute
-          : iosConfigurationRoute,
+      initialRoute: menuRoute,
       onGenerateRoute: _router.onGenerateRoute,
     );
   }
@@ -109,5 +124,3 @@ class HCPrivacyPolicyApp extends StatelessWidget {
     );
   }
 }
-
-const bool _useSamsung = true;

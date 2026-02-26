@@ -24,15 +24,17 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
 
   @override
   void initState() {
-    HCRookConfigurationManager.getUserID().then((userID) {
-      setState(() {
-        this.userID = userID;
-      });
-    }).catchError((error) {
-      setState(() {
-        userID = '$error';
-      });
-    });
+    HCRookConfigurationManager.getUserID()
+        .then((userID) {
+          setState(() {
+            this.userID = userID;
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            userID = '$error';
+          });
+        });
     super.initState();
   }
 
@@ -56,7 +58,7 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
           FilledButton(
             onPressed: deleteUser,
             child: const Text("deleteUserFromRook"),
-          )
+          ),
         ],
       ),
     );
@@ -69,15 +71,19 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
       syncTimezoneUserOutput.append('Updating user timezone...');
     });
 
-    HCRookConfigurationManager.syncUserTimeZone().then((_) {
-      setState(() {
-        syncTimezoneUserOutput.append('User timezone updated successfully');
-      });
-    }).catchError((error) {
-      setState(() {
-        syncTimezoneUserOutput.append('Error updating user timezone: $error');
-      });
-    });
+    HCRookConfigurationManager.syncUserTimeZone()
+        .then((_) {
+          setState(() {
+            syncTimezoneUserOutput.append('User timezone updated successfully');
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            syncTimezoneUserOutput.append(
+              'Error updating user timezone: $error',
+            );
+          });
+        });
   }
 
   void deleteUser() {
@@ -87,15 +93,17 @@ class _AndroidUserManagementState extends State<AndroidUserManagement> {
       deleteUserOutput.append('Deleting user from rook...');
     });
 
-    HCRookConfigurationManager.deleteUserFromRook().then((_) {
-      setState(() {
-        deleteUserOutput.append('User deleted from rook');
-        userID = '';
-      });
-    }).catchError((error) {
-      setState(() {
-        deleteUserOutput.append('Error deleting user from rook: $error');
-      });
-    });
+    HCRookConfigurationManager.deleteUserFromRook()
+        .then((_) {
+          setState(() {
+            deleteUserOutput.append('User deleted from rook');
+            userID = '';
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            deleteUserOutput.append('Error deleting user from rook: $error');
+          });
+        });
   }
 }

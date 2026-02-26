@@ -79,9 +79,9 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
+    final enabled = await AppPreferences().getAppleHealthBackgroundSync();
 
-    if (autoSyncAcceptation) {
+    if (enabled) {
       backgroundSyncOutput.clear();
 
       setState(() {
@@ -124,17 +124,17 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
     }
 
     setState(() {
-      backgroundChecked = autoSyncAcceptation;
+      backgroundChecked = enabled;
     });
   }
 
   void enableBackgroundSync() async {
-    await AppPreferences().setAutoSyncAcceptation(true);
+    await AppPreferences().setAppleHealthBackgroundSync(true);
     automaticallyStartBackgroundSync();
   }
 
   void disableBackgroundSync() async {
-    await AppPreferences().setAutoSyncAcceptation(false);
+    await AppPreferences().setAppleHealthBackgroundSync(false);
     automaticallyStartBackgroundSync();
   }
 }
