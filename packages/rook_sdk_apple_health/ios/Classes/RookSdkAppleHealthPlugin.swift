@@ -33,23 +33,22 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             RookConnectConfigurationManager.shared.setConsoleLogAvailable(true)
             break
         case "setConfiguration":
-            let bytes = call.getDataArgAt(0)
+            do {
+                let bytes = call.getDataArgAt(0)
+                let configuration = try ConfigurationProto(serializedBytes: bytes.data)
 
-            runWithValue(
-                flutterResult: result,
-                builder: { try ConfigurationProto(serializedBytes: bytes.data) },
-                block: { it in
-                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
-                    RookConnectConfigurationManager.shared.setConfiguration(
-                        clientUUID: it.clientUuid,
-                        secretKey: it.secretKey,
-                        enableBackgroundSync: it.enableBackgroundSync,
-                        enableEventsBackgroundSync: it.enableBackgroundSync
-                    )
+                RookConnectConfigurationManager.shared.setEnvironment(configuration.environment.toDomain())
+                RookConnectConfigurationManager.shared.setConfiguration(
+                    clientUUID: configuration.clientUuid,
+                    secretKey: configuration.sha,
+                    enableBackgroundSync: configuration.enableBackgroundSync,
+                    enableEventsBackgroundSync: configuration.enableBackgroundSync
+                )
 
-                    boolSuccess(flutterResult: result, success: true)
-                }
-            )
+                boolSuccess(flutterResult: result, success: true)
+            } catch {
+                boolError(flutterResult: result, error: error)
+            }
             break
         case "getUserID":
             userManager.getUserId { it in
@@ -206,9 +205,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
-                    
+
                     let physicalSummary = try await rookSummaryManager.getPhysicalSummary(date: date)
-                    
+
                     physicalSummarySuccess(flutterResult: result, physicalSummary: physicalSummary)
                 } catch {
                     physicalSummaryError(flutterResult: result, error: error)
@@ -219,9 +218,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
-                    
+
                     let bodySummary = try await rookSummaryManager.getBodySummary(date: date)
-                    
+
                     bodySummarySuccess(flutterResult: result, bodySummary: bodySummary)
                 } catch {
                     bodySummaryError(flutterResult: result, error: error)
@@ -232,9 +231,9 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
-                    
+
                     let activityEvents = try await rookEventsManager.getActivityEvents(date: date)
-                    
+
                     activityEventSuccess(flutterResult: result, activityEvent: activityEvents)
                 } catch {
                     activityEventError(flutterResult: result, error: error)
@@ -279,7 +278,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             let enableNativeLogs = call.getBoolArgAt(0)
 
             RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
-            
+
             RookConnectConfigurationManager.shared.enableSync()
             break
         case "disableContinuousUpload":
@@ -297,10 +296,10 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             let enableNativeLogs = call.getBoolArgAt(0)
 
             RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
-            
+
             RookBackGroundSync.shared.enableBackGroundForSummaries()
             RookBackGroundSync.shared.enableBackGroundForEvents()
-            
+
             boolSuccess(flutterResult: result, success: true)
             break
         case "cancel":

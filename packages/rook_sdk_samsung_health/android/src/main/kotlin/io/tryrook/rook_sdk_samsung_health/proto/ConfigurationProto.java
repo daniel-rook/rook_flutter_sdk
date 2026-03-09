@@ -15,7 +15,7 @@ public  final class ConfigurationProto extends
     ConfigurationProtoOrBuilder {
   private ConfigurationProto() {
     clientUUID_ = "";
-    secretKey_ = "";
+    sha_ = "";
   }
   public static final int CLIENTUUID_FIELD_NUMBER = 1;
   private java.lang.String clientUUID_;
@@ -64,50 +64,50 @@ public  final class ConfigurationProto extends
 
   }
 
-  public static final int SECRETKEY_FIELD_NUMBER = 2;
-  private java.lang.String secretKey_;
+  public static final int SHA_FIELD_NUMBER = 2;
+  private java.lang.String sha_;
   /**
-   * <code>string secretKey = 2;</code>
-   * @return The secretKey.
+   * <code>string sha = 2;</code>
+   * @return The sha.
    */
   @java.lang.Override
-  public java.lang.String getSecretKey() {
-    return secretKey_;
+  public java.lang.String getSha() {
+    return sha_;
   }
   /**
-   * <code>string secretKey = 2;</code>
-   * @return The bytes for secretKey.
+   * <code>string sha = 2;</code>
+   * @return The bytes for sha.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSecretKeyBytes() {
-    return com.google.protobuf.ByteString.copyFromUtf8(secretKey_);
+      getShaBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(sha_);
   }
   /**
-   * <code>string secretKey = 2;</code>
-   * @param value The secretKey to set.
+   * <code>string sha = 2;</code>
+   * @param value The sha to set.
    */
-  private void setSecretKey(
+  private void setSha(
       java.lang.String value) {
     java.lang.Class<?> valueClass = value.getClass();
   
-    secretKey_ = value;
+    sha_ = value;
   }
   /**
-   * <code>string secretKey = 2;</code>
+   * <code>string sha = 2;</code>
    */
-  private void clearSecretKey() {
+  private void clearSha() {
 
-    secretKey_ = getDefaultInstance().getSecretKey();
+    sha_ = getDefaultInstance().getSha();
   }
   /**
-   * <code>string secretKey = 2;</code>
-   * @param value The bytes for secretKey to set.
+   * <code>string sha = 2;</code>
+   * @param value The bytes for sha to set.
    */
-  private void setSecretKeyBytes(
+  private void setShaBytes(
       com.google.protobuf.ByteString value) {
     checkByteStringIsUtf8(value);
-    secretKey_ = value.toStringUtf8();
+    sha_ = value.toStringUtf8();
 
   }
 
@@ -326,51 +326,51 @@ public  final class ConfigurationProto extends
     }
 
     /**
-     * <code>string secretKey = 2;</code>
-     * @return The secretKey.
+     * <code>string sha = 2;</code>
+     * @return The sha.
      */
     @java.lang.Override
-    public java.lang.String getSecretKey() {
-      return instance.getSecretKey();
+    public java.lang.String getSha() {
+      return instance.getSha();
     }
     /**
-     * <code>string secretKey = 2;</code>
-     * @return The bytes for secretKey.
+     * <code>string sha = 2;</code>
+     * @return The bytes for sha.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getSecretKeyBytes() {
-      return instance.getSecretKeyBytes();
+        getShaBytes() {
+      return instance.getShaBytes();
     }
     /**
-     * <code>string secretKey = 2;</code>
-     * @param value The secretKey to set.
+     * <code>string sha = 2;</code>
+     * @param value The sha to set.
      * @return This builder for chaining.
      */
-    public Builder setSecretKey(
+    public Builder setSha(
         java.lang.String value) {
       copyOnWrite();
-      instance.setSecretKey(value);
+      instance.setSha(value);
       return this;
     }
     /**
-     * <code>string secretKey = 2;</code>
+     * <code>string sha = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSecretKey() {
+    public Builder clearSha() {
       copyOnWrite();
-      instance.clearSecretKey();
+      instance.clearSha();
       return this;
     }
     /**
-     * <code>string secretKey = 2;</code>
-     * @param value The bytes for secretKey to set.
+     * <code>string sha = 2;</code>
+     * @param value The bytes for sha to set.
      * @return This builder for chaining.
      */
-    public Builder setSecretKeyBytes(
+    public Builder setShaBytes(
         com.google.protobuf.ByteString value) {
       copyOnWrite();
-      instance.setSecretKeyBytes(value);
+      instance.setShaBytes(value);
       return this;
     }
 
@@ -465,7 +465,7 @@ public  final class ConfigurationProto extends
       case BUILD_MESSAGE_INFO: {
           java.lang.Object[] objects = new java.lang.Object[] {
             "clientUUID_",
-            "secretKey_",
+            "sha_",
             "environment_",
             "enableBackgroundSync_",
           };

@@ -86,9 +86,8 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
             child: const Text('User management'),
           ),
           FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(androidDataSourcesRoute)
-                : null,
+            onPressed: () =>
+                Navigator.of(context).pushNamed(androidDataSourcesRoute),
             child: const Text('Data sources'),
           ),
           FilledButton(
@@ -126,7 +125,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
   void setConfiguration() async {
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
-      secretKey: Secrets.secretKey,
+      sha: Secrets.sha,
       environment: rookEnvironment,
       enableBackgroundSync: false,
     );

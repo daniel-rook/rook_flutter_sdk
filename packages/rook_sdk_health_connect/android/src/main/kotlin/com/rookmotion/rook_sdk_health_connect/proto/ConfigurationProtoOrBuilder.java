@@ -22,16 +22,16 @@ public interface ConfigurationProtoOrBuilder extends
       getClientUUIDBytes();
 
   /**
-   * <code>string secretKey = 2;</code>
-   * @return The secretKey.
+   * <code>string sha = 2;</code>
+   * @return The sha.
    */
-  java.lang.String getSecretKey();
+  java.lang.String getSha();
   /**
-   * <code>string secretKey = 2;</code>
-   * @return The bytes for secretKey.
+   * <code>string sha = 2;</code>
+   * @return The bytes for sha.
    */
   com.google.protobuf.ByteString
-      getSecretKeyBytes();
+      getShaBytes();
 
   /**
    * <code>.EnvironmentProto environment = 3;</code>

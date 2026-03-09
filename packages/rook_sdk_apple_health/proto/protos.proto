@@ -26,7 +26,7 @@ enum EnvironmentProto {
 
 message ConfigurationProto {
   string clientUUID = 1;
-  string secretKey = 2;
+  string sha = 2;
   EnvironmentProto environment = 3;
   bool enableBackgroundSync = 4;
 }

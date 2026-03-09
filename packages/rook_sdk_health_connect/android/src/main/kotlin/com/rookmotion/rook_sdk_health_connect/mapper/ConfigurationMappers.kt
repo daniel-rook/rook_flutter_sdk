@@ -5,8 +5,8 @@ import com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto
 
 fun ConfigurationProto.toRookConfiguration(): RookConfiguration {
     return RookConfiguration(
-        clientUUID,
-        secretKey,
-        environment.toRookEnvironment(),
+        clientUUID = clientUUID,
+        sha = sha,
+        environment = environment.toRookEnvironment(),
     )
 }

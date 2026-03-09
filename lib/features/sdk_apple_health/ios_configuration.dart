@@ -82,9 +82,8 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
             child: const Text('User management'),
           ),
           FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(iosDataSourcesRoute)
-                : null,
+            onPressed: () =>
+                Navigator.of(context).pushNamed(iosDataSourcesRoute),
             child: const Text('Data sources'),
           ),
           FilledButton(
@@ -121,7 +120,7 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
   void setConfiguration() async {
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
-      secretKey: Secrets.secretKey,
+      sha: Secrets.sha,
       environment: rookEnvironment,
       enableBackgroundSync: false,
     );

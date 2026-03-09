@@ -7,7 +7,7 @@ import toSHEnvironment
 fun ConfigurationProto.toSHConfiguration(): SHConfiguration {
     return SHConfiguration(
         clientUUID = clientUUID,
-        secretKey = secretKey,
+        sha = sha,
         environment = environment.toSHEnvironment()
     )
 }

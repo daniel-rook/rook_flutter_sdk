@@ -257,13 +257,13 @@ class Int64ResultProto extends $pb.GeneratedMessage {
 class ConfigurationProto extends $pb.GeneratedMessage {
   factory ConfigurationProto({
     $core.String? clientUUID,
-    $core.String? secretKey,
+    $core.String? sha,
     EnvironmentProto? environment,
     $core.bool? enableBackgroundSync,
   }) {
     final result = create();
     if (clientUUID != null) result.clientUUID = clientUUID;
-    if (secretKey != null) result.secretKey = secretKey;
+    if (sha != null) result.sha = sha;
     if (environment != null) result.environment = environment;
     if (enableBackgroundSync != null)
       result.enableBackgroundSync = enableBackgroundSync;
@@ -283,7 +283,7 @@ class ConfigurationProto extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ConfigurationProto',
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'clientUUID', protoName: 'clientUUID')
-    ..aOS(2, _omitFieldNames ? '' : 'secretKey', protoName: 'secretKey')
+    ..aOS(2, _omitFieldNames ? '' : 'sha')
     ..e<EnvironmentProto>(
         3, _omitFieldNames ? '' : 'environment', $pb.PbFieldType.OE,
         defaultOrMaker: EnvironmentProto.SANDBOX,
@@ -324,13 +324,13 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   void clearClientUUID() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get secretKey => $_getSZ(1);
+  $core.String get sha => $_getSZ(1);
   @$pb.TagNumber(2)
-  set secretKey($core.String value) => $_setString(1, value);
+  set sha($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasSecretKey() => $_has(1);
+  $core.bool hasSha() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSecretKey() => $_clearField(2);
+  void clearSha() => $_clearField(2);
 
   @$pb.TagNumber(3)
   EnvironmentProto get environment => $_getN(2);

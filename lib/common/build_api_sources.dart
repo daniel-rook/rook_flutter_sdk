@@ -15,7 +15,7 @@ RookApiSources buildApiSources() {
 
   RookApiSources rookApiSources = RookApiSources(
     clientUUID: Secrets.clientUUID,
-    secretKey: Secrets.secretKey,
+    secretKey: Secrets.sha,
     environment: rookEnvironment,
     enableLogs: enableLogs,
   );

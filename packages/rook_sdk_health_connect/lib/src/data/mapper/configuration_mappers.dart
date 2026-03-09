@@ -6,7 +6,7 @@ extension RookConfigurationMappers on RookConfiguration {
   ConfigurationProto toProto() {
     return ConfigurationProto(
       clientUUID: clientUUID,
-      secretKey: secretKey,
+      sha: sha,
       environment: environment.toProto(),
       enableBackgroundSync: enableBackgroundSync,
     );
