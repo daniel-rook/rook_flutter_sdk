@@ -202,9 +202,7 @@ class RookSamsung {
     return RookSdkSamsungHealthPlatform.instance.getTodayCaloriesCount();
   }
 
-  /// Retrieve and upload current day heart rate of Health Connect.
-  ///
-  /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
+  /// Retrieve and upload current day heart rate of Samsung Health.
   ///
   /// Returns the current day heart rate. Or [RecordsNotFoundException] if no data is available.
   static Future<HeartRate> getTodayHeartRate() {

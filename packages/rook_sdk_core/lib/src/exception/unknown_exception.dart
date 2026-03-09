@@ -1,6 +1,12 @@
 import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 import 'package:rook_sdk_core/src/exception/sdk_exception_code.dart';
 
+/// Thrown by:
+///
+/// * Apple Health SDK
+/// * Samsung Health SDK
+/// * Health Connect SDK
+/// * Core SDK
 final class UnknownException extends SDKException {
   const UnknownException({required String message})
     : super(code: SDKExceptionCode.unknown, message: message);
