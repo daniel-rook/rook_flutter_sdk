@@ -1,39 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:rook_flutter_sdk/common/build_api_sources.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
+import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
-const String iosDataSourcesRoute = '/ios/data-sources';
+const String apiSourcesRoute = '/api-sources';
 
-class IOSDataSources extends StatefulWidget {
-  const IOSDataSources({super.key});
+class ApiSources extends StatefulWidget {
+  const ApiSources({super.key});
 
   @override
-  State<IOSDataSources> createState() => _IOSDataSourcesState();
+  State<ApiSources> createState() => _ApiSourcesState();
 }
 
-class _IOSDataSourcesState extends State<IOSDataSources> {
-  final Logger logger = Logger('IOSDataSources');
+class _ApiSourcesState extends State<ApiSources> {
+  final Logger logger = Logger('ApiSources');
 
-  late final RookApiSources rookApiSources = buildApiSources();
+  late final RookApiSources rookApiSources = RookApiSources(
+    clientUUID: Secrets.clientUUID,
+    sha: Secrets.sha,
+    appId: "io.tryrook.rook",
+    environment: RookEnvironment.sandbox,
+    enableLogs: true,
+  );
 
   ConsoleOutput dataSourceAuthorizerOutput = ConsoleOutput();
   ConsoleOutput authorizedDataSourcesV2Output = ConsoleOutput();
   ConsoleOutput revokeDataSourceOutput = ConsoleOutput();
 
+  String userID = "RookSdkDataSources";
   DataSourceType dataSourceType = DataSourceType.fitbit;
 
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
-      name: 'Data sources',
+      name: 'Api sources',
       alignment: Alignment.topCenter,
       child: Column(
         children: [
+          SectionTitle("User ID: $userID"),
+          TextFormField(
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'User ID',
+            ),
+            onChanged: (value) {
+              setState(() {
+                userID = value;
+              });
+            },
+          ),
           const SectionTitle('Data source authorizer'),
           DropdownMenu(
             initialSelection: DataSourceType.fitbit,
@@ -99,10 +117,8 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
     });
 
     try {
-      final userID = await AHRookConfigurationManager.getUserID();
-
       final authorizer = await rookApiSources.getDataSourceAuthorizer(
-        userID: userID!,
+        userID: userID,
         dataSource: dataSourceType.identifier,
         redirectUrl: null,
       );
@@ -138,10 +154,8 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
     });
 
     try {
-      final userID = await AHRookConfigurationManager.getUserID();
-
       final dataSources = await rookApiSources.getAuthorizedDataSourcesV2(
-        userID: userID!,
+        userID: userID,
       );
 
       setState(() {
@@ -164,10 +178,8 @@ class _IOSDataSourcesState extends State<IOSDataSources> {
     });
 
     try {
-      final userID = await AHRookConfigurationManager.getUserID();
-
       await rookApiSources.revokeDataSource(
-        userID: userID!,
+        userID: userID,
         dataSource: dataSourceType,
       );
 

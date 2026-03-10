@@ -17,5 +17,6 @@ class SDKExceptionCode {
   static const int healthKitDisabled = 14;
   static const int healthKitNotReady = 15;
   static const int healthKitOutdated = 16;
+  static const int sessionExpired = 17;
   static const int unknown = 1001;
 }

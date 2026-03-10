@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
@@ -27,11 +25,11 @@ void main() {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (Platform.isAndroid) {
-    startBackgroundSyncAndroid();
-  } else {
-    startBackgroundSyncIOS();
-  }
+  // if (Platform.isAndroid) {
+  //   startBackgroundSyncAndroid();
+  // } else {
+  //   startBackgroundSyncIOS();
+  // }
 
   runAppFromIntent();
 }

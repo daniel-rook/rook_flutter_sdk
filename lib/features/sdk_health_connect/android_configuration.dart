@@ -6,7 +6,6 @@ import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_data_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_permissions.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_user_management.dart';
@@ -84,11 +83,6 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
                   ).pushNamed(androidUserManagementRoute)
                 : null,
             child: const Text('User management'),
-          ),
-          FilledButton(
-            onPressed: () =>
-                Navigator.of(context).pushNamed(androidDataSourcesRoute),
-            child: const Text('Data sources'),
           ),
           FilledButton(
             onPressed: enableNavigation

@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:rook_sdk_core/src/auth_interceptor.dart';
+import 'package:rook_sdk_core/src/authorizer.dart';
 import 'package:rook_sdk_core/src/enum/data_source_type.dart';
 import 'package:rook_sdk_core/src/enum/rook_environment.dart';
 import 'package:rook_sdk_core/src/model/authorized_data_source_v2.dart';
 import 'package:rook_sdk_core/src/model/data_source_authorizer.dart';
-import 'package:rook_sdk_core/src/util/build_dio.dart';
-import 'package:rook_sdk_core/src/util/build_http_request_exception.dart';
-import 'package:rook_sdk_core/src/util/get_basic_auth_from_credentials.dart';
+import 'package:rook_sdk_core/src/util/get_legacy_api_url_from_environment.dart';
+import 'package:rook_sdk_core/src/util/process_exception.dart';
 
 /// Main entry point for the ROOK API Sources module. This class provides methods to manage
 /// data source authorizations for users.
@@ -16,27 +17,22 @@ import 'package:rook_sdk_core/src/util/get_basic_auth_from_credentials.dart';
 /// - Revoke authorization for a specific data source.
 final class RookApiSources {
   final String _clientUUID;
-  final String _secretKey;
+  final String _sha;
+  final String _appId;
   final RookEnvironment _environment;
   final bool _enableLogs;
 
-  late final Dio _dio = buildDio(
-    environment: _environment,
-    enableLogs: _enableLogs,
-  );
-
-  late final String _authorization = getBasicAuthFromCredentials(
-    username: _clientUUID,
-    password: _secretKey,
-  );
+  late final Dio _dio = _buildApiSourcesDio();
 
   RookApiSources({
     required String clientUUID,
-    required String secretKey,
+    required String sha,
+    required String appId,
     required RookEnvironment environment,
     required bool enableLogs,
   }) : _clientUUID = clientUUID,
-       _secretKey = secretKey,
+       _sha = sha,
+       _appId = appId,
        _environment = environment,
        _enableLogs = enableLogs;
 
@@ -56,12 +52,6 @@ final class RookApiSources {
       final response = await _dio.get<Map<String, dynamic>>(
         "/v1/user_id/$userID/data_source/$dataSource/authorizer",
         queryParameters: {if (redirectUrl != null) "redirect_url": redirectUrl},
-        options: Options(
-          headers: {
-            "Authorization": _authorization,
-            "Content-Type": _contentType,
-          },
-        ),
       );
 
       return DataSourceAuthorizer(
@@ -70,7 +60,7 @@ final class RookApiSources {
         authorizationUrl: response.data!["authorization_url"],
       );
     } on DioException catch (exception) {
-      final newException = buildHttpRequestException(dioException: exception);
+      final newException = processException(exception);
 
       if (newException != null) {
         throw newException;
@@ -97,12 +87,6 @@ final class RookApiSources {
     try {
       final response = await _dio.get<Map<String, dynamic>>(
         "/v2/user_id/$userID/data_sources/authorized",
-        options: Options(
-          headers: {
-            "Authorization": _authorization,
-            "Content-Type": _contentType,
-          },
-        ),
       );
 
       final List<dynamic> wrapper = response.data!["data_sources"];
@@ -120,7 +104,7 @@ final class RookApiSources {
 
       return dataSources;
     } on DioException catch (exception) {
-      final newException = buildHttpRequestException(dioException: exception);
+      final newException = processException(exception);
 
       if (newException != null) {
         throw newException;
@@ -141,19 +125,13 @@ final class RookApiSources {
       await _dio.post<Map<String, dynamic>>(
         "/v1/user_id/$userID/data_sources/revoke_auth",
         data: {"data_source": dataSource.identifier},
-        options: Options(
-          headers: {
-            "Authorization": _authorization,
-            "Content-Type": _contentType,
-          },
-        ),
       );
     } on DioException catch (exception) {
       if (exception.response?.statusCode == 422) {
         return;
       }
 
-      final newException = buildHttpRequestException(dioException: exception);
+      final newException = processException(exception);
 
       if (newException != null) {
         throw newException;
@@ -162,6 +140,39 @@ final class RookApiSources {
       }
     }
   }
-}
 
-const String _contentType = "application/json";
+  Dio _buildApiSourcesDio() {
+    final dio = Dio(
+      BaseOptions(
+        connectTimeout: Duration(seconds: 15),
+        receiveTimeout: Duration(seconds: 15),
+        sendTimeout: Duration(seconds: 15),
+        baseUrl: getLegacyApiUrlFromEnvironment(environment: _environment),
+      ),
+    );
+
+    if (_enableLogs) {
+      final logInterceptor = LogInterceptor(
+        request: true,
+        requestBody: true,
+        requestHeader: true,
+        responseBody: true,
+        responseHeader: true,
+      );
+
+      dio.interceptors.add(logInterceptor);
+    }
+
+    final authorizer = Authorizer(
+      id: _appId,
+      client: _clientUUID,
+      sha: _sha,
+      environment: _environment,
+    );
+    final authInterceptor = AuthInterceptor(authorizer: authorizer, dio: dio);
+
+    dio.interceptors.add(authInterceptor);
+
+    return dio;
+  }
+}

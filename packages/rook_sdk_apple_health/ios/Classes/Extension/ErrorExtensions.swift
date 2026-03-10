@@ -27,4 +27,3 @@ extension Error {
 }
 
 private let unknown = -1
-private let missingConfiguration = 1

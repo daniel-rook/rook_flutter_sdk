@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:rook_flutter_sdk/features/api_sources/api_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_background_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_configuration.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_continuous_upload.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_data_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_user_management.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_configuration.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_data_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_permissions.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_user_management.dart';
@@ -24,6 +23,8 @@ class AppRouter {
     switch (settings.name) {
       case menuRoute:
         return MaterialPageRoute(builder: (context) => const MenuScreen());
+      case apiSourcesRoute:
+        return MaterialPageRoute(builder: (context) => const ApiSources());
       case androidConfigurationRoute:
         return MaterialPageRoute(
           builder: (context) => const AndroidConfiguration(),
@@ -35,10 +36,6 @@ class AppRouter {
       case androidUserManagementRoute:
         return MaterialPageRoute(
           builder: (context) => const AndroidUserManagement(),
-        );
-      case androidDataSourcesRoute:
-        return MaterialPageRoute(
-          builder: (context) => const AndroidDataSources(),
         );
       case androidPermissionsRoute:
         return MaterialPageRoute(
@@ -76,8 +73,6 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const IOSUserManagement(),
         );
-      case iosDataSourcesRoute:
-        return MaterialPageRoute(builder: (context) => const IOSDataSources());
       case iosSyncRoute:
         return MaterialPageRoute(builder: (context) => const IOSSync());
       case iosContinuousUploadRoute:

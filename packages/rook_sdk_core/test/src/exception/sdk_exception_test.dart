@@ -14,6 +14,7 @@ import 'package:rook_sdk_core/src/exception/records_not_found_exception.dart';
 import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 import 'package:rook_sdk_core/src/exception/sdk_not_authorized_exception.dart';
 import 'package:rook_sdk_core/src/exception/sdk_not_initialized_exception.dart';
+import 'package:rook_sdk_core/src/exception/session_expired_exception.dart';
 import 'package:rook_sdk_core/src/exception/unknown_exception.dart';
 import 'package:rook_sdk_core/src/exception/user_not_initialized_exception.dart';
 import 'package:test/test.dart';
@@ -37,6 +38,7 @@ void main() {
       14: isA<HealthKitDisabledException>(),
       15: isA<HealthKitNotReadyException>(),
       16: isA<HealthKitOutdatedException>(),
+      17: isA<SessionExpiredException>(),
       -1: isA<UnknownException>(),
     };
 

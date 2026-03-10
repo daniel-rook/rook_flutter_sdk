@@ -6,7 +6,6 @@ import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_background_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_continuous_upload.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_data_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_user_management.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
@@ -80,11 +79,6 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
                 ? () => Navigator.of(context).pushNamed(iosUserManagementRoute)
                 : null,
             child: const Text('User management'),
-          ),
-          FilledButton(
-            onPressed: () =>
-                Navigator.of(context).pushNamed(iosDataSourcesRoute),
-            child: const Text('Data sources'),
           ),
           FilledButton(
             onPressed: enableNavigation

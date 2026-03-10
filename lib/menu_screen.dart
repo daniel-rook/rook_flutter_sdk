@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/features/api_sources/api_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_configuration.dart';
 import 'package:rook_flutter_sdk/features/sdk_health_connect/android_configuration.dart';
 import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_configuration.dart';
@@ -15,6 +16,12 @@ class MenuScreen extends StatelessWidget {
       name: 'Menu',
       child: Column(
         children: [
+          FilledButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(apiSourcesRoute);
+            },
+            child: const Text("Api Sources"),
+          ),
           FilledButton(
             onPressed: () {
               Navigator.of(context).pushNamed(androidConfigurationRoute);

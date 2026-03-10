@@ -14,6 +14,7 @@ import 'package:rook_sdk_core/src/exception/records_not_found_exception.dart';
 import 'package:rook_sdk_core/src/exception/sdk_exception_code.dart';
 import 'package:rook_sdk_core/src/exception/sdk_not_authorized_exception.dart';
 import 'package:rook_sdk_core/src/exception/sdk_not_initialized_exception.dart';
+import 'package:rook_sdk_core/src/exception/session_expired_exception.dart';
 import 'package:rook_sdk_core/src/exception/unknown_exception.dart';
 import 'package:rook_sdk_core/src/exception/user_not_initialized_exception.dart';
 
@@ -86,6 +87,10 @@ abstract class SDKException implements Exception {
         message: message,
       ),
       SDKExceptionCode.healthKitOutdated => HealthKitOutdatedException(
+        code: code,
+        message: message,
+      ),
+      SDKExceptionCode.sessionExpired => SessionExpiredException(
         code: code,
         message: message,
       ),
