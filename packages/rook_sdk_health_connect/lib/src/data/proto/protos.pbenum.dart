@@ -33,6 +33,29 @@ class EnvironmentProto extends $pb.ProtobufEnum {
   const EnvironmentProto._(super.value, super.name);
 }
 
+class DiagnosticStatePermissionsProto extends $pb.ProtobufEnum {
+  static const DiagnosticStatePermissionsProto NONE =
+      DiagnosticStatePermissionsProto._(0, _omitEnumNames ? '' : 'NONE');
+  static const DiagnosticStatePermissionsProto REQUESTED =
+      DiagnosticStatePermissionsProto._(1, _omitEnumNames ? '' : 'REQUESTED');
+  static const DiagnosticStatePermissionsProto GRANTED =
+      DiagnosticStatePermissionsProto._(2, _omitEnumNames ? '' : 'GRANTED');
+
+  static const $core.List<DiagnosticStatePermissionsProto> values =
+      <DiagnosticStatePermissionsProto>[
+    NONE,
+    REQUESTED,
+    GRANTED,
+  ];
+
+  static final $core.List<DiagnosticStatePermissionsProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static DiagnosticStatePermissionsProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const DiagnosticStatePermissionsProto._(super.value, super.name);
+}
+
 class HealthConnectAvailabilityProto extends $pb.ProtobufEnum {
   static const HealthConnectAvailabilityProto INSTALLED =
       HealthConnectAvailabilityProto._(0, _omitEnumNames ? '' : 'INSTALLED');

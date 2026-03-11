@@ -4,6 +4,7 @@ import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_availabi
 import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_permission.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/sh_event_sync_type.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/sh_summary_sync_type.dart';
+import 'package:rook_sdk_samsung_health/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_samsung_health/src/domain/model/samsung_health_permissions_summary.dart';
 import 'package:rook_sdk_samsung_health/src/platform/rook_sdk_samsung_health_method_channel.dart';
 
@@ -21,6 +22,8 @@ abstract class RookSdkSamsungHealthPlatform extends PlatformInterface {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }
+
+  Future<SHDiagnosticState> getDiagnosticState();
 
   Future<void> enableNativeLogs();
 

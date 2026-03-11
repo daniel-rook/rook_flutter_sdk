@@ -117,6 +117,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
+            "getDiagnosticState" -> configurationHandler.onMethodCall(call, result)
             "enableNativeLogs" -> configurationHandler.onMethodCall(call, result)
             "setConfiguration" -> configurationHandler.onMethodCall(call, result)
             "getUserID" -> configurationHandler.onMethodCall(call, result)

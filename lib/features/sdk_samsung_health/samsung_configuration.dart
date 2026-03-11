@@ -27,6 +27,7 @@ class _SamsungConfigurationState extends State<SamsungConfiguration> {
   final ConsoleOutput configurationOutput = ConsoleOutput();
   final ConsoleOutput initializeOutput = ConsoleOutput();
   final ConsoleOutput updateUserOutput = ConsoleOutput();
+  final ConsoleOutput diagnosticOutput = ConsoleOutput();
 
   bool enableNavigation = false;
 
@@ -89,6 +90,12 @@ class _SamsungConfigurationState extends State<SamsungConfiguration> {
                   ).pushNamed(samsungBackgroundSyncRoute)
                 : null,
             child: const Text('Background sync'),
+          ),
+          const SectionTitle("Diagnostic"),
+          Text(diagnosticOutput.current),
+          FilledButton(
+            onPressed: getDiagnosticState,
+            child: const Text("Get diagnostic state"),
           ),
         ],
       ),
@@ -183,5 +190,36 @@ class _SamsungConfigurationState extends State<SamsungConfiguration> {
             updateUserOutput.append('Error updating userID: $error');
           });
         });
+  }
+
+  void getDiagnosticState() async {
+    diagnosticOutput.clear();
+
+    setState(() {
+      diagnosticOutput.append('Getting diagnostic state...');
+    });
+
+    try {
+      final diagnosticState = await RookSamsung.getDiagnosticState();
+
+      diagnosticOutput.appendMultiple([
+        "Diagnostic state retrieved",
+        "IsConfigured: ${diagnosticState.isConfigured}",
+        "UserIdentified: ${diagnosticState.userIdentified}",
+        "Permissions: ${diagnosticState.permissions}",
+        "BackgroundSyncEnabled: ${diagnosticState.backgroundSync.enabled}",
+        "BackgroundSyncLastSync: ${diagnosticState.backgroundSync.lastSync}",
+        "ManualSyncEnabled: ${diagnosticState.manualSync.enabled}",
+        "ManualSyncLastSync: ${diagnosticState.manualSync.lastSync}",
+      ]);
+
+      setState(() {
+        diagnosticOutput.append('Diagnostic state retrieved successfully');
+      });
+    } catch (error) {
+      setState(() {
+        diagnosticOutput.append('Error getting diagnostic state: $error');
+      });
+    }
   }
 }

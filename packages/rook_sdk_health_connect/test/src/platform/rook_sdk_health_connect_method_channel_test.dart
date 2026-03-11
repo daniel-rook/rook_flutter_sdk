@@ -7,6 +7,7 @@ import 'background_read_status.dart';
 import 'body_summary.dart';
 import 'boolean.dart';
 import 'calories.dart';
+import 'diagnostic_state.dart';
 import 'health_connect_availability.dart';
 import 'hear_rate.dart';
 import 'int64.dart';
@@ -41,4 +42,5 @@ void main() {
   bodySummaryTest(platform, channel);
   activityEventTest(platform, channel);
   heartRateTest(platform, channel);
+  diagnosticStateTest(platform, channel);
 }

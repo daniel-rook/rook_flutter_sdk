@@ -27,6 +27,22 @@ const EnvironmentProto$json = {
 final $typed_data.Uint8List environmentProtoDescriptor = $convert.base64Decode(
     'ChBFbnZpcm9ubWVudFByb3RvEgsKB1NBTkRCT1gQABIOCgpQUk9EVUNUSU9OEAE=');
 
+@$core.Deprecated('Use diagnosticStatePermissionsProtoDescriptor instead')
+const DiagnosticStatePermissionsProto$json = {
+  '1': 'DiagnosticStatePermissionsProto',
+  '2': [
+    {'1': 'NONE', '2': 0},
+    {'1': 'REQUESTED', '2': 1},
+    {'1': 'GRANTED', '2': 2},
+  ],
+};
+
+/// Descriptor for `DiagnosticStatePermissionsProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List diagnosticStatePermissionsProtoDescriptor =
+    $convert.base64Decode(
+        'Ch9EaWFnbm9zdGljU3RhdGVQZXJtaXNzaW9uc1Byb3RvEggKBE5PTkUQABINCglSRVFVRVNURU'
+        'QQARILCgdHUkFOVEVEEAI=');
+
 @$core.Deprecated('Use healthConnectAvailabilityProtoDescriptor instead')
 const HealthConnectAvailabilityProto$json = {
   '1': 'HealthConnectAvailabilityProto',
@@ -208,6 +224,98 @@ final $typed_data.Uint8List configurationProtoDescriptor = $convert.base64Decode
     'NzaGEYAiABKAlSA3NoYRIzCgtlbnZpcm9ubWVudBgDIAEoDjIRLkVudmlyb25tZW50UHJvdG9S'
     'C2Vudmlyb25tZW50EjIKFGVuYWJsZUJhY2tncm91bmRTeW5jGAQgASgIUhRlbmFibGVCYWNrZ3'
     'JvdW5kU3luYw==');
+
+@$core.Deprecated('Use diagnosticSyncStateProtoDescriptor instead')
+const DiagnosticSyncStateProto$json = {
+  '1': 'DiagnosticSyncStateProto',
+  '2': [
+    {'1': 'enabled', '3': 1, '4': 1, '5': 8, '10': 'enabled'},
+    {'1': 'lastSync', '3': 2, '4': 1, '5': 9, '10': 'lastSync'},
+  ],
+};
+
+/// Descriptor for `DiagnosticSyncStateProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List diagnosticSyncStateProtoDescriptor =
+    $convert.base64Decode(
+        'ChhEaWFnbm9zdGljU3luY1N0YXRlUHJvdG8SGAoHZW5hYmxlZBgBIAEoCFIHZW5hYmxlZBIaCg'
+        'hsYXN0U3luYxgCIAEoCVIIbGFzdFN5bmM=');
+
+@$core.Deprecated('Use diagnosticStateProtoDescriptor instead')
+const DiagnosticStateProto$json = {
+  '1': 'DiagnosticStateProto',
+  '2': [
+    {'1': 'isConfigured', '3': 1, '4': 1, '5': 8, '10': 'isConfigured'},
+    {'1': 'userIdentified', '3': 2, '4': 1, '5': 8, '10': 'userIdentified'},
+    {
+      '1': 'permissions',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.DiagnosticStatePermissionsProto',
+      '10': 'permissions'
+    },
+    {
+      '1': 'backgroundSync',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.DiagnosticSyncStateProto',
+      '10': 'backgroundSync'
+    },
+    {
+      '1': 'manualSync',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.DiagnosticSyncStateProto',
+      '10': 'manualSync'
+    },
+  ],
+};
+
+/// Descriptor for `DiagnosticStateProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List diagnosticStateProtoDescriptor = $convert.base64Decode(
+    'ChREaWFnbm9zdGljU3RhdGVQcm90bxIiCgxpc0NvbmZpZ3VyZWQYASABKAhSDGlzQ29uZmlndX'
+    'JlZBImCg51c2VySWRlbnRpZmllZBgCIAEoCFIOdXNlcklkZW50aWZpZWQSQgoLcGVybWlzc2lv'
+    'bnMYAyABKA4yIC5EaWFnbm9zdGljU3RhdGVQZXJtaXNzaW9uc1Byb3RvUgtwZXJtaXNzaW9ucx'
+    'JBCg5iYWNrZ3JvdW5kU3luYxgEIAEoCzIZLkRpYWdub3N0aWNTeW5jU3RhdGVQcm90b1IOYmFj'
+    'a2dyb3VuZFN5bmMSOQoKbWFudWFsU3luYxgFIAEoCzIZLkRpYWdub3N0aWNTeW5jU3RhdGVQcm'
+    '90b1IKbWFudWFsU3luYw==');
+
+@$core.Deprecated('Use diagnosticStateResultProtoDescriptor instead')
+const DiagnosticStateResultProto$json = {
+  '1': 'DiagnosticStateResultProto',
+  '2': [
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.DiagnosticStateProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `DiagnosticStateResultProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List diagnosticStateResultProtoDescriptor =
+    $convert.base64Decode(
+        'ChpEaWFnbm9zdGljU3RhdGVSZXN1bHRQcm90bxIxCgdzdWNjZXNzGAEgASgLMhUuRGlhZ25vc3'
+        'RpY1N0YXRlUHJvdG9IAFIHc3VjY2VzcxIuCgdmYWlsdXJlGAIgASgLMhIuU0RLRXhjZXB0aW9u'
+        'UHJvdG9IAFIHZmFpbHVyZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use requestPermissionsStatusResultProtoDescriptor instead')
 const RequestPermissionsStatusResultProto$json = {

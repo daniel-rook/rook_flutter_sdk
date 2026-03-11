@@ -82,6 +82,7 @@ class RookSdkSamsungHealthPlugin : FlutterPlugin, MethodCallHandler {
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
+            "getDiagnosticState" -> configurationHandler.onMethodCall(call, result)
             "enableNativeLogs" -> configurationHandler.onMethodCall(call, result)
             "getUserID" -> configurationHandler.onMethodCall(call, result)
             "initRook" -> configurationHandler.onMethodCall(call, result)

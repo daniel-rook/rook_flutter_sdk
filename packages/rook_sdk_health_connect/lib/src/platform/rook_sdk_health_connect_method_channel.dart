@@ -14,11 +14,13 @@ import 'package:rook_sdk_health_connect/src/data/result/background_read_status_r
 import 'package:rook_sdk_health_connect/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/calories_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/diagnostic_state_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/heart_rate_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/int64_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/request_permissions_status_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/sleep_summary_result.dart';
+import 'package:rook_sdk_health_connect/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
@@ -39,6 +41,16 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   final isScheduledEventChannel = const EventChannel(
     "io.tryrook.background.healthconnect.scheduled",
   );
+
+  @override
+  Future<HCDiagnosticState> getDiagnosticState() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getDiagnosticState',
+    );
+    final result = DiagnosticStateResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
 
   @override
   Future<void> enableNativeLogs() async {

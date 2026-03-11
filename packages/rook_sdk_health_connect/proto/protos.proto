@@ -35,6 +35,32 @@ message ConfigurationProto {
   bool enableBackgroundSync = 4;
 }
 
+enum DiagnosticStatePermissionsProto {
+  NONE = 0;
+  REQUESTED = 1;
+  GRANTED = 2;
+}
+
+message DiagnosticSyncStateProto {
+  bool enabled = 1;
+  string lastSync = 2;
+}
+
+message DiagnosticStateProto {
+  bool isConfigured = 1;
+  bool userIdentified = 2;
+  DiagnosticStatePermissionsProto permissions = 3;
+  DiagnosticSyncStateProto backgroundSync = 4;
+  DiagnosticSyncStateProto manualSync = 5;
+}
+
+message DiagnosticStateResultProto {
+  oneof result {
+    DiagnosticStateProto success = 1;
+    SDKExceptionProto failure = 2;
+  }
+}
+
 enum HealthConnectAvailabilityProto {
   INSTALLED = 0;
   NOT_INSTALLED = 1;

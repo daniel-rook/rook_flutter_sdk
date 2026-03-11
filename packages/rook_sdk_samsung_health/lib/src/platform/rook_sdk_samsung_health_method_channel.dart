@@ -12,6 +12,7 @@ import 'package:rook_sdk_samsung_health/src/data/result/activity_event_result.da
 import 'package:rook_sdk_samsung_health/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/calories_result.dart';
+import 'package:rook_sdk_samsung_health/src/data/result/diagnostic_state_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/heart_rate_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/int64_result.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/physical_summary_result.dart';
@@ -21,6 +22,7 @@ import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_availabi
 import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_permission.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/sh_event_sync_type.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/sh_summary_sync_type.dart';
+import 'package:rook_sdk_samsung_health/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_samsung_health/src/domain/model/samsung_health_permissions_summary.dart';
 import 'package:rook_sdk_samsung_health/src/platform/rook_sdk_samsung_health_platform_interface.dart';
 
@@ -37,6 +39,16 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   final isScheduledEventChannel = const EventChannel(
     "io.tryrook.background.samsung.scheduled",
   );
+
+  @override
+  Future<SHDiagnosticState> getDiagnosticState() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getDiagnosticState',
+    );
+    final result = DiagnosticStateResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
 
   @override
   Future<void> enableNativeLogs() async {
