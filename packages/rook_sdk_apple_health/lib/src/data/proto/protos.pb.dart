@@ -351,6 +351,281 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   void clearEnableBackgroundSync() => $_clearField(4);
 }
 
+class DiagnosticSyncStateProto extends $pb.GeneratedMessage {
+  factory DiagnosticSyncStateProto({
+    $core.bool? enabled,
+    $core.String? lastSync,
+  }) {
+    final result = create();
+    if (enabled != null) result.enabled = enabled;
+    if (lastSync != null) result.lastSync = lastSync;
+    return result;
+  }
+
+  DiagnosticSyncStateProto._();
+
+  factory DiagnosticSyncStateProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DiagnosticSyncStateProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DiagnosticSyncStateProto',
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'enabled')
+    ..aOS(2, _omitFieldNames ? '' : 'lastSync', protoName: 'lastSync')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticSyncStateProto clone() =>
+      DiagnosticSyncStateProto()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticSyncStateProto copyWith(
+          void Function(DiagnosticSyncStateProto) updates) =>
+      super.copyWith((message) => updates(message as DiagnosticSyncStateProto))
+          as DiagnosticSyncStateProto;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticSyncStateProto create() => DiagnosticSyncStateProto._();
+  @$core.override
+  DiagnosticSyncStateProto createEmptyInstance() => create();
+  static $pb.PbList<DiagnosticSyncStateProto> createRepeated() =>
+      $pb.PbList<DiagnosticSyncStateProto>();
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticSyncStateProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DiagnosticSyncStateProto>(create);
+  static DiagnosticSyncStateProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get enabled => $_getBF(0);
+  @$pb.TagNumber(1)
+  set enabled($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasEnabled() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearEnabled() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get lastSync => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set lastSync($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasLastSync() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLastSync() => $_clearField(2);
+}
+
+class DiagnosticStateProto extends $pb.GeneratedMessage {
+  factory DiagnosticStateProto({
+    $core.bool? isConfigured,
+    $core.bool? userIdentified,
+    DiagnosticStatePermissionsProto? permissions,
+    DiagnosticSyncStateProto? backgroundSync,
+    DiagnosticSyncStateProto? manualSync,
+  }) {
+    final result = create();
+    if (isConfigured != null) result.isConfigured = isConfigured;
+    if (userIdentified != null) result.userIdentified = userIdentified;
+    if (permissions != null) result.permissions = permissions;
+    if (backgroundSync != null) result.backgroundSync = backgroundSync;
+    if (manualSync != null) result.manualSync = manualSync;
+    return result;
+  }
+
+  DiagnosticStateProto._();
+
+  factory DiagnosticStateProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DiagnosticStateProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DiagnosticStateProto',
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isConfigured', protoName: 'isConfigured')
+    ..aOB(2, _omitFieldNames ? '' : 'userIdentified',
+        protoName: 'userIdentified')
+    ..e<DiagnosticStatePermissionsProto>(
+        3, _omitFieldNames ? '' : 'permissions', $pb.PbFieldType.OE,
+        defaultOrMaker: DiagnosticStatePermissionsProto.NONE,
+        valueOf: DiagnosticStatePermissionsProto.valueOf,
+        enumValues: DiagnosticStatePermissionsProto.values)
+    ..aOM<DiagnosticSyncStateProto>(4, _omitFieldNames ? '' : 'backgroundSync',
+        protoName: 'backgroundSync',
+        subBuilder: DiagnosticSyncStateProto.create)
+    ..aOM<DiagnosticSyncStateProto>(5, _omitFieldNames ? '' : 'manualSync',
+        protoName: 'manualSync', subBuilder: DiagnosticSyncStateProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticStateProto clone() =>
+      DiagnosticStateProto()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticStateProto copyWith(void Function(DiagnosticStateProto) updates) =>
+      super.copyWith((message) => updates(message as DiagnosticStateProto))
+          as DiagnosticStateProto;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticStateProto create() => DiagnosticStateProto._();
+  @$core.override
+  DiagnosticStateProto createEmptyInstance() => create();
+  static $pb.PbList<DiagnosticStateProto> createRepeated() =>
+      $pb.PbList<DiagnosticStateProto>();
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticStateProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DiagnosticStateProto>(create);
+  static DiagnosticStateProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isConfigured => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isConfigured($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasIsConfigured() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsConfigured() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get userIdentified => $_getBF(1);
+  @$pb.TagNumber(2)
+  set userIdentified($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUserIdentified() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserIdentified() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  DiagnosticStatePermissionsProto get permissions => $_getN(2);
+  @$pb.TagNumber(3)
+  set permissions(DiagnosticStatePermissionsProto value) =>
+      $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPermissions() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPermissions() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  DiagnosticSyncStateProto get backgroundSync => $_getN(3);
+  @$pb.TagNumber(4)
+  set backgroundSync(DiagnosticSyncStateProto value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasBackgroundSync() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBackgroundSync() => $_clearField(4);
+  @$pb.TagNumber(4)
+  DiagnosticSyncStateProto ensureBackgroundSync() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  DiagnosticSyncStateProto get manualSync => $_getN(4);
+  @$pb.TagNumber(5)
+  set manualSync(DiagnosticSyncStateProto value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasManualSync() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearManualSync() => $_clearField(5);
+  @$pb.TagNumber(5)
+  DiagnosticSyncStateProto ensureManualSync() => $_ensure(4);
+}
+
+enum DiagnosticStateResultProto_Result { success, failure, notSet }
+
+class DiagnosticStateResultProto extends $pb.GeneratedMessage {
+  factory DiagnosticStateResultProto({
+    DiagnosticStateProto? success,
+    SDKExceptionProto? failure,
+  }) {
+    final result = create();
+    if (success != null) result.success = success;
+    if (failure != null) result.failure = failure;
+    return result;
+  }
+
+  DiagnosticStateResultProto._();
+
+  factory DiagnosticStateResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DiagnosticStateResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, DiagnosticStateResultProto_Result>
+      _DiagnosticStateResultProto_ResultByTag = {
+    1: DiagnosticStateResultProto_Result.success,
+    2: DiagnosticStateResultProto_Result.failure,
+    0: DiagnosticStateResultProto_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DiagnosticStateResultProto',
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<DiagnosticStateProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: DiagnosticStateProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticStateResultProto clone() =>
+      DiagnosticStateResultProto()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticStateResultProto copyWith(
+          void Function(DiagnosticStateResultProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as DiagnosticStateResultProto))
+          as DiagnosticStateResultProto;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticStateResultProto create() => DiagnosticStateResultProto._();
+  @$core.override
+  DiagnosticStateResultProto createEmptyInstance() => create();
+  static $pb.PbList<DiagnosticStateResultProto> createRepeated() =>
+      $pb.PbList<DiagnosticStateResultProto>();
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticStateResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DiagnosticStateResultProto>(create);
+  static DiagnosticStateResultProto? _defaultInstance;
+
+  DiagnosticStateResultProto_Result whichResult() =>
+      _DiagnosticStateResultProto_ResultByTag[$_whichOneof(0)]!;
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  DiagnosticStateProto get success => $_getN(0);
+  @$pb.TagNumber(1)
+  set success(DiagnosticStateProto value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasSuccess() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSuccess() => $_clearField(1);
+  @$pb.TagNumber(1)
+  DiagnosticStateProto ensureSuccess() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  SDKExceptionProto get failure => $_getN(1);
+  @$pb.TagNumber(2)
+  set failure(SDKExceptionProto value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasFailure() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
+}
+
 class CaloriesProto extends $pb.GeneratedMessage {
   factory CaloriesProto({
     $core.double? basal,

@@ -19,6 +19,8 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
         let instance = RookSdkAppleHealthPlugin()
 
         registrar.addMethodCallDelegate(instance, channel: channel)
+        
+        IOSClass.shared.test()
 
         AnalyticsExtractionConfigurator.shared.setPlatform(.flutter)
         AnalyticsTransmissionConfigurator.shared.setPlatform(.flutter)
@@ -29,6 +31,13 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
+        case "getDiagnosticState":
+            Task {
+                let diagnosticState = await RookConnectConfigurationManager.shared.getDiagnosticState()
+                
+                diagnosticStateSuccess(flutterResult: result, state: diagnosticState)
+            }
+            break
         case "enableNativeLogs":
             RookConnectConfigurationManager.shared.setConsoleLogAvailable(true)
             break
@@ -40,7 +49,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 RookConnectConfigurationManager.shared.setEnvironment(configuration.environment.toDomain())
                 RookConnectConfigurationManager.shared.setConfiguration(
                     clientUUID: configuration.clientUuid,
-                    secretKey: configuration.sha,
+                    sha: configuration.sha,
                     enableBackgroundSync: configuration.enableBackgroundSync,
                     enableEventsBackgroundSync: configuration.enableBackgroundSync
                 )
@@ -188,7 +197,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "getSleepSummary":
-            Task(priority: .background) {
+            Task {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
@@ -201,7 +210,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
         case "getPhysicalSummary":
-            Task(priority: .background) {
+            Task {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
@@ -214,7 +223,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
         case "getBodySummary":
-            Task(priority: .background) {
+            Task {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
@@ -227,7 +236,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
         case "getActivityEvents":
-            Task(priority: .background) {
+            Task {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)

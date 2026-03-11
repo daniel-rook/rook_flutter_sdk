@@ -54,6 +54,44 @@ enum EnvironmentProto: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+enum DiagnosticStatePermissionsProto: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case none // = 0
+  case requested // = 1
+  case dataRetrieved // = 2
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .none
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .none
+    case 1: self = .requested
+    case 2: self = .dataRetrieved
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .none: return 0
+    case .requested: return 1
+    case .dataRetrieved: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [DiagnosticStatePermissionsProto] = [
+    .none,
+    .requested,
+    .dataRetrieved,
+  ]
+
+}
+
 enum AppleHealthPermissionProto: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case appleExerciseTime // = 0
@@ -472,6 +510,91 @@ struct ConfigurationProto: Sendable {
   var enableBackgroundSync: Bool = false
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct DiagnosticSyncStateProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var enabled: Bool = false
+
+  var lastSync: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct DiagnosticStateProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var isConfigured: Bool = false
+
+  var userIdentified: Bool = false
+
+  var permissions: DiagnosticStatePermissionsProto = .none
+
+  var backgroundSync: DiagnosticSyncStateProto {
+    get {return _backgroundSync ?? DiagnosticSyncStateProto()}
+    set {_backgroundSync = newValue}
+  }
+  /// Returns true if `backgroundSync` has been explicitly set.
+  var hasBackgroundSync: Bool {return self._backgroundSync != nil}
+  /// Clears the value of `backgroundSync`. Subsequent reads from it will return its default value.
+  mutating func clearBackgroundSync() {self._backgroundSync = nil}
+
+  var manualSync: DiagnosticSyncStateProto {
+    get {return _manualSync ?? DiagnosticSyncStateProto()}
+    set {_manualSync = newValue}
+  }
+  /// Returns true if `manualSync` has been explicitly set.
+  var hasManualSync: Bool {return self._manualSync != nil}
+  /// Clears the value of `manualSync`. Subsequent reads from it will return its default value.
+  mutating func clearManualSync() {self._manualSync = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _backgroundSync: DiagnosticSyncStateProto? = nil
+  fileprivate var _manualSync: DiagnosticSyncStateProto? = nil
+}
+
+struct DiagnosticStateResultProto: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var result: DiagnosticStateResultProto.OneOf_Result? = nil
+
+  var success: DiagnosticStateProto {
+    get {
+      if case .success(let v)? = result {return v}
+      return DiagnosticStateProto()
+    }
+    set {result = .success(newValue)}
+  }
+
+  var failure: SDKExceptionProto {
+    get {
+      if case .failure(let v)? = result {return v}
+      return SDKExceptionProto()
+    }
+    set {result = .failure(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Result: Equatable, Sendable {
+    case success(DiagnosticStateProto)
+    case failure(SDKExceptionProto)
+
+  }
 
   init() {}
 }
@@ -2592,6 +2715,14 @@ extension EnvironmentProto: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
+extension DiagnosticStatePermissionsProto: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE"),
+    1: .same(proto: "REQUESTED"),
+    2: .same(proto: "DATA_RETRIEVED"),
+  ]
+}
+
 extension AppleHealthPermissionProto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "APPLE_EXERCISE_TIME"),
@@ -2881,6 +3012,174 @@ extension ConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if lhs.sha != rhs.sha {return false}
     if lhs.environment != rhs.environment {return false}
     if lhs.enableBackgroundSync != rhs.enableBackgroundSync {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension DiagnosticSyncStateProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "DiagnosticSyncStateProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "enabled"),
+    2: .same(proto: "lastSync"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.enabled) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.lastSync) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.enabled != false {
+      try visitor.visitSingularBoolField(value: self.enabled, fieldNumber: 1)
+    }
+    if !self.lastSync.isEmpty {
+      try visitor.visitSingularStringField(value: self.lastSync, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: DiagnosticSyncStateProto, rhs: DiagnosticSyncStateProto) -> Bool {
+    if lhs.enabled != rhs.enabled {return false}
+    if lhs.lastSync != rhs.lastSync {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension DiagnosticStateProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "DiagnosticStateProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "isConfigured"),
+    2: .same(proto: "userIdentified"),
+    3: .same(proto: "permissions"),
+    4: .same(proto: "backgroundSync"),
+    5: .same(proto: "manualSync"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.isConfigured) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.userIdentified) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.permissions) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._backgroundSync) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._manualSync) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.isConfigured != false {
+      try visitor.visitSingularBoolField(value: self.isConfigured, fieldNumber: 1)
+    }
+    if self.userIdentified != false {
+      try visitor.visitSingularBoolField(value: self.userIdentified, fieldNumber: 2)
+    }
+    if self.permissions != .none {
+      try visitor.visitSingularEnumField(value: self.permissions, fieldNumber: 3)
+    }
+    try { if let v = self._backgroundSync {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._manualSync {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: DiagnosticStateProto, rhs: DiagnosticStateProto) -> Bool {
+    if lhs.isConfigured != rhs.isConfigured {return false}
+    if lhs.userIdentified != rhs.userIdentified {return false}
+    if lhs.permissions != rhs.permissions {return false}
+    if lhs._backgroundSync != rhs._backgroundSync {return false}
+    if lhs._manualSync != rhs._manualSync {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension DiagnosticStateResultProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "DiagnosticStateResultProto"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "success"),
+    2: .same(proto: "failure"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: DiagnosticStateProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .success(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .success(v)
+        }
+      }()
+      case 2: try {
+        var v: SDKExceptionProto?
+        var hadOneofValue = false
+        if let current = self.result {
+          hadOneofValue = true
+          if case .failure(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.result = .failure(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.result {
+    case .success?: try {
+      guard case .success(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .failure?: try {
+      guard case .failure(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: DiagnosticStateResultProto, rhs: DiagnosticStateResultProto) -> Bool {
+    if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

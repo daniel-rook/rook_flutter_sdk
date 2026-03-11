@@ -27,6 +27,7 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
   final ConsoleOutput configurationOutput = ConsoleOutput();
   final ConsoleOutput initializeOutput = ConsoleOutput();
   final ConsoleOutput updateUserOutput = ConsoleOutput();
+  final ConsoleOutput diagnosticOutput = ConsoleOutput();
   final ConsoleOutput requestAHPermissionsOutput = ConsoleOutput();
 
   bool enableNavigation = false;
@@ -98,6 +99,12 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
                 ? () => Navigator.of(context).pushNamed(iosBackgroundSyncRoute)
                 : null,
             child: const Text('Background sync'),
+          ),
+          const SectionTitle("Diagnostic"),
+          Text(diagnosticOutput.current),
+          FilledButton(
+            onPressed: getDiagnosticState,
+            child: const Text("Get diagnostic state"),
           ),
         ],
       ),
@@ -221,5 +228,37 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
             );
           });
         });
+  }
+
+  void getDiagnosticState() async {
+    diagnosticOutput.clear();
+
+    setState(() {
+      diagnosticOutput.append('Getting diagnostic state...');
+    });
+
+    try {
+      final diagnosticState =
+          await AHRookConfigurationManager.getDiagnosticState();
+
+      diagnosticOutput.appendMultiple([
+        "Diagnostic state retrieved",
+        "IsConfigured: ${diagnosticState.isConfigured}",
+        "UserIdentified: ${diagnosticState.userIdentified}",
+        "Permissions: ${diagnosticState.permissions}",
+        "BackgroundSyncEnabled: ${diagnosticState.backgroundSync.enabled}",
+        "BackgroundSyncLastSync: ${diagnosticState.backgroundSync.lastSync}",
+        "ManualSyncEnabled: ${diagnosticState.manualSync.enabled}",
+        "ManualSyncLastSync: ${diagnosticState.manualSync.lastSync}",
+      ]);
+
+      setState(() {
+        diagnosticOutput.append('Diagnostic state retrieved successfully');
+      });
+    } catch (error) {
+      setState(() {
+        diagnosticOutput.append('Error getting diagnostic state: $error');
+      });
+    }
   }
 }

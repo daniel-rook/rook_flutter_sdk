@@ -9,6 +9,7 @@ import 'package:rook_sdk_apple_health/src/data/result/activity_event_result.dart
 import 'package:rook_sdk_apple_health/src/data/result/body_summary_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/calories_result.dart';
+import 'package:rook_sdk_apple_health/src/data/result/diagnostic_state_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/heart_rate_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/int64_result.dart';
 import 'package:rook_sdk_apple_health/src/data/result/physical_summary_result.dart';
@@ -16,6 +17,7 @@ import 'package:rook_sdk_apple_health/src/data/result/sleep_summary_result.dart'
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/apple_health_permission.dart';
+import 'package:rook_sdk_apple_health/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
@@ -27,6 +29,16 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   final backgroundErrorsEventChannel = const EventChannel(
     "io.tryrook.errors.background",
   );
+
+  @override
+  Future<AHDiagnosticState> getDiagnosticState() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getDiagnosticState',
+    );
+    final result = DiagnosticStateResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
 
   @override
   Future<void> enableNativeLogs() async {
