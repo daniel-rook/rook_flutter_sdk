@@ -1,18 +1,18 @@
-/// Represents the current synchronization state of Health Connect diagnostics.
+/// Represents the current synchronization state.
 ///
 /// [enabled] Indicates whether the diagnostic synchronization process is currently active (background)
 /// or has been triggered at least once (manual).
 /// [lastSync] The [DateTime] when the last synchronization was triggered, or null if it has never synced.
-final class HCDiagnosticSyncState {
+final class DiagnosticSyncState {
   final bool enabled;
   final DateTime? lastSync;
 
-  HCDiagnosticSyncState({required this.enabled, required this.lastSync});
+  DiagnosticSyncState({required this.enabled, required this.lastSync});
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is HCDiagnosticSyncState &&
+      other is DiagnosticSyncState &&
           runtimeType == other.runtimeType &&
           enabled == other.enabled &&
           lastSync == other.lastSync;
@@ -22,6 +22,6 @@ final class HCDiagnosticSyncState {
 
   @override
   String toString() {
-    return 'HCDiagnosticSyncState{enabled: $enabled, lastSync: $lastSync}';
+    return 'DiagnosticSyncState{enabled: $enabled, lastSync: $lastSync}';
   }
 }

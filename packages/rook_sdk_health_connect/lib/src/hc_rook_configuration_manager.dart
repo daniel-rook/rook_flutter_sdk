@@ -1,5 +1,4 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_health_connect/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 /// Helper class used to configure and initialize the SDK, and manage the current user.
@@ -8,8 +7,8 @@ class HCRookConfigurationManager {
 
   /// Get the current diagnostic state.
   ///
-  /// Returns a [HCDiagnosticState] with the current diagnostic state.
-  static Future<HCDiagnosticState> getDiagnosticState() {
+  /// Returns a [DiagnosticState] with the current diagnostic state.
+  static Future<DiagnosticState> getDiagnosticState() {
     return RookSdkHealthConnectPlatform.instance.getDiagnosticState();
   }
 

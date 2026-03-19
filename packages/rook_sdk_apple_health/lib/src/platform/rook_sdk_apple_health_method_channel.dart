@@ -17,7 +17,6 @@ import 'package:rook_sdk_apple_health/src/data/result/sleep_summary_result.dart'
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/ah_summary_sync_type.dart';
 import 'package:rook_sdk_apple_health/src/domain/enums/apple_health_permission.dart';
-import 'package:rook_sdk_apple_health/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
@@ -31,7 +30,7 @@ class MethodChannelRookSdkAppleHealth extends RookSdkAppleHealthPlatform {
   );
 
   @override
-  Future<AHDiagnosticState> getDiagnosticState() async {
+  Future<DiagnosticState> getDiagnosticState() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getDiagnosticState',
     );

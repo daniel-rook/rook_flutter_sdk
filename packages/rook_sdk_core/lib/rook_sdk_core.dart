@@ -1,6 +1,7 @@
 library rook_sdk_core;
 
 export 'src/enum/data_source_type.dart';
+export 'src/enum/diagnostic_state_permissions.dart';
 export 'src/enum/request_permissions_status.dart';
 export 'src/enum/rook_environment.dart';
 export 'src/enum/sync_status.dart';
@@ -31,6 +32,8 @@ export 'src/model/complex/temperature_object.dart';
 export 'src/model/complex/velocity_object.dart';
 export 'src/model/daily_calories.dart';
 export 'src/model/data_source_authorizer.dart';
+export 'src/model/diagnostic_state.dart';
+export 'src/model/diagnostic_sync_state.dart';
 export 'src/model/granular/active_steps_granular_data.dart';
 export 'src/model/granular/activity_level_granular_data.dart';
 export 'src/model/granular/blood_glucose_granular_data.dart';

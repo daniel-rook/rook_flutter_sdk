@@ -24,13 +24,13 @@ extension String {
     func toDiagnosticStatePermissions() -> DiagnosticStatePermissionsProto {
         switch self {
         case "NOT REQUESTED":
-            return DiagnosticStatePermissionsProto.none
+            return DiagnosticStatePermissionsProto.notRequested
         case "REQUESTED":
             return DiagnosticStatePermissionsProto.requested
         case "GRANTED":
-            return DiagnosticStatePermissionsProto.dataRetrieved
+            return DiagnosticStatePermissionsProto.granted
         default:
-            return DiagnosticStatePermissionsProto.none
+            return DiagnosticStatePermissionsProto.notRequested
         }
     }
 }

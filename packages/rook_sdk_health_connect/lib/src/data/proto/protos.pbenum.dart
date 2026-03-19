@@ -34,8 +34,9 @@ class EnvironmentProto extends $pb.ProtobufEnum {
 }
 
 class DiagnosticStatePermissionsProto extends $pb.ProtobufEnum {
-  static const DiagnosticStatePermissionsProto NONE =
-      DiagnosticStatePermissionsProto._(0, _omitEnumNames ? '' : 'NONE');
+  static const DiagnosticStatePermissionsProto NOT_REQUESTED =
+      DiagnosticStatePermissionsProto._(
+          0, _omitEnumNames ? '' : 'NOT_REQUESTED');
   static const DiagnosticStatePermissionsProto REQUESTED =
       DiagnosticStatePermissionsProto._(1, _omitEnumNames ? '' : 'REQUESTED');
   static const DiagnosticStatePermissionsProto GRANTED =
@@ -43,7 +44,7 @@ class DiagnosticStatePermissionsProto extends $pb.ProtobufEnum {
 
   static const $core.List<DiagnosticStatePermissionsProto> values =
       <DiagnosticStatePermissionsProto>[
-    NONE,
+    NOT_REQUESTED,
     REQUESTED,
     GRANTED,
   ];

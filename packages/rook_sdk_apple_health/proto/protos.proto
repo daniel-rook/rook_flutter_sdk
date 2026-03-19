@@ -32,9 +32,9 @@ message ConfigurationProto {
 }
 
 enum DiagnosticStatePermissionsProto {
-  NONE = 0;
+  NOT_REQUESTED = 0;
   REQUESTED = 1;
-  DATA_RETRIEVED = 2;
+  GRANTED = 2;
 }
 
 message DiagnosticSyncStateProto {

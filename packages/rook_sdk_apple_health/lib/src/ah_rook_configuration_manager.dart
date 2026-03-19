@@ -1,4 +1,3 @@
-import 'package:rook_sdk_apple_health/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 
@@ -8,8 +7,8 @@ class AHRookConfigurationManager {
 
   /// Get the current diagnostic state.
   ///
-  /// Returns a [AHDiagnosticState] with the current diagnostic state.
-  static Future<AHDiagnosticState> getDiagnosticState() {
+  /// Returns a [DiagnosticState] with the current diagnostic state.
+  static Future<DiagnosticState> getDiagnosticState() {
     return RookSdkAppleHealthPlatform.instance.getDiagnosticState();
   }
 

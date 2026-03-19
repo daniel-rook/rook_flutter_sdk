@@ -3,7 +3,6 @@ import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_availabi
 import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_permission.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/sh_event_sync_type.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/sh_summary_sync_type.dart';
-import 'package:rook_sdk_samsung_health/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_samsung_health/src/domain/model/samsung_health_permissions_summary.dart';
 import 'package:rook_sdk_samsung_health/src/platform/rook_sdk_samsung_health_platform_interface.dart';
 
@@ -12,8 +11,8 @@ class RookSamsung {
 
   /// Get the current diagnostic state.
   ///
-  /// Returns a [SHDiagnosticState] with the current diagnostic state.
-  static Future<SHDiagnosticState> getDiagnosticState() {
+  /// Returns a [DiagnosticState] with the current diagnostic state.
+  static Future<DiagnosticState> getDiagnosticState() {
     return RookSdkSamsungHealthPlatform.instance.getDiagnosticState();
   }
 

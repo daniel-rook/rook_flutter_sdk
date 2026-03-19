@@ -1,7 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
-import 'package:rook_sdk_health_connect/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_method_channel.dart';
 
 abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
@@ -19,7 +18,7 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<HCDiagnosticState> getDiagnosticState();
+  Future<DiagnosticState> getDiagnosticState();
 
   Future<void> enableNativeLogs();
 

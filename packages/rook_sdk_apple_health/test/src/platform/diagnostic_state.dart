@@ -1,9 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_apple_health/src/domain/enums/diagnostic_state_permissions.dart';
-import 'package:rook_sdk_apple_health/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_apple_health/src/platform/rook_sdk_apple_health_method_channel.dart';
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 import '../common/test_utils.dart';
 
@@ -36,18 +35,18 @@ void diagnosticStateTest(
       });
 
       test(
-        "GIVEN success WHEN getDiagnosticState THEN return a Data<DailyCalories>",
+        "GIVEN success WHEN getDiagnosticState THEN return a DiagnosticState",
         () async {
           final future = platform.getDiagnosticState();
 
           await expectLater(
             future,
             completion(
-              predicate<AHDiagnosticState>((diagnosticState) {
+              predicate<DiagnosticState>((diagnosticState) {
                 return diagnosticState.isConfigured == true &&
                     diagnosticState.userIdentified == false &&
                     diagnosticState.permissions ==
-                        AHDiagnosticStatePermissions.requested &&
+                        DiagnosticStatePermissions.granted &&
                     diagnosticState.manualSync.enabled == false &&
                     diagnosticState.manualSync.lastSync != null &&
                     diagnosticState.backgroundSync.enabled == true &&

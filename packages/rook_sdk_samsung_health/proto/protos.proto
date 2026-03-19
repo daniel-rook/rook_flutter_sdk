@@ -36,7 +36,7 @@ message ConfigurationProto {
 }
 
 enum DiagnosticStatePermissionsProto {
-  NONE = 0;
+  NOT_REQUESTED = 0;
   REQUESTED = 1;
   GRANTED = 2;
 }

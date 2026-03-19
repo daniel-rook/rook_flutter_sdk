@@ -1,13 +1,10 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_samsung_health/src/data/extension/datetime_extensions.dart';
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pb.dart';
-import 'package:rook_sdk_samsung_health/src/domain/enums/diagnostic_state_permissions.dart';
-import 'package:rook_sdk_samsung_health/src/domain/model/diagnostic_state.dart';
-import 'package:rook_sdk_samsung_health/src/domain/model/diagnostic_sync_state.dart';
 import 'package:rook_sdk_samsung_health/src/domain/util/check_non_default.dart';
 
 extension DiagnosticStateResult on DiagnosticStateResultProto {
-  SHDiagnosticState unwrap() {
+  DiagnosticState unwrap() {
     final resultType = whichResult();
 
     switch (resultType) {
@@ -27,8 +24,8 @@ extension DiagnosticStateResult on DiagnosticStateResultProto {
 }
 
 extension DiagnosticStateMapper on DiagnosticStateProto {
-  SHDiagnosticState toDomain() {
-    return SHDiagnosticState(
+  DiagnosticState toDomain() {
+    return DiagnosticState(
       isConfigured: isConfigured,
       userIdentified: userIdentified,
       permissions: permissions.toDomain(),
@@ -39,8 +36,8 @@ extension DiagnosticStateMapper on DiagnosticStateProto {
 }
 
 extension DiagnosticSyncStateMapper on DiagnosticSyncStateProto {
-  SHDiagnosticSyncState toDomain() {
-    return SHDiagnosticSyncState(
+  DiagnosticSyncState toDomain() {
+    return DiagnosticSyncState(
       enabled: enabled,
       lastSync: DateTimeExtensions.parseLocalNullable(
         lastSync.checkNonDefault(),
@@ -50,17 +47,17 @@ extension DiagnosticSyncStateMapper on DiagnosticSyncStateProto {
 }
 
 extension DiagnosticStatePermissionsMapper on DiagnosticStatePermissionsProto {
-  SHDiagnosticStatePermissions toDomain() {
-    if (this == DiagnosticStatePermissionsProto.NONE) {
-      return SHDiagnosticStatePermissions.none;
+  DiagnosticStatePermissions toDomain() {
+    if (this == DiagnosticStatePermissionsProto.NOT_REQUESTED) {
+      return DiagnosticStatePermissions.notRequested;
     }
 
     if (this == DiagnosticStatePermissionsProto.REQUESTED) {
-      return SHDiagnosticStatePermissions.requested;
+      return DiagnosticStatePermissions.requested;
     }
 
     if (this == DiagnosticStatePermissionsProto.GRANTED) {
-      return SHDiagnosticStatePermissions.granted;
+      return DiagnosticStatePermissions.granted;
     }
 
     throw Exception("Unknown diagnostic state permissions: $this");

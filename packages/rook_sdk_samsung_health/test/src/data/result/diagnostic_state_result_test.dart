@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pb.dart';
 import 'package:rook_sdk_samsung_health/src/data/result/diagnostic_state_result.dart';
-import 'package:rook_sdk_samsung_health/src/domain/enums/diagnostic_state_permissions.dart';
 
 void main() {
   group("Mapper", () {
@@ -26,7 +26,7 @@ void main() {
 
         expect(result.isConfigured, isFalse);
         expect(result.userIdentified, isTrue);
-        expect(result.permissions, SHDiagnosticStatePermissions.requested);
+        expect(result.permissions, DiagnosticStatePermissions.requested);
         expect(result.manualSync.enabled, isTrue);
         expect(result.manualSync.lastSync, isNotNull);
         expect(result.backgroundSync.enabled, isFalse);
@@ -53,10 +53,10 @@ void main() {
     test(
       "GIVEN a DiagnosticStatePermissionsMapper WHEN toDomain THEN return a DiagnosticStatePermissions",
       () {
-        const proto = DiagnosticStatePermissionsProto.NONE;
+        const proto = DiagnosticStatePermissionsProto.NOT_REQUESTED;
         final result = proto.toDomain();
 
-        expect(result, SHDiagnosticStatePermissions.none);
+        expect(result, DiagnosticStatePermissions.notRequested);
       },
     );
   });
@@ -84,7 +84,7 @@ void main() {
 
       expect(result.isConfigured, isTrue);
       expect(result.userIdentified, isFalse);
-      expect(result.permissions, SHDiagnosticStatePermissions.granted);
+      expect(result.permissions, DiagnosticStatePermissions.granted);
       expect(result.manualSync.enabled, isFalse);
       expect(result.manualSync.lastSync, isNotNull);
       expect(result.backgroundSync.enabled, isTrue);

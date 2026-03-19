@@ -1,21 +1,21 @@
-import 'package:rook_sdk_health_connect/src/domain/enums/diagnostic_state_permissions.dart';
-import 'package:rook_sdk_health_connect/src/domain/model/diagnostic_sync_state.dart';
+import 'package:rook_sdk_core/src/enum/diagnostic_state_permissions.dart';
+import 'package:rook_sdk_core/src/model/diagnostic_sync_state.dart';
 
-/// Represents the current state of the Health Connect diagnostic checks.
+/// Represents the current state of the SDK.
 ///
 /// [isConfigured] Indicates whether the SDK has been properly configured.
 /// [userIdentified] Indicates whether a user has been successfully identified within the SDK.
-/// [permissions] The current status of the required Health Connect permissions.
+/// [permissions] The current permissions status.
 /// [backgroundSync] The current state and diagnostic information for background data synchronization.
 /// [manualSync] The current state and diagnostic information for manual data synchronization.
-final class HCDiagnosticState {
+final class DiagnosticState {
   final bool isConfigured;
   final bool userIdentified;
-  final HCDiagnosticStatePermissions permissions;
-  final HCDiagnosticSyncState backgroundSync;
-  final HCDiagnosticSyncState manualSync;
+  final DiagnosticStatePermissions permissions;
+  final DiagnosticSyncState backgroundSync;
+  final DiagnosticSyncState manualSync;
 
-  HCDiagnosticState({
+  DiagnosticState({
     required this.isConfigured,
     required this.userIdentified,
     required this.permissions,
@@ -26,7 +26,7 @@ final class HCDiagnosticState {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is HCDiagnosticState &&
+      other is DiagnosticState &&
           runtimeType == other.runtimeType &&
           isConfigured == other.isConfigured &&
           userIdentified == other.userIdentified &&
@@ -45,6 +45,6 @@ final class HCDiagnosticState {
 
   @override
   String toString() {
-    return 'HCDiagnosticState{isConfigured: $isConfigured, userIdentified: $userIdentified, permissions: $permissions, backgroundSync: $backgroundSync, manualSync: $manualSync}';
+    return 'DiagnosticState{isConfigured: $isConfigured, userIdentified: $userIdentified, permissions: $permissions, backgroundSync: $backgroundSync, manualSync: $manualSync}';
   }
 }

@@ -31,7 +31,7 @@ final $typed_data.Uint8List environmentProtoDescriptor = $convert.base64Decode(
 const DiagnosticStatePermissionsProto$json = {
   '1': 'DiagnosticStatePermissionsProto',
   '2': [
-    {'1': 'NONE', '2': 0},
+    {'1': 'NOT_REQUESTED', '2': 0},
     {'1': 'REQUESTED', '2': 1},
     {'1': 'GRANTED', '2': 2},
   ],
@@ -40,8 +40,8 @@ const DiagnosticStatePermissionsProto$json = {
 /// Descriptor for `DiagnosticStatePermissionsProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List diagnosticStatePermissionsProtoDescriptor =
     $convert.base64Decode(
-        'Ch9EaWFnbm9zdGljU3RhdGVQZXJtaXNzaW9uc1Byb3RvEggKBE5PTkUQABINCglSRVFVRVNURU'
-        'QQARILCgdHUkFOVEVEEAI=');
+        'Ch9EaWFnbm9zdGljU3RhdGVQZXJtaXNzaW9uc1Byb3RvEhEKDU5PVF9SRVFVRVNURUQQABINCg'
+        'lSRVFVRVNURUQQARILCgdHUkFOVEVEEAI=');
 
 @$core.Deprecated('Use healthConnectAvailabilityProtoDescriptor instead')
 const HealthConnectAvailabilityProto$json = {

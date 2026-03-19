@@ -56,38 +56,38 @@ enum EnvironmentProto: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 enum DiagnosticStatePermissionsProto: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
-  case none // = 0
+  case notRequested // = 0
   case requested // = 1
-  case dataRetrieved // = 2
+  case granted // = 2
   case UNRECOGNIZED(Int)
 
   init() {
-    self = .none
+    self = .notRequested
   }
 
   init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .none
+    case 0: self = .notRequested
     case 1: self = .requested
-    case 2: self = .dataRetrieved
+    case 2: self = .granted
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   var rawValue: Int {
     switch self {
-    case .none: return 0
+    case .notRequested: return 0
     case .requested: return 1
-    case .dataRetrieved: return 2
+    case .granted: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [DiagnosticStatePermissionsProto] = [
-    .none,
+    .notRequested,
     .requested,
-    .dataRetrieved,
+    .granted,
   ]
 
 }
@@ -537,7 +537,7 @@ struct DiagnosticStateProto: Sendable {
 
   var userIdentified: Bool = false
 
-  var permissions: DiagnosticStatePermissionsProto = .none
+  var permissions: DiagnosticStatePermissionsProto = .notRequested
 
   var backgroundSync: DiagnosticSyncStateProto {
     get {return _backgroundSync ?? DiagnosticSyncStateProto()}
@@ -2717,9 +2717,9 @@ extension EnvironmentProto: SwiftProtobuf._ProtoNameProviding {
 
 extension DiagnosticStatePermissionsProto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE"),
+    0: .same(proto: "NOT_REQUESTED"),
     1: .same(proto: "REQUESTED"),
-    2: .same(proto: "DATA_RETRIEVED"),
+    2: .same(proto: "GRANTED"),
   ]
 }
 
@@ -3092,7 +3092,7 @@ extension DiagnosticStateProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if self.userIdentified != false {
       try visitor.visitSingularBoolField(value: self.userIdentified, fieldNumber: 2)
     }
-    if self.permissions != .none {
+    if self.permissions != .notRequested {
       try visitor.visitSingularEnumField(value: self.permissions, fieldNumber: 3)
     }
     try { if let v = self._backgroundSync {

@@ -20,7 +20,6 @@ import 'package:rook_sdk_health_connect/src/data/result/int64_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/request_permissions_status_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/sleep_summary_result.dart';
-import 'package:rook_sdk_health_connect/src/domain/model/diagnostic_state.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
@@ -43,7 +42,7 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   );
 
   @override
-  Future<HCDiagnosticState> getDiagnosticState() async {
+  Future<DiagnosticState> getDiagnosticState() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'getDiagnosticState',
     );

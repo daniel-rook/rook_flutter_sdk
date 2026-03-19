@@ -11,9 +11,9 @@ package io.tryrook.rook_sdk_samsung_health.proto;
 public enum DiagnosticStatePermissionsProto
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>NONE = 0;</code>
+   * <code>NOT_REQUESTED = 0;</code>
    */
-  NONE(0),
+  NOT_REQUESTED(0),
   /**
    * <code>REQUESTED = 1;</code>
    */
@@ -26,9 +26,9 @@ public enum DiagnosticStatePermissionsProto
   ;
 
   /**
-   * <code>NONE = 0;</code>
+   * <code>NOT_REQUESTED = 0;</code>
    */
-  public static final int NONE_VALUE = 0;
+  public static final int NOT_REQUESTED_VALUE = 0;
   /**
    * <code>REQUESTED = 1;</code>
    */
@@ -60,7 +60,7 @@ public enum DiagnosticStatePermissionsProto
 
   public static DiagnosticStatePermissionsProto forNumber(int value) {
     switch (value) {
-      case 0: return NONE;
+      case 0: return NOT_REQUESTED;
       case 1: return REQUESTED;
       case 2: return GRANTED;
       default: return null;

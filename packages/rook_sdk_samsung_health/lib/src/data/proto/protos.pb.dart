@@ -454,7 +454,7 @@ class DiagnosticStateProto extends $pb.GeneratedMessage {
         protoName: 'userIdentified')
     ..e<DiagnosticStatePermissionsProto>(
         3, _omitFieldNames ? '' : 'permissions', $pb.PbFieldType.OE,
-        defaultOrMaker: DiagnosticStatePermissionsProto.NONE,
+        defaultOrMaker: DiagnosticStatePermissionsProto.NOT_REQUESTED,
         valueOf: DiagnosticStatePermissionsProto.valueOf,
         enumValues: DiagnosticStatePermissionsProto.values)
     ..aOM<DiagnosticSyncStateProto>(4, _omitFieldNames ? '' : 'backgroundSync',
