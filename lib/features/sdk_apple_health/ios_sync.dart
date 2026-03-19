@@ -446,7 +446,7 @@ class _IOSSyncState extends State<IOSSync> {
     getTodayHeartRateOutput.clear();
 
     setState(
-          () => getTodayHeartRateOutput.append(
+      () => getTodayHeartRateOutput.append(
         'Syncing heart rate events of today...',
       ),
     );
@@ -455,11 +455,11 @@ class _IOSSyncState extends State<IOSSync> {
       final heartRate = await AHRookSyncManager.getTodayHeartRate();
 
       setState(
-            () => getTodayHeartRateOutput.append('$heartRate synced successfully'),
+        () => getTodayHeartRateOutput.append('$heartRate synced successfully'),
       );
     } catch (error) {
       setState(
-            () => getTodayHeartRateOutput.append(
+        () => getTodayHeartRateOutput.append(
           'Error syncing heart rate events: $error',
         ),
       );

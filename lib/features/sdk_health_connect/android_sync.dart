@@ -450,7 +450,7 @@ class _AndroidSyncState extends State<AndroidSync> {
     getTodayHeartRateOutput.clear();
 
     setState(
-          () => getTodayHeartRateOutput.append(
+      () => getTodayHeartRateOutput.append(
         'Syncing heart rate events of today...',
       ),
     );
@@ -459,11 +459,11 @@ class _AndroidSyncState extends State<AndroidSync> {
       final heartRate = await HCRookSyncManager.getTodayHeartRate();
 
       setState(
-            () => getTodayHeartRateOutput.append('$heartRate synced successfully'),
+        () => getTodayHeartRateOutput.append('$heartRate synced successfully'),
       );
     } catch (error) {
       setState(
-            () => getTodayHeartRateOutput.append(
+        () => getTodayHeartRateOutput.append(
           'Error syncing heart rate events: $error',
         ),
       );
