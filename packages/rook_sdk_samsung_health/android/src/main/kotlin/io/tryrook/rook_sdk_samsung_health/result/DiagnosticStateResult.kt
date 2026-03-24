@@ -55,7 +55,7 @@ fun SHDiagnosticSyncState.toProto(): DiagnosticSyncStateProto {
 
 fun SHDiagnosticStatePermissions.toProto(): DiagnosticStatePermissionsProto {
     return when (this) {
-        SHDiagnosticStatePermissions.NONE -> DiagnosticStatePermissionsProto.NONE
+        SHDiagnosticStatePermissions.NOT_REQUESTED -> DiagnosticStatePermissionsProto.NOT_REQUESTED
         SHDiagnosticStatePermissions.REQUESTED -> DiagnosticStatePermissionsProto.REQUESTED
         SHDiagnosticStatePermissions.GRANTED -> DiagnosticStatePermissionsProto.GRANTED
     }

@@ -17,7 +17,7 @@ import 'package:rook_sdk_core/src/util/process_exception.dart';
 /// - Revoke authorization for a specific data source.
 final class RookApiSources {
   final String _clientUUID;
-  final String _sha;
+  final String _secret;
   final String _appId;
   final RookEnvironment _environment;
   final bool _enableLogs;
@@ -26,12 +26,12 @@ final class RookApiSources {
 
   RookApiSources({
     required String clientUUID,
-    required String sha,
+    required String secret,
     required String appId,
     required RookEnvironment environment,
     required bool enableLogs,
   }) : _clientUUID = clientUUID,
-       _sha = sha,
+       _secret = secret,
        _appId = appId,
        _environment = environment,
        _enableLogs = enableLogs;
@@ -166,7 +166,7 @@ final class RookApiSources {
     final authorizer = Authorizer(
       id: _appId,
       client: _clientUUID,
-      sha: _sha,
+      secret: _secret,
       environment: _environment,
     );
     final authInterceptor = AuthInterceptor(authorizer: authorizer, dio: dio);

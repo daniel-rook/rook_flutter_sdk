@@ -9,7 +9,7 @@ import 'package:rook_sdk_core/src/util/process_exception.dart';
 final class Authorizer {
   final String _id;
   final String _client;
-  final String _sha;
+  final String _secret;
   final RookEnvironment _environment;
 
   Token? _token;
@@ -18,11 +18,11 @@ final class Authorizer {
   Authorizer({
     required String id,
     required String client,
-    required String sha,
+    required String secret,
     required RookEnvironment environment,
   }) : _id = id,
        _client = client,
-       _sha = sha,
+       _secret = secret,
        _environment = environment;
 
   late final Dio _dio = _buildAuthorizerDio(_environment);
@@ -85,7 +85,7 @@ final class Authorizer {
 
   Future<Token> _authorize() async {
     try {
-      final authorization = getBasicAuth(id: _id, client: _client, sha: _sha);
+      final authorization = getBasicAuth(id: _id, client: _client, secret: _secret);
 
       final response = await _dio.get<Map<String, dynamic>>(
         "/v2/auth",

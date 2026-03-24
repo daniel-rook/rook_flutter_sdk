@@ -112,7 +112,7 @@ class _SamsungConfigurationState extends State<SamsungConfiguration> {
   void initialize() async {
     final configuration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
-      sha: Secrets.sha,
+      secret: Secrets.secret,
       environment: rookEnvironment,
       enableBackgroundSync: false,
     );

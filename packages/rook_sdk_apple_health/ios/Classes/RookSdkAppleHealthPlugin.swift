@@ -49,7 +49,8 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 RookConnectConfigurationManager.shared.setEnvironment(configuration.environment.toDomain())
                 RookConnectConfigurationManager.shared.setConfiguration(
                     clientUUID: configuration.clientUuid,
-                    sha: configuration.sha,
+                    secret: configuration.secret,
+                    bundleId: configuration.appID.checkNonDefault(),
                     enableBackgroundSync: configuration.enableBackgroundSync,
                     enableEventsBackgroundSync: configuration.enableBackgroundSync
                 )

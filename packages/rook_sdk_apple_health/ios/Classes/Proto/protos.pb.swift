@@ -503,11 +503,13 @@ struct ConfigurationProto: Sendable {
 
   var clientUuid: String = String()
 
-  var sha: String = String()
+  var secret: String = String()
 
   var environment: EnvironmentProto = .sandbox
 
   var enableBackgroundSync: Bool = false
+
+  var appID: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2971,9 +2973,10 @@ extension ConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   static let protoMessageName: String = "ConfigurationProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "clientUUID"),
-    2: .same(proto: "sha"),
+    2: .same(proto: "secret"),
     3: .same(proto: "environment"),
     4: .same(proto: "enableBackgroundSync"),
+    5: .same(proto: "appId"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2983,9 +2986,10 @@ extension ConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.clientUuid) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.sha) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.secret) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.environment) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.enableBackgroundSync) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.appID) }()
       default: break
       }
     }
@@ -2995,8 +2999,8 @@ extension ConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if !self.clientUuid.isEmpty {
       try visitor.visitSingularStringField(value: self.clientUuid, fieldNumber: 1)
     }
-    if !self.sha.isEmpty {
-      try visitor.visitSingularStringField(value: self.sha, fieldNumber: 2)
+    if !self.secret.isEmpty {
+      try visitor.visitSingularStringField(value: self.secret, fieldNumber: 2)
     }
     if self.environment != .sandbox {
       try visitor.visitSingularEnumField(value: self.environment, fieldNumber: 3)
@@ -3004,14 +3008,18 @@ extension ConfigurationProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if self.enableBackgroundSync != false {
       try visitor.visitSingularBoolField(value: self.enableBackgroundSync, fieldNumber: 4)
     }
+    if !self.appID.isEmpty {
+      try visitor.visitSingularStringField(value: self.appID, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ConfigurationProto, rhs: ConfigurationProto) -> Bool {
     if lhs.clientUuid != rhs.clientUuid {return false}
-    if lhs.sha != rhs.sha {return false}
+    if lhs.secret != rhs.secret {return false}
     if lhs.environment != rhs.environment {return false}
     if lhs.enableBackgroundSync != rhs.enableBackgroundSync {return false}
+    if lhs.appID != rhs.appID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

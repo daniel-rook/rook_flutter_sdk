@@ -121,7 +121,7 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
   void setConfiguration() async {
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
-      sha: Secrets.sha,
+      secret: Secrets.secret,
       environment: rookEnvironment,
       enableBackgroundSync: false,
     );

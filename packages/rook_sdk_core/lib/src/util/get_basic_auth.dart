@@ -5,18 +5,18 @@ import 'package:crypto/crypto.dart';
 String getBasicAuth({
   required String id,
   required String client,
-  required String sha,
+  required String secret,
 }) {
-  final idToClientBytes = utf8.encode("$id:$client");
-  final shaBytes = utf8.encode(sha);
+  final messageBytes = utf8.encode(secret);
+  final keyBytes = utf8.encode(client);
 
-  final hmacSha256 = Hmac(sha256, shaBytes);
+  final hmacSha256 = Hmac(sha256, keyBytes);
+  final digest = hmacSha256.convert(messageBytes);
 
-  final digest = hmacSha256.convert(idToClientBytes);
-  final shaDigest = digest.toString().toLowerCase();
+  final digestString = digest.toString().toLowerCase();
 
-  final valueToEncode = "$id:$client:$shaDigest";
-  final base64String = base64.encode(utf8.encode(valueToEncode));
+  final valueToEncode = "$id:$client:$digestString";
+  final base64Value = base64.encode(utf8.encode(valueToEncode));
 
-  return "Basic $base64String";
+  return "Basic $base64Value";
 }

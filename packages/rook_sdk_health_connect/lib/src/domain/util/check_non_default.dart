@@ -20,7 +20,7 @@ extension DoubleNonDefault on double {
 
 extension StringNonDefault on String {
   String? checkNonDefault() {
-    if (this == _defaultString) {
+    if (this == defaultString) {
       return null;
     } else {
       return this;
@@ -30,4 +30,4 @@ extension StringNonDefault on String {
 
 const _defaultInt = 0;
 const _defaultDouble = 0.0;
-const _defaultString = "N/A";
+const defaultString = "N/A";

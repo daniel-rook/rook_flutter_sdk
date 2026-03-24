@@ -199,7 +199,7 @@ const ConfigurationProto$json = {
   '1': 'ConfigurationProto',
   '2': [
     {'1': 'clientUUID', '3': 1, '4': 1, '5': 9, '10': 'clientUUID'},
-    {'1': 'sha', '3': 2, '4': 1, '5': 9, '10': 'sha'},
+    {'1': 'secret', '3': 2, '4': 1, '5': 9, '10': 'secret'},
     {
       '1': 'environment',
       '3': 3,
@@ -215,15 +215,16 @@ const ConfigurationProto$json = {
       '5': 8,
       '10': 'enableBackgroundSync'
     },
+    {'1': 'appId', '3': 5, '4': 1, '5': 9, '10': 'appId'},
   ],
 };
 
 /// Descriptor for `ConfigurationProto`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List configurationProtoDescriptor = $convert.base64Decode(
-    'ChJDb25maWd1cmF0aW9uUHJvdG8SHgoKY2xpZW50VVVJRBgBIAEoCVIKY2xpZW50VVVJRBIQCg'
-    'NzaGEYAiABKAlSA3NoYRIzCgtlbnZpcm9ubWVudBgDIAEoDjIRLkVudmlyb25tZW50UHJvdG9S'
-    'C2Vudmlyb25tZW50EjIKFGVuYWJsZUJhY2tncm91bmRTeW5jGAQgASgIUhRlbmFibGVCYWNrZ3'
-    'JvdW5kU3luYw==');
+    'ChJDb25maWd1cmF0aW9uUHJvdG8SHgoKY2xpZW50VVVJRBgBIAEoCVIKY2xpZW50VVVJRBIWCg'
+    'ZzZWNyZXQYAiABKAlSBnNlY3JldBIzCgtlbnZpcm9ubWVudBgDIAEoDjIRLkVudmlyb25tZW50'
+    'UHJvdG9SC2Vudmlyb25tZW50EjIKFGVuYWJsZUJhY2tncm91bmRTeW5jGAQgASgIUhRlbmFibG'
+    'VCYWNrZ3JvdW5kU3luYxIUCgVhcHBJZBgFIAEoCVIFYXBwSWQ=');
 
 @$core.Deprecated('Use diagnosticSyncStateProtoDescriptor instead')
 const DiagnosticSyncStateProto$json = {

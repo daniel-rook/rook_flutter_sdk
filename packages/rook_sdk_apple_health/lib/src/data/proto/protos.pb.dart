@@ -257,16 +257,18 @@ class Int64ResultProto extends $pb.GeneratedMessage {
 class ConfigurationProto extends $pb.GeneratedMessage {
   factory ConfigurationProto({
     $core.String? clientUUID,
-    $core.String? sha,
+    $core.String? secret,
     EnvironmentProto? environment,
     $core.bool? enableBackgroundSync,
+    $core.String? appId,
   }) {
     final result = create();
     if (clientUUID != null) result.clientUUID = clientUUID;
-    if (sha != null) result.sha = sha;
+    if (secret != null) result.secret = secret;
     if (environment != null) result.environment = environment;
     if (enableBackgroundSync != null)
       result.enableBackgroundSync = enableBackgroundSync;
+    if (appId != null) result.appId = appId;
     return result;
   }
 
@@ -283,7 +285,7 @@ class ConfigurationProto extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ConfigurationProto',
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'clientUUID', protoName: 'clientUUID')
-    ..aOS(2, _omitFieldNames ? '' : 'sha')
+    ..aOS(2, _omitFieldNames ? '' : 'secret')
     ..e<EnvironmentProto>(
         3, _omitFieldNames ? '' : 'environment', $pb.PbFieldType.OE,
         defaultOrMaker: EnvironmentProto.SANDBOX,
@@ -291,6 +293,7 @@ class ConfigurationProto extends $pb.GeneratedMessage {
         enumValues: EnvironmentProto.values)
     ..aOB(4, _omitFieldNames ? '' : 'enableBackgroundSync',
         protoName: 'enableBackgroundSync')
+    ..aOS(5, _omitFieldNames ? '' : 'appId', protoName: 'appId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -324,13 +327,13 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   void clearClientUUID() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get sha => $_getSZ(1);
+  $core.String get secret => $_getSZ(1);
   @$pb.TagNumber(2)
-  set sha($core.String value) => $_setString(1, value);
+  set secret($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasSha() => $_has(1);
+  $core.bool hasSecret() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSha() => $_clearField(2);
+  void clearSecret() => $_clearField(2);
 
   @$pb.TagNumber(3)
   EnvironmentProto get environment => $_getN(2);
@@ -349,6 +352,15 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   $core.bool hasEnableBackgroundSync() => $_has(3);
   @$pb.TagNumber(4)
   void clearEnableBackgroundSync() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get appId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set appId($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasAppId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearAppId() => $_clearField(5);
 }
 
 class DiagnosticSyncStateProto extends $pb.GeneratedMessage {

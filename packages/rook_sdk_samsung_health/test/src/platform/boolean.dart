@@ -24,7 +24,7 @@ void booleanResultTests(
     test('GIVEN the happy path WHEN initRook THEN complete', () async {
       final configuration = RookConfiguration(
         clientUUID: "clientUUID",
-        sha: "sha",
+        secret: "secret",
         environment: RookEnvironment.sandbox,
         enableBackgroundSync: false,
       );
@@ -155,7 +155,7 @@ void booleanResultTests(
         () async {
           final configuration = RookConfiguration(
             clientUUID: "clientUUID",
-            sha: "sha",
+            secret: "secret",
             environment: RookEnvironment.sandbox,
             enableBackgroundSync: false,
           );

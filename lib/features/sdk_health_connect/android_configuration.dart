@@ -126,7 +126,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
   void setConfiguration() async {
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
-      sha: Secrets.sha,
+      secret: Secrets.secret,
       environment: rookEnvironment,
       enableBackgroundSync: false,
     );

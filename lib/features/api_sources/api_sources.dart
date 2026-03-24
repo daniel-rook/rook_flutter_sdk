@@ -20,7 +20,7 @@ class _ApiSourcesState extends State<ApiSources> {
 
   late final RookApiSources rookApiSources = RookApiSources(
     clientUUID: Secrets.clientUUID,
-    sha: Secrets.sha,
+    secret: Secrets.secret,
     appId: "io.tryrook.rook",
     environment: RookEnvironment.sandbox,
     enableLogs: true,
