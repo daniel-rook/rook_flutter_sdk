@@ -34,13 +34,8 @@ class RookConfiguration {
           enableBackgroundSync == other.enableBackgroundSync;
 
   @override
-  int get hashCode => Object.hash(
-    clientUUID,
-    secret,
-    environment,
-    appId,
-    enableBackgroundSync,
-  );
+  int get hashCode =>
+      Object.hash(clientUUID, secret, environment, appId, enableBackgroundSync);
 
   @override
   String toString() {

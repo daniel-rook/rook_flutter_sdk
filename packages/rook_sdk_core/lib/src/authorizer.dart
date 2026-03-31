@@ -85,7 +85,11 @@ final class Authorizer {
 
   Future<Token> _authorize() async {
     try {
-      final authorization = getBasicAuth(id: _id, client: _client, secret: _secret);
+      final authorization = getBasicAuth(
+        id: _id,
+        client: _client,
+        secret: _secret,
+      );
 
       final response = await _dio.get<Map<String, dynamic>>(
         "/v2/auth",
