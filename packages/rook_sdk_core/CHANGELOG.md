@@ -21,6 +21,7 @@ following capabilities:
     * `HealthKitNotReadyException`
     * `MissingPermissionsException`
     * `RecordsNotFoundException`
+    * `SessionExpiredException`
     * `UnknownException`
 
 ### Breaking Changes
