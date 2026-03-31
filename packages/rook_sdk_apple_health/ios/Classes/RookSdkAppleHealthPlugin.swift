@@ -19,8 +19,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
         let instance = RookSdkAppleHealthPlugin()
 
         registrar.addMethodCallDelegate(instance, channel: channel)
-        
-        IOSClass.shared.test()
 
         AnalyticsExtractionConfigurator.shared.setPlatform(.flutter)
         AnalyticsTransmissionConfigurator.shared.setPlatform(.flutter)

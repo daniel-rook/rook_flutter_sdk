@@ -1,6 +1,6 @@
 name: rook_sdk_samsung_health
 description: This package enables apps to extract and upload data from Samsung Health.
-version: 1.1.0
+version: 4.0.0
 homepage: 'https://docs.tryrook.io/'
 platforms:
   android:
@@ -15,11 +15,11 @@ dependencies:
   plugin_platform_interface: ">=2.0.0 <3.0.0"
   protobuf: ">=4.1.0 <5.0.0"
   fixnum: "^1.0.0"
-  rook_sdk_core: "^1.2.0"
+  rook_sdk_core: "^4.0.0"
 
-dependency_overrides:
-  rook_sdk_core:
-    path: "../rook_sdk_core"
+#dependency_overrides:
+#  rook_sdk_core:
+#    path: "../rook_sdk_core"
 
 dev_dependencies:
   flutter_test:

@@ -46,7 +46,7 @@ void diagnosticStateTest(
                 return diagnosticState.isConfigured == true &&
                     diagnosticState.userIdentified == false &&
                     diagnosticState.permissions ==
-                        DiagnosticStatePermissions.granted &&
+                        DiagnosticStatePermissions.requested &&
                     diagnosticState.manualSync.enabled == false &&
                     diagnosticState.manualSync.lastSync != null &&
                     diagnosticState.backgroundSync.enabled == true &&
