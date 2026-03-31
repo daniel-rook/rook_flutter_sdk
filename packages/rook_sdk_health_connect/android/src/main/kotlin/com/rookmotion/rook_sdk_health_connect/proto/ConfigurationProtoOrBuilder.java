@@ -22,16 +22,16 @@ public interface ConfigurationProtoOrBuilder extends
       getClientUUIDBytes();
 
   /**
-   * <code>string secretKey = 2;</code>
-   * @return The secretKey.
+   * <code>string secret = 2;</code>
+   * @return The secret.
    */
-  java.lang.String getSecretKey();
+  java.lang.String getSecret();
   /**
-   * <code>string secretKey = 2;</code>
-   * @return The bytes for secretKey.
+   * <code>string secret = 2;</code>
+   * @return The bytes for secret.
    */
   com.google.protobuf.ByteString
-      getSecretKeyBytes();
+      getSecretBytes();
 
   /**
    * <code>.EnvironmentProto environment = 3;</code>
@@ -49,4 +49,16 @@ public interface ConfigurationProtoOrBuilder extends
    * @return The enableBackgroundSync.
    */
   boolean getEnableBackgroundSync();
+
+  /**
+   * <code>string appId = 5;</code>
+   * @return The appId.
+   */
+  java.lang.String getAppId();
+  /**
+   * <code>string appId = 5;</code>
+   * @return The bytes for appId.
+   */
+  com.google.protobuf.ByteString
+      getAppIdBytes();
 }

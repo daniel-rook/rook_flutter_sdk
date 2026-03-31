@@ -2,10 +2,7 @@ class HrvRmssdGranularData {
   final DateTime dateTime;
   final double hrvRmssd;
 
-  HrvRmssdGranularData({
-    required this.dateTime,
-    required this.hrvRmssd,
-  });
+  HrvRmssdGranularData({required this.dateTime, required this.hrvRmssd});
 
   @override
   bool operator ==(Object other) =>

@@ -12,6 +12,7 @@ extension SummarySyncTypeMapperExtensions on SHEventSyncType {
       SHEventSyncType.hydration => EventSyncTypeProto.HYDRATION,
       SHEventSyncType.nutrition => EventSyncTypeProto.NUTRITION,
       SHEventSyncType.oxygenation => EventSyncTypeProto.OXYGENATION,
+      SHEventSyncType.temperature => EventSyncTypeProto.TEMPERATURE,
       SHEventSyncType.steps => EventSyncTypeProto.STEPS,
       SHEventSyncType.calories => EventSyncTypeProto.CALORIES,
     };

@@ -4,8 +4,7 @@ import 'package:rook_sdk_samsung_health/src/data/mapper/request_permissions_stat
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pbenum.dart';
 
 void main() {
-  group('RequestPermissionsStatusProto to RequestPermissionsStatus mappers',
-      () {
+  group('RequestPermissionsStatusProto to RequestPermissionsStatus mappers', () {
     test(
       'GIVEN RequestPermissionsStatusProto.REQUEST_SENT WHEN toProto THEN return RequestPermissionsStatus.requestSent',
       () {

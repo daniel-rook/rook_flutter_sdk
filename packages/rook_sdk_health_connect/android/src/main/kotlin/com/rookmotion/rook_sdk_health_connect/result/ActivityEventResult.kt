@@ -1,50 +1,140 @@
 package com.rookmotion.rook_sdk_health_connect.result
 
 import com.rookmotion.rook.sdk.domain.model.HCActivityEvent
-import com.rookmotion.rook.sdk.domain.model.SyncStatusWithData
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionCode
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionId
-import com.rookmotion.rook_sdk_health_connect.extension.getPluginExceptionMessage
-import com.rookmotion.rook_sdk_health_connect.mapper.toProto
+import com.rookmotion.rook_sdk_health_connect.DEFAULT_DOUBLE
+import com.rookmotion.rook_sdk_health_connect.DEFAULT_INT
+import com.rookmotion.rook_sdk_health_connect.DEFAULT_STRING
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionCode
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionMessage
+import com.rookmotion.rook_sdk_health_connect.extension.toProtoString
+import com.rookmotion.rook_sdk_health_connect.mapper.toGranularDataProto
+import com.rookmotion.rook_sdk_health_connect.mapper.toObjectProto
+import com.rookmotion.rook_sdk_health_connect.proto.ActivityEventProto
 import com.rookmotion.rook_sdk_health_connect.proto.ActivityEventResultProto
 import com.rookmotion.rook_sdk_health_connect.proto.ActivityEventsProto
-import com.rookmotion.rook_sdk_health_connect.proto.PluginExceptionProto
+import com.rookmotion.rook_sdk_health_connect.proto.SDKExceptionProto
 import io.flutter.plugin.common.MethodChannel
 
-fun MethodChannel.Result.activityEventSuccess(syncStatusWithData: SyncStatusWithData<List<HCActivityEvent>>) {
-    val bytes = when (syncStatusWithData) {
-        SyncStatusWithData.RecordsNotFound -> {
-            ActivityEventResultProto.newBuilder()
-                .setRecordsNotFound(true)
-                .build()
-                .toByteArray()
-        }
+fun MethodChannel.Result.activityEventSuccess(events: List<HCActivityEvent>) {
+    val activityEvents = ActivityEventsProto.newBuilder()
+        .addAllElements(events.map { it.toProto() })
+        .build()
 
-        is SyncStatusWithData.Synced -> {
-            val activityEvents = ActivityEventsProto.newBuilder()
-                .addAllElements(syncStatusWithData.data.map { it.toProto() })
-                .build()
-
-            ActivityEventResultProto.newBuilder()
-                .setSynced(activityEvents)
-                .build()
-                .toByteArray()
-        }
-    }
+    val bytes = ActivityEventResultProto.newBuilder()
+        .setSuccess(activityEvents)
+        .build()
+        .toByteArray()
 
     success(bytes)
 }
 
 fun MethodChannel.Result.activityEventError(throwable: Throwable) {
-    val pluginExceptionProto = PluginExceptionProto.newBuilder()
-        .setId(throwable.getPluginExceptionId())
-        .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getPluginExceptionMessage())
+    val exception = SDKExceptionProto.newBuilder()
+        .setCode(throwable.getSDKExceptionCode())
+        .setMessage(throwable.getSDKExceptionMessage())
 
     val bytes = ActivityEventResultProto.newBuilder()
-        .setFailure(pluginExceptionProto)
+        .setFailure(exception)
         .build()
         .toByteArray()
 
     success(bytes)
+}
+
+fun HCActivityEvent.toProto(): ActivityEventProto {
+    return ActivityEventProto.newBuilder()
+        .setDateTime(dateTime.toProtoString())
+        .setSourceOfData(sourceOfData)
+        .setWasTheUserUnderPhysicalActivity(wasTheUserUnderPhysicalActivity)
+        .setActivityStartDateTime(activityStartDateTime.toProtoString())
+        .setActivityEndDateTime(activityEndDateTime.toProtoString())
+        .setActivityDurationSeconds(activityDurationSeconds)
+        .setActivityTypeName(activityTypeName)
+        .setActiveSeconds(activeSeconds ?: DEFAULT_INT)
+        .setRestSeconds(restSeconds ?: DEFAULT_INT)
+        .setLowIntensitySeconds(lowIntensitySeconds ?: DEFAULT_INT)
+        .setModerateIntensitySeconds(moderateIntensitySeconds ?: DEFAULT_INT)
+        .setVigorousIntensitySeconds(vigorousIntensitySeconds ?: DEFAULT_INT)
+        .setInactivitySeconds(inactivitySeconds ?: DEFAULT_INT)
+        .addAllActivityLevelGranularData(activityLevelGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setContinuousInactivePeriods(continuousInactivePeriods ?: DEFAULT_INT)
+        .setActivityStrainLevel(activityStrainLevel ?: DEFAULT_INT)
+        .setActivityWorkKilojoules(activityWorkKilojoules ?: DEFAULT_DOUBLE)
+        .setActivityEnergyKilojoules(activityEnergyKilojoules ?: DEFAULT_DOUBLE)
+        .setActivityEnergyPlannedKilojoules(activityEnergyPlannedKilojoules ?: DEFAULT_DOUBLE)
+        .setCaloriesNetIntakeKcal(caloriesNetIntakeKcal ?: DEFAULT_DOUBLE)
+        .setCaloriesExpenditureKcal(caloriesExpenditureKcal ?: DEFAULT_DOUBLE)
+        .setCaloriesNetActiveKcal(caloriesNetActiveKcal ?: DEFAULT_DOUBLE)
+        .setCaloriesBasalMetabolicRateKcal(caloriesBasalMetabolicRateKcal ?: DEFAULT_DOUBLE)
+        .setFatPercentageOfCalories(fatPercentageOfCalories ?: DEFAULT_DOUBLE)
+        .setCarbohydratePercentageOfCalories(carbohydratePercentageOfCalories ?: DEFAULT_DOUBLE)
+        .setProteinPercentageOfCalories(proteinPercentageOfCalories ?: DEFAULT_DOUBLE)
+        .setSteps(steps ?: DEFAULT_INT)
+        .addAllStepsGranularData(stepsGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setWalkedDistanceMeters(walkedDistanceMeters ?: DEFAULT_DOUBLE)
+        .setTraveledDistanceMeters(traveledDistanceMeters ?: DEFAULT_DOUBLE)
+        .addAllTraveledDistanceGranularData(
+            traveledDistanceGranularData?.map { it.toGranularDataProto() } ?: emptyList(),
+        )
+        .setFloorsClimbed(floorsClimbed ?: DEFAULT_DOUBLE)
+        .addAllFloorsClimbedGranularData(floorsClimbedGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setElevationAvgAltitudeMeters(elevationAvgAltitudeMeters ?: DEFAULT_DOUBLE)
+        .setElevationMinimumAltitudeMeters(elevationMinimumAltitudeMeters ?: DEFAULT_DOUBLE)
+        .setElevationMaximumAltitudeMeters(elevationMaximumAltitudeMeters ?: DEFAULT_DOUBLE)
+        .setElevationLossActualAltitudeMeters(elevationLossActualAltitudeMeters ?: DEFAULT_DOUBLE)
+        .setElevationGainActualAltitudeMeters(elevationGainActualAltitudeMeters ?: DEFAULT_DOUBLE)
+        .setElevationPlannedGainMeters(elevationPlannedGainMeters ?: DEFAULT_DOUBLE)
+        .addAllElevationGranularData(elevationGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setSwimmingNumStrokes(swimmingNumStrokes ?: DEFAULT_INT)
+        .setSwimmingNumLaps(swimmingNumLaps ?: DEFAULT_INT)
+        .setSwimmingPoolLengthMeters(swimmingPoolLengthMeters ?: DEFAULT_DOUBLE)
+        .setSwimmingTotalDistanceMeters(swimmingTotalDistanceMeters ?: DEFAULT_DOUBLE)
+        .addAllSwimmingDistanceGranularData(
+            swimmingDistanceGranularData?.map { it.toGranularDataProto() } ?: emptyList(),
+        )
+        .setHrMaximumBpm(hrMaximumBpm ?: DEFAULT_INT)
+        .setHrMinimumBpm(hrMinimumBpm ?: DEFAULT_INT)
+        .setHrAvgBpm(hrAvgBpm ?: DEFAULT_INT)
+        .setHrRestingBpm(hrRestingBpm ?: DEFAULT_INT)
+        .addAllHrGranularData(hrGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setHrvAvgRmssd(hrvAvgRmssd ?: DEFAULT_DOUBLE)
+        .setHrvAvgSdnn(hrvAvgSdnn ?: DEFAULT_DOUBLE)
+        .addAllHrvSdnnGranularData(hrvSdnnGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .addAllHrvRmssdGranularData(hrvRmssdGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setSpeedNormalizedMetersPerSecond(speedNormalizedMetersPerSecond ?: DEFAULT_DOUBLE)
+        .setSpeedAvgMetersPerSecond(speedAvgMetersPerSecond ?: DEFAULT_DOUBLE)
+        .setSpeedMaximumMetersPerSecond(speedMaximumMetersPerSecond ?: DEFAULT_DOUBLE)
+        .addAllSpeedGranularData(speedGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .addAllVelocityAvg(velocityAvg?.toObjectProto()?.let { listOf(it) } ?: emptyList())
+        .addAllVelocityMaximum(velocityMaximum?.toObjectProto()?.let { listOf(it) } ?: emptyList())
+        .setPaceAvgMinPerKm(paceAvgMinPerKm ?: DEFAULT_DOUBLE)
+        .setPaceMaximumMinPerKm(paceMaximumMinPerKm ?: DEFAULT_DOUBLE)
+        .setCadenceAvgRpm(cadenceAvgRpm ?: DEFAULT_DOUBLE)
+        .setCadenceMaximumRpm(cadenceMaximumRpm ?: DEFAULT_DOUBLE)
+        .addAllCadenceGranularData(cadenceGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setTorqueAvgNewtonMeters(torqueAvgNewtonMeters ?: DEFAULT_DOUBLE)
+        .setTorqueMaximumNewtonMeters(torqueMaximumNewtonMeters ?: DEFAULT_DOUBLE)
+        .addAllTorqueGranularData(torqueGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .addAllLapGranularData(lapGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setSaturationAvgPercentage(saturationAvgPercentage ?: DEFAULT_DOUBLE)
+        .addAllSaturationGranularData(saturationGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setVo2MaxMlPerMinPerKg(vo2MaxMlPerMinPerKg ?: DEFAULT_DOUBLE)
+        .addAllVo2GranularData(vo2GranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .addAllPositionStart(positionStart?.toObjectProto()?.let { listOf(it) } ?: emptyList())
+        .addAllPositionCentroid(positionCentroid?.toObjectProto()?.let { listOf(it) } ?: emptyList())
+        .addAllPositionEnd(positionEnd?.toObjectProto()?.let { listOf(it) } ?: emptyList())
+        .addAllPositionGranularData(positionGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setPositionPolylineMapDataSummary(positionPolylineMapDataSummary ?: DEFAULT_STRING)
+        .setPowerAvgWatts(powerAvgWatts ?: DEFAULT_DOUBLE)
+        .setPowerMaximumWatts(powerMaximumWatts ?: DEFAULT_DOUBLE)
+        .addAllPowerGranularData(powerGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setStressAtRestDurationSeconds(stressAtRestDurationSeconds ?: DEFAULT_INT)
+        .setStressDurationSeconds(stressDurationSeconds ?: DEFAULT_INT)
+        .setLowStressDurationSeconds(lowStressDurationSeconds ?: DEFAULT_INT)
+        .setMediumStressDurationSeconds(mediumStressDurationSeconds ?: DEFAULT_INT)
+        .setHighStressDurationSeconds(highStressDurationSeconds ?: DEFAULT_INT)
+        .addAllTssGranularData(tssGranularData?.map { it.toGranularDataProto() } ?: emptyList())
+        .setStressAvgLevel(stressAvgLevel ?: DEFAULT_INT)
+        .setStressMaximumLevel(stressMaximumLevel ?: DEFAULT_INT)
+        .build()
 }

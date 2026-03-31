@@ -2,10 +2,7 @@ class MenstruationFlowGranularData {
   final DateTime dateTime;
   final double flowMl;
 
-  MenstruationFlowGranularData({
-    required this.dateTime,
-    required this.flowMl,
-  });
+  MenstruationFlowGranularData({required this.dateTime, required this.flowMl});
 
   @override
   bool operator ==(Object other) =>

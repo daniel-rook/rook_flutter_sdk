@@ -1,10 +1,11 @@
 plugins {
     id "com.android.library"
     id "org.jetbrains.kotlin.android"
+    id "org.jetbrains.kotlin.plugin.parcelize"
 }
 
 // ------------------------ Dependencies ------------------------
-String rookSdkSamsungVersion = "1.1.0"
+String rookSdkSamsungVersion = "4.0.0"
 String protoVersion = "4.28.3"
 String timberVersion = "5.0.1"
 // ------------------------ Dependencies ------------------------
@@ -16,16 +17,17 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
     }
 }
 
 android {
     namespace = "io.tryrook.rook_sdk_samsung_health"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
-        minSdk = 26
-        targetSdk = 35
+        minSdk = 29
+        targetSdk = 36
     }
 
     compileOptions {
@@ -45,6 +47,7 @@ android {
     dependencies {
         implementation("com.jakewharton.timber:timber:$timberVersion")
         implementation("com.google.protobuf:protobuf-javalite:$protoVersion")
+        implementation("com.google.code.gson:gson:2.13.2")
         implementation("io.tryrook.android:rook-sdk-samsung") {
             version {
                 strictly rookSdkSamsungVersion

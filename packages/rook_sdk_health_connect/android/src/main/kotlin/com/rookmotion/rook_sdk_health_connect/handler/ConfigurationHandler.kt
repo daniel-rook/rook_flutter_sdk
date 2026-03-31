@@ -12,6 +12,8 @@ import com.rookmotion.rook_sdk_health_connect.mapper.toRookConfiguration
 import com.rookmotion.rook_sdk_health_connect.proto.ConfigurationProto
 import com.rookmotion.rook_sdk_health_connect.result.booleanError
 import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
+import com.rookmotion.rook_sdk_health_connect.result.diagnosticStateError
+import com.rookmotion.rook_sdk_health_connect.result.diagnosticStateSuccess
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -27,6 +29,17 @@ class ConfigurationHandler(
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
+            "getDiagnosticState" -> coroutineScope.launch {
+                rookConfigurationManager.getDiagnosticState().fold(
+                    {
+                        methodResult.diagnosticStateSuccess(it)
+                    },
+                    {
+                        methodResult.diagnosticStateError(it)
+                    },
+                )
+            }
+
             "enableNativeLogs" -> {
                 enableNativeLogs = true
                 rookConfigurationManager.enableLocalLogs()
@@ -82,17 +95,6 @@ class ConfigurationHandler(
                     {
                         methodResult.booleanError(it)
                     }
-                )
-            }
-
-            "clearUserID" -> coroutineScope.launch {
-                rookConfigurationManager.clearUserID().fold(
-                    {
-                        methodResult.booleanSuccess(true)
-                    },
-                    {
-                        methodResult.booleanError(it)
-                    },
                 )
             }
 

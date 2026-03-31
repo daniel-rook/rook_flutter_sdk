@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import com.rookmotion.rook.sdk.RookBackgroundSyncManager
 import com.rookmotion.rook.sdk.RookConfigurationManager
-import com.rookmotion.rook.sdk.RookContinuousUploadManager
 import com.rookmotion.rook.sdk.RookPermissionsManager
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSyncManager
@@ -16,8 +15,6 @@ import com.rookmotion.rook_sdk_health_connect.eventhandler.HealthConnectPermissi
 import com.rookmotion.rook_sdk_health_connect.eventhandler.IsScheduledTransmitter
 import com.rookmotion.rook_sdk_health_connect.handler.BackgroundSyncHandler
 import com.rookmotion.rook_sdk_health_connect.handler.ConfigurationHandler
-import com.rookmotion.rook_sdk_health_connect.handler.ContinuousUploadHandler
-import com.rookmotion.rook_sdk_health_connect.handler.DataSourcesHandler
 import com.rookmotion.rook_sdk_health_connect.handler.HelperHandler
 import com.rookmotion.rook_sdk_health_connect.handler.PermissionsHandler
 import com.rookmotion.rook_sdk_health_connect.handler.StepsHandler
@@ -45,7 +42,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var rookPermissionsManager: RookPermissionsManager
     private lateinit var rookSyncManager: RookSyncManager
     private lateinit var rookStepsManager: RookStepsManager
-    private lateinit var rookContinuousUploadManager: RookContinuousUploadManager
     private lateinit var rookBackgroundSyncManager: RookBackgroundSyncManager
 
     private lateinit var configurationHandler: ConfigurationHandler
@@ -53,8 +49,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var syncHandler: SyncHandler
     private lateinit var helperHandler: HelperHandler
     private lateinit var stepsHandler: StepsHandler
-    private lateinit var continuousUploadHandler: ContinuousUploadHandler
-    private lateinit var dataSourcesHandler: DataSourcesHandler
     private lateinit var backgroundSyncHandler: BackgroundSyncHandler
 
     private lateinit var androidPermissionsEventChannel: EventChannel
@@ -72,7 +66,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         rookPermissionsManager = RookPermissionsManager(flutterPluginBinding.applicationContext)
         rookSyncManager = RookSyncManager(flutterPluginBinding.applicationContext)
         rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
-        rookContinuousUploadManager = RookContinuousUploadManager(flutterPluginBinding.applicationContext)
         rookBackgroundSyncManager = RookBackgroundSyncManager(flutterPluginBinding.applicationContext)
 
         configurationHandler = ConfigurationHandler(
@@ -84,8 +77,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         syncHandler = SyncHandler(coroutineScope, rookSyncManager)
         helperHandler = HelperHandler(coroutineScope)
         stepsHandler = StepsHandler(coroutineScope, rookStepsManager)
-        continuousUploadHandler = ContinuousUploadHandler(coroutineScope, rookContinuousUploadManager)
-        dataSourcesHandler = DataSourcesHandler(flutterPluginBinding.applicationContext, coroutineScope)
         backgroundSyncHandler = BackgroundSyncHandler(coroutineScope, rookBackgroundSyncManager)
 
         isScheduled = IsScheduledTransmitter(coroutineScope, rookBackgroundSyncManager)
@@ -126,12 +117,12 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
+            "getDiagnosticState" -> configurationHandler.onMethodCall(call, result)
             "enableNativeLogs" -> configurationHandler.onMethodCall(call, result)
             "setConfiguration" -> configurationHandler.onMethodCall(call, result)
             "getUserID" -> configurationHandler.onMethodCall(call, result)
             "initRook" -> configurationHandler.onMethodCall(call, result)
             "updateUserID" -> configurationHandler.onMethodCall(call, result)
-            "clearUserID" -> configurationHandler.onMethodCall(call, result)
             "deleteUserFromRook" -> configurationHandler.onMethodCall(call, result)
             "syncUserTimeZone" -> configurationHandler.onMethodCall(call, result)
 
@@ -156,21 +147,13 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "getActivityEvents" -> syncHandler.onMethodCall(call, result)
             "getTodayStepsCount" -> syncHandler.onMethodCall(call, result)
             "getTodayCaloriesCount" -> syncHandler.onMethodCall(call, result)
+            "getTodayHeartRate" -> syncHandler.onMethodCall(call, result)
 
             "isStepsAvailable" -> stepsHandler.onMethodCall(call, result)
             "isBackgroundAndroidStepsActive" -> stepsHandler.onMethodCall(call, result)
             "enableBackgroundAndroidSteps" -> stepsHandler.onMethodCall(call, result)
             "disableBackgroundAndroidSteps" -> stepsHandler.onMethodCall(call, result)
             "syncTodayAndroidStepsCount" -> stepsHandler.onMethodCall(call, result)
-
-            "scheduleYesterdaySync" -> continuousUploadHandler.onMethodCall(call, result)
-
-            "getAvailableDataSources" -> dataSourcesHandler.onMethodCall(call, result)
-            "getDataSourceAuthorizer" -> dataSourcesHandler.onMethodCall(call, result)
-            "getAuthorizedDataSources" -> dataSourcesHandler.onMethodCall(call, result)
-            "getAuthorizedDataSourcesV2" -> dataSourcesHandler.onMethodCall(call, result)
-            "revokeDataSource" -> dataSourcesHandler.onMethodCall(call, result)
-            "presentDataSourceView" -> dataSourcesHandler.onMethodCall(call, result)
 
             "isScheduled" -> backgroundSyncHandler.onMethodCall(call, result)
             "schedule" -> backgroundSyncHandler.onMethodCall(call, result)
@@ -237,9 +220,6 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         if (hasBackground) {
             Log.i("AutoSync", "Starting background sync...")
             rookBackgroundSyncManager.schedule(configuration.enableNativeLogs)
-        } else {
-            Log.i("AutoSync", "Starting continuous upload...")
-            rookContinuousUploadManager.launchInForegroundService(configuration.enableNativeLogs)
         }
 
         Log.i("AutoSync", "Starting steps counter...")

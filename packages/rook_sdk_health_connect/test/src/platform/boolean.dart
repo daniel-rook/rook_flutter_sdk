@@ -13,8 +13,7 @@ void booleanResultTests(
   MethodChannelRookSdkHealthConnect platform,
   MethodChannel channel,
 ) {
-  group('MethodChannelRookSdkHealthConnect | ResultBooleanProto success unwrap',
-      () {
+  group('MethodChannelRookSdkHealthConnect | ResultBooleanProto success unwrap', () {
     mockMethodCall(channel, (_) async {
       final proto = BooleanResultProto()..success = true;
 
@@ -33,27 +32,20 @@ void booleanResultTests(
       await expectLater(future, completes);
     });
 
-    test('GIVEN the happy path WHEN clearUserID THEN complete', () async {
-      final future = platform.clearUserID();
-
-      await expectLater(future, completes);
-    });
-
-    test('GIVEN the happy path WHEN deleteUserFromRook THEN complete',
-        () async {
-      final future = platform.deleteUserFromRook();
-
-      await expectLater(future, completes);
-    });
-
     test(
-      'GIVEN the happy path WHEN syncUserTimeZone THEN complete',
+      'GIVEN the happy path WHEN deleteUserFromRook THEN complete',
       () async {
-        final future = platform.syncUserTimeZone();
+        final future = platform.deleteUserFromRook();
 
         await expectLater(future, completes);
       },
     );
+
+    test('GIVEN the happy path WHEN syncUserTimeZone THEN complete', () async {
+      final future = platform.syncUserTimeZone();
+
+      await expectLater(future, completes);
+    });
 
     test(
       'GIVEN the happy path WHEN openHealthConnectSettings THEN complete',
@@ -87,7 +79,7 @@ void booleanResultTests(
       () async {
         final future = platform.syncHistoricSummaries(true);
 
-        await expectLater(future, completion(true));
+        await expectLater(future, completes);
       },
     );
 
@@ -96,7 +88,7 @@ void booleanResultTests(
       () async {
         final future = platform.syncSummariesByDate(DateTime.now());
 
-        await expectLater(future, completion(true));
+        await expectLater(future, completes);
       },
     );
 
@@ -108,7 +100,7 @@ void booleanResultTests(
           HCSummarySyncType.sleep,
         );
 
-        await expectLater(future, completion(true));
+        await expectLater(future, completes);
       },
     );
 
@@ -120,7 +112,7 @@ void booleanResultTests(
           HCEventSyncType.activity,
         );
 
-        await expectLater(future, completion(true));
+        await expectLater(future, completes);
       },
     );
 
@@ -160,33 +152,14 @@ void booleanResultTests(
       },
     );
 
-    test('GIVEN the happy path WHEN scheduleYesterdaySync THEN complete',
-        () async {
-      final future = platform.scheduleYesterdaySync(true);
-
-      await expectLater(future, completes);
-    });
-
-    test('GIVEN the happy path WHEN presentDataSourceView THEN complete',
-        () async {
-      final future = platform.presentDataSourceView("http://tryrook.io");
-
-      await expectLater(future, completes);
-    });
-
-    test('GIVEN the happy path WHEN revokeDataSource THEN complete', () async {
-      final future = platform.revokeDataSource("Garmin");
-
-      await expectLater(future, completes);
-    });
-
     test(
-        'GIVEN the happy path WHEN isScheduled THEN complete with expected value',
-        () async {
-      final future = platform.isScheduled();
+      'GIVEN the happy path WHEN isScheduled THEN complete with expected value',
+      () async {
+        final future = platform.isScheduled();
 
-      await expectLater(future, completion(true));
-    });
+        await expectLater(future, completion(true));
+      },
+    );
 
     test('GIVEN the happy path WHEN schedule THEN complete', () async {
       final future = platform.schedule(true, false);
@@ -201,12 +174,9 @@ void booleanResultTests(
     });
   });
 
-  group(
-      'MethodChannelRookSdkHealthConnect | ResultBooleanProto exception unwrap',
-      () {
+  group('MethodChannelRookSdkHealthConnect | ResultBooleanProto exception unwrap', () {
     mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
+      final failure = SDKExceptionProto.create()
         ..message = "message"
         ..code = 500;
 
@@ -221,26 +191,23 @@ void booleanResultTests(
       await expectLater(future, throwsException);
     });
 
-    test('GIVEN the unhappy path WHEN updateUserID THEN throw exception',
-        () async {
-      final future = platform.updateUserID('userID');
+    test(
+      'GIVEN the unhappy path WHEN updateUserID THEN throw exception',
+      () async {
+        final future = platform.updateUserID('userID');
 
-      await expectLater(future, throwsException);
-    });
+        await expectLater(future, throwsException);
+      },
+    );
 
-    test('GIVEN the unhappy path WHEN clearUserID THEN throw exception',
-        () async {
-      final future = platform.clearUserID();
+    test(
+      'GIVEN the unhappy path WHEN deleteUserFromRook THEN throw exception',
+      () async {
+        final future = platform.deleteUserFromRook();
 
-      await expectLater(future, throwsException);
-    });
-
-    test('GIVEN the unhappy path WHEN deleteUserFromRook THEN throw exception',
-        () async {
-      final future = platform.deleteUserFromRook();
-
-      await expectLater(future, throwsException);
-    });
+        await expectLater(future, throwsException);
+      },
+    );
 
     test(
       'GIVEN the unhappy path WHEN syncUserTimeZone throw exception',
@@ -357,33 +324,6 @@ void booleanResultTests(
     );
 
     test(
-      'GIVEN the unhappy path WHEN scheduleYesterdaySync THEN throw exception',
-      () async {
-        final future = platform.scheduleYesterdaySync(true);
-
-        await expectLater(future, throwsException);
-      },
-    );
-
-    test(
-      'GIVEN the unhappy path WHEN presentDataSourceView THEN throw exception',
-      () async {
-        final future = platform.presentDataSourceView("http://tryrook.io");
-
-        await expectLater(future, throwsException);
-      },
-    );
-
-    test(
-      'GIVEN the unhappy path WHEN revokeDataSource THEN throw exception',
-      () async {
-        final future = platform.revokeDataSource("Fitbit");
-
-        await expectLater(future, throwsException);
-      },
-    );
-
-    test(
       'GIVEN the unhappy path WHEN isScheduled THEN throw exception',
       () async {
         final future = platform.isScheduled();
@@ -392,23 +332,17 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the unhappy path WHEN schedule THEN throw exception',
-      () async {
-        final future = platform.schedule(true, false);
+    test('GIVEN the unhappy path WHEN schedule THEN throw exception', () async {
+      final future = platform.schedule(true, false);
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN cancel THEN throw exception',
-      () async {
-        final future = platform.cancel();
+    test('GIVEN the unhappy path WHEN cancel THEN throw exception', () async {
+      final future = platform.cancel();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
   });
 }
 

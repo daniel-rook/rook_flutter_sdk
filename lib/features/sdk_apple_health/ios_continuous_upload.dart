@@ -4,7 +4,6 @@ import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 
 const String iosContinuousUploadRoute = '/ios/continuous-upload';
@@ -58,31 +57,28 @@ class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
   }
 
   void automaticallyStartContinuousUpload() async {
-    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
+    final enabled = await AppPreferences().getAppleHealthContinuousUpload();
 
-    if (autoSyncAcceptation) {
+    if (enabled) {
       continuousUploadOutput.clear();
 
       setState(() {
         continuousUploadOutput.append("Enabling continuous upload...");
       });
 
-      AHRookContinuousUpload.enableContinuousUpload(
-        clientUUID: Secrets.clientUUID,
-        secretKey: Secrets.secretKey,
-        environment: rookEnvironment,
-        enableNativeLogs: isDebug,
-      ).then((_) {
-        setState(() {
-          continuousUploadOutput.append("Continuous upload enabled");
-        });
-      }).catchError((error) {
-        setState(() {
-          continuousUploadOutput.append(
-            "Error enabling continuous upload $error",
-          );
-        });
-      });
+      AHRookContinuousUpload.enableContinuousUpload(enableNativeLogs: isDebug)
+          .then((_) {
+            setState(() {
+              continuousUploadOutput.append("Continuous upload enabled");
+            });
+          })
+          .catchError((error) {
+            setState(() {
+              continuousUploadOutput.append(
+                "Error enabling continuous upload $error",
+              );
+            });
+          });
     } else {
       continuousUploadOutput.clear();
 
@@ -90,31 +86,33 @@ class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
         continuousUploadOutput.append("Disabling continuous upload...");
       });
 
-      AHRookContinuousUpload.disableContinuousUpload().then((_) {
-        setState(() {
-          continuousUploadOutput.append("Continuous upload disabled");
-        });
-      }).catchError((error) {
-        setState(() {
-          continuousUploadOutput.append(
-            "Error disabling continuous upload $error",
-          );
-        });
-      });
+      AHRookContinuousUpload.disableContinuousUpload()
+          .then((_) {
+            setState(() {
+              continuousUploadOutput.append("Continuous upload disabled");
+            });
+          })
+          .catchError((error) {
+            setState(() {
+              continuousUploadOutput.append(
+                "Error disabling continuous upload $error",
+              );
+            });
+          });
     }
 
     setState(() {
-      continuousChecked = autoSyncAcceptation;
+      continuousChecked = enabled;
     });
   }
 
   void enableContinuousUpload() async {
-    await AppPreferences().setAutoSyncAcceptation(true);
+    await AppPreferences().setAppleHealthContinuousUpload(true);
     automaticallyStartContinuousUpload();
   }
 
   void disableContinuousUpload() async {
-    await AppPreferences().setAutoSyncAcceptation(false);
+    await AppPreferences().setAppleHealthContinuousUpload(false);
     automaticallyStartContinuousUpload();
   }
 }

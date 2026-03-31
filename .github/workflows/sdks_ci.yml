@@ -16,7 +16,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -36,7 +36,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -56,7 +56,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -87,7 +87,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -107,7 +107,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -127,7 +127,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -156,7 +156,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -187,7 +187,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -207,7 +207,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -227,7 +227,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -262,14 +262,14 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Create fake secrets.dart file
-        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secretKey = 'secretKey';}" >> lib/secrets.dart
+        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secret = 'secret';static String packageName = 'packageName';}" >> lib/secrets.dart
 
       - name: Build project
         run: flutter build apk --debug
@@ -285,7 +285,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -316,7 +316,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -336,7 +336,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -356,7 +356,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
@@ -391,14 +391,14 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Create fake secrets.dart file
-        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secretKey = 'secretKey';}" >> lib/secrets.dart
+        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secret = 'secret';static String packageName = 'packageName';}" >> lib/secrets.dart
 
       - name: Build project
         run: flutter build apk --debug
@@ -414,7 +414,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.27.4
+          flutter-version: 3.38.5
       - run: flutter --version
 
       - name: Install dependencies

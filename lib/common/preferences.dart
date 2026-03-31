@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:logging/logging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,36 +21,52 @@ class AppPreferences {
     }
   }
 
-  Future<void> setAutoSyncAcceptation(bool acceptation) async {
+  Future<void> setSamsungHealthBackgroundSync(bool enabled) async {
     final preferences = await _getOrCreatePreferences();
 
-    if (Platform.isAndroid) {
-      preferences.setBool(_acceptedAndroidAutoSyncKey, acceptation);
-    } else {
-      preferences.setBool(_acceptedIosAutoSyncKey, acceptation);
-    }
+    preferences.setBool(_samsungHealthBackgroundSync, enabled);
   }
 
-  Future<bool> getAutoSyncAcceptation() async {
+  Future<bool> getSamsungHealthBackgroundSync() async {
     final preferences = await _getOrCreatePreferences();
 
-    if (Platform.isAndroid) {
-      return preferences.getBool(_acceptedAndroidAutoSyncKey) ?? false;
-    } else {
-      return preferences.getBool(_acceptedIosAutoSyncKey) ?? false;
-    }
+    return preferences.getBool(_samsungHealthBackgroundSync) ?? false;
   }
 
-  Future<void> setSamsungAutoSyncAcceptation(bool acceptation) async {
+  Future<void> setHealthConnectBackgroundSync(bool enabled) async {
     final preferences = await _getOrCreatePreferences();
 
-    preferences.setBool(_acceptedSamsungAutoSyncKey, acceptation);
+    preferences.setBool(_healthConnectBackgroundSync, enabled);
   }
 
-  Future<bool> getSamsungAutoSyncAcceptation() async {
+  Future<bool> getHealthConnectBackgroundSync() async {
     final preferences = await _getOrCreatePreferences();
 
-    return preferences.getBool(_acceptedSamsungAutoSyncKey) ?? false;
+    return preferences.getBool(_healthConnectBackgroundSync) ?? false;
+  }
+
+  Future<void> setAppleHealthBackgroundSync(bool enabled) async {
+    final preferences = await _getOrCreatePreferences();
+
+    preferences.setBool(_appleHealthBackgroundSync, enabled);
+  }
+
+  Future<bool> getAppleHealthBackgroundSync() async {
+    final preferences = await _getOrCreatePreferences();
+
+    return preferences.getBool(_appleHealthBackgroundSync) ?? false;
+  }
+
+  Future<void> setAppleHealthContinuousUpload(bool enabled) async {
+    final preferences = await _getOrCreatePreferences();
+
+    preferences.setBool(_appleHealthContinuousUpload, enabled);
+  }
+
+  Future<bool> getAppleHealthContinuousUpload() async {
+    final preferences = await _getOrCreatePreferences();
+
+    return preferences.getBool(_appleHealthContinuousUpload) ?? false;
   }
 
   static final AppPreferences _instance = AppPreferences._();
@@ -62,6 +76,7 @@ class AppPreferences {
   }
 }
 
-const _acceptedSamsungAutoSyncKey = "SAMSUNG_AUTO_SYNC";
-const _acceptedAndroidAutoSyncKey = "ANDROID_AUTO_SYNC";
-const _acceptedIosAutoSyncKey = "IOS_AUTO_SYNC";
+const _samsungHealthBackgroundSync = "SAMSUNG_HEALTH_BACKGROUND_SYNC";
+const _healthConnectBackgroundSync = "HEALTH_CONNECT_BACKGROUND_SYNC";
+const _appleHealthBackgroundSync = "APPLE_HEALTH_BACKGROUND_SYNC";
+const _appleHealthContinuousUpload = "APPLE_HEALTH_CONTINUOUS_UPLOAD";

@@ -9,7 +9,7 @@ void main() {
       () {
         final rookConfiguration = RookConfiguration(
           clientUUID: "rookUrl",
-          secretKey: "clientUUID",
+          secret: "secret",
           environment: RookEnvironment.production,
           enableBackgroundSync: true,
         );
@@ -17,7 +17,7 @@ void main() {
         final result = rookConfiguration.toProto();
 
         expect(result.clientUUID, rookConfiguration.clientUUID);
-        expect(result.secretKey, rookConfiguration.secretKey);
+        expect(result.secret, rookConfiguration.secret);
         expect(result.environment.name, "PRODUCTION");
         expect(
           result.enableBackgroundSync,

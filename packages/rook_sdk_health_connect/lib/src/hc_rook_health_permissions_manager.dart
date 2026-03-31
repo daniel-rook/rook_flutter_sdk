@@ -102,7 +102,7 @@ class HCRookHealthPermissionsManager {
   ///
   /// ```dart
   /// // 1.- Create a stream subscription
-  /// StreamSubscription<bool>? streamSubscription;
+  /// StreamSubscription<HealthConnectPermissionsSummary>? streamSubscription;
   ///
   /// // 2.- Listen to stream
   /// streamSubscription = HCRookHealthPermissionsManager.requestHealthConnectPermissionsUpdates.listen((permissionsSummary) {
@@ -124,9 +124,10 @@ class HCRookHealthPermissionsManager {
   /// streamSubscription?.cancel();
   /// ```
   static Stream<HealthConnectPermissionsSummary>
-      get requestHealthConnectPermissionsUpdates {
+  get requestHealthConnectPermissionsUpdates {
     return RookSdkHealthConnectPlatform
-        .instance.requestHealthConnectPermissionsUpdates;
+        .instance
+        .requestHealthConnectPermissionsUpdates;
   }
 
   /// Revoke (reset) all granted health connect permissions.
@@ -186,7 +187,7 @@ class HCRookHealthPermissionsManager {
   ///
   /// ```dart
   /// // 1.- Create a stream subscription
-  /// StreamSubscription<bool>? streamSubscription;
+  /// StreamSubscription<AndroidPermissionsSummary>? streamSubscription;
   ///
   /// // 2.- Listen to stream
   /// streamSubscription = HCRookHealthPermissionsManager.requestAndroidPermissionsUpdates.listen((permissionsSummary) {
@@ -210,8 +211,9 @@ class HCRookHealthPermissionsManager {
   /// streamSubscription?.cancel();
   /// ```
   static Stream<AndroidPermissionsSummary>
-      get requestAndroidPermissionsUpdates {
+  get requestAndroidPermissionsUpdates {
     return RookSdkHealthConnectPlatform
-        .instance.requestAndroidPermissionsUpdates;
+        .instance
+        .requestAndroidPermissionsUpdates;
   }
 }

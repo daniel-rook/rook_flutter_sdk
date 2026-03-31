@@ -21,15 +21,15 @@ public interface BooleanResultProtoOrBuilder extends
   boolean getSuccess();
 
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    * @return Whether the failure field is set.
    */
   boolean hasFailure();
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    * @return The failure.
    */
-  io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto getFailure();
+  io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto getFailure();
 
   public io.tryrook.rook_sdk_samsung_health.proto.BooleanResultProto.ResultCase getResultCase();
 }

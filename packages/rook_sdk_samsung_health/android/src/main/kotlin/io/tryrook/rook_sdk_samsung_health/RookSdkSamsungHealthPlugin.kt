@@ -82,11 +82,11 @@ class RookSdkSamsungHealthPlugin : FlutterPlugin, MethodCallHandler {
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
+            "getDiagnosticState" -> configurationHandler.onMethodCall(call, result)
             "enableNativeLogs" -> configurationHandler.onMethodCall(call, result)
             "getUserID" -> configurationHandler.onMethodCall(call, result)
             "initRook" -> configurationHandler.onMethodCall(call, result)
             "updateUserID" -> configurationHandler.onMethodCall(call, result)
-            "clearUserID" -> configurationHandler.onMethodCall(call, result)
             "deleteUserFromRook" -> configurationHandler.onMethodCall(call, result)
             "syncUserTimeZone" -> configurationHandler.onMethodCall(call, result)
 
@@ -105,6 +105,7 @@ class RookSdkSamsungHealthPlugin : FlutterPlugin, MethodCallHandler {
             "getActivityEvents" -> syncHandler.onMethodCall(call, result)
             "getTodayStepsCount" -> syncHandler.onMethodCall(call, result)
             "getTodayCaloriesCount" -> syncHandler.onMethodCall(call, result)
+            "getTodayHeartRate" -> syncHandler.onMethodCall(call, result)
 
             "isScheduled" -> backgroundSyncHandler.onMethodCall(call, result)
             "schedule" -> backgroundSyncHandler.onMethodCall(call, result)

@@ -43,15 +43,12 @@ class BackgroundErrorsObserver: NSObject, FlutterStreamHandler {
                 return
             }
 
-            let pluginExceptionProto = PluginExceptionProto.with {
-                $0.id = error.getPluginExceptionId()
-                $0.code = error.getPluginExceptionCode()
-                $0.message = error.getPluginExceptionMessage()
+            let exception = SDKExceptionProto.with {
+                $0.code = error.getSDKExceptionCode()
+                $0.message = error.getSDKExceptionMessage()
             }
 
-            let nullableBytes = try? ResultDataSourcesProto.with {
-                $0.pluginExceptionProto = pluginExceptionProto
-            }.serializedData()
+            let nullableBytes = try? exception.serializedData()
 
             guard let bytes: Data = nullableBytes else {
                 return

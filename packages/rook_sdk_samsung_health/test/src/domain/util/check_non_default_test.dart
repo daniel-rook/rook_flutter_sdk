@@ -45,7 +45,9 @@ void main() {
     test('returns value for infinity (not default, not NaN)', () {
       expect(double.infinity.checkNonDefault(), double.infinity);
       expect(
-          double.negativeInfinity.checkNonDefault(), double.negativeInfinity);
+        double.negativeInfinity.checkNonDefault(),
+        double.negativeInfinity,
+      );
     });
   });
 

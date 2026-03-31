@@ -4,8 +4,7 @@ import 'package:rook_sdk_samsung_health/src/data/proto/protos.pbenum.dart';
 import 'package:rook_sdk_samsung_health/src/domain/enums/samsung_health_availability.dart';
 
 void main() {
-  group('SamsungHealthAvailabilityProto to SamsungHealthAvailability mappers',
-      () {
+  group('SamsungHealthAvailabilityProto to SamsungHealthAvailability mappers', () {
     test(
       'GIVEN SamsungHealthAvailabilityProto.INSTALLED WHEN toDomain THEN return SamsungHealthAvailability.installed',
       () {

@@ -1,3 +1,81 @@
+## 4.0.0
+
+### New Features
+
+**Data Source Management (RookApiSources)**
+
+A new class, `RookApiSources`, has been introduced to manage third-party integrations. This class provides the
+following capabilities:
+
+* Authorization: Generate and retrieve authorization URLs for various health data sources.
+* Status Tracking: Check which data sources a specific user has already authorized.
+* Revocation: Revoke authorization for a specific data source.
+
+**New Data Models & Exceptions**
+
+* Data Models:
+    * `HeartRate`
+* Exception Types::
+    * `HealthKitOutdatedException`
+    * `HealthKitDisabledException`
+    * `HealthKitNotReadyException`
+    * `MissingPermissionsException`
+    * `RecordsNotFoundException`
+    * `SessionExpiredException`
+    * `UnknownException`
+
+### Breaking Changes
+
+**Centralized Exception Handling (SDKException)**
+
+Exception classes now inherit from a base `SDKException` and are marked as final. This structure provides a unified way
+to parse errors using `SDKExceptionCode`.
+
+**Exception Hierarchy Changes**
+
+The following exceptions are now final and inherit from `SDKException`:
+
+* `ConnectTimeoutException`
+* `DateNotValidForEventsException`
+* `DateNotValidForSummariesException`
+* `MissingConfigurationException`
+* `SDKNotAuthorizedException`
+* `SDKNotInitializedException`
+* `UserNotInitializedException`
+
+**HttpRequestException**
+
+The `HttpRequestException` has been restructured to align with the new base class:
+
+* The `code` property now refers to an `SDKExceptionCode`.
+* The `error` property has been removed.
+* Both the HTTP error code and the server message are now encapsulated within the `message` property.
+
+**Data Model Updates**
+
+To better reflect potential null values from health providers, the `DailyCalories` model has been updated:
+
+| Property | Previous Type | New Type |
+|----------|---------------|----------|
+| basal    | Double        | Double?  |
+| active   | Double        | Double?  |
+
+### Migrations
+
+The following exceptions have been removed as they are no longer thrown by the current SDK version:
+
+* `BadUserTimeZoneException`
+* `UserNotDeletedException`
+* `UserNotRegisteredException`
+
+| Legacy Component                           | New Component                         |
+|--------------------------------------------|---------------------------------------|
+| `MissingHealthConnectPermissionsException` | `MissingPermissionsException`         |
+| `MissingAndroidPermissionsException`       | `MissingPermissionsException`         |
+| `HealthConnectNotInstalledException`       | `HealthKitNotInstalledException`      |
+| `DeviceNotSupportedException`              | `HealthKitNotSupportedException`      |
+| `RequestQuotaExceededException`            | `HealthConnectQuotaExceededException` |
+
 ## 1.2.0
 
 * Added `SleepSummary`
@@ -18,7 +96,7 @@
 ## 0.4.5
 
 * Added `DailyCalories`
-* Added equals and hashCode implementation to `data_source`, `rook_configuration` and `authorized_data_sources`. 
+* Added equals and hashCode implementation to `data_source`, `rook_configuration` and `authorized_data_sources`.
 
 ## 0.4.4
 
@@ -36,7 +114,7 @@
 
 * Added BadUserTimeZoneException.
 * Added DateNotValidForEventsException.
-* Added DateNotValidForSummariesException. 
+* Added DateNotValidForSummariesException.
 * Added UserNotDeletedException.
 * Added UserNotRegisteredException.
 * MissingPermissionsException was renamed to MissingHealthConnectPermissionsException.

@@ -17,7 +17,6 @@ class IOSUserManagement extends StatefulWidget {
 class _IOSUserManagementState extends State<IOSUserManagement> {
   final Logger logger = Logger('IOSUserManagement');
 
-  final ConsoleOutput clearUserOutput = ConsoleOutput();
   final ConsoleOutput deleteUserOutput = ConsoleOutput();
   final ConsoleOutput syncTimezoneUserOutput = ConsoleOutput();
 
@@ -25,15 +24,17 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
 
   @override
   void initState() {
-    AHRookConfigurationManager.getUserID().then((userID) {
-      setState(() {
-        this.userID = userID;
-      });
-    }).catchError((error) {
-      setState(() {
-        userID = '$error';
-      });
-    });
+    AHRookConfigurationManager.getUserID()
+        .then((userID) {
+          setState(() {
+            this.userID = userID;
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            userID = '$error';
+          });
+        });
     super.initState();
   }
 
@@ -52,18 +53,12 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
             onPressed: updateTimeZoneInformation,
             child: const Text("syncUserTimeZone"),
           ),
-          const SectionTitle('Delete (locally) user'),
-          Text(clearUserOutput.current),
-          FilledButton(
-            onPressed: clearUser,
-            child: const Text("clearUserID"),
-          ),
           const SectionTitle('Delete (deactivate) user from ROOK'),
           Text(deleteUserOutput.current),
           FilledButton(
             onPressed: deleteUser,
             child: const Text("deleteUserFromRook"),
-          )
+          ),
         ],
       ),
     );
@@ -76,34 +71,19 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
       syncTimezoneUserOutput.append('Updating user timezone...');
     });
 
-    AHRookConfigurationManager.syncUserTimeZone().then((_) {
-      setState(() {
-        syncTimezoneUserOutput.append('User timezone updated successfully');
-      });
-    }).catchError((error) {
-      setState(() {
-        syncTimezoneUserOutput.append('Error updating user timezone: $error');
-      });
-    });
-  }
-
-  void clearUser() {
-    deleteUserOutput.clear();
-
-    setState(() {
-      deleteUserOutput.append('Clearing user...');
-    });
-
-    AHRookConfigurationManager.clearUserID().then((_) {
-      setState(() {
-        deleteUserOutput.append('User cleared');
-        userID = '';
-      });
-    }).catchError((error) {
-      setState(() {
-        deleteUserOutput.append('Error clearing user: $error');
-      });
-    });
+    AHRookConfigurationManager.syncUserTimeZone()
+        .then((_) {
+          setState(() {
+            syncTimezoneUserOutput.append('User timezone updated successfully');
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            syncTimezoneUserOutput.append(
+              'Error updating user timezone: $error',
+            );
+          });
+        });
   }
 
   void deleteUser() {
@@ -113,15 +93,17 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
       deleteUserOutput.append('Deleting user from rook...');
     });
 
-    AHRookConfigurationManager.deleteUserFromRook().then((_) {
-      setState(() {
-        deleteUserOutput.append('User deleted from rook');
-        userID = '';
-      });
-    }).catchError((error) {
-      setState(() {
-        deleteUserOutput.append('Error deleting user from rook: $error');
-      });
-    });
+    AHRookConfigurationManager.deleteUserFromRook()
+        .then((_) {
+          setState(() {
+            deleteUserOutput.append('User deleted from rook');
+            userID = '';
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            deleteUserOutput.append('Error deleting user from rook: $error');
+          });
+        });
   }
 }

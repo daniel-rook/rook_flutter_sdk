@@ -4,22 +4,23 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
 
 void main() {
   group(
-      'HealthConnectPermissionsSummaryProto to HealthConnectPermissionsSummary mappers',
-      () {
-    test(
-      'GIVEN the happy path WHEN toDomain THEN return the expected result',
-      () {
-        final proto = HealthConnectPermissionsSummaryProto.create()
-          ..dataTypesGranted = false
-          ..dataTypesPartiallyGranted = true
-          ..backgroundReadGranted = false;
+    'HealthConnectPermissionsSummaryProto to HealthConnectPermissionsSummary mappers',
+    () {
+      test(
+        'GIVEN the happy path WHEN toDomain THEN return the expected result',
+        () {
+          final proto = HealthConnectPermissionsSummaryProto.create()
+            ..dataTypesGranted = false
+            ..dataTypesPartiallyGranted = true
+            ..backgroundReadGranted = false;
 
-        final result = proto.toDomain();
+          final result = proto.toDomain();
 
-        expect(result.dataTypesGranted, false);
-        expect(result.dataTypesPartiallyGranted, true);
-        expect(result.backgroundReadGranted, false);
-      },
-    );
-  });
+          expect(result.dataTypesGranted, false);
+          expect(result.dataTypesPartiallyGranted, true);
+          expect(result.backgroundReadGranted, false);
+        },
+      );
+    },
+  );
 }

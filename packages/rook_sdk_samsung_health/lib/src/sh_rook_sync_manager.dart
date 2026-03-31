@@ -6,7 +6,7 @@ import 'package:rook_sdk_samsung_health/src/platform/rook_sdk_samsung_health_pla
 class SHRookSyncManager {
   SHRookSyncManager._();
 
-  static Future<bool> sync({
+  static Future<void> sync({
     bool? enableLogs,
     DateTime? date,
     SHSummarySyncType? summary,
@@ -24,27 +24,25 @@ class SHRookSyncManager {
           summary,
         );
       } else {
-        return RookSdkSamsungHealthPlatform.instance.syncSummariesByDate(
-          date,
-        );
+        return RookSdkSamsungHealthPlatform.instance.syncSummariesByDate(date);
       }
     }
 
     throw UnsupportedError('At least one parameter is required');
   }
 
-  static Future<bool> syncEvents(DateTime date, SHEventSyncType event) {
+  static Future<void> syncEvents(DateTime date, SHEventSyncType event) {
     return RookSdkSamsungHealthPlatform.instance.syncByDateAndEvent(
       date,
       event,
     );
   }
 
-  static Future<SyncStatusWithData<int>> getTodayStepsCount() {
+  static Future<int> getTodayStepsCount() {
     return RookSdkSamsungHealthPlatform.instance.getTodayStepsCount();
   }
 
-  static Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount() {
+  static Future<DailyCalories> getTodayCaloriesCount() {
     return RookSdkSamsungHealthPlatform.instance.getTodayCaloriesCount();
   }
 }

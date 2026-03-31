@@ -12,3 +12,4 @@ key.properties
 **/*.keystore
 **/*.jks
 /app/src/main/kotlin/io/tryrook/rook_flutter_sdk/Secrets.kt
+/.kotlin/

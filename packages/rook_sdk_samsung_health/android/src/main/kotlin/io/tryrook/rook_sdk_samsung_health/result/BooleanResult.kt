@@ -1,11 +1,10 @@
 package io.tryrook.rook_sdk_samsung_health.result
 
 import io.flutter.plugin.common.MethodChannel
-import io.tryrook.rook_sdk_samsung_health.extension.getPluginExceptionCode
-import io.tryrook.rook_sdk_samsung_health.extension.getPluginExceptionId
-import io.tryrook.rook_sdk_samsung_health.extension.getPluginExceptionMessage
+import io.tryrook.rook_sdk_samsung_health.extension.getSDKExceptionCode
+import io.tryrook.rook_sdk_samsung_health.extension.getSDKExceptionMessage
 import io.tryrook.rook_sdk_samsung_health.proto.BooleanResultProto
-import io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto
+import io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto
 
 fun MethodChannel.Result.booleanSuccess(boolean: Boolean) {
     val bytes = BooleanResultProto.newBuilder()
@@ -17,13 +16,12 @@ fun MethodChannel.Result.booleanSuccess(boolean: Boolean) {
 }
 
 fun MethodChannel.Result.booleanError(throwable: Throwable) {
-    val pluginExceptionProto = PluginExceptionProto.newBuilder()
-        .setId(throwable.getPluginExceptionId())
-        .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getPluginExceptionMessage())
+    val exception = SDKExceptionProto.newBuilder()
+        .setCode(throwable.getSDKExceptionCode())
+        .setMessage(throwable.getSDKExceptionMessage())
 
     val bytes = BooleanResultProto.newBuilder()
-        .setFailure(pluginExceptionProto)
+        .setFailure(exception)
         .build()
         .toByteArray()
 

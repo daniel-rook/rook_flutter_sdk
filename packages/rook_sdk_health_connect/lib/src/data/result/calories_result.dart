@@ -1,0 +1,32 @@
+import 'package:rook_sdk_core/rook_sdk_core.dart';
+import 'package:rook_sdk_health_connect/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_health_connect/src/domain/util/check_non_default.dart';
+
+extension CaloriesResult on CaloriesResultProto {
+  DailyCalories unwrap() {
+    final resultType = whichResult();
+
+    switch (resultType) {
+      case CaloriesResultProto_Result.success:
+        return success.toDomain();
+      case CaloriesResultProto_Result.failure:
+        final exception = SDKException.fromCode(
+          code: failure.code,
+          message: failure.message,
+        );
+
+        throw exception;
+      default:
+        throw Exception("Unknown error");
+    }
+  }
+}
+
+extension CaloriesMapper on CaloriesProto {
+  DailyCalories toDomain() {
+    return DailyCalories(
+      basal: basal.checkNonDefault(),
+      active: active.checkNonDefault(),
+    );
+  }
+}

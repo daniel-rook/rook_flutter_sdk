@@ -15,17 +15,29 @@ import io.tryrook.rook_sdk_samsung_health.result.bodySummaryError
 import io.tryrook.rook_sdk_samsung_health.result.bodySummarySuccess
 import io.tryrook.rook_sdk_samsung_health.result.booleanError
 import io.tryrook.rook_sdk_samsung_health.result.booleanSuccess
+import io.tryrook.rook_sdk_samsung_health.result.caloriesError
+import io.tryrook.rook_sdk_samsung_health.result.caloriesSuccess
+import io.tryrook.rook_sdk_samsung_health.result.heartRateError
+import io.tryrook.rook_sdk_samsung_health.result.heartRateSuccess
+import io.tryrook.rook_sdk_samsung_health.result.int64Error
+import io.tryrook.rook_sdk_samsung_health.result.int64Success
 import io.tryrook.rook_sdk_samsung_health.result.physicalSummaryError
 import io.tryrook.rook_sdk_samsung_health.result.physicalSummarySuccess
 import io.tryrook.rook_sdk_samsung_health.result.sleepSummaryError
 import io.tryrook.rook_sdk_samsung_health.result.sleepSummarySuccess
-import io.tryrook.rook_sdk_samsung_health.result.syncStatusWithDailyCaloriesError
-import io.tryrook.rook_sdk_samsung_health.result.syncStatusWithDailyCaloriesSuccess
-import io.tryrook.rook_sdk_samsung_health.result.syncStatusWithIntError
-import io.tryrook.rook_sdk_samsung_health.result.syncStatusWithIntSuccess
 import io.tryrook.sdk.samsung.RookSamsung
+import io.tryrook.sdk.samsung.domain.enums.SHSyncStatus
+import io.tryrook.sdk.samsung.domain.exception.SHRecordsNotFoundException
+import io.tryrook.sdk.samsung.domain.model.SHActivityEvent
+import io.tryrook.sdk.samsung.domain.model.SHBodySummary
+import io.tryrook.sdk.samsung.domain.model.SHCalories
+import io.tryrook.sdk.samsung.domain.model.SHHeartRate
+import io.tryrook.sdk.samsung.domain.model.SHPhysicalSummary
+import io.tryrook.sdk.samsung.domain.model.SHSleepSummary
+import io.tryrook.sdk.samsung.domain.model.SHSyncStatusWithData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.time.Instant
 
 class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSamsung: RookSamsung) {
@@ -48,14 +60,31 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
                 val millis = methodCall.getLongArgAt(0)
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
-                rookSamsung.sync(localDate).fold(
-                    {
-                        methodResult.booleanSuccess(it)
-                    },
-                    {
-                        methodResult.booleanError(it)
-                    },
-                )
+                val result = rookSamsung.sync(localDate)
+
+                try {
+                    val sleepSummaryStatus = result.sleepSummary.getOrThrow()
+                    val physicalSummaryStatus = result.physicalSummary.getOrThrow()
+                    val bodySummaryStatus = result.bodySummary.getOrThrow()
+
+                    Timber.i("Sleep Summary: $sleepSummaryStatus")
+                    Timber.i("Physical Summary: $physicalSummaryStatus")
+                    Timber.i("Body Summary: $bodySummaryStatus")
+
+                    val noSleepData = sleepSummaryStatus == SHSyncStatus.RECORDS_NOT_FOUND
+                    val noPhysicalData = physicalSummaryStatus == SHSyncStatus.RECORDS_NOT_FOUND
+                    val noBodyData = bodySummaryStatus == SHSyncStatus.RECORDS_NOT_FOUND
+
+                    if (noSleepData && noPhysicalData && noBodyData) {
+                        val throwable = SHRecordsNotFoundException("Sleep, Physical and Body summary")
+
+                        methodResult.booleanError(throwable)
+                    } else {
+                        methodResult.booleanSuccess(true)
+                    }
+                } catch (exception: Exception) {
+                    methodResult.booleanError(exception)
+                }
             }
 
             "syncByDateAndSummary" -> coroutineScope.launch {
@@ -66,8 +95,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
                 }
 
                 rookSamsung.sync(localDate, summary).fold(
-                    {
-                        methodResult.booleanSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            SHSyncStatus.SYNCED -> {
+                                methodResult.booleanSuccess(true)
+                            }
+
+                            SHSyncStatus.RECORDS_NOT_FOUND -> {
+                                methodResult.booleanError(SHRecordsNotFoundException(summary.name))
+                            }
+                        }
                     },
                     {
                         methodResult.booleanError(it)
@@ -83,8 +120,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
                 }
 
                 rookSamsung.syncEvents(localDate, event).fold(
-                    {
-                        methodResult.booleanSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            SHSyncStatus.SYNCED -> {
+                                methodResult.booleanSuccess(true)
+                            }
+
+                            SHSyncStatus.RECORDS_NOT_FOUND -> {
+                                methodResult.booleanError(SHRecordsNotFoundException(event.name))
+                            }
+                        }
                     },
                     {
                         methodResult.booleanError(it)
@@ -97,8 +142,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
                 rookSamsung.getSleepSummary(localDate).fold(
-                    {
-                        methodResult.sleepSummarySuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SHSyncStatusWithData.Synced<List<SHSleepSummary>> -> {
+                                methodResult.sleepSummarySuccess(syncStatus.data)
+                            }
+
+                            SHSyncStatusWithData.RecordsNotFound -> {
+                                methodResult.sleepSummaryError(SHRecordsNotFoundException("Sleep Summary"))
+                            }
+                        }
                     },
                     {
                         methodResult.sleepSummaryError(it)
@@ -111,8 +164,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
                 rookSamsung.getPhysicalSummary(localDate).fold(
-                    {
-                        methodResult.physicalSummarySuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SHSyncStatusWithData.Synced<SHPhysicalSummary> -> {
+                                methodResult.physicalSummarySuccess(syncStatus.data)
+                            }
+
+                            SHSyncStatusWithData.RecordsNotFound -> {
+                                methodResult.physicalSummaryError(SHRecordsNotFoundException("Physical Summary"))
+                            }
+                        }
                     },
                     {
                         methodResult.physicalSummaryError(it)
@@ -125,8 +186,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
                 rookSamsung.getBodySummary(localDate).fold(
-                    {
-                        methodResult.bodySummarySuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SHSyncStatusWithData.Synced<SHBodySummary> -> {
+                                methodResult.bodySummarySuccess(syncStatus.data)
+                            }
+
+                            SHSyncStatusWithData.RecordsNotFound -> {
+                                methodResult.bodySummaryError(SHRecordsNotFoundException("Body Summary"))
+                            }
+                        }
                     },
                     {
                         methodResult.bodySummaryError(it)
@@ -139,8 +208,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
                 rookSamsung.getActivityEvents(localDate).fold(
-                    {
-                        methodResult.activityEventSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SHSyncStatusWithData.Synced<List<SHActivityEvent>> -> {
+                                methodResult.activityEventSuccess(syncStatus.data)
+                            }
+
+                            SHSyncStatusWithData.RecordsNotFound -> {
+                                methodResult.activityEventError(SHRecordsNotFoundException("Activity Event"))
+                            }
+                        }
                     },
                     {
                         methodResult.activityEventError(it)
@@ -150,22 +227,57 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSa
 
             "getTodayStepsCount" -> coroutineScope.launch {
                 rookSamsung.getTodayStepsCount().fold(
-                    {
-                        methodResult.syncStatusWithIntSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SHSyncStatusWithData.Synced<Int> -> {
+                                methodResult.int64Success(syncStatus.data.toLong())
+                            }
+
+                            SHSyncStatusWithData.RecordsNotFound -> {
+                                methodResult.int64Error(SHRecordsNotFoundException("Steps"))
+                            }
+                        }
                     },
                     {
-                        methodResult.syncStatusWithIntError(it)
+                        methodResult.int64Error(it)
                     },
                 )
             }
 
             "getTodayCaloriesCount" -> coroutineScope.launch {
                 rookSamsung.getTodayCaloriesCount().fold(
-                    {
-                        methodResult.syncStatusWithDailyCaloriesSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SHSyncStatusWithData.Synced<SHCalories> -> {
+                                methodResult.caloriesSuccess(syncStatus.data)
+                            }
+
+                            SHSyncStatusWithData.RecordsNotFound -> {
+                                methodResult.caloriesError(SHRecordsNotFoundException("Calories"))
+                            }
+                        }
                     },
                     {
-                        methodResult.syncStatusWithDailyCaloriesError(it)
+                        methodResult.caloriesError(it)
+                    },
+                )
+            }
+
+            "getTodayHeartRate" -> coroutineScope.launch {
+                rookSamsung.getTodayHeartRate().fold(
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SHSyncStatusWithData.Synced<SHHeartRate> -> {
+                                methodResult.heartRateSuccess(syncStatus.data)
+                            }
+
+                            SHSyncStatusWithData.RecordsNotFound -> {
+                                methodResult.heartRateError(SHRecordsNotFoundException("Heart Rate"))
+                            }
+                        }
+                    },
+                    {
+                        methodResult.caloriesError(it)
                     },
                 )
             }

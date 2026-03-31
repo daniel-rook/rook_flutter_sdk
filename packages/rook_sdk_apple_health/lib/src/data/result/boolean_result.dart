@@ -1,5 +1,5 @@
-import 'package:rook_sdk_apple_health/src/data/mapper/plugin_exception_mappers.dart';
 import 'package:rook_sdk_apple_health/src/data/proto/protos.pb.dart';
+import 'package:rook_sdk_core/rook_sdk_core.dart';
 
 extension BooleanResult on BooleanResultProto {
   bool unwrap() {
@@ -9,7 +9,12 @@ extension BooleanResult on BooleanResultProto {
       case BooleanResultProto_Result.success:
         return success;
       case BooleanResultProto_Result.failure:
-        throw failure.toDartException();
+        final exception = SDKException.fromCode(
+          code: failure.code,
+          message: failure.message,
+        );
+
+        throw exception;
       default:
         throw Exception("Unknown error");
     }

@@ -3,7 +3,6 @@ import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
 const String androidSyncRoute = '/android/sync';
@@ -31,6 +30,7 @@ class _AndroidSyncState extends State<AndroidSync> {
   final ConsoleOutput getSingleEventOutput = ConsoleOutput();
   final ConsoleOutput getTodayStepsOutput = ConsoleOutput();
   final ConsoleOutput getTodayCaloriesOutput = ConsoleOutput();
+  final ConsoleOutput getTodayHeartRateOutput = ConsoleOutput();
 
   @override
   void initState() {
@@ -85,18 +85,12 @@ class _AndroidSyncState extends State<AndroidSync> {
               summarySyncType = selection ?? HCSummarySyncType.sleep;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(
-                value: HCSummarySyncType.sleep,
-                label: "Sleep",
-              ),
+              DropdownMenuEntry(value: HCSummarySyncType.sleep, label: "Sleep"),
               DropdownMenuEntry(
                 value: HCSummarySyncType.physical,
                 label: "Physical",
               ),
-              DropdownMenuEntry(
-                value: HCSummarySyncType.body,
-                label: "Body",
-              ),
+              DropdownMenuEntry(value: HCSummarySyncType.body, label: "Body"),
             ],
           ),
           Text(syncSingleSummaryOutput.current),
@@ -117,18 +111,12 @@ class _AndroidSyncState extends State<AndroidSync> {
               summarySyncType = selection ?? HCSummarySyncType.sleep;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(
-                value: HCSummarySyncType.sleep,
-                label: "Sleep",
-              ),
+              DropdownMenuEntry(value: HCSummarySyncType.sleep, label: "Sleep"),
               DropdownMenuEntry(
                 value: HCSummarySyncType.physical,
                 label: "Physical",
               ),
-              DropdownMenuEntry(
-                value: HCSummarySyncType.body,
-                label: "Body",
-              ),
+              DropdownMenuEntry(value: HCSummarySyncType.body, label: "Body"),
             ],
           ),
           Text(getSingleSummaryOutput.current),
@@ -185,10 +173,7 @@ class _AndroidSyncState extends State<AndroidSync> {
                 value: HCEventSyncType.temperature,
                 label: "Temperature",
               ),
-              DropdownMenuEntry(
-                value: HCEventSyncType.steps,
-                label: "Steps",
-              ),
+              DropdownMenuEntry(value: HCEventSyncType.steps, label: "Steps"),
               DropdownMenuEntry(
                 value: HCEventSyncType.calories,
                 label: "Calories",
@@ -235,6 +220,12 @@ class _AndroidSyncState extends State<AndroidSync> {
           FilledButton(
             onPressed: getTodayCalories,
             child: const Text('Get today calories'),
+          ),
+          const SectionTitle('Get today heart rate'),
+          Text(getTodayHeartRateOutput.current),
+          FilledButton(
+            onPressed: getTodayHeartRate,
+            child: const Text('Get today heart rate'),
           ),
         ],
       ),
@@ -398,9 +389,7 @@ class _AndroidSyncState extends State<AndroidSync> {
           data = "Not implemented yet.";
       }
 
-      getSingleEventOutput.append(
-        "$date $eventSyncType synced successfully",
-      );
+      getSingleEventOutput.append("$date $eventSyncType synced successfully");
 
       setState(() {
         getSingleEventOutput.append(data);
@@ -422,21 +411,11 @@ class _AndroidSyncState extends State<AndroidSync> {
     );
 
     try {
-      final syncStatusWithData = await HCRookSyncManager.getTodayStepsCount();
+      final steps = await HCRookSyncManager.getTodayStepsCount();
 
-      switch (syncStatusWithData) {
-        case Synced(data: final steps):
-          setState(
-            () =>
-                getTodayStepsOutput.append('$steps steps synced successfully'),
-          );
-          break;
-        case RecordsNotFound():
-          setState(
-            () => getTodayStepsOutput.append('Steps events not found'),
-          );
-          break;
-      }
+      setState(
+        () => getTodayStepsOutput.append('$steps steps synced successfully'),
+      );
     } catch (error) {
       setState(
         () => getTodayStepsOutput.append('Error syncing Steps events: $error'),
@@ -448,33 +427,44 @@ class _AndroidSyncState extends State<AndroidSync> {
     getTodayCaloriesOutput.clear();
 
     setState(
-      () => getTodayCaloriesOutput.append(
-        'Syncing calories events of today...',
-      ),
+      () =>
+          getTodayCaloriesOutput.append('Syncing calories events of today...'),
     );
 
     try {
-      final syncStatusWithData =
-          await HCRookSyncManager.getTodayCaloriesCount();
+      final calories = await HCRookSyncManager.getTodayCaloriesCount();
 
-      switch (syncStatusWithData) {
-        case Synced(data: final calories):
-          setState(
-            () => getTodayCaloriesOutput.append(
-              '$calories synced successfully',
-            ),
-          );
-          break;
-        case RecordsNotFound():
-          setState(
-            () => getTodayCaloriesOutput.append('Calories events not found'),
-          );
-          break;
-      }
+      setState(
+        () => getTodayCaloriesOutput.append('$calories synced successfully'),
+      );
     } catch (error) {
       setState(
         () => getTodayCaloriesOutput.append(
           'Error syncing Calories events: $error',
+        ),
+      );
+    }
+  }
+
+  void getTodayHeartRate() async {
+    getTodayHeartRateOutput.clear();
+
+    setState(
+      () => getTodayHeartRateOutput.append(
+        'Syncing heart rate events of today...',
+      ),
+    );
+
+    try {
+      final heartRate = await HCRookSyncManager.getTodayHeartRate();
+
+      setState(
+        () => getTodayHeartRateOutput.append('$heartRate synced successfully'),
+      );
+    } catch (error) {
+      setState(
+        () => getTodayHeartRateOutput.append(
+          'Error syncing heart rate events: $error',
         ),
       );
     }

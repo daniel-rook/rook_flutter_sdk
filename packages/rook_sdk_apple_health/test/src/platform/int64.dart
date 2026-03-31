@@ -19,35 +19,39 @@ void int64ResultTests(
     });
 
     test(
-      'GIVEN a Result.value WHEN getTodayStepsCount THEN complete with expected value',
+      "GIVEN success WHEN getTodayStepsCount THEN return a SyncStatusWithData<int>",
       () async {
         final future = platform.getTodayStepsCount();
 
-        await expectLater(future, completion(1000));
+        await expectLater(
+          future,
+          completion(predicate<int>((steps) => steps == 1000)),
+        );
       },
     );
   });
 
-  group('MethodChannelRookSdkAppleHealth | ResultInt64Proto exception unwrap',
-      () {
-    mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
-        ..message = "message"
-        ..code = 500;
+  group(
+    'MethodChannelRookSdkAppleHealth | ResultInt64Proto exception unwrap',
+    () {
+      mockMethodCall(channel, (_) async {
+        final failure = SDKExceptionProto.create()
+          ..message = "message"
+          ..code = 500;
 
-      final proto = Int64ResultProto.create()..failure = failure;
+        final proto = Int64ResultProto.create()..failure = failure;
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      'GIVEN the unhappy path WHEN getTodayStepsCount THEN throw exception',
-      () async {
-        final future = platform.getTodayStepsCount();
+      test(
+        "GIVEN failure WHEN getTodayStepsCount THEN throw exception",
+        () async {
+          final future = platform.getTodayStepsCount();
 
-        await expectLater(future, throwsException);
-      },
-    );
-  });
+          await expectLater(future, throwsException);
+        },
+      );
+    },
+  );
 }

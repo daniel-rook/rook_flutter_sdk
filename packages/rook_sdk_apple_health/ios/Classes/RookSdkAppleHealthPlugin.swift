@@ -29,27 +29,34 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
+        case "getDiagnosticState":
+            Task {
+                let diagnosticState = await RookConnectConfigurationManager.shared.getDiagnosticState()
+                
+                diagnosticStateSuccess(flutterResult: result, state: diagnosticState)
+            }
+            break
         case "enableNativeLogs":
             RookConnectConfigurationManager.shared.setConsoleLogAvailable(true)
             break
         case "setConfiguration":
-            let bytes = call.getDataArgAt(0)
+            do {
+                let bytes = call.getDataArgAt(0)
+                let configuration = try ConfigurationProto(serializedBytes: bytes.data)
 
-            runWithValue(
-                flutterResult: result,
-                builder: { try ConfigurationProto(serializedBytes: bytes.data) },
-                block: { it in
-                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
-                    RookConnectConfigurationManager.shared.setConfiguration(
-                        clientUUID: it.clientUuid,
-                        secretKey: it.secretKey,
-                        enableBackgroundSync: it.enableBackgroundSync,
-                        enableEventsBackgroundSync: it.enableBackgroundSync
-                    )
+                RookConnectConfigurationManager.shared.setEnvironment(configuration.environment.toDomain())
+                RookConnectConfigurationManager.shared.setConfiguration(
+                    clientUUID: configuration.clientUuid,
+                    secret: configuration.secret,
+                    bundleId: configuration.appID.checkNonDefault(),
+                    enableBackgroundSync: configuration.enableBackgroundSync,
+                    enableEventsBackgroundSync: configuration.enableBackgroundSync
+                )
 
-                    boolSuccess(flutterResult: result, success: true)
-                }
-            )
+                boolSuccess(flutterResult: result, success: true)
+            } catch {
+                boolError(flutterResult: result, error: error)
+            }
             break
         case "getUserID":
             userManager.getUserId { it in
@@ -75,16 +82,6 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             let userID = call.getStringArgAt(0)
 
             userManager.updateUserId(userID) { it in
-                switch it {
-                case let Result.success(success):
-                    boolSuccess(flutterResult: result, success: success)
-                case let Result.failure(error):
-                    boolError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "clearUserID":
-            userManager.clearUser { it in
                 switch it {
                 case let Result.success(success):
                     boolSuccess(flutterResult: result, success: success)
@@ -124,23 +121,12 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
 
-            if permissions.isEmpty {
-                rookConnectPermissionsManager.requestAllPermissions { it in
-                    switch it {
-                    case let Result.success(success):
-                        boolSuccess(flutterResult: result, success: success)
-                    case let Result.failure(error):
-                        boolError(flutterResult: result, error: error)
-                    }
-                }
-            } else {
-                rookConnectPermissionsManager.requestPermissions(permissions) { it in
-                    switch it {
-                    case let Result.success(success):
-                        boolSuccess(flutterResult: result, success: success)
-                    case let Result.failure(error):
-                        boolError(flutterResult: result, error: error)
-                    }
+            rookConnectPermissionsManager.requestPermissions(permissions) { it in
+                switch it {
+                case let Result.success(success):
+                    boolSuccess(flutterResult: result, success: success)
+                case let Result.failure(error):
+                    boolError(flutterResult: result, error: error)
                 }
             }
             break
@@ -210,7 +196,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             }
             break
         case "getSleepSummary":
-            Task(priority: .background) {
+            Task {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
@@ -219,71 +205,55 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
                     sleepSummarySuccess(flutterResult: result, sleepSummary: sleepSummaries)
                 } catch {
-                    if error.isRecordsNotFound() {
-                        sleepSummarySuccess(flutterResult: result, sleepSummary: [])
-                    } else {
-                        sleepSummaryError(flutterResult: result, error: error)
-                    }
+                    sleepSummaryError(flutterResult: result, error: error)
                 }
             }
         case "getPhysicalSummary":
-            Task(priority: .background) {
+            Task {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
-                    
+
                     let physicalSummary = try await rookSummaryManager.getPhysicalSummary(date: date)
-                    
+
                     physicalSummarySuccess(flutterResult: result, physicalSummary: physicalSummary)
                 } catch {
-                    if error.isRecordsNotFound() {
-                        physicalSummarySuccess(flutterResult: result, physicalSummary: nil)
-                    } else {
-                        physicalSummaryError(flutterResult: result, error: error)
-                    }
+                    physicalSummaryError(flutterResult: result, error: error)
                 }
             }
         case "getBodySummary":
-            Task(priority: .background) {
+            Task {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
-                    
+
                     let bodySummary = try await rookSummaryManager.getBodySummary(date: date)
-                    
+
                     bodySummarySuccess(flutterResult: result, bodySummary: bodySummary)
                 } catch {
-                    if error.isRecordsNotFound() {
-                        bodySummarySuccess(flutterResult: result, bodySummary: nil)
-                    } else {
-                        bodySummaryError(flutterResult: result, error: error)
-                    }
+                    bodySummaryError(flutterResult: result, error: error)
                 }
             }
         case "getActivityEvents":
-            Task(priority: .background) {
+            Task {
                 do {
                     let millis = call.getInt64ArgAt(0)
                     let date = buildDateFromMillis(millis)
-                    
+
                     let activityEvents = try await rookEventsManager.getActivityEvents(date: date)
-                    
+
                     activityEventSuccess(flutterResult: result, activityEvent: activityEvents)
                 } catch {
-                    if error.isRecordsNotFound() {
-                        activityEventSuccess(flutterResult: result, activityEvent: [])
-                    } else {
-                        activityEventError(flutterResult: result, error: error)
-                    }
+                    activityEventError(flutterResult: result, error: error)
                 }
             }
         case "getTodayStepsCount":
             rookEventsManager.getTodayStepCount { it in
                 switch it {
                 case let Result.success(steps):
-                    intSuccess(flutterResult: result, int: steps)
+                    int64Success(flutterResult: result, int: steps)
                 case let Result.failure(error):
-                    intError(flutterResult: result, error: error)
+                    int64Error(flutterResult: result, error: error)
                 }
             }
             break
@@ -297,6 +267,16 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
                 }
             }
             break
+        case "getTodayHeartRate":
+            rookEventsManager.getTodayHeartRate { it in
+                switch it {
+                case let Result.success(hearRate):
+                    hearRateSuccess(flutterResult: result, rookHeartRate: hearRate)
+                case let Result.failure(error):
+                    hearRateError(flutterResult: result, error: error)
+                }
+            }
+            break
         case "isContinuousUploadEnabled":
             let enabled = RookConnectConfigurationManager.shared.isSyncEnable()
 
@@ -304,33 +284,10 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
             break
         case "enableContinuousUpload":
             let enableNativeLogs = call.getBoolArgAt(0)
-            let bytes = call.getDataArgAt(1)
 
-            runWithValue(
-                flutterResult: result,
-                builder: { try ConfigurationProto(serializedBytes: bytes.data) },
-                block: { it in
-                    RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
-                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
-                    RookConnectConfigurationManager.shared.setConfiguration(
-                        clientUUID: it.clientUuid,
-                        secretKey: it.secretKey,
-                        enableBackgroundSync: true,
-                        enableEventsBackgroundSync: true
-                    )
+            RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
 
-                    RookConnectConfigurationManager.shared.initRook { it in
-                        switch it {
-                        case Result.success:
-                            RookConnectConfigurationManager.shared.enableSync()
-
-                            boolSuccess(flutterResult: result, success: true)
-                        case let Result.failure(error):
-                            boolError(flutterResult: result, error: error)
-                        }
-                    }
-                }
-            )
+            RookConnectConfigurationManager.shared.enableSync()
             break
         case "disableContinuousUpload":
             RookConnectConfigurationManager.shared.disableSync()
@@ -343,114 +300,21 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
 
             boolSuccess(flutterResult: result, success: summariesEnabled && eventsEnabled)
             break
-        case "enableBackground":
+        case "schedule":
             let enableNativeLogs = call.getBoolArgAt(0)
-            let bytes = call.getDataArgAt(1)
 
-            runWithValue(
-                flutterResult: result,
-                builder: { try ConfigurationProto(serializedBytes: bytes.data) },
-                block: { it in
-                    RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
-                    RookConnectConfigurationManager.shared.setEnvironment(it.environment.toDomain())
-                    RookConnectConfigurationManager.shared.setConfiguration(
-                        clientUUID: it.clientUuid,
-                        secretKey: it.secretKey,
-                        enableBackgroundSync: true,
-                        enableEventsBackgroundSync: true
-                    )
+            RookConnectConfigurationManager.shared.setConsoleLogAvailable(enableNativeLogs)
 
-                    RookConnectConfigurationManager.shared.initRook { it in
-                        switch it {
-                        case Result.success:
-                            RookBackGroundSync.shared.enableBackGroundForSummaries()
-                            RookBackGroundSync.shared.enableBackGroundForEvents()
+            RookBackGroundSync.shared.enableBackGroundForSummaries()
+            RookBackGroundSync.shared.enableBackGroundForEvents()
 
-                            boolSuccess(flutterResult: result, success: true)
-                        case let Result.failure(error):
-                            boolError(flutterResult: result, error: error)
-                        }
-                    }
-                }
-            )
+            boolSuccess(flutterResult: result, success: true)
             break
-        case "disableBackground":
+        case "cancel":
             RookBackGroundSync.shared.disableBackGroundForSummaries()
             RookBackGroundSync.shared.disableBackGroundForEvents()
 
             boolSuccess(flutterResult: result, success: true)
-            break
-        case "getAvailableDataSources":
-            let redirectUrl = call.getNullableStringArgAt(0)
-
-            dataSourcesManager.getAvailableDataSources(redirectURL: redirectUrl) { it in
-                switch it {
-                case let Result.success(dataSources):
-                    dataSourcesSuccess(flutterResult: result, dataSources: dataSources)
-                case let Result.failure(error):
-                    dataSourcesError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "getDataSourceAuthorizer":
-            let dataSource = call.getStringArgAt(0)
-            let redirectUrl = call.getNullableStringArgAt(1)
-
-            dataSourcesManager.getDataSourceAuthorizer(dataSource: dataSource, redirectUrl: redirectUrl) { it in
-                switch it {
-                case let Result.success(dataSourceAuthorizer):
-                    dataSourceAuthorizerSuccess(flutterResult: result, dataSourceAuthorizer: dataSourceAuthorizer)
-                case let Result.failure(error):
-                    dataSourceAuthorizerError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "getAuthorizedDataSources":
-            Task(priority: .background) {
-                do {
-                    let statusDataSources: StatusDataSources = try await dataSourcesManager.getAuthorizedDataSources()
-
-                    authorizedDataSourcesSuccess(flutterResult: result, statusDataSources: statusDataSources)
-                } catch {
-                    authorizedDataSourcesError(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "getAuthorizedDataSourcesV2":
-            Task(priority: .background) {
-                do {
-                    let dataSources: [DataSourceStatus] = try await dataSourcesManager.getAuthorizedDataSources()
-
-                    authorizedDataSourceV2Success(flutterResult: result, dataSources: dataSources)
-                } catch {
-                    authorizedDataSourceV2Error(flutterResult: result, error: error)
-                }
-            }
-            break
-        case "revokeDataSource":
-            let dataSource = call.getStringArgAt(0)
-
-            userManager.revokeDataSource(dataSource: dataSource) { success, error in
-                if let error = error {
-                    boolError(flutterResult: result, error: error)
-                } else {
-                    boolSuccess(flutterResult: result, success: success)
-                }
-            }
-            break
-        case "presentDataSourceView":
-            DispatchQueue.main.async {
-                let redirectUrl = call.getNullableStringArgAt(0)
-
-                self.dataSourcesManager.presentDataSourceView(redirectURL: redirectUrl) { it in
-                    switch it {
-                    case let Result.success(success):
-                        boolSuccess(flutterResult: result, success: success)
-                    case let Result.failure(error):
-                        boolError(flutterResult: result, error: error)
-                    }
-                }
-            }
             break
         default:
             result(FlutterMethodNotImplemented)

@@ -10,8 +10,7 @@ void requestPermissionsStatusTests(
   MethodChannelRookSdkHealthConnect platform,
   MethodChannel channel,
 ) {
-  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Success',
-      () {
+  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Success', () {
     mockMethodCall(channel, (_) async {
       final proto = RequestPermissionsStatusResultProto()
         ..success = RequestPermissionsStatusProto.REQUEST_SENT;
@@ -44,36 +43,37 @@ void requestPermissionsStatusTests(
     );
   });
 
-  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
-      () {
-    mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
-        ..message = "message"
-        ..code = 500;
+  group(
+    'MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
+    () {
+      mockMethodCall(channel, (_) async {
+        final failure = SDKExceptionProto.create()
+          ..message = "message"
+          ..code = 500;
 
-      final proto = RequestPermissionsStatusResultProto.create()
-        ..failure = failure;
+        final proto = RequestPermissionsStatusResultProto.create()
+          ..failure = failure;
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      "GIVEN failure WHEN requestHealthConnectPermissions THEN throw exception",
-      () async {
-        final future = platform.requestHealthConnectPermissions();
+      test(
+        "GIVEN failure WHEN requestHealthConnectPermissions THEN throw exception",
+        () async {
+          final future = platform.requestHealthConnectPermissions();
 
-        await expectLater(future, throwsException);
-      },
-    );
+          await expectLater(future, throwsException);
+        },
+      );
 
-    test(
-      "GIVEN failure WHEN requestAndroidPermissions THEN throw exception",
-      () async {
-        final future = platform.requestAndroidPermissions();
+      test(
+        "GIVEN failure WHEN requestAndroidPermissions THEN throw exception",
+        () async {
+          final future = platform.requestAndroidPermissions();
 
-        await expectLater(future, throwsException);
-      },
-    );
-  });
+          await expectLater(future, throwsException);
+        },
+      );
+    },
+  );
 }

@@ -10,49 +10,52 @@ void requestPermissionsStatusTests(
   MethodChannelRookSdkSamsungHealth platform,
   MethodChannel channel,
 ) {
-  group('MethodChannelRookSdkSamsungHealth | RequestPermissionsStatus Success',
-      () {
-    mockMethodCall(channel, (_) async {
-      final proto = RequestPermissionsStatusResultProto()
-        ..success = RequestPermissionsStatusProto.REQUEST_SENT;
+  group(
+    'MethodChannelRookSdkSamsungHealth | RequestPermissionsStatus Success',
+    () {
+      mockMethodCall(channel, (_) async {
+        final proto = RequestPermissionsStatusResultProto()
+          ..success = RequestPermissionsStatusProto.REQUEST_SENT;
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      "GIVEN success WHEN requestSamsungHealthPermissions THEN return a RequestPermissionsStatus",
-      () async {
-        final future = platform.requestSamsungHealthPermissions([]);
+      test(
+        "GIVEN success WHEN requestSamsungHealthPermissions THEN return a RequestPermissionsStatus",
+        () async {
+          final future = platform.requestSamsungHealthPermissions([]);
 
-        await expectLater(
-          future,
-          completion(RequestPermissionsStatus.requestSent),
-        );
-      },
-    );
-  });
+          await expectLater(
+            future,
+            completion(RequestPermissionsStatus.requestSent),
+          );
+        },
+      );
+    },
+  );
 
-  group('MethodChannelRookSdkSamsungHealth | RequestPermissionsStatus Failure',
-      () {
-    mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
-        ..message = "message"
-        ..code = 500;
+  group(
+    'MethodChannelRookSdkSamsungHealth | RequestPermissionsStatus Failure',
+    () {
+      mockMethodCall(channel, (_) async {
+        final failure = SDKExceptionProto.create()
+          ..message = "message"
+          ..code = 500;
 
-      final proto = RequestPermissionsStatusResultProto.create()
-        ..failure = failure;
+        final proto = RequestPermissionsStatusResultProto.create()
+          ..failure = failure;
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      "GIVEN failure WHEN requestSamsungHealthPermissions THEN throw exception",
-      () async {
-        final future = platform.requestSamsungHealthPermissions([]);
+      test(
+        "GIVEN failure WHEN requestSamsungHealthPermissions THEN throw exception",
+        () async {
+          final future = platform.requestSamsungHealthPermissions([]);
 
-        await expectLater(future, throwsException);
-      },
-    );
-  });
+          await expectLater(future, throwsException);
+        },
+      );
+    },
+  );
 }

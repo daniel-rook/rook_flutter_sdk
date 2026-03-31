@@ -31,26 +31,25 @@ void backgroundReadStatusTests(
     );
   });
 
-  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
-      () {
-    mockMethodCall(channel, (_) async {
-      final failure = PluginExceptionProto.create()
-        ..id = -1
-        ..message = "message"
-        ..code = 500;
+  group(
+    'MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
+    () {
+      mockMethodCall(channel, (_) async {
+        final failure = SDKExceptionProto.create()
+          ..message = "message"
+          ..code = 500;
 
-      final proto = BackgroundReadStatusResultProto.create()..failure = failure;
+        final proto = BackgroundReadStatusResultProto.create()
+          ..failure = failure;
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      "GIVEN failure WHEN unwrap THEN throw exception",
-      () async {
+      test("GIVEN failure WHEN unwrap THEN throw exception", () async {
         final future = platform.checkBackgroundReadStatus();
 
         await expectLater(future, throwsException);
-      },
-    );
-  });
+      });
+    },
+  );
 }

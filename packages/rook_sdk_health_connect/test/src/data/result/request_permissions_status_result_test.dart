@@ -39,19 +39,15 @@ void main() {
       },
     );
 
-    test(
-      "GIVEN failure WHEN unwrap THEN throw exception",
-      () {
-        final failure = PluginExceptionProto.create()
-          ..id = -1
-          ..message = "message"
-          ..code = 500;
+    test("GIVEN failure WHEN unwrap THEN throw exception", () {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final proto = RequestPermissionsStatusResultProto.create()
-          ..failure = failure;
+      final proto = RequestPermissionsStatusResultProto.create()
+        ..failure = failure;
 
-        expect(proto.unwrap, throwsException);
-      },
-    );
+      expect(proto.unwrap, throwsException);
+    });
   });
 }

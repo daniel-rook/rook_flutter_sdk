@@ -32,13 +32,9 @@ class ScrollableScaffold extends StatelessWidget {
       ),
       floatingActionButton: floatingActionButton,
       body: Container(
-        padding: padding +
-            EdgeInsets.fromLTRB(
-              systemPadding.left,
-              0,
-              systemPadding.right,
-              0,
-            ),
+        padding:
+            padding +
+            EdgeInsets.fromLTRB(systemPadding.left, 0, systemPadding.right, 0),
         alignment: alignment,
         child: SingleChildScrollView(
           padding: EdgeInsets.fromLTRB(0, 0, 0, systemPadding.bottom),

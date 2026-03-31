@@ -35,6 +35,31 @@ extension RookHRVRmssdGranular {
     }
 }
 
+extension RookHeartRateItem {
+    func toGranularProto() -> HrGranularDataProto {
+        return HrGranularDataProto.with {
+            $0.dateTime = dateTime.toProtoString()
+            $0.hrBpm = hrBPM.toInt32()
+        }
+    }
+}
+
+extension RookHRVItem {
+    func toGranularSdnnProto() -> HrvSdnnGranularDataProto {
+        return HrvSdnnGranularDataProto.with {
+            $0.dateTime = dateTime.toProtoString()
+            $0.hrvSdnn = hrv
+        }
+    }
+    
+    func toGranularRmssdProto() -> HrvRmssdGranularDataProto {
+        return HrvRmssdGranularDataProto.with {
+            $0.dateTime = dateTime.toProtoString()
+            $0.hrvRmssd = hrv
+        }
+    }
+}
+
 extension RookTemperatureGranular {
     func toGranularProto() -> TemperatureGranularDataProto {
         return TemperatureGranularDataProto.with {

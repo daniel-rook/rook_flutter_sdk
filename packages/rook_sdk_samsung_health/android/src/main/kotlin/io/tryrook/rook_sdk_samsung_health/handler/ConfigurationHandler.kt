@@ -9,6 +9,8 @@ import io.tryrook.rook_sdk_samsung_health.mapper.toSHConfiguration
 import io.tryrook.rook_sdk_samsung_health.proto.ConfigurationProto
 import io.tryrook.rook_sdk_samsung_health.result.booleanError
 import io.tryrook.rook_sdk_samsung_health.result.booleanSuccess
+import io.tryrook.rook_sdk_samsung_health.result.diagnosticStateError
+import io.tryrook.rook_sdk_samsung_health.result.diagnosticStateSuccess
 import io.tryrook.sdk.samsung.RookSamsung
 import io.tryrook.sdk.samsung.domain.analytics.SHRookAnalytics
 import io.tryrook.sdk.samsung.domain.analytics.SHRookFramework
@@ -24,6 +26,17 @@ class ConfigurationHandler(
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
+            "getDiagnosticState" -> coroutineScope.launch {
+                rookSamsung.getDiagnosticState().fold(
+                    {
+                        methodResult.diagnosticStateSuccess(it)
+                    },
+                    {
+                        methodResult.diagnosticStateError(it)
+                    },
+                )
+            }
+
             "enableNativeLogs" -> {
                 enableNativeLogs = true
                 rookSamsung.enableLocalLogs()
@@ -73,17 +86,6 @@ class ConfigurationHandler(
                     {
                         methodResult.booleanError(it)
                     }
-                )
-            }
-
-            "clearUserID" -> coroutineScope.launch {
-                rookSamsung.clearUserID().fold(
-                    {
-                        methodResult.booleanSuccess(true)
-                    },
-                    {
-                        methodResult.booleanError(it)
-                    },
                 )
             }
 

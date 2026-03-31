@@ -1,11 +1,17 @@
-/// Exception thrown when an http request could not be completed due to a timeout.
-class ConnectTimeoutException implements Exception {
-  final String message;
+import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 
-  ConnectTimeoutException(this.message);
+/// Thrown by:
+///
+/// * Apple Health SDK
+/// * Samsung Health SDK
+/// * Health Connect SDK
+/// * Core SDK
+final class ConnectTimeoutException extends SDKException {
+  const ConnectTimeoutException({required int code, required String message})
+    : super(code: code, message: message);
 
   @override
   String toString() {
-    return 'TimeoutException{message: $message}';
+    return 'ConnectTimeoutException{code: $code, message: $message}';
   }
 }

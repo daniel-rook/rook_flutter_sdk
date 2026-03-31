@@ -12,10 +12,10 @@ void main() {
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(channel, (_) async {
-      final proto = BooleanResultProto()..success = true;
+          final proto = BooleanResultProto()..success = true;
 
-      return proto.writeToBuffer();
-    });
+          return proto.writeToBuffer();
+        });
   });
 
   tearDown(() {
@@ -27,13 +27,13 @@ void main() {
     test("GIVEN enableLogs WHEN sync THEN return success", () async {
       final future = HCRookSyncManager.sync(enableLogs: true);
 
-      await expectLater(future, completion(true));
+      await expectLater(future, completes);
     });
 
     test("GIVEN date WHEN sync THEN return success", () async {
       final future = HCRookSyncManager.sync(date: DateTime.now());
 
-      await expectLater(future, completion(true));
+      await expectLater(future, completes);
     });
 
     test("GIVEN date and summary WHEN sync THEN return success", () async {
@@ -42,7 +42,7 @@ void main() {
         summary: HCSummarySyncType.sleep,
       );
 
-      await expectLater(future, completion(true));
+      await expectLater(future, completes);
     });
   });
 
@@ -52,8 +52,10 @@ void main() {
         HCRookSyncManager.sync();
       } catch (error) {
         expect(error, isA<UnsupportedError>());
-        expect((error as UnsupportedError).message,
-            "At least one parameter is required");
+        expect(
+          (error as UnsupportedError).message,
+          "At least one parameter is required",
+        );
         return;
       }
 

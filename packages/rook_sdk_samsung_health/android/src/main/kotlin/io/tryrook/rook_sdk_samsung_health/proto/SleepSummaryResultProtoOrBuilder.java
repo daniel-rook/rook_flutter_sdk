@@ -10,37 +10,26 @@ public interface SleepSummaryResultProtoOrBuilder extends
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>.SleepSummariesProto synced = 1;</code>
-   * @return Whether the synced field is set.
+   * <code>.SleepSummariesProto success = 1;</code>
+   * @return Whether the success field is set.
    */
-  boolean hasSynced();
+  boolean hasSuccess();
   /**
-   * <code>.SleepSummariesProto synced = 1;</code>
-   * @return The synced.
+   * <code>.SleepSummariesProto success = 1;</code>
+   * @return The success.
    */
-  io.tryrook.rook_sdk_samsung_health.proto.SleepSummariesProto getSynced();
+  io.tryrook.rook_sdk_samsung_health.proto.SleepSummariesProto getSuccess();
 
   /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @return Whether the recordsNotFound field is set.
-   */
-  boolean hasRecordsNotFound();
-  /**
-   * <code>bool recordsNotFound = 2;</code>
-   * @return The recordsNotFound.
-   */
-  boolean getRecordsNotFound();
-
-  /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    * @return Whether the failure field is set.
    */
   boolean hasFailure();
   /**
-   * <code>.PluginExceptionProto failure = 3;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    * @return The failure.
    */
-  io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto getFailure();
+  io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto getFailure();
 
   public io.tryrook.rook_sdk_samsung_health.proto.SleepSummaryResultProto.ResultCase getResultCase();
 }

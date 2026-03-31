@@ -1,15 +1,17 @@
-/// Exception thrown when a http request fails.
-///
-/// [code] The http status code.
-/// [error] The error message.
-class HttpRequestException implements Exception {
-  final int code;
-  final String error;
+import 'package:rook_sdk_core/src/exception/sdk_exception.dart';
 
-  HttpRequestException(this.code, this.error);
+/// Thrown by:
+///
+/// * Apple Health SDK
+/// * Samsung Health SDK
+/// * Health Connect SDK
+/// * Core SDK
+final class HttpRequestException extends SDKException {
+  const HttpRequestException({required int code, required String message})
+    : super(code: code, message: message);
 
   @override
   String toString() {
-    return 'HttpRequestException{code: $code, error: $error}';
+    return 'HttpRequestException{code: $code, message: $message}';
   }
 }

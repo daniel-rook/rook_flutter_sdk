@@ -4,51 +4,33 @@ import 'package:rook_sdk_samsung_health/src/data/result/sleep_summary_result.dar
 
 void main() {
   group("Result", () {
-    test(
-      "GIVEN synced WHEN unwrap THEN return a list of SleepSummary",
-      () {
-        final sleepSummary = SleepSummaryProto.create()
-          ..dateTime = "2020-01-01T00:00:00Z"
-          ..sourceOfData = "Test"
-          ..wasTheUserUnderPhysicalActivity = false
-          ..sleepStartDateTime = "2020-01-01T00:00:00Z"
-          ..sleepEndDateTime = "2020-01-01T00:00:00Z"
-          ..sleepDate = "2020-01-01";
+    test("GIVEN synced WHEN unwrap THEN return a list of SleepSummary", () {
+      final sleepSummary = SleepSummaryProto.create()
+        ..dateTime = "2020-01-01T00:00:00Z"
+        ..sourceOfData = "Test"
+        ..wasTheUserUnderPhysicalActivity = false
+        ..sleepStartDateTime = "2020-01-01T00:00:00Z"
+        ..sleepEndDateTime = "2020-01-01T00:00:00Z"
+        ..sleepDate = "2020-01-01";
 
-        final sleepSummaries = SleepSummariesProto.create()
-          ..elements.add(sleepSummary);
+      final sleepSummaries = SleepSummariesProto.create()
+        ..elements.add(sleepSummary);
 
-        final proto = SleepSummaryResultProto.create()..synced = sleepSummaries;
+      final proto = SleepSummaryResultProto.create()..success = sleepSummaries;
 
-        final result = proto.unwrap();
+      final result = proto.unwrap();
 
-        expect(result.length, 1);
-      },
-    );
+      expect(result.length, 1);
+    });
 
-    test(
-      "GIVEN recordsNotFound WHEN unwrap THEN return an empty list",
-      () {
-        final proto = SleepSummaryResultProto.create()..recordsNotFound = true;
+    test("GIVEN failure WHEN unwrap THEN throw exception", () {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final result = proto.unwrap();
+      final proto = SleepSummaryResultProto.create()..failure = failure;
 
-        expect(result.length, 0);
-      },
-    );
-
-    test(
-      "GIVEN failure WHEN unwrap THEN throw exception",
-      () {
-        final failure = PluginExceptionProto.create()
-          ..id = -1
-          ..message = "message"
-          ..code = 500;
-
-        final proto = SleepSummaryResultProto.create()..failure = failure;
-
-        expect(() => proto.unwrap(), throwsException);
-      },
-    );
+      expect(() => proto.unwrap(), throwsException);
+    });
   });
 }

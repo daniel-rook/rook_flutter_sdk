@@ -1,12 +1,11 @@
 package io.tryrook.rook_sdk_samsung_health.result
 
 import io.flutter.plugin.common.MethodChannel
-import io.tryrook.rook_sdk_samsung_health.extension.getPluginExceptionCode
-import io.tryrook.rook_sdk_samsung_health.extension.getPluginExceptionId
-import io.tryrook.rook_sdk_samsung_health.extension.getPluginExceptionMessage
-import io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto
+import io.tryrook.rook_sdk_samsung_health.extension.getSDKExceptionCode
+import io.tryrook.rook_sdk_samsung_health.extension.getSDKExceptionMessage
 import io.tryrook.rook_sdk_samsung_health.proto.RequestPermissionsStatusProto
 import io.tryrook.rook_sdk_samsung_health.proto.RequestPermissionsStatusResultProto
+import io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto
 import io.tryrook.sdk.samsung.domain.enums.SHRequestPermissionsStatus
 
 fun MethodChannel.Result.requestPermissionsStatusSuccess(requestPermissionsStatus: SHRequestPermissionsStatus) {
@@ -19,13 +18,12 @@ fun MethodChannel.Result.requestPermissionsStatusSuccess(requestPermissionsStatu
 }
 
 fun MethodChannel.Result.requestPermissionsStatusError(throwable: Throwable) {
-    val pluginExceptionProto = PluginExceptionProto.newBuilder()
-        .setId(throwable.getPluginExceptionId())
-        .setCode(throwable.getPluginExceptionCode())
-        .setMessage(throwable.getPluginExceptionMessage())
+    val exception = SDKExceptionProto.newBuilder()
+        .setCode(throwable.getSDKExceptionCode())
+        .setMessage(throwable.getSDKExceptionMessage())
 
     val bytes = RequestPermissionsStatusResultProto.newBuilder()
-        .setFailure(pluginExceptionProto)
+        .setFailure(exception)
         .build()
         .toByteArray()
 

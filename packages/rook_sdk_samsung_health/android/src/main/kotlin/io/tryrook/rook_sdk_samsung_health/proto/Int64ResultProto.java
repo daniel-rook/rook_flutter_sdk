@@ -98,38 +98,38 @@ public  final class Int64ResultProto extends
 
   public static final int FAILURE_FIELD_NUMBER = 2;
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   @java.lang.Override
   public boolean hasFailure() {
     return resultCase_ == 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   @java.lang.Override
-  public io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto getFailure() {
+  public io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto getFailure() {
     if (resultCase_ == 2) {
-       return (io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto) result_;
+       return (io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto) result_;
     }
-    return io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.getDefaultInstance();
+    return io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.getDefaultInstance();
   }
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
-  private void setFailure(io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto value) {
+  private void setFailure(io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto value) {
     value.getClass();
   result_ = value;
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
-  private void mergeFailure(io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto value) {
+  private void mergeFailure(io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto value) {
     value.getClass();
   if (resultCase_ == 2 &&
-        result_ != io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.getDefaultInstance()) {
-      result_ = io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.newBuilder((io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto) result_)
+        result_ != io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.getDefaultInstance()) {
+      result_ = io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.newBuilder((io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto) result_)
           .mergeFrom(value).buildPartial();
     } else {
       result_ = value;
@@ -137,7 +137,7 @@ public  final class Int64ResultProto extends
     resultCase_ = 2;
   }
   /**
-   * <code>.PluginExceptionProto failure = 2;</code>
+   * <code>.SDKExceptionProto failure = 2;</code>
    */
   private void clearFailure() {
     if (resultCase_ == 2) {
@@ -292,46 +292,46 @@ public  final class Int64ResultProto extends
     }
 
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     @java.lang.Override
     public boolean hasFailure() {
       return instance.hasFailure();
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     @java.lang.Override
-    public io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto getFailure() {
+    public io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto getFailure() {
       return instance.getFailure();
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
-    public Builder setFailure(io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto value) {
+    public Builder setFailure(io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto value) {
       copyOnWrite();
       instance.setFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     public Builder setFailure(
-        io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.Builder builderForValue) {
+        io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.Builder builderForValue) {
       copyOnWrite();
       instance.setFailure(builderForValue.build());
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
-    public Builder mergeFailure(io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto value) {
+    public Builder mergeFailure(io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto value) {
       copyOnWrite();
       instance.mergeFailure(value);
       return this;
     }
     /**
-     * <code>.PluginExceptionProto failure = 2;</code>
+     * <code>.SDKExceptionProto failure = 2;</code>
      */
     public Builder clearFailure() {
       copyOnWrite();
@@ -357,7 +357,7 @@ public  final class Int64ResultProto extends
           java.lang.Object[] objects = new java.lang.Object[] {
             "result_",
             "resultCase_",
-            io.tryrook.rook_sdk_samsung_health.proto.PluginExceptionProto.class,
+            io.tryrook.rook_sdk_samsung_health.proto.SDKExceptionProto.class,
           };
           java.lang.String info =
               "\u0000\u0002\u0001\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u00015\u0000\u0002<" +

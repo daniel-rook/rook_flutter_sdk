@@ -21,7 +21,8 @@ class HCRookBackgroundSync {
   /// streamSubscription?.cancel();
   /// ```
   @Deprecated(
-      "This element is not in stable state yet. It may be renamed, changed or even removed in a future version.")
+    "This element is not in stable state yet. It may be renamed, changed or even removed in a future version.",
+  )
   static Stream<bool> get isScheduledUpdates {
     return RookSdkHealthConnectPlatform.instance.isScheduledUpdates;
   }

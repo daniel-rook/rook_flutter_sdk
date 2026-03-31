@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/common/console_output.dart';
 import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/preferences.dart';
 import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/common/widget/section_title.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_background_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_continuous_upload.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_data_sources.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_sync.dart';
 import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_user_management.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
@@ -29,6 +27,7 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
   final ConsoleOutput configurationOutput = ConsoleOutput();
   final ConsoleOutput initializeOutput = ConsoleOutput();
   final ConsoleOutput updateUserOutput = ConsoleOutput();
+  final ConsoleOutput diagnosticOutput = ConsoleOutput();
   final ConsoleOutput requestAHPermissionsOutput = ConsoleOutput();
 
   bool enableNavigation = false;
@@ -49,15 +48,14 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
           ),
           const SectionTitle('2. Initialize SDK'),
           Text(initializeOutput.current),
-          FilledButton(
-            onPressed: initialize,
-            child: const Text('Initialize'),
-          ),
+          FilledButton(onPressed: initialize, child: const Text('Initialize')),
           const SectionTitle('3. Update user ID'),
           TextFormField(
             key: _formKey,
             decoration: const InputDecoration(
-                border: OutlineInputBorder(), hintText: 'User ID'),
+              border: OutlineInputBorder(),
+              hintText: 'User ID',
+            ),
             validator: validate,
             onSaved: updateUserID,
           ),
@@ -79,43 +77,34 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
           const SizedBox(height: 20),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      iosUserManagementRoute,
-                    )
+                ? () => Navigator.of(context).pushNamed(iosUserManagementRoute)
                 : null,
             child: const Text('User management'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      iosDataSourcesRoute,
-                    )
-                : null,
-            child: const Text('Data sources'),
-          ),
-          FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      iosSyncRoute,
-                    )
+                ? () => Navigator.of(context).pushNamed(iosSyncRoute)
                 : null,
             child: const Text('Manually sync health data'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      iosContinuousUploadRoute,
-                    )
+                ? () =>
+                      Navigator.of(context).pushNamed(iosContinuousUploadRoute)
                 : null,
             child: const Text('Continuous upload'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(
-                      iosBackgroundSyncRoute,
-                    )
+                ? () => Navigator.of(context).pushNamed(iosBackgroundSyncRoute)
                 : null,
             child: const Text('Background sync'),
+          ),
+          const SectionTitle("Diagnostic"),
+          Text(diagnosticOutput.current),
+          FilledButton(
+            onPressed: getDiagnosticState,
+            child: const Text("Get diagnostic state"),
           ),
         ],
       ),
@@ -130,13 +119,10 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
   }
 
   void setConfiguration() async {
-    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
-
     final rookConfiguration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
-      secretKey: Secrets.secretKey,
+      secret: Secrets.secret,
       environment: rookEnvironment,
-      // This should be based on user choice: autoSyncAcceptation
       enableBackgroundSync: false,
     );
 
@@ -163,16 +149,18 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
       initializeOutput.append('Initializing...');
     });
 
-    AHRookConfigurationManager.initRook().then((_) {
-      setState(() {
-        initializeOutput.append('SDK initialized successfully');
-      });
-      checkUserIDRegistered();
-    }).catchError((error) {
-      setState(() {
-        initializeOutput.append('Error initializing SDK: $error');
-      });
-    });
+    AHRookConfigurationManager.initRook()
+        .then((_) {
+          setState(() {
+            initializeOutput.append('SDK initialized successfully');
+          });
+          checkUserIDRegistered();
+        })
+        .catchError((error) {
+          setState(() {
+            initializeOutput.append('Error initializing SDK: $error');
+          });
+        });
   }
 
   void checkUserIDRegistered() {
@@ -181,13 +169,15 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
     AHRookConfigurationManager.getUserID().then((userID) {
       if (userID != null) {
         setState(() {
-          updateUserOutput
-              .append('Found local userID $userID, you can skip step 3');
+          updateUserOutput.append(
+            'Found local userID $userID, you can skip step 3',
+          );
         });
       } else {
         setState(
-          () => updateUserOutput
-              .append('Local userID not found, please set a userID'),
+          () => updateUserOutput.append(
+            'Local userID not found, please set a userID',
+          ),
         );
       }
     });
@@ -200,38 +190,75 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
       updateUserOutput.append('Updating userID...');
     });
 
-    AHRookConfigurationManager.updateUserID(userID!).then((_) {
-      setState(() {
-        updateUserOutput.append('userID updated successfully');
-      });
-    }).catchError((error) {
-      setState(() {
-        updateUserOutput.append('Error updating userID: $error');
-      });
-    });
+    AHRookConfigurationManager.updateUserID(userID!)
+        .then((_) {
+          setState(() {
+            updateUserOutput.append('userID updated successfully');
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            updateUserOutput.append('Error updating userID: $error');
+          });
+        });
   }
 
   void requestAppleHealthPermissions() {
     requestAHPermissionsOutput.clear();
 
     setState(() {
-      requestAHPermissionsOutput
-          .append('Requesting Apple Health permissions...');
+      requestAHPermissionsOutput.append(
+        'Requesting Apple Health permissions...',
+      );
     });
 
-    AHRookHealthPermissionsManager.requestPermissions().then((_) {
-      setState(() {
-        enableNavigation = true;
-        requestAHPermissionsOutput.append(
-          'Permissions request sent, if nothing happens open Apple Health settings and give permissions manually',
-        );
-      });
-    }).catchError((error) {
-      setState(() {
-        requestAHPermissionsOutput.append(
-          'Error requesting Apple Health permissions: $error',
-        );
-      });
+    AHRookHealthPermissionsManager.requestPermissions()
+        .then((_) {
+          setState(() {
+            enableNavigation = true;
+            requestAHPermissionsOutput.append(
+              'Permissions request sent, if nothing happens open Apple Health settings and give permissions manually',
+            );
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            requestAHPermissionsOutput.append(
+              'Error requesting Apple Health permissions: $error',
+            );
+          });
+        });
+  }
+
+  void getDiagnosticState() async {
+    diagnosticOutput.clear();
+
+    setState(() {
+      diagnosticOutput.append('Getting diagnostic state...');
     });
+
+    try {
+      final diagnosticState =
+          await AHRookConfigurationManager.getDiagnosticState();
+
+      diagnosticOutput.appendMultiple([
+        "Diagnostic state retrieved",
+        "IsConfigured: ${diagnosticState.isConfigured}",
+        "UserIdentified: ${diagnosticState.userIdentified}",
+        "Permissions: ${diagnosticState.permissions}",
+        "BackgroundSyncEnabled: ${diagnosticState.backgroundSync.enabled}",
+        "BackgroundSyncLastSync: ${diagnosticState.backgroundSync.lastSync}",
+        "ManualSyncEnabled: ${diagnosticState.manualSync.enabled}",
+        "ManualSyncLastSync: ${diagnosticState.manualSync.lastSync}",
+      ]);
+
+      setState(() {
+        diagnosticOutput.append('Diagnostic state retrieved successfully');
+      });
+    } catch (error) {
+      setState(() {
+        diagnosticOutput.append('Error getting diagnostic state: $error');
+      });
+    }
   }
 }

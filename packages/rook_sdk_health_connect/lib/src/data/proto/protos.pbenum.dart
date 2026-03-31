@@ -33,6 +33,30 @@ class EnvironmentProto extends $pb.ProtobufEnum {
   const EnvironmentProto._(super.value, super.name);
 }
 
+class DiagnosticStatePermissionsProto extends $pb.ProtobufEnum {
+  static const DiagnosticStatePermissionsProto NOT_REQUESTED =
+      DiagnosticStatePermissionsProto._(
+          0, _omitEnumNames ? '' : 'NOT_REQUESTED');
+  static const DiagnosticStatePermissionsProto REQUESTED =
+      DiagnosticStatePermissionsProto._(1, _omitEnumNames ? '' : 'REQUESTED');
+  static const DiagnosticStatePermissionsProto GRANTED =
+      DiagnosticStatePermissionsProto._(2, _omitEnumNames ? '' : 'GRANTED');
+
+  static const $core.List<DiagnosticStatePermissionsProto> values =
+      <DiagnosticStatePermissionsProto>[
+    NOT_REQUESTED,
+    REQUESTED,
+    GRANTED,
+  ];
+
+  static final $core.List<DiagnosticStatePermissionsProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static DiagnosticStatePermissionsProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const DiagnosticStatePermissionsProto._(super.value, super.name);
+}
+
 class HealthConnectAvailabilityProto extends $pb.ProtobufEnum {
   static const HealthConnectAvailabilityProto INSTALLED =
       HealthConnectAvailabilityProto._(0, _omitEnumNames ? '' : 'INSTALLED');
@@ -170,56 +194,6 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const EventSyncTypeProto._(super.value, super.name);
-}
-
-class SyncStatusProto extends $pb.ProtobufEnum {
-  static const SyncStatusProto SYNCED =
-      SyncStatusProto._(0, _omitEnumNames ? '' : 'SYNCED');
-  static const SyncStatusProto RECORDS_NOT_FOUND =
-      SyncStatusProto._(1, _omitEnumNames ? '' : 'RECORDS_NOT_FOUND');
-
-  static const $core.List<SyncStatusProto> values = <SyncStatusProto>[
-    SYNCED,
-    RECORDS_NOT_FOUND,
-  ];
-
-  static final $core.List<SyncStatusProto?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 1);
-  static SyncStatusProto? valueOf($core.int value) =>
-      value < 0 || value >= _byValue.length ? null : _byValue[value];
-
-  const SyncStatusProto._(super.value, super.name);
-}
-
-class DataSourceTypeProto extends $pb.ProtobufEnum {
-  static const DataSourceTypeProto GARMIN =
-      DataSourceTypeProto._(0, _omitEnumNames ? '' : 'GARMIN');
-  static const DataSourceTypeProto OURA =
-      DataSourceTypeProto._(1, _omitEnumNames ? '' : 'OURA');
-  static const DataSourceTypeProto POLAR =
-      DataSourceTypeProto._(2, _omitEnumNames ? '' : 'POLAR');
-  static const DataSourceTypeProto FITBIT =
-      DataSourceTypeProto._(3, _omitEnumNames ? '' : 'FITBIT');
-  static const DataSourceTypeProto WITHINGS =
-      DataSourceTypeProto._(4, _omitEnumNames ? '' : 'WITHINGS');
-  static const DataSourceTypeProto WHOOP =
-      DataSourceTypeProto._(5, _omitEnumNames ? '' : 'WHOOP');
-
-  static const $core.List<DataSourceTypeProto> values = <DataSourceTypeProto>[
-    GARMIN,
-    OURA,
-    POLAR,
-    FITBIT,
-    WITHINGS,
-    WHOOP,
-  ];
-
-  static final $core.List<DataSourceTypeProto?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 5);
-  static DataSourceTypeProto? valueOf($core.int value) =>
-      value < 0 || value >= _byValue.length ? null : _byValue[value];
-
-  const DataSourceTypeProto._(super.value, super.name);
 }
 
 const $core.bool _omitEnumNames =

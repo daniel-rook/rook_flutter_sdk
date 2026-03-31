@@ -18,6 +18,8 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
     _instance = instance;
   }
 
+  Future<DiagnosticState> getDiagnosticState();
+
   Future<void> enableNativeLogs();
 
   Future<void> setConfiguration(RookConfiguration rookConfiguration);
@@ -27,8 +29,6 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<void> initRook();
 
   Future<void> updateUserID(String userID);
-
-  Future<void> clearUserID();
 
   Future<void> deleteUserFromRook();
 
@@ -49,7 +49,7 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<void> revokeHealthConnectPermissions();
 
   Stream<HealthConnectPermissionsSummary>
-      get requestHealthConnectPermissionsUpdates;
+  get requestHealthConnectPermissionsUpdates;
 
   Future<bool> checkAndroidPermissions();
 
@@ -59,25 +59,27 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Stream<AndroidPermissionsSummary> get requestAndroidPermissionsUpdates;
 
-  Future<bool> syncHistoricSummaries(bool enableLogs);
+  Future<void> syncHistoricSummaries(bool enableLogs);
 
-  Future<bool> syncSummariesByDate(DateTime date);
+  Future<void> syncSummariesByDate(DateTime date);
 
-  Future<bool> syncByDateAndSummary(DateTime date, HCSummarySyncType summary);
+  Future<void> syncByDateAndSummary(DateTime date, HCSummarySyncType summary);
 
-  Future<bool> syncByDateAndEvent(DateTime date, HCEventSyncType event);
+  Future<void> syncByDateAndEvent(DateTime date, HCEventSyncType event);
 
   Future<List<SleepSummary>> getSleepSummary(DateTime date);
 
-  Future<PhysicalSummary?> getPhysicalSummary(DateTime date);
+  Future<PhysicalSummary> getPhysicalSummary(DateTime date);
 
-  Future<BodySummary?> getBodySummary(DateTime date);
+  Future<BodySummary> getBodySummary(DateTime date);
 
   Future<List<ActivityEvent>> getActivityEvents(DateTime date);
 
-  Future<SyncStatusWithData<int>> getTodayStepsCount();
+  Future<int> getTodayStepsCount();
 
-  Future<SyncStatusWithData<DailyCalories>> getTodayCaloriesCount();
+  Future<DailyCalories> getTodayCaloriesCount();
+
+  Future<HeartRate> getTodayHeartRate();
 
   Future<bool> isStepsAvailable();
 
@@ -88,25 +90,6 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
   Future<void> disableBackgroundAndroidSteps();
 
   Future<int> syncTodayAndroidStepsCount();
-
-  Future<void> scheduleYesterdaySync(bool enableNativeLogs);
-
-  @Deprecated("Use getDataSourceAuthorizer instead")
-  Future<List<DataSource>> getAvailableDataSources(String? redirectUrl);
-
-  Future<DataSourceAuthorizer> getDataSourceAuthorizer(
-    String dataSource,
-    String? redirectUrl,
-  );
-
-  Future<AuthorizedDataSources> getAuthorizedDataSources();
-
-  Future<List<AuthorizedDataSourceV2>> getAuthorizedDataSourcesV2();
-
-  Future<void> revokeDataSource(String dataSource);
-
-  @Deprecated("Use getDataSourceAuthorizer instead")
-  Future<void> presentDataSourceView(String? redirectUrl);
 
   Future<bool> isScheduled();
 

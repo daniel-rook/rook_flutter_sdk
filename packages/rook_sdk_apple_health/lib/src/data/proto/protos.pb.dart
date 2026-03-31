@@ -21,84 +21,71 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'protos.pbenum.dart';
 
-class PluginExceptionProto extends $pb.GeneratedMessage {
-  factory PluginExceptionProto({
-    $core.int? id,
+class SDKExceptionProto extends $pb.GeneratedMessage {
+  factory SDKExceptionProto({
     $core.int? code,
     $core.String? message,
   }) {
     final result = create();
-    if (id != null) result.id = id;
     if (code != null) result.code = code;
     if (message != null) result.message = message;
     return result;
   }
 
-  PluginExceptionProto._();
+  SDKExceptionProto._();
 
-  factory PluginExceptionProto.fromBuffer($core.List<$core.int> data,
+  factory SDKExceptionProto.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory PluginExceptionProto.fromJson($core.String json,
+  factory SDKExceptionProto.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'PluginExceptionProto',
+      _omitMessageNames ? '' : 'SDKExceptionProto',
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OS3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OS3)
-    ..aOS(3, _omitFieldNames ? '' : 'message')
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'code', $pb.PbFieldType.OS3)
+    ..aOS(2, _omitFieldNames ? '' : 'message')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PluginExceptionProto clone() =>
-      PluginExceptionProto()..mergeFromMessage(this);
+  SDKExceptionProto clone() => SDKExceptionProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PluginExceptionProto copyWith(void Function(PluginExceptionProto) updates) =>
-      super.copyWith((message) => updates(message as PluginExceptionProto))
-          as PluginExceptionProto;
+  SDKExceptionProto copyWith(void Function(SDKExceptionProto) updates) =>
+      super.copyWith((message) => updates(message as SDKExceptionProto))
+          as SDKExceptionProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static PluginExceptionProto create() => PluginExceptionProto._();
+  static SDKExceptionProto create() => SDKExceptionProto._();
   @$core.override
-  PluginExceptionProto createEmptyInstance() => create();
-  static $pb.PbList<PluginExceptionProto> createRepeated() =>
-      $pb.PbList<PluginExceptionProto>();
+  SDKExceptionProto createEmptyInstance() => create();
+  static $pb.PbList<SDKExceptionProto> createRepeated() =>
+      $pb.PbList<SDKExceptionProto>();
   @$core.pragma('dart2js:noInline')
-  static PluginExceptionProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<PluginExceptionProto>(create);
-  static PluginExceptionProto? _defaultInstance;
+  static SDKExceptionProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SDKExceptionProto>(create);
+  static SDKExceptionProto? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get id => $_getIZ(0);
+  $core.int get code => $_getIZ(0);
   @$pb.TagNumber(1)
-  set id($core.int value) => $_setSignedInt32(0, value);
+  set code($core.int value) => $_setSignedInt32(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasCode() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearCode() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get code => $_getIZ(1);
+  $core.String get message => $_getSZ(1);
   @$pb.TagNumber(2)
-  set code($core.int value) => $_setSignedInt32(1, value);
+  set message($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasCode() => $_has(1);
+  $core.bool hasMessage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCode() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get message => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set message($core.String value) => $_setString(2, value);
-  @$pb.TagNumber(3)
-  $core.bool hasMessage() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearMessage() => $_clearField(3);
+  void clearMessage() => $_clearField(2);
 }
 
 enum BooleanResultProto_Result { success, failure, notSet }
@@ -106,7 +93,7 @@ enum BooleanResultProto_Result { success, failure, notSet }
 class BooleanResultProto extends $pb.GeneratedMessage {
   factory BooleanResultProto({
     $core.bool? success,
-    PluginExceptionProto? failure,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
     if (success != null) result.success = success;
@@ -134,8 +121,8 @@ class BooleanResultProto extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOB(1, _omitFieldNames ? '' : 'success')
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -173,15 +160,15 @@ class BooleanResultProto extends $pb.GeneratedMessage {
   void clearSuccess() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
   void clearFailure() => $_clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 enum Int64ResultProto_Result { success, failure, notSet }
@@ -189,7 +176,7 @@ enum Int64ResultProto_Result { success, failure, notSet }
 class Int64ResultProto extends $pb.GeneratedMessage {
   factory Int64ResultProto({
     $fixnum.Int64? success,
-    PluginExceptionProto? failure,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
     if (success != null) result.success = success;
@@ -217,8 +204,8 @@ class Int64ResultProto extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aInt64(1, _omitFieldNames ? '' : 'success')
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -256,30 +243,32 @@ class Int64ResultProto extends $pb.GeneratedMessage {
   void clearSuccess() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
   void clearFailure() => $_clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class ConfigurationProto extends $pb.GeneratedMessage {
   factory ConfigurationProto({
     $core.String? clientUUID,
-    $core.String? secretKey,
+    $core.String? secret,
     EnvironmentProto? environment,
     $core.bool? enableBackgroundSync,
+    $core.String? appId,
   }) {
     final result = create();
     if (clientUUID != null) result.clientUUID = clientUUID;
-    if (secretKey != null) result.secretKey = secretKey;
+    if (secret != null) result.secret = secret;
     if (environment != null) result.environment = environment;
     if (enableBackgroundSync != null)
       result.enableBackgroundSync = enableBackgroundSync;
+    if (appId != null) result.appId = appId;
     return result;
   }
 
@@ -296,7 +285,7 @@ class ConfigurationProto extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ConfigurationProto',
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'clientUUID', protoName: 'clientUUID')
-    ..aOS(2, _omitFieldNames ? '' : 'secretKey', protoName: 'secretKey')
+    ..aOS(2, _omitFieldNames ? '' : 'secret')
     ..e<EnvironmentProto>(
         3, _omitFieldNames ? '' : 'environment', $pb.PbFieldType.OE,
         defaultOrMaker: EnvironmentProto.SANDBOX,
@@ -304,6 +293,7 @@ class ConfigurationProto extends $pb.GeneratedMessage {
         enumValues: EnvironmentProto.values)
     ..aOB(4, _omitFieldNames ? '' : 'enableBackgroundSync',
         protoName: 'enableBackgroundSync')
+    ..aOS(5, _omitFieldNames ? '' : 'appId', protoName: 'appId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -337,13 +327,13 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   void clearClientUUID() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get secretKey => $_getSZ(1);
+  $core.String get secret => $_getSZ(1);
   @$pb.TagNumber(2)
-  set secretKey($core.String value) => $_setString(1, value);
+  set secret($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasSecretKey() => $_has(1);
+  $core.bool hasSecret() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSecretKey() => $_clearField(2);
+  void clearSecret() => $_clearField(2);
 
   @$pb.TagNumber(3)
   EnvironmentProto get environment => $_getN(2);
@@ -362,14 +352,209 @@ class ConfigurationProto extends $pb.GeneratedMessage {
   $core.bool hasEnableBackgroundSync() => $_has(3);
   @$pb.TagNumber(4)
   void clearEnableBackgroundSync() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get appId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set appId($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasAppId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearAppId() => $_clearField(5);
 }
 
-enum IntResultProto_Result { success, failure, notSet }
+class DiagnosticSyncStateProto extends $pb.GeneratedMessage {
+  factory DiagnosticSyncStateProto({
+    $core.bool? enabled,
+    $core.String? lastSync,
+  }) {
+    final result = create();
+    if (enabled != null) result.enabled = enabled;
+    if (lastSync != null) result.lastSync = lastSync;
+    return result;
+  }
 
-class IntResultProto extends $pb.GeneratedMessage {
-  factory IntResultProto({
-    $core.int? success,
-    PluginExceptionProto? failure,
+  DiagnosticSyncStateProto._();
+
+  factory DiagnosticSyncStateProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DiagnosticSyncStateProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DiagnosticSyncStateProto',
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'enabled')
+    ..aOS(2, _omitFieldNames ? '' : 'lastSync', protoName: 'lastSync')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticSyncStateProto clone() =>
+      DiagnosticSyncStateProto()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticSyncStateProto copyWith(
+          void Function(DiagnosticSyncStateProto) updates) =>
+      super.copyWith((message) => updates(message as DiagnosticSyncStateProto))
+          as DiagnosticSyncStateProto;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticSyncStateProto create() => DiagnosticSyncStateProto._();
+  @$core.override
+  DiagnosticSyncStateProto createEmptyInstance() => create();
+  static $pb.PbList<DiagnosticSyncStateProto> createRepeated() =>
+      $pb.PbList<DiagnosticSyncStateProto>();
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticSyncStateProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DiagnosticSyncStateProto>(create);
+  static DiagnosticSyncStateProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get enabled => $_getBF(0);
+  @$pb.TagNumber(1)
+  set enabled($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasEnabled() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearEnabled() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get lastSync => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set lastSync($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasLastSync() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLastSync() => $_clearField(2);
+}
+
+class DiagnosticStateProto extends $pb.GeneratedMessage {
+  factory DiagnosticStateProto({
+    $core.bool? isConfigured,
+    $core.bool? userIdentified,
+    DiagnosticStatePermissionsProto? permissions,
+    DiagnosticSyncStateProto? backgroundSync,
+    DiagnosticSyncStateProto? manualSync,
+  }) {
+    final result = create();
+    if (isConfigured != null) result.isConfigured = isConfigured;
+    if (userIdentified != null) result.userIdentified = userIdentified;
+    if (permissions != null) result.permissions = permissions;
+    if (backgroundSync != null) result.backgroundSync = backgroundSync;
+    if (manualSync != null) result.manualSync = manualSync;
+    return result;
+  }
+
+  DiagnosticStateProto._();
+
+  factory DiagnosticStateProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DiagnosticStateProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DiagnosticStateProto',
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'isConfigured', protoName: 'isConfigured')
+    ..aOB(2, _omitFieldNames ? '' : 'userIdentified',
+        protoName: 'userIdentified')
+    ..e<DiagnosticStatePermissionsProto>(
+        3, _omitFieldNames ? '' : 'permissions', $pb.PbFieldType.OE,
+        defaultOrMaker: DiagnosticStatePermissionsProto.NOT_REQUESTED,
+        valueOf: DiagnosticStatePermissionsProto.valueOf,
+        enumValues: DiagnosticStatePermissionsProto.values)
+    ..aOM<DiagnosticSyncStateProto>(4, _omitFieldNames ? '' : 'backgroundSync',
+        protoName: 'backgroundSync',
+        subBuilder: DiagnosticSyncStateProto.create)
+    ..aOM<DiagnosticSyncStateProto>(5, _omitFieldNames ? '' : 'manualSync',
+        protoName: 'manualSync', subBuilder: DiagnosticSyncStateProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticStateProto clone() =>
+      DiagnosticStateProto()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DiagnosticStateProto copyWith(void Function(DiagnosticStateProto) updates) =>
+      super.copyWith((message) => updates(message as DiagnosticStateProto))
+          as DiagnosticStateProto;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticStateProto create() => DiagnosticStateProto._();
+  @$core.override
+  DiagnosticStateProto createEmptyInstance() => create();
+  static $pb.PbList<DiagnosticStateProto> createRepeated() =>
+      $pb.PbList<DiagnosticStateProto>();
+  @$core.pragma('dart2js:noInline')
+  static DiagnosticStateProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DiagnosticStateProto>(create);
+  static DiagnosticStateProto? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isConfigured => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isConfigured($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasIsConfigured() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsConfigured() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get userIdentified => $_getBF(1);
+  @$pb.TagNumber(2)
+  set userIdentified($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUserIdentified() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserIdentified() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  DiagnosticStatePermissionsProto get permissions => $_getN(2);
+  @$pb.TagNumber(3)
+  set permissions(DiagnosticStatePermissionsProto value) =>
+      $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPermissions() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPermissions() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  DiagnosticSyncStateProto get backgroundSync => $_getN(3);
+  @$pb.TagNumber(4)
+  set backgroundSync(DiagnosticSyncStateProto value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasBackgroundSync() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBackgroundSync() => $_clearField(4);
+  @$pb.TagNumber(4)
+  DiagnosticSyncStateProto ensureBackgroundSync() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  DiagnosticSyncStateProto get manualSync => $_getN(4);
+  @$pb.TagNumber(5)
+  set manualSync(DiagnosticSyncStateProto value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasManualSync() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearManualSync() => $_clearField(5);
+  @$pb.TagNumber(5)
+  DiagnosticSyncStateProto ensureManualSync() => $_ensure(4);
+}
+
+enum DiagnosticStateResultProto_Result { success, failure, notSet }
+
+class DiagnosticStateResultProto extends $pb.GeneratedMessage {
+  factory DiagnosticStateResultProto({
+    DiagnosticStateProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
     if (success != null) result.success = success;
@@ -377,74 +562,80 @@ class IntResultProto extends $pb.GeneratedMessage {
     return result;
   }
 
-  IntResultProto._();
+  DiagnosticStateResultProto._();
 
-  factory IntResultProto.fromBuffer($core.List<$core.int> data,
+  factory DiagnosticStateResultProto.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory IntResultProto.fromJson($core.String json,
+  factory DiagnosticStateResultProto.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, IntResultProto_Result>
-      _IntResultProto_ResultByTag = {
-    1: IntResultProto_Result.success,
-    2: IntResultProto_Result.failure,
-    0: IntResultProto_Result.notSet
+  static const $core.Map<$core.int, DiagnosticStateResultProto_Result>
+      _DiagnosticStateResultProto_ResultByTag = {
+    1: DiagnosticStateResultProto_Result.success,
+    2: DiagnosticStateResultProto_Result.failure,
+    0: DiagnosticStateResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'IntResultProto',
+      _omitMessageNames ? '' : 'DiagnosticStateResultProto',
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'success', $pb.PbFieldType.OU3)
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<DiagnosticStateProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: DiagnosticStateProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IntResultProto clone() => IntResultProto()..mergeFromMessage(this);
+  DiagnosticStateResultProto clone() =>
+      DiagnosticStateResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IntResultProto copyWith(void Function(IntResultProto) updates) =>
-      super.copyWith((message) => updates(message as IntResultProto))
-          as IntResultProto;
+  DiagnosticStateResultProto copyWith(
+          void Function(DiagnosticStateResultProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as DiagnosticStateResultProto))
+          as DiagnosticStateResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static IntResultProto create() => IntResultProto._();
+  static DiagnosticStateResultProto create() => DiagnosticStateResultProto._();
   @$core.override
-  IntResultProto createEmptyInstance() => create();
-  static $pb.PbList<IntResultProto> createRepeated() =>
-      $pb.PbList<IntResultProto>();
+  DiagnosticStateResultProto createEmptyInstance() => create();
+  static $pb.PbList<DiagnosticStateResultProto> createRepeated() =>
+      $pb.PbList<DiagnosticStateResultProto>();
   @$core.pragma('dart2js:noInline')
-  static IntResultProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<IntResultProto>(create);
-  static IntResultProto? _defaultInstance;
+  static DiagnosticStateResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DiagnosticStateResultProto>(create);
+  static DiagnosticStateResultProto? _defaultInstance;
 
-  IntResultProto_Result whichResult() =>
-      _IntResultProto_ResultByTag[$_whichOneof(0)]!;
+  DiagnosticStateResultProto_Result whichResult() =>
+      _DiagnosticStateResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  $core.int get success => $_getIZ(0);
+  DiagnosticStateProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set success($core.int value) => $_setUnsignedInt32(0, value);
+  set success(DiagnosticStateProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
   void clearSuccess() => $_clearField(1);
+  @$pb.TagNumber(1)
+  DiagnosticStateProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
   void clearFailure() => $_clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class CaloriesProto extends $pb.GeneratedMessage {
@@ -519,7 +710,7 @@ enum CaloriesResultProto_Result { success, failure, notSet }
 class CaloriesResultProto extends $pb.GeneratedMessage {
   factory CaloriesResultProto({
     CaloriesProto? success,
-    PluginExceptionProto? failure,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
     if (success != null) result.success = success;
@@ -548,8 +739,8 @@ class CaloriesResultProto extends $pb.GeneratedMessage {
     ..oo(0, [1, 2])
     ..aOM<CaloriesProto>(1, _omitFieldNames ? '' : 'success',
         subBuilder: CaloriesProto.create)
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -589,379 +780,178 @@ class CaloriesResultProto extends $pb.GeneratedMessage {
   CaloriesProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasFailure() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearFailure() => $_clearField(2);
-  @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
-}
-
-class DataSourceAuthorizerProto extends $pb.GeneratedMessage {
-  factory DataSourceAuthorizerProto({
-    $core.String? dataSource,
-    $core.bool? authorized,
-    $core.String? authorizationUrl,
-    $core.bool? authorizationUrlIsNull,
-  }) {
-    final result = create();
-    if (dataSource != null) result.dataSource = dataSource;
-    if (authorized != null) result.authorized = authorized;
-    if (authorizationUrl != null) result.authorizationUrl = authorizationUrl;
-    if (authorizationUrlIsNull != null)
-      result.authorizationUrlIsNull = authorizationUrlIsNull;
-    return result;
-  }
-
-  DataSourceAuthorizerProto._();
-
-  factory DataSourceAuthorizerProto.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory DataSourceAuthorizerProto.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DataSourceAuthorizerProto',
-      createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'dataSource', protoName: 'dataSource')
-    ..aOB(2, _omitFieldNames ? '' : 'authorized')
-    ..aOS(3, _omitFieldNames ? '' : 'authorizationUrl',
-        protoName: 'authorizationUrl')
-    ..aOB(6, _omitFieldNames ? '' : 'authorizationUrlIsNull',
-        protoName: 'authorizationUrlIsNull')
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DataSourceAuthorizerProto clone() =>
-      DataSourceAuthorizerProto()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DataSourceAuthorizerProto copyWith(
-          void Function(DataSourceAuthorizerProto) updates) =>
-      super.copyWith((message) => updates(message as DataSourceAuthorizerProto))
-          as DataSourceAuthorizerProto;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DataSourceAuthorizerProto create() => DataSourceAuthorizerProto._();
-  @$core.override
-  DataSourceAuthorizerProto createEmptyInstance() => create();
-  static $pb.PbList<DataSourceAuthorizerProto> createRepeated() =>
-      $pb.PbList<DataSourceAuthorizerProto>();
-  @$core.pragma('dart2js:noInline')
-  static DataSourceAuthorizerProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DataSourceAuthorizerProto>(create);
-  static DataSourceAuthorizerProto? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get dataSource => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set dataSource($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasDataSource() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearDataSource() => $_clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.bool get authorized => $_getBF(1);
-  @$pb.TagNumber(2)
-  set authorized($core.bool value) => $_setBool(1, value);
-  @$pb.TagNumber(2)
-  $core.bool hasAuthorized() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearAuthorized() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get authorizationUrl => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set authorizationUrl($core.String value) => $_setString(2, value);
-  @$pb.TagNumber(3)
-  $core.bool hasAuthorizationUrl() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearAuthorizationUrl() => $_clearField(3);
-
-  @$pb.TagNumber(6)
-  $core.bool get authorizationUrlIsNull => $_getBF(3);
-  @$pb.TagNumber(6)
-  set authorizationUrlIsNull($core.bool value) => $_setBool(3, value);
-  @$pb.TagNumber(6)
-  $core.bool hasAuthorizationUrlIsNull() => $_has(3);
-  @$pb.TagNumber(6)
-  void clearAuthorizationUrlIsNull() => $_clearField(6);
-}
-
-enum DataSourceAuthorizerResultProto_Result { success, failure, notSet }
-
-class DataSourceAuthorizerResultProto extends $pb.GeneratedMessage {
-  factory DataSourceAuthorizerResultProto({
-    DataSourceAuthorizerProto? success,
-    PluginExceptionProto? failure,
-  }) {
-    final result = create();
-    if (success != null) result.success = success;
-    if (failure != null) result.failure = failure;
-    return result;
-  }
-
-  DataSourceAuthorizerResultProto._();
-
-  factory DataSourceAuthorizerResultProto.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory DataSourceAuthorizerResultProto.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static const $core.Map<$core.int, DataSourceAuthorizerResultProto_Result>
-      _DataSourceAuthorizerResultProto_ResultByTag = {
-    1: DataSourceAuthorizerResultProto_Result.success,
-    2: DataSourceAuthorizerResultProto_Result.failure,
-    0: DataSourceAuthorizerResultProto_Result.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DataSourceAuthorizerResultProto',
-      createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<DataSourceAuthorizerProto>(1, _omitFieldNames ? '' : 'success',
-        subBuilder: DataSourceAuthorizerProto.create)
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DataSourceAuthorizerResultProto clone() =>
-      DataSourceAuthorizerResultProto()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DataSourceAuthorizerResultProto copyWith(
-          void Function(DataSourceAuthorizerResultProto) updates) =>
-      super.copyWith(
-              (message) => updates(message as DataSourceAuthorizerResultProto))
-          as DataSourceAuthorizerResultProto;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DataSourceAuthorizerResultProto create() =>
-      DataSourceAuthorizerResultProto._();
-  @$core.override
-  DataSourceAuthorizerResultProto createEmptyInstance() => create();
-  static $pb.PbList<DataSourceAuthorizerResultProto> createRepeated() =>
-      $pb.PbList<DataSourceAuthorizerResultProto>();
-  @$core.pragma('dart2js:noInline')
-  static DataSourceAuthorizerResultProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DataSourceAuthorizerResultProto>(
-          create);
-  static DataSourceAuthorizerResultProto? _defaultInstance;
-
-  DataSourceAuthorizerResultProto_Result whichResult() =>
-      _DataSourceAuthorizerResultProto_ResultByTag[$_whichOneof(0)]!;
-  void clearResult() => $_clearField($_whichOneof(0));
-
-  @$pb.TagNumber(1)
-  DataSourceAuthorizerProto get success => $_getN(0);
-  @$pb.TagNumber(1)
-  set success(DataSourceAuthorizerProto value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasSuccess() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearSuccess() => $_clearField(1);
-  @$pb.TagNumber(1)
-  DataSourceAuthorizerProto ensureSuccess() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
-  @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
   void clearFailure() => $_clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
-class AuthorizedDataSourcesProto extends $pb.GeneratedMessage {
-  factory AuthorizedDataSourcesProto({
-    $core.int? oura,
-    $core.int? polar,
-    $core.int? whoop,
-    $core.int? fitbit,
-    $core.int? garmin,
-    $core.int? withings,
-    $core.int? dexcom,
-    $core.int? appleHealth,
-    $core.int? healthConnect,
-    $core.int? android,
+class HearRateProto extends $pb.GeneratedMessage {
+  factory HearRateProto({
+    $core.int? hrMaximumBpm,
+    $core.int? hrMinimumBpm,
+    $core.int? hrAvgBpm,
+    $core.int? hrRestingBpm,
+    $core.Iterable<HrGranularDataProto>? hrGranularData,
+    $core.double? hrvAvgRmssd,
+    $core.double? hrvAvgSdnn,
+    $core.Iterable<HrvSdnnGranularDataProto>? hrvSdnnGranularData,
+    $core.Iterable<HrvRmssdGranularDataProto>? hrvRmssdGranularData,
   }) {
     final result = create();
-    if (oura != null) result.oura = oura;
-    if (polar != null) result.polar = polar;
-    if (whoop != null) result.whoop = whoop;
-    if (fitbit != null) result.fitbit = fitbit;
-    if (garmin != null) result.garmin = garmin;
-    if (withings != null) result.withings = withings;
-    if (dexcom != null) result.dexcom = dexcom;
-    if (appleHealth != null) result.appleHealth = appleHealth;
-    if (healthConnect != null) result.healthConnect = healthConnect;
-    if (android != null) result.android = android;
+    if (hrMaximumBpm != null) result.hrMaximumBpm = hrMaximumBpm;
+    if (hrMinimumBpm != null) result.hrMinimumBpm = hrMinimumBpm;
+    if (hrAvgBpm != null) result.hrAvgBpm = hrAvgBpm;
+    if (hrRestingBpm != null) result.hrRestingBpm = hrRestingBpm;
+    if (hrGranularData != null) result.hrGranularData.addAll(hrGranularData);
+    if (hrvAvgRmssd != null) result.hrvAvgRmssd = hrvAvgRmssd;
+    if (hrvAvgSdnn != null) result.hrvAvgSdnn = hrvAvgSdnn;
+    if (hrvSdnnGranularData != null)
+      result.hrvSdnnGranularData.addAll(hrvSdnnGranularData);
+    if (hrvRmssdGranularData != null)
+      result.hrvRmssdGranularData.addAll(hrvRmssdGranularData);
     return result;
   }
 
-  AuthorizedDataSourcesProto._();
+  HearRateProto._();
 
-  factory AuthorizedDataSourcesProto.fromBuffer($core.List<$core.int> data,
+  factory HearRateProto.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory AuthorizedDataSourcesProto.fromJson($core.String json,
+  factory HearRateProto.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'AuthorizedDataSourcesProto',
+      _omitMessageNames ? '' : 'HearRateProto',
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'oura', $pb.PbFieldType.OU3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'polar', $pb.PbFieldType.OU3)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'whoop', $pb.PbFieldType.OU3)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'fitbit', $pb.PbFieldType.OU3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'garmin', $pb.PbFieldType.OU3)
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'withings', $pb.PbFieldType.OU3)
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'dexcom', $pb.PbFieldType.OU3)
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'appleHealth', $pb.PbFieldType.OU3,
-        protoName: 'appleHealth')
     ..a<$core.int>(
-        9, _omitFieldNames ? '' : 'healthConnect', $pb.PbFieldType.OU3,
-        protoName: 'healthConnect')
-    ..a<$core.int>(10, _omitFieldNames ? '' : 'android', $pb.PbFieldType.OU3)
+        1, _omitFieldNames ? '' : 'hrMaximumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMaximumBpm')
+    ..a<$core.int>(
+        2, _omitFieldNames ? '' : 'hrMinimumBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrMinimumBpm')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'hrAvgBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrAvgBpm')
+    ..a<$core.int>(
+        4, _omitFieldNames ? '' : 'hrRestingBpm', $pb.PbFieldType.OS3,
+        protoName: 'hrRestingBpm')
+    ..pc<HrGranularDataProto>(
+        5, _omitFieldNames ? '' : 'hrGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrGranularData', subBuilder: HrGranularDataProto.create)
+    ..a<$core.double>(
+        6, _omitFieldNames ? '' : 'hrvAvgRmssd', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgRmssd')
+    ..a<$core.double>(
+        7, _omitFieldNames ? '' : 'hrvAvgSdnn', $pb.PbFieldType.OD,
+        protoName: 'hrvAvgSdnn')
+    ..pc<HrvSdnnGranularDataProto>(
+        8, _omitFieldNames ? '' : 'hrvSdnnGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvSdnnGranularData',
+        subBuilder: HrvSdnnGranularDataProto.create)
+    ..pc<HrvRmssdGranularDataProto>(
+        9, _omitFieldNames ? '' : 'hrvRmssdGranularData', $pb.PbFieldType.PM,
+        protoName: 'hrvRmssdGranularData',
+        subBuilder: HrvRmssdGranularDataProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourcesProto clone() =>
-      AuthorizedDataSourcesProto()..mergeFromMessage(this);
+  HearRateProto clone() => HearRateProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourcesProto copyWith(
-          void Function(AuthorizedDataSourcesProto) updates) =>
-      super.copyWith(
-              (message) => updates(message as AuthorizedDataSourcesProto))
-          as AuthorizedDataSourcesProto;
+  HearRateProto copyWith(void Function(HearRateProto) updates) =>
+      super.copyWith((message) => updates(message as HearRateProto))
+          as HearRateProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourcesProto create() => AuthorizedDataSourcesProto._();
+  static HearRateProto create() => HearRateProto._();
   @$core.override
-  AuthorizedDataSourcesProto createEmptyInstance() => create();
-  static $pb.PbList<AuthorizedDataSourcesProto> createRepeated() =>
-      $pb.PbList<AuthorizedDataSourcesProto>();
+  HearRateProto createEmptyInstance() => create();
+  static $pb.PbList<HearRateProto> createRepeated() =>
+      $pb.PbList<HearRateProto>();
   @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourcesProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<AuthorizedDataSourcesProto>(create);
-  static AuthorizedDataSourcesProto? _defaultInstance;
+  static HearRateProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HearRateProto>(create);
+  static HearRateProto? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get oura => $_getIZ(0);
+  $core.int get hrMaximumBpm => $_getIZ(0);
   @$pb.TagNumber(1)
-  set oura($core.int value) => $_setUnsignedInt32(0, value);
+  set hrMaximumBpm($core.int value) => $_setSignedInt32(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasOura() => $_has(0);
+  $core.bool hasHrMaximumBpm() => $_has(0);
   @$pb.TagNumber(1)
-  void clearOura() => $_clearField(1);
+  void clearHrMaximumBpm() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get polar => $_getIZ(1);
+  $core.int get hrMinimumBpm => $_getIZ(1);
   @$pb.TagNumber(2)
-  set polar($core.int value) => $_setUnsignedInt32(1, value);
+  set hrMinimumBpm($core.int value) => $_setSignedInt32(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasPolar() => $_has(1);
+  $core.bool hasHrMinimumBpm() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPolar() => $_clearField(2);
+  void clearHrMinimumBpm() => $_clearField(2);
 
   @$pb.TagNumber(3)
-  $core.int get whoop => $_getIZ(2);
+  $core.int get hrAvgBpm => $_getIZ(2);
   @$pb.TagNumber(3)
-  set whoop($core.int value) => $_setUnsignedInt32(2, value);
+  set hrAvgBpm($core.int value) => $_setSignedInt32(2, value);
   @$pb.TagNumber(3)
-  $core.bool hasWhoop() => $_has(2);
+  $core.bool hasHrAvgBpm() => $_has(2);
   @$pb.TagNumber(3)
-  void clearWhoop() => $_clearField(3);
+  void clearHrAvgBpm() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $core.int get fitbit => $_getIZ(3);
+  $core.int get hrRestingBpm => $_getIZ(3);
   @$pb.TagNumber(4)
-  set fitbit($core.int value) => $_setUnsignedInt32(3, value);
+  set hrRestingBpm($core.int value) => $_setSignedInt32(3, value);
   @$pb.TagNumber(4)
-  $core.bool hasFitbit() => $_has(3);
+  $core.bool hasHrRestingBpm() => $_has(3);
   @$pb.TagNumber(4)
-  void clearFitbit() => $_clearField(4);
+  void clearHrRestingBpm() => $_clearField(4);
 
   @$pb.TagNumber(5)
-  $core.int get garmin => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set garmin($core.int value) => $_setUnsignedInt32(4, value);
-  @$pb.TagNumber(5)
-  $core.bool hasGarmin() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearGarmin() => $_clearField(5);
+  $pb.PbList<HrGranularDataProto> get hrGranularData => $_getList(4);
 
   @$pb.TagNumber(6)
-  $core.int get withings => $_getIZ(5);
+  $core.double get hrvAvgRmssd => $_getN(5);
   @$pb.TagNumber(6)
-  set withings($core.int value) => $_setUnsignedInt32(5, value);
+  set hrvAvgRmssd($core.double value) => $_setDouble(5, value);
   @$pb.TagNumber(6)
-  $core.bool hasWithings() => $_has(5);
+  $core.bool hasHrvAvgRmssd() => $_has(5);
   @$pb.TagNumber(6)
-  void clearWithings() => $_clearField(6);
+  void clearHrvAvgRmssd() => $_clearField(6);
 
   @$pb.TagNumber(7)
-  $core.int get dexcom => $_getIZ(6);
+  $core.double get hrvAvgSdnn => $_getN(6);
   @$pb.TagNumber(7)
-  set dexcom($core.int value) => $_setUnsignedInt32(6, value);
+  set hrvAvgSdnn($core.double value) => $_setDouble(6, value);
   @$pb.TagNumber(7)
-  $core.bool hasDexcom() => $_has(6);
+  $core.bool hasHrvAvgSdnn() => $_has(6);
   @$pb.TagNumber(7)
-  void clearDexcom() => $_clearField(7);
+  void clearHrvAvgSdnn() => $_clearField(7);
 
   @$pb.TagNumber(8)
-  $core.int get appleHealth => $_getIZ(7);
-  @$pb.TagNumber(8)
-  set appleHealth($core.int value) => $_setUnsignedInt32(7, value);
-  @$pb.TagNumber(8)
-  $core.bool hasAppleHealth() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearAppleHealth() => $_clearField(8);
+  $pb.PbList<HrvSdnnGranularDataProto> get hrvSdnnGranularData => $_getList(7);
 
   @$pb.TagNumber(9)
-  $core.int get healthConnect => $_getIZ(8);
-  @$pb.TagNumber(9)
-  set healthConnect($core.int value) => $_setUnsignedInt32(8, value);
-  @$pb.TagNumber(9)
-  $core.bool hasHealthConnect() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearHealthConnect() => $_clearField(9);
-
-  @$pb.TagNumber(10)
-  $core.int get android => $_getIZ(9);
-  @$pb.TagNumber(10)
-  set android($core.int value) => $_setUnsignedInt32(9, value);
-  @$pb.TagNumber(10)
-  $core.bool hasAndroid() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearAndroid() => $_clearField(10);
+  $pb.PbList<HrvRmssdGranularDataProto> get hrvRmssdGranularData =>
+      $_getList(8);
 }
 
-enum AuthorizedDataSourcesResultProto_Result { success, failure, notSet }
+enum HearRateResultProto_Result { success, failure, notSet }
 
-class AuthorizedDataSourcesResultProto extends $pb.GeneratedMessage {
-  factory AuthorizedDataSourcesResultProto({
-    AuthorizedDataSourcesProto? success,
-    PluginExceptionProto? failure,
+class HearRateResultProto extends $pb.GeneratedMessage {
+  factory HearRateResultProto({
+    HearRateProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
     if (success != null) result.success = success;
@@ -969,587 +959,77 @@ class AuthorizedDataSourcesResultProto extends $pb.GeneratedMessage {
     return result;
   }
 
-  AuthorizedDataSourcesResultProto._();
+  HearRateResultProto._();
 
-  factory AuthorizedDataSourcesResultProto.fromBuffer(
-          $core.List<$core.int> data,
+  factory HearRateResultProto.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory AuthorizedDataSourcesResultProto.fromJson($core.String json,
+  factory HearRateResultProto.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, AuthorizedDataSourcesResultProto_Result>
-      _AuthorizedDataSourcesResultProto_ResultByTag = {
-    1: AuthorizedDataSourcesResultProto_Result.success,
-    2: AuthorizedDataSourcesResultProto_Result.failure,
-    0: AuthorizedDataSourcesResultProto_Result.notSet
+  static const $core.Map<$core.int, HearRateResultProto_Result>
+      _HearRateResultProto_ResultByTag = {
+    1: HearRateResultProto_Result.success,
+    2: HearRateResultProto_Result.failure,
+    0: HearRateResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'AuthorizedDataSourcesResultProto',
+      _omitMessageNames ? '' : 'HearRateResultProto',
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<AuthorizedDataSourcesProto>(1, _omitFieldNames ? '' : 'success',
-        subBuilder: AuthorizedDataSourcesProto.create)
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<HearRateProto>(1, _omitFieldNames ? '' : 'success',
+        subBuilder: HearRateProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourcesResultProto clone() =>
-      AuthorizedDataSourcesResultProto()..mergeFromMessage(this);
+  HearRateResultProto clone() => HearRateResultProto()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourcesResultProto copyWith(
-          void Function(AuthorizedDataSourcesResultProto) updates) =>
-      super.copyWith(
-              (message) => updates(message as AuthorizedDataSourcesResultProto))
-          as AuthorizedDataSourcesResultProto;
+  HearRateResultProto copyWith(void Function(HearRateResultProto) updates) =>
+      super.copyWith((message) => updates(message as HearRateResultProto))
+          as HearRateResultProto;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourcesResultProto create() =>
-      AuthorizedDataSourcesResultProto._();
+  static HearRateResultProto create() => HearRateResultProto._();
   @$core.override
-  AuthorizedDataSourcesResultProto createEmptyInstance() => create();
-  static $pb.PbList<AuthorizedDataSourcesResultProto> createRepeated() =>
-      $pb.PbList<AuthorizedDataSourcesResultProto>();
+  HearRateResultProto createEmptyInstance() => create();
+  static $pb.PbList<HearRateResultProto> createRepeated() =>
+      $pb.PbList<HearRateResultProto>();
   @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourcesResultProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<AuthorizedDataSourcesResultProto>(
-          create);
-  static AuthorizedDataSourcesResultProto? _defaultInstance;
+  static HearRateResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HearRateResultProto>(create);
+  static HearRateResultProto? _defaultInstance;
 
-  AuthorizedDataSourcesResultProto_Result whichResult() =>
-      _AuthorizedDataSourcesResultProto_ResultByTag[$_whichOneof(0)]!;
+  HearRateResultProto_Result whichResult() =>
+      _HearRateResultProto_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  AuthorizedDataSourcesProto get success => $_getN(0);
+  HearRateProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set success(AuthorizedDataSourcesProto value) => $_setField(1, value);
+  set success(HearRateProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
   void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  AuthorizedDataSourcesProto ensureSuccess() => $_ensure(0);
+  HearRateProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasFailure() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearFailure() => $_clearField(2);
-  @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
-}
-
-class AuthorizedDataSourceV2Proto extends $pb.GeneratedMessage {
-  factory AuthorizedDataSourceV2Proto({
-    $core.String? name,
-    $core.bool? authorized,
-    $core.String? imageUrl,
-  }) {
-    final result = create();
-    if (name != null) result.name = name;
-    if (authorized != null) result.authorized = authorized;
-    if (imageUrl != null) result.imageUrl = imageUrl;
-    return result;
-  }
-
-  AuthorizedDataSourceV2Proto._();
-
-  factory AuthorizedDataSourceV2Proto.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory AuthorizedDataSourceV2Proto.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'AuthorizedDataSourceV2Proto',
-      createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'name')
-    ..aOB(2, _omitFieldNames ? '' : 'authorized')
-    ..aOS(3, _omitFieldNames ? '' : 'imageUrl', protoName: 'imageUrl')
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourceV2Proto clone() =>
-      AuthorizedDataSourceV2Proto()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourceV2Proto copyWith(
-          void Function(AuthorizedDataSourceV2Proto) updates) =>
-      super.copyWith(
-              (message) => updates(message as AuthorizedDataSourceV2Proto))
-          as AuthorizedDataSourceV2Proto;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourceV2Proto create() =>
-      AuthorizedDataSourceV2Proto._();
-  @$core.override
-  AuthorizedDataSourceV2Proto createEmptyInstance() => create();
-  static $pb.PbList<AuthorizedDataSourceV2Proto> createRepeated() =>
-      $pb.PbList<AuthorizedDataSourceV2Proto>();
-  @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourceV2Proto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<AuthorizedDataSourceV2Proto>(create);
-  static AuthorizedDataSourceV2Proto? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get name => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set name($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasName() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearName() => $_clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.bool get authorized => $_getBF(1);
-  @$pb.TagNumber(2)
-  set authorized($core.bool value) => $_setBool(1, value);
-  @$pb.TagNumber(2)
-  $core.bool hasAuthorized() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearAuthorized() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get imageUrl => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set imageUrl($core.String value) => $_setString(2, value);
-  @$pb.TagNumber(3)
-  $core.bool hasImageUrl() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearImageUrl() => $_clearField(3);
-}
-
-class AuthorizedDataSourceV2ListProto extends $pb.GeneratedMessage {
-  factory AuthorizedDataSourceV2ListProto({
-    $core.Iterable<AuthorizedDataSourceV2Proto>? list,
-  }) {
-    final result = create();
-    if (list != null) result.list.addAll(list);
-    return result;
-  }
-
-  AuthorizedDataSourceV2ListProto._();
-
-  factory AuthorizedDataSourceV2ListProto.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory AuthorizedDataSourceV2ListProto.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'AuthorizedDataSourceV2ListProto',
-      createEmptyInstance: create)
-    ..pc<AuthorizedDataSourceV2Proto>(
-        1, _omitFieldNames ? '' : 'list', $pb.PbFieldType.PM,
-        subBuilder: AuthorizedDataSourceV2Proto.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourceV2ListProto clone() =>
-      AuthorizedDataSourceV2ListProto()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourceV2ListProto copyWith(
-          void Function(AuthorizedDataSourceV2ListProto) updates) =>
-      super.copyWith(
-              (message) => updates(message as AuthorizedDataSourceV2ListProto))
-          as AuthorizedDataSourceV2ListProto;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourceV2ListProto create() =>
-      AuthorizedDataSourceV2ListProto._();
-  @$core.override
-  AuthorizedDataSourceV2ListProto createEmptyInstance() => create();
-  static $pb.PbList<AuthorizedDataSourceV2ListProto> createRepeated() =>
-      $pb.PbList<AuthorizedDataSourceV2ListProto>();
-  @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourceV2ListProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<AuthorizedDataSourceV2ListProto>(
-          create);
-  static AuthorizedDataSourceV2ListProto? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $pb.PbList<AuthorizedDataSourceV2Proto> get list => $_getList(0);
-}
-
-enum AuthorizedDataSourceV2ResultProto_Result { success, failure, notSet }
-
-class AuthorizedDataSourceV2ResultProto extends $pb.GeneratedMessage {
-  factory AuthorizedDataSourceV2ResultProto({
-    AuthorizedDataSourceV2ListProto? success,
-    PluginExceptionProto? failure,
-  }) {
-    final result = create();
-    if (success != null) result.success = success;
-    if (failure != null) result.failure = failure;
-    return result;
-  }
-
-  AuthorizedDataSourceV2ResultProto._();
-
-  factory AuthorizedDataSourceV2ResultProto.fromBuffer(
-          $core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory AuthorizedDataSourceV2ResultProto.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static const $core.Map<$core.int, AuthorizedDataSourceV2ResultProto_Result>
-      _AuthorizedDataSourceV2ResultProto_ResultByTag = {
-    1: AuthorizedDataSourceV2ResultProto_Result.success,
-    2: AuthorizedDataSourceV2ResultProto_Result.failure,
-    0: AuthorizedDataSourceV2ResultProto_Result.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'AuthorizedDataSourceV2ResultProto',
-      createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<AuthorizedDataSourceV2ListProto>(1, _omitFieldNames ? '' : 'success',
-        subBuilder: AuthorizedDataSourceV2ListProto.create)
-    ..aOM<PluginExceptionProto>(2, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourceV2ResultProto clone() =>
-      AuthorizedDataSourceV2ResultProto()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthorizedDataSourceV2ResultProto copyWith(
-          void Function(AuthorizedDataSourceV2ResultProto) updates) =>
-      super.copyWith((message) =>
-              updates(message as AuthorizedDataSourceV2ResultProto))
-          as AuthorizedDataSourceV2ResultProto;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourceV2ResultProto create() =>
-      AuthorizedDataSourceV2ResultProto._();
-  @$core.override
-  AuthorizedDataSourceV2ResultProto createEmptyInstance() => create();
-  static $pb.PbList<AuthorizedDataSourceV2ResultProto> createRepeated() =>
-      $pb.PbList<AuthorizedDataSourceV2ResultProto>();
-  @$core.pragma('dart2js:noInline')
-  static AuthorizedDataSourceV2ResultProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<AuthorizedDataSourceV2ResultProto>(
-          create);
-  static AuthorizedDataSourceV2ResultProto? _defaultInstance;
-
-  AuthorizedDataSourceV2ResultProto_Result whichResult() =>
-      _AuthorizedDataSourceV2ResultProto_ResultByTag[$_whichOneof(0)]!;
-  void clearResult() => $_clearField($_whichOneof(0));
-
-  @$pb.TagNumber(1)
-  AuthorizedDataSourceV2ListProto get success => $_getN(0);
-  @$pb.TagNumber(1)
-  set success(AuthorizedDataSourceV2ListProto value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasSuccess() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearSuccess() => $_clearField(1);
-  @$pb.TagNumber(1)
-  AuthorizedDataSourceV2ListProto ensureSuccess() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  PluginExceptionProto get failure => $_getN(1);
-  @$pb.TagNumber(2)
-  set failure(PluginExceptionProto value) => $_setField(2, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
   void clearFailure() => $_clearField(2);
   @$pb.TagNumber(2)
-  PluginExceptionProto ensureFailure() => $_ensure(1);
-}
-
-class DataSourceProto extends $pb.GeneratedMessage {
-  factory DataSourceProto({
-    $core.String? name,
-    $core.String? description,
-    $core.String? imageUrl,
-    $core.bool? connected,
-    $core.String? authorizationUrl,
-    $core.bool? authorizationUrlIsNull,
-  }) {
-    final result = create();
-    if (name != null) result.name = name;
-    if (description != null) result.description = description;
-    if (imageUrl != null) result.imageUrl = imageUrl;
-    if (connected != null) result.connected = connected;
-    if (authorizationUrl != null) result.authorizationUrl = authorizationUrl;
-    if (authorizationUrlIsNull != null)
-      result.authorizationUrlIsNull = authorizationUrlIsNull;
-    return result;
-  }
-
-  DataSourceProto._();
-
-  factory DataSourceProto.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory DataSourceProto.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DataSourceProto',
-      createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'name')
-    ..aOS(2, _omitFieldNames ? '' : 'description')
-    ..aOS(3, _omitFieldNames ? '' : 'imageUrl', protoName: 'imageUrl')
-    ..aOB(4, _omitFieldNames ? '' : 'connected')
-    ..aOS(5, _omitFieldNames ? '' : 'authorizationUrl',
-        protoName: 'authorizationUrl')
-    ..aOB(6, _omitFieldNames ? '' : 'authorizationUrlIsNull',
-        protoName: 'authorizationUrlIsNull')
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DataSourceProto clone() => DataSourceProto()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DataSourceProto copyWith(void Function(DataSourceProto) updates) =>
-      super.copyWith((message) => updates(message as DataSourceProto))
-          as DataSourceProto;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DataSourceProto create() => DataSourceProto._();
-  @$core.override
-  DataSourceProto createEmptyInstance() => create();
-  static $pb.PbList<DataSourceProto> createRepeated() =>
-      $pb.PbList<DataSourceProto>();
-  @$core.pragma('dart2js:noInline')
-  static DataSourceProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DataSourceProto>(create);
-  static DataSourceProto? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get name => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set name($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasName() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearName() => $_clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get description => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set description($core.String value) => $_setString(1, value);
-  @$pb.TagNumber(2)
-  $core.bool hasDescription() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearDescription() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get imageUrl => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set imageUrl($core.String value) => $_setString(2, value);
-  @$pb.TagNumber(3)
-  $core.bool hasImageUrl() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearImageUrl() => $_clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.bool get connected => $_getBF(3);
-  @$pb.TagNumber(4)
-  set connected($core.bool value) => $_setBool(3, value);
-  @$pb.TagNumber(4)
-  $core.bool hasConnected() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearConnected() => $_clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.String get authorizationUrl => $_getSZ(4);
-  @$pb.TagNumber(5)
-  set authorizationUrl($core.String value) => $_setString(4, value);
-  @$pb.TagNumber(5)
-  $core.bool hasAuthorizationUrl() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearAuthorizationUrl() => $_clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.bool get authorizationUrlIsNull => $_getBF(5);
-  @$pb.TagNumber(6)
-  set authorizationUrlIsNull($core.bool value) => $_setBool(5, value);
-  @$pb.TagNumber(6)
-  $core.bool hasAuthorizationUrlIsNull() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearAuthorizationUrlIsNull() => $_clearField(6);
-}
-
-class DataSourcesProtoListWrapper extends $pb.GeneratedMessage {
-  factory DataSourcesProtoListWrapper({
-    $core.Iterable<DataSourceProto>? dataSources,
-  }) {
-    final result = create();
-    if (dataSources != null) result.dataSources.addAll(dataSources);
-    return result;
-  }
-
-  DataSourcesProtoListWrapper._();
-
-  factory DataSourcesProtoListWrapper.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory DataSourcesProtoListWrapper.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DataSourcesProtoListWrapper',
-      createEmptyInstance: create)
-    ..pc<DataSourceProto>(
-        1, _omitFieldNames ? '' : 'dataSources', $pb.PbFieldType.PM,
-        protoName: 'dataSources', subBuilder: DataSourceProto.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DataSourcesProtoListWrapper clone() =>
-      DataSourcesProtoListWrapper()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DataSourcesProtoListWrapper copyWith(
-          void Function(DataSourcesProtoListWrapper) updates) =>
-      super.copyWith(
-              (message) => updates(message as DataSourcesProtoListWrapper))
-          as DataSourcesProtoListWrapper;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DataSourcesProtoListWrapper create() =>
-      DataSourcesProtoListWrapper._();
-  @$core.override
-  DataSourcesProtoListWrapper createEmptyInstance() => create();
-  static $pb.PbList<DataSourcesProtoListWrapper> createRepeated() =>
-      $pb.PbList<DataSourcesProtoListWrapper>();
-  @$core.pragma('dart2js:noInline')
-  static DataSourcesProtoListWrapper getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DataSourcesProtoListWrapper>(create);
-  static DataSourcesProtoListWrapper? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $pb.PbList<DataSourceProto> get dataSources => $_getList(0);
-}
-
-enum ResultDataSourcesProto_Result {
-  dataSourcesProtoListWrapper,
-  pluginExceptionProto,
-  notSet
-}
-
-class ResultDataSourcesProto extends $pb.GeneratedMessage {
-  factory ResultDataSourcesProto({
-    DataSourcesProtoListWrapper? dataSourcesProtoListWrapper,
-    PluginExceptionProto? pluginExceptionProto,
-  }) {
-    final result = create();
-    if (dataSourcesProtoListWrapper != null)
-      result.dataSourcesProtoListWrapper = dataSourcesProtoListWrapper;
-    if (pluginExceptionProto != null)
-      result.pluginExceptionProto = pluginExceptionProto;
-    return result;
-  }
-
-  ResultDataSourcesProto._();
-
-  factory ResultDataSourcesProto.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory ResultDataSourcesProto.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static const $core.Map<$core.int, ResultDataSourcesProto_Result>
-      _ResultDataSourcesProto_ResultByTag = {
-    1: ResultDataSourcesProto_Result.dataSourcesProtoListWrapper,
-    2: ResultDataSourcesProto_Result.pluginExceptionProto,
-    0: ResultDataSourcesProto_Result.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ResultDataSourcesProto',
-      createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOM<DataSourcesProtoListWrapper>(
-        1, _omitFieldNames ? '' : 'dataSourcesProtoListWrapper',
-        protoName: 'dataSourcesProtoListWrapper',
-        subBuilder: DataSourcesProtoListWrapper.create)
-    ..aOM<PluginExceptionProto>(
-        2, _omitFieldNames ? '' : 'pluginExceptionProto',
-        protoName: 'pluginExceptionProto',
-        subBuilder: PluginExceptionProto.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ResultDataSourcesProto clone() =>
-      ResultDataSourcesProto()..mergeFromMessage(this);
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ResultDataSourcesProto copyWith(
-          void Function(ResultDataSourcesProto) updates) =>
-      super.copyWith((message) => updates(message as ResultDataSourcesProto))
-          as ResultDataSourcesProto;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static ResultDataSourcesProto create() => ResultDataSourcesProto._();
-  @$core.override
-  ResultDataSourcesProto createEmptyInstance() => create();
-  static $pb.PbList<ResultDataSourcesProto> createRepeated() =>
-      $pb.PbList<ResultDataSourcesProto>();
-  @$core.pragma('dart2js:noInline')
-  static ResultDataSourcesProto getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ResultDataSourcesProto>(create);
-  static ResultDataSourcesProto? _defaultInstance;
-
-  ResultDataSourcesProto_Result whichResult() =>
-      _ResultDataSourcesProto_ResultByTag[$_whichOneof(0)]!;
-  void clearResult() => $_clearField($_whichOneof(0));
-
-  @$pb.TagNumber(1)
-  DataSourcesProtoListWrapper get dataSourcesProtoListWrapper => $_getN(0);
-  @$pb.TagNumber(1)
-  set dataSourcesProtoListWrapper(DataSourcesProtoListWrapper value) =>
-      $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasDataSourcesProtoListWrapper() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearDataSourcesProtoListWrapper() => $_clearField(1);
-  @$pb.TagNumber(1)
-  DataSourcesProtoListWrapper ensureDataSourcesProtoListWrapper() =>
-      $_ensure(0);
-
-  @$pb.TagNumber(2)
-  PluginExceptionProto get pluginExceptionProto => $_getN(1);
-  @$pb.TagNumber(2)
-  set pluginExceptionProto(PluginExceptionProto value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasPluginExceptionProto() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearPluginExceptionProto() => $_clearField(2);
-  @$pb.TagNumber(2)
-  PluginExceptionProto ensurePluginExceptionProto() => $_ensure(1);
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class SleepSummaryProto extends $pb.GeneratedMessage {
@@ -2230,17 +1710,15 @@ class SleepSummariesProto extends $pb.GeneratedMessage {
   $pb.PbList<SleepSummaryProto> get elements => $_getList(0);
 }
 
-enum SleepSummaryResultProto_Result { synced, recordsNotFound, failure, notSet }
+enum SleepSummaryResultProto_Result { success, failure, notSet }
 
 class SleepSummaryResultProto extends $pb.GeneratedMessage {
   factory SleepSummaryResultProto({
-    SleepSummariesProto? synced,
-    $core.bool? recordsNotFound,
-    PluginExceptionProto? failure,
+    SleepSummariesProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
-    if (synced != null) result.synced = synced;
-    if (recordsNotFound != null) result.recordsNotFound = recordsNotFound;
+    if (success != null) result.success = success;
     if (failure != null) result.failure = failure;
     return result;
   }
@@ -2256,21 +1734,18 @@ class SleepSummaryResultProto extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, SleepSummaryResultProto_Result>
       _SleepSummaryResultProto_ResultByTag = {
-    1: SleepSummaryResultProto_Result.synced,
-    2: SleepSummaryResultProto_Result.recordsNotFound,
-    3: SleepSummaryResultProto_Result.failure,
+    1: SleepSummaryResultProto_Result.success,
+    2: SleepSummaryResultProto_Result.failure,
     0: SleepSummaryResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'SleepSummaryResultProto',
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
-    ..aOM<SleepSummariesProto>(1, _omitFieldNames ? '' : 'synced',
+    ..oo(0, [1, 2])
+    ..aOM<SleepSummariesProto>(1, _omitFieldNames ? '' : 'success',
         subBuilder: SleepSummariesProto.create)
-    ..aOB(2, _omitFieldNames ? '' : 'recordsNotFound',
-        protoName: 'recordsNotFound')
-    ..aOM<PluginExceptionProto>(3, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -2301,35 +1776,26 @@ class SleepSummaryResultProto extends $pb.GeneratedMessage {
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  SleepSummariesProto get synced => $_getN(0);
+  SleepSummariesProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set synced(SleepSummariesProto value) => $_setField(1, value);
+  set success(SleepSummariesProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasSynced() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSynced() => $_clearField(1);
+  void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  SleepSummariesProto ensureSynced() => $_ensure(0);
+  SleepSummariesProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get recordsNotFound => $_getBF(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set recordsNotFound($core.bool value) => $_setBool(1, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasRecordsNotFound() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRecordsNotFound() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  PluginExceptionProto get failure => $_getN(2);
-  @$pb.TagNumber(3)
-  set failure(PluginExceptionProto value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasFailure() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFailure() => $_clearField(3);
-  @$pb.TagNumber(3)
-  PluginExceptionProto ensureFailure() => $_ensure(2);
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class PhysicalSummaryProto extends $pb.GeneratedMessage {
@@ -3170,22 +2636,15 @@ class PhysicalSummaryProto extends $pb.GeneratedMessage {
   void clearStressMaximumLevel() => $_clearField(57);
 }
 
-enum PhysicalSummaryResultProto_Result {
-  synced,
-  recordsNotFound,
-  failure,
-  notSet
-}
+enum PhysicalSummaryResultProto_Result { success, failure, notSet }
 
 class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
   factory PhysicalSummaryResultProto({
-    PhysicalSummaryProto? synced,
-    $core.bool? recordsNotFound,
-    PluginExceptionProto? failure,
+    PhysicalSummaryProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
-    if (synced != null) result.synced = synced;
-    if (recordsNotFound != null) result.recordsNotFound = recordsNotFound;
+    if (success != null) result.success = success;
     if (failure != null) result.failure = failure;
     return result;
   }
@@ -3201,21 +2660,18 @@ class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, PhysicalSummaryResultProto_Result>
       _PhysicalSummaryResultProto_ResultByTag = {
-    1: PhysicalSummaryResultProto_Result.synced,
-    2: PhysicalSummaryResultProto_Result.recordsNotFound,
-    3: PhysicalSummaryResultProto_Result.failure,
+    1: PhysicalSummaryResultProto_Result.success,
+    2: PhysicalSummaryResultProto_Result.failure,
     0: PhysicalSummaryResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'PhysicalSummaryResultProto',
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
-    ..aOM<PhysicalSummaryProto>(1, _omitFieldNames ? '' : 'synced',
+    ..oo(0, [1, 2])
+    ..aOM<PhysicalSummaryProto>(1, _omitFieldNames ? '' : 'success',
         subBuilder: PhysicalSummaryProto.create)
-    ..aOB(2, _omitFieldNames ? '' : 'recordsNotFound',
-        protoName: 'recordsNotFound')
-    ..aOM<PluginExceptionProto>(3, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -3247,35 +2703,26 @@ class PhysicalSummaryResultProto extends $pb.GeneratedMessage {
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  PhysicalSummaryProto get synced => $_getN(0);
+  PhysicalSummaryProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set synced(PhysicalSummaryProto value) => $_setField(1, value);
+  set success(PhysicalSummaryProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasSynced() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSynced() => $_clearField(1);
+  void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  PhysicalSummaryProto ensureSynced() => $_ensure(0);
+  PhysicalSummaryProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get recordsNotFound => $_getBF(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set recordsNotFound($core.bool value) => $_setBool(1, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasRecordsNotFound() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRecordsNotFound() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  PluginExceptionProto get failure => $_getN(2);
-  @$pb.TagNumber(3)
-  set failure(PluginExceptionProto value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasFailure() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFailure() => $_clearField(3);
-  @$pb.TagNumber(3)
-  PluginExceptionProto ensureFailure() => $_ensure(2);
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 enum BodySummaryProto_IsAPredictedCycle {
@@ -4176,17 +3623,15 @@ class BodySummaryProto extends $pb.GeneratedMessage {
       get menstruationFlowGranularData => $_getList(63);
 }
 
-enum BodySummaryResultProto_Result { synced, recordsNotFound, failure, notSet }
+enum BodySummaryResultProto_Result { success, failure, notSet }
 
 class BodySummaryResultProto extends $pb.GeneratedMessage {
   factory BodySummaryResultProto({
-    BodySummaryProto? synced,
-    $core.bool? recordsNotFound,
-    PluginExceptionProto? failure,
+    BodySummaryProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
-    if (synced != null) result.synced = synced;
-    if (recordsNotFound != null) result.recordsNotFound = recordsNotFound;
+    if (success != null) result.success = success;
     if (failure != null) result.failure = failure;
     return result;
   }
@@ -4202,21 +3647,18 @@ class BodySummaryResultProto extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, BodySummaryResultProto_Result>
       _BodySummaryResultProto_ResultByTag = {
-    1: BodySummaryResultProto_Result.synced,
-    2: BodySummaryResultProto_Result.recordsNotFound,
-    3: BodySummaryResultProto_Result.failure,
+    1: BodySummaryResultProto_Result.success,
+    2: BodySummaryResultProto_Result.failure,
     0: BodySummaryResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'BodySummaryResultProto',
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
-    ..aOM<BodySummaryProto>(1, _omitFieldNames ? '' : 'synced',
+    ..oo(0, [1, 2])
+    ..aOM<BodySummaryProto>(1, _omitFieldNames ? '' : 'success',
         subBuilder: BodySummaryProto.create)
-    ..aOB(2, _omitFieldNames ? '' : 'recordsNotFound',
-        protoName: 'recordsNotFound')
-    ..aOM<PluginExceptionProto>(3, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -4247,35 +3689,26 @@ class BodySummaryResultProto extends $pb.GeneratedMessage {
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  BodySummaryProto get synced => $_getN(0);
+  BodySummaryProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set synced(BodySummaryProto value) => $_setField(1, value);
+  set success(BodySummaryProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasSynced() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSynced() => $_clearField(1);
+  void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  BodySummaryProto ensureSynced() => $_ensure(0);
+  BodySummaryProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get recordsNotFound => $_getBF(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set recordsNotFound($core.bool value) => $_setBool(1, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasRecordsNotFound() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRecordsNotFound() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  PluginExceptionProto get failure => $_getN(2);
-  @$pb.TagNumber(3)
-  set failure(PluginExceptionProto value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasFailure() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFailure() => $_clearField(3);
-  @$pb.TagNumber(3)
-  PluginExceptionProto ensureFailure() => $_ensure(2);
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class ActivityEventProto extends $pb.GeneratedMessage {
@@ -5585,22 +5018,15 @@ class ActivityEventsProto extends $pb.GeneratedMessage {
   $pb.PbList<ActivityEventProto> get elements => $_getList(0);
 }
 
-enum ActivityEventResultProto_Result {
-  synced,
-  recordsNotFound,
-  failure,
-  notSet
-}
+enum ActivityEventResultProto_Result { success, failure, notSet }
 
 class ActivityEventResultProto extends $pb.GeneratedMessage {
   factory ActivityEventResultProto({
-    ActivityEventsProto? synced,
-    $core.bool? recordsNotFound,
-    PluginExceptionProto? failure,
+    ActivityEventsProto? success,
+    SDKExceptionProto? failure,
   }) {
     final result = create();
-    if (synced != null) result.synced = synced;
-    if (recordsNotFound != null) result.recordsNotFound = recordsNotFound;
+    if (success != null) result.success = success;
     if (failure != null) result.failure = failure;
     return result;
   }
@@ -5616,21 +5042,18 @@ class ActivityEventResultProto extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, ActivityEventResultProto_Result>
       _ActivityEventResultProto_ResultByTag = {
-    1: ActivityEventResultProto_Result.synced,
-    2: ActivityEventResultProto_Result.recordsNotFound,
-    3: ActivityEventResultProto_Result.failure,
+    1: ActivityEventResultProto_Result.success,
+    2: ActivityEventResultProto_Result.failure,
     0: ActivityEventResultProto_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'ActivityEventResultProto',
       createEmptyInstance: create)
-    ..oo(0, [1, 2, 3])
-    ..aOM<ActivityEventsProto>(1, _omitFieldNames ? '' : 'synced',
+    ..oo(0, [1, 2])
+    ..aOM<ActivityEventsProto>(1, _omitFieldNames ? '' : 'success',
         subBuilder: ActivityEventsProto.create)
-    ..aOB(2, _omitFieldNames ? '' : 'recordsNotFound',
-        protoName: 'recordsNotFound')
-    ..aOM<PluginExceptionProto>(3, _omitFieldNames ? '' : 'failure',
-        subBuilder: PluginExceptionProto.create)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -5661,35 +5084,26 @@ class ActivityEventResultProto extends $pb.GeneratedMessage {
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  ActivityEventsProto get synced => $_getN(0);
+  ActivityEventsProto get success => $_getN(0);
   @$pb.TagNumber(1)
-  set synced(ActivityEventsProto value) => $_setField(1, value);
+  set success(ActivityEventsProto value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasSynced() => $_has(0);
+  $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSynced() => $_clearField(1);
+  void clearSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  ActivityEventsProto ensureSynced() => $_ensure(0);
+  ActivityEventsProto ensureSuccess() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.bool get recordsNotFound => $_getBF(1);
+  SDKExceptionProto get failure => $_getN(1);
   @$pb.TagNumber(2)
-  set recordsNotFound($core.bool value) => $_setBool(1, value);
+  set failure(SDKExceptionProto value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasRecordsNotFound() => $_has(1);
+  $core.bool hasFailure() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRecordsNotFound() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  PluginExceptionProto get failure => $_getN(2);
-  @$pb.TagNumber(3)
-  set failure(PluginExceptionProto value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasFailure() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFailure() => $_clearField(3);
-  @$pb.TagNumber(3)
-  PluginExceptionProto ensureFailure() => $_ensure(2);
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
 class ActiveStepsGranularDataProto extends $pb.GeneratedMessage {

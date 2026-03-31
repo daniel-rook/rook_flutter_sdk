@@ -1,5 +1,1 @@
-enum SHSummarySyncType {
-  sleep,
-  physical,
-  body,
-}
+enum SHSummarySyncType { sleep, physical, body }

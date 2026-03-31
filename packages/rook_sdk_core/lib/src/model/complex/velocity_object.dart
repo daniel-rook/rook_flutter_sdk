@@ -2,10 +2,7 @@ class VelocityObject {
   final double speedMetersPerSecond;
   final String direction;
 
-  VelocityObject({
-    required this.speedMetersPerSecond,
-    required this.direction,
-  });
+  VelocityObject({required this.speedMetersPerSecond, required this.direction});
 
   @override
   bool operator ==(Object other) =>

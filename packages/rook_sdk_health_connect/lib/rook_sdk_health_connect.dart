@@ -9,8 +9,6 @@ export 'src/domain/model/android_permissions_summary.dart';
 export 'src/domain/model/health_connect_permissions_summary.dart';
 export 'src/hc_rook_background_sync.dart';
 export 'src/hc_rook_configuration_manager.dart';
-export 'src/hc_rook_data_sources.dart';
 export 'src/hc_rook_health_permissions_manager.dart';
 export 'src/hc_rook_helpers.dart';
 export 'src/hc_rook_sync_manager.dart';
-export 'src/hc_rook_yesterday_sync_manager.dart';

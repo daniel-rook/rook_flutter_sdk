@@ -24,6 +24,7 @@ fun EventSyncTypeProto.toSyncType(): SHSyncType.Event {
         EventSyncTypeProto.HYDRATION -> SHSyncType.Event.HYDRATION
         EventSyncTypeProto.NUTRITION -> SHSyncType.Event.NUTRITION
         EventSyncTypeProto.OXYGENATION -> SHSyncType.Event.OXYGENATION
+        EventSyncTypeProto.TEMPERATURE -> SHSyncType.Event.TEMPERATURE
         EventSyncTypeProto.STEPS -> SHSyncType.Event.STEPS
         EventSyncTypeProto.CALORIES -> SHSyncType.Event.CALORIES
         else -> throw UnknownSyncTypeException()

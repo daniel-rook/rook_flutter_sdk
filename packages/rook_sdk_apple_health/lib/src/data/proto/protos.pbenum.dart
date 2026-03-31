@@ -33,6 +33,30 @@ class EnvironmentProto extends $pb.ProtobufEnum {
   const EnvironmentProto._(super.value, super.name);
 }
 
+class DiagnosticStatePermissionsProto extends $pb.ProtobufEnum {
+  static const DiagnosticStatePermissionsProto NOT_REQUESTED =
+      DiagnosticStatePermissionsProto._(
+          0, _omitEnumNames ? '' : 'NOT_REQUESTED');
+  static const DiagnosticStatePermissionsProto REQUESTED =
+      DiagnosticStatePermissionsProto._(1, _omitEnumNames ? '' : 'REQUESTED');
+  static const DiagnosticStatePermissionsProto GRANTED =
+      DiagnosticStatePermissionsProto._(2, _omitEnumNames ? '' : 'GRANTED');
+
+  static const $core.List<DiagnosticStatePermissionsProto> values =
+      <DiagnosticStatePermissionsProto>[
+    NOT_REQUESTED,
+    REQUESTED,
+    GRANTED,
+  ];
+
+  static final $core.List<DiagnosticStatePermissionsProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static DiagnosticStatePermissionsProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const DiagnosticStatePermissionsProto._(super.value, super.name);
+}
+
 class AppleHealthPermissionProto extends $pb.ProtobufEnum {
   static const AppleHealthPermissionProto APPLE_EXERCISE_TIME =
       AppleHealthPermissionProto._(
@@ -251,10 +275,16 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
       EventSyncTypeProto._(3, _omitEnumNames ? '' : 'BODY_METRICS');
   static const EventSyncTypeProto HEART_RATE =
       EventSyncTypeProto._(4, _omitEnumNames ? '' : 'HEART_RATE');
+  static const EventSyncTypeProto NUTRITION =
+      EventSyncTypeProto._(6, _omitEnumNames ? '' : 'NUTRITION');
   static const EventSyncTypeProto OXYGENATION =
       EventSyncTypeProto._(7, _omitEnumNames ? '' : 'OXYGENATION');
   static const EventSyncTypeProto TEMPERATURE =
       EventSyncTypeProto._(8, _omitEnumNames ? '' : 'TEMPERATURE');
+  static const EventSyncTypeProto STEPS =
+      EventSyncTypeProto._(9, _omitEnumNames ? '' : 'STEPS');
+  static const EventSyncTypeProto CALORIES =
+      EventSyncTypeProto._(10, _omitEnumNames ? '' : 'CALORIES');
 
   static const $core.List<EventSyncTypeProto> values = <EventSyncTypeProto>[
     ACTIVITY,
@@ -262,47 +292,19 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
     BLOOD_PRESSURE,
     BODY_METRICS,
     HEART_RATE,
+    NUTRITION,
     OXYGENATION,
     TEMPERATURE,
+    STEPS,
+    CALORIES,
   ];
 
   static final $core.List<EventSyncTypeProto?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 8);
+      $pb.ProtobufEnum.$_initByValueList(values, 10);
   static EventSyncTypeProto? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const EventSyncTypeProto._(super.value, super.name);
-}
-
-class DataSourceTypeProto extends $pb.ProtobufEnum {
-  static const DataSourceTypeProto GARMIN =
-      DataSourceTypeProto._(0, _omitEnumNames ? '' : 'GARMIN');
-  static const DataSourceTypeProto OURA =
-      DataSourceTypeProto._(1, _omitEnumNames ? '' : 'OURA');
-  static const DataSourceTypeProto POLAR =
-      DataSourceTypeProto._(2, _omitEnumNames ? '' : 'POLAR');
-  static const DataSourceTypeProto FITBIT =
-      DataSourceTypeProto._(3, _omitEnumNames ? '' : 'FITBIT');
-  static const DataSourceTypeProto WITHINGS =
-      DataSourceTypeProto._(4, _omitEnumNames ? '' : 'WITHINGS');
-  static const DataSourceTypeProto WHOOP =
-      DataSourceTypeProto._(5, _omitEnumNames ? '' : 'WHOOP');
-
-  static const $core.List<DataSourceTypeProto> values = <DataSourceTypeProto>[
-    GARMIN,
-    OURA,
-    POLAR,
-    FITBIT,
-    WITHINGS,
-    WHOOP,
-  ];
-
-  static final $core.List<DataSourceTypeProto?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 5);
-  static DataSourceTypeProto? valueOf($core.int value) =>
-      value < 0 || value >= _byValue.length ? null : _byValue[value];
-
-  const DataSourceTypeProto._(super.value, super.name);
 }
 
 const $core.bool _omitEnumNames =

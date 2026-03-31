@@ -4,13 +4,13 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.10.4 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  rook_sdk_core: "^1.2.0"
+  rook_sdk_core: "^4.0.0"
   rook_sdk_health_connect:
     path: 'packages/rook_sdk_health_connect'
   rook_sdk_apple_health:
@@ -21,7 +21,7 @@ dependencies:
   receive_intent: ^0.2.7
   logging: ">=1.0.0 <2.0.0"
   shared_preferences: ^2.5.2
-  url_launcher: ">=6.3.1 <7.0.0"
+  url_launcher: ">=6.3.2 <7.0.0"
   focus_detector: ">=2.0.0 <3.0.0"
 
 dependency_overrides:
@@ -29,6 +29,7 @@ dependency_overrides:
     path: "packages/rook_sdk_core"
 
 dev_dependencies:
+  test: ^1.21.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0

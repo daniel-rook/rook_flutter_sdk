@@ -7,6 +7,7 @@ enum SHEventSyncType {
   hydration,
   nutrition,
   oxygenation,
+  temperature,
   steps,
   calories,
 }

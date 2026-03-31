@@ -15,7 +15,8 @@ public  final class ConfigurationProto extends
     ConfigurationProtoOrBuilder {
   private ConfigurationProto() {
     clientUUID_ = "";
-    secretKey_ = "";
+    secret_ = "";
+    appId_ = "";
   }
   public static final int CLIENTUUID_FIELD_NUMBER = 1;
   private java.lang.String clientUUID_;
@@ -64,50 +65,50 @@ public  final class ConfigurationProto extends
 
   }
 
-  public static final int SECRETKEY_FIELD_NUMBER = 2;
-  private java.lang.String secretKey_;
+  public static final int SECRET_FIELD_NUMBER = 2;
+  private java.lang.String secret_;
   /**
-   * <code>string secretKey = 2;</code>
-   * @return The secretKey.
+   * <code>string secret = 2;</code>
+   * @return The secret.
    */
   @java.lang.Override
-  public java.lang.String getSecretKey() {
-    return secretKey_;
+  public java.lang.String getSecret() {
+    return secret_;
   }
   /**
-   * <code>string secretKey = 2;</code>
-   * @return The bytes for secretKey.
+   * <code>string secret = 2;</code>
+   * @return The bytes for secret.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSecretKeyBytes() {
-    return com.google.protobuf.ByteString.copyFromUtf8(secretKey_);
+      getSecretBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(secret_);
   }
   /**
-   * <code>string secretKey = 2;</code>
-   * @param value The secretKey to set.
+   * <code>string secret = 2;</code>
+   * @param value The secret to set.
    */
-  private void setSecretKey(
+  private void setSecret(
       java.lang.String value) {
     java.lang.Class<?> valueClass = value.getClass();
   
-    secretKey_ = value;
+    secret_ = value;
   }
   /**
-   * <code>string secretKey = 2;</code>
+   * <code>string secret = 2;</code>
    */
-  private void clearSecretKey() {
+  private void clearSecret() {
 
-    secretKey_ = getDefaultInstance().getSecretKey();
+    secret_ = getDefaultInstance().getSecret();
   }
   /**
-   * <code>string secretKey = 2;</code>
-   * @param value The bytes for secretKey to set.
+   * <code>string secret = 2;</code>
+   * @param value The bytes for secret to set.
    */
-  private void setSecretKeyBytes(
+  private void setSecretBytes(
       com.google.protobuf.ByteString value) {
     checkByteStringIsUtf8(value);
-    secretKey_ = value.toStringUtf8();
+    secret_ = value.toStringUtf8();
 
   }
 
@@ -177,6 +178,53 @@ public  final class ConfigurationProto extends
   private void clearEnableBackgroundSync() {
 
     enableBackgroundSync_ = false;
+  }
+
+  public static final int APPID_FIELD_NUMBER = 5;
+  private java.lang.String appId_;
+  /**
+   * <code>string appId = 5;</code>
+   * @return The appId.
+   */
+  @java.lang.Override
+  public java.lang.String getAppId() {
+    return appId_;
+  }
+  /**
+   * <code>string appId = 5;</code>
+   * @return The bytes for appId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAppIdBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(appId_);
+  }
+  /**
+   * <code>string appId = 5;</code>
+   * @param value The appId to set.
+   */
+  private void setAppId(
+      java.lang.String value) {
+    java.lang.Class<?> valueClass = value.getClass();
+  
+    appId_ = value;
+  }
+  /**
+   * <code>string appId = 5;</code>
+   */
+  private void clearAppId() {
+
+    appId_ = getDefaultInstance().getAppId();
+  }
+  /**
+   * <code>string appId = 5;</code>
+   * @param value The bytes for appId to set.
+   */
+  private void setAppIdBytes(
+      com.google.protobuf.ByteString value) {
+    checkByteStringIsUtf8(value);
+    appId_ = value.toStringUtf8();
+
   }
 
   public static io.tryrook.rook_sdk_samsung_health.proto.ConfigurationProto parseFrom(
@@ -326,51 +374,51 @@ public  final class ConfigurationProto extends
     }
 
     /**
-     * <code>string secretKey = 2;</code>
-     * @return The secretKey.
+     * <code>string secret = 2;</code>
+     * @return The secret.
      */
     @java.lang.Override
-    public java.lang.String getSecretKey() {
-      return instance.getSecretKey();
+    public java.lang.String getSecret() {
+      return instance.getSecret();
     }
     /**
-     * <code>string secretKey = 2;</code>
-     * @return The bytes for secretKey.
+     * <code>string secret = 2;</code>
+     * @return The bytes for secret.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getSecretKeyBytes() {
-      return instance.getSecretKeyBytes();
+        getSecretBytes() {
+      return instance.getSecretBytes();
     }
     /**
-     * <code>string secretKey = 2;</code>
-     * @param value The secretKey to set.
+     * <code>string secret = 2;</code>
+     * @param value The secret to set.
      * @return This builder for chaining.
      */
-    public Builder setSecretKey(
+    public Builder setSecret(
         java.lang.String value) {
       copyOnWrite();
-      instance.setSecretKey(value);
+      instance.setSecret(value);
       return this;
     }
     /**
-     * <code>string secretKey = 2;</code>
+     * <code>string secret = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSecretKey() {
+    public Builder clearSecret() {
       copyOnWrite();
-      instance.clearSecretKey();
+      instance.clearSecret();
       return this;
     }
     /**
-     * <code>string secretKey = 2;</code>
-     * @param value The bytes for secretKey to set.
+     * <code>string secret = 2;</code>
+     * @param value The bytes for secret to set.
      * @return This builder for chaining.
      */
-    public Builder setSecretKeyBytes(
+    public Builder setSecretBytes(
         com.google.protobuf.ByteString value) {
       copyOnWrite();
-      instance.setSecretKeyBytes(value);
+      instance.setSecretBytes(value);
       return this;
     }
 
@@ -448,6 +496,55 @@ public  final class ConfigurationProto extends
       return this;
     }
 
+    /**
+     * <code>string appId = 5;</code>
+     * @return The appId.
+     */
+    @java.lang.Override
+    public java.lang.String getAppId() {
+      return instance.getAppId();
+    }
+    /**
+     * <code>string appId = 5;</code>
+     * @return The bytes for appId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAppIdBytes() {
+      return instance.getAppIdBytes();
+    }
+    /**
+     * <code>string appId = 5;</code>
+     * @param value The appId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppId(
+        java.lang.String value) {
+      copyOnWrite();
+      instance.setAppId(value);
+      return this;
+    }
+    /**
+     * <code>string appId = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAppId() {
+      copyOnWrite();
+      instance.clearAppId();
+      return this;
+    }
+    /**
+     * <code>string appId = 5;</code>
+     * @param value The bytes for appId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAppIdBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setAppIdBytes(value);
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:ConfigurationProto)
   }
   @java.lang.Override
@@ -465,13 +562,14 @@ public  final class ConfigurationProto extends
       case BUILD_MESSAGE_INFO: {
           java.lang.Object[] objects = new java.lang.Object[] {
             "clientUUID_",
-            "secretKey_",
+            "secret_",
             "environment_",
             "enableBackgroundSync_",
+            "appId_",
           };
           java.lang.String info =
-              "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
-              "\u0003\f\u0004\u0007";
+              "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
+              "\u0003\f\u0004\u0007\u0005\u0208";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through

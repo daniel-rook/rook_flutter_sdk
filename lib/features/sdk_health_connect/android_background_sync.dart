@@ -30,7 +30,7 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
   ConsoleOutput backgroundSyncOutput = ConsoleOutput();
 
   StreamSubscription<HealthConnectPermissionsSummary>?
-      healthConnectPermissionsSubscription;
+  healthConnectPermissionsSubscription;
   StreamSubscription<bool>? isScheduledUpdatesSubscription;
 
   @override
@@ -38,19 +38,21 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
     healthConnectPermissionsSubscription = HCRookHealthPermissionsManager
         .requestHealthConnectPermissionsUpdates
         .listen((permissionsSummary) {
-      setState(() {
-        hasDataTypesPermissions = permissionsSummary.dataTypesGranted ||
-            permissionsSummary.dataTypesPartiallyGranted;
-        hasBackgroundReadPermissions = permissionsSummary.backgroundReadGranted;
-      });
-    });
+          setState(() {
+            hasDataTypesPermissions =
+                permissionsSummary.dataTypesGranted ||
+                permissionsSummary.dataTypesPartiallyGranted;
+            hasBackgroundReadPermissions =
+                permissionsSummary.backgroundReadGranted;
+          });
+        });
 
-    isScheduledUpdatesSubscription =
-        HCRookBackgroundSync.isScheduledUpdates.listen((isScheduled) {
-      setState(() {
-        backgroundEnabled = isScheduled;
-      });
-    });
+    isScheduledUpdatesSubscription = HCRookBackgroundSync.isScheduledUpdates
+        .listen((isScheduled) {
+          setState(() {
+            backgroundEnabled = isScheduled;
+          });
+        });
 
     checkAvailabilityAndPermissions();
     automaticallyStartBackgroundSync();
@@ -67,10 +69,9 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
 
   @override
   Widget build(BuildContext context) {
-    final errorTextStyle = Theme.of(context)
-        .textTheme
-        .titleLarge
-        ?.copyWith(color: Theme.of(context).colorScheme.error);
+    final errorTextStyle = Theme.of(context).textTheme.titleLarge?.copyWith(
+      color: Theme.of(context).colorScheme.error,
+    );
 
     return ScrollableScaffold(
       name: 'Background Sync',
@@ -108,7 +109,7 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
                   TextButton(
                     onPressed: openHealthConnect,
                     child: const Text("Open Health Connect"),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -120,7 +121,8 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
           ),
           Text(backgroundSyncOutput.current),
           FilledButton(
-            onPressed: (hasDataTypesPermissions &&
+            onPressed:
+                (hasDataTypesPermissions &&
                     hasBackgroundReadPermissions &&
                     !backgroundEnabled)
                 ? enableBackgroundSync
@@ -141,9 +143,9 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
         await HCRookHealthPermissionsManager.checkHealthConnectPermissions()
             .getOrFalse();
 
-    final hasPartialPermissions = await HCRookHealthPermissionsManager
-            .checkHealthConnectPermissionsPartially()
-        .getOrFalse();
+    final hasPartialPermissions =
+        await HCRookHealthPermissionsManager.checkHealthConnectPermissionsPartially()
+            .getOrFalse();
 
     HCBackgroundReadStatus backgroundReadStatus;
 
@@ -165,8 +167,8 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
 
   void requestPermissions() async {
     try {
-      final requestPermissionsStatus = await HCRookHealthPermissionsManager
-          .requestHealthConnectPermissions();
+      final requestPermissionsStatus =
+          await HCRookHealthPermissionsManager.requestHealthConnectPermissions();
 
       String message = switch (requestPermissionsStatus) {
         RequestPermissionsStatus.alreadyGranted =>
@@ -192,11 +194,11 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final autoSyncAcceptation = await AppPreferences().getAutoSyncAcceptation();
+    final enabled = await AppPreferences().getHealthConnectBackgroundSync();
 
     backgroundSyncOutput.clear();
 
-    if (autoSyncAcceptation) {
+    if (enabled) {
       setState(() {
         backgroundSyncOutput.append("Enabling background sync...");
       });
@@ -232,12 +234,12 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
   }
 
   void enableBackgroundSync() async {
-    await AppPreferences().setAutoSyncAcceptation(true);
+    await AppPreferences().setHealthConnectBackgroundSync(true);
     automaticallyStartBackgroundSync();
   }
 
   void disableBackgroundSync() async {
-    await AppPreferences().setAutoSyncAcceptation(false);
+    await AppPreferences().setHealthConnectBackgroundSync(false);
     automaticallyStartBackgroundSync();
   }
 }

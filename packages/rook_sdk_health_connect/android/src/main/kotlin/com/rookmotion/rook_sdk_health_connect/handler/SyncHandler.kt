@@ -1,6 +1,15 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
 import com.rookmotion.rook.sdk.RookSyncManager
+import com.rookmotion.rook.sdk.domain.enums.SyncStatus
+import com.rookmotion.rook.sdk.domain.exception.HCRecordsNotFoundException
+import com.rookmotion.rook.sdk.domain.model.HCActivityEvent
+import com.rookmotion.rook.sdk.domain.model.HCBodySummary
+import com.rookmotion.rook.sdk.domain.model.HCCalories
+import com.rookmotion.rook.sdk.domain.model.HCHeartRate
+import com.rookmotion.rook.sdk.domain.model.HCPhysicalSummary
+import com.rookmotion.rook.sdk.domain.model.HCSleepSummary
+import com.rookmotion.rook.sdk.domain.model.SyncStatusWithData
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.extension.getBooleanArgAt
 import com.rookmotion.rook_sdk_health_connect.extension.getIntArgAt
@@ -15,17 +24,20 @@ import com.rookmotion.rook_sdk_health_connect.result.bodySummaryError
 import com.rookmotion.rook_sdk_health_connect.result.bodySummarySuccess
 import com.rookmotion.rook_sdk_health_connect.result.booleanError
 import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
+import com.rookmotion.rook_sdk_health_connect.result.caloriesError
+import com.rookmotion.rook_sdk_health_connect.result.caloriesSuccess
+import com.rookmotion.rook_sdk_health_connect.result.heartRateError
+import com.rookmotion.rook_sdk_health_connect.result.heartRateSuccess
+import com.rookmotion.rook_sdk_health_connect.result.int64Error
+import com.rookmotion.rook_sdk_health_connect.result.int64Success
 import com.rookmotion.rook_sdk_health_connect.result.physicalSummaryError
 import com.rookmotion.rook_sdk_health_connect.result.physicalSummarySuccess
 import com.rookmotion.rook_sdk_health_connect.result.sleepSummaryError
 import com.rookmotion.rook_sdk_health_connect.result.sleepSummarySuccess
-import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithDailyCaloriesError
-import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithDailyCaloriesSuccess
-import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithIntError
-import com.rookmotion.rook_sdk_health_connect.result.syncStatusWithIntSuccess
 import io.flutter.plugin.common.MethodCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.time.Instant
 
 class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSyncManager: RookSyncManager) {
@@ -49,14 +61,31 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                 val millis = methodCall.getLongArgAt(0)
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
-                rookSyncManager.sync(localDate).fold(
-                    {
-                        methodResult.booleanSuccess(it)
-                    },
-                    {
-                        methodResult.booleanError(it)
-                    },
-                )
+                val result = rookSyncManager.sync(localDate)
+
+                try {
+                    val sleepSummaryStatus = result.sleepSummary.getOrThrow()
+                    val physicalSummaryStatus = result.physicalSummary.getOrThrow()
+                    val bodySummaryStatus = result.bodySummary.getOrThrow()
+
+                    Timber.i("Sleep Summary: $sleepSummaryStatus")
+                    Timber.i("Physical Summary: $physicalSummaryStatus")
+                    Timber.i("Body Summary: $bodySummaryStatus")
+
+                    val noSleepData = sleepSummaryStatus == SyncStatus.RECORDS_NOT_FOUND
+                    val noPhysicalData = physicalSummaryStatus == SyncStatus.RECORDS_NOT_FOUND
+                    val noBodyData = bodySummaryStatus == SyncStatus.RECORDS_NOT_FOUND
+
+                    if (noSleepData && noPhysicalData && noBodyData) {
+                        val throwable = HCRecordsNotFoundException("Sleep, Physical and Body summary")
+
+                        methodResult.booleanError(throwable)
+                    } else {
+                        methodResult.booleanSuccess(true)
+                    }
+                } catch (exception: Exception) {
+                    methodResult.booleanError(exception)
+                }
             }
 
             "syncByDateAndSummary" -> coroutineScope.launch {
@@ -67,8 +96,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                 }
 
                 rookSyncManager.sync(localDate, summary).fold(
-                    {
-                        methodResult.booleanSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            SyncStatus.SYNCED -> {
+                                methodResult.booleanSuccess(true)
+                            }
+
+                            SyncStatus.RECORDS_NOT_FOUND -> {
+                                methodResult.booleanError(HCRecordsNotFoundException(summary.name))
+                            }
+                        }
                     },
                     {
                         methodResult.booleanError(it)
@@ -84,8 +121,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                 }
 
                 rookSyncManager.syncEvents(localDate, event).fold(
-                    {
-                        methodResult.booleanSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            SyncStatus.SYNCED -> {
+                                methodResult.booleanSuccess(true)
+                            }
+
+                            SyncStatus.RECORDS_NOT_FOUND -> {
+                                methodResult.booleanError(HCRecordsNotFoundException(event.name))
+                            }
+                        }
                     },
                     {
                         methodResult.booleanError(it)
@@ -98,8 +143,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
                 rookSyncManager.getSleepSummary(localDate).fold(
-                    {
-                        methodResult.sleepSummarySuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SyncStatusWithData.Synced<List<HCSleepSummary>> -> {
+                                methodResult.sleepSummarySuccess(syncStatus.data)
+                            }
+
+                            SyncStatusWithData.RecordsNotFound -> {
+                                methodResult.sleepSummaryError(HCRecordsNotFoundException("Sleep Summary"))
+                            }
+                        }
                     },
                     {
                         methodResult.sleepSummaryError(it)
@@ -112,8 +165,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
                 rookSyncManager.getPhysicalSummary(localDate).fold(
-                    {
-                        methodResult.physicalSummarySuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SyncStatusWithData.Synced<HCPhysicalSummary> -> {
+                                methodResult.physicalSummarySuccess(syncStatus.data)
+                            }
+
+                            SyncStatusWithData.RecordsNotFound -> {
+                                methodResult.physicalSummaryError(HCRecordsNotFoundException("Physical Summary"))
+                            }
+                        }
                     },
                     {
                         methodResult.physicalSummaryError(it)
@@ -126,8 +187,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
                 rookSyncManager.getBodySummary(localDate).fold(
-                    {
-                        methodResult.bodySummarySuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SyncStatusWithData.Synced<HCBodySummary> -> {
+                                methodResult.bodySummarySuccess(syncStatus.data)
+                            }
+
+                            SyncStatusWithData.RecordsNotFound -> {
+                                methodResult.bodySummaryError(HCRecordsNotFoundException("Body Summary"))
+                            }
+                        }
                     },
                     {
                         methodResult.bodySummaryError(it)
@@ -140,8 +209,16 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                 val localDate = Instant.ofEpochMilli(millis).toLocalDate()
 
                 rookSyncManager.getActivityEvents(localDate).fold(
-                    {
-                        methodResult.activityEventSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SyncStatusWithData.Synced<List<HCActivityEvent>> -> {
+                                methodResult.activityEventSuccess(syncStatus.data)
+                            }
+
+                            SyncStatusWithData.RecordsNotFound -> {
+                                methodResult.activityEventError(HCRecordsNotFoundException("Activity Event"))
+                            }
+                        }
                     },
                     {
                         methodResult.activityEventError(it)
@@ -151,22 +228,57 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
 
             "getTodayStepsCount" -> coroutineScope.launch {
                 rookSyncManager.getTodayStepsCount().fold(
-                    {
-                        methodResult.syncStatusWithIntSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SyncStatusWithData.Synced<Int> -> {
+                                methodResult.int64Success(syncStatus.data.toLong())
+                            }
+
+                            SyncStatusWithData.RecordsNotFound -> {
+                                methodResult.int64Error(HCRecordsNotFoundException("Steps"))
+                            }
+                        }
                     },
                     {
-                        methodResult.syncStatusWithIntError(it)
+                        methodResult.int64Error(it)
                     },
                 )
             }
 
             "getTodayCaloriesCount" -> coroutineScope.launch {
                 rookSyncManager.getTodayCaloriesCount().fold(
-                    {
-                        methodResult.syncStatusWithDailyCaloriesSuccess(it)
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SyncStatusWithData.Synced<HCCalories> -> {
+                                methodResult.caloriesSuccess(syncStatus.data)
+                            }
+
+                            SyncStatusWithData.RecordsNotFound -> {
+                                methodResult.caloriesError(HCRecordsNotFoundException("Calories"))
+                            }
+                        }
                     },
                     {
-                        methodResult.syncStatusWithDailyCaloriesError(it)
+                        methodResult.caloriesError(it)
+                    },
+                )
+            }
+
+            "getTodayHeartRate" -> coroutineScope.launch {
+                rookSyncManager.getTodayHeartRate().fold(
+                    { syncStatus ->
+                        when (syncStatus) {
+                            is SyncStatusWithData.Synced<HCHeartRate> -> {
+                                methodResult.heartRateSuccess(syncStatus.data)
+                            }
+
+                            SyncStatusWithData.RecordsNotFound -> {
+                                methodResult.heartRateError(HCRecordsNotFoundException("Heart Rate"))
+                            }
+                        }
+                    },
+                    {
+                        methodResult.caloriesError(it)
                     },
                 )
             }

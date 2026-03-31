@@ -7,6 +7,7 @@
 
 import Foundation
 import RookSDK
+import WebKit
 
 extension RookActivityEvent {
     func toProto() -> ActivityEventProto {

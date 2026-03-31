@@ -9,41 +9,21 @@ import Foundation
 import RookSDK
 
 extension Error {
-    func isRecordsNotFound() -> Bool {
-        if let rookConnectError = self as? RookConnectErrors {
-            return rookConnectError == RookConnectErrors.emptySummary ||
-            rookConnectError == RookConnectErrors.emptySummaries ||
-            rookConnectError == RookConnectErrors.emptyEvent ||
-            rookConnectError == RookConnectErrors.nothingToUpdate
+    func getSDKExceptionCode() -> Int32 {
+        if let rookError: RookError = self as? RookError {
+            return Int32(rookError.code)
+        } else {
+            return Int32(unknown)
         }
-        
-        return false
     }
 
-    func getPluginExceptionId() -> Int32 {
-        let id = switch self {
-        case let error where error as? RookConnectErrors == .missingConfiguration:
-            missingConfiguration
-        default:
-            unknown
+    func getSDKExceptionMessage() -> String {
+        if let rookError: RookError = self as? RookError {
+            return rookError.errorDescription ?? localizedDescription
+        } else {
+            return localizedDescription
         }
-
-        return Int32(id)
-    }
-
-    func getPluginExceptionCode() -> Int32 {
-        let id = switch self {
-        default:
-            unknown
-        }
-
-        return Int32(id)
-    }
-
-    func getPluginExceptionMessage() -> String {
-        return localizedDescription
     }
 }
 
 private let unknown = -1
-private let missingConfiguration = 1

@@ -1,5 +1,6 @@
 package com.rookmotion.rook_sdk_health_connect.extension
 
+import com.rookmotion.rook_sdk_health_connect.extension.getSDKExceptionMessage
 import io.flutter.plugin.common.MethodChannel
 
 fun MethodChannel.Result.int(int: Int) {
@@ -11,7 +12,7 @@ fun MethodChannel.Result.boolean(boolean: Boolean) {
 }
 
 fun MethodChannel.Result.throwable(throwable: Throwable) {
-    error(GENERIC_ERROR_CODE, throwable.getPluginExceptionMessage(), null)
+    error(GENERIC_ERROR_CODE, throwable.getSDKExceptionMessage(), null)
 }
 
 private const val GENERIC_ERROR_CODE = "-1"
