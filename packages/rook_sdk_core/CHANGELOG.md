@@ -76,6 +76,11 @@ The following exceptions have been removed as they are no longer thrown by the c
 | `DeviceNotSupportedException`              | `HealthKitNotSupportedException`      |
 | `RequestQuotaExceededException`            | `HealthConnectQuotaExceededException` |
 
+Dependency updates
+
+* dio: **New** → **^5.9.0**
+* crypto: **New** → **^3.0.7**
+
 ## 1.2.0
 
 * Added `SleepSummary`
