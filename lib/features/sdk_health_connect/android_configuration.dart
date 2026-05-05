@@ -128,6 +128,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
       clientUUID: Secrets.clientUUID,
       secret: Secrets.secret,
       environment: rookEnvironment,
+      appId: Secrets.packageName,
       enableBackgroundSync: false,
     );
 

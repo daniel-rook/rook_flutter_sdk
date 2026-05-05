@@ -123,6 +123,7 @@ class _IOSConfigurationState extends State<IOSConfiguration> {
       clientUUID: Secrets.clientUUID,
       secret: Secrets.secret,
       environment: rookEnvironment,
+      appId: Secrets.bundleId,
       enableBackgroundSync: false,
     );
 
