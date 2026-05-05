@@ -102,7 +102,9 @@ final class RookApiSources {
         dataSources.add(dataSource);
       }
 
-      return dataSources;
+      return dataSources
+          .where((element) => !_invalidApiDataSources.contains(element.name))
+          .toList();
     } on DioException catch (exception) {
       final newException = processException(exception);
 
@@ -176,3 +178,10 @@ final class RookApiSources {
     return dio;
   }
 }
+
+const Set<String> _invalidApiDataSources = {
+  "Health Connect",
+  "Samsung Health",
+  "Android",
+  "Apple Health",
+};
