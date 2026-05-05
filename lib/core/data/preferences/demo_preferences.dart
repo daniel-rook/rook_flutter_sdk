@@ -1,10 +1,10 @@
 import 'package:logging/logging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AppPreferences {
-  AppPreferences._();
+class DemoPreferences {
+  DemoPreferences._();
 
-  final Logger logger = Logger('AppPreferences');
+  final Logger logger = Logger('DemoPreferences');
 
   SharedPreferences? _preferences;
 
@@ -69,9 +69,9 @@ class AppPreferences {
     return preferences.getBool(_appleHealthContinuousUpload) ?? false;
   }
 
-  static final AppPreferences _instance = AppPreferences._();
+  static final DemoPreferences _instance = DemoPreferences._();
 
-  factory AppPreferences() {
+  factory DemoPreferences() {
     return _instance;
   }
 }

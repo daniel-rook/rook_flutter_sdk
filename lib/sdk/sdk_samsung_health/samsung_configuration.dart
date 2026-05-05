@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_permissions.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_user_management.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/section_title.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_background_sync.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_permissions.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_sync.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_user_management.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
-import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
+import 'package:rook_sdk_samsung_health/rook_sdk_samsung_health.dart';
 
-const String androidConfigurationRoute = '/android/configuration';
+const String samsungConfigurationRoute = '/samsung/configuration';
 
-class AndroidConfiguration extends StatefulWidget {
-  const AndroidConfiguration({super.key});
+class SamsungConfiguration extends StatefulWidget {
+  const SamsungConfiguration({super.key});
 
   @override
-  State<AndroidConfiguration> createState() => _AndroidConfigurationState();
+  State<SamsungConfiguration> createState() => _SamsungConfigurationState();
 }
 
-class _AndroidConfigurationState extends State<AndroidConfiguration> {
-  final Logger logger = Logger('AndroidConfiguration');
+class _SamsungConfigurationState extends State<SamsungConfiguration> {
+  final Logger logger = Logger('SamsungConfiguration');
 
   final ConsoleOutput configurationOutput = ConsoleOutput();
   final ConsoleOutput initializeOutput = ConsoleOutput();
@@ -40,16 +39,11 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
       name: 'SDK Configuration',
       child: Column(
         children: [
-          const SectionTitle('1. Configure SDK'),
+          const SectionTitle('1. Initialize SDK'),
           Text(configurationOutput.current),
-          FilledButton(
-            onPressed: setConfiguration,
-            child: const Text('setConfiguration'),
-          ),
-          const SectionTitle('2. Initialize SDK'),
           Text(initializeOutput.current),
           FilledButton(onPressed: initialize, child: const Text('initRook')),
-          const SectionTitle('3. Update user ID'),
+          const SectionTitle('2. Update user ID'),
           TextFormField(
             key: _formKey,
             decoration: const InputDecoration(
@@ -73,27 +67,19 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
             onPressed: enableNavigation
                 ? () => Navigator.of(
                     context,
-                  ).pushNamed(androidBackgroundStepsRoute)
-                : null,
-            child: const Text('Background steps'),
-          ),
-          FilledButton(
-            onPressed: enableNavigation
-                ? () => Navigator.of(
-                    context,
-                  ).pushNamed(androidUserManagementRoute)
+                  ).pushNamed(samsungUserManagementRoute)
                 : null,
             child: const Text('User management'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(androidPermissionsRoute)
+                ? () => Navigator.of(context).pushNamed(samsungPermissionsRoute)
                 : null,
             child: const Text('Permissions'),
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(context).pushNamed(androidSyncRoute)
+                ? () => Navigator.of(context).pushNamed(samsungSyncRoute)
                 : null,
             child: const Text('Manually sync health data'),
           ),
@@ -101,7 +87,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
             onPressed: enableNavigation
                 ? () => Navigator.of(
                     context,
-                  ).pushNamed(androidBackgroundSyncRoute)
+                  ).pushNamed(samsungBackgroundSyncRoute)
                 : null,
             child: const Text('Background sync'),
           ),
@@ -123,8 +109,8 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
     return null;
   }
 
-  void setConfiguration() async {
-    final rookConfiguration = RookConfiguration(
+  void initialize() async {
+    final configuration = RookConfiguration(
       clientUUID: Secrets.clientUUID,
       secret: Secrets.secret,
       environment: rookEnvironment,
@@ -135,27 +121,23 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
     configurationOutput.clear();
 
     configurationOutput.append('Using configuration:');
-    configurationOutput.append('$rookConfiguration');
+    configurationOutput.append('$configuration');
 
     if (isDebug) {
-      HCRookConfigurationManager.enableNativeLogs();
+      RookSamsung.enableNativeLogs();
     }
-
-    HCRookConfigurationManager.setConfiguration(rookConfiguration);
 
     setState(() {
       configurationOutput.append('Configuration set successfully');
     });
-  }
 
-  void initialize() {
     initializeOutput.clear();
 
     setState(() {
       initializeOutput.append('Initializing...');
     });
 
-    HCRookConfigurationManager.initRook()
+    RookSamsung.initRook(configuration)
         .then((_) {
           setState(() {
             initializeOutput.append('SDK initialized successfully');
@@ -172,7 +154,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
   void checkUserIDRegistered() {
     updateUserOutput.clear();
 
-    HCRookConfigurationManager.getUserID().then((userID) {
+    RookSamsung.getUserID().then((userID) {
       if (userID != null) {
         setState(() {
           updateUserOutput.append(
@@ -197,7 +179,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
       updateUserOutput.append('Updating userID...');
     });
 
-    HCRookConfigurationManager.updateUserID(userID!)
+    RookSamsung.updateUserID(userID!)
         .then((_) {
           setState(() {
             updateUserOutput.append('userID updated successfully');
@@ -219,8 +201,7 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
     });
 
     try {
-      final diagnosticState =
-          await HCRookConfigurationManager.getDiagnosticState();
+      final diagnosticState = await RookSamsung.getDiagnosticState();
 
       diagnosticOutput.appendMultiple([
         "Diagnostic state retrieved",

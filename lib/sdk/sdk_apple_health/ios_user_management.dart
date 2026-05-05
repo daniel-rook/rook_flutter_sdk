@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_sdk_samsung_health/rook_sdk_samsung_health.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/section_title.dart';
+import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 
-const String samsungUserManagementRoute = '/samsung/user-management';
+const String iosUserManagementRoute = '/ios/user-management';
 
-class SamsungUserManagement extends StatefulWidget {
-  const SamsungUserManagement({super.key});
+class IOSUserManagement extends StatefulWidget {
+  const IOSUserManagement({super.key});
 
   @override
-  State<SamsungUserManagement> createState() => _SamsungUserManagementState();
+  State<IOSUserManagement> createState() => _IOSUserManagementState();
 }
 
-class _SamsungUserManagementState extends State<SamsungUserManagement> {
-  final Logger logger = Logger('SamsungUserManagement');
+class _IOSUserManagementState extends State<IOSUserManagement> {
+  final Logger logger = Logger('IOSUserManagement');
 
   final ConsoleOutput deleteUserOutput = ConsoleOutput();
   final ConsoleOutput syncTimezoneUserOutput = ConsoleOutput();
@@ -24,7 +24,7 @@ class _SamsungUserManagementState extends State<SamsungUserManagement> {
 
   @override
   void initState() {
-    RookSamsung.getUserID()
+    AHRookConfigurationManager.getUserID()
         .then((userID) {
           setState(() {
             this.userID = userID;
@@ -71,7 +71,7 @@ class _SamsungUserManagementState extends State<SamsungUserManagement> {
       syncTimezoneUserOutput.append('Updating user timezone...');
     });
 
-    RookSamsung.syncUserTimeZone()
+    AHRookConfigurationManager.syncUserTimeZone()
         .then((_) {
           setState(() {
             syncTimezoneUserOutput.append('User timezone updated successfully');
@@ -93,7 +93,7 @@ class _SamsungUserManagementState extends State<SamsungUserManagement> {
       deleteUserOutput.append('Deleting user from rook...');
     });
 
-    RookSamsung.deleteUserFromRook()
+    AHRookConfigurationManager.deleteUserFromRook()
         .then((_) {
           setState(() {
             deleteUserOutput.append('User deleted from rook');

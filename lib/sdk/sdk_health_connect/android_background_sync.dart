@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/future_extensions.dart';
-import 'package:rook_flutter_sdk/common/preferences.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/data/preferences/demo_preferences.dart';
+import 'package:rook_flutter_sdk/core/domain/extension/future_extensions.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
@@ -194,7 +194,7 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final enabled = await AppPreferences().getHealthConnectBackgroundSync();
+    final enabled = await DemoPreferences().getHealthConnectBackgroundSync();
 
     backgroundSyncOutput.clear();
 
@@ -234,12 +234,12 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
   }
 
   void enableBackgroundSync() async {
-    await AppPreferences().setHealthConnectBackgroundSync(true);
+    await DemoPreferences().setHealthConnectBackgroundSync(true);
     automaticallyStartBackgroundSync();
   }
 
   void disableBackgroundSync() async {
-    await AppPreferences().setHealthConnectBackgroundSync(false);
+    await DemoPreferences().setHealthConnectBackgroundSync(false);
     automaticallyStartBackgroundSync();
   }
 }

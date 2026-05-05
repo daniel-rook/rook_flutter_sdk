@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/preferences.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_flutter_sdk/common/widget/section_title.dart';
+import 'package:rook_flutter_sdk/core/data/preferences/demo_preferences.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/section_title.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 
 const String iosBackgroundSyncRoute = '/ios/background-sync';
@@ -79,7 +79,7 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final enabled = await AppPreferences().getAppleHealthBackgroundSync();
+    final enabled = await DemoPreferences().getAppleHealthBackgroundSync();
 
     if (enabled) {
       backgroundSyncOutput.clear();
@@ -129,12 +129,12 @@ class _IOSBackgroundSyncState extends State<IOSBackgroundSync> {
   }
 
   void enableBackgroundSync() async {
-    await AppPreferences().setAppleHealthBackgroundSync(true);
+    await DemoPreferences().setAppleHealthBackgroundSync(true);
     automaticallyStartBackgroundSync();
   }
 
   void disableBackgroundSync() async {
-    await AppPreferences().setAppleHealthBackgroundSync(false);
+    await DemoPreferences().setAppleHealthBackgroundSync(false);
     automaticallyStartBackgroundSync();
   }
 }

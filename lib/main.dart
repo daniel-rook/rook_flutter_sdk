@@ -4,13 +4,13 @@ import 'package:logging/logging.dart';
 import 'package:receive_intent/receive_intent.dart';
 import 'package:rook_flutter_sdk/app_router.dart';
 import 'package:rook_flutter_sdk/color_schemes.g.dart';
-import 'package:rook_flutter_sdk/common/preferences.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/hc_privacy_policy_screen.dart';
+import 'package:rook_flutter_sdk/core/data/preferences/demo_preferences.dart';
 import 'package:rook_flutter_sdk/menu_screen.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/hc_privacy_policy_screen.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
-import 'common/environments.dart';
+import 'core/domain/utils/environments.dart';
 
 const String hc = 'androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE';
 const String hc14 = 'android.intent.action.VIEW_PERMISSION_USAGE';
@@ -35,7 +35,7 @@ void main() {
 }
 
 void startBackgroundSyncAndroid() {
-  final preferences = AppPreferences();
+  final preferences = DemoPreferences();
 
   preferences
       .getHealthConnectBackgroundSync()
@@ -61,7 +61,7 @@ void startBackgroundSyncAndroid() {
 }
 
 void startBackgroundSyncIOS() {
-  final preferences = AppPreferences();
+  final preferences = DemoPreferences();
 
   preferences
       .getHealthConnectBackgroundSync()

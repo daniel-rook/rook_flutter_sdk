@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_flutter_sdk/common/widget/section_title.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/section_title.dart';
 import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
 const String androidSyncRoute = '/android/sync';

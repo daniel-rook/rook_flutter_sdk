@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_sdk_samsung_health/rook_sdk_samsung_health.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/section_title.dart';
+import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 
-const String samsungSyncRoute = '/samsung/sync';
+const String iosSyncRoute = '/ios/sync';
 
-class SamsungSync extends StatefulWidget {
-  const SamsungSync({super.key});
+class IOSSync extends StatefulWidget {
+  const IOSSync({super.key});
 
   @override
-  State<SamsungSync> createState() => _SamsungSyncState();
+  State<IOSSync> createState() => _IOSSyncState();
 }
 
-class _SamsungSyncState extends State<SamsungSync> {
+class _IOSSyncState extends State<IOSSync> {
   TextEditingController syncSummariesDate = TextEditingController();
   TextEditingController syncSingleSummaryDate = TextEditingController();
   TextEditingController syncSingleEventDate = TextEditingController();
 
-  SHSummarySyncType summarySyncType = SHSummarySyncType.sleep;
-  SHEventSyncType eventSyncType = SHEventSyncType.activity;
+  AHSummarySyncType summarySyncType = AHSummarySyncType.sleep;
+  AHEventSyncType eventSyncType = AHEventSyncType.activity;
 
   final ConsoleOutput syncSummariesHistoricOutput = ConsoleOutput();
   final ConsoleOutput syncSummariesOutput = ConsoleOutput();
@@ -82,15 +82,15 @@ class _SamsungSyncState extends State<SamsungSync> {
           ),
           DropdownMenu(
             onSelected: (selection) {
-              summarySyncType = selection ?? SHSummarySyncType.sleep;
+              summarySyncType = selection ?? AHSummarySyncType.sleep;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(value: SHSummarySyncType.sleep, label: "Sleep"),
+              DropdownMenuEntry(value: AHSummarySyncType.sleep, label: "Sleep"),
               DropdownMenuEntry(
-                value: SHSummarySyncType.physical,
+                value: AHSummarySyncType.physical,
                 label: "Physical",
               ),
-              DropdownMenuEntry(value: SHSummarySyncType.body, label: "Body"),
+              DropdownMenuEntry(value: AHSummarySyncType.body, label: "Body"),
             ],
           ),
           Text(syncSingleSummaryOutput.current),
@@ -108,15 +108,15 @@ class _SamsungSyncState extends State<SamsungSync> {
           ),
           DropdownMenu(
             onSelected: (selection) {
-              summarySyncType = selection ?? SHSummarySyncType.sleep;
+              summarySyncType = selection ?? AHSummarySyncType.sleep;
             },
             dropdownMenuEntries: const [
-              DropdownMenuEntry(value: SHSummarySyncType.sleep, label: "Sleep"),
+              DropdownMenuEntry(value: AHSummarySyncType.sleep, label: "Sleep"),
               DropdownMenuEntry(
-                value: SHSummarySyncType.physical,
+                value: AHSummarySyncType.physical,
                 label: "Physical",
               ),
-              DropdownMenuEntry(value: SHSummarySyncType.body, label: "Body"),
+              DropdownMenuEntry(value: AHSummarySyncType.body, label: "Body"),
             ],
           ),
           Text(getSingleSummaryOutput.current),
@@ -134,48 +134,44 @@ class _SamsungSyncState extends State<SamsungSync> {
           ),
           DropdownMenu(
             onSelected: (selection) {
-              eventSyncType = selection ?? SHEventSyncType.activity;
+              eventSyncType = selection ?? AHEventSyncType.activity;
             },
             dropdownMenuEntries: const [
               DropdownMenuEntry(
-                value: SHEventSyncType.activity,
+                value: AHEventSyncType.activity,
                 label: "Activity",
               ),
               DropdownMenuEntry(
-                value: SHEventSyncType.bloodGlucose,
+                value: AHEventSyncType.bloodGlucose,
                 label: "Blood glucose",
               ),
               DropdownMenuEntry(
-                value: SHEventSyncType.bloodPressure,
+                value: AHEventSyncType.bloodPressure,
                 label: "Blood pressure",
               ),
               DropdownMenuEntry(
-                value: SHEventSyncType.bodyMetrics,
+                value: AHEventSyncType.bodyMetrics,
                 label: "Body metrics",
               ),
               DropdownMenuEntry(
-                value: SHEventSyncType.heartRate,
+                value: AHEventSyncType.heartRate,
                 label: "Heart rate",
               ),
               DropdownMenuEntry(
-                value: SHEventSyncType.hydration,
-                label: "Hydration",
-              ),
-              DropdownMenuEntry(
-                value: SHEventSyncType.nutrition,
+                value: AHEventSyncType.nutrition,
                 label: "Nutrition",
               ),
               DropdownMenuEntry(
-                value: SHEventSyncType.oxygenation,
+                value: AHEventSyncType.oxygenation,
                 label: "Oxygenation",
               ),
               DropdownMenuEntry(
-                value: SHEventSyncType.temperature,
+                value: AHEventSyncType.temperature,
                 label: "Temperature",
               ),
-              DropdownMenuEntry(value: SHEventSyncType.steps, label: "Steps"),
+              DropdownMenuEntry(value: AHEventSyncType.steps, label: "Steps"),
               DropdownMenuEntry(
-                value: SHEventSyncType.calories,
+                value: AHEventSyncType.calories,
                 label: "Calories",
               ),
             ],
@@ -195,11 +191,11 @@ class _SamsungSyncState extends State<SamsungSync> {
           ),
           DropdownMenu(
             onSelected: (selection) {
-              eventSyncType = selection ?? SHEventSyncType.activity;
+              eventSyncType = selection ?? AHEventSyncType.activity;
             },
             dropdownMenuEntries: const [
               DropdownMenuEntry(
-                value: SHEventSyncType.activity,
+                value: AHEventSyncType.activity,
                 label: "Activity",
               ),
             ],
@@ -240,7 +236,7 @@ class _SamsungSyncState extends State<SamsungSync> {
     });
 
     try {
-      await RookSamsung.sync(enableLogs: isDebug);
+      await AHRookSyncManager.sync(enableLogs: isDebug);
 
       setState(() {
         syncSummariesHistoricOutput.append("Historic summaries sync started");
@@ -265,7 +261,7 @@ class _SamsungSyncState extends State<SamsungSync> {
     });
 
     try {
-      await RookSamsung.sync(date: date);
+      await AHRookSyncManager.sync(date: date);
 
       setState(() {
         syncSummariesOutput.append("$date summaries synced successfully");
@@ -288,7 +284,7 @@ class _SamsungSyncState extends State<SamsungSync> {
     });
 
     try {
-      await RookSamsung.sync(date: date, summary: summarySyncType);
+      await AHRookSyncManager.sync(date: date, summary: summarySyncType);
 
       setState(() {
         syncSingleSummaryOutput.append(
@@ -318,12 +314,12 @@ class _SamsungSyncState extends State<SamsungSync> {
       String data = "";
 
       switch (summarySyncType) {
-        case SHSummarySyncType.sleep:
-          data = (await RookSamsung.getSleepSummary(date)).toString();
-        case SHSummarySyncType.physical:
-          data = (await RookSamsung.getPhysicalSummary(date)).toString();
-        case SHSummarySyncType.body:
-          data = (await RookSamsung.getBodySummary(date)).toString();
+        case AHSummarySyncType.sleep:
+          data = (await AHRookSyncManager.getSleepSummary(date)).toString();
+        case AHSummarySyncType.physical:
+          data = (await AHRookSyncManager.getPhysicalSummary(date)).toString();
+        case AHSummarySyncType.body:
+          data = (await AHRookSyncManager.getBodySummary(date)).toString();
       }
 
       getSingleSummaryOutput.append(
@@ -353,7 +349,7 @@ class _SamsungSyncState extends State<SamsungSync> {
     });
 
     try {
-      await RookSamsung.syncEvents(date, eventSyncType);
+      await AHRookSyncManager.syncEvents(date, eventSyncType);
 
       setState(() {
         syncSingleEventOutput.append(
@@ -383,8 +379,8 @@ class _SamsungSyncState extends State<SamsungSync> {
       String data = "";
 
       switch (eventSyncType) {
-        case SHEventSyncType.activity:
-          data = (await RookSamsung.getActivityEvents(date)).toString();
+        case AHEventSyncType.activity:
+          data = (await AHRookSyncManager.getActivityEvents(date)).toString();
         default:
           data = "Not implemented yet.";
       }
@@ -411,7 +407,7 @@ class _SamsungSyncState extends State<SamsungSync> {
     );
 
     try {
-      final steps = await RookSamsung.getTodayStepsCount();
+      final steps = await AHRookSyncManager.getTodayStepsCount();
 
       setState(
         () => getTodayStepsOutput.append('$steps steps synced successfully'),
@@ -432,7 +428,7 @@ class _SamsungSyncState extends State<SamsungSync> {
     );
 
     try {
-      final calories = await RookSamsung.getTodayCaloriesCount();
+      final calories = await AHRookSyncManager.getTodayCaloriesCount();
 
       setState(
         () => getTodayCaloriesOutput.append('$calories synced successfully'),
@@ -456,7 +452,7 @@ class _SamsungSyncState extends State<SamsungSync> {
     );
 
     try {
-      final heartRate = await RookSamsung.getTodayHeartRate();
+      final heartRate = await AHRookSyncManager.getTodayHeartRate();
 
       setState(
         () => getTodayHeartRateOutput.append('$heartRate synced successfully'),

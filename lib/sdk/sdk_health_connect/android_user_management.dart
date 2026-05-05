@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_flutter_sdk/common/widget/section_title.dart';
-import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/section_title.dart';
+import 'package:rook_sdk_health_connect/rook_sdk_health_connect.dart';
 
-const String iosUserManagementRoute = '/ios/user-management';
+const String androidUserManagementRoute = '/android/user-management';
 
-class IOSUserManagement extends StatefulWidget {
-  const IOSUserManagement({super.key});
+class AndroidUserManagement extends StatefulWidget {
+  const AndroidUserManagement({super.key});
 
   @override
-  State<IOSUserManagement> createState() => _IOSUserManagementState();
+  State<AndroidUserManagement> createState() => _AndroidUserManagementState();
 }
 
-class _IOSUserManagementState extends State<IOSUserManagement> {
-  final Logger logger = Logger('IOSUserManagement');
+class _AndroidUserManagementState extends State<AndroidUserManagement> {
+  final Logger logger = Logger('AndroidUserManagement');
 
   final ConsoleOutput deleteUserOutput = ConsoleOutput();
   final ConsoleOutput syncTimezoneUserOutput = ConsoleOutput();
@@ -24,7 +24,7 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
 
   @override
   void initState() {
-    AHRookConfigurationManager.getUserID()
+    HCRookConfigurationManager.getUserID()
         .then((userID) {
           setState(() {
             this.userID = userID;
@@ -71,7 +71,7 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
       syncTimezoneUserOutput.append('Updating user timezone...');
     });
 
-    AHRookConfigurationManager.syncUserTimeZone()
+    HCRookConfigurationManager.syncUserTimeZone()
         .then((_) {
           setState(() {
             syncTimezoneUserOutput.append('User timezone updated successfully');
@@ -93,7 +93,7 @@ class _IOSUserManagementState extends State<IOSUserManagement> {
       deleteUserOutput.append('Deleting user from rook...');
     });
 
-    AHRookConfigurationManager.deleteUserFromRook()
+    HCRookConfigurationManager.deleteUserFromRook()
         .then((_) {
           setState(() {
             deleteUserOutput.append('User deleted from rook');

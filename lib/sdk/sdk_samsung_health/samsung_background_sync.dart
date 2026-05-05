@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/future_extensions.dart';
-import 'package:rook_flutter_sdk/common/preferences.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/data/preferences/demo_preferences.dart';
+import 'package:rook_flutter_sdk/core/domain/extension/future_extensions.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_samsung_health/rook_sdk_samsung_health.dart';
 
@@ -136,7 +136,7 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
   }
 
   void automaticallyStartBackgroundSync() async {
-    final enabled = await AppPreferences().getSamsungHealthBackgroundSync();
+    final enabled = await DemoPreferences().getSamsungHealthBackgroundSync();
 
     backgroundSyncOutput.clear();
 
@@ -176,12 +176,12 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
   }
 
   void enableBackgroundSync() async {
-    await AppPreferences().setSamsungHealthBackgroundSync(true);
+    await DemoPreferences().setSamsungHealthBackgroundSync(true);
     automaticallyStartBackgroundSync();
   }
 
   void disableBackgroundSync() async {
-    await AppPreferences().setSamsungHealthBackgroundSync(false);
+    await DemoPreferences().setSamsungHealthBackgroundSync(false);
     automaticallyStartBackgroundSync();
   }
 }

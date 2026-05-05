@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:rook_flutter_sdk/common/console_output.dart';
-import 'package:rook_flutter_sdk/common/environments.dart';
-import 'package:rook_flutter_sdk/common/preferences.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/data/preferences/demo_preferences.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
+import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
 import 'package:rook_sdk_apple_health/rook_sdk_apple_health.dart';
 
 const String iosContinuousUploadRoute = '/ios/continuous-upload';
@@ -57,7 +57,7 @@ class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
   }
 
   void automaticallyStartContinuousUpload() async {
-    final enabled = await AppPreferences().getAppleHealthContinuousUpload();
+    final enabled = await DemoPreferences().getAppleHealthContinuousUpload();
 
     if (enabled) {
       continuousUploadOutput.clear();
@@ -107,12 +107,12 @@ class _IOSContinuousUploadState extends State<IOSContinuousUpload> {
   }
 
   void enableContinuousUpload() async {
-    await AppPreferences().setAppleHealthContinuousUpload(true);
+    await DemoPreferences().setAppleHealthContinuousUpload(true);
     automaticallyStartContinuousUpload();
   }
 
   void disableContinuousUpload() async {
-    await AppPreferences().setAppleHealthContinuousUpload(false);
+    await DemoPreferences().setAppleHealthContinuousUpload(false);
     automaticallyStartContinuousUpload();
   }
 }

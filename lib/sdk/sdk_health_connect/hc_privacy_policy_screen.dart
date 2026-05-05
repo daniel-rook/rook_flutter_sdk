@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
 
 class HCPrivacyPolicyScreen extends StatelessWidget {
   const HCPrivacyPolicyScreen({Key? key}) : super(key: key);
