@@ -106,7 +106,7 @@ native iOS `RookSDK` SDK.
 * **Execution**: Native SDK calls must be executed safely, usually running within appropriate background/main threads as
   required by `RookSDK`.
 * **Mappers**:
-    * You must map the native `RookSDK` domain objects into the generated Swift Protobuf objects.
+    * You must map the native domain objects into the generated Swift Protobuf objects.
     * Extension functions for this mapping are located in `ios/Classes/Mapper/` (e.g., `SleepSummaryMappers.swift`).
     * **Rule**: When mapping native types to Protos, use `.toProtoString()`, `.toInt32()`, `.toDouble()`, etc., safely
       handling optionals and empty arrays as defined by the proto structure.
@@ -116,8 +116,8 @@ native iOS `RookSDK` SDK.
     * Serialize the Proto to data using `try? resultProto.serializedData()$.
     * Send the byte array back through the Flutter `result(data)` callback.
 * **Error Handling**:
-    * If a native `RookSDK` call throws an error, catch it, map it to an `SDKExceptionProto`, and wrap it in the
-      `ResultProto`'s `bash.failure` field.
+    * If a native call throws an error, catch it, map it to an `SDKExceptionProto`, and wrap it in the `ResultProto`'s
+      `bash.failure` field.
     * **DO NOT** use `FlutterError` to return functional SDK errors; always return the serialized Proto with the
       `failure` branch populated so the Dart side can use its `.unwrap()` logic to throw the specific `SDKException`.
 
@@ -142,7 +142,6 @@ native iOS `RookSDK` SDK.
 
 * `Mapper/`: Extension functions converting iOS `RookSDK` models to Swift Protobuf objects.
 * `Proto/`: Generated Swift Protobuf files (`protos.pb.swift`).
-* `Errors/`: Swift custom error definitions.
 * `Observer/`: Background delivery/sync observers.
 * `Utils/`: General Swift utility functions.
 * `RookSdkAppleHealthPlugin.swift`: The main MethodChannel handler and plugin entry point.
