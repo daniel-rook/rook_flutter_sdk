@@ -81,7 +81,8 @@ over the MethodChannel.
   cd proto
   sh generate.sh
   ```
-  *(This compiles the new files into `lib/src/data/proto/` and `android/src/main/kotlin/io/tryrook/rook_sdk_samsung_health/proto/`)*.
+  *(This compiles the new files into `lib/src/data/proto/`
+  and `android/src/main/kotlin/io/tryrook/rook_sdk_samsung_health/proto/`)*.
 
 ## 3. Native Side Rules (Android / Kotlin)
 
@@ -113,3 +114,30 @@ directly with the native Android `rook-samsung-health` SDK.
     * **DO NOT** use `result.error()` to return functional SDK errors; always return the serialized Proto with the
       `failure` branch populated so the Dart side can use its `.unwrap()` logic to throw the specific `SDKException`.
 
+## Module Structure
+
+**Dart sources root**: `lib/src/`
+**Native Android sources root**: `android/src/main/kotlin/io/tryrook/rook_sdk_samsung_health/`
+
+### Dart Side (`lib/src/`)
+
+* `data/`: Contains all code related to parsing, mapping, and handling raw data from native.
+    * `proto/`: Generated Protobuf files (`.pb.dart`, `.pbenum.dart`, etc.).
+    * `mapper/`: Extension functions converting Proto objects to Domain models (`rook_sdk_core`).
+    * `result/`: Proto Result unwrappers (converting Proto Results into either Domain objects or thrown `SDKException`).
+    * `extension/`: General Dart extensions.
+* `domain/`: Contains Samsung Health specific enumerations and internal utilities.
+* `platform/`: MethodChannel implementations and Platform interfaces.
+* `lib/src/*.dart`: The public-facing entry point managers (e.g., `sh_rook_sync_manager.dart`).
+
+### Native Side (`android/src/main/kotlin/io/tryrook/rook_sdk_samsung_health/`)
+
+* `mapper/`: Extension functions converting Android `rook-samsung-health` models to Kotlin Protobuf objects.
+* `proto/`: Generated Kotlin Protobuf files.
+* `exception/`: Custom exception definitions for the native side.
+* `handler/`: Component classes dividing the business logic and method channel execution by feature (e.g.,
+  `SyncHandler`, `PermissionsHandler`).
+* `eventhandler/`: Components responsible for transmitting events back to Dart.
+* `extension/`: Kotlin utility extensions.
+* `RookSdkSamsungHealthPlugin.kt`: The main MethodChannel handler and plugin entry point, which delegates to the
+  handlers.

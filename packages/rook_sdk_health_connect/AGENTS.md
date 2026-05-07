@@ -86,7 +86,8 @@ over the MethodChannel.
   cd proto
   sh generate.sh
   ```
-  *(This compiles the new files into `lib/src/data/proto/` and `android/src/main/kotlin/com/rookmotion/rook_sdk_health_connect/proto/`)*.
+  *(This compiles the new files into `lib/src/data/proto/`
+  and `android/src/main/kotlin/com/rookmotion/rook_sdk_health_connect/proto/`)*.
 
 ## 3. Native Side Rules (Android / Kotlin)
 
@@ -105,7 +106,7 @@ directly with the native Android `rook-sdk` SDK.
 * **Execution**: Native SDK calls must be executed safely using Coroutines (`CoroutineScope`). Use Kotlin's `Result` or
   `try/catch` blocks to manage asynchronous flows.
 * **Mappers**:
-    * You must map the native `rook-sdk` domain objects into the generated Kotlin Protobuf objects.
+    * You must map the native domain objects into the generated Kotlin Protobuf objects.
     * Extension functions for this mapping are located in `android/src/main/kotlin/.../mapper/`.
 * **Returning Data**:
     * Create the corresponding `ResultProto` (e.g., `SleepSummaryResultProto.newBuilder().build()`).
@@ -113,8 +114,35 @@ directly with the native Android `rook-sdk` SDK.
     * Serialize the Proto to a byte array using `resultProto.toByteArray()$.
     * Send the byte array back through the Flutter `result.success(data)` callback.
 * **Error Handling**:
-    * If a native `rook-sdk` call throws an error, catch it, map it to an `SDKExceptionProto`, and wrap it in the
-      `ResultProto`'s `failure` field.
+    * If a native call throws an error, catch it, map it to an `SDKExceptionProto`, and wrap it in the `ResultProto`'s
+      `failure` field.
     * **DO NOT** use `result.error()` to return functional SDK errors; always return the serialized Proto with the
       `failure` branch populated so the Dart side can use its `.unwrap()` logic to throw the specific `SDKException`.
 
+## Module Structure
+
+**Dart sources root**: `lib/src/`
+**Native Android sources root**: `android/src/main/kotlin/com/rookmotion/rook_sdk_health_connect/`
+
+### Dart Side (`lib/src/`)
+
+* `data/`: Contains all code related to parsing, mapping, and handling raw data from native.
+    * `proto/`: Generated Protobuf files (`.pb.dart`, `.pbenum.dart`, etc.).
+    * `mapper/`: Extension functions converting Proto objects to Domain models (`rook_sdk_core`).
+    * `result/`: Proto Result unwrappers (converting Proto Results into either Domain objects or thrown `SDKException`).
+    * `extension/`: General Dart extensions.
+* `domain/`: Contains Health Connect specific enumerations and internal utilities.
+* `platform/`: MethodChannel implementations and Platform interfaces.
+* `lib/src/*.dart`: The public-facing entry point managers (e.g., `hc_rook_sync_manager.dart`).
+
+### Native Side (`android/src/main/kotlin/com/rookmotion/rook_sdk_health_connect/`)
+
+* `mapper/`: Extension functions converting Android `rook-sdk` models to Kotlin Protobuf objects.
+* `proto/`: Generated Kotlin Protobuf files.
+* `exception/`: Custom exception definitions for the native side.
+* `handler/`: Component classes dividing the business logic and method channel execution by feature (e.g.,
+  `SyncHandler`, `StepsHandler`).
+* `eventhandler/`: Components responsible for transmitting events back to Dart.
+* `extension/`: Kotlin utility extensions.
+* `RookSdkHealthConnectPlugin.kt`: The main MethodChannel handler and plugin entry point, which delegates to the
+  handlers.

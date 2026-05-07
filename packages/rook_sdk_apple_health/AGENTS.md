@@ -121,3 +121,28 @@ native iOS `RookSDK` SDK.
     * **DO NOT** use `FlutterError` to return functional SDK errors; always return the serialized Proto with the
       `failure` branch populated so the Dart side can use its `.unwrap()` logic to throw the specific `SDKException`.
 
+## Module Structure
+
+**Dart sources root**: `lib/src/`
+**Native iOS sources root**: `ios/Classes/`
+
+### Dart Side (`lib/src/`)
+
+* `data/`: Contains all code related to parsing, mapping, and handling raw data from native.
+    * `proto/`: Generated Protobuf files (`.pb.dart`, `.pbenum.dart`, etc.).
+    * `mapper/`: Extension functions converting Proto objects to Domain models (`rook_sdk_core`).
+    * `result/`: Proto Result unwrappers (converting Proto Results into either Domain objects or thrown `SDKException`).
+    * `extension/`: General Dart extensions (e.g., DateTime parsing).
+* `domain/`: Contains Apple Health specific enumerations (e.g., `AHEventSyncType`, `AppleHealthPermission`) and internal
+  utilities.
+* `platform/`: MethodChannel implementations and Platform interfaces.
+* `lib/src/*.dart`: The public-facing entry point managers (e.g., `ah_rook_sync_manager.dart`).
+
+### Native Side (`ios/Classes/`)
+
+* `Mapper/`: Extension functions converting iOS `RookSDK` models to Swift Protobuf objects.
+* `Proto/`: Generated Swift Protobuf files (`protos.pb.swift`).
+* `Errors/`: Swift custom error definitions.
+* `Observer/`: Background delivery/sync observers.
+* `Utils/`: General Swift utility functions.
+* `RookSdkAppleHealthPlugin.swift`: The main MethodChannel handler and plugin entry point.
