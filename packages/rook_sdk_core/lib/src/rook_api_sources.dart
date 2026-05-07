@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:rook_sdk_core/src/auth_interceptor.dart';
-import 'package:rook_sdk_core/src/authorizer.dart';
-import 'package:rook_sdk_core/src/enum/data_source_type.dart';
-import 'package:rook_sdk_core/src/enum/rook_environment.dart';
-import 'package:rook_sdk_core/src/model/authorized_data_source_v2.dart';
-import 'package:rook_sdk_core/src/model/data_source_authorizer.dart';
-import 'package:rook_sdk_core/src/util/get_legacy_api_url_from_environment.dart';
-import 'package:rook_sdk_core/src/util/process_exception.dart';
+import 'package:rook_sdk_core/src/data/server/auth/auth_interceptor.dart';
+import 'package:rook_sdk_core/src/data/server/auth/authorizer.dart';
+import 'package:rook_sdk_core/src/data/server/util/get_legacy_api_url_from_environment.dart';
+import 'package:rook_sdk_core/src/data/server/util/process_dio_exception.dart';
+import 'package:rook_sdk_core/src/domain/enum/data_source_type.dart';
+import 'package:rook_sdk_core/src/domain/enum/rook_environment.dart';
+import 'package:rook_sdk_core/src/domain/model/authorized_data_source_v2.dart';
+import 'package:rook_sdk_core/src/domain/model/data_source_authorizer.dart';
 
 /// Main entry point for the ROOK API Sources module. This class provides methods to manage
 /// data source authorizations for users.
@@ -60,7 +60,7 @@ final class RookApiSources {
         authorizationUrl: response.data!["authorization_url"],
       );
     } on DioException catch (exception) {
-      final newException = processException(exception);
+      final newException = processDioException(exception);
 
       if (newException != null) {
         throw newException;
@@ -106,7 +106,7 @@ final class RookApiSources {
           .where((element) => !_invalidApiDataSources.contains(element.name))
           .toList();
     } on DioException catch (exception) {
-      final newException = processException(exception);
+      final newException = processDioException(exception);
 
       if (newException != null) {
         throw newException;
@@ -133,7 +133,7 @@ final class RookApiSources {
         return;
       }
 
-      final newException = processException(exception);
+      final newException = processDioException(exception);
 
       if (newException != null) {
         throw newException;
