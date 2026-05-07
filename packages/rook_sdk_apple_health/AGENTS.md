@@ -40,9 +40,8 @@ The Dart side exposes the API to Flutter applications and manages communication 
     * If `failure`, `unwrap()` must throw an `SDKException` initialized from the proto's code and message.
 * **Mappers**:
     * Raw Protobuf payload objects must be converted to `rook_sdk_core` Domain objects.
-    * Use extension functions on the Proto objects (e.g., `SleepSummaryMapper.toDomain()`) located in `src/data/mapper/`
-      or `src/data/result/` to safely map fields. Use `checkNonDefault()` to handle missing numeric values if
-      applicable.
+    * Use extension functions on the Proto objects located in `src/data/mapper/` or `src/data/result/` to safely map
+      fields. Use `checkNonDefault()` to handle missing numeric values if applicable.
 
 ### Entry Points & Visibility
 
@@ -112,12 +111,12 @@ native iOS `RookSDK` SDK.
       handling optionals and empty arrays as defined by the proto structure.
 * **Returning Data**:
     * Create the corresponding `ResultProto` (e.g., `SleepSummaryResultProto.with { ... }`).
-    * Assign the mapped data to the `bash.success` field.
+    * Assign the mapped data to the `success` field.
     * Serialize the Proto to data using `try? resultProto.serializedData()$.
     * Send the byte array back through the Flutter `result(data)` callback.
 * **Error Handling**:
     * If a native call throws an error, catch it, map it to an `SDKExceptionProto`, and wrap it in the `ResultProto`'s
-      `bash.failure` field.
+      `failure` field.
     * **DO NOT** use `FlutterError` to return functional SDK errors; always return the serialized Proto with the
       `failure` branch populated so the Dart side can use its `.unwrap()` logic to throw the specific `SDKException`.
 
