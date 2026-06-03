@@ -414,7 +414,7 @@ packages:
       path: "packages/rook_sdk_apple_health"
       relative: true
     source: path
-    version: "4.0.0"
+    version: "4.1.0-alpha.1"
   rook_sdk_core:
     dependency: "direct main"
     description:
@@ -428,14 +428,14 @@ packages:
       path: "packages/rook_sdk_health_connect"
       relative: true
     source: path
-    version: "4.0.0"
+    version: "4.1.0-alpha.1"
   rook_sdk_samsung_health:
     dependency: "direct main"
     description:
       path: "packages/rook_sdk_samsung_health"
       relative: true
     source: path
-    version: "4.0.0"
+    version: "4.1.0-alpha.1"
   shared_preferences:
     dependency: "direct main"
     description:

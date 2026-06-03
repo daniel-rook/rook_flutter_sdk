@@ -269,7 +269,7 @@ jobs:
         run: flutter pub get
 
       - name: Create fake secrets.dart file
-        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secret = 'secret';static String packageName = 'packageName';}" >> lib/secrets.dart
+        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secret = 'secret';static String packageName = 'packageName';static String bundleId = "io.tryrook.apps.ios";}" >> lib/secrets.dart
 
       - name: Build project
         run: flutter build apk --debug
@@ -398,7 +398,7 @@ jobs:
         run: flutter pub get
 
       - name: Create fake secrets.dart file
-        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secret = 'secret';static String packageName = 'packageName';}" >> lib/secrets.dart
+        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secret = 'secret';static String packageName = 'packageName';static String bundleId = "io.tryrook.apps.ios";}" >> lib/secrets.dart
 
       - name: Build project
         run: flutter build apk --debug
