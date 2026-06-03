@@ -177,14 +177,14 @@ class RookSamsung {
   /// Retrieve and upload current day physical summary of Samsung Health.
   ///
   /// Returns the current day physical summary. Or [RecordsNotFoundException] if no data is available.
-  static Future<PhysicalSummary?> getPhysicalSummary(DateTime date) {
+  static Future<PhysicalSummary> getPhysicalSummary(DateTime date) {
     return RookSdkSamsungHealthPlatform.instance.getPhysicalSummary(date);
   }
 
   /// Retrieve and upload current day body summary of Samsung Health.
   ///
   /// Returns the current day body summary. Or [RecordsNotFoundException] if no data is available.
-  static Future<BodySummary?> getBodySummary(DateTime date) {
+  static Future<BodySummary> getBodySummary(DateTime date) {
     return RookSdkSamsungHealthPlatform.instance.getBodySummary(date);
   }
 

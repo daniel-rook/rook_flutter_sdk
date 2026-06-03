@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:rook_flutter_sdk/features/api_sources/api_sources.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_background_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_configuration.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_continuous_upload.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_user_management.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_steps.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_background_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_configuration.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_permissions.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_user_management.dart';
-import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_background_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_configuration.dart';
-import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_permissions.dart';
-import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_sync.dart';
-import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_user_management.dart';
 import 'package:rook_flutter_sdk/menu_screen.dart';
+import 'package:rook_flutter_sdk/sdk/api_sources/api_sources.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_apple_health/ios_background_sync.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_apple_health/ios_configuration.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_apple_health/ios_continuous_upload.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_apple_health/ios_sync.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_apple_health/ios_user_management.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_background_steps.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_background_sync.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_configuration.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_permissions.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_sync.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_user_management.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_background_sync.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_configuration.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_permissions.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_sync.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_user_management.dart';
 
 class AppRouter {
   Route<Object?>? onGenerateRoute(RouteSettings settings) {

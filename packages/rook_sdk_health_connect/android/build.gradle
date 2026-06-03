@@ -4,7 +4,7 @@ plugins {
 }
 
 // ------------------------ Dependencies ------------------------
-String rookSdkVersion = "4.0.0"
+String rookSdkVersion = "4.1.0-alpha07"
 String protoVersion = "4.28.3"
 String timberVersion = "5.0.1"
 // ------------------------ Dependencies ------------------------
@@ -23,6 +23,7 @@ allprojects {
 android {
     namespace "com.rookmotion.rook_sdk_health_connect"
     compileSdk 36
+    compileSdkExtension 19
 
     defaultConfig {
         minSdk 26

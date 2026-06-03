@@ -20,14 +20,16 @@ class PermissionsHandler(private val coroutineScope: CoroutineScope, private val
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
             "checkSamsungHealthAvailability" -> coroutineScope.launch {
-                try {
-                    val availability = rookSamsung.checkSamsungHealthAvailability().getOrThrow()
-                    val proto = availability.toProto()
+                rookSamsung.checkSamsungHealthAvailability().fold(
+                    { availability ->
+                        val proto = availability.toProto()
 
-                    methodResult.int(proto.number)
-                } catch (exception: NullPointerException) {
-                    methodResult.throwable(exception)
-                }
+                        methodResult.int(proto.number)
+                    },
+                    {
+                        methodResult.throwable(it)
+                    }
+                )
             }
 
             "checkSamsungHealthPermissions" -> coroutineScope.launch {

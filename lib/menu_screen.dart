@@ -1,9 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:rook_flutter_sdk/common/widget/scrollable_scaffold.dart';
-import 'package:rook_flutter_sdk/features/api_sources/api_sources.dart';
-import 'package:rook_flutter_sdk/features/sdk_apple_health/ios_configuration.dart';
-import 'package:rook_flutter_sdk/features/sdk_health_connect/android_configuration.dart';
-import 'package:rook_flutter_sdk/features/sdk_samsung_health/samsung_configuration.dart';
+import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
+import 'package:rook_flutter_sdk/sdk/api_sources/api_sources.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_apple_health/ios_configuration.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_configuration.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_configuration.dart';
 
 const String menuRoute = '/menu';
 
@@ -22,24 +24,27 @@ class MenuScreen extends StatelessWidget {
             },
             child: const Text("Api Sources"),
           ),
-          FilledButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(androidConfigurationRoute);
-            },
-            child: const Text("Health Connect"),
-          ),
-          FilledButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(samsungConfigurationRoute);
-            },
-            child: const Text("Samsung Health"),
-          ),
-          FilledButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(iosConfigurationRoute);
-            },
-            child: const Text("Apple Health"),
-          ),
+          if (Platform.isAndroid)
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(androidConfigurationRoute);
+              },
+              child: const Text("Health Connect"),
+            ),
+          if (Platform.isAndroid)
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(samsungConfigurationRoute);
+              },
+              child: const Text("Samsung Health"),
+            ),
+          if (Platform.isIOS)
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(iosConfigurationRoute);
+              },
+              child: const Text("Apple Health"),
+            ),
         ],
       ),
     );
