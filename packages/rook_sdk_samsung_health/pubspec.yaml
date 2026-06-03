@@ -1,6 +1,6 @@
 name: rook_sdk_samsung_health
 description: This package enables apps to extract and upload data from Samsung Health.
-version: 4.0.0
+version: 4.1.0-alpha.1
 homepage: 'https://docs.tryrook.io/'
 platforms:
   android:
