@@ -20,6 +20,7 @@ fun SamsungHealthPermissionProto.toSHPermission(): SamsungHealthPermission {
         SamsungHealthPermissionProto.STEPS_PERMISSION -> SamsungHealthPermission.STEPS
         SamsungHealthPermissionProto.WATER_INTAKE_PERMISSION -> SamsungHealthPermission.WATER_INTAKE
         SamsungHealthPermissionProto.BODY_TEMPERATURE_PERMISSION -> SamsungHealthPermission.BODY_TEMPERATURE
+        SamsungHealthPermissionProto.SLEEP_APNEA_PERMISSION -> SamsungHealthPermission.SLEEP_APNEA
         SamsungHealthPermissionProto.UNRECOGNIZED -> throw UnknownPermissionException()
     }
 }

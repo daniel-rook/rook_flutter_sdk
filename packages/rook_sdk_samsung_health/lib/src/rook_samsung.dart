@@ -125,6 +125,80 @@ class RookSamsung {
         .requestSamsungHealthPermissionsUpdates;
   }
 
+  /// Checks if the exact alarm permission ([android.Manifest.permission.SCHEDULE_EXACT_ALARM])
+  /// is granted.
+  ///
+  /// On API 26–30 exact alarms are unrestricted and this function always returns `true`.
+  ///
+  /// Returns `true` if the permission is granted or the device is running API 30 or below,
+  /// `false` if the user has not yet granted the permission on API 31+.
+  static Future<bool> checkExactAlarmPermissions() {
+    return RookSdkSamsungHealthPlatform.instance.checkExactAlarmPermissions();
+  }
+
+  /// Opens the system settings screen where the user can grant the exact alarm permission
+  /// ([android.Manifest.permission.SCHEDULE_EXACT_ALARM]).
+  ///
+  /// Because this is a special app access permission, there is no callback the recommended
+  /// pattern is to call [checkExactAlarmPermissions] again.
+  ///
+  /// On API 30 or below this function does nothing since the permission is not required.
+  ///
+  /// Returns [RequestPermissionsStatus.alreadyGranted] if the permission is already granted
+  /// or the device is running on API 30 or below, [RequestPermissionsStatus.requestSent] otherwise.
+  static Future<RequestPermissionsStatus> requestExactAlarmPermissions() {
+    return RookSdkSamsungHealthPlatform.instance.requestExactAlarmPermissions();
+  }
+
+  /// Checks if battery optimizations are disabled for this app (i.e. the app is on the system
+  /// battery-optimization whitelist).
+  ///
+  /// When battery optimizations are enabled the OS may aggressively kill or suspend background
+  /// work. Disabling them ensures the service can restart reliably after being killed.
+  ///
+  /// Returns `true` if battery optimizations are disabled (app is whitelisted), `false` otherwise.
+  static Future<bool> checkBatteryOptimizationsDisabled() {
+    return RookSdkSamsungHealthPlatform.instance
+        .checkBatteryOptimizationsDisabled();
+  }
+
+  /// Opens the system dialog that lets the user disable battery optimizations for this app.
+  ///
+  /// Because this is a special app access permission, there is no callback the recommended
+  /// pattern is to call [checkBatteryOptimizationsDisabled] again.
+  ///
+  /// Returns [RequestPermissionsStatus.alreadyGranted] if battery optimizations are already disabled,
+  /// [RequestPermissionsStatus.requestSent] otherwise.
+  static Future<RequestPermissionsStatus> requestDisableBatteryOptimizations() {
+    return RookSdkSamsungHealthPlatform.instance
+        .requestDisableBatteryOptimizations();
+  }
+
+  /// Returns `true` if the current device belongs to an OEM that enforces a proprietary
+  /// auto-start / auto-launch management system (Xiaomi, OPPO, OnePlus, Realme, Huawei,
+  /// Honor, or Vivo).
+  ///
+  /// Detection works by probing whether any known OEM settings screen resolves on the device.
+  /// A `true` result means the OEM management system exists it does **not** mean auto-start
+  /// is currently blocked for this specific app. Use this to decide whether to prompt the user
+  /// to open the OEM setup screen.
+  ///
+  /// Returns `true` if the device has an OEM auto-start management system, `false` if the
+  /// device is a stock-Android or unsupported OEM device (no setup required).
+  static Future<bool> requiresOemAutoStartSetup() {
+    return RookSdkSamsungHealthPlatform.instance.requiresOemAutoStartSetup();
+  }
+
+  /// Opens the OEM-specific auto-start / auto-launch settings screen.
+  ///
+  /// Because this opens a settings screen there is no callback.
+  ///
+  /// @return [RequestPermissionsStatus.requestSent] on a successful launch
+  /// or [RequestPermissionsStatus.alreadyGranted] if the device has no OEM screen.
+  static Future<RequestPermissionsStatus> openOemAutoStartSetup() {
+    return RookSdkSamsungHealthPlatform.instance.openOemAutoStartSetup();
+  }
+
   /// Syncs summaries using the provided parameters.
   ///
   /// If [enableLogs] is not null: Syncs the last 29 days of SLEEP_SUMMARY, PHYSICAL_SUMMARY and BODY_SUMMARY (not including today).

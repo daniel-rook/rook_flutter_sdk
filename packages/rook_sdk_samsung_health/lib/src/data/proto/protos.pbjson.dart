@@ -94,6 +94,7 @@ const SamsungHealthPermissionProto$json = {
     {'1': 'STEPS_PERMISSION', '2': 11},
     {'1': 'WATER_INTAKE_PERMISSION', '2': 12},
     {'1': 'BODY_TEMPERATURE_PERMISSION', '2': 13},
+    {'1': 'SLEEP_APNEA_PERMISSION', '2': 14},
   ],
 };
 
@@ -106,7 +107,8 @@ final $typed_data.Uint8List samsungHealthPermissionProtoDescriptor = $convert.ba
     'RV9MT0NBVElPTl9QRVJNSVNTSU9OEAYSHQoZRkxPT1JTX0NMSU1CRURfUEVSTUlTU0lPThAHEh'
     'kKFUhFQVJUX1JBVEVfUEVSTUlTU0lPThAIEhgKFE5VVFJJVElPTl9QRVJNSVNTSU9OEAkSFAoQ'
     'U0xFRVBfUEVSTUlTU0lPThAKEhQKEFNURVBTX1BFUk1JU1NJT04QCxIbChdXQVRFUl9JTlRBS0'
-    'VfUEVSTUlTU0lPThAMEh8KG0JPRFlfVEVNUEVSQVRVUkVfUEVSTUlTU0lPThAN');
+    'VfUEVSTUlTU0lPThAMEh8KG0JPRFlfVEVNUEVSQVRVUkVfUEVSTUlTU0lPThANEhoKFlNMRUVQ'
+    'X0FQTkVBX1BFUk1JU1NJT04QDg==');
 
 @$core.Deprecated('Use summarySyncTypeProtoDescriptor instead')
 const SummarySyncTypeProto$json = {

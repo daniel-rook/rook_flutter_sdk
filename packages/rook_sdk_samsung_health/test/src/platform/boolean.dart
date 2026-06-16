@@ -74,6 +74,33 @@ void booleanResultTests(
     );
 
     test(
+      'GIVEN the happy path WHEN checkExactAlarmPermissions THEN complete with expected value',
+      () async {
+        final future = platform.checkExactAlarmPermissions();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN checkBatteryOptimizationsDisabled THEN complete with expected value',
+      () async {
+        final future = platform.checkBatteryOptimizationsDisabled();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN requiresOemAutoStartSetup THEN complete with expected value',
+      () async {
+        final future = platform.requiresOemAutoStartSetup();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
       'GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value',
       () async {
         final future = platform.syncHistoricSummaries(true);
@@ -137,145 +164,163 @@ void booleanResultTests(
     });
   });
 
-  group(
-    'MethodChannelRookSdkSamsungHealth | ResultBooleanProto exception unwrap',
-    () {
-      mockMethodCall(channel, (_) async {
-        final failure = SDKExceptionProto.create()
-          ..message = "message"
-          ..code = 500;
+  group('MethodChannelRookSdkSamsungHealth | ResultBooleanProto exception unwrap', () {
+    mockMethodCall(channel, (_) async {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final proto = BooleanResultProto.create()..failure = failure;
+      final proto = BooleanResultProto.create()..failure = failure;
 
-        return proto.writeToBuffer();
-      });
+      return proto.writeToBuffer();
+    });
 
-      test(
-        'GIVEN the unhappy path WHEN initRook THEN throw exception',
-        () async {
-          final configuration = RookConfiguration(
-            clientUUID: "clientUUID",
-            secret: "secret",
-            environment: RookEnvironment.sandbox,
-            enableBackgroundSync: false,
-          );
-
-          final future = platform.initRook(configuration);
-
-          await expectLater(future, throwsException);
-        },
+    test('GIVEN the unhappy path WHEN initRook THEN throw exception', () async {
+      final configuration = RookConfiguration(
+        clientUUID: "clientUUID",
+        secret: "secret",
+        environment: RookEnvironment.sandbox,
+        enableBackgroundSync: false,
       );
 
-      test(
-        'GIVEN the unhappy path WHEN updateUserID THEN throw exception',
-        () async {
-          final future = platform.updateUserID('userID');
+      final future = platform.initRook(configuration);
 
-          await expectLater(future, throwsException);
-        },
-      );
+      await expectLater(future, throwsException);
+    });
 
-      test(
-        'GIVEN the unhappy path WHEN deleteUserFromRook THEN throw exception',
-        () async {
-          final future = platform.deleteUserFromRook();
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN syncUserTimeZone throw exception',
-        () async {
-          final future = platform.syncUserTimeZone();
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN checkSamsungHealthPermissions THEN throw exception',
-        () async {
-          final future = platform.checkSamsungHealthPermissions([]);
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN checkSamsungHealthPermissionsPartially THEN throw exception',
-        () async {
-          final future = platform.checkSamsungHealthPermissionsPartially([]);
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN syncHistoricSummaries THEN throw exception',
-        () async {
-          final future = platform.syncHistoricSummaries(true);
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN syncSummariesByDate THEN throw exception',
-        () async {
-          final future = platform.syncSummariesByDate(DateTime.now());
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN syncByDateAndSummary THEN throw exception',
-        () async {
-          final future = platform.syncByDateAndSummary(
-            DateTime.now(),
-            SHSummarySyncType.body,
-          );
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN syncByDateAndEvent THEN throw exception',
-        () async {
-          final future = platform.syncByDateAndEvent(
-            DateTime.now(),
-            SHEventSyncType.steps,
-          );
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN isScheduled THEN throw exception',
-        () async {
-          final future = platform.isScheduled();
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test(
-        'GIVEN the unhappy path WHEN schedule THEN throw exception',
-        () async {
-          final future = platform.schedule(true, false);
-
-          await expectLater(future, throwsException);
-        },
-      );
-
-      test('GIVEN the unhappy path WHEN cancel THEN throw exception', () async {
-        final future = platform.cancel();
+    test(
+      'GIVEN the unhappy path WHEN updateUserID THEN throw exception',
+      () async {
+        final future = platform.updateUserID('userID');
 
         await expectLater(future, throwsException);
-      });
-    },
-  );
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN deleteUserFromRook THEN throw exception',
+      () async {
+        final future = platform.deleteUserFromRook();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncUserTimeZone throw exception',
+      () async {
+        final future = platform.syncUserTimeZone();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN checkSamsungHealthPermissions THEN throw exception',
+      () async {
+        final future = platform.checkSamsungHealthPermissions([]);
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN checkSamsungHealthPermissionsPartially THEN throw exception',
+      () async {
+        final future = platform.checkSamsungHealthPermissionsPartially([]);
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN checkExactAlarmPermissions THEN throw exception',
+      () async {
+        final future = platform.checkExactAlarmPermissions();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN checkBatteryOptimizationsDisabled THEN throw exception',
+      () async {
+        final future = platform.checkBatteryOptimizationsDisabled();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN requiresOemAutoStartSetup THEN throw exception',
+      () async {
+        final future = platform.requiresOemAutoStartSetup();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncHistoricSummaries THEN throw exception',
+      () async {
+        final future = platform.syncHistoricSummaries(true);
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncSummariesByDate THEN throw exception',
+      () async {
+        final future = platform.syncSummariesByDate(DateTime.now());
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncByDateAndSummary THEN throw exception',
+      () async {
+        final future = platform.syncByDateAndSummary(
+          DateTime.now(),
+          SHSummarySyncType.body,
+        );
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN syncByDateAndEvent THEN throw exception',
+      () async {
+        final future = platform.syncByDateAndEvent(
+          DateTime.now(),
+          SHEventSyncType.steps,
+        );
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN isScheduled THEN throw exception',
+      () async {
+        final future = platform.isScheduled();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test('GIVEN the unhappy path WHEN schedule THEN throw exception', () async {
+      final future = platform.schedule(true, false);
+
+      await expectLater(future, throwsException);
+    });
+
+    test('GIVEN the unhappy path WHEN cancel THEN throw exception', () async {
+      final future = platform.cancel();
+
+      await expectLater(future, throwsException);
+    });
+  });
 }
