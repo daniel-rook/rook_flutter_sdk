@@ -139,6 +139,12 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "checkAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)
             "shouldRequestAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)
             "requestAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "checkExactAlarmPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "requestExactAlarmPermissions" -> permissionsHandler.onMethodCall(call, result)
+            "checkBatteryOptimizationsDisabled" -> permissionsHandler.onMethodCall(call, result)
+            "requestDisableBatteryOptimizations" -> permissionsHandler.onMethodCall(call, result)
+            "requiresOemAutoStartSetup" -> permissionsHandler.onMethodCall(call, result)
+            "openOemAutoStartSetup" -> permissionsHandler.onMethodCall(call, result)
 
             "syncHistoricSummaries" -> syncHandler.onMethodCall(call, result)
             "syncSummariesByDate" -> syncHandler.onMethodCall(call, result)

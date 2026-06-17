@@ -75,6 +75,33 @@ void booleanResultTests(
     );
 
     test(
+      'GIVEN the happy path WHEN checkExactAlarmPermissions THEN complete with expected value',
+      () async {
+        final future = platform.checkExactAlarmPermissions();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN checkBatteryOptimizationsDisabled THEN complete with expected value',
+      () async {
+        final future = platform.checkBatteryOptimizationsDisabled();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN requiresOemAutoStartSetup THEN complete with expected value',
+      () async {
+        final future = platform.requiresOemAutoStartSetup();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
       'GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value',
       () async {
         final future = platform.syncHistoricSummaries(true);
@@ -276,6 +303,33 @@ void booleanResultTests(
       'GIVEN the unhappy path WHEN checkHealthConnectPermissionsPartially THEN throw exception',
       () async {
         final future = platform.checkHealthConnectPermissionsPartially();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN checkExactAlarmPermissions THEN throw exception',
+      () async {
+        final future = platform.checkExactAlarmPermissions();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN checkBatteryOptimizationsDisabled THEN throw exception',
+      () async {
+        final future = platform.checkBatteryOptimizationsDisabled();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN requiresOemAutoStartSetup THEN throw exception',
+      () async {
+        final future = platform.requiresOemAutoStartSetup();
 
         await expectLater(future, throwsException);
       },

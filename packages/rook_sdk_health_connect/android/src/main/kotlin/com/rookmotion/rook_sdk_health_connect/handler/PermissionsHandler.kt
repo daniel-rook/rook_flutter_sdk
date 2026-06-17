@@ -131,6 +131,47 @@ class PermissionsHandler(
                 methodResult.requestPermissionsStatusSuccess(requestPermissionsStatus)
             }
 
+            "checkExactAlarmPermissions" -> {
+                val hasExactAlarmPermissions = rookPermissionsManager.checkExactAlarmPermissions()
+
+                methodResult.booleanSuccess(hasExactAlarmPermissions)
+            }
+
+            "requestExactAlarmPermissions" -> {
+                val requestPermissionsStatus = rookPermissionsManager.requestExactAlarmPermissions()
+
+                methodResult.requestPermissionsStatusSuccess(requestPermissionsStatus)
+            }
+
+            "checkBatteryOptimizationsDisabled" -> {
+                val batteryOptimizationsDisabled = rookPermissionsManager.checkBatteryOptimizationsDisabled()
+
+                methodResult.booleanSuccess(batteryOptimizationsDisabled)
+            }
+
+            "requestDisableBatteryOptimizations" -> {
+                val requestPermissionsStatus = rookPermissionsManager.requestDisableBatteryOptimizations()
+
+                methodResult.requestPermissionsStatusSuccess(requestPermissionsStatus)
+            }
+
+            "requiresOemAutoStartSetup" -> {
+                val requiresOemAutoStartSetup = rookPermissionsManager.requiresOemAutoStartSetup()
+
+                methodResult.booleanSuccess(requiresOemAutoStartSetup)
+            }
+
+            "openOemAutoStartSetup" -> {
+                rookPermissionsManager.openOemAutoStartSetup().fold(
+                    {
+                        methodResult.requestPermissionsStatusSuccess(it)
+                    },
+                    {
+                        methodResult.requestPermissionsStatusError(it)
+                    }
+                )
+            }
+
             else -> methodResult.notImplemented()
         }
     }

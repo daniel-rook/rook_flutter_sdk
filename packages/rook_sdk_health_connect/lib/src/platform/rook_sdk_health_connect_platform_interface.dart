@@ -59,6 +59,18 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Stream<AndroidPermissionsSummary> get requestAndroidPermissionsUpdates;
 
+  Future<bool> checkExactAlarmPermissions();
+
+  Future<RequestPermissionsStatus> requestExactAlarmPermissions();
+
+  Future<bool> checkBatteryOptimizationsDisabled();
+
+  Future<RequestPermissionsStatus> requestDisableBatteryOptimizations();
+
+  Future<bool> requiresOemAutoStartSetup();
+
+  Future<RequestPermissionsStatus> openOemAutoStartSetup();
+
   Future<void> syncHistoricSummaries(bool enableLogs);
 
   Future<void> syncSummariesByDate(DateTime date);
