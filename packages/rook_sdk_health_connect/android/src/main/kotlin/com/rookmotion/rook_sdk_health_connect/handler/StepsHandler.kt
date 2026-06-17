@@ -1,5 +1,6 @@
 package com.rookmotion.rook_sdk_health_connect.handler
 
+import com.rookmotion.rook.sdk.RookStepsCounter
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook_sdk_health_connect.MethodResult
 import com.rookmotion.rook_sdk_health_connect.result.booleanError
@@ -13,10 +14,56 @@ import kotlinx.coroutines.launch
 class StepsHandler(
     private val coroutineScope: CoroutineScope,
     private val rookStepsManager: RookStepsManager,
+    private val rookStepsCounter: RookStepsCounter,
 ) {
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
         when (methodCall.method) {
+            "isStepsCounterAvailable" -> {
+                val isAvailable = rookStepsCounter.isStepsCounterAvailable()
+
+                methodResult.booleanSuccess(isAvailable)
+            }
+
+            "isStepsCounterActive" -> coroutineScope.launch {
+                val isActive = rookStepsCounter.isStepsCounterActive()
+
+                methodResult.booleanSuccess(isActive)
+            }
+
+            "enableStepsCounter" -> {
+                rookStepsCounter.enableStepsCounter().fold(
+                    {
+                        methodResult.booleanSuccess(true)
+                    },
+                    {
+                        methodResult.booleanError(it)
+                    }
+                )
+            }
+
+            "disableStepsCounter" -> {
+                rookStepsCounter.disableStepsCounter().fold(
+                    {
+                        methodResult.booleanSuccess(true)
+                    },
+                    {
+                        methodResult.booleanError(it)
+                    }
+                )
+            }
+
+            "getTodayStepsCounterCount" -> coroutineScope.launch {
+                rookStepsCounter.getTodayStepsCount().fold(
+                    {
+                        methodResult.int64Success(it)
+                    },
+                    {
+                        methodResult.int64Error(it)
+                    }
+                )
+            }
+
             "isStepsAvailable" -> {
                 try {
                     val isAvailable = rookStepsManager.isAvailable()
@@ -74,7 +121,7 @@ class StepsHandler(
                 )
             }
 
-            else -> Unit
+            else -> methodResult.notImplemented()
         }
     }
 }

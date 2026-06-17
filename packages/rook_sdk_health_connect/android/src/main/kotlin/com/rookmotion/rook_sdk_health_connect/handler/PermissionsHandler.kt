@@ -131,7 +131,7 @@ class PermissionsHandler(
                 methodResult.requestPermissionsStatusSuccess(requestPermissionsStatus)
             }
 
-            else -> Unit
+            else -> methodResult.notImplemented()
         }
     }
 }

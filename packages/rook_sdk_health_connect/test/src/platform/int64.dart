@@ -28,6 +28,15 @@ void int64ResultTests(
     );
 
     test(
+      'GIVEN a Result.value WHEN getTodayStepsCounterCount THEN complete with expected value',
+      () async {
+        final future = platform.getTodayStepsCounterCount();
+
+        await expectLater(future, completion(1000));
+      },
+    );
+
+    test(
       "GIVEN success WHEN getTodayStepsCount THEN return a SyncStatusWithData<int>",
       () async {
         final future = platform.getTodayStepsCount();
@@ -57,6 +66,15 @@ void int64ResultTests(
         'GIVEN the unhappy path WHEN syncTodayAndroidStepsCount THEN throw exception',
         () async {
           final future = platform.syncTodayAndroidStepsCount();
+
+          await expectLater(future, throwsException);
+        },
+      );
+
+      test(
+        'GIVEN the unhappy path WHEN getTodayStepsCounterCount THEN throw exception',
+        () async {
+          final future = platform.getTodayStepsCounterCount();
 
           await expectLater(future, throwsException);
         },

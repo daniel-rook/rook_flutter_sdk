@@ -126,9 +126,27 @@ void booleanResultTests(
     );
 
     test(
+      'GIVEN the happy path WHEN isStepsCounterAvailable THEN complete with expected value',
+      () async {
+        final future = platform.isStepsCounterAvailable();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
       'GIVEN the happy path WHEN isBackgroundAndroidStepsActive THEN complete with expected value',
       () async {
         final future = platform.isBackgroundAndroidStepsActive();
+
+        await expectLater(future, completion(true));
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN isStepsCounterActive THEN complete with expected value',
+      () async {
+        final future = platform.isStepsCounterActive();
 
         await expectLater(future, completion(true));
       },
@@ -144,9 +162,27 @@ void booleanResultTests(
     );
 
     test(
+      'GIVEN the happy path WHEN enableStepsCounter THEN complete',
+      () async {
+        final future = platform.enableStepsCounter();
+
+        await expectLater(future, completes);
+      },
+    );
+
+    test(
       'GIVEN the happy path WHEN disableBackgroundAndroidSteps THEN complete',
       () async {
         final future = platform.disableBackgroundAndroidSteps();
+
+        await expectLater(future, completes);
+      },
+    );
+
+    test(
+      'GIVEN the happy path WHEN disableStepsCounter THEN complete',
+      () async {
+        final future = platform.disableStepsCounter();
 
         await expectLater(future, completes);
       },
@@ -297,9 +333,27 @@ void booleanResultTests(
     );
 
     test(
+      'GIVEN the unhappy path WHEN isStepsCounterAvailable THEN throw exception',
+      () async {
+        final future = platform.isStepsCounterAvailable();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
       'GIVEN the unhappy path WHEN isBackgroundAndroidStepsActive THEN throw exception',
       () async {
         final future = platform.isBackgroundAndroidStepsActive();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN isStepsCounterActive THEN throw exception',
+      () async {
+        final future = platform.isStepsCounterActive();
 
         await expectLater(future, throwsException);
       },
@@ -315,9 +369,27 @@ void booleanResultTests(
     );
 
     test(
+      'GIVEN the unhappy path WHEN enableStepsCounter THEN throw exception',
+      () async {
+        final future = platform.enableStepsCounter();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
       'GIVEN the unhappy path WHEN disableBackgroundAndroidSteps THEN throw exception',
       () async {
         final future = platform.disableBackgroundAndroidSteps();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      'GIVEN the unhappy path WHEN disableStepsCounter THEN throw exception',
+      () async {
+        final future = platform.disableStepsCounter();
 
         await expectLater(future, throwsException);
       },

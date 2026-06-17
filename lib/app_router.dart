@@ -10,6 +10,7 @@ import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_background_steps
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_background_sync.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_configuration.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_permissions.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_steps.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_sync.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_user_management.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_samsung_health/samsung_background_sync.dart';
@@ -33,6 +34,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const AndroidBackgroundSteps(),
         );
+      case androidStepsRoute:
+        return MaterialPageRoute(builder: (context) => const AndroidSteps());
       case androidUserManagementRoute:
         return MaterialPageRoute(
           builder: (context) => const AndroidUserManagement(),

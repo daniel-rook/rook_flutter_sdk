@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import com.rookmotion.rook.sdk.RookBackgroundSyncManager
 import com.rookmotion.rook.sdk.RookConfigurationManager
 import com.rookmotion.rook.sdk.RookPermissionsManager
+import com.rookmotion.rook.sdk.RookStepsCounter
 import com.rookmotion.rook.sdk.RookStepsManager
 import com.rookmotion.rook.sdk.RookSyncManager
 import com.rookmotion.rook.sdk.domain.enums.BackgroundReadStatus
@@ -42,6 +43,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     private lateinit var rookPermissionsManager: RookPermissionsManager
     private lateinit var rookSyncManager: RookSyncManager
     private lateinit var rookStepsManager: RookStepsManager
+    private lateinit var rookStepsCounter: RookStepsCounter
     private lateinit var rookBackgroundSyncManager: RookBackgroundSyncManager
 
     private lateinit var configurationHandler: ConfigurationHandler
@@ -66,6 +68,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         rookPermissionsManager = RookPermissionsManager(flutterPluginBinding.applicationContext)
         rookSyncManager = RookSyncManager(flutterPluginBinding.applicationContext)
         rookStepsManager = RookStepsManager(flutterPluginBinding.applicationContext)
+        rookStepsCounter = RookStepsCounter(flutterPluginBinding.applicationContext)
         rookBackgroundSyncManager = RookBackgroundSyncManager(flutterPluginBinding.applicationContext)
 
         configurationHandler = ConfigurationHandler(
@@ -76,7 +79,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
         permissionsHandler = PermissionsHandler(coroutineScope, rookPermissionsManager)
         syncHandler = SyncHandler(coroutineScope, rookSyncManager)
         helperHandler = HelperHandler(coroutineScope)
-        stepsHandler = StepsHandler(coroutineScope, rookStepsManager)
+        stepsHandler = StepsHandler(coroutineScope, rookStepsManager, rookStepsCounter)
         backgroundSyncHandler = BackgroundSyncHandler(coroutineScope, rookBackgroundSyncManager)
 
         isScheduled = IsScheduledTransmitter(coroutineScope, rookBackgroundSyncManager)
@@ -148,6 +151,12 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "getTodayStepsCount" -> syncHandler.onMethodCall(call, result)
             "getTodayCaloriesCount" -> syncHandler.onMethodCall(call, result)
             "getTodayHeartRate" -> syncHandler.onMethodCall(call, result)
+
+            "isStepsCounterAvailable" -> stepsHandler.onMethodCall(call, result)
+            "isStepsCounterActive" -> stepsHandler.onMethodCall(call, result)
+            "enableStepsCounter" -> stepsHandler.onMethodCall(call, result)
+            "disableStepsCounter" -> stepsHandler.onMethodCall(call, result)
+            "getTodayStepsCounterCount" -> stepsHandler.onMethodCall(call, result)
 
             "isStepsAvailable" -> stepsHandler.onMethodCall(call, result)
             "isBackgroundAndroidStepsActive" -> stepsHandler.onMethodCall(call, result)

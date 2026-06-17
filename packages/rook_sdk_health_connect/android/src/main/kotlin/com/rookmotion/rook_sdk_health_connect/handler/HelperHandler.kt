@@ -7,5 +7,6 @@ import kotlinx.coroutines.CoroutineScope
 class HelperHandler(private val coroutineScope: CoroutineScope) {
 
     fun onMethodCall(methodCall: MethodCall, methodResult: MethodResult) {
+        methodResult.notImplemented()
     }
 }

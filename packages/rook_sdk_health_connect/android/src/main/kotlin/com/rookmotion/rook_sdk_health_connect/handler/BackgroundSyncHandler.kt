@@ -39,6 +39,8 @@ class BackgroundSyncHandler(
                 backgroundSyncManager.cancel()
                 methodResult.booleanSuccess(true)
             }
+
+            else -> methodResult.notImplemented()
         }
     }
 }

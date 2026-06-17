@@ -355,6 +355,10 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated(
+    'Use isStepsCounterAvailable instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<bool> isStepsAvailable() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'isStepsAvailable',
@@ -366,6 +370,10 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated(
+    'Use isStepsCounterActive instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<bool> isBackgroundAndroidStepsActive() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'isBackgroundAndroidStepsActive',
@@ -377,6 +385,10 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated(
+    'Use enableStepsCounter instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<void> enableBackgroundAndroidSteps() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'enableBackgroundAndroidSteps',
@@ -388,6 +400,10 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated(
+    'Use disableStepsCounter instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<void> disableBackgroundAndroidSteps() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'disableBackgroundAndroidSteps',
@@ -399,9 +415,68 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
   }
 
   @override
+  @Deprecated(
+    'Use getTodayStepsCounterCount instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<int> syncTodayAndroidStepsCount() async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncTodayAndroidStepsCount',
+    );
+
+    final result = Int64ResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> isStepsCounterAvailable() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'isStepsCounterAvailable',
+    );
+
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> isStepsCounterActive() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'isStepsCounterActive',
+    );
+
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<void> enableStepsCounter() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'enableStepsCounter',
+    );
+
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Future<void> disableStepsCounter() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'disableStepsCounter',
+    );
+
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    result.unwrap();
+  }
+
+  @override
+  Future<int> getTodayStepsCounterCount() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'getTodayStepsCounterCount',
     );
 
     final result = Int64ResultProto.fromBuffer(bytes);
