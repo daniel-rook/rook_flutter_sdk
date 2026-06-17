@@ -107,6 +107,84 @@ extension AppleHealthPermissionProto {
                HealthDataType.dietarySodium
         case AppleHealthPermissionProto.dietaryCholesterol:
                HealthDataType.dietaryCholesterol
+        case AppleHealthPermissionProto.stairAscentSpeed:
+               HealthDataType.stairAscentSpeed
+        case AppleHealthPermissionProto.cyclingPower:
+               HealthDataType.cyclingPower
+        case AppleHealthPermissionProto.cyclingSpeed:
+               HealthDataType.cyclingSpeed
+        case AppleHealthPermissionProto.waterTemperature:
+               HealthDataType.waterTemperature
+        case AppleHealthPermissionProto.workoutRoute:
+               HealthDataType.workoutRoute
+        case AppleHealthPermissionProto.dietaryBiotin:
+               HealthDataType.dietaryBiotin
+        case AppleHealthPermissionProto.dietaryCaffeine:
+               HealthDataType.dietaryCaffeine
+        case AppleHealthPermissionProto.dietaryCalcium:
+               HealthDataType.dietaryCalcium
+        case AppleHealthPermissionProto.dietaryChloride:
+               HealthDataType.dietaryChloride
+        case AppleHealthPermissionProto.dietaryChromium:
+               HealthDataType.dietaryChromium
+        case AppleHealthPermissionProto.dietaryCopper:
+               HealthDataType.dietaryCopper
+        case AppleHealthPermissionProto.dietaryFatMonounsaturated:
+               HealthDataType.dietaryFatMonounsaturated
+        case AppleHealthPermissionProto.dietaryFatPolyunsaturated:
+               HealthDataType.dietaryFatPolyunsaturated
+        case AppleHealthPermissionProto.dietaryFatSaturated:
+               HealthDataType.dietaryFatSaturated
+        case AppleHealthPermissionProto.dietaryFolate:
+               HealthDataType.dietaryFolate
+        case AppleHealthPermissionProto.dietaryIodine:
+               HealthDataType.dietaryIodine
+        case AppleHealthPermissionProto.dietaryIron:
+               HealthDataType.dietaryIron
+        case AppleHealthPermissionProto.dietaryMagnesium:
+               HealthDataType.dietaryMagnesium
+        case AppleHealthPermissionProto.dietaryManganese:
+               HealthDataType.dietaryManganese
+        case AppleHealthPermissionProto.dietaryMolybdenum:
+               HealthDataType.dietaryMolybdenum
+        case AppleHealthPermissionProto.dietaryNiacin:
+               HealthDataType.dietaryNiacin
+        case AppleHealthPermissionProto.dietaryPantothenicAcid:
+               HealthDataType.dietaryPantothenicAcid
+        case AppleHealthPermissionProto.dietaryPhosphorus:
+               HealthDataType.dietaryPhosphorus
+        case AppleHealthPermissionProto.dietaryPotassium:
+               HealthDataType.dietaryPotassium
+        case AppleHealthPermissionProto.dietaryRiboflavin:
+               HealthDataType.dietaryRiboflavin
+        case AppleHealthPermissionProto.dietarySelenium:
+               HealthDataType.dietarySelenium
+        case AppleHealthPermissionProto.dietaryThiamin:
+               HealthDataType.dietaryThiamin
+        case AppleHealthPermissionProto.dietaryVitaminA:
+               HealthDataType.dietaryVitaminA
+        case AppleHealthPermissionProto.dietaryVitaminB12:
+               HealthDataType.dietaryVitaminB12
+        case AppleHealthPermissionProto.dietaryVitaminB6:
+               HealthDataType.dietaryVitaminB6
+        case AppleHealthPermissionProto.dietaryVitaminC:
+               HealthDataType.dietaryVitaminC
+        case AppleHealthPermissionProto.dietaryVitaminD:
+               HealthDataType.dietaryVitaminD
+        case AppleHealthPermissionProto.dietaryVitaminE:
+               HealthDataType.dietaryVitaminE
+        case AppleHealthPermissionProto.dietaryVitaminK:
+               HealthDataType.dietaryVitaminK
+        case AppleHealthPermissionProto.dietaryWater:
+               HealthDataType.dietaryWater
+        case AppleHealthPermissionProto.dietaryZinc:
+               HealthDataType.dietaryZinc
+        case AppleHealthPermissionProto.estimatedWorkoutEffortScore:
+               HealthDataType.estimatedWorkoutEffortScore
+        case AppleHealthPermissionProto.physicalEffort:
+               HealthDataType.physicalEffort
+        case AppleHealthPermissionProto.workoutEffortScore:
+               HealthDataType.workoutEffortScore
         default:
             nil
         }

@@ -174,6 +174,10 @@ class _IOSSyncState extends State<IOSSync> {
                 value: AHEventSyncType.calories,
                 label: "Calories",
               ),
+              DropdownMenuEntry(
+                value: AHEventSyncType.ecg,
+                label: "ECG",
+              ),
             ],
           ),
           Text(syncSingleEventOutput.current),

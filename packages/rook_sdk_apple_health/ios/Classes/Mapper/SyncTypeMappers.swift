@@ -46,6 +46,8 @@ extension EventSyncTypeProto {
             return EventTypeToUpload.steps
         case EventSyncTypeProto.calories:
             return EventTypeToUpload.calories
+        case EventSyncTypeProto.ecg:
+            return EventTypeToUpload.ecg
         default:
             fatalError("Unsupported event type")
         }

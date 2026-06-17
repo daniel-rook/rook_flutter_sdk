@@ -142,6 +142,45 @@ enum AppleHealthPermissionProto: SwiftProtobuf.Enum, Swift.CaseIterable {
   case dietaryFiber // = 45
   case dietarySodium // = 46
   case dietaryCholesterol // = 47
+  case stairAscentSpeed // = 48
+  case cyclingPower // = 49
+  case cyclingSpeed // = 50
+  case waterTemperature // = 51
+  case workoutRoute // = 52
+  case dietaryBiotin // = 53
+  case dietaryCaffeine // = 54
+  case dietaryCalcium // = 55
+  case dietaryChloride // = 56
+  case dietaryChromium // = 57
+  case dietaryCopper // = 58
+  case dietaryFatMonounsaturated // = 59
+  case dietaryFatPolyunsaturated // = 60
+  case dietaryFatSaturated // = 61
+  case dietaryFolate // = 62
+  case dietaryIodine // = 63
+  case dietaryIron // = 64
+  case dietaryMagnesium // = 65
+  case dietaryManganese // = 66
+  case dietaryMolybdenum // = 67
+  case dietaryNiacin // = 68
+  case dietaryPantothenicAcid // = 69
+  case dietaryPhosphorus // = 70
+  case dietaryPotassium // = 71
+  case dietaryRiboflavin // = 72
+  case dietarySelenium // = 73
+  case dietaryThiamin // = 74
+  case dietaryVitaminA // = 75
+  case dietaryVitaminB12 // = 76
+  case dietaryVitaminB6 // = 77
+  case dietaryVitaminC // = 78
+  case dietaryVitaminD // = 79
+  case dietaryVitaminE // = 80
+  case dietaryVitaminK // = 81
+  case dietaryWater // = 82
+  case dietaryZinc // = 83
+  case estimatedWorkoutEffortScore // = 84
+  case physicalEffort // = 85
+  case workoutEffortScore // = 86
   case UNRECOGNIZED(Int)
 
   init() {
@@ -198,6 +237,45 @@ enum AppleHealthPermissionProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 45: self = .dietaryFiber
     case 46: self = .dietarySodium
     case 47: self = .dietaryCholesterol
+    case 48: self = .stairAscentSpeed
+    case 49: self = .cyclingPower
+    case 50: self = .cyclingSpeed
+    case 51: self = .waterTemperature
+    case 52: self = .workoutRoute
+    case 53: self = .dietaryBiotin
+    case 54: self = .dietaryCaffeine
+    case 55: self = .dietaryCalcium
+    case 56: self = .dietaryChloride
+    case 57: self = .dietaryChromium
+    case 58: self = .dietaryCopper
+    case 59: self = .dietaryFatMonounsaturated
+    case 60: self = .dietaryFatPolyunsaturated
+    case 61: self = .dietaryFatSaturated
+    case 62: self = .dietaryFolate
+    case 63: self = .dietaryIodine
+    case 64: self = .dietaryIron
+    case 65: self = .dietaryMagnesium
+    case 66: self = .dietaryManganese
+    case 67: self = .dietaryMolybdenum
+    case 68: self = .dietaryNiacin
+    case 69: self = .dietaryPantothenicAcid
+    case 70: self = .dietaryPhosphorus
+    case 71: self = .dietaryPotassium
+    case 72: self = .dietaryRiboflavin
+    case 73: self = .dietarySelenium
+    case 74: self = .dietaryThiamin
+    case 75: self = .dietaryVitaminA
+    case 76: self = .dietaryVitaminB12
+    case 77: self = .dietaryVitaminB6
+    case 78: self = .dietaryVitaminC
+    case 79: self = .dietaryVitaminD
+    case 80: self = .dietaryVitaminE
+    case 81: self = .dietaryVitaminK
+    case 82: self = .dietaryWater
+    case 83: self = .dietaryZinc
+    case 84: self = .estimatedWorkoutEffortScore
+    case 85: self = .physicalEffort
+    case 86: self = .workoutEffortScore
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -252,6 +330,45 @@ enum AppleHealthPermissionProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .dietaryFiber: return 45
     case .dietarySodium: return 46
     case .dietaryCholesterol: return 47
+    case .stairAscentSpeed: return 48
+    case .cyclingPower: return 49
+    case .cyclingSpeed: return 50
+    case .waterTemperature: return 51
+    case .workoutRoute: return 52
+    case .dietaryBiotin: return 53
+    case .dietaryCaffeine: return 54
+    case .dietaryCalcium: return 55
+    case .dietaryChloride: return 56
+    case .dietaryChromium: return 57
+    case .dietaryCopper: return 58
+    case .dietaryFatMonounsaturated: return 59
+    case .dietaryFatPolyunsaturated: return 60
+    case .dietaryFatSaturated: return 61
+    case .dietaryFolate: return 62
+    case .dietaryIodine: return 63
+    case .dietaryIron: return 64
+    case .dietaryMagnesium: return 65
+    case .dietaryManganese: return 66
+    case .dietaryMolybdenum: return 67
+    case .dietaryNiacin: return 68
+    case .dietaryPantothenicAcid: return 69
+    case .dietaryPhosphorus: return 70
+    case .dietaryPotassium: return 71
+    case .dietaryRiboflavin: return 72
+    case .dietarySelenium: return 73
+    case .dietaryThiamin: return 74
+    case .dietaryVitaminA: return 75
+    case .dietaryVitaminB12: return 76
+    case .dietaryVitaminB6: return 77
+    case .dietaryVitaminC: return 78
+    case .dietaryVitaminD: return 79
+    case .dietaryVitaminE: return 80
+    case .dietaryVitaminK: return 81
+    case .dietaryWater: return 82
+    case .dietaryZinc: return 83
+    case .estimatedWorkoutEffortScore: return 84
+    case .physicalEffort: return 85
+    case .workoutEffortScore: return 86
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -306,6 +423,45 @@ enum AppleHealthPermissionProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     .dietaryFiber,
     .dietarySodium,
     .dietaryCholesterol,
+    .stairAscentSpeed,
+    .cyclingPower,
+    .cyclingSpeed,
+    .waterTemperature,
+    .workoutRoute,
+    .dietaryBiotin,
+    .dietaryCaffeine,
+    .dietaryCalcium,
+    .dietaryChloride,
+    .dietaryChromium,
+    .dietaryCopper,
+    .dietaryFatMonounsaturated,
+    .dietaryFatPolyunsaturated,
+    .dietaryFatSaturated,
+    .dietaryFolate,
+    .dietaryIodine,
+    .dietaryIron,
+    .dietaryMagnesium,
+    .dietaryManganese,
+    .dietaryMolybdenum,
+    .dietaryNiacin,
+    .dietaryPantothenicAcid,
+    .dietaryPhosphorus,
+    .dietaryPotassium,
+    .dietaryRiboflavin,
+    .dietarySelenium,
+    .dietaryThiamin,
+    .dietaryVitaminA,
+    .dietaryVitaminB12,
+    .dietaryVitaminB6,
+    .dietaryVitaminC,
+    .dietaryVitaminD,
+    .dietaryVitaminE,
+    .dietaryVitaminK,
+    .dietaryWater,
+    .dietaryZinc,
+    .estimatedWorkoutEffortScore,
+    .physicalEffort,
+    .workoutEffortScore,
   ]
 
 }
@@ -360,6 +516,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
   case temperature // = 8
   case steps // = 9
   case calories // = 10
+  case ecg // = 11
   case UNRECOGNIZED(Int)
 
   init() {
@@ -378,6 +535,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 8: self = .temperature
     case 9: self = .steps
     case 10: self = .calories
+    case 11: self = .ecg
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -394,6 +552,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .temperature: return 8
     case .steps: return 9
     case .calories: return 10
+    case .ecg: return 11
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -410,6 +569,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     .temperature,
     .steps,
     .calories,
+    .ecg,
   ]
 
 }
@@ -2775,6 +2935,45 @@ extension AppleHealthPermissionProto: SwiftProtobuf._ProtoNameProviding {
     45: .same(proto: "DIETARY_FIBER"),
     46: .same(proto: "DIETARY_SODIUM"),
     47: .same(proto: "DIETARY_CHOLESTEROL"),
+    48: .same(proto: "STAIR_ASCENT_SPEED"),
+    49: .same(proto: "CYCLING_POWER"),
+    50: .same(proto: "CYCLING_SPEED"),
+    51: .same(proto: "WATER_TEMPERATURE"),
+    52: .same(proto: "WORKOUT_ROUTE"),
+    53: .same(proto: "DIETARY_BIOTIN"),
+    54: .same(proto: "DIETARY_CAFFEINE"),
+    55: .same(proto: "DIETARY_CALCIUM"),
+    56: .same(proto: "DIETARY_CHLORIDE"),
+    57: .same(proto: "DIETARY_CHROMIUM"),
+    58: .same(proto: "DIETARY_COPPER"),
+    59: .same(proto: "DIETARY_FAT_MONOUNSATURATED"),
+    60: .same(proto: "DIETARY_FAT_POLYUNSATURATED"),
+    61: .same(proto: "DIETARY_FAT_SATURATED"),
+    62: .same(proto: "DIETARY_FOLATE"),
+    63: .same(proto: "DIETARY_IODINE"),
+    64: .same(proto: "DIETARY_IRON"),
+    65: .same(proto: "DIETARY_MAGNESIUM"),
+    66: .same(proto: "DIETARY_MANGANESE"),
+    67: .same(proto: "DIETARY_MOLYBDENUM"),
+    68: .same(proto: "DIETARY_NIACIN"),
+    69: .same(proto: "DIETARY_PANTOTHENIC_ACID"),
+    70: .same(proto: "DIETARY_PHOSPHORUS"),
+    71: .same(proto: "DIETARY_POTASSIUM"),
+    72: .same(proto: "DIETARY_RIBOFLAVIN"),
+    73: .same(proto: "DIETARY_SELENIUM"),
+    74: .same(proto: "DIETARY_THIAMIN"),
+    75: .same(proto: "DIETARY_VITAMIN_A"),
+    76: .same(proto: "DIETARY_VITAMIN_B12"),
+    77: .same(proto: "DIETARY_VITAMIN_B6"),
+    78: .same(proto: "DIETARY_VITAMIN_C"),
+    79: .same(proto: "DIETARY_VITAMIN_D"),
+    80: .same(proto: "DIETARY_VITAMIN_E"),
+    81: .same(proto: "DIETARY_VITAMIN_K"),
+    82: .same(proto: "DIETARY_WATER"),
+    83: .same(proto: "DIETARY_ZINC"),
+    84: .same(proto: "ESTIMATED_WORKOUT_EFFORT_SCORE"),
+    85: .same(proto: "PHYSICAL_EFFORT"),
+    86: .same(proto: "WORKOUT_EFFORT_SCORE"),
   ]
 }
 
@@ -2798,6 +2997,7 @@ extension EventSyncTypeProto: SwiftProtobuf._ProtoNameProviding {
     8: .same(proto: "TEMPERATURE"),
     9: .same(proto: "STEPS"),
     10: .same(proto: "CALORIES"),
+    11: .same(proto: "ECG"),
   ]
 }
 
