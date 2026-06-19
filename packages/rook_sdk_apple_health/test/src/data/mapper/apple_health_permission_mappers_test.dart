@@ -225,8 +225,7 @@ void main() {
             expectedProto = AppleHealthPermissionProto.DIETARY_NIACIN;
             break;
           case AppleHealthPermission.dietaryPantothenicAcid:
-            expectedProto =
-                AppleHealthPermissionProto.DIETARY_PANTOTHENIC_ACID;
+            expectedProto = AppleHealthPermissionProto.DIETARY_PANTOTHENIC_ACID;
             break;
           case AppleHealthPermission.dietaryPhosphorus:
             expectedProto = AppleHealthPermissionProto.DIETARY_PHOSPHORUS;

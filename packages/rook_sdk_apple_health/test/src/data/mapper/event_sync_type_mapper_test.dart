@@ -117,7 +117,7 @@ void main() {
 
     test(
       'GIVEN a EventSyncType.ecg WHEN toProto THEN return EventSyncTypeProto.ECG',
-          () {
+      () {
         const eventSyncType = AHEventSyncType.ecg;
 
         final result = eventSyncType.toProto();
