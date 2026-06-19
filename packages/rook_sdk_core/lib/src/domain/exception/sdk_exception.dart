@@ -3,6 +3,7 @@ import 'package:rook_sdk_core/src/domain/exception/date_not_valid_for_events_exc
 import 'package:rook_sdk_core/src/domain/exception/date_not_valid_for_summaries_exception.dart';
 import 'package:rook_sdk_core/src/domain/exception/health_connect_quota_exceeded_exception.dart';
 import 'package:rook_sdk_core/src/domain/exception/health_kit_disabled_exception.dart';
+import 'package:rook_sdk_core/src/domain/exception/health_kit_not_allowed_exception.dart';
 import 'package:rook_sdk_core/src/domain/exception/health_kit_not_installed_exception.dart';
 import 'package:rook_sdk_core/src/domain/exception/health_kit_not_ready_exception.dart';
 import 'package:rook_sdk_core/src/domain/exception/health_kit_not_supported_exception.dart';
@@ -91,6 +92,10 @@ abstract class SDKException implements Exception {
         message: message,
       ),
       SDKExceptionCode.sessionExpired => SessionExpiredException(
+        code: code,
+        message: message,
+      ),
+      SDKExceptionCode.samsungHealthNotAllowed => HealthKitNotAllowedException(
         code: code,
         message: message,
       ),

@@ -159,6 +159,126 @@ void main() {
           case AppleHealthPermission.dietaryCholesterol:
             expectedProto = AppleHealthPermissionProto.DIETARY_CHOLESTEROL;
             break;
+          case AppleHealthPermission.stairAscentSpeed:
+            expectedProto = AppleHealthPermissionProto.STAIR_ASCENT_SPEED;
+            break;
+          case AppleHealthPermission.cyclingPower:
+            expectedProto = AppleHealthPermissionProto.CYCLING_POWER;
+            break;
+          case AppleHealthPermission.cyclingSpeed:
+            expectedProto = AppleHealthPermissionProto.CYCLING_SPEED;
+            break;
+          case AppleHealthPermission.waterTemperature:
+            expectedProto = AppleHealthPermissionProto.WATER_TEMPERATURE;
+            break;
+          case AppleHealthPermission.workoutRoute:
+            expectedProto = AppleHealthPermissionProto.WORKOUT_ROUTE;
+            break;
+          case AppleHealthPermission.dietaryBiotin:
+            expectedProto = AppleHealthPermissionProto.DIETARY_BIOTIN;
+            break;
+          case AppleHealthPermission.dietaryCaffeine:
+            expectedProto = AppleHealthPermissionProto.DIETARY_CAFFEINE;
+            break;
+          case AppleHealthPermission.dietaryCalcium:
+            expectedProto = AppleHealthPermissionProto.DIETARY_CALCIUM;
+            break;
+          case AppleHealthPermission.dietaryChloride:
+            expectedProto = AppleHealthPermissionProto.DIETARY_CHLORIDE;
+            break;
+          case AppleHealthPermission.dietaryChromium:
+            expectedProto = AppleHealthPermissionProto.DIETARY_CHROMIUM;
+            break;
+          case AppleHealthPermission.dietaryCopper:
+            expectedProto = AppleHealthPermissionProto.DIETARY_COPPER;
+            break;
+          case AppleHealthPermission.dietaryFatMonounsaturated:
+            expectedProto =
+                AppleHealthPermissionProto.DIETARY_FAT_MONOUNSATURATED;
+            break;
+          case AppleHealthPermission.dietaryFatPolyunsaturated:
+            expectedProto =
+                AppleHealthPermissionProto.DIETARY_FAT_POLYUNSATURATED;
+            break;
+          case AppleHealthPermission.dietaryFatSaturated:
+            expectedProto = AppleHealthPermissionProto.DIETARY_FAT_SATURATED;
+            break;
+          case AppleHealthPermission.dietaryFolate:
+            expectedProto = AppleHealthPermissionProto.DIETARY_FOLATE;
+            break;
+          case AppleHealthPermission.dietaryIodine:
+            expectedProto = AppleHealthPermissionProto.DIETARY_IODINE;
+            break;
+          case AppleHealthPermission.dietaryIron:
+            expectedProto = AppleHealthPermissionProto.DIETARY_IRON;
+            break;
+          case AppleHealthPermission.dietaryMagnesium:
+            expectedProto = AppleHealthPermissionProto.DIETARY_MAGNESIUM;
+            break;
+          case AppleHealthPermission.dietaryManganese:
+            expectedProto = AppleHealthPermissionProto.DIETARY_MANGANESE;
+            break;
+          case AppleHealthPermission.dietaryMolybdenum:
+            expectedProto = AppleHealthPermissionProto.DIETARY_MOLYBDENUM;
+            break;
+          case AppleHealthPermission.dietaryNiacin:
+            expectedProto = AppleHealthPermissionProto.DIETARY_NIACIN;
+            break;
+          case AppleHealthPermission.dietaryPantothenicAcid:
+            expectedProto = AppleHealthPermissionProto.DIETARY_PANTOTHENIC_ACID;
+            break;
+          case AppleHealthPermission.dietaryPhosphorus:
+            expectedProto = AppleHealthPermissionProto.DIETARY_PHOSPHORUS;
+            break;
+          case AppleHealthPermission.dietaryPotassium:
+            expectedProto = AppleHealthPermissionProto.DIETARY_POTASSIUM;
+            break;
+          case AppleHealthPermission.dietaryRiboflavin:
+            expectedProto = AppleHealthPermissionProto.DIETARY_RIBOFLAVIN;
+            break;
+          case AppleHealthPermission.dietarySelenium:
+            expectedProto = AppleHealthPermissionProto.DIETARY_SELENIUM;
+            break;
+          case AppleHealthPermission.dietaryThiamin:
+            expectedProto = AppleHealthPermissionProto.DIETARY_THIAMIN;
+            break;
+          case AppleHealthPermission.dietaryVitaminA:
+            expectedProto = AppleHealthPermissionProto.DIETARY_VITAMIN_A;
+            break;
+          case AppleHealthPermission.dietaryVitaminB12:
+            expectedProto = AppleHealthPermissionProto.DIETARY_VITAMIN_B12;
+            break;
+          case AppleHealthPermission.dietaryVitaminB6:
+            expectedProto = AppleHealthPermissionProto.DIETARY_VITAMIN_B6;
+            break;
+          case AppleHealthPermission.dietaryVitaminC:
+            expectedProto = AppleHealthPermissionProto.DIETARY_VITAMIN_C;
+            break;
+          case AppleHealthPermission.dietaryVitaminD:
+            expectedProto = AppleHealthPermissionProto.DIETARY_VITAMIN_D;
+            break;
+          case AppleHealthPermission.dietaryVitaminE:
+            expectedProto = AppleHealthPermissionProto.DIETARY_VITAMIN_E;
+            break;
+          case AppleHealthPermission.dietaryVitaminK:
+            expectedProto = AppleHealthPermissionProto.DIETARY_VITAMIN_K;
+            break;
+          case AppleHealthPermission.dietaryWater:
+            expectedProto = AppleHealthPermissionProto.DIETARY_WATER;
+            break;
+          case AppleHealthPermission.dietaryZinc:
+            expectedProto = AppleHealthPermissionProto.DIETARY_ZINC;
+            break;
+          case AppleHealthPermission.estimatedWorkoutEffortScore:
+            expectedProto =
+                AppleHealthPermissionProto.ESTIMATED_WORKOUT_EFFORT_SCORE;
+            break;
+          case AppleHealthPermission.physicalEffort:
+            expectedProto = AppleHealthPermissionProto.PHYSICAL_EFFORT;
+            break;
+          case AppleHealthPermission.workoutEffortScore:
+            expectedProto = AppleHealthPermissionProto.WORKOUT_EFFORT_SCORE;
+            break;
         }
         expect(
           permission.toProto(),

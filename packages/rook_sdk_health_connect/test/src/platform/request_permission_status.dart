@@ -41,39 +41,99 @@ void requestPermissionsStatusTests(
         );
       },
     );
+
+    test(
+      "GIVEN success WHEN requestExactAlarmPermissions THEN return a RequestPermissionsStatus",
+      () async {
+        final future = platform.requestExactAlarmPermissions();
+
+        await expectLater(
+          future,
+          completion(RequestPermissionsStatus.requestSent),
+        );
+      },
+    );
+
+    test(
+      "GIVEN success WHEN requestDisableBatteryOptimizations THEN return a RequestPermissionsStatus",
+      () async {
+        final future = platform.requestDisableBatteryOptimizations();
+
+        await expectLater(
+          future,
+          completion(RequestPermissionsStatus.requestSent),
+        );
+      },
+    );
+
+    test(
+      "GIVEN success WHEN openOemAutoStartSetup THEN return a RequestPermissionsStatus",
+      () async {
+        final future = platform.openOemAutoStartSetup();
+
+        await expectLater(
+          future,
+          completion(RequestPermissionsStatus.requestSent),
+        );
+      },
+    );
   });
 
-  group(
-    'MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure',
-    () {
-      mockMethodCall(channel, (_) async {
-        final failure = SDKExceptionProto.create()
-          ..message = "message"
-          ..code = 500;
+  group('MethodChannelRookSdkHealthConnect | RequestPermissionsStatus Failure', () {
+    mockMethodCall(channel, (_) async {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final proto = RequestPermissionsStatusResultProto.create()
-          ..failure = failure;
+      final proto = RequestPermissionsStatusResultProto.create()
+        ..failure = failure;
 
-        return proto.writeToBuffer();
-      });
+      return proto.writeToBuffer();
+    });
 
-      test(
-        "GIVEN failure WHEN requestHealthConnectPermissions THEN throw exception",
-        () async {
-          final future = platform.requestHealthConnectPermissions();
+    test(
+      "GIVEN failure WHEN requestHealthConnectPermissions THEN throw exception",
+      () async {
+        final future = platform.requestHealthConnectPermissions();
 
-          await expectLater(future, throwsException);
-        },
-      );
+        await expectLater(future, throwsException);
+      },
+    );
 
-      test(
-        "GIVEN failure WHEN requestAndroidPermissions THEN throw exception",
-        () async {
-          final future = platform.requestAndroidPermissions();
+    test(
+      "GIVEN failure WHEN requestAndroidPermissions THEN throw exception",
+      () async {
+        final future = platform.requestAndroidPermissions();
 
-          await expectLater(future, throwsException);
-        },
-      );
-    },
-  );
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      "GIVEN failure WHEN requestExactAlarmPermissions THEN throw exception",
+      () async {
+        final future = platform.requestExactAlarmPermissions();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      "GIVEN failure WHEN requestDisableBatteryOptimizations THEN throw exception",
+      () async {
+        final future = platform.requestDisableBatteryOptimizations();
+
+        await expectLater(future, throwsException);
+      },
+    );
+
+    test(
+      "GIVEN failure WHEN openOemAutoStartSetup THEN throw exception",
+      () async {
+        final future = platform.openOemAutoStartSetup();
+
+        await expectLater(future, throwsException);
+      },
+    );
+  });
 }

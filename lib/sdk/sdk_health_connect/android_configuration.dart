@@ -7,6 +7,7 @@ import 'package:rook_flutter_sdk/core/presentation/widget/section_title.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_background_steps.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_background_sync.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_permissions.dart';
+import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_steps.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_sync.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_health_connect/android_user_management.dart';
 import 'package:rook_flutter_sdk/secrets.dart';
@@ -76,6 +77,12 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
                   ).pushNamed(androidBackgroundStepsRoute)
                 : null,
             child: const Text('Background steps'),
+          ),
+          FilledButton(
+            onPressed: enableNavigation
+                ? () => Navigator.of(context).pushNamed(androidStepsRoute)
+                : null,
+            child: const Text('Steps counter'),
           ),
           FilledButton(
             onPressed: enableNavigation

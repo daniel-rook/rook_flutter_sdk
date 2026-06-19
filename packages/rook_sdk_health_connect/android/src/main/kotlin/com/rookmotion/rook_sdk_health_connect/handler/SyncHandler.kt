@@ -282,6 +282,8 @@ class SyncHandler(private val coroutineScope: CoroutineScope, private val rookSy
                     },
                 )
             }
+
+            else -> methodResult.notImplemented()
         }
     }
 }

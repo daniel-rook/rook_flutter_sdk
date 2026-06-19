@@ -9,4 +9,5 @@ enum AHEventSyncType {
   temperature,
   steps,
   calories,
+  ecg,
 }

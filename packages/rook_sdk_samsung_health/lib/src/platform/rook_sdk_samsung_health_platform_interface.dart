@@ -53,6 +53,18 @@ abstract class RookSdkSamsungHealthPlatform extends PlatformInterface {
   Stream<SamsungHealthPermissionsSummary>
   get requestSamsungHealthPermissionsUpdates;
 
+  Future<bool> checkExactAlarmPermissions();
+
+  Future<RequestPermissionsStatus> requestExactAlarmPermissions();
+
+  Future<bool> checkBatteryOptimizationsDisabled();
+
+  Future<RequestPermissionsStatus> requestDisableBatteryOptimizations();
+
+  Future<bool> requiresOemAutoStartSetup();
+
+  Future<RequestPermissionsStatus> openOemAutoStartSetup();
+
   Future<void> syncHistoricSummaries(bool enableLogs);
 
   Future<void> syncSummariesByDate(DateTime date);

@@ -1,6 +1,10 @@
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 /// Helper class to manage steps from Android system.
+@Deprecated(
+  'Use AndroidStepsCounter instead. This class relies on '
+  'TYPE_STEP_DETECTOR and will be removed in a future version.',
+)
 class AndroidStepsManager {
   AndroidStepsManager._();
 

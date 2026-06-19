@@ -32,6 +32,8 @@ extension SamsungHealthPermissionMappers on SamsungHealthPermission {
         SamsungHealthPermissionProto.WATER_INTAKE_PERMISSION,
       SamsungHealthPermission.bodyTemperature =>
         SamsungHealthPermissionProto.BODY_TEMPERATURE_PERMISSION,
+      SamsungHealthPermission.sleepApnea =>
+        SamsungHealthPermissionProto.SLEEP_APNEA_PERMISSION,
     };
   }
 }

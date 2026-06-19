@@ -16,4 +16,5 @@ enum SamsungHealthPermission {
   steps,
   waterIntake,
   bodyTemperature,
+  sleepApnea,
 }

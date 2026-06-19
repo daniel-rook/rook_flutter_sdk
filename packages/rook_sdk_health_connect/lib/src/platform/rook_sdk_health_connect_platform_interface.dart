@@ -59,6 +59,18 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Stream<AndroidPermissionsSummary> get requestAndroidPermissionsUpdates;
 
+  Future<bool> checkExactAlarmPermissions();
+
+  Future<RequestPermissionsStatus> requestExactAlarmPermissions();
+
+  Future<bool> checkBatteryOptimizationsDisabled();
+
+  Future<RequestPermissionsStatus> requestDisableBatteryOptimizations();
+
+  Future<bool> requiresOemAutoStartSetup();
+
+  Future<RequestPermissionsStatus> openOemAutoStartSetup();
+
   Future<void> syncHistoricSummaries(bool enableLogs);
 
   Future<void> syncSummariesByDate(DateTime date);
@@ -81,15 +93,45 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<HeartRate> getTodayHeartRate();
 
+  @Deprecated(
+    'Use isStepsCounterAvailable instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<bool> isStepsAvailable();
 
+  @Deprecated(
+    'Use isStepsCounterActive instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<bool> isBackgroundAndroidStepsActive();
 
+  @Deprecated(
+    'Use enableStepsCounter instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<void> enableBackgroundAndroidSteps();
 
+  @Deprecated(
+    'Use disableStepsCounter instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<void> disableBackgroundAndroidSteps();
 
+  @Deprecated(
+    'Use getTodayStepsCounterCount instead. This method relies on '
+    'TYPE_STEP_DETECTOR and will be removed in a future version.',
+  )
   Future<int> syncTodayAndroidStepsCount();
+
+  Future<bool> isStepsCounterAvailable();
+
+  Future<bool> isStepsCounterActive();
+
+  Future<void> enableStepsCounter();
+
+  Future<void> disableStepsCounter();
+
+  Future<int> getTodayStepsCounterCount();
 
   Future<bool> isScheduled();
 

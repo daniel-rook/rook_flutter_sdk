@@ -1,6 +1,7 @@
 import Flutter
 import RookSDK
 import UIKit
+import HealthKit
 
 public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
     private let rookConnectPermissionsManager = RookConnectPermissionsManager()
@@ -32,7 +33,7 @@ public class RookSdkAppleHealthPlugin: NSObject, FlutterPlugin {
         case "getDiagnosticState":
             Task {
                 let diagnosticState = await RookConnectConfigurationManager.shared.getDiagnosticState()
-                
+
                 diagnosticStateSuccess(flutterResult: result, state: diagnosticState)
             }
             break

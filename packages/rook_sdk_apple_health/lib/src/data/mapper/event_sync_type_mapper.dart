@@ -14,6 +14,7 @@ extension SummarySyncTypeMapperExtensions on AHEventSyncType {
       AHEventSyncType.temperature => EventSyncTypeProto.TEMPERATURE,
       AHEventSyncType.steps => EventSyncTypeProto.STEPS,
       AHEventSyncType.calories => EventSyncTypeProto.CALORIES,
+      AHEventSyncType.ecg => EventSyncTypeProto.ECG,
     };
   }
 }

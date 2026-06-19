@@ -35,6 +35,8 @@ class BackgroundSyncHandler(private val coroutineScope: CoroutineScope, private 
                 rookSamsung.cancel()
                 methodResult.booleanSuccess(true)
             }
+
+            else -> methodResult.notImplemented()
         }
     }
 }

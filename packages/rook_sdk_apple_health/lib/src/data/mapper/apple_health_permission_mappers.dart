@@ -95,6 +95,84 @@ extension AppleHealthPermissionMappers on AppleHealthPermission {
         AppleHealthPermissionProto.DIETARY_SODIUM,
       AppleHealthPermission.dietaryCholesterol =>
         AppleHealthPermissionProto.DIETARY_CHOLESTEROL,
+      AppleHealthPermission.stairAscentSpeed =>
+        AppleHealthPermissionProto.STAIR_ASCENT_SPEED,
+      AppleHealthPermission.cyclingPower =>
+        AppleHealthPermissionProto.CYCLING_POWER,
+      AppleHealthPermission.cyclingSpeed =>
+        AppleHealthPermissionProto.CYCLING_SPEED,
+      AppleHealthPermission.waterTemperature =>
+        AppleHealthPermissionProto.WATER_TEMPERATURE,
+      AppleHealthPermission.workoutRoute =>
+        AppleHealthPermissionProto.WORKOUT_ROUTE,
+      AppleHealthPermission.dietaryBiotin =>
+        AppleHealthPermissionProto.DIETARY_BIOTIN,
+      AppleHealthPermission.dietaryCaffeine =>
+        AppleHealthPermissionProto.DIETARY_CAFFEINE,
+      AppleHealthPermission.dietaryCalcium =>
+        AppleHealthPermissionProto.DIETARY_CALCIUM,
+      AppleHealthPermission.dietaryChloride =>
+        AppleHealthPermissionProto.DIETARY_CHLORIDE,
+      AppleHealthPermission.dietaryChromium =>
+        AppleHealthPermissionProto.DIETARY_CHROMIUM,
+      AppleHealthPermission.dietaryCopper =>
+        AppleHealthPermissionProto.DIETARY_COPPER,
+      AppleHealthPermission.dietaryFatMonounsaturated =>
+        AppleHealthPermissionProto.DIETARY_FAT_MONOUNSATURATED,
+      AppleHealthPermission.dietaryFatPolyunsaturated =>
+        AppleHealthPermissionProto.DIETARY_FAT_POLYUNSATURATED,
+      AppleHealthPermission.dietaryFatSaturated =>
+        AppleHealthPermissionProto.DIETARY_FAT_SATURATED,
+      AppleHealthPermission.dietaryFolate =>
+        AppleHealthPermissionProto.DIETARY_FOLATE,
+      AppleHealthPermission.dietaryIodine =>
+        AppleHealthPermissionProto.DIETARY_IODINE,
+      AppleHealthPermission.dietaryIron =>
+        AppleHealthPermissionProto.DIETARY_IRON,
+      AppleHealthPermission.dietaryMagnesium =>
+        AppleHealthPermissionProto.DIETARY_MAGNESIUM,
+      AppleHealthPermission.dietaryManganese =>
+        AppleHealthPermissionProto.DIETARY_MANGANESE,
+      AppleHealthPermission.dietaryMolybdenum =>
+        AppleHealthPermissionProto.DIETARY_MOLYBDENUM,
+      AppleHealthPermission.dietaryNiacin =>
+        AppleHealthPermissionProto.DIETARY_NIACIN,
+      AppleHealthPermission.dietaryPantothenicAcid =>
+        AppleHealthPermissionProto.DIETARY_PANTOTHENIC_ACID,
+      AppleHealthPermission.dietaryPhosphorus =>
+        AppleHealthPermissionProto.DIETARY_PHOSPHORUS,
+      AppleHealthPermission.dietaryPotassium =>
+        AppleHealthPermissionProto.DIETARY_POTASSIUM,
+      AppleHealthPermission.dietaryRiboflavin =>
+        AppleHealthPermissionProto.DIETARY_RIBOFLAVIN,
+      AppleHealthPermission.dietarySelenium =>
+        AppleHealthPermissionProto.DIETARY_SELENIUM,
+      AppleHealthPermission.dietaryThiamin =>
+        AppleHealthPermissionProto.DIETARY_THIAMIN,
+      AppleHealthPermission.dietaryVitaminA =>
+        AppleHealthPermissionProto.DIETARY_VITAMIN_A,
+      AppleHealthPermission.dietaryVitaminB12 =>
+        AppleHealthPermissionProto.DIETARY_VITAMIN_B12,
+      AppleHealthPermission.dietaryVitaminB6 =>
+        AppleHealthPermissionProto.DIETARY_VITAMIN_B6,
+      AppleHealthPermission.dietaryVitaminC =>
+        AppleHealthPermissionProto.DIETARY_VITAMIN_C,
+      AppleHealthPermission.dietaryVitaminD =>
+        AppleHealthPermissionProto.DIETARY_VITAMIN_D,
+      AppleHealthPermission.dietaryVitaminE =>
+        AppleHealthPermissionProto.DIETARY_VITAMIN_E,
+      AppleHealthPermission.dietaryVitaminK =>
+        AppleHealthPermissionProto.DIETARY_VITAMIN_K,
+      AppleHealthPermission.dietaryWater =>
+        AppleHealthPermissionProto.DIETARY_WATER,
+      AppleHealthPermission.dietaryZinc =>
+        AppleHealthPermissionProto.DIETARY_ZINC,
+      AppleHealthPermission.estimatedWorkoutEffortScore =>
+        AppleHealthPermissionProto.ESTIMATED_WORKOUT_EFFORT_SCORE,
+      AppleHealthPermission.physicalEffort =>
+        AppleHealthPermissionProto.PHYSICAL_EFFORT,
+      AppleHealthPermission.workoutEffortScore =>
+        AppleHealthPermissionProto.WORKOUT_EFFORT_SCORE,
     };
   }
 }

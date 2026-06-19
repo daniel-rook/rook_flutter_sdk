@@ -25,6 +25,13 @@ class _SamsungPermissionsState extends State<SamsungPermissions> {
   final ConsoleOutput checkPermissionsOutput = ConsoleOutput();
   final ConsoleOutput checkPermissionsPartiallyOutput = ConsoleOutput();
   final ConsoleOutput requestPermissionsOutput = ConsoleOutput();
+  final ConsoleOutput checkExactAlarmPermissionsOutput = ConsoleOutput();
+  final ConsoleOutput requestExactAlarmPermissionsOutput = ConsoleOutput();
+  final ConsoleOutput checkBatteryOptimizationsDisabledOutput = ConsoleOutput();
+  final ConsoleOutput requestDisableBatteryOptimizationsOutput =
+      ConsoleOutput();
+  final ConsoleOutput requiresOemAutoStartSetupOutput = ConsoleOutput();
+  final ConsoleOutput openOemAutoStartSetupOutput = ConsoleOutput();
 
   StreamSubscription<SamsungHealthPermissionsSummary>?
   samsungHealthPermissionsSubscription;
@@ -109,6 +116,39 @@ class _SamsungPermissionsState extends State<SamsungPermissions> {
           FilledButton(
             onPressed: requestPermissions,
             child: const Text('requestPermissions'),
+          ),
+          const SectionTitle('Alarm permissions'),
+          Text(checkExactAlarmPermissionsOutput.current),
+          FilledButton(
+            onPressed: checkExactAlarmPermission,
+            child: const Text('checkExactAlarmPermission'),
+          ),
+          Text(requestExactAlarmPermissionsOutput.current),
+          FilledButton(
+            onPressed: requestExactAlarmPermission,
+            child: const Text('requestExactAlarmPermission'),
+          ),
+          const SectionTitle('Battery optimizations'),
+          Text(checkBatteryOptimizationsDisabledOutput.current),
+          FilledButton(
+            onPressed: checkBatteryOptimizationsDisabled,
+            child: const Text('checkBatteryOptimizationsDisabled'),
+          ),
+          Text(requestDisableBatteryOptimizationsOutput.current),
+          FilledButton(
+            onPressed: requestDisableBatteryOptimizations,
+            child: const Text('requestDisableBatteryOptimizations'),
+          ),
+          const SectionTitle('OEM Auto Start'),
+          Text(requiresOemAutoStartSetupOutput.current),
+          FilledButton(
+            onPressed: checkRequiresOemAutoStartSetup,
+            child: const Text('checkRequiresOemAutoStartSetup'),
+          ),
+          Text(openOemAutoStartSetupOutput.current),
+          FilledButton(
+            onPressed: openOemAutoStartSetup,
+            child: const Text('openOemAutoStartSetup'),
           ),
         ],
       ),
@@ -245,6 +285,148 @@ class _SamsungPermissionsState extends State<SamsungPermissions> {
             requestPermissionsOutput.append(
               'Error requesting Samsung Health permissions: $error',
             );
+          });
+        });
+  }
+
+  void checkExactAlarmPermission() {
+    checkExactAlarmPermissionsOutput.clear();
+
+    setState(() {
+      checkExactAlarmPermissionsOutput.append(
+        'Verifying exact alarm permission...',
+      );
+    });
+
+    RookSamsung.checkExactAlarmPermissions()
+        .then((granted) {
+          setState(() {
+            checkExactAlarmPermissionsOutput.append(
+              granted ? 'Permission granted' : 'Permission missing',
+            );
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            checkExactAlarmPermissionsOutput.append('Error: $error');
+          });
+        });
+  }
+
+  void requestExactAlarmPermission() {
+    requestExactAlarmPermissionsOutput.clear();
+
+    setState(() {
+      requestExactAlarmPermissionsOutput.append(
+        'Requesting exact alarm permission...',
+      );
+    });
+
+    RookSamsung.requestExactAlarmPermissions()
+        .then((requestPermissionsStatus) {
+          setState(() {
+            requestExactAlarmPermissionsOutput.append(
+              'Status: $requestPermissionsStatus',
+            );
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            requestExactAlarmPermissionsOutput.append('Error: $error');
+          });
+        });
+  }
+
+  void checkBatteryOptimizationsDisabled() {
+    checkBatteryOptimizationsDisabledOutput.clear();
+
+    setState(() {
+      checkBatteryOptimizationsDisabledOutput.append(
+        'Verifying battery optimizations...',
+      );
+    });
+
+    RookSamsung.checkBatteryOptimizationsDisabled()
+        .then((disabled) {
+          setState(() {
+            checkBatteryOptimizationsDisabledOutput.append(
+              disabled ? 'Optimizations disabled' : 'Optimizations enabled',
+            );
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            checkBatteryOptimizationsDisabledOutput.append('Error: $error');
+          });
+        });
+  }
+
+  void requestDisableBatteryOptimizations() {
+    requestDisableBatteryOptimizationsOutput.clear();
+
+    setState(() {
+      requestDisableBatteryOptimizationsOutput.append(
+        'Requesting to disable battery optimizations...',
+      );
+    });
+
+    RookSamsung.requestDisableBatteryOptimizations()
+        .then((requestPermissionsStatus) {
+          setState(() {
+            requestDisableBatteryOptimizationsOutput.append(
+              'Status: $requestPermissionsStatus',
+            );
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            requestDisableBatteryOptimizationsOutput.append('Error: $error');
+          });
+        });
+  }
+
+  void checkRequiresOemAutoStartSetup() {
+    requiresOemAutoStartSetupOutput.clear();
+
+    setState(() {
+      requiresOemAutoStartSetupOutput.append(
+        'Verifying OEM Auto Start setup requirement...',
+      );
+    });
+
+    RookSamsung.requiresOemAutoStartSetup()
+        .then((required) {
+          setState(() {
+            requiresOemAutoStartSetupOutput.append(
+              required ? 'Setup required' : 'Setup not required',
+            );
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            requiresOemAutoStartSetupOutput.append('Error: $error');
+          });
+        });
+  }
+
+  void openOemAutoStartSetup() {
+    openOemAutoStartSetupOutput.clear();
+
+    setState(() {
+      openOemAutoStartSetupOutput.append('Opening OEM Auto Start setup...');
+    });
+
+    RookSamsung.openOemAutoStartSetup()
+        .then((requestPermissionsStatus) {
+          setState(() {
+            openOemAutoStartSetupOutput.append(
+              'Status: $requestPermissionsStatus',
+            );
+          });
+        })
+        .catchError((error) {
+          setState(() {
+            openOemAutoStartSetupOutput.append('Error: $error');
           });
         });
   }

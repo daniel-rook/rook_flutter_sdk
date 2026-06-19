@@ -80,7 +80,48 @@ class PermissionsHandler(private val coroutineScope: CoroutineScope, private val
                 )
             }
 
-            else -> Unit
+            "checkExactAlarmPermissions" -> {
+                val hasExactAlarmPermissions = rookSamsung.checkExactAlarmPermissions()
+
+                methodResult.booleanSuccess(hasExactAlarmPermissions)
+            }
+
+           "requestExactAlarmPermissions" -> {
+               val requestPermissionsStatus = rookSamsung.requestExactAlarmPermissions()
+
+               methodResult.requestPermissionsStatusSuccess(requestPermissionsStatus)
+           }
+
+            "checkBatteryOptimizationsDisabled" -> {
+                val batteryOptimizationsDisabled = rookSamsung.checkBatteryOptimizationsDisabled()
+
+                methodResult.booleanSuccess(batteryOptimizationsDisabled)
+            }
+
+            "requestDisableBatteryOptimizations" -> {
+                val requestPermissionsStatus = rookSamsung.requestDisableBatteryOptimizations()
+
+                methodResult.requestPermissionsStatusSuccess(requestPermissionsStatus)
+            }
+
+            "requiresOemAutoStartSetup" -> {
+                val requiresOemAutoStartSetup = rookSamsung.requiresOemAutoStartSetup()
+
+                methodResult.booleanSuccess(requiresOemAutoStartSetup)
+            }
+
+            "openOemAutoStartSetup" -> {
+                rookSamsung.openOemAutoStartSetup().fold(
+                    {
+                        methodResult.requestPermissionsStatusSuccess(it)
+                    },
+                    {
+                        methodResult.requestPermissionsStatusError(it)
+                    }
+                )
+            }
+
+            else -> methodResult.notImplemented()
         }
     }
 }

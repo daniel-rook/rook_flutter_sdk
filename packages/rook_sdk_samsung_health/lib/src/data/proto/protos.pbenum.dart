@@ -151,6 +151,9 @@ class SamsungHealthPermissionProto extends $pb.ProtobufEnum {
   static const SamsungHealthPermissionProto BODY_TEMPERATURE_PERMISSION =
       SamsungHealthPermissionProto._(
           13, _omitEnumNames ? '' : 'BODY_TEMPERATURE_PERMISSION');
+  static const SamsungHealthPermissionProto SLEEP_APNEA_PERMISSION =
+      SamsungHealthPermissionProto._(
+          14, _omitEnumNames ? '' : 'SLEEP_APNEA_PERMISSION');
 
   static const $core.List<SamsungHealthPermissionProto> values =
       <SamsungHealthPermissionProto>[
@@ -168,10 +171,11 @@ class SamsungHealthPermissionProto extends $pb.ProtobufEnum {
     STEPS_PERMISSION,
     WATER_INTAKE_PERMISSION,
     BODY_TEMPERATURE_PERMISSION,
+    SLEEP_APNEA_PERMISSION,
   ];
 
   static final $core.List<SamsungHealthPermissionProto?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 13);
+      $pb.ProtobufEnum.$_initByValueList(values, 14);
   static SamsungHealthPermissionProto? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

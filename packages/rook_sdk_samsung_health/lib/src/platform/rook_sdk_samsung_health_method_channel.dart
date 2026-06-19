@@ -173,6 +173,72 @@ class MethodChannelRookSdkSamsungHealth extends RookSdkSamsungHealthPlatform {
   }
 
   @override
+  Future<bool> checkExactAlarmPermissions() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'checkExactAlarmPermissions',
+    );
+
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<RequestPermissionsStatus> requestExactAlarmPermissions() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'requestExactAlarmPermissions',
+    );
+
+    final result = RequestPermissionsStatusResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> checkBatteryOptimizationsDisabled() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'checkBatteryOptimizationsDisabled',
+    );
+
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<RequestPermissionsStatus> requestDisableBatteryOptimizations() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'requestDisableBatteryOptimizations',
+    );
+
+    final result = RequestPermissionsStatusResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<bool> requiresOemAutoStartSetup() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'requiresOemAutoStartSetup',
+    );
+
+    final result = BooleanResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<RequestPermissionsStatus> openOemAutoStartSetup() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'openOemAutoStartSetup',
+    );
+
+    final result = RequestPermissionsStatusResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
   Future<void> syncHistoricSummaries(bool enableLogs) async {
     final Uint8List bytes = await methodChannel.invokeMethod(
       'syncHistoricSummaries',

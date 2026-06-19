@@ -111,7 +111,7 @@ class ConfigurationHandler(
                 )
             }
 
-            else -> Unit
+            else -> methodResult.notImplemented()
         }
     }
 }

@@ -97,6 +97,7 @@ enum SamsungHealthPermissionProto {
   STEPS_PERMISSION = 11;
   WATER_INTAKE_PERMISSION = 12;
   BODY_TEMPERATURE_PERMISSION = 13;
+  SLEEP_APNEA_PERMISSION = 14;
 }
 
 message SamsungHealthPermissionsSummaryProto {

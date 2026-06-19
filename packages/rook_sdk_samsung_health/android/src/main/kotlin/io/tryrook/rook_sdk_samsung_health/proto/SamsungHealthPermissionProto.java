@@ -66,6 +66,10 @@ public enum SamsungHealthPermissionProto
    * <code>BODY_TEMPERATURE_PERMISSION = 13;</code>
    */
   BODY_TEMPERATURE_PERMISSION(13),
+  /**
+   * <code>SLEEP_APNEA_PERMISSION = 14;</code>
+   */
+  SLEEP_APNEA_PERMISSION(14),
   UNRECOGNIZED(-1),
   ;
 
@@ -125,6 +129,10 @@ public enum SamsungHealthPermissionProto
    * <code>BODY_TEMPERATURE_PERMISSION = 13;</code>
    */
   public static final int BODY_TEMPERATURE_PERMISSION_VALUE = 13;
+  /**
+   * <code>SLEEP_APNEA_PERMISSION = 14;</code>
+   */
+  public static final int SLEEP_APNEA_PERMISSION_VALUE = 14;
 
 
   @java.lang.Override
@@ -162,6 +170,7 @@ public enum SamsungHealthPermissionProto
       case 11: return STEPS_PERMISSION;
       case 12: return WATER_INTAKE_PERMISSION;
       case 13: return BODY_TEMPERATURE_PERMISSION;
+      case 14: return SLEEP_APNEA_PERMISSION;
       default: return null;
     }
   }

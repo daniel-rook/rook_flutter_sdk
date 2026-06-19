@@ -181,6 +181,109 @@ class AppleHealthPermissionProto extends $pb.ProtobufEnum {
   static const AppleHealthPermissionProto DIETARY_CHOLESTEROL =
       AppleHealthPermissionProto._(
           47, _omitEnumNames ? '' : 'DIETARY_CHOLESTEROL');
+  static const AppleHealthPermissionProto STAIR_ASCENT_SPEED =
+      AppleHealthPermissionProto._(
+          48, _omitEnumNames ? '' : 'STAIR_ASCENT_SPEED');
+  static const AppleHealthPermissionProto CYCLING_POWER =
+      AppleHealthPermissionProto._(49, _omitEnumNames ? '' : 'CYCLING_POWER');
+  static const AppleHealthPermissionProto CYCLING_SPEED =
+      AppleHealthPermissionProto._(50, _omitEnumNames ? '' : 'CYCLING_SPEED');
+  static const AppleHealthPermissionProto WATER_TEMPERATURE =
+      AppleHealthPermissionProto._(
+          51, _omitEnumNames ? '' : 'WATER_TEMPERATURE');
+  static const AppleHealthPermissionProto WORKOUT_ROUTE =
+      AppleHealthPermissionProto._(52, _omitEnumNames ? '' : 'WORKOUT_ROUTE');
+  static const AppleHealthPermissionProto DIETARY_BIOTIN =
+      AppleHealthPermissionProto._(53, _omitEnumNames ? '' : 'DIETARY_BIOTIN');
+  static const AppleHealthPermissionProto DIETARY_CAFFEINE =
+      AppleHealthPermissionProto._(
+          54, _omitEnumNames ? '' : 'DIETARY_CAFFEINE');
+  static const AppleHealthPermissionProto DIETARY_CALCIUM =
+      AppleHealthPermissionProto._(55, _omitEnumNames ? '' : 'DIETARY_CALCIUM');
+  static const AppleHealthPermissionProto DIETARY_CHLORIDE =
+      AppleHealthPermissionProto._(
+          56, _omitEnumNames ? '' : 'DIETARY_CHLORIDE');
+  static const AppleHealthPermissionProto DIETARY_CHROMIUM =
+      AppleHealthPermissionProto._(
+          57, _omitEnumNames ? '' : 'DIETARY_CHROMIUM');
+  static const AppleHealthPermissionProto DIETARY_COPPER =
+      AppleHealthPermissionProto._(58, _omitEnumNames ? '' : 'DIETARY_COPPER');
+  static const AppleHealthPermissionProto DIETARY_FAT_MONOUNSATURATED =
+      AppleHealthPermissionProto._(
+          59, _omitEnumNames ? '' : 'DIETARY_FAT_MONOUNSATURATED');
+  static const AppleHealthPermissionProto DIETARY_FAT_POLYUNSATURATED =
+      AppleHealthPermissionProto._(
+          60, _omitEnumNames ? '' : 'DIETARY_FAT_POLYUNSATURATED');
+  static const AppleHealthPermissionProto DIETARY_FAT_SATURATED =
+      AppleHealthPermissionProto._(
+          61, _omitEnumNames ? '' : 'DIETARY_FAT_SATURATED');
+  static const AppleHealthPermissionProto DIETARY_FOLATE =
+      AppleHealthPermissionProto._(62, _omitEnumNames ? '' : 'DIETARY_FOLATE');
+  static const AppleHealthPermissionProto DIETARY_IODINE =
+      AppleHealthPermissionProto._(63, _omitEnumNames ? '' : 'DIETARY_IODINE');
+  static const AppleHealthPermissionProto DIETARY_IRON =
+      AppleHealthPermissionProto._(64, _omitEnumNames ? '' : 'DIETARY_IRON');
+  static const AppleHealthPermissionProto DIETARY_MAGNESIUM =
+      AppleHealthPermissionProto._(
+          65, _omitEnumNames ? '' : 'DIETARY_MAGNESIUM');
+  static const AppleHealthPermissionProto DIETARY_MANGANESE =
+      AppleHealthPermissionProto._(
+          66, _omitEnumNames ? '' : 'DIETARY_MANGANESE');
+  static const AppleHealthPermissionProto DIETARY_MOLYBDENUM =
+      AppleHealthPermissionProto._(
+          67, _omitEnumNames ? '' : 'DIETARY_MOLYBDENUM');
+  static const AppleHealthPermissionProto DIETARY_NIACIN =
+      AppleHealthPermissionProto._(68, _omitEnumNames ? '' : 'DIETARY_NIACIN');
+  static const AppleHealthPermissionProto DIETARY_PANTOTHENIC_ACID =
+      AppleHealthPermissionProto._(
+          69, _omitEnumNames ? '' : 'DIETARY_PANTOTHENIC_ACID');
+  static const AppleHealthPermissionProto DIETARY_PHOSPHORUS =
+      AppleHealthPermissionProto._(
+          70, _omitEnumNames ? '' : 'DIETARY_PHOSPHORUS');
+  static const AppleHealthPermissionProto DIETARY_POTASSIUM =
+      AppleHealthPermissionProto._(
+          71, _omitEnumNames ? '' : 'DIETARY_POTASSIUM');
+  static const AppleHealthPermissionProto DIETARY_RIBOFLAVIN =
+      AppleHealthPermissionProto._(
+          72, _omitEnumNames ? '' : 'DIETARY_RIBOFLAVIN');
+  static const AppleHealthPermissionProto DIETARY_SELENIUM =
+      AppleHealthPermissionProto._(
+          73, _omitEnumNames ? '' : 'DIETARY_SELENIUM');
+  static const AppleHealthPermissionProto DIETARY_THIAMIN =
+      AppleHealthPermissionProto._(74, _omitEnumNames ? '' : 'DIETARY_THIAMIN');
+  static const AppleHealthPermissionProto DIETARY_VITAMIN_A =
+      AppleHealthPermissionProto._(
+          75, _omitEnumNames ? '' : 'DIETARY_VITAMIN_A');
+  static const AppleHealthPermissionProto DIETARY_VITAMIN_B12 =
+      AppleHealthPermissionProto._(
+          76, _omitEnumNames ? '' : 'DIETARY_VITAMIN_B12');
+  static const AppleHealthPermissionProto DIETARY_VITAMIN_B6 =
+      AppleHealthPermissionProto._(
+          77, _omitEnumNames ? '' : 'DIETARY_VITAMIN_B6');
+  static const AppleHealthPermissionProto DIETARY_VITAMIN_C =
+      AppleHealthPermissionProto._(
+          78, _omitEnumNames ? '' : 'DIETARY_VITAMIN_C');
+  static const AppleHealthPermissionProto DIETARY_VITAMIN_D =
+      AppleHealthPermissionProto._(
+          79, _omitEnumNames ? '' : 'DIETARY_VITAMIN_D');
+  static const AppleHealthPermissionProto DIETARY_VITAMIN_E =
+      AppleHealthPermissionProto._(
+          80, _omitEnumNames ? '' : 'DIETARY_VITAMIN_E');
+  static const AppleHealthPermissionProto DIETARY_VITAMIN_K =
+      AppleHealthPermissionProto._(
+          81, _omitEnumNames ? '' : 'DIETARY_VITAMIN_K');
+  static const AppleHealthPermissionProto DIETARY_WATER =
+      AppleHealthPermissionProto._(82, _omitEnumNames ? '' : 'DIETARY_WATER');
+  static const AppleHealthPermissionProto DIETARY_ZINC =
+      AppleHealthPermissionProto._(83, _omitEnumNames ? '' : 'DIETARY_ZINC');
+  static const AppleHealthPermissionProto ESTIMATED_WORKOUT_EFFORT_SCORE =
+      AppleHealthPermissionProto._(
+          84, _omitEnumNames ? '' : 'ESTIMATED_WORKOUT_EFFORT_SCORE');
+  static const AppleHealthPermissionProto PHYSICAL_EFFORT =
+      AppleHealthPermissionProto._(85, _omitEnumNames ? '' : 'PHYSICAL_EFFORT');
+  static const AppleHealthPermissionProto WORKOUT_EFFORT_SCORE =
+      AppleHealthPermissionProto._(
+          86, _omitEnumNames ? '' : 'WORKOUT_EFFORT_SCORE');
 
   static const $core.List<AppleHealthPermissionProto> values =
       <AppleHealthPermissionProto>[
@@ -232,10 +335,49 @@ class AppleHealthPermissionProto extends $pb.ProtobufEnum {
     DIETARY_FIBER,
     DIETARY_SODIUM,
     DIETARY_CHOLESTEROL,
+    STAIR_ASCENT_SPEED,
+    CYCLING_POWER,
+    CYCLING_SPEED,
+    WATER_TEMPERATURE,
+    WORKOUT_ROUTE,
+    DIETARY_BIOTIN,
+    DIETARY_CAFFEINE,
+    DIETARY_CALCIUM,
+    DIETARY_CHLORIDE,
+    DIETARY_CHROMIUM,
+    DIETARY_COPPER,
+    DIETARY_FAT_MONOUNSATURATED,
+    DIETARY_FAT_POLYUNSATURATED,
+    DIETARY_FAT_SATURATED,
+    DIETARY_FOLATE,
+    DIETARY_IODINE,
+    DIETARY_IRON,
+    DIETARY_MAGNESIUM,
+    DIETARY_MANGANESE,
+    DIETARY_MOLYBDENUM,
+    DIETARY_NIACIN,
+    DIETARY_PANTOTHENIC_ACID,
+    DIETARY_PHOSPHORUS,
+    DIETARY_POTASSIUM,
+    DIETARY_RIBOFLAVIN,
+    DIETARY_SELENIUM,
+    DIETARY_THIAMIN,
+    DIETARY_VITAMIN_A,
+    DIETARY_VITAMIN_B12,
+    DIETARY_VITAMIN_B6,
+    DIETARY_VITAMIN_C,
+    DIETARY_VITAMIN_D,
+    DIETARY_VITAMIN_E,
+    DIETARY_VITAMIN_K,
+    DIETARY_WATER,
+    DIETARY_ZINC,
+    ESTIMATED_WORKOUT_EFFORT_SCORE,
+    PHYSICAL_EFFORT,
+    WORKOUT_EFFORT_SCORE,
   ];
 
   static final $core.List<AppleHealthPermissionProto?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 47);
+      $pb.ProtobufEnum.$_initByValueList(values, 86);
   static AppleHealthPermissionProto? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
@@ -285,6 +427,8 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
       EventSyncTypeProto._(9, _omitEnumNames ? '' : 'STEPS');
   static const EventSyncTypeProto CALORIES =
       EventSyncTypeProto._(10, _omitEnumNames ? '' : 'CALORIES');
+  static const EventSyncTypeProto ECG =
+      EventSyncTypeProto._(11, _omitEnumNames ? '' : 'ECG');
 
   static const $core.List<EventSyncTypeProto> values = <EventSyncTypeProto>[
     ACTIVITY,
@@ -297,10 +441,11 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
     TEMPERATURE,
     STEPS,
     CALORIES,
+    ECG,
   ];
 
   static final $core.List<EventSyncTypeProto?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 10);
+      $pb.ProtobufEnum.$_initByValueList(values, 11);
   static EventSyncTypeProto? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
