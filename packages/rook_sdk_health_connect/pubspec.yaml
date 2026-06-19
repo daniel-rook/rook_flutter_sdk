@@ -1,6 +1,6 @@
 name: rook_sdk_health_connect
 description: This package enables apps to extract and upload data from Health Connect.
-version: 4.1.0-alpha.1
+version: 4.1.0
 homepage: 'https://docs.tryrook.io/'
 platforms:
   android:
@@ -17,9 +17,9 @@ dependencies:
   fixnum: "^1.0.0"
   rook_sdk_core: "^4.1.0"
 
-dependency_overrides:
-  rook_sdk_core:
-    path: "../rook_sdk_core"
+#dependency_overrides:
+#  rook_sdk_core:
+#    path: "packages/rook_sdk_core"
 
 dev_dependencies:
   flutter_test:

@@ -6,6 +6,8 @@ import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_met
 
 import '../common/test_utils.dart';
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 void int64ResultTests(
   MethodChannelRookSdkHealthConnect platform,
   MethodChannel channel,
