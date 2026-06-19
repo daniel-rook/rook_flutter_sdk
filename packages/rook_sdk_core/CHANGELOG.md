@@ -1,3 +1,20 @@
+## 4.1.0
+
+### New Features
+
+**New Exceptions**
+
+* HealthKitNotAllowedException
+
+### Breaking Changes
+
+**Health Kits Filter**
+
+**Health Connect**, **Samsung Health**, **Android** and **Apple Health** will be filtered out when calling
+`getAuthorizedDataSourcesV2`, to check the status of each one you can use the on-device status checks;
+`HCRookBackgroundSync.isScheduled`, `RookSamsung.isScheduled`, `AndroidStepsManager.isBackgroundAndroidStepsActive`,
+`AndroidStepsCounter.isStepsCounterActive` and `AHRookBackgroundSync.isScheduled`.
+
 ## 4.0.0
 
 ### New Features
