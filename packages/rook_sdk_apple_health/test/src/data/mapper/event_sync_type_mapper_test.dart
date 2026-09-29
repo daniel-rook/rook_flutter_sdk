@@ -61,6 +61,17 @@ void main() {
     );
 
     test(
+      'GIVEN a EventSyncType.hydration WHEN toProto THEN return EventSyncTypeProto.HYDRATION',
+      () {
+        const eventSyncType = AHEventSyncType.hydration;
+
+        final result = eventSyncType.toProto();
+
+        expect(result, EventSyncTypeProto.HYDRATION);
+      },
+    );
+
+    test(
       'GIVEN a EventSyncType.nutrition WHEN toProto THEN return EventSyncTypeProto.NUTRITION',
       () {
         const eventSyncType = AHEventSyncType.nutrition;
