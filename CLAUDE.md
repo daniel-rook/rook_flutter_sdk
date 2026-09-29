@@ -37,9 +37,9 @@ The five main components are:
 
 ### 1. Context Loading Protocol
 
-* **Global Context**: The root `AGENTS.md` (this file) defines universal coding standards, testing patterns, and the
+* **Global Context**: The root `CLAUDE.md` (this file) defines universal coding standards, testing patterns, and the
   project-wide tech stack.
-* **Local Context**: Each module contains its own `AGENTS.md`. You **must** locate and read the local agent file before
+* **Local Context**: Each module contains its own `CLAUDE.md`. You **must** locate and read the local agent file before
   modifying code within that module's directory.
 * **Priority**: Local module instructions **strictly override** global instructions in the event of a conflict (e.g.,
   Dependency Injection patterns).
@@ -48,17 +48,17 @@ The five main components are:
 
 Refer to the following structure to find specific implementation rules:
 
-* `root/AGENTS.md`: Global Context.
-* `lib/AGENTS.md`: Test & Demo application.
-* `packages/rook_sdk_apple_health/AGENTS.md`: SDK (Apple Health).
-* `packages/rook_sdk_health_connect/AGENTS.md`: SDK (Health Connect, Android Steps).
-* `packages/rook_sdk_samsung_health/AGENTS.md`: SDK (Samsung Health).
-* `packages/rook_sdk_core/AGENTS.md`: SDK (Core functionality, Cloud-to-Cloud data sources).
+* `root/CLAUDE.md`: Global Context.
+* `lib/CLAUDE.md`: Test & Demo application.
+* `packages/rook_sdk_apple_health/CLAUDE.md`: SDK (Apple Health).
+* `packages/rook_sdk_health_connect/CLAUDE.md`: SDK (Health Connect, Android Steps).
+* `packages/rook_sdk_samsung_health/CLAUDE.md`: SDK (Samsung Health).
+* `packages/rook_sdk_core/CLAUDE.md`: SDK (Core functionality, Cloud-to-Cloud data sources).
 
 ### 3. Execution Rule
 
 When a task spans multiple modules, you are required to "check out" of the current module context and "check in" to the
-next by reading its respective `AGENTS.md`. Do not assume patterns from the `lib` module apply to other modules.
+next by reading its respective `CLAUDE.md`. Do not assume patterns from the `lib` module apply to other modules.
 
 ## Project Tech stack
 
@@ -106,7 +106,7 @@ group("Result Handling", () {
 ## Project structure
 
 The project uses a monorepo structure with 1 main application and 4 packages inside the `packages/` directory. Each
-package contains its own `AGENTS.md` with specific implementation details.
+package contains its own `CLAUDE.md` with specific implementation details.
 
 * `lib/`: The application used to test and demo both SDKs.
 * `packages/`:
