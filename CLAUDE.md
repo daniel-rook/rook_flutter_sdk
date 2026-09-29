@@ -125,6 +125,13 @@ package contains its own `CLAUDE.md` with specific implementation details.
 
 ## Project Coding Standards
 
+For all code prefer the KISS principle over DRY, always aim for a code than can be easily maintained.
+
+### Commit conventions
+
+* Commits with jira ticket must have the ticket at the end of the message between Square Brackets "[JIRA_TICKET]".
+* When no Jira ticket is provided ask the user if the default placeholder "[NJT-000]" should be used.
+
 ### Naming conventions
 
 * Use `CamelCase` for classes and `camelCase` for variables and functions.
@@ -136,8 +143,16 @@ package contains its own `CLAUDE.md` with specific implementation details.
 ### Documentation & Metadata
 
 * **Format:** Use DartDoc (`/// ...`) for all public classes, functions, and properties.
-* **Rule:** Always add documentation for new public functions, classes, and behavior. Since the SDKs inside `/packages`
-  are consumed by clients, intent and usage details must be clear.
+* **Rule**: Add documentation for new functions, classes and behavior. Since the SDKs inside `/packages` are consumed by
+  clients, intent and usage details must be clear.
+    * Avoid being verbose in documentation, prefer concise language rather than referencing conversations, PRD, or issue
+      tickets that led to the implementation.
+    * If the documentation is very simple (trivial) like `This functions adds two numbers` or just restates the code
+      like `Single entry point for all user-initiated actions.` DO NOT write it, leave it without documentation.
+    * Document the resulting behavior, never the authoring process. Do NOT commit AI/self-narration or meta-commentary
+      about the writing or verification pass itself. State the fact, not how or when you checked it. Banned examples:
+      `CONFIRMED present, verified <date>`, `closes the question raised in ...`, `not fixed by this documentation pass`,
+      `resolved by this document`, `during this pass`.
 
 ### Formatting & Linting
 
@@ -147,6 +162,9 @@ package contains its own `CLAUDE.md` with specific implementation details.
 * **Syntax:**
     * Always use trailing commas for multi-line parameter lists to ensure `dart format` works cleanly.
     * Avoid magic numbers, always create a constant with an easy-to-understand name.
+    * Avoid wrapper functions that only delegate to other function calls or trigger side effects without adding
+      meaningful logic, transformation, validation, or reusable domain behavior. Inline those calls at the usage site
+      instead.
 
 ### Error Handling
 
@@ -155,3 +173,27 @@ package contains its own `CLAUDE.md` with specific implementation details.
   wrappers to handle the response. Unwrapping these protos should throw a specific `SDKException` on failure (e.g.,
   `BooleanResultProto.unwrap()`), allowing the returned `Future` to complete with an error that the consumer can
   `catch`.
+
+## Project Rules
+
+### Language
+
+* **English only**: Every artifact committed to this repository must be written in English. This includes source code
+  and identifiers, code comments, KDoc, Markdown documentation (including `CLAUDE.md` files), test names, and log
+  messages. Do NOT introduce any other language into the codebase, even for temporary notes or TODOs.
+
+### Ticket references
+
+* **Avoid ticket IDs in the code**: Do NOT mention JIRA ticket IDs or links in source code, comments, or DartDoc unless
+  it is absolutely necessary to explain context that cannot be conveyed otherwise. Prefer describing the intent
+  directly. A ticket key belongs in the commit message, not in the source (see also the Documentation & Metadata rules
+  above).
+
+### Lightweight documentation
+
+* Keep context and documentation files lightweight to avoid context overload when agents load them. This applies to
+  `CLAUDE.md` files, Markdown docs, diagrams, and similar artifacts.
+    * Be concise: state the rule or fact once, avoid restating what the code already expresses, and prefer short bullets
+      over prose.
+    * Do NOT duplicate content that already lives in another context file; cross-reference it instead.
+    * When adding a new rule, check whether an existing entry can be extended rather than adding a redundant one.
