@@ -93,6 +93,32 @@ public  final class HealthConnectPermissionsSummaryProto extends
     backgroundReadGranted_ = false;
   }
 
+  public static final int HISTORYREADGRANTED_FIELD_NUMBER = 4;
+  private boolean historyReadGranted_;
+  /**
+   * <code>bool historyReadGranted = 4;</code>
+   * @return The historyReadGranted.
+   */
+  @java.lang.Override
+  public boolean getHistoryReadGranted() {
+    return historyReadGranted_;
+  }
+  /**
+   * <code>bool historyReadGranted = 4;</code>
+   * @param value The historyReadGranted to set.
+   */
+  private void setHistoryReadGranted(boolean value) {
+    
+    historyReadGranted_ = value;
+  }
+  /**
+   * <code>bool historyReadGranted = 4;</code>
+   */
+  private void clearHistoryReadGranted() {
+
+    historyReadGranted_ = false;
+  }
+
   public static com.rookmotion.rook_sdk_health_connect.proto.HealthConnectPermissionsSummaryProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -274,6 +300,34 @@ public  final class HealthConnectPermissionsSummaryProto extends
       return this;
     }
 
+    /**
+     * <code>bool historyReadGranted = 4;</code>
+     * @return The historyReadGranted.
+     */
+    @java.lang.Override
+    public boolean getHistoryReadGranted() {
+      return instance.getHistoryReadGranted();
+    }
+    /**
+     * <code>bool historyReadGranted = 4;</code>
+     * @param value The historyReadGranted to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHistoryReadGranted(boolean value) {
+      copyOnWrite();
+      instance.setHistoryReadGranted(value);
+      return this;
+    }
+    /**
+     * <code>bool historyReadGranted = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHistoryReadGranted() {
+      copyOnWrite();
+      instance.clearHistoryReadGranted();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:HealthConnectPermissionsSummaryProto)
   }
   @java.lang.Override
@@ -293,10 +347,11 @@ public  final class HealthConnectPermissionsSummaryProto extends
             "dataTypesGranted_",
             "dataTypesPartiallyGranted_",
             "backgroundReadGranted_",
+            "historyReadGranted_",
           };
           java.lang.String info =
-              "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0007\u0002\u0007" +
-              "\u0003\u0007";
+              "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u0007\u0002\u0007" +
+              "\u0003\u0007\u0004\u0007";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through

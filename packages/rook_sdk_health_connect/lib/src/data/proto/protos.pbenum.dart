@@ -128,6 +128,31 @@ class BackgroundReadStatusProto extends $pb.ProtobufEnum {
   const BackgroundReadStatusProto._(super.value, super.name);
 }
 
+class HistoryReadStatusProto extends $pb.ProtobufEnum {
+  static const HistoryReadStatusProto HISTORY_UNAVAILABLE =
+      HistoryReadStatusProto._(0, _omitEnumNames ? '' : 'HISTORY_UNAVAILABLE');
+  static const HistoryReadStatusProto HISTORY_PERMISSION_NOT_GRANTED =
+      HistoryReadStatusProto._(
+          1, _omitEnumNames ? '' : 'HISTORY_PERMISSION_NOT_GRANTED');
+  static const HistoryReadStatusProto HISTORY_PERMISSION_GRANTED =
+      HistoryReadStatusProto._(
+          2, _omitEnumNames ? '' : 'HISTORY_PERMISSION_GRANTED');
+
+  static const $core.List<HistoryReadStatusProto> values =
+      <HistoryReadStatusProto>[
+    HISTORY_UNAVAILABLE,
+    HISTORY_PERMISSION_NOT_GRANTED,
+    HISTORY_PERMISSION_GRANTED,
+  ];
+
+  static final $core.List<HistoryReadStatusProto?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static HistoryReadStatusProto? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const HistoryReadStatusProto._(super.value, super.name);
+}
+
 class SummarySyncTypeProto extends $pb.ProtobufEnum {
   static const SummarySyncTypeProto SLEEP =
       SummarySyncTypeProto._(0, _omitEnumNames ? '' : 'SLEEP');

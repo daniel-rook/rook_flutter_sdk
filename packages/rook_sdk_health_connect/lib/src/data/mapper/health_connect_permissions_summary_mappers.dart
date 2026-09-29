@@ -8,6 +8,7 @@ extension HealthConnectPermissionsSummaryMappers
       dataTypesGranted: dataTypesGranted,
       dataTypesPartiallyGranted: dataTypesPartiallyGranted,
       backgroundReadGranted: backgroundReadGranted,
+      historyReadGranted: historyReadGranted,
     );
   }
 }

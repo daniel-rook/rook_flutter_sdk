@@ -134,6 +134,7 @@ class RookSdkHealthConnectPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
             "checkHealthConnectPermissions" -> permissionsHandler.onMethodCall(call, result)
             "checkHealthConnectPermissionsPartially" -> permissionsHandler.onMethodCall(call, result)
             "checkBackgroundReadStatus" -> permissionsHandler.onMethodCall(call, result)
+            "checkHistoryReadStatus" -> permissionsHandler.onMethodCall(call, result)
             "requestHealthConnectPermissions" -> permissionsHandler.onMethodCall(call, result)
             "revokeHealthConnectPermissions" -> permissionsHandler.onMethodCall(call, result)
             "checkAndroidPermissions" -> permissionsHandler.onMethodCall(call, result)

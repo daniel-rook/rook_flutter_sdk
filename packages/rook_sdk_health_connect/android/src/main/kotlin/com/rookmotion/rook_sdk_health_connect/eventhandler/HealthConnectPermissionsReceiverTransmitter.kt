@@ -34,10 +34,16 @@ class HealthConnectPermissionsReceiverTransmitter : BroadcastReceiver(), EventCh
             /* defaultValue = */ false
         ) ?: false
 
+        val historyReadGranted = intent?.getBooleanExtra(
+            /* name = */ RookPermissionsManager.EXTRA_HEALTH_CONNECT_HISTORY_PERMISSION_GRANTED,
+            /* defaultValue = */ false
+        ) ?: false
+
         val bytes = HealthConnectPermissionsSummaryProto.newBuilder()
             .setDataTypesGranted(dataTypesGranted)
             .setDataTypesPartiallyGranted(dataTypesPartiallyGranted)
             .setBackgroundReadGranted(backgroundReadGranted)
+            .setHistoryReadGranted(historyReadGranted)
             .build()
             .toByteArray()
 

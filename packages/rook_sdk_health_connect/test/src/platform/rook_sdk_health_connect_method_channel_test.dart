@@ -10,6 +10,7 @@ import 'calories.dart';
 import 'diagnostic_state.dart';
 import 'health_connect_availability.dart';
 import 'hear_rate.dart';
+import 'history_read_status.dart';
 import 'int64.dart';
 import 'physical_summary.dart';
 import 'request_permission_status.dart';
@@ -35,6 +36,7 @@ void main() {
   caloriesTest(platform, channel);
   requestPermissionsStatusTests(platform, channel);
   backgroundReadStatusTests(platform, channel);
+  historyReadStatusTests(platform, channel);
   stringTests(platform, channel);
   healthConnectAvailabilityTests(platform, channel);
   sleepSummaryTest(platform, channel);

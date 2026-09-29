@@ -93,10 +93,24 @@ message BackgroundReadStatusResultProto {
   }
 }
 
+enum HistoryReadStatusProto {
+  HISTORY_UNAVAILABLE = 0;
+  HISTORY_PERMISSION_NOT_GRANTED = 1;
+  HISTORY_PERMISSION_GRANTED = 2;
+}
+
+message HistoryReadStatusResultProto {
+  oneof result {
+    HistoryReadStatusProto success = 1;
+    SDKExceptionProto failure = 2;
+  }
+}
+
 message HealthConnectPermissionsSummaryProto {
   bool dataTypesGranted = 1;
   bool dataTypesPartiallyGranted = 2;
   bool backgroundReadGranted = 3;
+  bool historyReadGranted = 4;
 }
 
 message AndroidPermissionsSummaryProto {

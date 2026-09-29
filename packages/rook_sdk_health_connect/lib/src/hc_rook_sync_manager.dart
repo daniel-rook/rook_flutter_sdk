@@ -1,6 +1,7 @@
 import 'package:rook_sdk_core/rook_sdk_core.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_event_sync_type.dart';
 import 'package:rook_sdk_health_connect/src/domain/enums/hc_summary_sync_type.dart';
+import 'package:rook_sdk_health_connect/src/hc_rook_health_permissions_manager.dart';
 import 'package:rook_sdk_health_connect/src/platform/rook_sdk_health_connect_platform_interface.dart';
 
 class HCRookSyncManager {
@@ -12,9 +13,15 @@ class HCRookSyncManager {
   /// If [date] is not null: Syncs SLEEP_SUMMARY, PHYSICAL_SUMMARY and BODY_SUMMARY for the provided [date].
   /// if [summary] and [date] are not null: Syncs the [summary] of choice for the provided [date].
   ///
+  /// [date] can be up to 180 days in the past. Dates older than 29 days
+  /// require the history read permission, see
+  /// [HCRookHealthPermissionsManager.checkHistoryReadStatus].
+  ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   ///
   /// Returns [RecordsNotFoundException] if no data is available.
+  /// Returns [MissingPermissionsException] if [date] is older than 29 days and
+  /// the history read permission is not granted.
   static Future<void> sync({
     bool? enableLogs,
     DateTime? date,
@@ -42,9 +49,15 @@ class HCRookSyncManager {
 
   /// Syncs the [event] of choice for the provided [date].
   ///
+  /// [date] can be up to 180 days in the past. Dates older than 29 days
+  /// require the history read permission, see
+  /// [HCRookHealthPermissionsManager.checkHistoryReadStatus].
+  ///
   /// **Warning: This function contributes to the Health Connect rate limit, don't call it too frequently.**
   ///
   /// Returns [RecordsNotFoundException] if no data is available.
+  /// Returns [MissingPermissionsException] if [date] is older than 29 days and
+  /// the history read permission is not granted.
   static Future<void> syncEvents(DateTime date, HCEventSyncType event) {
     return RookSdkHealthConnectPlatform.instance.syncByDateAndEvent(
       date,

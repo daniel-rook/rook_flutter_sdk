@@ -26,6 +26,7 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
   final ConsoleOutput checkHCPermissionsOutput = ConsoleOutput();
   final ConsoleOutput checkHCPermissionsPartiallyOutput = ConsoleOutput();
   final ConsoleOutput checkBackgroundReadStatusOutput = ConsoleOutput();
+  final ConsoleOutput checkHistoryReadStatusOutput = ConsoleOutput();
   final ConsoleOutput requestHCPermissionsOutput = ConsoleOutput();
   final ConsoleOutput revokeHCPermissionsOutput = ConsoleOutput();
   final ConsoleOutput openHealthConnectOutput = ConsoleOutput();
@@ -83,6 +84,13 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
             setState(() {
               checkBackgroundReadStatusOutput.append("Background read granted");
               requestHCPermissionsOutput.append("Background read granted");
+            });
+          }
+
+          if (permissionsSummary.historyReadGranted) {
+            setState(() {
+              checkHistoryReadStatusOutput.append("History read granted");
+              requestHCPermissionsOutput.append("History read granted");
             });
           }
         });
@@ -163,6 +171,11 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
           FilledButton(
             onPressed: checkBackgroundReadStatus,
             child: const Text('checkBackgroundReadStatus'),
+          ),
+          Text(checkHistoryReadStatusOutput.current),
+          FilledButton(
+            onPressed: checkHistoryReadStatus,
+            child: const Text('checkHistoryReadStatus'),
           ),
           Text(requestHCPermissionsOutput.current),
           FilledButton(
@@ -351,6 +364,31 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
       setState(() {
         checkBackgroundReadStatusOutput.append(
           "Error verifying background status: $error",
+        );
+      });
+    }
+  }
+
+  void checkHistoryReadStatus() async {
+    checkHistoryReadStatusOutput.clear();
+
+    setState(() {
+      checkHistoryReadStatusOutput.append("Verifying history status...");
+    });
+
+    try {
+      final historyReadStatus =
+          await HCRookHealthPermissionsManager.checkHistoryReadStatus();
+
+      setState(() {
+        checkHistoryReadStatusOutput.append(
+          "History read status: $historyReadStatus",
+        );
+      });
+    } catch (error) {
+      setState(() {
+        checkHistoryReadStatusOutput.append(
+          "Error verifying history status: $error",
         );
       });
     }
