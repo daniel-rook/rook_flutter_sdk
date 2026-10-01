@@ -62,6 +62,19 @@ class HCRookHealthPermissionsManager {
     return RookSdkHealthConnectPlatform.instance.checkBackgroundReadStatus();
   }
 
+  /// Checks if the history read permission (READ_HEALTH_DATA_HISTORY) is
+  /// granted or if the history read feature is available.
+  ///
+  /// This permission is **optional**. It is only required to read data older
+  /// than 29 days: when the ROOK portal is configured with more than 29
+  /// historic days for Background Sync, or when manually syncing older dates.
+  /// Without it, Background Sync falls back to 29 days.
+  ///
+  /// To request it call [requestHealthConnectPermissions].
+  static Future<HCHistoryReadStatus> checkHistoryReadStatus() {
+    return RookSdkHealthConnectPlatform.instance.checkHistoryReadStatus();
+  }
+
   /// Request the following permissions:
   ///
   /// * READ_SLEEP
@@ -88,6 +101,10 @@ class HCRookHealthPermissionsManager {
   /// * READ_NUTRITION
   /// * READ_MENSTRUATION
   /// * READ_POWER
+  ///
+  /// Background read (READ_HEALTH_DATA_IN_BACKGROUND) and history read
+  /// (READ_HEALTH_DATA_HISTORY) permissions are also requested if the device
+  /// supports them.
   ///
   /// This method will configure, start and stop it's own activity,
   /// the result will be returned in [requestHealthConnectPermissionsUpdates].

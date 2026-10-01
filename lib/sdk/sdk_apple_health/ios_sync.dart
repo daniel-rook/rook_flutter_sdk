@@ -158,6 +158,10 @@ class _IOSSyncState extends State<IOSSync> {
                 label: "Heart rate",
               ),
               DropdownMenuEntry(
+                value: AHEventSyncType.hydration,
+                label: "Hydration",
+              ),
+              DropdownMenuEntry(
                 value: AHEventSyncType.nutrition,
                 label: "Nutrition",
               ),
@@ -174,10 +178,7 @@ class _IOSSyncState extends State<IOSSync> {
                 value: AHEventSyncType.calories,
                 label: "Calories",
               ),
-              DropdownMenuEntry(
-                value: AHEventSyncType.ecg,
-                label: "ECG",
-              ),
+              DropdownMenuEntry(value: AHEventSyncType.ecg, label: "ECG"),
             ],
           ),
           Text(syncSingleEventOutput.current),

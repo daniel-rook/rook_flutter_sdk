@@ -44,6 +44,8 @@ abstract class RookSdkHealthConnectPlatform extends PlatformInterface {
 
   Future<HCBackgroundReadStatus> checkBackgroundReadStatus();
 
+  Future<HCHistoryReadStatus> checkHistoryReadStatus();
+
   Future<RequestPermissionsStatus> requestHealthConnectPermissions();
 
   Future<void> revokeHealthConnectPermissions();

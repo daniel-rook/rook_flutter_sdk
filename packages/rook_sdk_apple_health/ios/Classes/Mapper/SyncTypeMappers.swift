@@ -36,6 +36,8 @@ extension EventSyncTypeProto {
             return EventTypeToUpload.bodyMetrics
         case EventSyncTypeProto.heartRate:
             return EventTypeToUpload.heartRate
+        case EventSyncTypeProto.hydration:
+            return EventTypeToUpload.hydration
         case EventSyncTypeProto.nutrition:
             return EventTypeToUpload.nutrition
         case EventSyncTypeProto.oxygenation:

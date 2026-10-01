@@ -11,6 +11,8 @@ import com.rookmotion.rook_sdk_health_connect.result.backgroundReadStatusError
 import com.rookmotion.rook_sdk_health_connect.result.backgroundReadStatusSuccess
 import com.rookmotion.rook_sdk_health_connect.result.booleanError
 import com.rookmotion.rook_sdk_health_connect.result.booleanSuccess
+import com.rookmotion.rook_sdk_health_connect.result.historyReadStatusError
+import com.rookmotion.rook_sdk_health_connect.result.historyReadStatusSuccess
 import com.rookmotion.rook_sdk_health_connect.result.requestPermissionsStatusError
 import com.rookmotion.rook_sdk_health_connect.result.requestPermissionsStatusSuccess
 import io.flutter.plugin.common.MethodCall
@@ -81,6 +83,17 @@ class PermissionsHandler(
                     },
                     {
                         methodResult.backgroundReadStatusError(it)
+                    }
+                )
+            }
+
+            "checkHistoryReadStatus" -> coroutineScope.launch {
+                rookPermissionsManager.checkHistoryReadStatus().fold(
+                    {
+                        methodResult.historyReadStatusSuccess(it)
+                    },
+                    {
+                        methodResult.historyReadStatusError(it)
                     }
                 )
             }

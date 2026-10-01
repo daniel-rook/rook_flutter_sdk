@@ -26,4 +26,10 @@ public interface HealthConnectPermissionsSummaryProtoOrBuilder extends
    * @return The backgroundReadGranted.
    */
   boolean getBackgroundReadGranted();
+
+  /**
+   * <code>bool historyReadGranted = 4;</code>
+   * @return The historyReadGranted.
+   */
+  boolean getHistoryReadGranted();
 }

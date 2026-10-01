@@ -417,6 +417,8 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
       EventSyncTypeProto._(3, _omitEnumNames ? '' : 'BODY_METRICS');
   static const EventSyncTypeProto HEART_RATE =
       EventSyncTypeProto._(4, _omitEnumNames ? '' : 'HEART_RATE');
+  static const EventSyncTypeProto HYDRATION =
+      EventSyncTypeProto._(5, _omitEnumNames ? '' : 'HYDRATION');
   static const EventSyncTypeProto NUTRITION =
       EventSyncTypeProto._(6, _omitEnumNames ? '' : 'NUTRITION');
   static const EventSyncTypeProto OXYGENATION =
@@ -436,6 +438,7 @@ class EventSyncTypeProto extends $pb.ProtobufEnum {
     BLOOD_PRESSURE,
     BODY_METRICS,
     HEART_RATE,
+    HYDRATION,
     NUTRITION,
     OXYGENATION,
     TEMPERATURE,

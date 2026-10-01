@@ -4,6 +4,7 @@ enum AHEventSyncType {
   bloodPressure,
   bodyMetrics,
   heartRate,
+  hydration,
   nutrition,
   oxygenation,
   temperature,

@@ -511,6 +511,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
   case bloodPressure // = 2
   case bodyMetrics // = 3
   case heartRate // = 4
+  case hydration // = 5
   case nutrition // = 6
   case oxygenation // = 7
   case temperature // = 8
@@ -530,6 +531,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 2: self = .bloodPressure
     case 3: self = .bodyMetrics
     case 4: self = .heartRate
+    case 5: self = .hydration
     case 6: self = .nutrition
     case 7: self = .oxygenation
     case 8: self = .temperature
@@ -547,6 +549,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .bloodPressure: return 2
     case .bodyMetrics: return 3
     case .heartRate: return 4
+    case .hydration: return 5
     case .nutrition: return 6
     case .oxygenation: return 7
     case .temperature: return 8
@@ -564,6 +567,7 @@ enum EventSyncTypeProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     .bloodPressure,
     .bodyMetrics,
     .heartRate,
+    .hydration,
     .nutrition,
     .oxygenation,
     .temperature,
@@ -2992,6 +2996,7 @@ extension EventSyncTypeProto: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "BLOOD_PRESSURE"),
     3: .same(proto: "BODY_METRICS"),
     4: .same(proto: "HEART_RATE"),
+    5: .same(proto: "HYDRATION"),
     6: .same(proto: "NUTRITION"),
     7: .same(proto: "OXYGENATION"),
     8: .same(proto: "TEMPERATURE"),

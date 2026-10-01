@@ -16,6 +16,7 @@ import 'package:rook_sdk_health_connect/src/data/result/boolean_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/calories_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/diagnostic_state_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/heart_rate_result.dart';
+import 'package:rook_sdk_health_connect/src/data/result/history_read_status_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/int64_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/physical_summary_result.dart';
 import 'package:rook_sdk_health_connect/src/data/result/request_permissions_status_result.dart';
@@ -159,6 +160,17 @@ class MethodChannelRookSdkHealthConnect extends RookSdkHealthConnectPlatform {
     );
 
     final result = BackgroundReadStatusResultProto.fromBuffer(bytes);
+
+    return result.unwrap();
+  }
+
+  @override
+  Future<HCHistoryReadStatus> checkHistoryReadStatus() async {
+    final Uint8List bytes = await methodChannel.invokeMethod(
+      'checkHistoryReadStatus',
+    );
+
+    final result = HistoryReadStatusResultProto.fromBuffer(bytes);
 
     return result.unwrap();
   }

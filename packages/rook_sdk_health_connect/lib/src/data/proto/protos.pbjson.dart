@@ -90,6 +90,22 @@ final $typed_data.Uint8List backgroundReadStatusProtoDescriptor =
         'ChlCYWNrZ3JvdW5kUmVhZFN0YXR1c1Byb3RvEg8KC1VOQVZBSUxBQkxFEAASGgoWUEVSTUlTU0'
         'lPTl9OT1RfR1JBTlRFRBABEhYKElBFUk1JU1NJT05fR1JBTlRFRBAC');
 
+@$core.Deprecated('Use historyReadStatusProtoDescriptor instead')
+const HistoryReadStatusProto$json = {
+  '1': 'HistoryReadStatusProto',
+  '2': [
+    {'1': 'HISTORY_UNAVAILABLE', '2': 0},
+    {'1': 'HISTORY_PERMISSION_NOT_GRANTED', '2': 1},
+    {'1': 'HISTORY_PERMISSION_GRANTED', '2': 2},
+  ],
+};
+
+/// Descriptor for `HistoryReadStatusProto`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List historyReadStatusProtoDescriptor = $convert.base64Decode(
+    'ChZIaXN0b3J5UmVhZFN0YXR1c1Byb3RvEhcKE0hJU1RPUllfVU5BVkFJTEFCTEUQABIiCh5ISV'
+    'NUT1JZX1BFUk1JU1NJT05fTk9UX0dSQU5URUQQARIeChpISVNUT1JZX1BFUk1JU1NJT05fR1JB'
+    'TlRFRBAC');
+
 @$core.Deprecated('Use summarySyncTypeProtoDescriptor instead')
 const SummarySyncTypeProto$json = {
   '1': 'SummarySyncTypeProto',
@@ -388,6 +404,41 @@ final $typed_data.Uint8List backgroundReadStatusResultProtoDescriptor =
         'NrZ3JvdW5kUmVhZFN0YXR1c1Byb3RvSABSB3N1Y2Nlc3MSLgoHZmFpbHVyZRgCIAEoCzISLlNE'
         'S0V4Y2VwdGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
 
+@$core.Deprecated('Use historyReadStatusResultProtoDescriptor instead')
+const HistoryReadStatusResultProto$json = {
+  '1': 'HistoryReadStatusResultProto',
+  '2': [
+    {
+      '1': 'success',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.HistoryReadStatusProto',
+      '9': 0,
+      '10': 'success'
+    },
+    {
+      '1': 'failure',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.SDKExceptionProto',
+      '9': 0,
+      '10': 'failure'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `HistoryReadStatusResultProto`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List historyReadStatusResultProtoDescriptor =
+    $convert.base64Decode(
+        'ChxIaXN0b3J5UmVhZFN0YXR1c1Jlc3VsdFByb3RvEjMKB3N1Y2Nlc3MYASABKA4yFy5IaXN0b3'
+        'J5UmVhZFN0YXR1c1Byb3RvSABSB3N1Y2Nlc3MSLgoHZmFpbHVyZRgCIAEoCzISLlNES0V4Y2Vw'
+        'dGlvblByb3RvSABSB2ZhaWx1cmVCCAoGcmVzdWx0');
+
 @$core.Deprecated('Use healthConnectPermissionsSummaryProtoDescriptor instead')
 const HealthConnectPermissionsSummaryProto$json = {
   '1': 'HealthConnectPermissionsSummaryProto',
@@ -407,6 +458,13 @@ const HealthConnectPermissionsSummaryProto$json = {
       '5': 8,
       '10': 'backgroundReadGranted'
     },
+    {
+      '1': 'historyReadGranted',
+      '3': 4,
+      '4': 1,
+      '5': 8,
+      '10': 'historyReadGranted'
+    },
   ],
 };
 
@@ -416,7 +474,8 @@ final $typed_data.Uint8List healthConnectPermissionsSummaryProtoDescriptor =
         'CiRIZWFsdGhDb25uZWN0UGVybWlzc2lvbnNTdW1tYXJ5UHJvdG8SKgoQZGF0YVR5cGVzR3Jhbn'
         'RlZBgBIAEoCFIQZGF0YVR5cGVzR3JhbnRlZBI8ChlkYXRhVHlwZXNQYXJ0aWFsbHlHcmFudGVk'
         'GAIgASgIUhlkYXRhVHlwZXNQYXJ0aWFsbHlHcmFudGVkEjQKFWJhY2tncm91bmRSZWFkR3Jhbn'
-        'RlZBgDIAEoCFIVYmFja2dyb3VuZFJlYWRHcmFudGVk');
+        'RlZBgDIAEoCFIVYmFja2dyb3VuZFJlYWRHcmFudGVkEi4KEmhpc3RvcnlSZWFkR3JhbnRlZBgE'
+        'IAEoCFISaGlzdG9yeVJlYWRHcmFudGVk');
 
 @$core.Deprecated('Use androidPermissionsSummaryProtoDescriptor instead')
 const AndroidPermissionsSummaryProto$json = {

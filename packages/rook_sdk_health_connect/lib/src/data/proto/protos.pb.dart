@@ -823,11 +823,103 @@ class BackgroundReadStatusResultProto extends $pb.GeneratedMessage {
   SDKExceptionProto ensureFailure() => $_ensure(1);
 }
 
+enum HistoryReadStatusResultProto_Result { success, failure, notSet }
+
+class HistoryReadStatusResultProto extends $pb.GeneratedMessage {
+  factory HistoryReadStatusResultProto({
+    HistoryReadStatusProto? success,
+    SDKExceptionProto? failure,
+  }) {
+    final result = create();
+    if (success != null) result.success = success;
+    if (failure != null) result.failure = failure;
+    return result;
+  }
+
+  HistoryReadStatusResultProto._();
+
+  factory HistoryReadStatusResultProto.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HistoryReadStatusResultProto.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, HistoryReadStatusResultProto_Result>
+      _HistoryReadStatusResultProto_ResultByTag = {
+    1: HistoryReadStatusResultProto_Result.success,
+    2: HistoryReadStatusResultProto_Result.failure,
+    0: HistoryReadStatusResultProto_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HistoryReadStatusResultProto',
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..e<HistoryReadStatusProto>(
+        1, _omitFieldNames ? '' : 'success', $pb.PbFieldType.OE,
+        defaultOrMaker: HistoryReadStatusProto.HISTORY_UNAVAILABLE,
+        valueOf: HistoryReadStatusProto.valueOf,
+        enumValues: HistoryReadStatusProto.values)
+    ..aOM<SDKExceptionProto>(2, _omitFieldNames ? '' : 'failure',
+        subBuilder: SDKExceptionProto.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  HistoryReadStatusResultProto clone() =>
+      HistoryReadStatusResultProto()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  HistoryReadStatusResultProto copyWith(
+          void Function(HistoryReadStatusResultProto) updates) =>
+      super.copyWith(
+              (message) => updates(message as HistoryReadStatusResultProto))
+          as HistoryReadStatusResultProto;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static HistoryReadStatusResultProto create() =>
+      HistoryReadStatusResultProto._();
+  @$core.override
+  HistoryReadStatusResultProto createEmptyInstance() => create();
+  static $pb.PbList<HistoryReadStatusResultProto> createRepeated() =>
+      $pb.PbList<HistoryReadStatusResultProto>();
+  @$core.pragma('dart2js:noInline')
+  static HistoryReadStatusResultProto getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HistoryReadStatusResultProto>(create);
+  static HistoryReadStatusResultProto? _defaultInstance;
+
+  HistoryReadStatusResultProto_Result whichResult() =>
+      _HistoryReadStatusResultProto_ResultByTag[$_whichOneof(0)]!;
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  HistoryReadStatusProto get success => $_getN(0);
+  @$pb.TagNumber(1)
+  set success(HistoryReadStatusProto value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasSuccess() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSuccess() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  SDKExceptionProto get failure => $_getN(1);
+  @$pb.TagNumber(2)
+  set failure(SDKExceptionProto value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasFailure() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFailure() => $_clearField(2);
+  @$pb.TagNumber(2)
+  SDKExceptionProto ensureFailure() => $_ensure(1);
+}
+
 class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
   factory HealthConnectPermissionsSummaryProto({
     $core.bool? dataTypesGranted,
     $core.bool? dataTypesPartiallyGranted,
     $core.bool? backgroundReadGranted,
+    $core.bool? historyReadGranted,
   }) {
     final result = create();
     if (dataTypesGranted != null) result.dataTypesGranted = dataTypesGranted;
@@ -835,6 +927,8 @@ class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
       result.dataTypesPartiallyGranted = dataTypesPartiallyGranted;
     if (backgroundReadGranted != null)
       result.backgroundReadGranted = backgroundReadGranted;
+    if (historyReadGranted != null)
+      result.historyReadGranted = historyReadGranted;
     return result;
   }
 
@@ -857,6 +951,8 @@ class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
         protoName: 'dataTypesPartiallyGranted')
     ..aOB(3, _omitFieldNames ? '' : 'backgroundReadGranted',
         protoName: 'backgroundReadGranted')
+    ..aOB(4, _omitFieldNames ? '' : 'historyReadGranted',
+        protoName: 'historyReadGranted')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -911,6 +1007,15 @@ class HealthConnectPermissionsSummaryProto extends $pb.GeneratedMessage {
   $core.bool hasBackgroundReadGranted() => $_has(2);
   @$pb.TagNumber(3)
   void clearBackgroundReadGranted() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get historyReadGranted => $_getBF(3);
+  @$pb.TagNumber(4)
+  set historyReadGranted($core.bool value) => $_setBool(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasHistoryReadGranted() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearHistoryReadGranted() => $_clearField(4);
 }
 
 class AndroidPermissionsSummaryProto extends $pb.GeneratedMessage {
