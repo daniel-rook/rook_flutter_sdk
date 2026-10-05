@@ -3,7 +3,7 @@
 Scope: the SDKs under `packages/` (`rook_sdk_core`, `rook_sdk_health_connect`, `rook_sdk_samsung_health`,
 `rook_sdk_apple_health`). Changes that only touch the demo app or the playgrounds are not listed.
 
-Status: Setup is complete. Flutter 3.41, 3.44 and 3.47 have not started.
+Status: Setup and Flutter 3.41 are complete. Flutter 3.44 and 3.47 have not started.
 
 ## Setup
 
@@ -40,7 +40,35 @@ Status: Setup is complete. Flutter 3.41, 3.44 and 3.47 have not started.
 
 ## Flutter 3.41
 
-No changes yet.
+### Affects consumers
+
+* **Apps using `rook_sdk_apple_health` must adopt the UIScene lifecycle to run on iOS 27 with Xcode 27.**
+    * Without it, the unmodified demo app exits with `SIGTRAP` shortly after launch on the iOS 27 simulator.
+    * Conform `AppDelegate` to `FlutterImplicitEngineDelegate`, register plugins in
+      `didInitializeImplicitFlutterEngine`, and add a `UIApplicationSceneManifest` using `FlutterSceneDelegate` to
+      `Info.plist`. The Flutter tool can migrate an unmodified `AppDelegate` automatically.
+    * No change is required in the plugin itself.
+* **Plugin registration now happens when the scene connects**, not inside
+  `application(_:didFinishLaunchingWithOptions:)`.
+    * Measured on an iOS 27 device: when the system relaunched the app in the background, plugins registered within
+      about 50 ms of launch, so the background listeners set up at registration are in place. This is a single run.
+    * No native method that apps must call from their `AppDelegate` is required.
+
+### Open observation
+
+* On the same device, health samples added while the app was in the background reached the webhook only after the
+  phone was rebooted.
+    * No app launch occurred at the time the samples were added, so none of the migrated launch code ran. The cause is
+      not determined.
+    * There is no control for the previous lifecycle, because an app without UIScene does not launch on iOS 27.
+
+### Reviewed, no consumer impact
+
+* The five Flutter 3.41 breaking changes (`FontWeight` and variable fonts, `containsSemantics`,
+  `findChildIndexCallback`, Material 3 tokens, Linux merged threads) are not used by any SDK. Analysis and tests
+  pass for all four packages on Flutter 3.47.6.
+* `rook_sdk_health_connect` and `rook_sdk_samsung_health`: no changes.
+* No change to `lib/`, `pubspec.yaml` constraints, native plugin sources or public API.
 
 ## Flutter 3.44
 
