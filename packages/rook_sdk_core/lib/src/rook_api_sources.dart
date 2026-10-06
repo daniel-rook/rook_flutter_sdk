@@ -25,16 +25,12 @@ final class RookApiSources {
   late final Dio _dio = _buildApiSourcesDio();
 
   RookApiSources({
-    required String clientUUID,
-    required String secret,
-    required String appId,
-    required RookEnvironment environment,
-    required bool enableLogs,
-  }) : _clientUUID = clientUUID,
-       _secret = secret,
-       _appId = appId,
-       _environment = environment,
-       _enableLogs = enableLogs;
+    required this._clientUUID,
+    required this._secret,
+    required this._appId,
+    required this._environment,
+    required this._enableLogs,
+  });
 
   /// Returns a [DataSourceAuthorizer] of a specific data source for the current user.
   ///

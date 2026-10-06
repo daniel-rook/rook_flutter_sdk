@@ -26,14 +26,11 @@ final class Authorizer {
   }
 
   Authorizer({
-    required String id,
-    required String client,
-    required String secret,
-    required RookEnvironment environment,
-  }) : _id = id,
-       _client = client,
-       _secret = secret,
-       _environment = environment;
+    required this._id,
+    required this._client,
+    required this._secret,
+    required this._environment,
+  });
 
   late final Dio _dio = _buildAuthorizerDio(_environment);
 
