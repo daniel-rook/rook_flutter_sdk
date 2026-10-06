@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
 import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
@@ -272,8 +272,7 @@ class _SamsungPermissionsState extends State<SamsungPermissions> {
           String message = switch (requestPermissionsStatus) {
             RequestPermissionsStatus.alreadyGranted =>
               'Permissions already granted',
-            RequestPermissionsStatus.requestSent =>
-              'Permissions request sent, if nothing happens open Samsung Health settings and give permissions manually',
+            RequestPermissionsStatus.requestSent => 'Permissions request sent, if nothing happens open Samsung Health settings and give permissions manually',
           };
 
           setState(() {

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
 import 'package:rook_flutter_sdk/sdk/api_sources/api_sources.dart';
 import 'package:rook_flutter_sdk/sdk/sdk_apple_health/ios_configuration.dart';

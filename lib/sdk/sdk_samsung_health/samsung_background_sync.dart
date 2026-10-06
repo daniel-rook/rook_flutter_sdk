@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/core/data/preferences/demo_preferences.dart';
 import 'package:rook_flutter_sdk/core/domain/extension/future_extensions.dart';
@@ -107,9 +107,8 @@ class _SamsungBackgroundSyncState extends State<SamsungBackgroundSync> {
     ).getOrFalse();
 
     final hasPartialPermissions =
-        await RookSamsung.checkSamsungHealthPermissions(
-          _samsungPermissions,
-        ).getOrFalse();
+        await RookSamsung.checkSamsungHealthPermissions(_samsungPermissions)
+            .getOrFalse();
 
     setState(() {
       hasDataTypesPermissions = hasPermissions || hasPartialPermissions;

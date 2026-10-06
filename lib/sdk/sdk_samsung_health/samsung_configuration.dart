@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
 import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
@@ -65,9 +65,9 @@ class _SamsungConfigurationState extends State<SamsungConfiguration> {
           const SizedBox(height: 20),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(
-                    context,
-                  ).pushNamed(samsungUserManagementRoute)
+                ? () =>
+                      Navigator.of(context)
+                          .pushNamed(samsungUserManagementRoute)
                 : null,
             child: const Text('User management'),
           ),
@@ -85,9 +85,9 @@ class _SamsungConfigurationState extends State<SamsungConfiguration> {
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(
-                    context,
-                  ).pushNamed(samsungBackgroundSyncRoute)
+                ? () =>
+                      Navigator.of(context)
+                          .pushNamed(samsungBackgroundSyncRoute)
                 : null,
             child: const Text('Background sync'),
           ),

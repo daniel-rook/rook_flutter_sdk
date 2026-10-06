@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
 import 'package:rook_flutter_sdk/core/domain/utils/environments.dart';
@@ -72,9 +72,9 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
           const SizedBox(height: 20),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(
-                    context,
-                  ).pushNamed(androidBackgroundStepsRoute)
+                ? () =>
+                      Navigator.of(context)
+                          .pushNamed(androidBackgroundStepsRoute)
                 : null,
             child: const Text('Background steps'),
           ),
@@ -86,9 +86,9 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(
-                    context,
-                  ).pushNamed(androidUserManagementRoute)
+                ? () =>
+                      Navigator.of(context)
+                          .pushNamed(androidUserManagementRoute)
                 : null,
             child: const Text('User management'),
           ),
@@ -106,9 +106,9 @@ class _AndroidConfigurationState extends State<AndroidConfiguration> {
           ),
           FilledButton(
             onPressed: enableNavigation
-                ? () => Navigator.of(
-                    context,
-                  ).pushNamed(androidBackgroundSyncRoute)
+                ? () =>
+                      Navigator.of(context)
+                          .pushNamed(androidBackgroundSyncRoute)
                 : null,
             child: const Text('Background sync'),
           ),

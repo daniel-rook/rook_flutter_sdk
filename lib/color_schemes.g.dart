@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 const lightColorScheme = ColorScheme(
   brightness: Brightness.light,
@@ -18,11 +18,9 @@ const lightColorScheme = ColorScheme(
   errorContainer: Color(0xFFFFDAD6),
   onError: Color(0xFFFFFFFF),
   onErrorContainer: Color(0xFF410002),
-  background: Color(0xFFFCFDF6),
-  onBackground: Color(0xFF1A1C19),
   surface: Color(0xFFFCFDF6),
   onSurface: Color(0xFF1A1C19),
-  surfaceVariant: Color(0xFFDEE5D8),
+  surfaceContainerHighest: Color(0xFFDEE5D8),
   onSurfaceVariant: Color(0xFF424940),
   outline: Color(0xFF72796F),
   onInverseSurface: Color(0xFFF0F1EB),
@@ -52,11 +50,9 @@ const darkColorScheme = ColorScheme(
   errorContainer: Color(0xFF93000A),
   onError: Color(0xFF690005),
   onErrorContainer: Color(0xFFFFDAD6),
-  background: Color(0xFF1A1C19),
-  onBackground: Color(0xFFE2E3DD),
   surface: Color(0xFF1A1C19),
   onSurface: Color(0xFFE2E3DD),
-  surfaceVariant: Color(0xFF424940),
+  surfaceContainerHighest: Color(0xFF424940),
   onSurfaceVariant: Color(0xFFC2C9BD),
   outline: Color(0xFF8C9388),
   onInverseSurface: Color(0xFF1A1C19),

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/core/data/preferences/demo_preferences.dart';
 import 'package:rook_flutter_sdk/core/domain/extension/future_extensions.dart';
@@ -69,9 +69,8 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
 
   @override
   Widget build(BuildContext context) {
-    final errorTextStyle = Theme.of(context).textTheme.titleLarge?.copyWith(
-      color: Theme.of(context).colorScheme.error,
-    );
+    final errorTextStyle = Theme.of(context).textTheme.titleLarge
+        ?.copyWith(color: Theme.of(context).colorScheme.error);
 
     return ScrollableScaffold(
       name: 'Background Sync',
@@ -173,8 +172,7 @@ class _AndroidBackgroundSyncState extends State<AndroidBackgroundSync> {
       String message = switch (requestPermissionsStatus) {
         RequestPermissionsStatus.alreadyGranted =>
           'Permissions already granted',
-        RequestPermissionsStatus.requestSent =>
-          'Permissions request sent, if nothing happens open Health Connect settings and give permissions manually',
+        RequestPermissionsStatus.requestSent => 'Permissions request sent, if nothing happens open Health Connect settings and give permissions manually',
       };
 
       logger.info(message);

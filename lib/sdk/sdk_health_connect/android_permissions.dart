@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:app_settings/app_settings.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:rook_flutter_sdk/core/domain/utils/console_output.dart';
 import 'package:rook_flutter_sdk/core/presentation/widget/scrollable_scaffold.dart';
@@ -408,8 +408,7 @@ class _AndroidPermissionsState extends State<AndroidPermissions> {
           String message = switch (requestPermissionsStatus) {
             RequestPermissionsStatus.alreadyGranted =>
               'Permissions already granted',
-            RequestPermissionsStatus.requestSent =>
-              'Permissions request sent, if nothing happens open Health Connect settings and give permissions manually',
+            RequestPermissionsStatus.requestSent => 'Permissions request sent, if nothing happens open Health Connect settings and give permissions manually',
           };
 
           setState(() {
