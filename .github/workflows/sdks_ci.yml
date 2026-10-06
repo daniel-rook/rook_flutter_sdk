@@ -16,7 +16,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -36,7 +36,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -56,7 +56,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -87,7 +87,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -107,7 +107,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -127,7 +127,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -145,6 +145,29 @@ jobs:
           name: rook_sdk_apple_health-test-report.txt
           path: packages/rook_sdk_apple_health/reports/test.txt
 
+  rook_sdk_apple_health_build:
+    needs: [ rook_sdk_apple_health_test ]
+    runs-on: macos-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.47.6
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Create fake secrets.dart file
+        run: echo "class Secrets {static String clientUUID = 'clientUUID';static String secret = 'secret';static String packageName = 'packageName';static String bundleId = 'io.tryrook.apps.ios';}" >> lib/secrets.dart
+
+      - name: Build project
+        run: flutter build ios --debug --no-codesign
+
   rook_sdk_apple_health_pana:
     needs: [ rook_sdk_apple_health_analyze ]
     runs-on: ubuntu-latest
@@ -156,7 +179,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -187,7 +210,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -207,7 +230,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -227,7 +250,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -262,7 +285,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -285,7 +308,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -316,7 +339,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -336,7 +359,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -356,7 +379,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -391,7 +414,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
@@ -414,7 +437,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.47.6
       - run: flutter --version
 
       - name: Install dependencies
