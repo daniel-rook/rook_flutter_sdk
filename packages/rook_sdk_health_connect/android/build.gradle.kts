@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
 }
 
 // ------------------------ Dependencies ------------------------
@@ -28,7 +27,6 @@ android {
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 36
     }
 
     compileOptions {
@@ -36,9 +34,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    // The generated protobuf Java sources live next to the Kotlin sources.
     sourceSets {
         getByName("main") {
-            java.srcDirs("src/main/kotlin")
+            java.directories.add("src/main/kotlin")
         }
     }
 }
