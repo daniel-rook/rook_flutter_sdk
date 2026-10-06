@@ -3,7 +3,7 @@
 Scope: the SDKs under `packages/` (`rook_sdk_core`, `rook_sdk_health_connect`, `rook_sdk_samsung_health`,
 `rook_sdk_apple_health`). Changes that only touch the demo app or the playgrounds are not listed.
 
-Status: Setup and Flutter 3.41 are complete. Flutter 3.44 and 3.47 have not started.
+Status: Setup, Flutter 3.41 and Flutter 3.44 are complete. Flutter 3.47 has not started.
 
 ## Setup
 
@@ -72,7 +72,24 @@ Status: Setup and Flutter 3.41 are complete. Flutter 3.44 and 3.47 have not star
 
 ## Flutter 3.44
 
-No changes yet.
+### Affects consumers
+
+* **`rook_sdk_apple_health` is distributed through Swift Package Manager only. The podspec is removed.**
+    * Apps must have Swift Package Manager enabled. It is the default from Flutter 3.44.
+    * With it disabled (`enable-swift-package-manager: false` in `pubspec.yaml`, or
+      `flutter config --no-enable-swift-package-manager`), the Flutter tool stops with "The following plugin(s) are only
+      compatible with Swift Package Manager: rook_sdk_apple_health". There is no CocoaPods fallback.
+    * Apps on Flutter older than 3.44 cannot use the plugin, because its `Package.swift` depends on `FlutterFramework`.
+* **`RookSDK` 4.2.0 and `swift-protobuf` 1.28.2 are now fetched from GitHub** (`RookeriesDevelopment/rook-ios-sdk` and
+  `apple/swift-protobuf`) at exact versions, instead of the CocoaPods CDN.
+    * An app whose other Swift packages require a different `swift-protobuf` version fails to resolve dependencies.
+    * Apps that still use CocoaPods for other plugins keep working alongside it.
+* The minimum iOS version declared by the plugin is unchanged (13.0).
+
+### Reviewed, no consumer impact
+
+* The nine Flutter 3.44 breaking changes are not used by any SDK.
+* No change to the Dart API, `pubspec.yaml` constraints or the `RookSDK` version.
 
 ## Flutter 3.47
 
