@@ -86,17 +86,19 @@ over the MethodChannel.
   cd proto
   sh generate.sh
   ```
-  *(This compiles the new files into `lib/src/data/proto/` and `ios/Classes/Proto/`)*.
+  *(This compiles the new files into `lib/src/data/proto/` and the `Proto/` folder of the native iOS sources root)*.
 
 ## 3. Native Side Rules (iOS / Swift)
 
-The iOS folder (`ios/Classes/`) acts as the Native implementation of the Flutter plugin, interfacing directly with the
-native iOS `RookSDK` SDK.
+The native iOS sources root (see Module Structure) acts as the Native implementation of the Flutter plugin, interfacing
+directly with the native iOS `RookSDK` SDK.
 
 ### Tech Stack
 
 * **Language**: Swift.
 * **Entry Point**: `RookSdkAppleHealthPlugin.swift`.
+* **Distribution**: Swift Package Manager only (`ios/rook_sdk_apple_health/Package.swift`). There is no podspec.
+  `RookSDK` and `SwiftProtobuf` are pinned to exact versions in `Package.swift`.
 
 ### Implementation Rules
 
@@ -106,7 +108,8 @@ native iOS `RookSDK` SDK.
   required by `RookSDK`.
 * **Mappers**:
     * You must map the native domain objects into the generated Swift Protobuf objects.
-    * Extension functions for this mapping are located in `ios/Classes/Mapper/` (e.g., `SleepSummaryMappers.swift`).
+    * Extension functions for this mapping are located in `Mapper/` of the native iOS sources root (e.g.,
+      `SleepSummaryMappers.swift`).
     * **Rule**: When mapping native types to Protos, use `.toProtoString()`, `.toInt32()`, `.toDouble()`, etc., safely
       handling optionals and empty arrays as defined by the proto structure.
 * **Returning Data**:
@@ -123,7 +126,7 @@ native iOS `RookSDK` SDK.
 ## Module Structure
 
 **Dart sources root**: `lib/src/`
-**Native iOS sources root**: `ios/Classes/`
+**Native iOS sources root**: `ios/rook_sdk_apple_health/Sources/rook_sdk_apple_health/`
 
 ### Dart Side (`lib/src/`)
 
@@ -137,7 +140,7 @@ native iOS `RookSDK` SDK.
 * `platform/`: MethodChannel implementations and Platform interfaces.
 * `lib/src/*.dart`: The public-facing entry point managers (e.g., `ah_rook_sync_manager.dart`).
 
-### Native Side (`ios/Classes/`)
+### Native Side (native iOS sources root)
 
 * `Mapper/`: Extension functions converting iOS `RookSDK` models to Swift Protobuf objects.
 * `Proto/`: Generated Swift Protobuf files (`protos.pb.swift`).
