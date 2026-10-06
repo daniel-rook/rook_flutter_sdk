@@ -18,17 +18,11 @@ void backgroundReadStatusTests(
       return proto.writeToBuffer();
     });
 
-    test(
-      "GIVEN success WHEN checkBackgroundReadStatus THEN return a HCBackgroundReadStatus",
-      () async {
-        final future = platform.checkBackgroundReadStatus();
+    test("GIVEN success WHEN checkBackgroundReadStatus THEN return a HCBackgroundReadStatus", () async {
+      final future = platform.checkBackgroundReadStatus();
 
-        await expectLater(
-          future,
-          completion(HCBackgroundReadStatus.unavailable),
-        );
-      },
-    );
+      await expectLater(future, completion(HCBackgroundReadStatus.unavailable));
+    });
   });
 
   group(

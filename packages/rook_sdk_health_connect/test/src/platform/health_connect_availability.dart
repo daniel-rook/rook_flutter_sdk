@@ -17,14 +17,11 @@ void healthConnectAvailabilityTests(
         return HealthConnectAvailabilityProto.INSTALLED.value;
       });
 
-      test(
-        'GIVEN the happy path WHEN checkHealthConnectAvailability THEN complete with expected value',
-        () async {
-          final future = platform.checkHealthConnectAvailability();
+      test('GIVEN the happy path WHEN checkHealthConnectAvailability THEN complete with expected value', () async {
+        final future = platform.checkHealthConnectAvailability();
 
-          await expectLater(future, completion(HCAvailabilityStatus.installed));
-        },
-      );
+        await expectLater(future, completion(HCAvailabilityStatus.installed));
+      });
     },
   );
 
@@ -35,14 +32,11 @@ void healthConnectAvailabilityTests(
         throw Exception("Unknown error");
       });
 
-      test(
-        'GIVEN the unhappy path WHEN checkHealthConnectAvailability THEN throw exception',
-        () async {
-          final future = platform.checkHealthConnectAvailability();
+      test('GIVEN the unhappy path WHEN checkHealthConnectAvailability THEN throw exception', () async {
+        final future = platform.checkHealthConnectAvailability();
 
-          await expectLater(future, throwsException);
-        },
-      );
+        await expectLater(future, throwsException);
+      });
     },
   );
 }

@@ -5,37 +5,28 @@ import 'package:rook_sdk_health_connect/src/domain/enums/hc_summary_sync_type.da
 
 void main() {
   group('SummarySyncType to SummarySyncTypeProto mappers', () {
-    test(
-      'GIVEN a SummarySyncType.sleep WHEN toProto THEN return SummarySyncTypeProto.SLEEP',
-      () {
-        const summarySyncType = HCSummarySyncType.sleep;
+    test('GIVEN a SummarySyncType.sleep WHEN toProto THEN return SummarySyncTypeProto.SLEEP', () {
+      const summarySyncType = HCSummarySyncType.sleep;
 
-        final result = summarySyncType.toProto();
+      final result = summarySyncType.toProto();
 
-        expect(result, SummarySyncTypeProto.SLEEP);
-      },
-    );
+      expect(result, SummarySyncTypeProto.SLEEP);
+    });
 
-    test(
-      'GIVEN a SummarySyncType.physical WHEN toProto THEN return SummarySyncTypeProto.PHYSICAL',
-      () {
-        const summarySyncType = HCSummarySyncType.physical;
+    test('GIVEN a SummarySyncType.physical WHEN toProto THEN return SummarySyncTypeProto.PHYSICAL', () {
+      const summarySyncType = HCSummarySyncType.physical;
 
-        final result = summarySyncType.toProto();
+      final result = summarySyncType.toProto();
 
-        expect(result, SummarySyncTypeProto.PHYSICAL);
-      },
-    );
+      expect(result, SummarySyncTypeProto.PHYSICAL);
+    });
 
-    test(
-      'GIVEN a SummarySyncType.body WHEN toProto THEN return SummarySyncTypeProto.BODY',
-      () {
-        const summarySyncType = HCSummarySyncType.body;
+    test('GIVEN a SummarySyncType.body WHEN toProto THEN return SummarySyncTypeProto.BODY', () {
+      const summarySyncType = HCSummarySyncType.body;
 
-        final result = summarySyncType.toProto();
+      final result = summarySyncType.toProto();
 
-        expect(result, SummarySyncTypeProto.BODY);
-      },
-    );
+      expect(result, SummarySyncTypeProto.BODY);
+    });
   });
 }

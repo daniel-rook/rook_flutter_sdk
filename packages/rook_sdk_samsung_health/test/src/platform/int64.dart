@@ -10,26 +10,26 @@ void int64ResultTests(
   MethodChannelRookSdkSamsungHealth platform,
   MethodChannel channel,
 ) {
-  group('MethodChannelRookSdkSamsungHealth | ResultInt64Proto value unwrap', () {
-    mockMethodCall(channel, (_) async {
-      final proto = Int64ResultProto.create();
-      proto.success = Int64(1000);
+  group(
+    'MethodChannelRookSdkSamsungHealth | ResultInt64Proto value unwrap',
+    () {
+      mockMethodCall(channel, (_) async {
+        final proto = Int64ResultProto.create();
+        proto.success = Int64(1000);
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      "GIVEN success WHEN getTodayStepsCount THEN return a SyncStatusWithData<int>",
-      () async {
+      test("GIVEN success WHEN getTodayStepsCount THEN return a SyncStatusWithData<int>", () async {
         final future = platform.getTodayStepsCount();
 
         await expectLater(
           future,
           completion(predicate<int>((steps) => steps == 1000)),
         );
-      },
-    );
-  });
+      });
+    },
+  );
 
   group(
     'MethodChannelRookSdkSamsungHealth | ResultInt64Proto exception unwrap',

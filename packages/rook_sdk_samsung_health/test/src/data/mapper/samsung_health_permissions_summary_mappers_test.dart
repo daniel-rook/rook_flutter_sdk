@@ -3,22 +3,19 @@ import 'package:rook_sdk_samsung_health/src/data/mapper/samsung_health_permissio
 import 'package:rook_sdk_samsung_health/src/data/proto/protos.pb.dart';
 
 void main() {
-  group(
-    'SamsungHealthPermissionsSummaryProto to SamsungHealthPermissionsSummary mappers',
-    () {
-      test(
-        'GIVEN the happy path WHEN toDomain THEN return the expected result',
-        () {
-          final proto = SamsungHealthPermissionsSummaryProto.create()
-            ..dataTypesGranted = false
-            ..dataTypesPartiallyGranted = true;
+  group('SamsungHealthPermissionsSummaryProto to SamsungHealthPermissionsSummary mappers', () {
+    test(
+      'GIVEN the happy path WHEN toDomain THEN return the expected result',
+      () {
+        final proto = SamsungHealthPermissionsSummaryProto.create()
+          ..dataTypesGranted = false
+          ..dataTypesPartiallyGranted = true;
 
-          final result = proto.toDomain();
+        final result = proto.toDomain();
 
-          expect(result.dataTypesGranted, false);
-          expect(result.dataTypesPartiallyGranted, true);
-        },
-      );
-    },
-  );
+        expect(result.dataTypesGranted, false);
+        expect(result.dataTypesPartiallyGranted, true);
+      },
+    );
+  });
 }

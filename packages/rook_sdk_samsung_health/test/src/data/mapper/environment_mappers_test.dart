@@ -5,26 +5,20 @@ import 'package:rook_sdk_samsung_health/src/data/proto/protos.pbenum.dart';
 
 void main() {
   group('RookEnvironment to EnvironmentProto mappers', () {
-    test(
-      'GIVEN RookEnvironment.sandbox WHEN toProto THEN return EnvironmentProto.SANDBOX',
-      () {
-        const rookEnvironment = RookEnvironment.sandbox;
+    test('GIVEN RookEnvironment.sandbox WHEN toProto THEN return EnvironmentProto.SANDBOX', () {
+      const rookEnvironment = RookEnvironment.sandbox;
 
-        final result = rookEnvironment.toProto();
+      final result = rookEnvironment.toProto();
 
-        expect(result, EnvironmentProto.SANDBOX);
-      },
-    );
+      expect(result, EnvironmentProto.SANDBOX);
+    });
 
-    test(
-      'GIVEN RookEnvironment.production WHEN toProto THEN return EnvironmentProto.PRODUCTION',
-      () {
-        const rookEnvironment = RookEnvironment.production;
+    test('GIVEN RookEnvironment.production WHEN toProto THEN return EnvironmentProto.PRODUCTION', () {
+      const rookEnvironment = RookEnvironment.production;
 
-        final result = rookEnvironment.toProto();
+      final result = rookEnvironment.toProto();
 
-        expect(result, EnvironmentProto.PRODUCTION);
-      },
-    );
+      expect(result, EnvironmentProto.PRODUCTION);
+    });
   });
 }

@@ -5,136 +5,100 @@ import 'package:rook_sdk_apple_health/src/domain/enums/ah_event_sync_type.dart';
 
 void main() {
   group('EventSyncType to EventSyncTypeProto mappers', () {
-    test(
-      'GIVEN a EventSyncType.activity WHEN toProto THEN return EventSyncTypeProto.ACTIVITY',
-      () {
-        const eventSyncType = AHEventSyncType.activity;
+    test('GIVEN a EventSyncType.activity WHEN toProto THEN return EventSyncTypeProto.ACTIVITY', () {
+      const eventSyncType = AHEventSyncType.activity;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.ACTIVITY);
-      },
-    );
+      expect(result, EventSyncTypeProto.ACTIVITY);
+    });
 
-    test(
-      'GIVEN a EventSyncType.bloodGlucose WHEN toProto THEN return EventSyncTypeProto.BLOOD_GLUCOSE',
-      () {
-        const eventSyncType = AHEventSyncType.bloodGlucose;
+    test('GIVEN a EventSyncType.bloodGlucose WHEN toProto THEN return EventSyncTypeProto.BLOOD_GLUCOSE', () {
+      const eventSyncType = AHEventSyncType.bloodGlucose;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.BLOOD_GLUCOSE);
-      },
-    );
+      expect(result, EventSyncTypeProto.BLOOD_GLUCOSE);
+    });
 
-    test(
-      'GIVEN a EventSyncType.bloodPressure WHEN toProto THEN return EventSyncTypeProto.BLOOD_PRESSURE',
-      () {
-        const eventSyncType = AHEventSyncType.bloodPressure;
+    test('GIVEN a EventSyncType.bloodPressure WHEN toProto THEN return EventSyncTypeProto.BLOOD_PRESSURE', () {
+      const eventSyncType = AHEventSyncType.bloodPressure;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.BLOOD_PRESSURE);
-      },
-    );
+      expect(result, EventSyncTypeProto.BLOOD_PRESSURE);
+    });
 
-    test(
-      'GIVEN a EventSyncType.bodyMetrics WHEN toProto THEN return EventSyncTypeProto.BODY_METRICS',
-      () {
-        const eventSyncType = AHEventSyncType.bodyMetrics;
+    test('GIVEN a EventSyncType.bodyMetrics WHEN toProto THEN return EventSyncTypeProto.BODY_METRICS', () {
+      const eventSyncType = AHEventSyncType.bodyMetrics;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.BODY_METRICS);
-      },
-    );
+      expect(result, EventSyncTypeProto.BODY_METRICS);
+    });
 
-    test(
-      'GIVEN a EventSyncType.heartRate WHEN toProto THEN return EventSyncTypeProto.HEART_RATE',
-      () {
-        const eventSyncType = AHEventSyncType.heartRate;
+    test('GIVEN a EventSyncType.heartRate WHEN toProto THEN return EventSyncTypeProto.HEART_RATE', () {
+      const eventSyncType = AHEventSyncType.heartRate;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.HEART_RATE);
-      },
-    );
+      expect(result, EventSyncTypeProto.HEART_RATE);
+    });
 
-    test(
-      'GIVEN a EventSyncType.hydration WHEN toProto THEN return EventSyncTypeProto.HYDRATION',
-      () {
-        const eventSyncType = AHEventSyncType.hydration;
+    test('GIVEN a EventSyncType.hydration WHEN toProto THEN return EventSyncTypeProto.HYDRATION', () {
+      const eventSyncType = AHEventSyncType.hydration;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.HYDRATION);
-      },
-    );
+      expect(result, EventSyncTypeProto.HYDRATION);
+    });
 
-    test(
-      'GIVEN a EventSyncType.nutrition WHEN toProto THEN return EventSyncTypeProto.NUTRITION',
-      () {
-        const eventSyncType = AHEventSyncType.nutrition;
+    test('GIVEN a EventSyncType.nutrition WHEN toProto THEN return EventSyncTypeProto.NUTRITION', () {
+      const eventSyncType = AHEventSyncType.nutrition;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.NUTRITION);
-      },
-    );
+      expect(result, EventSyncTypeProto.NUTRITION);
+    });
 
-    test(
-      'GIVEN a EventSyncType.oxygenation WHEN toProto THEN return EventSyncTypeProto.OXYGENATION',
-      () {
-        const eventSyncType = AHEventSyncType.oxygenation;
+    test('GIVEN a EventSyncType.oxygenation WHEN toProto THEN return EventSyncTypeProto.OXYGENATION', () {
+      const eventSyncType = AHEventSyncType.oxygenation;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.OXYGENATION);
-      },
-    );
+      expect(result, EventSyncTypeProto.OXYGENATION);
+    });
 
-    test(
-      'GIVEN a EventSyncType.temperature WHEN toProto THEN return EventSyncTypeProto.TEMPERATURE',
-      () {
-        const eventSyncType = AHEventSyncType.temperature;
+    test('GIVEN a EventSyncType.temperature WHEN toProto THEN return EventSyncTypeProto.TEMPERATURE', () {
+      const eventSyncType = AHEventSyncType.temperature;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.TEMPERATURE);
-      },
-    );
+      expect(result, EventSyncTypeProto.TEMPERATURE);
+    });
 
-    test(
-      'GIVEN a EventSyncType.steps WHEN toProto THEN return EventSyncTypeProto.STEPS',
-      () {
-        const eventSyncType = AHEventSyncType.steps;
+    test('GIVEN a EventSyncType.steps WHEN toProto THEN return EventSyncTypeProto.STEPS', () {
+      const eventSyncType = AHEventSyncType.steps;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.STEPS);
-      },
-    );
+      expect(result, EventSyncTypeProto.STEPS);
+    });
 
-    test(
-      'GIVEN a EventSyncType.calories WHEN toProto THEN return EventSyncTypeProto.CALORIES',
-      () {
-        const eventSyncType = AHEventSyncType.calories;
+    test('GIVEN a EventSyncType.calories WHEN toProto THEN return EventSyncTypeProto.CALORIES', () {
+      const eventSyncType = AHEventSyncType.calories;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.CALORIES);
-      },
-    );
+      expect(result, EventSyncTypeProto.CALORIES);
+    });
 
-    test(
-      'GIVEN a EventSyncType.ecg WHEN toProto THEN return EventSyncTypeProto.ECG',
-      () {
-        const eventSyncType = AHEventSyncType.ecg;
+    test('GIVEN a EventSyncType.ecg WHEN toProto THEN return EventSyncTypeProto.ECG', () {
+      const eventSyncType = AHEventSyncType.ecg;
 
-        final result = eventSyncType.toProto();
+      final result = eventSyncType.toProto();
 
-        expect(result, EventSyncTypeProto.ECG);
-      },
-    );
+      expect(result, EventSyncTypeProto.ECG);
+    });
   });
 }

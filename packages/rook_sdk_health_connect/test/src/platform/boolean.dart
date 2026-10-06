@@ -56,128 +56,89 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the happy path WHEN checkHealthConnectPermissions THEN complete with expected value',
-      () async {
-        final future = platform.checkHealthConnectPermissions();
+    test('GIVEN the happy path WHEN checkHealthConnectPermissions THEN complete with expected value', () async {
+      final future = platform.checkHealthConnectPermissions();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN checkHealthConnectPermissionsPartially THEN complete with expected value',
-      () async {
-        final future = platform.checkHealthConnectPermissionsPartially();
+    test('GIVEN the happy path WHEN checkHealthConnectPermissionsPartially THEN complete with expected value', () async {
+      final future = platform.checkHealthConnectPermissionsPartially();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN checkExactAlarmPermissions THEN complete with expected value',
-      () async {
-        final future = platform.checkExactAlarmPermissions();
+    test('GIVEN the happy path WHEN checkExactAlarmPermissions THEN complete with expected value', () async {
+      final future = platform.checkExactAlarmPermissions();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN checkBatteryOptimizationsDisabled THEN complete with expected value',
-      () async {
-        final future = platform.checkBatteryOptimizationsDisabled();
+    test('GIVEN the happy path WHEN checkBatteryOptimizationsDisabled THEN complete with expected value', () async {
+      final future = platform.checkBatteryOptimizationsDisabled();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN requiresOemAutoStartSetup THEN complete with expected value',
-      () async {
-        final future = platform.requiresOemAutoStartSetup();
+    test('GIVEN the happy path WHEN requiresOemAutoStartSetup THEN complete with expected value', () async {
+      final future = platform.requiresOemAutoStartSetup();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value',
-      () async {
-        final future = platform.syncHistoricSummaries(true);
+    test('GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value', () async {
+      final future = platform.syncHistoricSummaries(true);
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncSummariesByDate THEN complete with expected value',
-      () async {
-        final future = platform.syncSummariesByDate(DateTime.now());
+    test('GIVEN the happy path WHEN syncSummariesByDate THEN complete with expected value', () async {
+      final future = platform.syncSummariesByDate(DateTime.now());
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncByDateAndSummary THEN complete with expected value',
-      () async {
-        final future = platform.syncByDateAndSummary(
-          DateTime.now(),
-          HCSummarySyncType.sleep,
-        );
+    test('GIVEN the happy path WHEN syncByDateAndSummary THEN complete with expected value', () async {
+      final future = platform.syncByDateAndSummary(
+        DateTime.now(),
+        HCSummarySyncType.sleep,
+      );
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncByDateAndEvent THEN complete with expected value',
-      () async {
-        final future = platform.syncByDateAndEvent(
-          DateTime.now(),
-          HCEventSyncType.activity,
-        );
+    test('GIVEN the happy path WHEN syncByDateAndEvent THEN complete with expected value', () async {
+      final future = platform.syncByDateAndEvent(
+        DateTime.now(),
+        HCEventSyncType.activity,
+      );
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN isStepsAvailable THEN complete with expected value',
-      () async {
-        final future = platform.isStepsAvailable();
+    test('GIVEN the happy path WHEN isStepsAvailable THEN complete with expected value', () async {
+      final future = platform.isStepsAvailable();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN isStepsCounterAvailable THEN complete with expected value',
-      () async {
-        final future = platform.isStepsCounterAvailable();
+    test('GIVEN the happy path WHEN isStepsCounterAvailable THEN complete with expected value', () async {
+      final future = platform.isStepsCounterAvailable();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN isBackgroundAndroidStepsActive THEN complete with expected value',
-      () async {
-        final future = platform.isBackgroundAndroidStepsActive();
+    test('GIVEN the happy path WHEN isBackgroundAndroidStepsActive THEN complete with expected value', () async {
+      final future = platform.isBackgroundAndroidStepsActive();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN isStepsCounterActive THEN complete with expected value',
-      () async {
-        final future = platform.isStepsCounterActive();
+    test('GIVEN the happy path WHEN isStepsCounterActive THEN complete with expected value', () async {
+      final future = platform.isStepsCounterActive();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
     test(
       'GIVEN the happy path WHEN enableBackgroundAndroidSteps THEN complete',
@@ -281,59 +242,41 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the unhappy path WHEN openHealthConnectSettings THEN throw exception',
-      () async {
-        final future = platform.openHealthConnectSettings();
+    test('GIVEN the unhappy path WHEN openHealthConnectSettings THEN throw exception', () async {
+      final future = platform.openHealthConnectSettings();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN checkHealthConnectPermissions THEN throw exception',
-      () async {
-        final future = platform.checkHealthConnectPermissions();
+    test('GIVEN the unhappy path WHEN checkHealthConnectPermissions THEN throw exception', () async {
+      final future = platform.checkHealthConnectPermissions();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN checkHealthConnectPermissionsPartially THEN throw exception',
-      () async {
-        final future = platform.checkHealthConnectPermissionsPartially();
+    test('GIVEN the unhappy path WHEN checkHealthConnectPermissionsPartially THEN throw exception', () async {
+      final future = platform.checkHealthConnectPermissionsPartially();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN checkExactAlarmPermissions THEN throw exception',
-      () async {
-        final future = platform.checkExactAlarmPermissions();
+    test('GIVEN the unhappy path WHEN checkExactAlarmPermissions THEN throw exception', () async {
+      final future = platform.checkExactAlarmPermissions();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN checkBatteryOptimizationsDisabled THEN throw exception',
-      () async {
-        final future = platform.checkBatteryOptimizationsDisabled();
+    test('GIVEN the unhappy path WHEN checkBatteryOptimizationsDisabled THEN throw exception', () async {
+      final future = platform.checkBatteryOptimizationsDisabled();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN requiresOemAutoStartSetup THEN throw exception',
-      () async {
-        final future = platform.requiresOemAutoStartSetup();
+    test('GIVEN the unhappy path WHEN requiresOemAutoStartSetup THEN throw exception', () async {
+      final future = platform.requiresOemAutoStartSetup();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
     test(
       'GIVEN the unhappy path WHEN syncHistoricSummaries THEN throw exception',
@@ -386,23 +329,17 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the unhappy path WHEN isStepsCounterAvailable THEN throw exception',
-      () async {
-        final future = platform.isStepsCounterAvailable();
+    test('GIVEN the unhappy path WHEN isStepsCounterAvailable THEN throw exception', () async {
+      final future = platform.isStepsCounterAvailable();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN isBackgroundAndroidStepsActive THEN throw exception',
-      () async {
-        final future = platform.isBackgroundAndroidStepsActive();
+    test('GIVEN the unhappy path WHEN isBackgroundAndroidStepsActive THEN throw exception', () async {
+      final future = platform.isBackgroundAndroidStepsActive();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
     test(
       'GIVEN the unhappy path WHEN isStepsCounterActive THEN throw exception',
@@ -413,14 +350,11 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the unhappy path WHEN enableBackgroundAndroidSteps THEN throw exception',
-      () async {
-        final future = platform.enableBackgroundAndroidSteps();
+    test('GIVEN the unhappy path WHEN enableBackgroundAndroidSteps THEN throw exception', () async {
+      final future = platform.enableBackgroundAndroidSteps();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
     test(
       'GIVEN the unhappy path WHEN enableStepsCounter THEN throw exception',
@@ -431,14 +365,11 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the unhappy path WHEN disableBackgroundAndroidSteps THEN throw exception',
-      () async {
-        final future = platform.disableBackgroundAndroidSteps();
+    test('GIVEN the unhappy path WHEN disableBackgroundAndroidSteps THEN throw exception', () async {
+      final future = platform.disableBackgroundAndroidSteps();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
     test(
       'GIVEN the unhappy path WHEN disableStepsCounter THEN throw exception',
@@ -481,23 +412,17 @@ void boolTests(
       return true;
     });
 
-    test(
-      'GIVEN the happy path WHEN checkAndroidPermissions THEN complete with expected value',
-      () async {
-        final future = platform.checkAndroidPermissions();
+    test('GIVEN the happy path WHEN checkAndroidPermissions THEN complete with expected value', () async {
+      final future = platform.checkAndroidPermissions();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN shouldRequestAndroidPermissions THEN complete with expected value',
-      () async {
-        final future = platform.shouldRequestAndroidPermissions();
+    test('GIVEN the happy path WHEN shouldRequestAndroidPermissions THEN complete with expected value', () async {
+      final future = platform.shouldRequestAndroidPermissions();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
   });
 
   group('MethodChannelRookSdkHealthConnect | bool Failure', () {
@@ -505,22 +430,16 @@ void boolTests(
       throw Exception('Error');
     });
 
-    test(
-      'GIVEN the unhappy path WHEN checkAndroidPermissions THEN throw exception',
-      () async {
-        final future = platform.checkAndroidPermissions();
+    test('GIVEN the unhappy path WHEN checkAndroidPermissions THEN throw exception', () async {
+      final future = platform.checkAndroidPermissions();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN shouldRequestAndroidPermissions THEN throw exception',
-      () async {
-        final future = platform.shouldRequestAndroidPermissions();
+    test('GIVEN the unhappy path WHEN shouldRequestAndroidPermissions THEN throw exception', () async {
+      final future = platform.shouldRequestAndroidPermissions();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
   });
 }

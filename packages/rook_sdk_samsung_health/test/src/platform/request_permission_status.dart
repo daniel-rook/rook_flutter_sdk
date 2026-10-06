@@ -10,62 +10,53 @@ void requestPermissionsStatusTests(
   MethodChannelRookSdkSamsungHealth platform,
   MethodChannel channel,
 ) {
-  group('MethodChannelRookSdkSamsungHealth | RequestPermissionsStatus Success', () {
-    mockMethodCall(channel, (_) async {
-      final proto = RequestPermissionsStatusResultProto()
-        ..success = RequestPermissionsStatusProto.REQUEST_SENT;
+  group(
+    'MethodChannelRookSdkSamsungHealth | RequestPermissionsStatus Success',
+    () {
+      mockMethodCall(channel, (_) async {
+        final proto = RequestPermissionsStatusResultProto()
+          ..success = RequestPermissionsStatusProto.REQUEST_SENT;
 
-      return proto.writeToBuffer();
-    });
+        return proto.writeToBuffer();
+      });
 
-    test(
-      "GIVEN success WHEN requestSamsungHealthPermissions THEN return a RequestPermissionsStatus",
-      () async {
+      test("GIVEN success WHEN requestSamsungHealthPermissions THEN return a RequestPermissionsStatus", () async {
         final future = platform.requestSamsungHealthPermissions([]);
 
         await expectLater(
           future,
           completion(RequestPermissionsStatus.requestSent),
         );
-      },
-    );
+      });
 
-    test(
-      "GIVEN success WHEN requestExactAlarmPermissions THEN return a RequestPermissionsStatus",
-      () async {
+      test("GIVEN success WHEN requestExactAlarmPermissions THEN return a RequestPermissionsStatus", () async {
         final future = platform.requestExactAlarmPermissions();
 
         await expectLater(
           future,
           completion(RequestPermissionsStatus.requestSent),
         );
-      },
-    );
+      });
 
-    test(
-      "GIVEN success WHEN requestDisableBatteryOptimizations THEN return a RequestPermissionsStatus",
-      () async {
+      test("GIVEN success WHEN requestDisableBatteryOptimizations THEN return a RequestPermissionsStatus", () async {
         final future = platform.requestDisableBatteryOptimizations();
 
         await expectLater(
           future,
           completion(RequestPermissionsStatus.requestSent),
         );
-      },
-    );
+      });
 
-    test(
-      "GIVEN success WHEN openOemAutoStartSetup THEN return a RequestPermissionsStatus",
-      () async {
+      test("GIVEN success WHEN openOemAutoStartSetup THEN return a RequestPermissionsStatus", () async {
         final future = platform.openOemAutoStartSetup();
 
         await expectLater(
           future,
           completion(RequestPermissionsStatus.requestSent),
         );
-      },
-    );
-  });
+      });
+    },
+  );
 
   group('MethodChannelRookSdkSamsungHealth | RequestPermissionsStatus Failure', () {
     mockMethodCall(channel, (_) async {
@@ -97,14 +88,11 @@ void requestPermissionsStatusTests(
       },
     );
 
-    test(
-      "GIVEN failure WHEN requestDisableBatteryOptimizations THEN throw exception",
-      () async {
-        final future = platform.requestDisableBatteryOptimizations();
+    test("GIVEN failure WHEN requestDisableBatteryOptimizations THEN throw exception", () async {
+      final future = platform.requestDisableBatteryOptimizations();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
     test(
       "GIVEN failure WHEN openOemAutoStartSetup THEN throw exception",

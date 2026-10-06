@@ -18,14 +18,11 @@ void historyReadStatusTests(
       return proto.writeToBuffer();
     });
 
-    test(
-      "GIVEN success WHEN checkHistoryReadStatus THEN return a HCHistoryReadStatus",
-      () async {
-        final future = platform.checkHistoryReadStatus();
+    test("GIVEN success WHEN checkHistoryReadStatus THEN return a HCHistoryReadStatus", () async {
+      final future = platform.checkHistoryReadStatus();
 
-        await expectLater(future, completion(HCHistoryReadStatus.unavailable));
-      },
-    );
+      await expectLater(future, completion(HCHistoryReadStatus.unavailable));
+    });
   });
 
   group('MethodChannelRookSdkHealthConnect | HistoryReadStatus Failure', () {

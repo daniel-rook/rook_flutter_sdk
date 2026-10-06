@@ -59,27 +59,24 @@ void diagnosticStateTest(
     },
   );
 
-  group(
-    'MethodChannelRookSdkAppleHealth | DiagnosticStateResultProto exception unwrap',
-    () {
-      mockMethodCall(channel, (_) async {
-        final failure = SDKExceptionProto.create()
-          ..message = "message"
-          ..code = 500;
+  group('MethodChannelRookSdkAppleHealth | DiagnosticStateResultProto exception unwrap', () {
+    mockMethodCall(channel, (_) async {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final proto = DiagnosticStateResultProto.create()..failure = failure;
+      final proto = DiagnosticStateResultProto.create()..failure = failure;
 
-        return proto.writeToBuffer();
-      });
+      return proto.writeToBuffer();
+    });
 
-      test(
-        "GIVEN failure WHEN getDiagnosticState THEN throw exception",
-        () async {
-          final future = platform.getDiagnosticState();
+    test(
+      "GIVEN failure WHEN getDiagnosticState THEN throw exception",
+      () async {
+        final future = platform.getDiagnosticState();
 
-          await expectLater(future, throwsException);
-        },
-      );
-    },
-  );
+        await expectLater(future, throwsException);
+      },
+    );
+  });
 }

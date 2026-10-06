@@ -18,17 +18,14 @@ void int64ResultTests(
       return proto.writeToBuffer();
     });
 
-    test(
-      "GIVEN success WHEN getTodayStepsCount THEN return a SyncStatusWithData<int>",
-      () async {
-        final future = platform.getTodayStepsCount();
+    test("GIVEN success WHEN getTodayStepsCount THEN return a SyncStatusWithData<int>", () async {
+      final future = platform.getTodayStepsCount();
 
-        await expectLater(
-          future,
-          completion(predicate<int>((steps) => steps == 1000)),
-        );
-      },
-    );
+      await expectLater(
+        future,
+        completion(predicate<int>((steps) => steps == 1000)),
+      );
+    });
   });
 
   group(

@@ -5,25 +5,19 @@ import 'package:rook_sdk_samsung_health/src/data/result/request_permissions_stat
 
 void main() {
   group("Mapper", () {
-    test(
-      'GIVEN RequestPermissionsStatusProto.REQUEST_SENT WHEN toProto THEN return RequestPermissionsStatus.requestSent',
-      () {
-        const proto = RequestPermissionsStatusProto.REQUEST_SENT;
-        final result = proto.toDomain();
+    test('GIVEN RequestPermissionsStatusProto.REQUEST_SENT WHEN toProto THEN return RequestPermissionsStatus.requestSent', () {
+      const proto = RequestPermissionsStatusProto.REQUEST_SENT;
+      final result = proto.toDomain();
 
-        expect(result, RequestPermissionsStatus.requestSent);
-      },
-    );
+      expect(result, RequestPermissionsStatus.requestSent);
+    });
 
-    test(
-      'GIVEN RequestPermissionsStatusProto.ALREADY_GRANTED WHEN toProto THEN return RequestPermissionsStatus.alreadyGranted',
-      () {
-        const proto = RequestPermissionsStatusProto.ALREADY_GRANTED;
-        final result = proto.toDomain();
+    test('GIVEN RequestPermissionsStatusProto.ALREADY_GRANTED WHEN toProto THEN return RequestPermissionsStatus.alreadyGranted', () {
+      const proto = RequestPermissionsStatusProto.ALREADY_GRANTED;
+      final result = proto.toDomain();
 
-        expect(result, RequestPermissionsStatus.alreadyGranted);
-      },
-    );
+      expect(result, RequestPermissionsStatus.alreadyGranted);
+    });
   });
 
   group("Result", () {

@@ -5,60 +5,51 @@ import 'package:rook_sdk_samsung_health/src/data/result/diagnostic_state_result.
 
 void main() {
   group("Mapper", () {
-    test(
-      "GIVEN a DiagnosticStateProto WHEN toDomain THEN return a DiagnosticState",
-      () {
-        const diagnosticStatePermissionsProto =
-            DiagnosticStatePermissionsProto.REQUESTED;
-        final manualSync = DiagnosticSyncStateProto.create()
-          ..enabled = true
-          ..lastSync = "2022-01-01T00:00:00.000Z";
-        final backgroundSync = DiagnosticSyncStateProto.create()
-          ..enabled = false
-          ..lastSync = "N/A";
-        final proto = DiagnosticStateProto.create()
-          ..isConfigured = false
-          ..userIdentified = true
-          ..permissions = diagnosticStatePermissionsProto
-          ..manualSync = manualSync
-          ..backgroundSync = backgroundSync;
-        final result = proto.toDomain();
+    test("GIVEN a DiagnosticStateProto WHEN toDomain THEN return a DiagnosticState", () {
+      const diagnosticStatePermissionsProto =
+          DiagnosticStatePermissionsProto.REQUESTED;
+      final manualSync = DiagnosticSyncStateProto.create()
+        ..enabled = true
+        ..lastSync = "2022-01-01T00:00:00.000Z";
+      final backgroundSync = DiagnosticSyncStateProto.create()
+        ..enabled = false
+        ..lastSync = "N/A";
+      final proto = DiagnosticStateProto.create()
+        ..isConfigured = false
+        ..userIdentified = true
+        ..permissions = diagnosticStatePermissionsProto
+        ..manualSync = manualSync
+        ..backgroundSync = backgroundSync;
+      final result = proto.toDomain();
 
-        expect(result.isConfigured, isFalse);
-        expect(result.userIdentified, isTrue);
-        expect(result.permissions, DiagnosticStatePermissions.requested);
-        expect(result.manualSync.enabled, isTrue);
-        expect(result.manualSync.lastSync, isNotNull);
-        expect(result.backgroundSync.enabled, isFalse);
-        expect(result.backgroundSync.lastSync, isNull);
-      },
-    );
+      expect(result.isConfigured, isFalse);
+      expect(result.userIdentified, isTrue);
+      expect(result.permissions, DiagnosticStatePermissions.requested);
+      expect(result.manualSync.enabled, isTrue);
+      expect(result.manualSync.lastSync, isNotNull);
+      expect(result.backgroundSync.enabled, isFalse);
+      expect(result.backgroundSync.lastSync, isNull);
+    });
 
-    test(
-      "GIVEN a DiagnosticSyncStateProto WHEN toDomain THEN return a DiagnosticSyncState",
-      () {
-        final proto = DiagnosticSyncStateProto.create()
-          ..enabled = true
-          ..lastSync = "2022-01-01T00:00:00.000Z";
-        final result = proto.toDomain();
+    test("GIVEN a DiagnosticSyncStateProto WHEN toDomain THEN return a DiagnosticSyncState", () {
+      final proto = DiagnosticSyncStateProto.create()
+        ..enabled = true
+        ..lastSync = "2022-01-01T00:00:00.000Z";
+      final result = proto.toDomain();
 
-        expect(result.enabled, isTrue);
-        expect(
-          result.lastSync?.toUtc(),
-          DateTime.parse("2022-01-01T00:00:00.000Z"),
-        );
-      },
-    );
+      expect(result.enabled, isTrue);
+      expect(
+        result.lastSync?.toUtc(),
+        DateTime.parse("2022-01-01T00:00:00.000Z"),
+      );
+    });
 
-    test(
-      "GIVEN a DiagnosticStatePermissionsMapper WHEN toDomain THEN return a DiagnosticStatePermissions",
-      () {
-        const proto = DiagnosticStatePermissionsProto.NOT_REQUESTED;
-        final result = proto.toDomain();
+    test("GIVEN a DiagnosticStatePermissionsMapper WHEN toDomain THEN return a DiagnosticStatePermissions", () {
+      const proto = DiagnosticStatePermissionsProto.NOT_REQUESTED;
+      final result = proto.toDomain();
 
-        expect(result, DiagnosticStatePermissions.notRequested);
-      },
-    );
+      expect(result, DiagnosticStatePermissions.notRequested);
+    });
   });
 
   group("Result", () {

@@ -5,34 +5,25 @@ import 'package:rook_sdk_health_connect/src/data/proto/protos.pbenum.dart';
 
 void main() {
   group('HealthConnectAvailabilityProto to HCAvailabilityStatus mappers', () {
-    test(
-      'GIVEN HealthConnectAvailabilityProto.INSTALLED WHEN toDomain THEN return HCAvailabilityStatus.installed',
-      () {
-        const proto = HealthConnectAvailabilityProto.INSTALLED;
-        final result = proto.toDomain();
+    test('GIVEN HealthConnectAvailabilityProto.INSTALLED WHEN toDomain THEN return HCAvailabilityStatus.installed', () {
+      const proto = HealthConnectAvailabilityProto.INSTALLED;
+      final result = proto.toDomain();
 
-        expect(result, HCAvailabilityStatus.installed);
-      },
-    );
+      expect(result, HCAvailabilityStatus.installed);
+    });
 
-    test(
-      'GIVEN HealthConnectAvailabilityProto.NOT_INSTALLED WHEN toDomain THEN return HCAvailabilityStatus.notInstalled',
-      () {
-        const proto = HealthConnectAvailabilityProto.NOT_INSTALLED;
-        final result = proto.toDomain();
+    test('GIVEN HealthConnectAvailabilityProto.NOT_INSTALLED WHEN toDomain THEN return HCAvailabilityStatus.notInstalled', () {
+      const proto = HealthConnectAvailabilityProto.NOT_INSTALLED;
+      final result = proto.toDomain();
 
-        expect(result, HCAvailabilityStatus.notInstalled);
-      },
-    );
+      expect(result, HCAvailabilityStatus.notInstalled);
+    });
 
-    test(
-      'GIVEN HealthConnectAvailabilityProto.NOT_SUPPORTED WHEN toDomain THEN return HCAvailabilityStatus.notSupported',
-      () {
-        const proto = HealthConnectAvailabilityProto.NOT_SUPPORTED;
-        final result = proto.toDomain();
+    test('GIVEN HealthConnectAvailabilityProto.NOT_SUPPORTED WHEN toDomain THEN return HCAvailabilityStatus.notSupported', () {
+      const proto = HealthConnectAvailabilityProto.NOT_SUPPORTED;
+      final result = proto.toDomain();
 
-        expect(result, HCAvailabilityStatus.notSupported);
-      },
-    );
+      expect(result, HCAvailabilityStatus.notSupported);
+    });
   });
 }

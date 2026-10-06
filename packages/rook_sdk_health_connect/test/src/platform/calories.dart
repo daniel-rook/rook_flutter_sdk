@@ -23,22 +23,19 @@ void caloriesTest(
         return proto.writeToBuffer();
       });
 
-      test(
-        "GIVEN success WHEN getTodayCaloriesCount THEN return a Data<DailyCalories>",
-        () async {
-          final future = platform.getTodayCaloriesCount();
+      test("GIVEN success WHEN getTodayCaloriesCount THEN return a Data<DailyCalories>", () async {
+        final future = platform.getTodayCaloriesCount();
 
-          await expectLater(
-            future,
-            completion(
-              predicate<DailyCalories>((dailyCalories) {
-                return dailyCalories.basal == 12.5 &&
-                    dailyCalories.active == 22.5;
-              }),
-            ),
-          );
-        },
-      );
+        await expectLater(
+          future,
+          completion(
+            predicate<DailyCalories>((dailyCalories) {
+              return dailyCalories.basal == 12.5 &&
+                  dailyCalories.active == 22.5;
+            }),
+          ),
+        );
+      });
     },
   );
 

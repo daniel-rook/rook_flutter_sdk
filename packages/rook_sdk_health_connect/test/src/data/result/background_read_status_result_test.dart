@@ -5,35 +5,26 @@ import 'package:rook_sdk_health_connect/src/domain/enums/hc_background_read_stat
 
 void main() {
   group("Mapper", () {
-    test(
-      'GIVEN BackgroundReadStatusProto.UNAVAILABLE WHEN toDomain THEN return HCBackgroundReadStatus.unavailable',
-      () {
-        const proto = BackgroundReadStatusProto.UNAVAILABLE;
-        final result = proto.toDomain();
+    test('GIVEN BackgroundReadStatusProto.UNAVAILABLE WHEN toDomain THEN return HCBackgroundReadStatus.unavailable', () {
+      const proto = BackgroundReadStatusProto.UNAVAILABLE;
+      final result = proto.toDomain();
 
-        expect(result, HCBackgroundReadStatus.unavailable);
-      },
-    );
+      expect(result, HCBackgroundReadStatus.unavailable);
+    });
 
-    test(
-      'GIVEN BackgroundReadStatusProto.PERMISSION_NOT_GRANTED WHEN toDomain THEN return HCBackgroundReadStatus.permissionNotGranted',
-      () {
-        const proto = BackgroundReadStatusProto.PERMISSION_NOT_GRANTED;
-        final result = proto.toDomain();
+    test('GIVEN BackgroundReadStatusProto.PERMISSION_NOT_GRANTED WHEN toDomain THEN return HCBackgroundReadStatus.permissionNotGranted', () {
+      const proto = BackgroundReadStatusProto.PERMISSION_NOT_GRANTED;
+      final result = proto.toDomain();
 
-        expect(result, HCBackgroundReadStatus.permissionNotGranted);
-      },
-    );
+      expect(result, HCBackgroundReadStatus.permissionNotGranted);
+    });
 
-    test(
-      'GIVEN BackgroundReadStatusProto.PERMISSION_GRANTED WHEN toDomain THEN return HCBackgroundReadStatus.permissionGranted',
-      () {
-        const proto = BackgroundReadStatusProto.PERMISSION_GRANTED;
-        final result = proto.toDomain();
+    test('GIVEN BackgroundReadStatusProto.PERMISSION_GRANTED WHEN toDomain THEN return HCBackgroundReadStatus.permissionGranted', () {
+      const proto = BackgroundReadStatusProto.PERMISSION_GRANTED;
+      final result = proto.toDomain();
 
-        expect(result, HCBackgroundReadStatus.permissionGranted);
-      },
-    );
+      expect(result, HCBackgroundReadStatus.permissionGranted);
+    });
   });
 
   group("Result", () {

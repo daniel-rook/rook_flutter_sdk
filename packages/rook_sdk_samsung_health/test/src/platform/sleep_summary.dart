@@ -47,24 +47,21 @@ void sleepSummaryTest(
     },
   );
 
-  group(
-    'MethodChannelRookSdkSamsungHealth | SleepSummaryResultProto exception unwrap',
-    () {
-      mockMethodCall(channel, (_) async {
-        final failure = SDKExceptionProto.create()
-          ..message = "message"
-          ..code = 500;
+  group('MethodChannelRookSdkSamsungHealth | SleepSummaryResultProto exception unwrap', () {
+    mockMethodCall(channel, (_) async {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final proto = SleepSummaryResultProto.create()..failure = failure;
+      final proto = SleepSummaryResultProto.create()..failure = failure;
 
-        return proto.writeToBuffer();
-      });
+      return proto.writeToBuffer();
+    });
 
-      test("GIVEN failure WHEN getSleepSummary THEN throw exception", () async {
-        final future = platform.getSleepSummary(DateTime.now());
+    test("GIVEN failure WHEN getSleepSummary THEN throw exception", () async {
+      final future = platform.getSleepSummary(DateTime.now());
 
-        await expectLater(future, throwsException);
-      });
-    },
-  );
+      await expectLater(future, throwsException);
+    });
+  });
 }

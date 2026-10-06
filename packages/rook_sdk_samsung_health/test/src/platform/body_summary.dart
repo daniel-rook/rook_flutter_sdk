@@ -38,24 +38,21 @@ void bodySummaryTest(
     },
   );
 
-  group(
-    'MethodChannelRookSdkSamsungHealth | BodySummaryResultProto exception unwrap',
-    () {
-      mockMethodCall(channel, (_) async {
-        final failure = SDKExceptionProto.create()
-          ..message = "message"
-          ..code = 500;
+  group('MethodChannelRookSdkSamsungHealth | BodySummaryResultProto exception unwrap', () {
+    mockMethodCall(channel, (_) async {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final proto = BodySummaryResultProto.create()..failure = failure;
+      final proto = BodySummaryResultProto.create()..failure = failure;
 
-        return proto.writeToBuffer();
-      });
+      return proto.writeToBuffer();
+    });
 
-      test("GIVEN failure WHEN getBodySummary THEN throw exception", () async {
-        final future = platform.getBodySummary(DateTime.now());
+    test("GIVEN failure WHEN getBodySummary THEN throw exception", () async {
+      final future = platform.getBodySummary(DateTime.now());
 
-        await expectLater(future, throwsException);
-      });
-    },
-  );
+      await expectLater(future, throwsException);
+    });
+  });
 }

@@ -17,17 +17,14 @@ void samsungHealthAvailabilityTests(
         return SamsungHealthAvailabilityProto.INSTALLED.value;
       });
 
-      test(
-        'GIVEN the happy path WHEN checkSamsungHealthAvailability THEN complete with expected value',
-        () async {
-          final future = platform.checkSamsungHealthAvailability();
+      test('GIVEN the happy path WHEN checkSamsungHealthAvailability THEN complete with expected value', () async {
+        final future = platform.checkSamsungHealthAvailability();
 
-          await expectLater(
-            future,
-            completion(SamsungHealthAvailability.installed),
-          );
-        },
-      );
+        await expectLater(
+          future,
+          completion(SamsungHealthAvailability.installed),
+        );
+      });
     },
   );
 
@@ -38,14 +35,11 @@ void samsungHealthAvailabilityTests(
         throw Exception("Unknown error");
       });
 
-      test(
-        'GIVEN the unhappy path WHEN checkSamsungHealthAvailability THEN throw exception',
-        () async {
-          final future = platform.checkSamsungHealthAvailability();
+      test('GIVEN the unhappy path WHEN checkSamsungHealthAvailability THEN throw exception', () async {
+        final future = platform.checkSamsungHealthAvailability();
 
-          await expectLater(future, throwsException);
-        },
-      );
+        await expectLater(future, throwsException);
+      });
     },
   );
 }

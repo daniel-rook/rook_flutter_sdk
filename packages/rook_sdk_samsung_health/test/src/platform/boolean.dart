@@ -55,92 +55,65 @@ void booleanResultTests(
       await expectLater(future, completes);
     });
 
-    test(
-      'GIVEN the happy path WHEN checkSamsungHealthPermissions THEN complete with expected value',
-      () async {
-        final future = platform.checkSamsungHealthPermissions([]);
+    test('GIVEN the happy path WHEN checkSamsungHealthPermissions THEN complete with expected value', () async {
+      final future = platform.checkSamsungHealthPermissions([]);
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN checkSamsungHealthPermissionsPartially THEN complete with expected value',
-      () async {
-        final future = platform.checkSamsungHealthPermissionsPartially([]);
+    test('GIVEN the happy path WHEN checkSamsungHealthPermissionsPartially THEN complete with expected value', () async {
+      final future = platform.checkSamsungHealthPermissionsPartially([]);
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN checkExactAlarmPermissions THEN complete with expected value',
-      () async {
-        final future = platform.checkExactAlarmPermissions();
+    test('GIVEN the happy path WHEN checkExactAlarmPermissions THEN complete with expected value', () async {
+      final future = platform.checkExactAlarmPermissions();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN checkBatteryOptimizationsDisabled THEN complete with expected value',
-      () async {
-        final future = platform.checkBatteryOptimizationsDisabled();
+    test('GIVEN the happy path WHEN checkBatteryOptimizationsDisabled THEN complete with expected value', () async {
+      final future = platform.checkBatteryOptimizationsDisabled();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN requiresOemAutoStartSetup THEN complete with expected value',
-      () async {
-        final future = platform.requiresOemAutoStartSetup();
+    test('GIVEN the happy path WHEN requiresOemAutoStartSetup THEN complete with expected value', () async {
+      final future = platform.requiresOemAutoStartSetup();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value',
-      () async {
-        final future = platform.syncHistoricSummaries(true);
+    test('GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value', () async {
+      final future = platform.syncHistoricSummaries(true);
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncSummariesByDate THEN complete with expected value',
-      () async {
-        final future = platform.syncSummariesByDate(DateTime.now());
+    test('GIVEN the happy path WHEN syncSummariesByDate THEN complete with expected value', () async {
+      final future = platform.syncSummariesByDate(DateTime.now());
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncByDateAndSummary THEN complete with expected value',
-      () async {
-        final future = platform.syncByDateAndSummary(
-          DateTime.now(),
-          SHSummarySyncType.sleep,
-        );
+    test('GIVEN the happy path WHEN syncByDateAndSummary THEN complete with expected value', () async {
+      final future = platform.syncByDateAndSummary(
+        DateTime.now(),
+        SHSummarySyncType.sleep,
+      );
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncByDateAndEvent THEN complete with expected value',
-      () async {
-        final future = platform.syncByDateAndEvent(
-          DateTime.now(),
-          SHEventSyncType.activity,
-        );
+    test('GIVEN the happy path WHEN syncByDateAndEvent THEN complete with expected value', () async {
+      final future = platform.syncByDateAndEvent(
+        DateTime.now(),
+        SHEventSyncType.activity,
+      );
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
     test(
       'GIVEN the happy path WHEN isScheduled THEN complete with expected value',
@@ -215,50 +188,35 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the unhappy path WHEN checkSamsungHealthPermissions THEN throw exception',
-      () async {
-        final future = platform.checkSamsungHealthPermissions([]);
+    test('GIVEN the unhappy path WHEN checkSamsungHealthPermissions THEN throw exception', () async {
+      final future = platform.checkSamsungHealthPermissions([]);
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN checkSamsungHealthPermissionsPartially THEN throw exception',
-      () async {
-        final future = platform.checkSamsungHealthPermissionsPartially([]);
+    test('GIVEN the unhappy path WHEN checkSamsungHealthPermissionsPartially THEN throw exception', () async {
+      final future = platform.checkSamsungHealthPermissionsPartially([]);
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN checkExactAlarmPermissions THEN throw exception',
-      () async {
-        final future = platform.checkExactAlarmPermissions();
+    test('GIVEN the unhappy path WHEN checkExactAlarmPermissions THEN throw exception', () async {
+      final future = platform.checkExactAlarmPermissions();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN checkBatteryOptimizationsDisabled THEN throw exception',
-      () async {
-        final future = platform.checkBatteryOptimizationsDisabled();
+    test('GIVEN the unhappy path WHEN checkBatteryOptimizationsDisabled THEN throw exception', () async {
+      final future = platform.checkBatteryOptimizationsDisabled();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
-    test(
-      'GIVEN the unhappy path WHEN requiresOemAutoStartSetup THEN throw exception',
-      () async {
-        final future = platform.requiresOemAutoStartSetup();
+    test('GIVEN the unhappy path WHEN requiresOemAutoStartSetup THEN throw exception', () async {
+      final future = platform.requiresOemAutoStartSetup();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
     test(
       'GIVEN the unhappy path WHEN syncHistoricSummaries THEN throw exception',

@@ -10,76 +10,70 @@ void diagnosticStateTest(
   MethodChannelRookSdkHealthConnect platform,
   MethodChannel channel,
 ) {
-  group(
-    'MethodChannelRookSdkHealthConnect | DiagnosticStateResultProto value unwrap',
-    () {
-      mockMethodCall(channel, (_) async {
-        const diagnosticStatePermissionsProto =
-            DiagnosticStatePermissionsProto.GRANTED;
-        final manualSync = DiagnosticSyncStateProto.create()
-          ..enabled = false
-          ..lastSync = "2022-01-01T00:00:00.000Z";
-        final backgroundSync = DiagnosticSyncStateProto.create()
-          ..enabled = true
-          ..lastSync = "N/A";
-        final diagnosticStateProto = DiagnosticStateProto.create()
-          ..isConfigured = true
-          ..userIdentified = false
-          ..permissions = diagnosticStatePermissionsProto
-          ..manualSync = manualSync
-          ..backgroundSync = backgroundSync;
-        final proto = DiagnosticStateResultProto.create();
-        proto.success = diagnosticStateProto;
+  group('MethodChannelRookSdkHealthConnect | DiagnosticStateResultProto value unwrap', () {
+    mockMethodCall(channel, (_) async {
+      const diagnosticStatePermissionsProto =
+          DiagnosticStatePermissionsProto.GRANTED;
+      final manualSync = DiagnosticSyncStateProto.create()
+        ..enabled = false
+        ..lastSync = "2022-01-01T00:00:00.000Z";
+      final backgroundSync = DiagnosticSyncStateProto.create()
+        ..enabled = true
+        ..lastSync = "N/A";
+      final diagnosticStateProto = DiagnosticStateProto.create()
+        ..isConfigured = true
+        ..userIdentified = false
+        ..permissions = diagnosticStatePermissionsProto
+        ..manualSync = manualSync
+        ..backgroundSync = backgroundSync;
+      final proto = DiagnosticStateResultProto.create();
+      proto.success = diagnosticStateProto;
 
-        return proto.writeToBuffer();
-      });
+      return proto.writeToBuffer();
+    });
 
-      test(
-        "GIVEN success WHEN getDiagnosticState THEN return a DiagnosticState",
-        () async {
-          final future = platform.getDiagnosticState();
+    test(
+      "GIVEN success WHEN getDiagnosticState THEN return a DiagnosticState",
+      () async {
+        final future = platform.getDiagnosticState();
 
-          await expectLater(
-            future,
-            completion(
-              predicate<DiagnosticState>((diagnosticState) {
-                return diagnosticState.isConfigured == true &&
-                    diagnosticState.userIdentified == false &&
-                    diagnosticState.permissions ==
-                        DiagnosticStatePermissions.granted &&
-                    diagnosticState.manualSync.enabled == false &&
-                    diagnosticState.manualSync.lastSync != null &&
-                    diagnosticState.backgroundSync.enabled == true &&
-                    diagnosticState.backgroundSync.lastSync == null;
-              }),
-            ),
-          );
-        },
-      );
-    },
-  );
+        await expectLater(
+          future,
+          completion(
+            predicate<DiagnosticState>((diagnosticState) {
+              return diagnosticState.isConfigured == true &&
+                  diagnosticState.userIdentified == false &&
+                  diagnosticState.permissions ==
+                      DiagnosticStatePermissions.granted &&
+                  diagnosticState.manualSync.enabled == false &&
+                  diagnosticState.manualSync.lastSync != null &&
+                  diagnosticState.backgroundSync.enabled == true &&
+                  diagnosticState.backgroundSync.lastSync == null;
+            }),
+          ),
+        );
+      },
+    );
+  });
 
-  group(
-    'MethodChannelRookSdkHealthConnect | DiagnosticStateResultProto exception unwrap',
-    () {
-      mockMethodCall(channel, (_) async {
-        final failure = SDKExceptionProto.create()
-          ..message = "message"
-          ..code = 500;
+  group('MethodChannelRookSdkHealthConnect | DiagnosticStateResultProto exception unwrap', () {
+    mockMethodCall(channel, (_) async {
+      final failure = SDKExceptionProto.create()
+        ..message = "message"
+        ..code = 500;
 
-        final proto = DiagnosticStateResultProto.create()..failure = failure;
+      final proto = DiagnosticStateResultProto.create()..failure = failure;
 
-        return proto.writeToBuffer();
-      });
+      return proto.writeToBuffer();
+    });
 
-      test(
-        "GIVEN failure WHEN getDiagnosticState THEN throw exception",
-        () async {
-          final future = platform.getDiagnosticState();
+    test(
+      "GIVEN failure WHEN getDiagnosticState THEN throw exception",
+      () async {
+        final future = platform.getDiagnosticState();
 
-          await expectLater(future, throwsException);
-        },
-      );
-    },
-  );
+        await expectLater(future, throwsException);
+      },
+    );
+  });
 }

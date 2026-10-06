@@ -56,56 +56,41 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value',
-      () async {
-        final future = platform.syncHistoricSummaries(true);
+    test('GIVEN the happy path WHEN syncHistoricSummaries THEN complete with expected value', () async {
+      final future = platform.syncHistoricSummaries(true);
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncSummariesByDate THEN complete with expected value',
-      () async {
-        final future = platform.syncSummariesByDate(DateTime.now());
+    test('GIVEN the happy path WHEN syncSummariesByDate THEN complete with expected value', () async {
+      final future = platform.syncSummariesByDate(DateTime.now());
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncByDateAndSummary THEN complete with expected value',
-      () async {
-        final future = platform.syncByDateAndSummary(
-          DateTime.now(),
-          AHSummarySyncType.sleep,
-        );
+    test('GIVEN the happy path WHEN syncByDateAndSummary THEN complete with expected value', () async {
+      final future = platform.syncByDateAndSummary(
+        DateTime.now(),
+        AHSummarySyncType.sleep,
+      );
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN syncByDateAndEvent THEN complete with expected value',
-      () async {
-        final future = platform.syncByDateAndEvent(
-          DateTime.now(),
-          AHEventSyncType.activity,
-        );
+    test('GIVEN the happy path WHEN syncByDateAndEvent THEN complete with expected value', () async {
+      final future = platform.syncByDateAndEvent(
+        DateTime.now(),
+        AHEventSyncType.activity,
+      );
 
-        await expectLater(future, completes);
-      },
-    );
+      await expectLater(future, completes);
+    });
 
-    test(
-      'GIVEN the happy path WHEN isContinuousUploadEnabled THEN complete with expected value',
-      () async {
-        final future = platform.isContinuousUploadEnabled();
+    test('GIVEN the happy path WHEN isContinuousUploadEnabled THEN complete with expected value', () async {
+      final future = platform.isContinuousUploadEnabled();
 
-        await expectLater(future, completion(true));
-      },
-    );
+      await expectLater(future, completion(true));
+    });
 
     test(
       'GIVEN the happy path WHEN enableContinuousUpload THEN complete',
@@ -242,14 +227,11 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the unhappy path WHEN isContinuousUploadEnabled THEN throw exception',
-      () async {
-        final future = platform.isContinuousUploadEnabled();
+    test('GIVEN the unhappy path WHEN isContinuousUploadEnabled THEN throw exception', () async {
+      final future = platform.isContinuousUploadEnabled();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
     test(
       'GIVEN the unhappy path WHEN enableContinuousUpload THEN throw exception',
@@ -260,14 +242,11 @@ void booleanResultTests(
       },
     );
 
-    test(
-      'GIVEN the unhappy path WHEN disableContinuousUpload THEN throw exception',
-      () async {
-        final future = platform.disableContinuousUpload();
+    test('GIVEN the unhappy path WHEN disableContinuousUpload THEN throw exception', () async {
+      final future = platform.disableContinuousUpload();
 
-        await expectLater(future, throwsException);
-      },
-    );
+      await expectLater(future, throwsException);
+    });
 
     test(
       'GIVEN the unhappy path WHEN isScheduled THEN throw exception',
