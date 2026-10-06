@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "rook_sdk_apple_health",
     platforms: [
-        .iOS("13.0")
+        .iOS("15.0")
     ],
     products: [
         .library(name: "rook-sdk-apple-health", targets: ["rook_sdk_apple_health"])
