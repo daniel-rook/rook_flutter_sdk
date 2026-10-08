@@ -119,4 +119,75 @@ Status: Setup, Flutter 3.41, Flutter 3.44 and Flutter 3.47 are complete.
   by any SDK.
 * The Material and Cupertino decoupling does not affect the SDKs, which contain no UI code. Only the demo app and the
   playgrounds migrated to `material_ui`.
-* The Android `targetSdk` and Parcelize plugin removed from the plugins' build scripts have no effect on consumers.
+* The Android `targetSdk` removed from the plugins' build scripts has no effect on consumers.
+
+## Summary: all consumer changes
+
+The final state for apps that use the SDKs. The sections above describe how each change arrived. Where they differ,
+this section applies.
+
+### All SDKs
+
+* Require Flutter 3.47.0 or newer and Dart 3.13.0 or newer.
+    * `rook_sdk_apple_health`, `rook_sdk_health_connect` and `rook_sdk_samsung_health`: `flutter: ">=3.47.0"` and
+      `sdk: ">=3.13.0 <4.0.0"`.
+    * `rook_sdk_core` is pure Dart: `sdk: ">=3.13.0 <4.0.0"` only.
+* No change to the Dart public API or to the native SDK versions (`RookSDK`, `rook-sdk` and `rook-sdk-samsung` 4.2.0).
+
+### `rook_sdk_core`
+
+* The constructors of `Authorizer` and `RookApiSources` use Dart private named parameters. Callers are unchanged. It is
+  one reason for the Dart 3.13 floor.
+
+### `rook_sdk_health_connect` and `rook_sdk_samsung_health` (Android)
+
+* **Build tools in the app.** Flutter 3.47.6 fails the build below Gradle 8.14, AGP 8.11.1, Kotlin Gradle Plugin 2.2.20
+  or Java 17, and warns below Gradle 9.1.0, AGP 9.0.1 and Kotlin 2.3.20. The recommended matrix is Gradle 9.3.1,
+  AGP 9.1.0 and Kotlin 2.4.0.
+* **The plugins no longer apply the Kotlin Gradle Plugin.** `rook_sdk_samsung_health` still applies Parcelize.
+    * They build with `android.builtInKotlin=true` and with `android.builtInKotlin=false` (measured with AGP 9.1.0).
+    * With built-in Kotlin disabled, the app must declare the Kotlin Gradle Plugin in its root `plugins` block, as the
+      standard app template does (from the Flutter tool source).
+* Unchanged: `minSdk` (26 for Health Connect, 29 for Samsung Health), `compileSdk` 36 and JVM target 17.
+* The plugin scripts use `kotlin { compilerOptions }`. The Flutter 3.47 floor of Kotlin Gradle Plugin 2.2.20 already
+  covers its need for a recent Kotlin.
+
+### `rook_sdk_apple_health` (iOS)
+
+* **Distributed through Swift Package Manager only. The podspec is removed.**
+    * Swift Package Manager must be enabled. It is the default from Flutter 3.44. With it disabled, the Flutter tool
+      stops with "The following plugin(s) are only compatible with Swift Package Manager: rook_sdk_apple_health".
+    * Apps may keep using CocoaPods for other plugins alongside it.
+* **`RookSDK` 4.2.0 and `swift-protobuf` 1.28.2** are fetched from GitHub (`RookeriesDevelopment/rook-ios-sdk` and
+  `apple/swift-protobuf`) at exact versions.
+    * The build needs access to github.com.
+    * An app whose other Swift packages require a different `swift-protobuf` version fails to resolve dependencies.
+* **Minimum iOS is 15.0**, declared in `Package.swift`. Building with Xcode 27 requires the app's deployment target to
+  be 15.0 or higher, and Flutter 3.47.6 requires Xcode 15 or newer.
+* **Apps must adopt the UIScene lifecycle** to run on iOS 27 with Xcode 27: conform `AppDelegate` to
+  `FlutterImplicitEngineDelegate`, register plugins in `didInitializeImplicitFlutterEngine`, and add a
+  `UIApplicationSceneManifest` using `FlutterSceneDelegate` to `Info.plist`. The Flutter tool can migrate an unmodified
+  `AppDelegate`.
+* **Plugin registration happens when the scene connects.** On an iOS 27 device the plugins registered about 50 ms after
+  a system background relaunch (a single run). Apps do not need to call anything from their `AppDelegate`.
+
+### Actions for an app upgrading from Flutter 3.38.5
+
+1. Upgrade Flutter to 3.47.0 or newer.
+2. Android: raise Gradle, AGP and Kotlin to at least the error floors above, preferably the recommended matrix.
+3. iOS: keep Swift Package Manager enabled, raise the deployment target to 15.0, and migrate the app to the UIScene
+   lifecycle.
+4. Make sure no other Swift package in the app pins a different `swift-protobuf` version.
+
+### Not affecting consumers
+
+* The Flutter 3.41, 3.44 and 3.47 breaking changes: none is used by the SDKs.
+* The Material and Cupertino decoupling: the SDKs contain no UI code.
+* The Kotlin DSL conversion, the removed Android tests and Gradle wrapper, and the `targetSdk` removal in the plugin
+  build scripts.
+
+### Open point
+
+* On an iOS 27 device, health samples added while the app was in the background reached the webhook only after a
+  reboot. No app launch occurred at that time, so the migrated launch code did not run. The cause is not determined, and
+  there is no control for the previous lifecycle because an app without UIScene does not launch on iOS 27.
