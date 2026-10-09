@@ -98,7 +98,8 @@ directly with the native iOS `RookSDK` SDK.
 * **Language**: Swift.
 * **Entry Point**: `RookSdkAppleHealthPlugin.swift`.
 * **Distribution**: Swift Package Manager only (`ios/rook_sdk_apple_health/Package.swift`). There is no podspec.
-  `RookSDK` and `SwiftProtobuf` are pinned to exact versions in `Package.swift`.
+  `RookSDK` is pinned to an exact version. `SwiftProtobuf` uses `from:` (up to next major) so clients can resolve
+  a shared version; keep its lower bound equal to the `protoc-gen-swift` version that generated `protos.pb.swift`.
 
 ### Implementation Rules
 

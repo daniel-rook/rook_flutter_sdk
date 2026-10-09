@@ -13,7 +13,7 @@ let package = Package(
     dependencies: [
         .package(name: "FlutterFramework", path: "../FlutterFramework"),
         .package(url: "https://github.com/RookeriesDevelopment/rook-ios-sdk", exact: "4.2.0"),
-        .package(url: "https://github.com/apple/swift-protobuf", exact: "1.28.2")
+        .package(url: "https://github.com/apple/swift-protobuf", from: "1.28.2")
     ],
     targets: [
         .target(
